@@ -1,17 +1,18 @@
-\section{数据重命名}
-从压缩数据格式中解压得到的SAC数据，其命名方式不够友好。比如用rdseed解压SEED数据
+\section{数据命名}
+\subsection{命名规则}
+从压缩数据格式中解压得到的SAC数据，一般都具有固定格式的文件名。比如用rdseed解压SEED数据
 得到的SAC数据，文件名的格式如下：
 \begin{minted}{console}
 yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC
 \end{minted}
 其中，
 \begin{itemize}
-\item yyy.ddd.hh.mm.ss.fff是SAC文件中第一个数据点对应的时刻；
-\item NN为台网名，用两个字符表示；
-\item SSSSS为台站名，一般为3-4字符，最多5字符；
-\item LL为location id，一般为空或两字符，常见的是00、01、10，用于表征一个台站处的不同仪器；
-\item CCC为通道名，3字符，如BHE、BHN、BHZ；
-\item Q为质量控制标识，可以取D、M、R、Q。
+\item \verb+yyy.ddd.hh.mm.ss.fff+是SAC文件中第一个数据点对应的时刻；
+\item \verb+NN+为台网名，用两个字符表示；
+\item \verb+SSSSS+为台站名，一般为3-4字符，最多5字符；
+\item \verb+LL+为location id，一般为空或两字符，常见的是00、01、10，用于表征一个台站处的不同仪器；
+\item \verb+CCC+为通道名，3字符，如BHE、BHN、BHZ；
+\item \verb+Q+为质量控制标识，可以取D、M、R、Q。
 \end{itemize}
 
 示例如下：
@@ -20,8 +21,10 @@ yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC
 2012.055.12.34.50.6666.YW.MAIO.01.BHN.Q.SAC
 2012.055.12.34.54.5555.YW.MAIO.01.BHZ.Q.SAC
 \end{minted}
-三个文件代表了YW台网MAIO台站的宽频地震仪记录的三分量波形数据。这样的长文件名在数据处理
-时显得很麻烦，一般都会根据实际需求进行适当的简化。
+三个文件代表了YW台网MAIO台站的宽频地震仪记录的三分量波形数据。
+
+\subsection{数据重命名}
+默认的文件名都比较长，在数据处理时可能会显得很麻烦，一般都会根据实际需求进行适当的简化。
 
 在某些情况下，我们会将同一事件在所有台站的波形数据放在同一个文件夹下，并将文件名以事件的
 发生日期/时间来命名。那么，SAC文件名中的时间信息就可以被简化：
@@ -48,3 +51,53 @@ SAC> r *.20120224.BHZ
 \begin{SACCode}
 SAC> r MAIO.*.BHZ
 \end{SACCode}
+
+\subsection{Bash解法}
+Bash下可以借助于awk来实现，首先用点号分隔文件名，\verb+$0+表示未分隔前的文件名，
+\verb+$7+表示用逗号分隔后的第7段字符，即台网名，其他同理。最后将awk的输出传给sh
+去执行。
+\begin{minted}{console}
+$ ls *.SAC | awk -F "." '{printf "mv %s %s.%s.%s", $0, $7, $8, $10}' | sh
+\end{minted}
+
+\subsection{Perl解法}
+Perl下先用split函数，将文件名用点号分隔。点号分隔之后的字符串赋值给一系列变量。
+由于split函数的第一个参数实际上是正则表达式，故而这里的点号需要转义。
+\begin{minted}{perl}
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+foreach my $file (glob "*.SAC") {
+    my ($year, $jday, $hour, $min, $sec, $msec,
+        $net, $sta, $loc, $chn, $q, $suffix) = split /\./, $file;
+    rename $file, "$net.$sta.$chn";
+}
+\end{minted}
+
+上面的方法中定义了一堆变量但是却没有用到。可以将split函数的结果赋值给数组，然后
+直接取数组中需要的元素即可。需要注意的是，Perl的数组下标从零开始。
+\begin{minted}{perl}
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+foreach my $file (glob "*.SAC") {
+    my @item = split /\./, $file;
+    rename $file, "$item[6].$item[7].$item[9]";
+}
+\end{minted}
+
+\subsection{Python解法}
+与上面的Perl解法类似，先用split方法将文件名分隔到列表中，然后直接从列表中取
+需要的元素。
+\begin{minted}{python}
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+import os
+import glob
+
+for file in glob.glob("*.SAC"):
+    item = file.split('.')
+    os.rename(file, "%s.%s.%s" % (item[6], item[7], item[9]))
+\end{minted}
