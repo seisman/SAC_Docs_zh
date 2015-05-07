@@ -1,0 +1,118 @@
+用rdseed程序从标准SEED格式中解压得到的SAC文件，通常都具有固定格式的文件名。具体格式为：
+\begin{verbatim}
+    yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC
+\end{verbatim}
+其中
+\begin{itemize}
+\item \verb+yyyy.ddd.hh.mm.ss.ffff+是SAC文件中第一个数据点对应的时间
+    \begin{itemize}
+    \item \verb+yyyy+为年；
+    \item \verb+ddd+为一年的第多少天；
+    \item \verb+hh.mm.ss+为时、分、秒；
+    \item \verb+ffff+为毫秒；需要注意的是1s=1000ms, 这里毫秒用了4位来表示。
+    \end{itemize}
+\item \verb+NN+为台网名，2字符；
+\item \verb+SSSSS+为台站名，一般是3个字符，偶尔见到4字符的；
+\item \verb+LL+为location id，为空或两字符；
+\item \verb+CCC+为通道名；
+\item \verb+Q+为质量控制标识；
+\item \verb+SAC+为文件后缀；
+\end{itemize}
+
+\section{Location ID}
+关于Location ID，我并没有找到权威的解释。
+
+常见的Location ID为空值，非空值一般常见到~\verb+00+、\verb+01+、\verb+10+，
+偶尔也会见到~\verb+60+等。
+
+Location ID可以认为是台站的subcode，即一个台站处，有多套仪器，这些仪器可能
+是相同的型号，但是位于不同的深度或者指向不同的方位；也有可能是不同型号的仪器。
+
+\section{质量控制}
+质量控制符Q用于表征当前SAC数据的数据质量。该标识符可以取如下四种：
+\begin{itemize}
+\item \verb+D+ 不确定状态的数据
+\item \verb+M+ 已合并的数据
+\item \verb+R+ 原始波形数据
+\item \verb+Q+ 经过质量控制的数据
+\end{itemize}
+常见的数据标识符为H或Q。
+
+\section{通道名}
+通道名用三个字符来表示，这三个字符分别代表了Band Code、Instrument Code和Orientation Code。
+
+\subsection{Band Code}
+Band Code是通道名的第一个字符，表示了仪器的采样率以及响应频带等信息。
+
+\begin{table}[H]
+\centering
+\caption{Band Code}
+\begin{tabular}{cllc}
+\toprule
+Band Code   &   Band Type   &   Sample rate (Hz)    & Corner peroid (sec)   \\
+\midrule
+F           &   ...         &   1000-5000   &     > 10    \\
+G           &   ...         &   1000-5000   &     < 10    \\
+D           &   ...         &   250-1000    &     < 10    \\
+C           &   ...         &   250-1000    &     > 10    \\
+E           &   Extremely Short Period  & 80-250    &     < 10    \\
+S           &   Short Period          & 10-80   & < 10    \\
+H           &   High Broad Band         &   80-250    &   < 10    \\
+B           &   Broad Band          &   10-80   & > 10    \\
+M           &   Mid Period          &   1-10   & > 10    \\
+L           &   Long Period         &   $\approx$ 1   &   \\
+V           &   Very  Long Period         & $\approx$ 0.1   &   \\
+U           &   Ultra Long Period         & $\approx$ 0.01    &   \\
+R           &   Extremely Long Period     & 0.0001-0.001    &   \\
+P           &   On the order of 0.1 to 1 days   & 0.00001-0.0001    &   \\
+T           &   On the order of 1 to 10 days    & 0.000001-0.00001    &   \\
+Q           &   Greater than 10 days          &     < 0.000001    &   \\
+Q           &   Administrative Instrument Channel   & variable    & NA    \\
+O           &   Opaque Instrument Channel         & variable    &   NA    \\
+\bottomrule
+\end{tabular}
+\end{table}
+常见的仪器一般是宽频带(B)或长周期(L)。
+
+\subsection{Instrument Code}
+Instrument Code是通道名的第二个字符，代表了不同的仪器传感器。
+\begin{table}[H]
+\centering
+\caption{Instrument Code}
+\begin{tabular}{cl}
+\toprule
+Instrument Code    &     说明   \\
+\midrule
+H        &       High Gain Seismometer      \\
+L        &       Low Gain Seismometer       \\
+G        &       Gravimeter                 \\
+M        &       Mass position Seismometer  \\
+N        &       Accelerometer              \\
+\bottomrule
+\end{tabular}
+\end{table}
+常见的是高增益(H)仪器，记录地面运动速度。
+
+\subsection{Orientation Code}
+Orientation Code表示了传感器记录的地面运动的方向。
+\begin{table}[H]
+\centering
+\caption{Orientation Code}
+\begin{tabular}{cl}
+\toprule
+Code     &     说明   \\
+\midrule
+N E Z   &   南北向、东西向、垂向   \\
+1 2 3   &   3为垂向；1、2为水平方向，正交但与东西南北向有偏离   \\
+T R Z   &   切向、径向，主要用于射线束中    \\
+A B C   &   三轴向(正交)    \\
+U V W   &   可选分量    \\
+\bottomrule
+\end{tabular}
+\end{table}
+常见的是N、E、Z以及1、2、3。
+
+需要注意的是：当仪器的方向与东西方向的夹角小于5度时，Orientation Code取为E；
+当与东西方向夹角大于5度时，Orientation Code取为1(或2)。对于南北方向同理。
+因而，即便Orientation Code为N，也并不意味着台站是南北方向的，真实的方向还是
+需要看SAC头段中的cmpaz和cpminc。

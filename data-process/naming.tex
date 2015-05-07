@@ -1,33 +1,23 @@
-\section{数据命名}
-\subsection{命名规则}
-从压缩数据格式中解压得到的SAC数据，一般都具有固定格式的文件名。比如用rdseed解压SEED数据
-得到的SAC数据，文件名的格式如下：
-\begin{minted}{console}
-yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC
-\end{minted}
-其中，
-\begin{itemize}
-\item \verb+yyy.ddd.hh.mm.ss.fff+是SAC文件中第一个数据点对应的时刻；
-\item \verb+NN+为台网名，用两个字符表示；
-\item \verb+SSSSS+为台站名，一般为3-4字符，最多5字符；
-\item \verb+LL+为location id，一般为空或两字符，常见的是00、01、10，用于表征一个台站处的不同仪器；
-\item \verb+CCC+为通道名，3字符，如BHE、BHN、BHZ；
-\item \verb+Q+为质量控制标识，可以取D、M、R、Q。
-\end{itemize}
-
+\section{数据重命名}
+用rdseed软件从SEED格式中解压得到的SAC数据，一般都具有固定格式的文件名。
 示例如下：
 \begin{minted}{bash}
 2012.055.12.34.56.7777.YW.MAIO.01.BHE.Q.SAC
 2012.055.12.34.50.6666.YW.MAIO.01.BHN.Q.SAC
 2012.055.12.34.54.5555.YW.MAIO.01.BHZ.Q.SAC
 \end{minted}
-三个文件代表了YW台网MAIO台站的宽频地震仪记录的三分量波形数据。
+这三个文件是YW台网MAIO台站的宽频地震仪记录的三分量波形数据。
 
-\subsection{数据重命名}
-默认的文件名都比较长，在数据处理时可能会显得很麻烦，一般都会根据实际需求进行适当的简化。
+文件名中每一项的具体含义在``\nameref{chap:naming}''中有介绍，这里不再重复。
+
+默认的文件名比较长，在数据处理时可能会显得比较麻烦，一般都会根据实际需求进行适当的简化。
+
+\subsection{重命名格式}
+是否要对数据做重命名，以及按照什么格式重命名，都是没有一定的标准的。通常需要
+用户根据自己所做研究的实际情况来决定。
 
 在某些情况下，我们会将同一事件在所有台站的波形数据放在同一个文件夹下，并将文件名以事件的
-发生日期/时间来命名。那么，SAC文件名中的时间信息就可以被简化：
+发生日期/时间来命名。那么，SAC文件名中的时间等信息就可以被省略掉：
 \begin{minted}{bash}
 YW.MAIO.BHE
 YW.MAIO.BHN
