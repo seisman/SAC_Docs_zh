@@ -15,7 +15,8 @@ R!EAD! [MORE] [DIR CURRENT|name] [XDR|ALPHA|SEGY] [SCALE ON|OFF] [filelist]
 \item [MORE] 将读入的新文件添加到内存中老文件之后。若选项此忽略，则读入的新数据将替代
     内存中的老数据
 \item [DIR CURRENT] 从``当前目录''读取文件列表中的文件。``当前目录''为启动SAC的目录
-\item [DIR name] 从目录name中读取文件列表中的文件，其可以为绝对路径或相对路径
+\item [DIR name] 从目录name中读取文件列表中的文件，可以为绝对路径或相对路径
+    \footnote{关于dir选项，有一个很大的陷阱，详见``\nameref{sec:read-dir}''。}
 \item [XDR] 读取XDR格式的文件。此格式用于实现不同构架的二进制数据的转换
 \item [ALPHA] 输入文件是SAC的字符数字型文件，该选项与XDR选项不兼容
 \item [SEGY] 读取IRIS/PASSCAL定义的SEGY格式文件。该格式允许一个文件包含一个波形
@@ -35,7 +36,8 @@ read dir current
 \SACTitle{说明}
 该命令将SAC文件从磁盘读入到内存中，默认状态下会读取每个磁盘文件中的全部数据点。
 
-CUT命令可以用于指定读取文件的一部分数据。在2000年之后产生的SAC文件会被假定年份为四位数字。
+\nameref{cmd:cut}命令可以用于指定读取文件的一部分数据。
+在2000年之后产生的SAC文件会被假定年份为四位数字。
 年份为两个数字的文件被假定为20世纪，会被加上1900。
 
 在使用read命令时，正常情况下内存中的老数据会被新读取的数据所替代。若使用more选项，则新数据
