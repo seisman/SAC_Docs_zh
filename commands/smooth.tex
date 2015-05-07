@@ -1,0 +1,29 @@
+\SACCMD{smooth}
+\label{cmd:smooth}
+
+\SACTitle{概要}
+对数据应用算术平滑算法
+
+\SACTitle{语法}
+\begin{SACSTX}
+SMOOTH [MEAN|MEDIAN] [H!ALFWIDTH! n]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [MEAN|MEDIAN] 应用均值/中值平滑算法 
+\item [HALFWIDTH n] 设置滑动窗的半宽为n
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+smooth mean halfwidth 1
+\end{SACDFT}
+
+\SACTitle{说明}
+此命令对每个数据点应用算术平滑算法。具体算法以及滑动窗的尺寸是可以变化的。
+每个窗的窗长通过指定其半宽度来定义，使得滑动窗以每个数据点为中心，包含了数据点及其
+前后各n个点，共计$2n+1$个点。
+
+\SACTitle{头段变量}
+depmin、depmax、depmen

@@ -1,0 +1,44 @@
+\section{信号迭加子程序}
+
+Signal Stack Subprocess，是SAC提供的一个用于信号迭加的子程序。
+
+键入~\verb+sss+~即可进入该子程序；键入~\nameref{cmd:quitsub}~即可
+退出子程序，回到主程序；也可以键入~\nameref{cmd:quit}~在子程序中退出SAC。
+
+在对多个信号进行迭加时，每个信号都有各自的属性，比如静延迟、震中距、权重因子、
+数据极性，也可以根据normal moveout或折射波速度模型计算动延迟。
+
+该子程序具有如下特点：
+\begin{itemize}
+\item 延迟属性可以在迭加过程中自动递增；
+\item 文件可以很容易地从迭加文件列表中增添；
+\item 迭加时间窗也可以很容易调整；
+\item 若文件在迭加时间窗内不含数据，则将其置零值；
+\item 迭加文件列表可以单独绘制，也可以绘制迭加后的结果；
+\item 每次迭加结果都可以保存到磁盘上；
+\item 支持绘制记录剖面图；
+\end{itemize}
+
+在SSS子程序中，你可以执行一系列SSS专属的命令，以及部分SAC主程序中的命令。下面仅列出SSS专属的命令：
+
+\begin{itemize}
+\item \nameref{sss:addstack} 向迭加文件列表中加入新文件
+\item \nameref{sss:changestack} 修改当前迭加文件列表中的文件属性
+\item \nameref{sss:deletestack} 从迭加文件列表中删除一个或多个文件
+\item \nameref{sss:deltacheck} 修改采样率检测选项
+\item \nameref{sss:distanceaxis} 定义剖面图中距离轴的参数
+\item \nameref{sss:distancewindow} 控制接下来的剖面图的距离窗属性
+\item \nameref{sss:globalstack} 设置全局迭加属性
+\item \nameref{sss:incrementstack} 迭加文件列表中文件的增量属性
+\item \nameref{sss:liststack} 列出当前迭加文件列表中文件的属性
+\item \nameref{sss:plotrecordsection} 用迭加文件列表中的文件绘制剖面图
+\item \nameref{sss:plotstack} 绘制迭加文件列表中的文件
+\item \nameref{sss:sumstack} 对迭加文件列表中的文件进行迭加
+\item \nameref{sss:timeaxis} 控制接下来剖面图的时间轴属性
+\item \nameref{sss:timewindow} 设置迭加的时间窗
+\item \nameref{sss:traveltime} 根据预定义的模型计算走时
+\item \nameref{sss:velocitymodel} 用于计算动延迟的迭加速度模型参数
+\item \nameref{sss:velocityroset} 控制剖面图中速度roset的放置
+\item \nameref{sss:writestack} 将迭加结果写入磁盘
+\item \nameref{sss:zerostack} 重新初始化信号迭加
+\end{itemize}

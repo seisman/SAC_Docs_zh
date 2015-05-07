@@ -1,0 +1,23 @@
+\section{SAC变体}
+
+SAC的发展史还是很曲折的，这也导致SAC存在多个不同的变体。
+
+\begin{description}
+\item[Fortran SAC]  即SAC的Fortran语言实现。最后一个分发版本发布于2003年，版本号10.6f。
+                    曾经以限制性的形式在IASPEI软件库中分发。
+\item[SAC2000]      从Fortran源码转换为C源码，并以C源码为基础继续维护。该版本加入了数据库特性以及
+                    一些新的命令。目前该版本已不再分发。
+\item[SAC/IRIS]     由SAC2000衍生的版本，不包含数据库特性\footnote{目前的SAC/IRIS中还可以看到一些
+                    与数据库特性相关的命令和选项，比如很多命令中的commit、rollback、recalltrace选项，
+                    这些选项的存在属于历史遗留问题，且已经基本不再维护，因而本文档中完全没有提及。}，
+                    也就是本文档所使用的版本，在本文档中简称为SAC。
+                    现在由IRIS下的SAC开发小组负责维护，并由IRIS分发。
+\item[MacSAC]       也称为SAC/BRIS，仅可在Mac OS下使用。该变种由10.6d Fortran源码衍生而来，后期与10.6f集成，
+                    其功能是SAC/IRIS功能的超集。相对于SAC/IRIS的最主要扩展在于宏语言功能的增强以及
+                    处理台阵数据的能力。其作者为
+                    George Helffrich\footnote{\url{http://www1.gly.bris.ac.uk/~george/gh.html}}，
+                    针对MacSAC写了一本教程
+                    \footnote{G.R. Helffrich, J. Wookey \& I.D. Bastow, The Seismic Analysis Code
+                    : A Primer and User's Guide. \textsl{Cambridge University Press}, 2013。
+                    可以作为学习SAC/IRIS的辅助教程，但需要注意其中可能存在的一些微小差异。}。
+\end{description}

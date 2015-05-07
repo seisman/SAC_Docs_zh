@@ -1,0 +1,43 @@
+\SACCMD{contour}
+\label{cmd:contour}
+
+\SACTitle{概要}
+利用内存中的数据绘制等值线图
+
+\SACTitle{语法}
+\begin{SACSTX}
+CONT!OUR! [A!SPECT! ON|OFF]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [ASPECT ON] 打开视图比开关。当这个开关打开时，等值线图的视口将会调整保持数据中y与x的比值
+\item [ASPECT OFF] 关闭视图比开关，这时将使用整个视口。
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+contour  aspect  off
+\end{SACDFT}
+
+\SACTitle{说明}
+这个命令用于绘制二维数组数据的等值线图，包括SPECTROGRAM命令的输出。这个文件
+操作的SAC文件必须``XYZ''类型的（SAC头段中IFTYPE为``IXYZ''）。有些命令可以
+控制数据显示的方式：ZLEVELS控制等值线的数目以及间隔， ZLINES控制线型，
+ZLABELS控制等值线标签，ZTICKS控制方向标记，ZCOLORS控制线条颜色。根据
+contour选项的不同，有两种不同的绘制等值线算法。一种快速扫描方法用于既不
+选择实线型也没有时标和标识的情况。另一种慢一点的方法，在绘图之前要组合
+全部的线段。你可以使用快速扫描方法粗看你的数据，然后选择其他选项绘制最终
+图形。
+
+\SACTitle{示例}
+参见``\nameref{sec:contour}''一节。
+
+\SACTitle{头段变量改变}
+要求: iftype (为``IXYZ''), nxsize, nysize
+
+使用: xminimum, xmaximum, yminimum, ymaximum
+
+\SACTitle{相关命令}
+\nameref{cmd:zcolors}、\nameref{cmd:zlabels}、\nameref{cmd:zlevels}、
+\nameref{cmd:zlines}、\nameref{cmd:zticks}、\nameref{cmd:spectrogram}

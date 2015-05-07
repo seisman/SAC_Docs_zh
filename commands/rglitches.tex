@@ -1,0 +1,55 @@
+\SACCMD{rglitches}
+\label{cmd:rglitches}
+
+\SACTitle{概要}
+去掉信号中的坏点
+
+\SACTitle{语法}
+\begin{SACSTX}
+RGL!ITCHES! [TH!RESHOLD! v] [TY!PE! L!INEAR!|Z!ERO!] [W!INDOW! ON|OF!F!|pdw] 
+    [METHOD A!BSOLUTE!|P!OWER!|R!UNAVG!]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [WINDOW ON|OFF|pdw] 指定需要做校正的数据段。缺省值为OFF，即校正整个数据文件；
+    pdw指定了时间窗，表示仅对该时间窗内的数据进行检测和校正；ON表示只校正上一次pdw定义
+    的时间窗内的数据；
+\item [THRESHOLD v] 设置阈值水平为v。当某个特定的指标大于该阈值时即认为
+    是坏点，并做校正
+\item [METHOD ABSOLUTE] 若数据点的绝对值大于或等值阈值v，则做校正
+\item [METHOD POWER] 用向后差分法计算信号的能量，若能量超过阈值v则做校正
+\item [METHOD RUNAVG] 将一个长为SWINLEN的窗从整个数据的末尾以一个数据点的增量移动到数据
+    的开头，并计算每个滑动窗内的平均值和标准差。若某个点与当前窗的均值的差的绝对值大于标准差
+    的THRESH2倍，且大于MINAMP，则认为其是坏点，其值将用当前窗的均值代替。此方法不受WINDOW选项
+    的影响，总是适用于整段波形数据。
+\end{description}
+    
+对于RUNAVG方法，另有三个与之相关的选项：
+\begin{description}
+\item [SWINLEN v] 设置滑动平均窗的长度为v
+\item [THRESH2 v] 设置坏点的阀值
+\item [MINAMP v] 设置坏点的最小幅度
+\end{description} 
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+rglitches threshold 1.0e+10 type linear window off method absolute 
+    swinlen 0.5 thresh2 5.0 minamp 50
+\end{SACDFT}
+
+\SACTitle{说明}
+此命令可以用于由于平滑数据采集系统故障或测试
+\footnote{有些台网会在每天的指定时间生成若干个人工脉冲，以检测数据采集系统是否正常运行。}
+而产生的坏点。该命令会检查每一个数据点是否超过指定的阈值，然后将这些坏点置零或者线性插值。
+使用RUNAVG方法，甚至可以去掉那些比整个数据的最大值要小的坏点。
+
+\SACTitle{头段变量}
+depmin、depmax、depmen
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1301: 未读入数据文件
+\item[-]1306: 对不等间隔文件的非法操作
+\item[-]1307: 对谱文件的非法操作
+\end{itemize}

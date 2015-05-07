@@ -1,0 +1,29 @@
+\SACCMD{readbbf}
+\label{cmd:readbbf}
+
+\SACTitle{概要}
+将黑板变量文件读入内存
+
+\SACTitle{语法}
+\begin{SACSTX}
+R!EAD!BBF [file]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [file] 黑板变量文件名，可以是简单文件名或相对/绝对路径
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+readbbf bbf
+\end{SACDFT}
+
+\SACTitle{说明}
+该命令使你能够读取一个黑板变量文件。该文件必须是先前通过writebbf命令写入磁盘的文件。
+这个特性让你能够将某个SAC会话的信息保存起来并用在另一次SAC会话中。你也可以在自己的
+程序中调用SAC函数库以读取黑板变量文件中的黑板变量，这使得你可以在SAC和自己的程序之间
+互相传送信息。
+
+\SACTitle{相关命令}
+\nameref{cmd:writebbf}、\nameref{cmd:setbb}、\nameref{cmd:getbb}

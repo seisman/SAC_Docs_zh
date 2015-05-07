@@ -1,0 +1,34 @@
+\SACCMD{whiten}
+\label{cmd:whiten}
+
+\SACTitle{概要}
+平滑输入的时间序列的频谱
+
+\SACTitle{语法}
+\begin{SACSTX}
+W!H!IT!EN! n [F!ILTER!D!ESIGN!]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [n]  阶数(极数)。这个数越大，结果数据就越平滑。高阶可以更好的清除一些数据，但是也可能会导致对数据处理过多而丢掉一些重要的数据。默认值为6。
+\item [FD] 进行一些类似于filterdesign的命令，使用白化系数，设计一个白化滤波器。详情可以参考filterdesign命令。
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+whiten 6
+\end{SACDFT}
+
+\SACTitle{说明}
+对数据中加入白噪声。平滑输入时间序列的频谱。当这个命令在谱分析命令(比如子程序SPE中的命令、transfer或spectrogram)之前执行，其减少了频谱值的动态范围，提供了对地震数据高频操作的精度。
+
+WHITEN可以在SPE子程序内部调用，或者从SAC主程序中调用。SPE中的WHITEN和主程序中的
+WHITEN分别有不同的阶数。在主程序中，你可以调用WHITEN 4，下一次在主程序中调用
+WHITEN时阶数为4，但是在SPE中调用WHITEN时依然是缺省的6阶，除非你在SPE的命令行中
+进行了修改。进一步，SPE中的阶数与SPE COR命令的PREWHITEN选项是一样的
+（设置了一个其他的也就设置了）。当然主程序中WHITEN命令与TRANSFER命令中的
+PREWHITEN选项也是一样的。
+
+\SACTitle{相关命令}
+\nameref{cmd:transfer}

@@ -1,0 +1,72 @@
+\SACCMD{sgf}
+\label{cmd:sgf}
+
+\SACTitle{概要}
+控制SGF设备选项
+
+\SACTitle{语法}
+\begin{SACSTX}
+SGF [PREFIX text] [NUMBER n] [DIRECTORY CURRENT|pathname]
+    [SIZE NORMAL|FIXED v|SCALED v] [OVERWRITE ON|OFF]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [PREFIX text] 设置SGF文件的前缀为text（最多24字符长）
+\item [NUMBER n] 设置下一个SGF文件的序号为n。若n为0，则SAC搜索SGF文件目录下的SGF文件
+    最大序号，并将其值加1。
+\item [DIRECTORY CURRENT] 将SGF文件放在当前目录
+\item [DIRECTORY pathname] 将SGF放在指定目录下
+\item [SIZE NORMAL] 产生一个常规大小绘图，常规图形有一个10*7.5英寸的视窗（最大绘图区域）。
+    视口的缺省值（视窗中除轴和标签之外的绘图区）为8*5英寸。
+\item [SIZE FIXED v] 产生一个在X方向视口为v英寸长的图形。
+\item [SIZE SCALED v] 产生一个视口在X方向上为v乘以X坐标极限值的图形
+\item [OVERWRITE ON|OFF] 当打开时，文件号不递增，每个新文件将擦除先前的文件，
+    这个在多数绘图命令的PRINT选项中特别有用。
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+sgf prefix f number 1 directory current size normal
+\end{SACDFT}
+
+\SACTitle{说明}
+这个命令控制SGF文件的命名规则和后续SGF文件的图形尺寸。每次绘图被储存在磁盘上单独的文件中
+，每一个SGF文件由4部分组成，分别为:
+\begin{itemize}
+\item pathname 目录路径名
+\item prefix 框架前缀
+\item number 三位数的图形号
+\item .sgf 用于表示SAC图形文件的后缀
+\end{itemize}
+
+默认图形文件的后缀是简单的字母``f''，框架号为1，文件放置在当前目录(即第一个文件名为``f001.sgf'')。你可以改变前缀以标识你想要保存的文件集。你也可以指定一个目录去储存这些文件。这在你运行SAC时改变目录但却想将所有框架文件放在一个地方时非常有用。每个框架被创建时，框架号递增。你可以强制框架号从一个给定的值开始。果你为准备一个报告需要工作几天时间，而同时又希望所有图形都按一个统一的顺序排列，那么令框架号不从1开始便很有用了。
+
+有多个选项可以控制绘图的尺寸，常规的绘图为10*7.5英寸的视口范围，使用默认的视口的结果是产生一个近似为8*5英寸的图形区。你可强制视口的x方向为固定长度或将视口的x方向与整个坐标范围成比例。这个尺寸的信息写入SGF文件。把SGF文件转换到一个特定输出设备上产生正确尺寸的图形编码是程序中要做的事。
+
+SGFTOPS命令可以完成这个转换，尽管大于单页的图形需要适当的后期处理
+
+\SACTitle{示例}
+定义一个不是你当前目录的目录并重置图形框架号为序列中的下一个值:
+\begin{SACCode}
+SAC> sgf directory /mydir/sgfstore frame 0
+\end{SACCode}
+
+设置视口x方向绘图尺寸为3英寸:
+\begin{SACCode}
+SAC> sgf size fixed 3.0
+\end{SACCode}
+
+创建一个大小相当于贴在墙上的海报的图形
+\begin{SACCode}
+SAC> sgf size fixed 30.0
+\end{SACCode}
+
+设置视口x方向的绘图尺寸为每10秒地震数据1英寸长:
+\begin{SACCode}
+SAC> sgf size scaled 0.1
+\end{SACCode}
+在最后的例子中，持续60秒的数据图形将有6英寸长，而持续600秒的数据将有60英寸长，并且需要特殊的后期处理。
+
+\SACTitle{相关命令}
+\nameref{cmd:begindevices}

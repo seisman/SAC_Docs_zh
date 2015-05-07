@@ -1,0 +1,54 @@
+\SACCMD{mathop}
+\label{cmd:mathop}
+
+\SACTitle{概要}
+控制数学操作符的优先级
+
+\SACTitle{语法}
+\begin{SACSTX}
+MATHOP NORMAL|MATH|FORTRAN|NONE|OLD
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [NORMAL] 使用正常的数学操作符优先级
+\item [MATH] 与NORMAL相同
+\item [FORTRAN] 与NORMAL相同
+\item [NONE] 不使用操作符优先级
+\item [OLD] 与NONE相同
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+mathop NORMAL
+\end{SACDFT}
+
+\SACTitle{说明}
+该命令控制数学操作符的优先级。正常情况下，乘法和除法的优先级要比加法和减法高，指数
+运算拥有最高的优先级。
+
+101.6之间的版本中，SAC在进行代数运算时没有考虑操作符的优先级，整个表达式按照从左到右
+的顺序依次进行计算。
+
+SAC在101.6之后的版本中，默认使用正常的操作符优先级。对于一些在老版本SAC下写的脚本
+或宏来说，可能依赖于旧的优先级顺序。可以考虑修改脚本以适应新版本的优先级或者直接
+设定适应OLD优先级。
+
+\SACTitle{示例}
+正常的操作符优先级：
+\begin{SACCode}
+SAC> mathop normal
+SAC> eval 1+2*3
+ 7
+SAC> eval 1+(2*3)
+ 7
+\end{SACCode}
+
+旧的操作符优先级：
+\begin{SACCode}
+SAC> mathop old
+SAC> eval 1+2*3
+ 9
+SAC> eval 1+(2*3)
+ 7
+\end{SACCode}

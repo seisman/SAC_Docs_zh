@@ -1,0 +1,74 @@
+\SACCMD{synchronize}
+\label{cmd:synchronize}
+
+\SACTitle{概要}
+同步内存中所有文件的参考时刻
+
+\SACTitle{语法}
+\begin{SACSTX}
+SYNC!HRONIZE! [ROUND ON|OFF] [BEGIN ON|OFF]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [ROUND ON] 打开ROUND选项。若该打开该选项，则每个文件的开始时间都将以最接近的采样间隔的整数倍
+\item [ROUND OFF] 关闭ROUND选项 
+\item [BEGIN ON] 设置每个文件的开始时间为0 
+\item [BEGIN OFF] 保持参考时间的绝对时刻不变
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+synchronize round off begin off
+\end{SACDFT}
+
+\SACTitle{说明}
+该命令同步内存中所有文件的参考时刻。它通过检查所有文件的参考时刻和文件起始的偏移
+时间来决定最晚的开始时间，并取最晚的开始时间作为内存中所有文件的参考时刻。
+然后计算每个文件中的所有相对时间（B、E、A、Tn 等）相对于新参考时刻的值。
+
+当数据文件具有不同的参考时刻，而你想要用CUT或XLIM命令分析或绘制这些文件中的一部分
+数据时这个命令会很有用。一旦参考时间被同步了，则CUT操作将针对严格相同的GMT时间窗进行。
+
+如果使用了BEGIN选项，参考时间的GMT值则不被保留，BEGIN选项将所有文件的kztime、kzdate设置为相同，
+而且将所有文件的开始时间设置为0。其他的点保持与文件开始时间的关系。
+
+\SACTitle{示例}
+假定你读取两个不同参考时间的文件到内存:
+\begin{SACCode}
+SAC> read file1 file2
+SAC> listhdr b kztime kzdate
+
+  FILE: FILE1
+  -
+  B = 0.
+  KZTIME = 10:38:14.000
+  KZDATE = MAR 29 (088), 1981
+
+  FILE: FILE2
+  -
+  B = 10.00
+  KZTIME = 10:40:10.000
+  KZDATE = MAR 29 (088), 1981
+\end{SACCode}
+
+这些文件有相同的参考日期，不同的参考时间以及不同的开始时间偏移量。你可以执行
+SYNCHRONIZE然后使用LISTHDR，你会发现:
+\begin{SACCode}
+SAC> synchronize
+SAC> listhdr
+
+  FILE: FILE1
+  -
+  B = -126.00
+  KZTIME = 10:40:20.000
+  KZDATE = MAR 29 (088), 1981
+
+  FILE: FILE2
+  -
+  B = 0.
+  KZTIME = 10:40:20.000
+  KZDATE = MAR 29 (088), 1981
+\end{SACCode}
+现在内存中的所有文件有相同的参考时间，如果头段中有任何已定义的时间标记，它们的值
+也会调整以使得其GMT值是不变的。

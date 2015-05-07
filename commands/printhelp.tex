@@ -1,0 +1,24 @@
+\SACCMD{printhelp}
+\label{cmd:printhelp}
+
+\SACTitle{概要}
+调用打印机打印帮助文档
+
+\SACTitle{语法}
+\begin{SACSTX}
+P!RINT!H!ELP! [item ...]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [item] 命令、模块、子程序、特性的全称或简称
+\end{description}
+
+\SACTitle{说明}
+该命令与help命令的用法相同，其调用系统默认打印机将文档打印出来。
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1130：没有可用的帮助文档包
+\item[-]lpr：错误 - 没有默认目的位置（系统未设置默认打印机）
+\end{itemize}

@@ -1,0 +1,199 @@
+\section{仪器响应文件}
+SAC中内置了一堆经典地震仪器的响应文件，可以直接使用。而实际数据处理过程中，
+会遇到五花八门的仪器响应，因而SAC又提供了其他三种更通用的仪器响应文件：RESP、PZ和FAP。
+
+\subsection{内置仪器响应}
+SAC内置了很多标准地震仪器的仪器响应，如表~\ref{table:instrument-type}~所示。
+部分仪器类型还拥有子类型，如表~\ref{table:instrument-subtype}~所示。在SAC命令中，
+可以直接使用这些仪器类型。
+
+\begin{table}[tp]
+\centering
+\ttfamily
+\small
+\caption{SAC内置仪器类型列表}
+\label{table:instrument-type}
+\begin{tabular}{ll}
+\toprule
+type     &  说明  \\
+\midrule
+BBDISP   &  Blacknest specification of Broadband Displacement \\
+BBVEL    &  Blacknest specification of Broadband Velocity   \\
+BENBOG   &  Blacknest specification of Benioff by Bogert    \\
+DSS      &  LLNL Digital Seismic System \\
+DWWSSN   &  Digital World Wide Standard Seismograph Station \\
+EKALP6   &  Blacknest specification of EKA LP6  \\
+EKASP2   &  Blacknest specification of EKA SP2  \\
+ELMAG    &  Electromagnetic \\
+GBALP    &  Blacknest specification of GBA LP   \\
+GBASP    &  Blacknest specification of GBA SP   \\
+GENERAL  &  General seismometer \\
+GSREF    &  USGS Refraction \\
+HFSLPWB  &  Blacknest specification of HFS LPWB \\
+IW       &  EYEOMG-spectral differentiation \\
+LLL      &  LLL broadband analog seismometer    \\
+LLSN     &  LLSN L-4 seismometer    \\
+LNN      &  Livermore NTS Network instrument    \\
+LRSMLP   &  Blacknest specification of LRSM LP  \\
+LRSMSP   &  Blacknest specification of LRSM SP  \\
+NORESS   &  NORESS (NRSA)   \\
+NORESSHF &  NORESS high frequency element   \\
+OLDBB    &  Old Blacknest specification of BB   \\
+OLDKIR   &  Old Blacknest specification of Kirnos   \\
+PORTABLE &  Portable seismometer with PDR2  \\
+PTBLLP   &  Blacknest specification of PTBL LP  \\
+REDKIR   &  Blacknest specification of RED Kirnos   \\
+REFTEK   &  Reftek 97-01 portable instrument    \\
+RSTN     &  Regional Seismic Test Network   \\
+S750     &  S750 Seismometer    \\
+SANDIA   &  Sandia system 23 instrument \\
+SANDIA3  &  Sandia new system with SL-210   \\
+SRO      &  Seismic Research Observatory    \\
+WA       &  Wood-Anderson   \\
+WABN     &  Blacknest specification of Wood-Anderson    \\
+WIECH    &  Wiechert seismometer    \\
+WWLPBN   &  Blacknest specification of WWSSN long period    \\
+WWSP     &  WWSSN short period  \\
+WWSPBN   &  Blacknest specification of WWSSN short period   \\
+YKALP    &  Blacknest specification of YKA long period  \\
+YKASP    &  Blacknest specification of YKA short period \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htb]
+\centering
+\ttfamily
+\small
+\caption{部分仪器子类型}
+\label{table:instrument-subtype}
+\begin{tabular}{ll}
+\toprule
+主类型 &   子类型 \\
+\midrule
+LLL       &       LV, LR, LT, MV, MR, MT, EV, ER, ET, KV, KR, KT    \\
+LNN       &       BB|HF                                 \\
+NORESS    &       LP|IP|SP                              \\
+RSTN      &       [CP|ON|NTR|NY|SD][KL|KM|KS|7S][Z|N|E] \\
+SANDIA    &       [N|O][T|L|B|D|N|E][V|R|T]             \\
+SRO       &       BB|SP|LPDE                            \\
+FREEPERIOD v &    ELMAG, GENERAL, IW, LLL SUBTYPE BB, REFTEK    \\
+MAGNIFICATION n & ELMAG, GENERAL  \\
+NZEROS n &        GENERAL, IW   \\
+DAMPING v &       GENERAL, LLL SUBTYPE BB, REFTEK   \\
+CORNER v &        LLL SUBTYPE BB, REFTEK    \\
+GAIN v &            \\
+HIGHPASS v &      REFTEK    \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+除了表~\ref{table:instrument-type}~中列出的众多仪器类型之外，还有几个特别的仪器类型：
+\begin{itemize}
+\item none：即位移，也是SAC的默认值
+\item vel：速度
+\item acc：加速度
+\end{itemize}
+
+\subsection{RESP文件}
+RESP文件是用于描述仪器响应的文件，其包含了描述仪器响应所需要的全部信息。RESP文件可以用rdseed程序从SEED文件中直接解压得到，例如：
+\begin{minted}{console}
+$ rdseed -Rdf infile.seed
+\end{minted}
+
+RESP文件中，首先给出了台站名、台网名、通道名、开始时间和结束时间等台站的基本信息。仪器响应部分分成多个Stage，每个Stage中又分为多个block，包含了仪器响应的不同信息。
+
+\begin{itemize}
+\item Stage1一般对应模拟信号阶段，从中可以提取中这一阶段的输入单位、零极点、归一化因子$A_0$以及第一阶段的增益。
+\item Stage2一般对应ADC阶段，从中可以提取出这一阶段的放大系数。
+\item Stage3一般对应于数字滤波和减采样阶段。通常需要对数字信号多次滤波或减采样，因而Stage3后面可能会接多个类似的Stage。从这几个Stage中提取的信息是增益，一般值为1。
+\item Stage0是会给出前面所有Stage的增益的乘积，主要是起到了辅助验证的作用。
+\end{itemize}
+
+\subsection{SAC PZ文件}
+RESP文件中包含了仪器响应的完整信息，同时也包含了不少冗余信息。SAC从RESP文件中
+提取处仪器响应中的重要信息，定义了新的零极点响应文件（即SAC PZ）。
+相对于RESP文件而言，PZ文件中仅包含仪器响应中的零极点和增益信息，在去仪器响应时更方便。
+
+SAC PZ仪器响应文件可以直接用rdseed从SEED文件中提取出来：
+\begin{minted}{console}
+$ rdseed -pdf infile.seed
+\end{minted}
+
+下面是某个台站的SAC PZ文件：
+\begin{verbatim}
+* **********************************
+* NETWORK   (KNETWK): IU
+* STATION    (KSTNM): COLA
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2013-06-22T14:12:09
+* START             : 2012-09-14T04:00:00
+* END               : 2599-12-31T23:59:59
+* DESCRIPTION       : College Outpost, Alaska, USA
+* LATITUDE          : 64.873599
+* LONGITUDE         : -147.861600
+* ELEVATION         : 84.0
+* DEPTH             : 116.0
+* DIP               : 0.0
+* AZIMUTH           : 0.0
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Geotech KS-54000 Borehole Seismometer
+* INSTGAIN          : 2.013040e+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 3.377320e+09 (M/S)
+* A0                : 8.627050e+04
+* **********************************
+ZEROS   3
+        +0.000000e+00   +0.000000e+00
+        +0.000000e+00   +0.000000e+00
+        +0.000000e+00   +0.000000e+00
+POLES   5
+        -5.943130e+01   +0.000000e+00
+        -2.271210e+01   +2.710650e+01
+        -2.271210e+01   -2.710650e+01
+        -4.800400e-03   +0.000000e+00
+        -7.384400e-02   +0.000000e+00
+CONSTANT        +2.913631e+14
+\end{verbatim}
+
+SAC PZ文件中，以星号开始的行为注释行。以关键字``ZEROS''起始的行给出了零点数目，接下来几行列出了每个零点的实部和虚部。以关键字``POLES''起始的行给出了极点数目，接下来几行列出了每个极点的实部和虚部。最后一行给出了仪器响应中的常数CONSTANT。
+
+一些说明：
+\begin{itemize}
+\item 若有零点~\verb+(0.0,0.0)+~，则这样的``零''零点可以省略。因而列出的零点数可能会少于``ZEROS''行给出的零点数；上例中的三个零点可以不列出；
+\item CONSTANT对应于RESP文件中所有阶段的增益$Sd_0$以及归一化因子$A_0$的乘积；
+\item 若未指定CONSTANT，则默认值为1.0；
+\item 可以将多个台站的PZ文件合并到一个总PZ文件中，此时PZ文件的注释行用于信息匹配；
+    不可省略；
+\item 若PZ文件中只有一个响应函数，则注释行可以省略。在做批处理时，可以写脚本重做
+    一个无注释行的PZ文件。用无注释行的PZ文件去仪器响应的速度会比有注释行的PZ文件快很多；
+\end{itemize}
+
+\subsection{FAP文件}
+FAP文件是响应函数的另一种表现形式，其包含了很多记录行，每行三个字段，
+分别是频率(HZ)、振幅及相位。
+
+频率不需要等间隔分段。在执行transfer时，低于第一行频率的频段将使用第一行的振幅和相位；
+同理大于最后一行频率的频段将使用最后一行的振幅和相位。
+
+FAP文件可以从程序evalresp v3.3.2中获得，FAP相对于PZ文件的优势在于，其给出了每个频率的
+振幅和相位响应，因而包含更丰富的信息，且方便人工修改以控制需要校正的频率段。
+
+\subsection{RESP vs PZ vs FAP}
+RESP、PZ和FAP都可以用于表征仪器的响应函数，常见的是RESP和PZ，而这两种还是有很大区别的：
+
+\begin{itemize}
+\item RESP文件包含了仪器响应的完整信息，而PZ文件中仅包含了零极点和增益信息，
+    二者的主要差异在于PZ文件中未包含FIR滤波器的信息；
+\item RESP文件中可以知道输入数据是位移、速度还是加速度，而PZ文件默认输入为
+    位移。因而若RESP文件中输入是速度，则PZ文件中会多一个``零''零点；若RESP
+    文件中输入是加速度，则PZ文件中会多两个``零''零点；
+\item RESP文件的输入单位为\verb+m+（或\verb+m/s+及其他），而PZ文件中未提供
+    输入单位信息，故SAC默认其输入单位为\verb+nm+，故而使用PZ文件去除仪器响应
+    时，得到的运动物理量的单位是\verb+nm+；
+\end{itemize}
+
+对于大多数情况，建议使用PZ文件，数据处理速度要快很多。

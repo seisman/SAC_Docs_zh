@@ -1,0 +1,44 @@
+\section{数据截窗}
+
+相关命令：\nameref{cmd:cut}、\nameref{cmd:cutim}
+
+数据申请时一般会选择尽可能长的时间窗，而实际进行数据处理和分析时可能只需要其中
+的一小段时间窗，这就需要对数据时间窗进行截取。
+
+SAC中有两个命令可以用于数据截窗，分别是cut和cutim，二者的语法基本是相同的，
+需要注意的是cut是``参数设定类''命令，cutim是``操作执行类''命令。
+
+除此之外，在进行数据测量时，也经常需要定义时间窗，如rms、mtw、xlim等。
+
+\subsection{PDW}
+\label{subsec:pdw}
+SAC中用pdw来定义要读取的时间窗。
+
+pdw即partial data window，其包含了自变量的一个开始值和一个结束值，定义了要读取的
+数据窗。其一般格式为~\verb+ref offset ref offset+。
+其中ref为参考时刻标识，可以取~\verb+Z|B|E|O|A|F|N|Tn+，而offset为相对于参考
+时刻的时间偏移量。
+
+若开始或结束offset省略则认为其值为0。若开始ref省略则认为其为Z；若结束ref省略则
+认为其值与开始ref相同。
+
+参考时刻标识ref可以取如下值：
+\begin{itemize}
+\item B: 磁盘文件起始值
+\item E: 磁盘文件结束值
+\item O: 事件开始时间
+\item A: 初动到时
+\item F: 信号结束时间
+\item Tn: 用户自定义时间标记，n = 0,1...9
+\item Z: 参考时刻
+\item N: 将offset解释为数据点数而非时间偏移量，其仅可以用于结束值
+\end{itemize}
+
+下面的例子中展示了一些常见的pdw：
+\begin{SACCode}
+ B E        // 文件开始到文件结束，即与cut off相同
+ B 0 30     // 文件开始的30秒
+ A -10 30   // 初动前10秒到初动后30秒
+ B N 2048   // 文件最初的2048个点
+ 30.2 48    // 相对磁盘文件0点的30.2到48秒
+\end{SACCode}

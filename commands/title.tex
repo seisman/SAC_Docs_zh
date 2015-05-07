@@ -1,0 +1,32 @@
+\SACCMD{title}
+\label{cmd:title}
+
+\SACTitle{概要}
+定义绘图的标题和属性
+
+\SACTitle{语法}
+\begin{SACSTX}
+TITLE [ON|OFF|text] [L!OCATION! T!OP!|B!OTTOM!|R!IGHT!|L!EFT!] 
+    [S!IZE! T!INY!|S!MALL!|M!EDIUM!|L!ARGE!]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [ON] 显示标题，但不改变标题内容
+\item [OFF] 不显示标题
+\item [text] 显示标题，并改变标题内容。如果文本中包含空格，则标题需要用单引号括起来
+\item [LOCATION] 设置标题的位置，可以取TOP、BOTTOM、RIGHT、LEFT
+\item [SIZE] 设置标题文本尺寸，可以取TINY、SMALL、MEDIUM、LARGE 
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+title off location top size small
+\end{SACDFT}
+
+\SACTitle{说明}
+若打开该选项，则在每个图形上都显示标题，标题的尺寸、位置及内容均可改变，文本质量和
+字体可以通过GTEXT命令设置。
+
+\SACTitle{相关命令}
+\nameref{cmd:gtext}

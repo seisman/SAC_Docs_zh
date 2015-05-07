@@ -1,0 +1,196 @@
+\SACCMD{transfer}
+\label{cmd:transfer}
+
+\SACTitle{概要}
+去仪器响应，并加上其他仪器响应
+
+\SACTitle{语法}
+\begin{SACSTX}
+TRANS!FER! [FROM type [options]] [TO type [options]]
+    [FREQ!LIMITS! f1 f2 f3 f4] [PREWH!ITENING! ON|OFF|n]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{itemize}
+\item FROM type : 要去除的仪器响应类型；
+\item TO type : 要加入的仪器响应类型；
+\item FREQLIMITS f1 f2 f3 f4：压制大于f4以及低于f1的频段；
+\item PREWHITENING ON|OFF|n：预白化处理。
+\end{itemize}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+trans from none to none
+\end{SACDFT}
+
+\SACTitle{说明}
+关于仪器响应的详细说明，请参考附录中的``\nameref{chap:resp}''一章。
+
+transfer命令的作用是从波形中去除仪器响应，如果需要，也可以再卷积上某类型的
+仪器响应。\verb+from+给出了波形当前的仪器响应，也就是要去除的仪器响应。
+\verb+to+给出了要卷积上的仪器响应。
+
+freqlimits用于在去除仪器响应的时候对波形的低频和高频部分进行压制。通常这一选项
+是很重要的。这是因为所有的地震仪在零频率处都具有零响应。当做反卷积但不卷积其他
+响应的时候（即\verb+to none+），就有必要修改超低频率处的响应以防止频率域除0。
+在高频区域，信噪比通常很低，因而有必要对其响应进行抑制。
+freqlimites包含了低通和高通的尖灭函数（taper），可以实现高频和低频的有效压制。
+四个频率满足f1<f2<f3<f4，尖灭函数在f2和f3间为1，在f1以下和f4以上为0。频率f1和
+f2确定了高通滤波器的特性，频率f3和f4指定了低通滤波器的特性。
+f1与f2之间以及f3与f4之间分别为余弦波的四分之一个周期。
+
+如果你想要一个低通滤波器但在低频处不滤波，一种方法是设置f1=-2和f2=-1；
+如果你想要一个高通滤波器但在高频处不滤波，对于Nyquist频率为0.5，设置f3=10和f4=20。
+
+注意：由于滤波器还有零相位，因而其是非因果。如果数据点数npts不为2的指数幂次，
+会导致在频段(f1,f4)之外振幅不为0。如果想要数据点数为2的幂次方个，可以参考SAC中的
+\nameref{cmd:cut}命令。
+
+\verb+prewhitening+用于控制数据的预白化。预白化可以将输入时间序列在变换到
+频率域之前，进行谱的平化。这会减小谱值的动态范围，并提高数据在高频的计算精度。
+参见\nameref{cmd:whiten}命令。打开预白化选项，会在谱操作之前在频率域进行谱白化，
+并在谱操作后在时间域做谱白化的补偿，也可以设置预白化选项的阶数。默认情况下，
+预白化选项是关闭的，阶数为n=6。
+
+transfer中的from和to后，接具体的仪器类型。在SAC中，可以用5种方式来指定要使用的
+仪器类型，即内置仪器类型、特殊内置仪器类型、RESP文件、PZ文件和FAP文件。
+
+\subsubsection{内置仪器类型}
+SAC内置了一堆标准仪器的响应函数，可以在命令中直接使用。但是因为日常中其实很少
+使用这些内置仪器类型，或者只是用到很少的几个，故而把这些仪器类型放在附录的表
+\ref{table:instrument-type}中。
+
+为了从数据中去除LLL宽频带仪器响应，并卷积上SRO仪器响应，且对频带做尖灭及预白化：
+\begin{SACCode}
+SAC> read abc.z
+SAC> rmean; rtr; taper
+SAC> trans from lll to sro freq .02 .05 1. 2. prew 2
+\end{SACCode}
+
+某些内置仪器类型，还有子类型（subtype）。
+当前仪器为RSTN类型的nykm.z子类型，为了从波形数据中去除该仪器响应，并卷积上DSS仪器响应：
+\begin{SACCode}
+SAC> read nykm.z
+SAC> rmean; rtr; taper
+SAC> trans from rstn subtype nykm.z to dss prew off
+\end{SACCode}
+
+\subsubsection{特殊仪器类型}
+SAC中定义了三个特殊的仪器类型，即\verb+none+、\verb+vel+和\verb+acc+，分别表示
+位移、速度和加速度。
+
+\begin{itemize}
+\item 若使用\verb+to none+，则表示在去除原有仪器响应后，再卷积上none对应的仪器响应。
+    而none对应的响应函数在全频段内振幅为1，相位为零，即相当于没有卷积新的仪器响应。
+    这样会得到位移波形，同时SAC头段变量idep将被设置为DISPLACEMENT。
+\item 若使用\verb+to vel+或\verb+to acc+，则将得到速度场或加速度场。
+\item 若使用\verb+from none+，则不会去除仪器响应，原始的地震波形数据认定为位移，
+    这常用于向合成地震图中加入仪器响应。\verb+from vel+和\verb+from acc+同理。
+\end{itemize}
+
+从波形中去除WWSP的仪器响应，得到位移波形：
+\begin{SACCode}
+SAC> read xyz.z
+SAC> rmean; rtr; taper
+SAC> transfer from WWSP to none freq 0.05 0.01 5 10
+\end{SACCode}
+
+向合成的位移地震图中加入WWSP仪器响应：
+\begin{SACCode}
+SAC> r syn.z
+SAC> transfer from none to WWSP
+\end{SACCode}
+
+\subsubsection{RESP文件}
+可以直接用\verb+evalresp fname+后接RESP文件名来指定仪器响应：
+\begin{SACCode}
+SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
+SAC> rmean; rtr; taper
+SAC> trans from evalresp fname RESP.TA.N11A..LHZ to none freq 0.004 0.007 0.2 0.4
+\end{SACCode}
+
+若未使用fname显式指定RESP文件，evalresp选项会从SAC头段区中提取出台网名、台站名、
+位置ID、通道名，并尝试在当前工作目录下去寻找文件名为
+~``\verb+RESP.<NET>.<STA>.<LOCID>.<CHAN>+''~的RESP响应文件：
+\begin{SACCode}
+SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
+SAC> rtr; taper
+SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
+            // 在当前目录自动寻找文件RESP.TA.N11A..LHZ
+\end{SACCode}
+
+一个RESP文件可以包含多个响应函数，既可以是同一仪器在不同时期的响应函数，也可以是
+多个台站的响应函数。transfer命令会从波形中的头段区提取出相关信息，并从RESP文件
+中找出全部信息都匹配的响应函数。
+\begin{SACCode}
+SAC> r 2013.144.05.40.09.0195.IU.COLA.00.BHZ.M.SAC
+SAC> rmean; rtr; taper
+SAC> transfer from evalresp fname RESP.ALL to none freq 0.1 0.2 5 10
+        // RESP.ALL中包含了多个台站的响应函数
+\end{SACCode}
+
+也可以通过给evalresp选项指定额外的选项和参数来覆盖SAC文件中对应的头段变量，
+这些可能的选项包括：STATION、CHANNEL、NETWORK、DATE、TIME、LOCID。
+每个选项都必须有一个合适的值，若DATE在SAC头段中为设定且在选项中未指定，
+则使用当前系统日期，TIME同理。
+若NETWORK未指定，则默认使用任意台站名；若LOCID未指定，则默认使用任意LOCID。
+
+从文件中去除仪器响应，并卷积上COLB台站的仪器响应:
+\begin{SACCode}
+SAC> r 2013.144.05.40.09.0195.IU.COLA.00.BHZ.M.SAC
+SAC> rtr; taper
+SAC> trans from evalresp to evalresp station COLB
+    // 当前目录下必须有COLA和COLB两个台站的仪器响应文件
+    // 该命令会去除RESP.IU.COLA.00.BHZ的响应函数
+    // 并卷积RESP.IU.COLB.00.BHZ的响应函数
+    // PS: COLB台站是我瞎编的
+\end{SACCode}
+
+为了显示IU台网COL台站BHZ通道，1992年01月02日16:42:05的仪器响应：
+\begin{SACCode}
+SAC> fg impulse npts 16384 delta .05 begin 0.
+SAC> trans to evalresp sta COL cha BHZ net IU date 1992/2 time 16:42:05
+SAC> fft
+SAC> psp am
+\end{SACCode}
+
+上面给了RESP文件的一堆例子，日常输出处理时最常用的还是直接用fname指定RESP响应
+文件。
+
+\subsubsection{PZ文件}
+可以使用\verb+polezero subtype+后接PZ文件的方式来指定响应文件：
+\begin{SACCode}
+SAC> r XXX.Z
+SAC> rmean; rtr; taper
+SAC> trans from polezero subtype XXX.PZ to WWSP
+\end{SACCode}
+
+PZ文件中可以包括多个台站的PZ文件。假设用rdseed在当前目录产生了多个台站的PZ文件，
+并将所有PZ文件合并得到一个新的PZ文件event.pz。下面的例子将读入全部BH*波形文件，
+经仪器响应校正并覆盖原文件：
+\begin{SACCode}
+SAC> r *BH*SAC          // 读入全部数据
+SAC> rtr
+SAC> taper
+SAC> trans from polezero s event.pz freq 0.05 0.1 10.0 15.0
+SAC> w over
+\end{SACCode}
+
+虽然没有进过验证，但根据经验做如下合理猜测：当把多个PZ文件合并成一个总PZ文件时，
+PZ文件中的注释行就很重要了，transfer命令会从中提取相关信息与波形的头段信息进行
+匹配，以找到合适的响应函数。因为对每个波形，都需要到总PZ文件中寻找匹配的响应
+函数，所以上例所示的方法，虽然可以很简单地批量去仪器响应，但效率可能不高，尤其
+是当台站数目很多、PZ文件较大的时候。
+
+\subsubsection{FAP文件}
+FAP文件不太常用，这里仅举一例。
+
+假设有fapfile文件~\verb+fap.n11a.lhz_0.006-0.2+，其名字表示频率段为0.006 Hz到0.2 Hz，
+要从波形~\verb+2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC+中移除该仪器响应：
+\begin{SACCode}
+SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
+SAC> rtr
+SAC> taper
+SAC> trans from fap s fap.n11a.lhz_0.006-0.2 to none freq 0.004 0.006 0.1 0.2
+SAC> mul 1.0e9
+\end{SACCode}

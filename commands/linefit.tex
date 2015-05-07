@@ -1,0 +1,23 @@
+\SACCMD{linefit}
+\label{cmd:linefit}
+
+\SACTitle{概要}
+对内存中数据的进行最小二乘线性拟合
+
+\SACTitle{语法}
+\begin{SACSTX}
+LINEFIT
+\end{SACSTX}
+
+\SACTitle{说明}
+此命令的底层实现与~\nameref{cmd:rmean}命令是相同的。
+
+对数据使用最小二乘拟合得到一条直线。直线的斜率、y轴截距、斜率的标准差、截距的标准差、
+数据的标准差以及数据和模型间的相关系数将分别被写入黑板变量SLOPE、YINT、SDSLOPE、
+SDYINT、SDDATA和CORRCOEF中。
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1301: 未读入数据文件
+\item[-]1307: 对谱文件的非法操作
+\end{itemize}

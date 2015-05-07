@@ -1,0 +1,95 @@
+\section{SAC库简介}
+SAC提供了两个函数库：libsacio.a和libsac.a，用户可以在自己的C或Fortran程序
+中直接使用函数库中的子函数。这些库文件位于~\verb+sac/lib+~中。
+
+\subsection{libsacio库}
+这个库文件的子函数可用于读写SAC数据文件、头段变量、黑板变量。这些子函数可以在用户
+的C或Fortran程序中直接使用。
+
+libsacio.a中可用的子函数包括：
+\begin{table}[H]
+\centering
+\caption{libsacio子函数}
+\ttfamily
+\begin{tabular}{ll}
+\toprule
+子函数      &       说明            \\
+\midrule    
+rsac1       &       读取等间隔文件  \\
+rsac2       &       读取不等间隔文件和谱文件    \\
+wsac1       &       写入等间隔文件  \\
+wsac2       &       写入不等间隔文件    \\
+wsac0       &       可以写等间隔文件或不等间隔文件  \\
+getfhv      &       获取浮点型头段变量值    \\
+setfhv      &       设置浮点型头段变量值    \\
+getihv      &       获取枚举型头段变量值    \\
+setihv      &       设置枚举型头段变量值    \\
+getkhv      &       获取字符串头段变量值    \\
+setkhv      &       设置字符串头段变量值    \\
+getlhv      &       获取逻辑型头段变量值    \\
+setlhv      &       设置逻辑型头段变量值    \\
+getnhv      &       获取整型头段变量值      \\
+setnhv      &       设置整型头段变量值  \\
+readbbf     &       读取一个黑板变量文件    \\
+writebbf    &       写一个黑板变量文件      \\
+getbbv      &       获取一个黑板变量的值    \\
+setbbv      &       给一个黑板变量赋值      \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+对于C源码，用如下命令编译
+\begin{minted}{console}
+$ gcc -c source.c -I/usr/local/sac/include
+$ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsacio
+\end{minted}
+也可以利用SAC提供的sac-config命令简化此编译命令：
+\begin{minted}{console}
+$ gcc -c source.c `sac-config -c`
+$ gcc -o prog source.o -lm `sac-config -l sacio`
+\end{minted}
+
+对于Fortran77源码，用如下命令编译
+\begin{minted}{console}
+$ gfortran -c source.f
+$ gfortran -o prog source.o -L/opt/sac/lib/ -lsacio
+\end{minted}
+也可以利用SAC提供的sac-config命令简化此编译命令：
+\begin{minted}{console}
+$ gfortran -c souce.f
+$ gfortran -o prog source.o `sac-config -l sacio`
+\end{minted}
+
+\subsection{libsac.a库}
+这个库是从101.2版本才引入的，其是libsacio.a的超集，包含了几个数据处理常用的子函数。
+
+libsac.a包含如下子函数：
+\begin{itemize}
+\item xapiir  无限脉冲响应滤波器；
+\item firtrn  有限脉冲滤波器，Hilbert变换；
+\item crscor  互相关；
+\item next2   返回比输入值大的最小的2的幂次；
+\item envelope 计算包络函数; 
+\end{itemize}
+
+对于C源码，用如下命令编译
+\begin{minted}{console}
+$ gcc -c source.c -I/usr/local/sac/include
+$ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsac
+\end{minted}
+也可以利用SAC提供的sac-config命令简化此编译命令：
+\begin{minted}{console}
+$ gcc -c source.c `sac-config -c`
+$ gcc -o prog source.o -lm `sac-config -l sac`
+\end{minted}
+
+对于Fortran77源码，用如下命令编译
+\begin{minted}{console}
+$ gfortran -c source.f
+$ gfortran -o prog source.o -L/opt/sac/lib/ -lsac
+\end{minted}
+也可以利用SAC提供的sac-config命令简化此编译命令：
+\begin{minted}{console}
+$ gfortran -c souce.f
+$ gfortran -o prog source.o `sac-config -l sac`
+\end{minted}

@@ -1,0 +1,81 @@
+\section{去仪器响应}
+\label{sec:instrument-response}
+相关命令：\nameref{cmd:transfer}
+
+关于仪器响应的详细介绍，请参考附录中的``\nameref{chap:resp}''一章。本节不会介绍
+仪器响应的细节以及~\nameref{cmd:transfer}命令的语法，只介绍日常数据处理过程中
+最常用的几种命令方式。
+
+\nameref{cmd:transfer}~命令的基本语法是
+``\verb+tranfser from xx to xx freq f1 f2 f3 f4+''。
+即该命令的作用是将波形数据从（from）一种仪器类型转换到（to）另一种仪器类型，
+即首先将数据反卷积~\verb+from+~所给出的仪器响应，再卷积上~\verb+to+~选项给出的
+仪器响应，而后面的freq选项，则用于压制信号中的低频和高频成分。
+
+SAC中的仪器类型可以简单分为如下几类：
+\begin{itemize}
+\item 内置仪器类型，参见\ref{table:instrument-type}；
+\item 特殊内置仪器类型，即none、vel和acc；
+\item RESP文件；
+\item PZ文件；
+\item FAP文件；
+\end{itemize}
+
+下面举例说明日常数据处理中的常见用法。
+
+数据ABC.Z的仪器类型是LLL，通过如下命令将波形中的LLL仪器响应去除，并卷积上SRO
+仪器响应：
+\begin{SACCode}
+SAC> r ABC.z
+SAC> rmean; rtr; taper
+SAC> trans from LLL to SRO
+\end{SACCode}
+
+波形数据XXX.Z的仪器类型是RSTN，子类型为NYKM.Z，通过下面的命令将波形中的仪器响应
+去除，并卷积上WWSP仪器响应：
+\begin{SACCode}
+SAC> r XXX.z
+SAC> rmean; rtr; taper
+SAC> trans from RSTN subtype NYKM.Z to WWSP
+\end{SACCode}
+
+从数据中去除WWSP的仪器响应，得到真实的位移场：
+\begin{SACCode}
+SAC> r XXX.z
+SAC> rmean; rtr; taper
+SAC> trans from WWSP to NONE freq 0.1 0.2 10 15
+\end{SACCode}
+
+当然，也可以去除仪器响应，得到真实的速度场：
+\begin{SACCode}
+SAC> r XXX.z
+SAC> rmean; rtr; taper
+SAC> trans from WWSP to VEL freq 0.1 0.2 10 15
+\end{SACCode}
+
+也可以使用当前台站的RESP文件来去除仪器响应：
+\begin{SACCode}
+SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
+SAC> rmean; rtr; taper
+SAC> trans from evalresp fname RESP.TA.N11A..LHZ to none freq 0.004 0.007 0.2 0.4
+\end{SACCode}
+
+PZ文件~\verb+SAC_PZs_XC_OR075_LHZ+~是需要从波形~\verb+OR075_LHZ.SAC+~
+中去除的仪器响应零极点文件：
+\begin{SACCode}
+SAC> r OR075_LHZ.SAC
+SAC> rmea; rtr; taper
+SAC> trans from polezero subtype SAC_PZs_XC_OR075_LHZ to none freq 0.008 0.016 0.2 0.4
+SAC> mul 1.0e9          // 由于是to none，这里必须乘以1.0e9
+SAC> w OR075.z          // 此时数据为位移量，单位为nm
+\end{SACCode}
+
+假设有fapfile文件~\verb+fap.n11a.lhz_0.006-0.2+，其名字表示频率段为0.006 Hz到0.2 Hz，
+要从波形~\verb+2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC+中移除该仪器响应：
+\begin{SACCode}
+SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
+SAC> rtr
+SAC> taper
+SAC> trans from fap s fap.n11a.lhz_0.006-0.2 to none freq 0.004 0.006 0.1 0.2
+SAC> mul 1.0e9
+\end{SACCode}

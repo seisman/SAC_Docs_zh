@@ -1,0 +1,30 @@
+\SACCMD{deltacheck}
+\label{sss:deltacheck}
+
+\SACTitle{概要}
+修改采样率检测选项
+
+\SACTitle{语法}
+\begin{SACSTX}
+DELTACHECK ON|OFF|R!OUNDOFF!|v
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [ON] 打开采样率检测选项
+\item [OFF] 关闭采样率检测选项
+\item [ROUNDOFF] 打开采样率检测选项，并强制采样率符合当前机器的roundoff因子
+\item [v] 打开采样率检测选项，并强制采样率允许存在v的偏差
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+deltacheck roundoff
+\end{SACDFT}
+
+\SACTitle{说明}
+该命令用于修改采样率检测选项的行为。若该选项关闭，则不检测迭加文件列表中的文件是否
+具有相同的采样率。若该选项设置为开，则文件的采样率必须在一个能够容忍的范围之内，否则
+则被会报错。容错范围可以设置为roundoff因子或某个特定的值。
+
+迭加文件列表中的所有文件的采样率之间的差值的绝对值不能超过容错范围。

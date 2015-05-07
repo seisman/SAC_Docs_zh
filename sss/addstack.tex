@@ -1,0 +1,103 @@
+\SACCMD{addstack}
+\label{sss:addstack}
+
+\SACTitle{概要}
+向迭加文件列表中加入新文件
+
+\SACTitle{语法}
+\begin{SACSTX}
+A!DD!S!TACK! filename [W!EIGHT! v] [DI!STANCE! v]
+    [BE!GINTIME! v] [END!TIME! v]
+    [DE!LAY! v [S!ECONDS!|P!OINTS!]]
+    [I!NCREMENT! v [S!ECONDS!|P!OINTS!]]
+    [N!ORMAL!|R!EVERSE!]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [filename] 要加入迭加文件列表中的文件
+\item [WEIGHT v] 当前文件的权重因子。v的取值范围为0到1，在迭加之前会首先对文件的每个值乘以该权重因子再做迭加。
+\item [DISTANCE v] 该文件所对应的震中距，单位为km。用于计算动态时间延迟
+\item [BEGINTIME v] 事件开始的时间
+\item [ENDTIME] 事件结束时间
+\item [DELAY v SECONDS|POINTS] 该文件的静态时间延迟，单位为秒或数据点数
+\item [INCREMENT v SECONDS|POINTS] 该文件的静态时间延迟增量，单位为秒或数据点数。在每次执行incrementstack命令时，静态时间延迟会增加一个常数。
+\item [NORMAL|REVERSED] 文件拥有正/负极性
+\end{description}
+
+\SACTitle{缺省值}
+DELAY和INCREMENT选型的缺省单位为SECONDS
+
+\SACTitle{说明}
+每个迭加列表中的文件，都有7个属性，分别为：
+\begin{enumerate}
+\item 权重因子；
+\item 台站到震中的距离；
+\item 事件开始时间；
+\item 事件结束时间；
+\item 静态时间延迟；
+\item 静态时间延迟增量；
+\item 数据极性；
+\end{enumerate}
+
+可以用~\nameref{sss:globalstack}~命令为这些迭加属性设置全局值。当一个文件通过
+~\nameref{sss:addstack}~命令加入到迭加文件列表中时，若未指定属性值则使用全局属性值。
+~\nameref{sss:changestack}~可以用于在文件已经加入迭加文件列表后修改迭加属性值。
+
+\SACTitle{示例}
+\begin{SACCode}
+SAC/SSS> gs delay 1.0 inc 0.03
+SAC/SSS> as filea delay 2.0
+SAC/SSS> as fileb delay 3.0 inc 0.01 rev
+SAC/SSS> as filec
+SAC/SSS> as filed w 0.5
+\end{SACCode}
+
+第一个命令修改了时间延迟和时间延迟增量的全局属性值，其他全局属性则使用缺省值。
+\begin{itemize}
+\item filea：除时间延迟外其他属性均与全局属性相同；
+\item fileb：除时间延迟、时间延迟增量、信号极性外，其余属性均与全局属性相同；
+\item filec：所有属性与全局熟悉相同；
+\item filed：除权重因子外，其他所有属性与全局属性相同；
+\end{itemize}
+
+接下来对信号进行迭加：
+\begin{SACCode}
+SAC/SSS> sumstack
+\end{SACCode}
+
+该命令会讲迭加文件列表中的四个文件filea、fileb、filec和filed进行迭加，时间延迟分别为2.0、3.0、1.0和1.0。文件filec的极性反转。文件filed在迭加时的权重是其他文件权重的一半。
+
+\begin{SACCode}
+SAC/SSS> incrementstack
+SAC/SSS> changestack filec normal
+SAC/SSS> sumstack
+\end{SACCode}
+
+此次迭加，各个文件使用2.03、3.01、1.03和1.03的延迟。文件filec现在为正极性。
+
+\begin{SACCode}
+SAC/SSS> deletestack filed
+SAC/SSS> incrementstack
+SAC/SSS> sumstack
+\end{SACCode}
+
+第三次迭加讲只对文件filea、fileb、filec进行，时间延迟分别为2.06、3.02、1.06。
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item 5108：超过迭加文件列表的最大长度
+\item 1306：不等间隔数据的非法操作
+\item 1307：谱文件的非法操作
+\item 5109：采样间隔不相等
+\end{itemize}
+
+\SACTitle{限制}
+迭加文件列表中文件数目的最大限制与SAC所能读取的文件数目一致，即最多1000个。
+
+\SACTitle{概要}
+\nameref{sss:globalstack}、\nameref{sss:sumstack}、\nameref{sss:changestack}、\nameref{sss:incrementstack}、\nameref{sss:deletestack}
+
+
+
+

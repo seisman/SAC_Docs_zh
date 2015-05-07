@@ -1,0 +1,27 @@
+\SACCMD{setmacro}
+\label{cmd:setmacro}
+
+\SACTitle{概要}
+定义执行SAC宏文件时搜索的一系列目录
+
+\SACTitle{语法}
+\begin{SACSTX}
+SETMACRO  [MORE] directory [directory ...]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [directory] 放置SAC宏文件的目录。可以是相对或绝对路径
+\end{description}
+
+\SACTitle{说明}
+这个命令让你能够定义一系列执行宏文件时搜索的目录，最多可以定义100个。
+
+当setmacro使用more选项时，指定的目录会追加到已经存在的列表的后面；若没有使用more选项，
+则已经存在的列表将被新列表取代。
+
+当执行macro命令时，SAC首先会搜索当前目录，若没有找到则搜索setmacro指定的目录，
+若依然没有找到则在全局宏目录中寻找。
+
+\SACTitle{相关命令}
+\nameref{cmd:macro}

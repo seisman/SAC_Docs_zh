@@ -1,0 +1,236 @@
+%
+% LaTeX配置文件
+%
+
+% 文档相关信息
+\newcommand{\SACDOCTITLE}{SAC\textbf{参考手册}} % 文档标题
+\newcommand{\SACDOCAUTHOR}{SeisMan}             % 文档作者
+\newcommand{\SACDOCVERSION}{3.3-dev}                % 文档版本
+\newcommand{\SACDOCDATE}{\today}                % 文档更新日期
+
+% SAC相关信息
+\newcommand{\SACVERSION}{101.6a}                % 文档对应的SAC版本
+\newcommand{\SACDATE}{2013-11-11}               % SAC的发布日期
+
+% 中文支持及中英文字体设置
+\usepackage[CheckSingle]{xeCJK}
+
+% 页面设置
+\usepackage[top=3.0cm,bottom=2.0cm,left=3.5cm,right=2.5cm]{geometry}
+
+% 间距设置
+\usepackage{indentfirst}
+\linespread{1.3}                        % 行间距
+\addtolength{\parskip}{3pt}             % 段落间距
+
+% 标题设置
+\usepackage{titlesec}
+% 设置Part格式
+\titleformat{\part}{\centering\Huge\bfseries}{第\,\thepart\,部分}{1em}{}
+% 设置章格式
+\titleformat{\chapter}{\centering\Huge\bfseries}{第\,\thechapter\,章}{1em}{}
+% 调整subsection前后间距
+\titlespacing*{\subsection}{0ex}{0.25ex}{.25ex}
+\titlespacing*{\subsubsection}{0ex}{-.1ex}{.1ex}
+%设置SACTitle为subsection格式
+\newcommand{\SACTitle}[1]{\subsection*{#1}}
+\newcommand{\SACCMD}[1]{\section{\texttt{#1}}}
+
+\usepackage{titletoc}           % 目录设置
+\setcounter{tocdepth}{2}        % 目录深度
+\titlecontents{chapter}[0em]    % 章
+{\vspace{0.2em}\bfseries\Large}
+{\thecontentslabel\quad}
+{\hspace*{0em}}
+{\hfill \contentspage}
+\titlecontents{section}[1em]    % 节
+{\large}
+{\thecontentslabel\quad}
+{\hspace*{0em}}
+{\ \dotfill \ \contentspage}
+[\vspace{-0.3em}]
+\titlecontents{subsection}[3em] % 小节
+{\normalsize}
+{\thecontentslabel\quad}
+{\hspace*{0em}}
+{\ \dotfill \ \contentspage}
+[\vspace{-0.3em}]
+
+% 双栏目录
+\usepackage{multicol}
+\makeatletter
+\renewcommand{\tableofcontents}{%
+\setlength{\columnsep}{2.5em}
+\begin{multicols}{2}[\chapter*{\contentsname}]%
+    \@starttoc{toc}%
+\end{multicols}}
+\makeatother
+
+% 页眉页脚设置
+\usepackage{titleps}
+\newpagestyle{body}{
+    \sethead
+    [$\cdot$~\thepage~$\cdot$][][\small\S\,\thesection\quad\sectiontitle]
+    {第\,\thechapter\,章\quad\chaptertitle}{}{$\cdot$~\thepage~$\cdot$}
+    \setfoot{}{}{}\headrule
+}
+
+% 空白页
+\makeatletter	% copy from lnotes
+\def\cleardoublepage{
+    \clearpage
+    \if@twoside
+        \ifodd
+            \c@page
+        \else
+            \hbox{}
+            \vspace*{\fill}
+            \begin{center}
+		    保护环境，从阅读电子文档开始！
+            \end{center}
+            \vspace{\fill}
+            \thispagestyle{empty}
+            \newpage
+            \if@twocolumn
+                \hbox{}
+                \newpage
+            \fi
+        \fi
+    \fi
+}
+\makeatother
+
+\usepackage[perpage]{footmisc}	% 脚注在每一页单独编号
+
+% 超链接及书签
+\usepackage[CJKbookmarks=true,colorlinks,linkcolor=blue, citecolor=blue]{hyperref}
+\hypersetup{ % 文档元信息
+    pdftitle={\SACDOCTITLE v\SACDOCVERSION},
+    pdfauthor={\SACDOCAUTHOR},
+}
+
+% 代码宏包
+\usepackage{listings}
+\usepackage[usenames,dvipsnames,svgnames]{xcolor} % 用于code
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    xleftmargin=2pc,                    % 整体布局
+    xrightmargin=2pc,
+    backgroundcolor=\color{Lavender},   % 背景色
+    rulecolor=\color{Silver},           % 边框颜色
+    frame=single,                       % 边框
+}
+\lstdefinelanguage{SAC} {
+    keywords={SAC>},   % SAC提示符
+    otherkeywords={SAC>},   % SAC提示符
+    sensitive=true,
+    comment=[l][{\color[rgb]{0,0.4,0}}]{//},
+    morecomment=[s]{/*}{*/}
+}
+\lstnewenvironment{SACCode}{
+    \lstset{
+        language={SAC},                     % 语言
+        keywordstyle=\color{blue},          % 关键字颜色
+    }
+}{}
+\lstnewenvironment{SACSTX}{\lstset{delim=[is][\textcolor{gray}]{!}{!},}}{}
+\lstnewenvironment{SACDFT}{}{}
+
+\usepackage{minted}
+\setminted{linenos, frame=leftline, xleftmargin=2pc, numbersep=6pt}
+\setminted[console]{linenos=false, frame=none}
+
+% 脚注中verb http://tex.stackexchange.com/questions/203
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+
+% 解决代码复制问题
+\usepackage{accsupp}
+\newcommand\emptyaccsupp[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+%default definition is: \def\theFancyVerbLine{\rmfamily\tiny\arabic{FancyVerbLine}}
+\let\theHFancyVerbLine\theFancyVerbLine % don't apply our patch to hyperref's version
+\def\theFancyVerbLine{\rmfamily\tiny\emptyaccsupp{\arabic{FancyVerbLine}}}
+
+\usepackage{enumitem}	% 列表宏包
+% itemsep 设置列表间距
+% topsep 设置列表前间距
+\setenumerate[1]{itemsep=-6pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+\setitemize[1]{itemsep=-6pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
+\setdescription{itemsep=-6pt,partopsep=0pt,parsep=\parskip,topsep=0pt,itemindent=0pt}
+
+\usepackage{datetime2}      % \today格式为YYYY-MM-DD
+
+\usepackage{verbatim}       % 抄录
+
+\usepackage{booktabs}               % 三线表
+
+% 图片
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+\usepackage{float}      % 图表浮动体
+
+% 图表标题
+\usepackage{caption}
+\setlength{\belowcaptionskip}{2pt}  % skip above figure caption
+                                    %      beloe table caption
+\captionsetup[figure]{      % 图标题
+    format=plain,           % plain, hang
+    labelformat=default,    % default, empty, simple, brace, parens
+    labelsep=colon,         % none, colon, period, space, quad, newline, endash
+    justification=centering,
+    labelfont={small,bf,},
+    textfont=small,
+    skip=-10pt,                     % skip below figure caption
+    position=top,
+}
+\captionsetup[table]{      % 表标题
+    format=plain,           % plain, hang
+    labelformat=default,    % default, empty, simple, brace, parens
+    labelsep=colon,         % none, colon, period, space, quad, newline, endash
+    justification=centering,
+    labelfont={small,bf,},
+    textfont=small,
+    skip=0pt,
+    position=bottom,
+}
+
+% 汉化
+\renewcommand{\contentsname}{目 \quad 录}
+\renewcommand{\listfigurename}{图目录}
+\renewcommand{\listtablename}{表目录}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\indexname}{索引}
+\renewcommand{\figureautorefname}{图}
+\renewcommand{\tableautorefname}{表}
+\renewcommand{\appendixautorefname}{附录}
+
+% 自定义quote环境
+% http://tex.stackexchange.com/questions/16964/
+\usepackage{framed}
+\newcommand*\openquote{\makebox(25,-22){\scalebox{5}{``}}}
+\newcommand*\closequote{\makebox(25,-22){\scalebox{5}{''}}}
+\colorlet{shadecolor}{Azure}
+\makeatletter
+\newif\if@right
+\def\shadequote{\@righttrue\shadequote@i}
+\def\shadequote@i{\begin{snugshade}\begin{quote}\openquote}
+    \def\endshadequote{%
+\if@right\hfill\fi\closequote\end{quote}\end{snugshade}}
+\@namedef{shadequote*}{\@rightfalse\shadequote@i}
+\@namedef{endshadequote*}{\endshadequote}
+\makeatother
+
+% 自定义Tips环境 http://tex.stackexchange.com/questions/158941/
+\usepackage[tikz]{bclogo}
+\DeclareGraphicsRule{.mps}{eps}{*}{}
+\renewcommand\bcStyleTitre[1]{\quad\bfseries\Large{#1}}
+\newenvironment{Tips}{
+\begin{bclogo}[couleur = blue!20, arrondi=0.15, logo=\bcloupe, ombre=true,
+    couleurOmbre=black!30,blur,noborder=true]{Tips}
+}
+{\end{bclogo}}

@@ -1,0 +1,38 @@
+\SACCMD{sort}
+\label{cmd:sort}
+
+\SACTitle{概要}
+根据头段变量的值对内存中的文件进行排序
+
+\SACTitle{语法}
+\begin{SACSTX}
+SORT header [ASCEND|DESCEND] [header [ASCEND|DESCEND]...]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [header] 依据该头段变量的值进行文件排序
+\item [ASCEND] 升序排列
+\item [DESCEND] 降序排列
+\end{description}
+
+\SACTitle{说明}
+根据给出的头段值对内存中的文件进行排序。头段变量在命令行中出现的越早，
+这个变量字段就具有越高的优先权，后面的变量字段用于解决无法第一个变量字段相同
+的情况。最多可以输入5个头段变量。
+
+每个头段变量都可以跟着ASCEND或DESCEND来表明特定字段的排序方式。
+如果未指定，则默认为升序排列。如果使用sort命令但未指定任何头段值，它将根据上一次
+执行sort命令时的头段去排序，如果第一次调用sort但没有给出头段，则会产生错误1379.
+
+\SACTitle{缺省值}
+默认所有的字段都是升序排列
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]301:  内存溢出
+\item[-]1379: 未给出SORT参数
+\item[-]1380: SORT参数过多
+\item[-]1381: 不是一个有效的SORT参数
+\item[-]1383: SORT失败
+\end{itemize}

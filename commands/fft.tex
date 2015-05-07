@@ -1,0 +1,89 @@
+\SACCMD{fft}
+\label{cmd:fft}
+
+\SACTitle{概要}
+对数据做快速离散傅立叶变换
+
+\SACTitle{语法}
+\begin{SACSTX}
+FFT [WO!MEAN!|W!MEAN!] [R!LIM!|A!MPH!]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [WOMEAN] 进行变换之前先去除均值
+\item [WMEAN] 变换中不去除均值
+\item [RLIM] 输出为实部-虚部格式
+\item [AMPH] 输出为振幅-相位格式
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+fft wmean amph
+\end{SACDFT}
+
+\SACTitle{说明}
+该命令对数据进行离散傅立叶变换，为了使用快速傅立叶变换算法，在进行变换之前，需要对
+数据文件进行补零以保证数据点数为2的整数次幂，比如1000个点的时间序列文件会被补零至
+1024个点，且头段变量npts也会被相应修改。
+
+进行离散傅立叶变换之后，头段变量b为谱文件的起始频率，其值为0；delta为谱文件的采样频率，
+取值为1/(delta*npts)；e为谱文件的结束频率。
+
+谱数据可以是振幅-相位格式或实部-虚部格式。头段变量IFTYPE会告诉你谱文件是哪种格式。
+
+对于实序列而言，由于离散傅立叶变换后的结果具有“共轭对称性”，因而在使用plotsp绘制谱文件时
+只显示一半的数据点数。
+
+\SACTitle{示例}
+\begin{SACCode}
+SAC> fg seis
+SAC> lh b e delta npts iftype
+  
+  FILE: SEISMOGR - 1
+ --------------
+
+          b = 9.459999e+00
+          e = 1.945000e+01
+      delta = 1.000000e-02
+       npts = 1000
+     iftype = TIME SERIES FILE
+SAC> fft
+ DC level after DFT is -0.98547
+SAC> lh b e delta npts iftype
+  
+  FILE: SEISMOGR - 1
+ --------------
+
+          b = 0.000000e+00              // b值为0
+          e = 5.000000e+01                  
+      delta = 9.765625e-02              // delta=1/(1024*0.01)
+       npts = 1024                      // 1000 -> 1024
+     iftype = SPECTRAL FILE-AMPL/PHASE
+SAC> lh sb sdelta nsnpts                // 保留原值
+  
+  FILE: SEISMOGR - 1
+ --------------
+
+         sb = 9.459999e+00
+     sdelta = 1.000000e-02
+     nsnpts = 1000
+\end{SACCode}
+
+\SACTitle{头段变量}
+变换过程中，B、E和DELTA分别被修改为起始频率、结束频率以及采样频率。
+B、E、NPTS和DELTA的原值被保存在SB、SE、NSNPTS和SDELTA中，这些值在做反傅立叶变换时会用到。
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1301: 未读入文件
+\item[-]1306: 对不等间隔数据的非法操作
+\item[-]1307: 对谱文件的非法操作
+\item[-]1606: 超过DFT所允许的最大数据点数
+\end{itemize}
+
+\SACTitle{限制}
+离散傅立叶变换所允许的最大数据点数为$2^{24}=16777216$个。
+
+\SACTitle{相关命令}
+\nameref{cmd:plotsp}、\nameref{cmd:ifft}、\nameref{cmd:writesp}

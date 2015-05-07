@@ -1,0 +1,44 @@
+\SACCMD{divf}
+\label{cmd:divf}
+
+\SACTitle{概要}
+使内存中的一组数据除以另一组数据
+
+\SACTitle{语法}
+\begin{SACSTX}
+DIVF [NEWHDR [ON|OFF]] filelist
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [NEWHDR ON|OFF] 若为OFF，则生成的数据文件使用内存中原文件的头段；          
+    若为ON，则生成的数据文件使用filelist中新文件的头段。缺省值为OFF。
+\item [filelist] SAC二进制文件列表。
+\end{description}
+
+\SACTitle{说明}
+参见~\nameref{cmd:addf}~命令的相关说明。
+
+\SACTitle{示例}
+参见~\nameref{cmd:addf}~命令的相关示例。
+
+\SACTitle{头段变量}
+depmin、depmax、depmen、npts、delta
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1301: 未读入文件
+\item[-]1803: 未读入二进制文件
+\item[-]1306: 对不等间隔文件的非法操作
+\item[-]1307: 对谱文件的非法操作
+\item[-]1317: 文件不是SAC数据文件
+\item[-]1801: 头段值不匹配（采样周期或数据点数不相等）
+\end{itemize}
+
+\SACTitle{警告消息}
+\begin{itemize}
+\item[-]1802: 时间不匹配
+\end{itemize}
+
+\SACTitle{相关命令}
+\nameref{cmd:read}、\nameref{cmd:binoperr}

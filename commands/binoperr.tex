@@ -1,0 +1,62 @@
+\SACCMD{binoperr}
+\label{cmd:binoperr}
+
+\SACTitle{概要}
+控制二元操作addf、subf、mulf、divf中的错误
+
+\SACTitle{语法}
+\begin{SACSTX}
+BINOPERR [N!PTS! F!ATAL!|W!ARNING!|I!GNORE!] [D!ELTA! F!ATAL!|W!ARNING!|I!GNORE!]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [NPTS]  改变数据点数不相等的错误条件
+\item [DELTA] 改变采样周期不相等的错误条件
+\item [FATAL] 设置错误条件为``致命''
+\item [WARNING] 设置错误条件为``警告''
+\item [IGNORE]  设置错误条件为``忽略''
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+binoperr npts fatal delta fatal
+\end{SACDFT}
+
+\SACTitle{说明}
+对文件执行二元操作（addf、divf等）时，SAC会检测两个文件的数据点数和采样周期是否匹配。
+
+使用这个命令，你可以控制SAC在遇到不匹配时如何处理。
+\begin{itemize}
+\item 如果设置错误条件为致命，
+那么SAC在遇到错误时将停止执行当前命令，忽略当前行的其它剩余命令，输出错误信息到终端
+并将控制权交还给用户。
+\item 如果设置错误条件为警告，则遇到错误时会发送一个警告消息，程序
+内部尽可能纠正错误并继续执行。
+\item 如果设置错误条件为忽略，则SAC会纠正错误并继续而不告诉你发生了什么。
+\end{itemize}
+
+若要操作的两个数据文件的数据点数不匹配，SAC会使用数据点最少的那个文件的数据点数
+作为最终结果文件的数据点数，以保证正常操作。
+
+若要操作的两个文件采样周期不匹配，则SAC会使用第一个数据文件的采样周期作为结果文件的采样周期。
+
+\SACTitle{示例}
+假定file1有1000个数据点，file2有950个数据点:
+\begin{SACCode}
+SAC> binoperr npts fatal
+SAC> read file1
+SAC> addf file2
+ERROR:  Header field mismatch: NPTS file1 file2
+\end{SACCode}
+
+上例中由于数据点数不匹配导致文件加法未执行，假设你输入:
+\begin{SACCode}
+SAC> binoperr npts warning
+SAC> addf file2
+WARNING:  Header field mismatch: NPTS file1 file2
+\end{SACCode}
+则仅对文件的前950个数据点执行加法操作。
+
+\SACTitle{相关命令}
+\nameref{cmd:addf}、\nameref{cmd:subf}、\nameref{cmd:mulf}、\nameref{cmd:divf}

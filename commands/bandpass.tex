@@ -1,0 +1,93 @@
+\SACCMD{bandpass}
+\label{cmd:bandpass}
+
+\SACTitle{概要}
+对数据文件使用无限脉冲带通滤波器
+
+\SACTitle{语法}
+\begin{SACSTX}
+B!AND!P!ASS! [BU!TTER!|BE!SSEL!|C1|C2] [C!ORNERS! v1 v2] [N!POLES! n] [P!ASSES! n] 
+    [T!RANBW! v] [A!TTEN! v]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [BUTTER] 应用一个Butterworth滤波器
+\item [BESSEL] 应用一个Bessel滤波器
+\item [C1] 应用一个Chebyshev I型滤波器
+\item [C2] 应用一个Chebyshev II滤波器
+\item [CORNERS v1 v2] 设定拐角频率分别为v1和v2，即频率通带为v1-v2
+\item [NPOLES n] 设置极数为N，范围: 1-10
+\item [PASSES n] 设通道数为N，范围: 1-2
+\item [TRANBW v] 设置Chebyshev转换带宽为v
+\item [ATTEN v] 设置Chebyshev衰减因子为v
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+bandpass butter corner 0.1 0.4 npoles 2 passes 1 tranbw 0.3 atten 30
+\end{SACDFT}
+
+\SACTitle{说明}
+在SAC中有一系列无限脉冲滤波器(IIR)可以使用。这些递归的数字滤波器是基于
+传统的模拟滤波器设计的：Butterworth, Bessel, Chebyshev I型以及Chebyshev II型
+。这些模拟滤波器经过双线性变换(一种可以保持模拟滤波器稳定性的变换方式)转
+换成数字滤波器。
+
+一般来说，多数情况下Butterworth滤波器是个不错的选择。因为它有一个相当尖锐的
+转换带以及平缓的群延迟响应。Butterworth滤波器是默认的滤波器类型，它的3 db点
+指定在截止频率处。Bessel滤波器对于那些需要线性相位而没有双通滤波的应用来说是
+最好的。它的振幅响应并不够好。SAC的Bessel滤波器经过归一化因此它的3 db点也在
+指定的截止频率处。两个Chebyshev滤波器可以用于适应通带与阻带之间具有较为尖锐
+的转变的要求。尽管他们有较好的振幅响应，但是它们的群延迟响应是SAC所有滤波器
+中最差的。
+
+在使用这些滤波器时需要小心。首先，所有的递归滤波器都有非线性相位响应，这将
+导致滤波后波形的频散。对于滤波后波形的相位很重要的应用来说，SAC提供了一个递
+归滤波的零相位工具。零相位滤波器可以通过正向和反向(而不仅仅只是正向滤波)两次
+滤波来实现。这个双向操作的滤波器产生一个等效振幅响应，它等于原来振幅响应的平
+方。它同时也产生一个非因果的滤波脉冲响应，使得信号在尖锐起始时间之前附
+加一个虚假的前驱信号。因此双通滤波后数据无法正确的给出起跳到时。对于信号
+前驱不可忽略的情况，例如读取震相起跳到时，使用双通滤波器不是一个很好的
+选择。其次，当滤波器的通带宽度相比折叠频率很小时，滤波器可能会出现数值不稳定
+。这个问题在增加极数时会更加严重。在要求使用一个非常窄的通带时，一个有效的办
+法是首先对数据进行采样，对采样之后的数据用一个通带宽一些的滤波器进行滤波，最
+后对数据进行插值回到原始采样率。当所需通带宽降到折叠频率的百分之几时很有必	
+要使用这种策略。
+
+一般来说，随着极数的增加滤波器将有一个从通带到阻带的尖锐的转变。然而，极数太
+大是要付出代价的。滤波器群延迟一般随着极数的增加而变得更宽，结果导致波形混淆
+。那需要3或4个极的应用应该重新考虑。
+
+Butterworth和Bessel滤波器的设计特别简单。你只需要指定截止频率和极数即可。
+
+Chebyshev滤波器设计起来更复杂一点，你还需要提供转换带宽以及阻带衰减因子。
+转换带宽是滤波器通带和阻带之间的区域的宽度，它被指定为模拟滤波器通带宽度
+的一部分由于双线性变换频率轴的非线性弯曲，递归数字滤波器的转换带宽可能会
+比设计时指定的要小。在SAC里，模拟滤波器的截止频率在双线性变换之后要做补偿
+以保证其满足设计要求。阻带边界同样也是不真实的，因此，如果明确的设置阻带
+边界是重要的，当你的截止频率选定后你必须对其进行补偿。
+
+阻带衰减是通带增益与阻带增益的比值。
+
+\SACTitle{示例}
+应用一个四极Butterworth滤波器，拐角频率为2 、5 Hz.:
+\begin{SACCode}
+SAC> bp n 4 c 2 5
+\end{SACCode}
+
+在此之后如果要应用一个二极双通具有相同频率的Bessel:
+\begin{SACCode}
+SAC> bp n 2 be p 2
+\end{SACCode}
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1301: 未读入文件
+\item[-]1306: 对不等间隔文件的非法操作
+\item[-]1307: 对谱文件的非法操作
+\item[-]1002: 由于拐角频率大于Nyquist频率而出现的坏值
+\end{itemize}
+
+\SACTitle{头段变量改变}
+depmin, depmax, depmen

@@ -1,0 +1,22 @@
+\SACCMD{setdevice}
+\label{cmd:setdevice}
+
+\SACTitle{概要}
+定义后续绘图时使用的默认图形设备
+
+\SACTitle{语法}
+\begin{SACSTX}
+SETDEVICE name
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [name] 图形设备名
+\end{description}
+
+\SACTitle{说明}
+SAC的默认图形设备为X11图形窗口，你可以使用该命令修改默认的图形设备，也可以使用
+BEGINDEVICES命令随时用新的图形设备取代默认图形设备。
+
+\SACTitle{相关命令}
+\nameref{cmd:begindevices}

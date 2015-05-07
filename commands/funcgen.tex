@@ -1,0 +1,53 @@
+\SACCMD{funcgen}
+\label{cmd:funcgen}
+
+\SACTitle{概要}
+生成一个函数并将其存在内存中
+
+\SACTitle{语法}
+\begin{SACSTX}
+F!UNC!G!EN! [type] [D!ELTA! v] [N!PTS! n] [BE!GIN! v]
+\end{SACSTX}
+其中type是下面中的一个：
+\begin{SACSTX}
+IMP!ULSE! | ST!EP! | B!OXCAR! | T!RIANGLE! | SINE [v1 v2] | L!INE! [v1 v2] |
+Q!UADRATIC! [v1 v2 v3] | CUBIC [v1 v2 v3 v4] | SEIS!MOGRAM! | R!ANDOM! [v1 v2] |
+IMPSTRIN  [n1 n2 ... nN]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [IMPULSE] 位于数据中心的脉冲函数 
+\item [IMPSTRIN n1 n2 ... nN] 在指定的一系列数据点处产生脉冲函数
+\item [STEP] 阶跃函数。数据的前半段为0，后半段为1
+\item [BOXCAR] 矩形函数。数据的前、后三分之一值为0，中间三分之一值为1 
+\item [TRIANGLE] 三角函数。数据的第一个四分之一为0，第二个四分之一线性增加到1，第三个四分之一
+    线性减少到0，最后四分之一为0。
+\item [SINE v1 v2] 正弦函数。v1表示频率，单位为Hz；v2为以度为单位的相位角。正弦函数的振幅为1，
+    注意在相位参数中有一个$2\pi$因子: $ F = 1.0 \sin (2\pi (v_1t+v_2))$ 
+\item [LINE v1 v2] 线性函数。斜率为v1，截距为v2，即$ v_1 t + v_2 $
+\item [QUADRATIC v1 v2 v3] 二次函数 $v_1 t^{2} + v_2 t + v_3 $
+\item [CUBIC v1 v2 v3 v4] 三次函数 $ v_1 t^{3} + v_2 t^2 + v_3t + v_4 $
+\item [SEISMOGRAM] 地震样本数据。此样本数据有1000个数据点。DELTA、NPTS和BEGIN选项没有效果
+\item [RANDOM v1 v2] 生成随机序列（高斯白噪声）。v1是要生成的随机序列文件的数目，v2是用于
+    产生第一个随机数的``种子''，该种子值保存在USER0中，因而如果需要你可以在稍后生成一个
+    完全相同的随机序列。 
+\item [DELTA v] 设置采样周期为v，储存在头段delta中 
+\item [NPTS n] 设置函数的数据点数为n，储存在头段npts中 
+\item [BEGIN v] 设置起始时间为v，储存在头段b中 
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+funcgen impulse npts 100 delta 1.0 begin 0.
+\end{SACDFT}
+对于正弦函数频率和相位缺省值分别为0.05和0。
+一次、二次、三次函数的系数都是1。
+随机序列数为1，种子是12357。
+
+\SACTitle{说明}
+执行这个命令等效于读取单个文件（RANDOM选项会产生多个文件）到内存中，文件名即为函数名。
+内存中原有的数据会被该命令生成的函数所替换。
+
+\SACTitle{相关命令}
+\nameref{cmd:datagen}

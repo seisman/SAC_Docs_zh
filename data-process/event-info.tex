@@ -1,0 +1,78 @@
+\section{事件信息}
+\label{sec:event-info}
+相关头段：evla, evlo, evdp, mag, o, nzyear, nzjday, nzhour, nzmin, nzsec, nzmsec
+
+一般来说，从SEED连续波形中解压得到的SAC数据中是没有事件信息的。这需要用户搜索
+地震目录，获取事件的发震时刻、经度、纬度、深度和震级信息，并将这些信息写入到
+SAC文件的头段中。
+
+可以使用~\nameref{cmd:chnhdr}~修改头段变量，再用~\nameref{cmd:writehdr}~将修改后
+的头段变量写回SAC文件中。比如
+想要修改事件的位置和深度，可以操作如下：
+\begin{SACCode}
+SAC> r cdv.?
+SAC> ch evla 37.52 evlo -121.68 evdp 5.95   // 修改三个头段变量
+SAC> ch mag 5.0                             // 修改一个头段变量
+SAC> wh                                     // 将修改后的头段写入文件
+\end{SACCode}
+
+这里需要注意~``\verb+wh+''~与~``\verb+w over+''~的区别。二者都是将内存中的
+数据写回到原文件中。前者只覆盖文件的头段区，后者则覆盖文件的头段区和数据区。
+若SAC数据从磁盘读入内存之后，未对波形数据做任何修改，仅修改了头段区，此时应
+使用~``\verb+wh+''~命令将修改后的头段区写回文件，相对于~``\verb+w over+''来说速度要快很多。
+
+向SAC头段中加入发震时刻的信息，要稍稍麻烦一点。前面已经说过，一般将SAC文件的参考时刻
+设置为发震时刻，这样的处理可以带来一堆好处。ch提供了专门的选项用于处理发震信息。
+
+假设发震时刻为1987年06月22日11时10分10.363秒：
+\label{code:origin-time}
+\begin{SACCode}
+SAC> r ./cdv.?
+SAC> ch o gmt 1987 173 11 10 10 363
+SAC> lh kzdate kztime o
+  
+  FILE: ./cdv.e - 1
+ -------------
+
+     kzdate = JUN 22 (173), 1987
+     kztime = 11:09:56.363
+          o = 1.400000e+01
+  
+SAC> ch allt -14
+SAC> ch iztype IO
+SAC> lh kzdate kztime o
+  
+  FILE: ./cdv.e - 1
+ -------------
+
+     kzdate = JUN 22 (173), 1987
+     kztime = 11:10:10.363
+          o = 0.000000e+00
+SAC> wh
+\end{SACCode}
+
+在上面的例子中，首先从地震目录中获取了地震的发震时刻，然后计算发震日期对应一年中的第几天，
+本例中为第173天，再利用``\verb+ch o gmt yyyy ddd hh mm sss xxx+''
+的语法将发震时刻赋值给头段变量o，SAC会自动将发震时刻转换为相对于参考时刻的相对时间。
+由于此时SAC文件的参考时刻为``1987-06-22T11:09:56.363''，而o值对应的时刻为发震时刻
+``1987-06-22T11:10:10.363''，所以头段变量o的值为发震时刻相对于参考时刻的时间差，即14s。
+
+将发震时刻写入头段之后，还需要将参考时刻修改为发震时刻，与此同时还要修改所有的相对时间。
+``\verb+ch allt xx.xx+''的功能是将所有已定义的相对时间加上xx.xx秒，
+同时从参考时刻中减去xx.xx秒，此时参考时刻即为发震时刻，而o值为0。
+
+在需要批量处理数据的时候，不可能通过``lh o''的方式查看o的值，然后使用到allt中。在
+~\nameref{chap:sac-programming}~一章中提供了适于批量处理的方式：
+\begin{SACCode}
+SAC> ch o gmt 1987 173 11 10 10 363 
+SAC> ch allt (0 - &1,o&) iztype IO
+\end{SACCode}
+
+\begin{Tips}
+上例中的~``\verb+(0 - &1,o&)+''~必须原样输入！
+    
+由于101.6版本重写了SAC宏的语法分析器，所以很多用法都发生了改变。你可能会发现，在
+101.6及其以后的版本中，\verb+(0-&1,o&)+、\verb+(-&1,o&)+、\verb+(-&1,o)+都
+可以正常使用，但是上例中的版本是唯一一个在所有SAC版本中都正确的，为了命令的通用性，
+只要记住这个就可以了。
+\end{Tips}

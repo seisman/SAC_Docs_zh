@@ -1,0 +1,38 @@
+\section{SAC发展史}
+\label{sec:history}
+
+Lawrence Livermore国家实验室
+\footnote{\url{http://en.wikipedia.org/wiki/Lawrence\_Livermore\_National\_Laboratory}}
+和Los Alamos国家实验室
+\footnote{\url{http://en.wikipedia.org/wiki/Los\_Alamos\_National\_Laboratory}}
+是美国承担核武器设计工作的两个实验室。SAC于20世纪80年代诞生于实验室的Treaty Verification Program小组里，该组由W. C. Tapley和Joe Tull共同领导。
+
+起初，SAC是用Fortran语言实现的，并将源代码分发给感兴趣的学者，
+允许用户进行非商业性的地震数据处理，
+用户和开发者之间的合作协议要求用户提交bug修正和改进以换取SAC的使用权。
+到了大概1990年，SAC已经成为全球地震学家的数据处理标准软件。
+
+从1992年开始，SAC的开发逐渐由Livermore接管，并开始通过分发协议严格限制源代码的
+分发。与此同时，开发者认为Fortran是一种过于局限的编程语言，其阻碍了SAC特性的进一步
+开发，因而开发者使用f2c\footnote{f2c~(\url{http://www.netlib.org/f2c/})，
+Fortran77语言到C语言的自动转换工具。}
+转换工具将SAC的Fortran源码转换成了C源码\footnote{个人猜测，目前SAC源码的
+混乱和不易读正是由于这次自动转换导致的。}。接下来，Livermore以转换得到的
+C源码为基础，计划开发一个商业版的地震数据处理产品，命名为SAC2000。
+这个版本扩展了很多
+功能，其中一个功能是建立一个日志数据库，记录一个波形从原始数据
+到最终产品之间的所有处理步骤。这样的设计允许用户暂时保存数据处理步骤，
+随时将处理的结果提交到内存或回滚到之前的状态。
+
+约1998年，IRIS\footnote{\url{http://www.iris.edu}}
+意识到，SAC的核心用户群（主要是IRIS的成员）无法确保能够
+获取SAC的源码。IRIS开始和Livermore协商，希望将SAC的开发分成两条线：一个包含
+数据库特性，供核监测机构使用；另一个不包含数据库特性，仅供学术机构使用。
+商业化的努力主要集中在含数据库功能的版本上。
+
+终于，在2005年，IRIS与Livermore签订了合同，Livermore提供给IRIS一个SAC协议，
+允许其在IRIS社区
+内部分享SAC/SAC2000的源代码，并提供有限的支持以促进社区的发展。
+而学术圈对于商业版的SAC没有太大兴趣，因而Livermore逐渐撤出了对于SAC2000的支持。
+最终IRIS完全接手了SAC的开发和技术支持，并成为了一个新的版本，
+也就是我们现在正在使用的SAC，有时为了区分，也称之为SAC/IRIS。

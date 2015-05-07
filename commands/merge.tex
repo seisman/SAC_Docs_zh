@@ -1,0 +1,91 @@
+\SACCMD{merge}
+\label{cmd:merge}
+
+\SACTitle{概要}
+将多个数据文件合并成一个文件
+
+\SACTitle{语法}
+\begin{SACSTX}
+MERGE [V!ERBOSE!] [G!AP! Z!ERO!|I!NTERP!] [O!VERLAP! C!OMPARE!|A!VERAGE!] [filelist]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [VERBOSE] 输出数据合并的细节。
+\item [GAP ZERO|INTERP] 如何处理数据间断。ZERO表示将数据间断处补零值；INTERP表示对
+    数据间断处进行线性插值。
+\item [OVERLAP COMPARE|AVERAGE] 如何处理数据重叠。COMPARE表示对重叠的时间段内的
+    数据进行比较，若不匹配则退出；AVERAGE表示对重叠时间段内的数据进行平均。
+\item [filelist] SAC二进制数据文件列表\footnote{暂时不支持通配符。}
+\end{description}
+
+\SACTitle{说明}
+此命令在101.6版中完全重写，功能和用法上也与之前的版本完全不同。
+
+在旧版本中，内存中的每个文件与filelist中的每个文件分别合并，且内存中的文件必须早于
+filelist中的文件。因而在合并多段数据时，只能先读取第一段数据，再merge第二段数据，再
+merge第三段数据，依次不断循环执行。
+
+新版本的merge命令，会将内存中的全部数据文件以及filelist中的全部文件合并成单个文件。
+若内存中无数据，则只合并filelist中的数据文件；若filelist为空，则只合并内存中的数据
+文件。
+
+新版的merge命令可以合并任意数目和任意顺序的数据文件。
+merge会检查所有要合并的文件，以保证他们拥有相同的kstnm、kentwk、kcmpnm、delta。
+
+若要合并的数据段之间存在间断，可以通过补零或线性插值的方式弥补间断；若数据段之间
+存在重叠，可对重叠的部分进行比较判断或直接进行平均。
+
+\SACTitle{示例}
+下面看一个数据合并的例子
+\footnote{这样的修改使得不同版本的语法不完全兼容，实际使用时新版的merge命令要更方便
+也更符合人的正常思维。}：
+\begin{SACCode}
+SAC> read file1 file2
+SAC> merge file3 file4
+\end{SACCode}
+在101.5c及其之前的版本中，这个例子的结果是，file3与file1合并成文件file1，file4与
+file2合并成文件file2，此时内存中有两个文件file1和file2。而在101.6及其之后的版本中，
+这个例子的结果是，文件file1、file2、file3、file4合并成文件file1，此时内存中只有
+一个文件file1。
+
+多个文件合并成单个文件的一种方法：
+\begin{SACCode} 
+SAC> r file1                        // 读取一个文件
+SAC> merge file2 file3 file4        // merge其余文件
+SAC> w over
+\end{SACCode}
+
+另一种合并办法：
+\begin{SACCode}
+SAC> r file1 file2 file3 file4  
+SAC> merge                      // 合并内存中的所有文件
+SAC> w over                     // 合并后的文件写入到file1中
+\end{SACCode}
+
+再一种合并方法：
+\begin{SACCode}
+SAC> merge file1 file2 file3 file4  // 内存中无数据，合并filelist中的全部文件
+SAC> w over                         // 保存到file1中
+\end{SACCode}
+
+\SACTitle{头段变量改变}
+npts、depmin、depmax、depmen、e
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1301: 未读入数据文件
+\item[-]1803: 未读入二进制文件
+\item[-]1307: 对谱文件的非法操作
+\item[-]1306: 对不等间隔文件的非法操作
+\item[-]1801: 头段不匹配（采样间隔或台站名不同）
+\item[-]9005: 振幅不匹配
+\end{itemize}
+
+\SACTitle{警告消息}
+\begin{itemize}
+\item[-]1805: 时间间断
+\end{itemize}
+
+\SACTitle{相关命令}
+\nameref{cmd:read}

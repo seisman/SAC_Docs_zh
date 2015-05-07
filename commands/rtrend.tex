@@ -1,0 +1,57 @@
+\SACCMD{rtrend}
+\label{cmd:rtrend}
+
+\SACTitle{概要}
+去除线性趋势
+\footnote{101.6和101.6a的rtrend命令存在Bug，详情参考\url{http://seisman.info/sac-bugs.html}}
+
+\SACTitle{语法}
+\begin{SACSTX}
+RTR!END! [Q!UIET!|!V!ERBOSE]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [QUIET] 不显示线性拟合信息
+\item [VERBOSE] 终端显示线性拟合信息
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+rtrend quiet
+\end{SACDFT}
+
+\SACTitle{说明}
+该命令利用最小二乘方法将数据拟合成一条直线，然后从数据中减去该直线所表征的线性趋势。
+数据可以是不等间隔的。
+
+若有$n$个数据$(x_i,y_i)$，利用最小二乘法拟合直线$y=ax+b$。其中斜率为
+\[
+    a = \frac{n\sum x_i y_i - \sum x_i \sum y_i}
+    {n\sum x_i^2 - (\sum x_i)^2}
+\]
+
+Y轴截距为
+\[
+    b = \frac{\sum x_i^2 \sum y_i - \sum x_i \sum x_i y_i}
+    {n\sum x_i^2 - (\sum x_i)^2}
+\]
+
+内存中最后一个文件的线性拟合参数将会写入到如下黑板变量中：
+\begin{itemize}
+\item RTR\_SLP 直线斜率
+\item RTR\_YINT 直线的Y截距
+\item RTR\_SDSLP 斜率的标准差
+\item RTR\_SDYINT Y截距的标准差
+\item RTR\_SDDTA 数据的标准差
+\item RTR\_CORRCF 数据和拟合结果的相关系数
+\end{itemize}
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1301: 未读入数据文件
+\item[-]1307: 对谱文件的非法操作
+\end{itemize}
+
+\SACTitle{头段变量改变}
+depmin、depmax、depmin

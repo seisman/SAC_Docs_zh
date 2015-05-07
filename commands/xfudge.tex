@@ -1,0 +1,33 @@
+\SACCMD{xfudge}
+\label{cmd:xfudge}
+
+\SACTitle{概要}
+改变X轴的``插入因子''
+
+\SACTitle{语法}
+\begin{SACSTX}
+XFUDGE [ON|OFF|v]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [ON] 打开插入选项，但不改变插入因子 
+\item [OFF] 关闭插入选项 
+\item [v] 打开插入因子，改变插入因子为v 
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+xfudge 0.03
+\end{SACDFT}
+
+\SACTitle{说明}
+当打开此选项时，实际轴范围将根据插入因子改变，确定线性坐标轴范围的方法是：
+\[ XDIFF=XFUDGE*(XMAX-XMIN) \]
+\[ XMIN=XMIN-XDIFF \]
+\[ XMAX=XMAX+XDIFF \]
+其中XMIN和XMAX是数据的极值，XFUDGE是插入因子，这个算法对于对数坐标也是相似的。
+该选项仅当坐标轴的范围设置为数据极值时方可使用。
+
+\SACTitle{相关命令}
+\nameref{cmd:xlim}

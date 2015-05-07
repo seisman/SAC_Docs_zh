@@ -1,0 +1,38 @@
+\SACCMD{cuterr}
+\label{cmd:cuterr}
+
+\SACTitle{概要}
+控制坏的截窗参数引起的错误
+
+\SACTitle{语法}
+\begin{SACSTX}
+CUTERR FA!TAL!|U!SEBE!|FI!LLZ!
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [FATAL] 将截窗错误设置为致命
+\item [USEBE] 将坏的起始和结束截窗参数设置为文件开始和文件结束 
+\item [FILLZ] 在文件开始时间之前或文件结束时间之后填补适当数目的0以弥补坏的截窗参数
+\end{description}
+
+\SACTitle{缺省值}
+对于信号迭加子程序默认值为FILLZ，其他的默认值为USEBE
+
+\SACTitle{说明}
+这个命令控制由于坏的截窗参数引起的错误条件。可以将这些错误定义为致命错误。如果裁剪参数的
+起始值或结束值在文件头段中未定义，则可以选择为USEBE。如果定义了要截取的时间窗但是其截窗起始值
+小于文件起始值或者截窗参数结束值大于文件结束值，则可以分别用文件起始结束值代替截窗参数，
+或者也可以使用FILLZ在文件前后补适当的0。
+
+\SACTitle{示例}
+假设文件FILE1起始时间为B=25s，初动到时A=40s,采样率为0.01s。
+\begin{SACCode}
+SAC> cut a -20 e
+SAC> read file1
+\end{SACCode}
+截窗起始值为20s，产生了一个错误条件。在USEBE模式下，截窗起始值将替换为25s(即B)。在FILLZ模式下，
+在数据之前将将插入500个0(5秒钟，每秒100个点)，截窗起始值保持为20s。
+
+\SACTitle{相关命令}
+\nameref{cmd:cut}、\nameref{cmd:read}

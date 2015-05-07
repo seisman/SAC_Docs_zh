@@ -1,0 +1,122 @@
+\section{震相拾取}
+\label{sec:phase-picking}
+
+相关命令：\nameref{cmd:plotpk}
+
+震相拾取是SAC中最常用的一个功能。plotpk的用法很简单，但却是教程中最难解释的一部分。
+当在SAC中键入plotpk（简写为ppk）后，即进入``ppk模式''。
+
+\begin{SACCode}
+SAC> fg seis
+SAC> ppk        // 进入ppk模式
+// 将光标置于绘图窗口上，键入"q"以退出ppk模式
+SAC> wh
+SAC> q
+\end{SACCode}
+此时会出现一个绘图窗口，且焦点位于绘图窗口上，SAC程序进入了ppk模式。
+
+\begin{table}[H]
+\centering
+\small
+\ttfamily
+\caption{ppk模式命令一览表}
+\label{table:plotpk-commands}
+\begin{tabular}{cll}
+	\toprule
+    命令	&	含义	                                &   说明    \\
+	\midrule
+    a	    &	定义事件初至a                           &   1,7	    \\
+    b	    &	如果有，则显示上一张绘图	            &           \\
+    c	    &	计算事件的初至和结束                    &   1,4,7	\\
+    d	    &	设置震相方向为DOWN	                    &           \\
+    e     	&	设置震相起始为EMERGENT(急始)	        &           \\
+    f	    &	定义事件结束f                           &  1,2,3,7	\\
+    g	    &	以HYPO格式将拾取显示到终端              &   4   	\\
+    h   	&	将拾取写成HYPO格式                      &   3,4 	\\
+    i	    &	设置震相起始为IMPULSIVE	                &           \\
+    j	    &	设置噪声水平                            &   2,6,8	\\
+    k       &   即kill，退出ppk模式                     &           \\
+    l	    &	显示光标当前位置                        &   2,4	    \\
+    m	    &	计算最大振幅波形                        &   2,3,5	\\
+    n	    &	显示下一绘图	                        &           \\
+    o	    &	显示前一个绘图窗，最多可以保存5个绘图窗	&           \\
+    p	    &	定义P波到时                             &   1,2,3,7	\\
+    q	    &	即quit，结束ppk模式	                            &           \\
+    s	    &	定义S波到时                             &   1,2,3,7 \\
+    t	    &	用户自定义到时tn，输入t之后需要输入0到9中的任一数	&   1,2,7\\
+    u	    &	设置震相方向为UP	                    &           \\
+    v	    &	定义一个Wood-Anderson波形               &   2,5 	\\
+    w	    &	定义一个通用波形                        &   2,5 	\\
+    x	    &	使用一个新的x轴时间窗，简单说就是放大。 &           \\
+    z	    &	设置参考水平                            &   2,6,8	\\
+    \textbackslash	    &	删除当前全部拾取的定义。当一个文件中包含多个事件时有用。&	\\
+    +	    &	设置震相方向为PLUS	                    &           \\
+    -	    &	设置震相方向为MINUS	                    &           \\
+    \lstinline[showspaces]{ }   &	设置震相方向为NEUTRAL	                &           \\
+    n	    &	设置震相质量为n，n取0-4	                &           \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+移动光标到绘图窗口内部，光标会以交叉瞄准线的形式出现。在``\nameref{sec:sac-install}''
+一节中提到的SAC全局变量~\verb+SAC_PPK_USE_CROSSHAIRS+~可以控制该光标的形态。当此全局
+变量为0时，光标形态为
+``\tikz[scale=0.3]{
+    \draw[very thick] (0,0) -- (1,0);
+    \draw[very thick] (0.5,-0.5) -- (0.5,0.5);
+}''；当此全局变量为1时，会在0的基础上再加上水平和垂直线。个人推荐设置其值为1。
+
+此时所有的键入都会解释成``ppk模式''下的命令，表~\ref{table:plotpk-commands}~列出了
+``ppk模式''支持的所有命令。
+
+不同的命令效果可能不同，有些会在绘图窗口显示信息，有些会将信息写入头段变量，
+下面对表~\ref{table:plotpk-commands}~中的说明进行一个说明：
+\begin{description}
+    \item [1] 会将信息写入头段变量
+    \item [2] 写入字符型震相拾取文件（若已打开）
+    \item [3] 写入HYPO格式震相拾取文件（若已打开）
+    \item [4] 在绘图窗口中显示信息
+    \item [5] 窗口显示包含波形的矩形
+    \item [6] 在指定的水平处放置水平光标
+    \item [7] 绘图窗口显示含有到时标识的垂直线
+    \item [8] 绘图窗口显示含有标识的水平线
+\end{description}
+
+``ppk模式''的命令几乎都是由单个字符组成的（唯一的例外是命令``t''，由字符``t''和0-9的
+整数构成），每个命令都有相应的功能，同时也会产生一定的效果。经常使用的包括
+``b''、``l''、``n''、``o''、``q''、``t''和``x''。
+
+关于``x''，首先需要将光标移动到窗口中某位置，键入``x''，再向右移动至某位置，
+再次键入``x''，两次键入确定了一个时间窗，绘图窗口中将只显示该时间窗内的波形，
+即X轴的放大，常用于查看波形的细节。可以不断重复此步骤，进行多次放大。
+
+对于101.5之后的版本，可以不使用``x''进行放大，直接在绘图窗口中某位置按下鼠标左键，并拖动至另一位置再松开鼠标左键，则该时间窗内的波形会被放大。这种方法相对于``x''来说更加高效。
+
+放大之后的另一个问题就是缩小，这可以通过``o''来实现，``o''最多可以回退5次绘图历史。
+
+当只有一个波形时：
+\begin{SACCode}
+SAC> fg seis
+SAC> ppk
+// 键入"t"和"0"标记到时
+SAC> wh         // 保存头段
+\end{SACCode}
+
+当有多个波形时，一般每次只显示若干个：
+\begin{SACCode}
+SAC> dg sub teleseis ntkl.z nykl.z onkl.z sdkl.z
+SAC> ppk p 1    // 每次显示1个波形
+// 键入"n"显示下一个波形，键入"b"显示上一个波形
+// 键入"t"和"0"标记到时
+SAC> wh
+SAC> q
+\end{SACCode}
+
+当有多个波形时，每次显示三分量，且希望一次性标记三个分量的到时：
+\begin{SACCode}
+SAC> dg sub teleseis ntkl.[nez] nykl.[nez] onkl.[nez] sdkl.[nez]
+SAC> ppk p 3 r m
+// 键入"t0"标记到时，此时键入一次"t0"可以标记当前显示的全部波形
+SAC> wh
+SAC> q
+\end{SACCode}

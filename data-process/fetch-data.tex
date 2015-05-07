@@ -1,0 +1,17 @@
+\section{数据获取与转换}
+地震波形数据的获取途径很多，列举如下：
+\begin{enumerate}
+\item IRIS：\url{www.iris.edu}
+\item Hi-net：\url{www.hinet.bosao.go.jp}
+\item GEOFON：\url{geofon.gfz-potsdam.de}
+\end{enumerate}
+
+数据的传输介质主要是网络传输为主，也有以移动硬盘、光盘或U盘为传输介质的。
+
+最常见的数据交换格式是SEED格式，用于储存多台站多分量的连续波形数据
+以及台站相关元信息。SEED格式本质上是一个压缩文件，因而可以大大减少网络
+传输数据量以及硬盘空间。除了SEED格式之外，miniSEED格式仅包含连续波形数据，
+而dataless SEED格式仅包含台站元信息。
+
+IRIS提供了rdseed软件，用于读取SEED格式，并将其中的波形数据解压成为多种
+地震数据格式。Hi-net提供了win32\_tools，用于将win32格式的数据文件解压成为SAC格式。

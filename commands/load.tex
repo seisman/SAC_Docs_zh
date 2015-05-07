@@ -1,0 +1,55 @@
+\SACCMD{load}
+\label{cmd:load}
+
+\SACTitle{概要}
+导入外部命令（在SAC的linux版本中外部命令的导入需要额外的工作）
+
+\SACTitle{语法}
+\begin{SACSTX}
+LOAD comname [ABBREV abbrevname]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [comname] 从一个共享目标文件中载入的一个外部函数名 
+\item [ABBREV abbrevname] 命令的简写 
+\end{description}
+
+\SACTitle{说明}
+这个命令允许用户载入由SAC外部命令接口写的命令。(参见EXTERNAL\_INTERFACE文档)。这个命令必须是一个储存在共享目标库(.so文件)中。SAC将检查所有环境变量SACSOLIST中的共享目标库，这个环境变量需要包含一个或多个共享目标库，每个库以空格分割。到这些共享目标库的路径必须在环境变量LD\_LIBRARY\_PATH中指定。如果SACSOLIST为设置，则SAC将使用由LD\_LIBRARY\_PATH中指定的路径在共享文件库libsac.so中寻找。一个叫做libcom.so的库随着SAC发布。
+
+\SACTitle{示例}
+设置你的环境变量使得SAC在当前目录从库文件libbar.so中查找一个称为foo的命令，并为foo设置别名为myfft:
+\begin{SACCode}
+% export SACSOLIST = "libcom.so libbar.so"
+#  Add the current directory to the search path.
+% export LD_LIBRARY_PATH {$LD_LIBRARY_PATH}:. 
+% sac
+SAC> load foo abbrev myfft* load the command
+SAC> read file1.z file2.z file3.z  * input files to pass to the command
+SAC> myfft real-imag* invoke command with its arguments,
+* commands must parse their own args.
+SAC> psp
+\end{SACCode}
+
+如何创建一个包含你的命令的共享目标库:
+\begin{SACCode}
+Solaris::
+cc -o libxxx.so -G extern.c foo.c bar.c
+SGI::
+cc -g -o libxxx.so -shared foo.c bar.c
+LINUX: (gcc)::
+gcc -o libxxx.so -shared extern.c foo.c bar.c sac.a
+\end{SACCode}
+其中sac.a可以从你得到sac的地方获得
+
+\SACTitle{SAC发布的外部命令}
+在SAC的发布版中有一个外部命令，叫做FLIPXY。FLIPXY将一个或多个X-Y数据文件作为输入，并调换X和Y。这个命令在SAC/aux/external中的libcom.so中，同时还有FLIPXY的源代码作为参考。为了导入FLIPXY，libcom.so必须包含在SACSOLIST中
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1028: 外部命令不存在：这意味着SAC无法找到你的外部命令
+\end{itemize}
+
+这个错误产生的原因很多，一个可能是环境变量LD\_LIBRARY\_PATH不包含到达你的共享库的目录。
+另一个可能的原因是SACSOLIST不包含你的共享库的名字

@@ -1,0 +1,68 @@
+\SACCMD{addf}
+\label{cmd:addf}
+
+\SACTitle{概要}
+使内存中的一组数据加上另一组数据
+
+\SACTitle{语法}
+\begin{SACSTX}
+ADDF [N!EWHDR! [ON|OFF]] filelist
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [NEWHDR ON|OFF] 若为OFF，则生成的数据文件使用内存中原文件的头段；
+    若为ON，则生成的数据文件使用filelist中新文件的头段。缺省值为OFF。
+\item [filelist] SAC二进制文件列表。
+\end{description}
+
+\SACTitle{说明}
+这个命令用于将一组数据文件与另一组数据文件分别相加。
+若内存中的文件数多于filelsit中文件数，则filelist的最后一个文件将加到剩余文件中；
+若filelist中的文件数多余内存中的文件数，则filelist中多余的文件将被忽略。
+
+该命令仅可对等间隔时间序列进行操作，且要求相加的两个数据文件有相同的采样周期和
+数据点数，数据文件所对应的绝对时刻也应匹配。
+
+对于采样周期和数据点数是否匹配的检查，可以通过~\nameref{cmd:binoperr}~命令进一步设置为
+ignore、warning或fatal。
+
+在ignore或warnings的前提下，若两个待相加的文件采样周期不等，SAC会忽略采样周期的差异，
+直接进行数据点的加法；若文件的数据点数不等，则取最小的数据点数作为最终结果文件的
+数据点数。
+
+若两个待相加的文件所对应的时刻不完全匹配，则会给出警告，但相加操作会继续执行。
+
+\SACTitle{示例}
+将一个文件加到其他三个文件中:
+\begin{SACCode}
+SAC> r file1 file2 file3
+SAC> addf file4
+\end{SACCode}
+
+将两个文件分别加到另两个文件中:
+\begin{SACCode}
+SAC> r file1 file2
+SAC> addf file3 file4
+\end{SACCode}
+
+\SACTitle{头段变量}
+depmin、depmax、depmen、npts、delta
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-]1301: 未读入数据件
+\item[-]1803: 未读入二进制数据文件
+\item[-]1306: 对不等间隔文件的非法操作
+\item[-]1307: 对谱文件的非法操作
+\item[-]1317: 文件不是SAC数据文件
+\item[-]1801: 头段值不匹配（采样周期或数据点数不相等）
+\end{itemize}
+
+\SACTitle{警告消息}
+\begin{itemize}
+\item[-]1802: 时间不匹配
+\end{itemize}
+
+\SACTitle{相关命令}
+\nameref{cmd:read}、\nameref{cmd:binoperr}

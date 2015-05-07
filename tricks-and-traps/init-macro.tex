@@ -1,0 +1,19 @@
+\section{自定义SAC初始化}
+SAC为大多数命令选取了合适的默认值，但有些时候命令的默认值并不是我们想要的，所以需要在SAC中执行命令并选取合适的值。如果能够在启动SAC时让SAC自动执行这些命令就最好了。
+
+SAC提供了这样的一种机制：当在终端启动SAC时，sac命令后若接文件名，则SAC会将该文件当做SAC宏文件，并依次执行该宏文件中的SAC命令。
+
+首先新建一个宏文件，比如在SAC的aux目录下新建文件~\verb+init.m+~，其内容如下：
+\begin{minted}{console}
+qdp off
+\end{minted}
+
+然后，在~\verb+~/.bashrc+~中加入如下别名语句：
+\begin{minted}{console}
+alias sac="${SACHOME}/bin/sac ${SACAUX}/init.m"
+\end{minted}
+
+重启shell之后，SAC在每次启动时会首先执行初始化宏文件~\verb+init.m+~中的一系列SAC命令。
+
+本例中，宏文件中只有一个语句，即~\verb+qdp off+~，执行该命令会关闭快速绘图选项，即在绘图时将全部数据点都绘制出来。
+可以根据需求自定义启动宏文件。

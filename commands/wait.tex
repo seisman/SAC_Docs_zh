@@ -1,0 +1,30 @@
+\SACCMD{wait}
+\label{cmd:wait}
+
+\SACTitle{概要}
+控制SAC在绘制多个图形时是否暂停
+
+\SACTitle{语法}
+\begin{SACSTX}
+WAIT [ON|OFF|EVERY]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [ON] 按常规模式打开等待选项 
+\item [OFF] 关闭等待选项 
+\item [EVERY] 每个图形之间均等待
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+wait on
+\end{SACDFT}
+
+\SACTitle{说明}
+当你读取了多个数据文件并使用PLOT绘制，每个文件将产生一个框架，如果你绘制到终端，
+正常情况下SAC将在每张图后暂停并发送信息``WAITING''到终端。然后你可以键入回车看到下一张图，
+或输入``GO''使SAC不暂停地绘制剩下的图形，或键入``KILL''终止绘制这组文件。SAC绘制最后
+一张图之后不再暂停，因为通常的输入提示符提供了相同的功能。当这个选项关闭时，SAC在不
+同的绘图之间不暂停。在每个图形模式下，SAC不仅在用PLOT命令产生的绘图之间，而且在绘制
+每个图形时都暂停。如果你是在命令文件或者作业控制程序的控制下使用SAC，那么这一点将很有用。

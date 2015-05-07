@@ -1,0 +1,29 @@
+\SACCMD{convert}
+\label{cmd:convert}
+
+\SACTitle{概要}
+实现数据文件格式的转换
+
+\SACTitle{语法}
+\begin{SACSTX}
+CONV!ERT! [FROM] [format] infile [TO [format] outfile]|[OVER [format]]
+\end{SACSTX}
+其中format可以为~\verb+SAC|ALPHA+
+
+\SACTitle{输入}
+\begin{description}
+\item [infile] 输入文件名
+\item [outfile] 输出文件名
+\item [OVER] 覆盖输入文件
+\item [SAC] SAC格式二进制文件
+\item [ALPHA] SAC字母数字型文件
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+convert from sac infile over sac
+\end{SACDFT}
+
+\SACTitle{说明}
+这个命令将单个文件从一种格式转换为另一种格式。该命令已经逐渐被read和write命令
+所取代，convert命令已经不再需要，保留该命令只是为了兼容性考虑。

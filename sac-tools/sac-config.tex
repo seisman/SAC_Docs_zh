@@ -1,0 +1,23 @@
+\section{sac-config}
+\label{sec:sac-config}
+
+sac-config是SAC提供的一个简单的配置脚本，用于返回编译、链接SAC函数库时所需要的
+一些信息。
+
+其用法如下：
+\begin{minted}{console}
+Usage: sac-config [-clvp] [--prefix[=DIR]] [--version] [--libs] [--cflags] libs 
+       Display information regarding SAC, specifically used
+         during the compilation of programs using the libraries
+         of SAC: sacio and sac
+
+          --cflags       Output Compilation Flags
+          -c 
+          --libs         Output Sac Libraries
+          -l
+          --prefix=path  Set alternative Prefix to path for SAC
+          --prefix       Display Current SAC Prefix Path
+          -p
+          --version      Display SAC version information
+          -v
+\end{minted}

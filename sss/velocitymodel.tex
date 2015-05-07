@@ -1,0 +1,60 @@
+\SACCMD{velocitymodel}
+\label{sss:velocitymodel}
+
+\SACTitle{概要}
+设置计算动延迟时所使用的迭加速度模型参数
+
+\SACTitle{语法}
+\begin{SACSTX}
+V!ELOCITY!M!ODEL! n [ON|OFF] [REFRACTEDWAVE|NORMALMOVEOUT]
+    [FLIP] [VAPP v|CALCULATE] [T0VM v|CALCULATE]
+    [DVM v1 [v2]] [TVM v1 [v2]] [VAPPI v] [T0VMI v]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [n] 设置速度模型号，取值为1或2
+\item [ON|OFF] 打开/关闭速度模型选项。若打开则使用速度模型，否则忽略
+\item [REFRACTEDWAVE] 打开速度模型选项，并修改为折射波模型
+\item [NORMALMOVEOUT] 打开速度模型选项，并修改为Normal moveout模型
+\item [FLIP] 交换两个速度模型的属性
+\item [VAPP v] 设置视速度为v
+\item [VAPP CALCULATE] SAC自动计算视速度
+\item [TOVM v] 设置时间轴截距为v
+\item [TOVM CALCULATE] SAC自动计算截距
+\item [DVM v1 v2] 定义一/二个参考距离
+\item [TVM v1 v2] 定义一/二个参考时间
+\item [VAPPI v] 设置视速度增量为v。每次~\nameref{sss:incrementstack}~命令执行时视速度增加v
+\item [TOVMI v] 设置时间轴截距的增量为v。每次~\nameref{sss:incrementstack}~命令执行时视速度增加v
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+velocitymodel 1 off
+velocitymodel 2 off
+\end{SACDFT}
+
+\SACTitle{说明}
+第一个速度模型用于计算某个特定震相的动态台站延迟。在信号迭加（\nameref{sss:sumstack}）、绘图叠加图（\nameref{sss:plotstack}）、绘制剖面图（\nameref{sss:plotrecordsection}）时会使用该模型。第二个速度模型用于在绘图剖面图时显示相对于第二震相的延迟。这两个模型的参数可以很容易的进行交换。
+
+可以使用两种速度模型，即折射波速度模型：
+\[ T_{delay} = TVM(1) - \frac{TOVM+DIST}{VAPP} \]
+以及normal moveout速度模型：
+\[ T_{delay} = TVM(1) - \sqrt{TOVM^2 + (\frac{DIST}{VAPP})^2} \]
+
+这些速度模型延迟可以通过多种方式得到：
+\begin{itemize}
+\item 直接输入VAPP、TOVM、TVM(1)
+\item 输入DVM(1)、TVM(1)以及VAPP或TOVM，SAC自动计算所需的变量以保证在距离DVM(1)处时间延迟为零
+\item 输入DVM(1)、TVM(1)、DVM(2)和TVM(2)。SAC将计算VAPP和TOVM，以保证在距离DVM(1)处的时间延迟为零
+\end{itemize}
+
+\SACTitle{示例}
+设置第一个迭加速度模型为折射波模型，视速度为6.5 km/s，让SAC自动计算TOVM以使得200 km处的时间延迟为零：
+
+\begin{SACCode}
+velocitymodel 1 refractedwave vapp 6.5 tovm calculate dvm 200 tvm 35
+\end{SACCode}
+
+\SACTitle{相关命令}
+\nameref{sss:sumstack}、\nameref{sss:plotstack}、\nameref{sss:plotrecordsection}

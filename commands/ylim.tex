@@ -1,0 +1,43 @@
+\SACCMD{ylim}
+\label{cmd:ylim}
+
+\SACTitle{概要}
+设定图形中y轴的范围
+
+\SACTitle{语法}
+\begin{SACSTX}
+YLIM [ON|OFF|ALL|min max|PM v]
+\end{SACSTX}
+
+\SACTitle{输入}
+\begin{description}
+\item [ON] 打开y轴范围选项，但不改变范围值 
+\item [OFF] 关闭y轴范围选项
+\item [ALL] 根据内存中所有文件的最大和最小值限定y轴的范围
+\item [min max] 设定y轴的范围为min到max之间
+\item [PM v] 打开y轴范围选项，并设置y轴的范围为-v到+v之间。
+\end{description}
+
+\SACTitle{缺省值}
+\begin{SACDFT}
+ylim off
+\end{SACDFT}
+
+\SACTitle{说明}
+当此选项关闭时，根据数据因变量的范围决定绘图时y轴的范围。当此选项打开时，限定y轴的范围，
+也可以根据内存中的整个数据集来限定y轴的范围。你可能想要对内存中不同的
+文件设定不同的y轴范围，此时可以多次使用这些选项。第一个条目用于第一个文件，第二个条目
+用于第二个文件，最后一个条目用于内存中余下的全部文件。
+
+\SACTitle{示例}
+\begin{SACCode}
+SAC> ylim 0.0 30.0 all off
+SAC> r file1 file2 file3
+SAC> p
+\end{SACCode}
+file1的y轴范围为0.0到30.0，file2的y轴范围为内存中所有文件的最大、最小值，file3的
+y轴范围将限定为文件自身的最大、最小值。如果文件多于三个，则其余的所有文件都限定
+为文件自身的最大、最小值。
+
+\SACTitle{相关命令}
+\nameref{cmd:cut}
