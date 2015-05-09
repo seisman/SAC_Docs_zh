@@ -5,14 +5,15 @@
 # 	1. http://tex.stackexchange.com/questions/40738/
 # 	2. Manual of latexmk
 #
+DOC = SAC_Docs
 
-.PHONY: SAC_Docs.pdf all clean
+.PHONY: $(DOC).pdf all clean
 
-all: SAC_Docs.pdf
+all: $(DOC).pdf
 
-SAC_Docs.pdf: SAC_Docs.tex
+$(DOC).pdf: $(DOC).tex
 	latexmk -xelatex -shell-escape -use-make $^
 
 clean:
 	latexmk -c
-	-rm -r _minted-SAC_Docs
+	-rm -r _minted-$(DOC)
