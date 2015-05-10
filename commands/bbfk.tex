@@ -13,7 +13,7 @@ BBFK [F!ILTER!] [NO!RMALIZE!] [EPS v] [MLM|PDS] [E!XP! n] [WA!WVENUMBER! v]
 
 \SACTitle{输入}
 \begin{description}
-\item [FILTER] 使用最近一次filterdesign命令设计的带通滤波器
+\item [FILTER] 使用最近一次~\nameref{cmd:filterdesign}命令设计的带通滤波器
 \item [NORMALIZE] 用Capo方法归一化协方差矩阵，如果各信号道的振幅差别比较大，这是一个好方法
 \item [EPS v] 调整协方差矩阵的分量值，矩阵对角线的项是(1.0+EPS)的整数倍。
 \item [MLM] 在高分辨率估计中使用最大似然法
@@ -46,8 +46,8 @@ BBFK命令允许用户计算宽频频率-波数谱。
 \end{itemize}
 
 \SACTitle{输出}
-polar输出立即被绘制出（不保留），square输出会写入到硬盘。
-FK的峰值、反方位角以及波数将分别写入黑板变量BBFK\_AMP, BBFK\_BAZIM 以及BBFK\_WVNBR。
+polar输出立即被绘制出(不保留)，square输出会写入到硬盘。
+FK的峰值、反方位角以及波数将分别写入黑板变量~\verb+BBFK_AMP+、\verb+BBFK_BAZIM+以及\verb+BBFK_WVNBR+。
 
 \SACTitle{错误消息}
 \begin{itemize}
