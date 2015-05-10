@@ -20,7 +20,7 @@ EOF
 \end{minted}
 由于SAC命令前有Tab键(Tab键和空格是肉眼无法区分的，只要知道上面的脚本中含
 有Tab即可)，导致执行该脚本的结果如下:
-\begin{verbatim}
+\begin{minted}{console}
 sh: line 0: fg: no job control
 22:24:49 up 12 days, 12:24,
 USER
@@ -37,7 +37,7 @@ SAC executed from a script: quit command missing
 Please add a quit to the script to avoid this message
 If you think you got this message in error,
 please report it to: sac-help@iris.washington.edu
-\end{verbatim}
+\end{minted}
 
 引起该问题的原因尚不清楚，但比较明显的是，由于命令的行首有Tab，
 导致SAC对命令的解析出现了问题，所有的命令斗都被当做外部命令来解释了。

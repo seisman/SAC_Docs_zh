@@ -24,7 +24,7 @@
     |-- version.tex         # 版本说明
     |-- contributor.tex     # 维护者列表
     |
-    |-- figures             # 文档内的插图：eps、jpg等格式
+    |-- figures             # 文档内的插图
     |-- scripts             # 用于绘制插图的脚本与数据
     |
     |-- introduction        # 简介
@@ -37,7 +37,8 @@
     |-- sac-libs            # 函数库
     |-- sacio               # I/O
     |-- sac-tools           # 相关工具
-    |-- tricks              # SAC技巧
+    |-- tricks-and-traps    # 技巧与陷阱
+    |-- appendix            # 附录
     |
     |-- commands            # 基础命令
     |-- sss                 # SSS子程序
@@ -46,15 +47,12 @@
 ## 依赖 ##
 
 - TeX发行版：[TeXLive 2014](https://www.tug.org/texlive/)
-- 中文支持：[xeCJK](http://www.ctan.org/pkg/xecjk)
 - 中文字体：[Fandol](http://www.ctan.org/tex-archive/fonts/fandol)（TeX自带字体）
-- 英文字体：未知（TeX默认字体）
 - 构建工具：[make](https://www.gnu.org/software/make/)或[scons](http://www.scons.org/)
 - 代码高亮：[pygments](http://pygments.org/)
 - 图片生成：
     - [SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)
     - [GMT4](http://gmt.soest.hawaii.edu/gmt4/)
-    - [ImageMagick](http://www.imagemagick.org/)
 
 ## 如何编译 ##
 
@@ -64,7 +62,7 @@
 
 必须的依赖如下：
 
-    yum install python-pygments make ImageMagick
+    yum install python-pygments make
 
 构建源码是若使用`scons`而不是`make`，则需安装：
 
@@ -90,7 +88,7 @@
    git clone https://github.com/seisman/SAC_Docs_zh.git
    ```
 
-2. 重新生成图片
+2. 重新生成图片（选做）
 
    ```
    cd scripts
