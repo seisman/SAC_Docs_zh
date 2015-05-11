@@ -158,7 +158,7 @@ SAC> psp am
 文件。
 
 \subsubsection{PZ文件}
-可以使用\verb+polezero subtype+后接PZ文件的方式来指定响应文件：
+可以使用\verb+polezero subtype+后接PZ文件的方式来指定响应文件。
 \begin{SACCode}
 SAC> r XXX.Z
 SAC> rmean; rtr; taper
@@ -172,9 +172,14 @@ PZ文件中可以包括多个台站的PZ文件。假设用rdseed在当前目录�
 SAC> r *BH*SAC          // 读入全部数据
 SAC> rtr
 SAC> taper
-SAC> trans from polezero s event.pz freq 0.05 0.1 10.0 15.0
+SAC> trans from polezero s event.pz to none freq 0.05 0.1 10.0 15.0
+SAC> mul 1.0e9
 SAC> w over
 \end{SACCode}
+
+需要格外注意，在用PZ文件去仪器响应得到位移物理量时，得到的数据的单位是~\verb+m+，
+而SAC中默认的单位是~\verb+nm+，因而需要将数据乘以10的9次方将数据的单位转换成~\verb+nm+。
+对于转换得到速度或加速度，同理。
 
 虽然没有进过验证，但根据经验做如下合理猜测：当把多个PZ文件合并成一个总PZ文件时，
 PZ文件中的注释行就很重要了，transfer命令会从中提取相关信息与波形的头段信息进行

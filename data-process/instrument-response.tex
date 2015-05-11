@@ -57,7 +57,9 @@ SAC> trans from WWSP to VEL freq 0.1 0.2 10 15
 \begin{SACCode}
 SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rmean; rtr; taper
-SAC> trans from evalresp fname RESP.TA.N11A..LHZ to none freq 0.004 0.007 0.2 0.4
+SAC> trans from ev fn RESP.TA.N11A..LHZ to none freq 0.004 0.007 0.2 0.4
+    // from evalresp fname RESP.TA.N11A..LHZ
+    // 简化成from ev fn RESP.TA.N11A..LHZ
 \end{SACCode}
 
 PZ文件~\verb+SAC_PZs_XC_OR075_LHZ+~是需要从波形~\verb+OR075_LHZ.SAC+~
@@ -65,9 +67,12 @@ PZ文件~\verb+SAC_PZs_XC_OR075_LHZ+~是需要从波形~\verb+OR075_LHZ.SAC+~
 \begin{SACCode}
 SAC> r OR075_LHZ.SAC
 SAC> rmea; rtr; taper
-SAC> trans from polezero subtype SAC_PZs_XC_OR075_LHZ to none freq 0.008 0.016 0.2 0.4
-SAC> mul 1.0e9          // 由于是to none，这里必须乘以1.0e9
-SAC> w OR075.z          // 此时数据为位移量，单位为nm
+SAC> trans from pol s SAC_PZs_XC_OR075_LHZ to none freq 0.008 0.016 0.2 0.4
+    // from polezero subtype SAC_PZs_XC_OR075_LHZ
+    // 简化成from pol s SAC_PZs_XC_OR075_LHZ
+SAC> mul 1.0e9      // 用PZ文件transfer to none得到的位移数据的单位为m
+                    // 而SAC默认的单位为nm，因而必须乘以1.0e9
+SAC> w OR075.z      // 此时位移数据的单位为nm
 \end{SACCode}
 
 假设有fapfile文件~\verb+fap.n11a.lhz_0.006-0.2+，其名字表示频率段为0.006 Hz到0.2 Hz，
