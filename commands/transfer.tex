@@ -35,7 +35,7 @@ freqlimits用于在去除仪器响应的时候对波形的低频和高频部分�
 响应的时候（即\verb+to none+），就有必要修改超低频率处的响应以防止频率域除0。
 在高频区域，信噪比通常很低，因而有必要对其响应进行抑制。
 freqlimites包含了低通和高通的尖灭函数（taper），可以实现高频和低频的有效压制。
-四个频率满足f1<f2<f3<f4，尖灭函数在f2和f3间为1，在f1以下和f4以上为0。频率f1和
+四个频率满足\verb+f1<f2<f3<f4+，尖灭函数在f2和f3间为1，在f1以下和f4以上为0。频率f1和
 f2确定了高通滤波器的特性，频率f3和f4指定了低通滤波器的特性。
 f1与f2之间以及f3与f4之间分别为余弦波的四分之一个周期。
 
@@ -199,3 +199,8 @@ SAC> taper
 SAC> trans from fap s fap.n11a.lhz_0.006-0.2 to none freq 0.004 0.006 0.1 0.2
 SAC> mul 1.0e9
 \end{SACCode}
+
+\SACTitle{错误消息}
+\begin{itemize}
+\item[-] 2111: FREQLIMITS的参数有误，应满足\verb+f1<f2<f3<f4+
+\end{itemize}
