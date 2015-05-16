@@ -4,24 +4,24 @@
 \subsection{基本变量}
 
 \subsubsection{\texttt{nvhdr}*}
-SAC头段版本号。nvhdr\footnote{星号表示该头段变量在SAC中必须有定义值，下同。}是SAC中很重要但是不太常用的头段变量。
-目前值为6，旧版本的SAC文件（$nvhdr<6$）在读入时会自动更新。
+SAC头段版本号。nvhdr\footnote{星号表示该头段变量在SAC中必须有定义值，下同。}
+是SAC中很重要但是不太常用的头段变量。
+目前版本号为6，旧版本的SAC文件(\texttt{nvhdr<6})在读入时头段区会自动更新。
 
 \subsubsection{\texttt{nzyear, nzjday, nzhour, nzmin, nzsec, nzmsec}}
 分别表示``年''、
 ``一年的第几天''
 \footnote{使用jday而不是``month+day''可以少用一个头段变量。}
 \footnote{1月1日对应的nzjday是1而不是0。}
-、``时''、``分''、``秒''、``毫秒''\footnote{$1 s = 1000 ms$}。
+、``时''、``分''、``秒''、``毫秒''\footnote{1 s = 1000 ms}。
 这六个头段变量构成了SAC中唯一的绝对时刻，SAC中的其它时刻都被转换为相对于该时刻的
-相对时间（单位为秒）。详细的信息参见第~\ref{sec:sac-time}~节``~\nameref{sec:sac-time}~''中的
-介绍。
+相对时间(单位为秒)。详细的信息参见第~\ref{sec:sac-time}~节``\nameref{sec:sac-time}''
+中的介绍。
 
 根据这六个头段还可以推导出其它一些辅助型变量：
 \begin{itemize}
-\ttfamily
-\item kzdate：字符数字格式的参考日期，由nzyear和nzjday导出；
-\item kztime：字符数字格式的参考时间，由nzhour、nzmin、nzsec、nzmsec导出；
+\item \texttt{kzdate}：字符数字格式的参考日期，由nzyear和nzjday导出；
+\item \texttt{kztime}：字符数字格式的参考时间，由nzhour、nzmin、nzsec、nzmsec导出；
 \end{itemize}
 
 如下例所示:
@@ -48,8 +48,8 @@ SAC> lh kzdate kztime
 \end{SACCode}
 
 \subsubsection{\texttt{iztype}}
-等效参考时刻。SAC的参考时刻是可以任意指定的，但一般选取某个特定的时刻（比如
-文件起始时刻、发震时刻等等）作为参考时刻。其可以取如下枚举值：
+等效参考时刻。SAC的参考时刻是可以任意指定的，但一般选取某个特定的时刻(比如
+文件起始时刻、发震时刻等等)作为参考时刻。其可以取如下枚举值：
 \begin{itemize}
 \ttfamily
 \item IUNKN：未知
@@ -57,34 +57,34 @@ SAC> lh kzdate kztime
 \item IDAY：以参考日期当天的午夜作为参考时间
 \item IO：以事件发生时间为参考时间
 \item IA：以初动到时为参考时间
-\item ITn：以用户自定义的时间为参考时间（n可取0-9）
+\item ITn：以用户自定义的时间为参考时间(n可取0-9)
 \end{itemize}
 
-若iztype=IO，则表示其值以发震时刻作为参考时刻，此时头段变量o的值应为0。
+若~\verb+iztype=IO+，则表示数据以发震时刻作为参考时刻，此时头段变量o的值应为0。
 
 \subsubsection{\texttt{iftype}*}
 SAC文件类型，其决定了头段区之后有几个子数据区。该头段变量为枚举类型
-\footnote{枚举型在C源码中实际为``\verb+\#define ITIME 1+''的形式。}
+\footnote{枚举型在C源码中使用~\verb+#define+宏来定义的，比如``\verb+#define ITIME 1+''。}
 ，可以取如下几个枚举值
 \footnote{枚举值一律使用大写，且以I开头。} ：
 \begin{itemize}
 \ttfamily
-\item ITIME：时间序列文件（即Y数据，一般的地震波形数据）
-\item IRLIM：频谱文件（实部-虚部格式）
-\item IAMPH：频谱文件（振幅-相位格式）
+\item ITIME：时间序列文件(即Y数据，一般的地震波形数据)
+\item IRLIM：频谱文件(实部-虚部格式)
+\item IAMPH：频谱文件(振幅-相位格式)
 \item IXY：一般的X-Y数据
-\item IXYZ：一般的XYZ（3-D）文件
+\item IXYZ：一般的XYZ(3-D)文件
 \end{itemize}
 
 \subsubsection{\texttt{idep}}
-因变量（Y）类型，该头段变量可以不定义，其可以取如下枚举值：
+因变量(Y)类型，该头段变量可以不定义，其可以取如下枚举值：
 \begin{itemize}
 \ttfamily
 \item IUNKN：未知类型
-\item IDISP：位移量，单位为$nm$
-\item IVEL：速度量，单位为$nm/s$
-\item IVOLTS：速度量，单位为$volts$\footnote{不解}
-\item IACC：加速度量：单位为$nm/s^2$
+\item IDISP：位移量，单位为nm
+\item IVEL：速度量，单位为nm/s
+\item IVOLTS：速度量，单位为volts\footnote{不解}
+\item IACC：加速度量：单位为nm/s/s
 \end{itemize}
 
 \subsection{数据相关变量}
@@ -92,31 +92,52 @@ SAC文件类型，其决定了头段区之后有几个子数据区。该头段�
 数据点数，其值决定了在数据区有多少个数据点。
 
 \subsubsection{\texttt{delta}*}
-等间隔数据的数据点采样周期（标称值）。
+等间隔数据的数据点采样周期(标称值)。
 
 \subsubsection{\texttt{odelta}}
 采样周期的实际值，若实际值与标称值不同则有值，一般来说都是未定义的。
 
 \subsubsection{\texttt{b*, e*}}
-文件的起始时间和结束时间（相对于参考时刻的相对时间）。
+文件的起始时间和结束时间(相对于参考时刻的秒数)。
 
 \subsubsection{\texttt{leven}*}
-若数据为等间隔则为TRUE，否则为FALSE。
+若数据为等间隔则为~\verb+TRUE+，否则为~\verb+FALSE+。
 
 \subsubsection{\texttt{depmin, depmax, depmen}}
-因变量（Y）的最小值、最大值和均值。一般地，这几个头段会在读/写SAC文件时、数据处理
-过程中被自动计算。
+因变量(Y)的最小值、最大值和均值。
+
+在读入SAC文件以及对数据进行处理时，这三个头段的值会被自动计算并更新。示例如下：
+\begin{SACCode}
+$ sac
+SAC> fg seis
+SAC> lh depmax
+     depmax = 1.520640e+00      // 最大值
+SAC> ch depmax 1000             // 强行修改数据最大值
+                                // 这是错误的示范，不要这样做
+SAC> lh depmax 1000             // 查看depmax，修改成功
+     depmax = 1.000000e+03
+SAC> w seis.SAC                 // 写到磁盘中
+SAC> q
+$ saclst depmax f seis.SAC      // 调用saclst查看磁盘文件中的depmax
+seis.SAC         1000           // 可以看到磁盘中的文件depmax=1000
+$ sac
+SAC> r ./seis.SAC               // 读入SAC
+SAC> lh depmax
+     depmax = 1.520640e+00      // 此时depmax被自动计算并更新
+\end{SACCode}
 
 \subsubsection{\texttt{scale}}
-因变量比例因子，即真实物理场被乘以该比例因子而得到现有数据。比如真实物理场的Y值
-大概在$10^{-20}$量级，数据处理起来很不方便，这个时候可以设置scale=$10^{20}$，
-将真实物理场的量级修改到$10^1$。
+因变量比例因子，即真实物理场被乘以该比例因子而得到现有数据。
+
+假设真实物理场的Y值大概在$10^{-20}$量级，由于数据量级太小处理起来可能不太方便。
+此时可以将数据乘以$10^{20}$变成合适的量级，并修改scale=10e20，这样就可以知道
+自己对数据人为放大了多少倍。
 
 \subsubsection{\texttt{xminimum, xmaximum, yminimum, ymaximum}}
-仅用于3D（XYZ）文件中，记录X和Y的最小/大值。
+仅用于3D(XYZ)文件中，记录X和Y的最小/大值。
 
 \subsubsection{\texttt{nxsize, nysize}}
-仅用于3D（XYZ）文件中，表示X和Y方向的数据点数。
+仅用于3D(XYZ)文件中，表示X和Y方向的数据点数。
 
 \subsubsection{\texttt{iqual}\dag}
 iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即变量有值或者无值、有何值，
@@ -126,8 +147,8 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 \begin{itemize}
 \ttfamily
 \item IGOOD：高质量数据；
-\item IGLCH：数据中有毛刺（glitches）；
-\item IDROP：数据有丢失（Dropouts）；
+\item IGLCH：数据中有毛刺(glitches)；
+\item IDROP：数据有丢失(Dropouts)；
 \item ILOWSN：低信噪比数据；
 \item IOTHER：其它；
 \end{itemize}
@@ -145,8 +166,8 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 事件名。在头段区，其占据16个字节。
 
 \subsubsection{\texttt{evla, evlo, evel, evdp}}
-分别代表事件的纬度（-90到90）、经度（-180到180）、高程（单位为m，未使用）和
-深度（单位为$km$，以前为$m$）。
+分别代表事件的纬度(-90到90)、经度(-180到180)、高程(单位为m，未使用)和
+深度(单位为km，以前为m)。
 
 \subsubsection{\texttt{ievreg}\dag}
 事件地理区域\footnote{Flinn-Engdahl Regions:\url{http://en.wikipedia.org/wiki/Flinn-Engdahl_regions}}。
@@ -197,27 +218,22 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 \subsubsection{\texttt{gcarc, dist, az, baz}}
 \begin{description}
 \item [gcarc] 全称Great Circle Arc，即震中到台站的大圆弧的长度，单位为度；
-\item [dist] 震中到台站的距离，单位为千米；
+\item [dist] 震中到台站的距离，单位为km；
 \item [az] 方位角，震中到台站的连线与地理北向的夹角；
 \item [baz] 反方位角，台站到震中的连线与地理北向的夹角。
 \end{description}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8cm]{gcarc-dist-az-baz}
-\caption[震中距、方位角、反方位角示意图]{震中距、方位角、反方位角示意图。图片来自于Prof. Robert B. Herrmann 的课程讲义。}
+\includegraphics[width=8cm]{az-baz}
+\caption[震中距、方位角、反方位角示意图]{震中距、方位角、反方位角示意图。}
 \label{fig:gcarc-dist-az-baz}
 \end{figure}
 
-震中距、方位角和反方位角的计算涉及到球面三角的知识，具体细节可以参考该讲义:\\
-\scriptsize\url{http://www.eas.slu.edu/People/RBHerrmann/Courses/EASA462/ASSIGNMENTS/Ass07/Ass07.pdf}。
+震中距、方位角和反方位角的计算涉及到球面三角的知识，具体公式及其推导可以参考相关书籍。此处仅提供一些参考：
 
-\normalsize
-在不严谨的情况下，可以认为dist = gcarc*111.195，更严谨的计算方法可以参考相关文献。
-
-知道震中和台站的位置，计算震中距、方位角和反方位角是一个基本问题，有很多代码均实现了
-此功能，列举如下：
 \begin{itemize}
+\item \url{http://www.eas.slu.edu/People/RBHerrmann/Courses/EASA462/}
 \item \url{http://www.seis.sc.edu/software/distaz/}
 \item SAC源码~\verb+src/ucf/distaz.c+
 \item CPS330\footnote{\url{http://www.eas.slu.edu/eqc/eqccps.html}}源码~\verb+VOLI/src/udelaz.c+
@@ -245,11 +261,11 @@ o为事件的发生时刻相对于参考时刻的秒数。ko是绘图时变量o�
 台站地理区域。
 
 \subsubsection{\texttt{stla, stlo, stel, stdp}}
-台站纬度（-90到90度）、经度（-180到180度）、高程（单位m，目前未使用）、
-相对地表的深度（单位m，目前未使用）。
+台站纬度(-90到90度)、经度(-180到180度)、高程(单位m，目前未使用)、
+相对地表的深度(单位m，目前未使用)。
 
 \subsubsection{\texttt{cmpaz, cmpinc, kcmpnm, kstcmp}}
-一个台站至少需要三个正交的通道（或分量）才能完整地记录地面运动物理量。cmpaz和cmpinc
+一个台站至少需要三个正交的通道(或分量)才能完整地记录地面运动物理量。cmpaz和cmpinc
 指定了单个通道记录的方向矢量。
 
 图~\ref{fig:cmpaz-cmpinc}~给出了SAC所使用的NEU坐标系，需要注意的是这是一个左手坐标系。
@@ -301,16 +317,15 @@ U       &   0       &   0           \\
 \end{table}
 
 对于非标准方向的地震通道来说，很容易根据cmpinc和cmpaz的值，将其旋转到NEU坐标系或者
-RTZ坐标系，这些将在``~\nameref{sec:traces-rotating}~''一节中说到。
+RTZ坐标系，这些将在``\nameref{sec:traces-rotating}''一节中说到。
 
-kcmpnm为分量名称，SEED格式规定使用三个字符中的最后一个字符代表通道的方位（如BHE代表东西向分量）。
+kcmpnm为分量名称，SEED格式规定使用三个字符中的最后一个字符代表通道的方位(如~\verb+BHE+代表东西向分量)。
 对于水平分量，目前更趋向于使用1和2代替N和E。
 
 kstcmp为辅助型变量，表示台站分量，由kstnm、cmpaz、cmpinc推导得到。
 
 \subsubsection{\texttt{lpspol}}
-如图~\ref{fig:cmpaz-cmpinc}~所示，SAC使用左手坐标系NEU，若台站三通道的正极性分别与
-NEU三方向相同，则为真，否则为假。
+如图~\ref{fig:cmpaz-cmpinc}~所示，在左手坐标系下，若三通道都是正极性则为真，否则为假。
 
 \subsection{震相相关变量}
 \subsubsection{\texttt{a, ka, f, kf}}
@@ -322,7 +337,7 @@ a和f分别为事件的初动时刻和结束时刻相对于参考时刻的秒数
 
 \subsubsection{\texttt{Xmarker}}
 震相相关的变量对可以构成一个辅助型变量。a和ka可以构成amarker，f和kf可以构成fmarker，
-o和ko可以构成omarker，tn和ktn可以构成tnmarker（n=0-9）。
+o和ko可以构成omarker，tn和ktn可以构成tnmarker(n=0-9)。
 
 这些辅助型变量可以在~\nameref{cmd:listhdr}中使用。
 
@@ -332,24 +347,19 @@ kinst为记录仪器的通用名称，iinst为记录仪器的类型，respn为�
 
 \subsection{其它变量}
 \subsubsection{\texttt{usern, kusern}}
-usern（n=0-9）和kusern（n=0-2）均用来存储用户自定义值。不像a和ka那样成对存在，
+usern(n=0-9)和kusern(n=0-2)均用来存储用户自定义值。不像a和ka那样成对存在，
 usern和kusern之间没有对应关系。比如可以将波形的信噪比保存在user0中，将任意字符串
 保存到kuser0中。
 
 \subsubsection{\texttt{lovrok}}
-若为TRUE，则磁盘里的原始数据可被覆盖；若为FALSE，则原始数据不可被覆盖。
+若为~\verb+TRUE+，则磁盘里的原始数据可被覆盖；若为~\verb+FALSE+，则原始数据不可被覆盖。
 主要用于保护原始数据，一般来说很少用到，若是出于保护原始数据的目的，
 应优先考虑对原始数据做备份。
 
-若lovrok取值为FALSE时尝试覆盖原始数据，会出现如下错误：
-\begin{minted}{console}
-ERROR 1303: Overwrite flag is not on for file xxx
-\end{minted}
-
 \subsubsection{\texttt{lcalda}}
-全称为Calculate Distance and Azimuth。若为TRUE，则当事件和台站的坐标被写入或被修改时，
-dist、gcarc、az、baz将自动计算；否则dist、gcarc、az、baz不会被自动计算，SAC头段中
-会存在信息的不兼容。
+全称为Calculate Distance and Azimuth。若为~\verb+TRUE+，则当事件和台站的坐标被
+写入或被修改时，头段变量dist、gcarc、az、baz将自动计算；否则dist、gcarc、az、baz
+不会被自动计算，SAC头段中会存在信息的不兼容。
 
 \subsubsection{\texttt{kdatrd}}
-数据被读入计算机的日期。
+数据被读入计算机的日期(一般很少使用)。
