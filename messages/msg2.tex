@@ -1,0 +1,6 @@
+\SACTitle{2111 Taper frequency limits are invalid. No taper applied.}
+该警告出现在~\nameref{cmd:transfer}~命令中，出现该错误的原因是~\verb+freqlimits+
+选项的参数设置有误。四个频率应满足~\verb+f1<f2<f3<f4+。
+
+出现该警告时，\nameref{cmd:transfer}~会忽略~\verb+freqlimits+选项，即在去仪器
+响应时，不使用taper函数，进而可能导致去仪器响应后的波形出现问题。

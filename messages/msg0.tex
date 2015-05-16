@@ -1,0 +1,7 @@
+\SACTitle{1303 Overwrite flag is not on for file}
+该错误主要出现在写SAC文件时，出现该错误的原因是SAC文件的头段变量~\verb+lovrok+的值
+为~\verb+FALSE+，即磁盘中的数据不允许被覆盖。解决该问题的方法有两种：
+\begin{itemize}
+\item 以其他文件名写入磁盘，不覆盖磁盘文件；
+\item 修改~\verb+lovrok+的值为~\verb+TRUE+；
+\end{itemize}
