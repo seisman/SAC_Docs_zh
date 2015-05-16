@@ -133,6 +133,10 @@ SAC> lh depmax
 此时可以将数据乘以$10^{20}$变成合适的量级，并修改scale=10e20，这样就可以知道
 自己对数据人为放大了多少倍。
 
+在101.5之前的版本中，在使用~\nameref{cmd:transfer}~命令去仪器响应时，若scale的值
+有定义，则输出的数据会根据该值进行放大并修改scale。在101.5及其之后的版本中，scale
+被忽略。
+
 \subsubsection{\texttt{xminimum, xmaximum, yminimum, ymaximum}}
 仅用于3D(XYZ)文件中，记录X和Y的最小/大值。
 
