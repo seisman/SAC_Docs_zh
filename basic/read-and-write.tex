@@ -1,11 +1,12 @@
 \section{SAC的读和写}
 \label{sec:read-and-write}
-SAC的读命令是~\nameref{cmd:read}（简写为r），写命令为~\nameref{cmd:write}（简写为w）。
+SAC的读命令是~\nameref{cmd:read}(简写为r)，写命令为~\nameref{cmd:write}(简写为w)。
 读和写是紧密联系的，所以把这两者放在一起讲。
 
 注意：本节的所有示例都运行在同一个SAC会话中。
 
-要演示如何读SAC文件，首先得有一些SAC数据才行，利用上一节的datagen生成一些数据。
+要演示如何读SAC文件，首先得有一些SAC数据才行，利用上一节的提到的~\nameref{cmd:datagen}
+生成一些数据。
 \begin{SACCode}
 $ ls                // 空文件夹
 $ sac               // 启动一个SAC会话
@@ -24,7 +25,7 @@ cdv.e  cdv.n  cdv.z
 SAC中，在指定文件名的时候，可以使用绝对路径，也可以使用相对路径。可以使用
 其全名，也可以使用通配符。SAC的通配符与Unix定义的通配符一致，只包含如下三种：
 \begin{enumerate}
-\item ``\verb+*+'' 匹配任意长度的字符串（包括零长度）；
+\item ``\verb+*+'' 匹配任意长度的字符串(包括零长度)；
 \item ``\verb+?+'' 匹配任意单个非空字符；
 \item ``\verb+[]+'' 匹配列表中的任意单一字符；
     \begin{itemize}
@@ -39,18 +40,18 @@ SAC中，在指定文件名的时候，可以使用绝对路径，也可以使�
 \begin{SACCode}
 SAC> r cdv.n cdv.e cdv.z    // 读入三个文件，分别指定其文件名
 SAC> r cdv.?                // 问号可以匹配单个字符。
-./cdv.e ...cdv.n ...cdv.z   // 注意！这里文件读入的顺序与上一个命令不同
+./cdv.e ...cdv.n ...cdv.z   // 注意！这里文件按照字符排序的顺序读入
 SAC> r cdv.[nez]            // 还可以这样读
 ./cdv.e ...cdv.n ...cdv.z
 SAC> r *                    // 也可以这样读
 ./cdv.e ...cdv.n ...cdv.z
 \end{SACCode}
 
-需要注意的是，SAC在每次执行读取命令时，都会读入新的波形数据，并删除内存中原有的
-波形数据，所以经过上面四次read之后，内存中依然只有三个波形。
+需要注意的是，SAC在执行读取命令时，会读入新的波形数据，并删除内存中原有的
+波形数据，所以经过上面四次~\nameref{cmd:read}之后，内存中依然只有三个波形。
 
 如果想要在读取新数据时将波形直接追加到内存中的波形数据集之后，而不替换内存中的
-原有波形，则需要使用read的more选项
+原有波形，则需要使用~\nameref{cmd:read}的~\verb+more+选项
 \footnote{在执行完上面的例子之后，内存中有三个SAC文件，所以本例
 在执行read命令时内存中的文件数由三个变成1个。}：
 \begin{SACCode}

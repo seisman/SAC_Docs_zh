@@ -6,7 +6,7 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-    COR!RELATE! [M!ASTER! name|n] [N!UMBER! n] [L!ENGTH! ON|OFF|v] [NO!RMALIZED!]
+COR!RELATE! [M!ASTER! name|n] [N!UMBER! n] [L!ENGTH! ON|OFF|v] [NO!RMALIZED!]
     [T!YPE! R!ECTANGLE!|HAM!MING!|HAN!NING!|C!OSINE!|T!RIANGLE!]
 \end{SACSTX}
 
@@ -29,14 +29,20 @@ correlate master 1 number 1 length off type rectangle
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令在频率域计算信号间的相关函数。你可以指定内存中的某个信号为主信号，主信号将与内存
-中的所有信号进行相关，即主信号与主信号计算自相关函数，与其它信号计算互相关函数。
+该命令允许用户指定内存中的某个信号为主信号，并将主信号与内存中的所有信号
+(包括主信号自身)进行相关。主信号与自身计算得到自相关函数，与其他信号计算得到
+互相关函数。
+
+两个信号之间的互相关函数定义如下：
+\[ Cor(t) = \int_{-\infty} ^\infty f^*(\tau)g(t+\tau)d\tau \]
+
+互相关函数的计算可以在时间域或频率域完成，该命令在频率域计算信号间的相关函数。
 
 该命令的窗特性允许你计算对多个窗计算平均相关函数，其中窗的数目以及窗函数均可以指定。
 当窗特性被打开时，会将信号划分为n个固定长度的窗，计算每个窗的互相关函数，然后将所有
 的互相关函数做平均、截取到与原信号相同的数据长度，并替换内存中的原始数据文件。
 
-当窗长度（LENGTH选项）以及窗数目（NUMBER选项）超过文件中的数据点数（NPTS）时，
+当窗长度(LENGTH选项)以及窗数目(NUMBER选项)超过文件中的数据点数(NPTS)时，
 会自动计算窗之间的重叠。缺省情况下，此窗特性是关闭的。
 
 \SACTitle{示例}
@@ -48,13 +54,13 @@ SAC> cor master 3
 也可以通过文件名来指定主文件。
 
 假设有两个数据文件，每个包含1000个噪声数据。将数据划分为无重叠的10个窗，每个窗包含
-100个数据点，且对窗应用HANNING函数，并计算10个窗的平均相关函数：
+100个数据点，且对窗应用hanning函数，并计算10个窗的平均相关函数：
 \begin{SACCode}
 SAC> r file1 file2
 SAC> cor type hanning number 10
 \end{SACCode}
 
-为了使窗之间有20\%的混叠，可以设置窗长度为120个数据点。假设数据采样周期为0.025（即每秒40个采样点），则窗长为3秒：
+为了使窗之间有20\%的混叠，可以设置窗长度为120个数据点。假设数据采样周期为0.025(即每秒40个采样点)，则窗长为3秒：
 \begin{SACCode}
 SAC> r file1 file2
 SAC> cor type hanning number 10 length 3.0
