@@ -1,3 +1,21 @@
+\SACTitle{2001 Command requires an even number of data files}
+当前命令需要内存中有偶数个文件，注意检查是否有数据漏读。
+
+\SACTitle{2002 Following files are not an orthogonal pair}
+出现该错误的原因是使用~\nameref{cmd:rotate}~旋转的两个分量不完全正交，
+此时应注意检查两个分量的头段变量~\verb+cmpinc+和~\verb+cmpaz+。
+若两个头段变量未定义，则需要根据仪器的其他信息确定两个头段变量的值；
+若两个头段变量有定义，但的确不正交，则无法进行分量旋转。
+
+\SACTitle{2003 Following files are not both horizontals}
+\nameref{cmd:rotate}~命令的~\verb+TO+选项只能用于将两个水平的分量旋转到
+某个角度，出现该错误时应注意检查两个分量的头段变量~\verb+cmpinc+是否等于90度。
+
+\SACTitle{2004 Insufficient header information for rotation}
+\nameref{cmd:rotate}~命令的~\verb+TO GCP+选项要求头段变量中\verb+stla+、\verb+stlo+、
+\verb+evla+和\verb+evlo+必须定义。该选项会读取一对分量中的第一个文件中的头段
+变量，并计算反方位角，而不是直接使用头段变量中已有的反方位角值。
+
 \SACTitle{2111 Taper frequency limits are invalid. No taper applied.}
 该警告出现在~\nameref{cmd:transfer}~命令中，出现该错误的原因是~\verb+freqlimits+
 选项的参数设置有误。四个频率应满足~\verb+f1<f2<f3<f4+。

@@ -6,11 +6,12 @@
 2012.055.12.34.50.6666.YW.MAIO.01.BHN.Q.SAC
 2012.055.12.34.54.5555.YW.MAIO.01.BHZ.Q.SAC
 \end{minted}
-这三个文件是YW台网MAIO台站的宽频地震仪记录的三分量波形数据。
-
+这三个文件是YW台网MAIO台站的宽频地震仪记录的宽频带三分量(BHE、BHN、BHZ)波形数据。
 文件名中每一项的具体含义在``\nameref{chap:naming}''中有介绍，这里不再重复。
 
 默认的文件名比较长，在数据处理时可能会显得比较麻烦，一般都会根据实际需求进行适当的简化。
+数据重命名这一步骤可以单独操作，如果数据有执行合并操作的话，可以在把合并后的文件
+写入磁盘的同时进行重命名操作。
 
 \subsection{重命名格式}
 是否要对数据做重命名，以及按照什么格式重命名，都是没有一定的标准的。通常需要
@@ -27,32 +28,24 @@ YW.MAIO.BHZ
 有时候，我们会将不同事件在同一个台站的波形数据放在同一个文件夹下，并将文件名以台站
 名来命名，此时数据文件名中可能需要保留事件的日期信息：
 \begin{minted}{bash}
-MAIO.20120224.BHE
-MAIO.20120224.BHN
-MAIO.20120224.BHZ
+YW.MAIO.20120224.BHE
+YW.MAIO.20120224.BHN
+YW.MAIO.20120224.BHZ
 \end{minted}
 
-鉴于SAC命令的语法，在数据命名时最好将分量名放在最后，而将台站名放在最前面。
-这样，在使用SAC的通配符读取特定事件的所有台站的垂直分量波形数据时，可以：
-\begin{SACCode}
-SAC> r *.20120224.BHZ
-\end{SACCode}
-或者读取所有事件在同一台站的波形记录：
-\begin{SACCode}
-SAC> r MAIO.*.BHZ
-\end{SACCode}
-
-\subsection{Bash解法}
-Bash下可以借助于awk来实现，首先用点号分隔文件名，\verb+$0+表示未分隔前的文件名，
-\verb+$7+表示用逗号分隔后的第7段字符，即台网名，其他同理。最后将awk的输出传给sh
-去执行。
+\subsection{重命名脚本}
+\subsubsection*{Bash}
+Bash下可以借助于awk来实现文件重命名。下面的例子中，首先用点号对文件名做分割，
+\verb+$0+表示原始文件名，\verb+$7+表示用逗号分割后的第7段字符，即台网名，
+其他同理。最后将awk的输出传给sh去执行。
 \begin{minted}{console}
 $ ls *.SAC | awk -F "." '{printf "mv %s %s.%s.%s", $0, $7, $8, $10}' | sh
 \end{minted}
 
-\subsection{Perl解法}
-Perl下先用split函数，将文件名用点号分隔。点号分隔之后的字符串赋值给一系列变量。
-由于split函数的第一个参数实际上是正则表达式，故而这里的点号需要转义。
+\subsubsection*{Perl}
+Perl下先用split函数将文件名用点号分割
+\footnote{由于split函数的第一个参数实际上是正则表达式，故而这里的点号需要转义。}。
+点号分割之后的字符串数组赋值给一系列变量，然后使用rename函数实现重命名。
 \begin{minted}{perl}
 #!/usr/bin/env perl
 use strict;
@@ -78,8 +71,8 @@ foreach my $file (glob "*.SAC") {
 }
 \end{minted}
 
-\subsection{Python解法}
-与上面的Perl解法类似，先用split方法将文件名分隔到列表中，然后直接从列表中取
+\subsubsection*{Python}
+与上面的Perl解法类似，先用split方法将文件名分割成列表，然后直接从列表中取
 需要的元素。
 \begin{minted}{python}
 #!/usr/bin/env python

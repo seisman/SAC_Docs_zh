@@ -13,9 +13,9 @@ ROT!ATE! [TO G!CP!|TO v|TH!ROUGH! v] [N!ORMAL!|R!EVERSED!]
 \begin{description}
 \item [TO GCP] 旋转到大圆弧路径（``great circle path''）。两个分量必须都是水平分量且
     头段中必须定义台站和事件的经纬度
-\item [TO v] 旋转一定角度使得第一个分量的方位角为v度。两个分量必须都是水平分量 
+\item [TO v] 旋转一定角度使得第一个分量的方位角为v度。两个分量必须都是水平分量
 \item [THROUGH v] 顺时针旋转v度。其中一个分量可以是垂直分量
-\item [NORMAL|REVERSED] 输出分量为正/负极性 
+\item [NORMAL|REVERSED] 输出分量为正/负极性
 \end{description}
 
 \SACTitle{缺省值}
@@ -54,13 +54,13 @@ NORMAL和REVERSED仅用于控制一对输出分量的极性。
 \begin{SACCode}
 SAC> dg sub tele ntkl.[ne]          // 内存中的顺序是E分量先于N分量
 SAC> lh cmpinc cmpaz
-  
+
   FILE: /opt/sac/aux/datagen/teleseis/ntkl.e - 1
  ------------------------------------------
 
      cmpinc = 9.000000e+01
       cmpaz = 9.000000e+01
-  
+
   FILE: /opt/sac/aux/datagen/teleseis/ntkl.n - 2
  ------------------------------------------
 
@@ -68,13 +68,13 @@ SAC> lh cmpinc cmpaz
       cmpaz = 0.000000e+00
 SAC> rot through 30                 // 顺时针旋转30度
 SAC> lh
-  
+
   FILE: /opt/sac/aux/datagen/teleseis/ntkl.e - 1
  ------------------------------------------
 
      cmpinc = 9.000000e+01
       cmpaz = 1.200000e+02
-  
+
   FILE: /opt/sac/aux/datagen/teleseis/ntkl.n - 2
  ------------------------------------------
 
@@ -97,7 +97,4 @@ cmpaz、cmpinc
 \begin{itemize}
 \item[-]1301: 未读入数据文件
 \item[-]2001: 命令需要一个偶数个数据文件
-\item[-]2004: 旋转没有足够的头段信息（对于GCP选项stla、stlo、evla、evlo必须定义）
-\item[-]2002: 下面的文件不是一对正交分量
-\item[-]2003: 下面的文件不都是水平分量（TO选项只对水平分量作用）
 \end{itemize}

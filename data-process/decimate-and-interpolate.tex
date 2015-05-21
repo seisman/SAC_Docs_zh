@@ -5,35 +5,26 @@
 的采样周期；又或者数据的采样周期过小，导致数据量过大，此时也需要对数据进行
 重采样以减少数据量。
 
-SAC中有两个命令可以对数据进行重采样：一个是用于减采样的decimate，另一个是用于
-插值的interpolate。
+SAC中有两个命令可以对数据进行重采样：一个是用于减采样的~\nameref{cmd:decimate}，
+另一个是用于插值的~\nameref{cmd:interpolate}。
 
 \begin{SACCode}
 SAC> fg seis
 SAC> lh delta npts
-  
-  FILE: SEISMOGR - 1
- --------------
 
      delta = 1.000000e-02       //采样间隔delta=0.01
       npts = 1000
 SAC> decimate 5; decimate 2     // 减采样10倍
 SAC> lh delta npts
-  
-  FILE: SEISMOGR - 1
- --------------
 
      delta = 9.999999e-02       //采样间隔delta=0.1，忽略此处的数值误差
       npts = 100
 SAC> interpolate delta 0.015    // 重新插值到delta=0.015
 SAC> lh delta npts
-  
-  FILE: SEISMOGR - 1
- --------------
 
      delta = 1.500000e-02
       npts = 666
 \end{SACCode}
 
-需要注意的是，interpolate会对数据进行插值，可能会引起插值误差；decimate对数据
-进行减采样，为了避免混叠而加入了FIR滤波器。
+需要注意的是，\nameref{cmd:interpolate}会对数据进行插值，可能会引起插值误差；
+\nameref{cmd:decimate}对数据进行减采样，为了避免混叠而加入了FIR滤波器。

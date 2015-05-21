@@ -1,17 +1,31 @@
-\section{数据获取与转换}
-地震波形数据的获取途径很多，列举如下：
-\begin{enumerate}
-\item IRIS：\url{www.iris.edu}
-\item Hi-net：\url{www.hinet.bosao.go.jp}
-\item GEOFON：\url{geofon.gfz-potsdam.de}
-\end{enumerate}
+\section{数据格式转换}
+\subsection{数据格式}
+通常，地震波形数据以SEED格式进行保存和传输。
+SEED即Standard for the Exchange of Seismic Data，其可以存储多台站多分量
+的连续波形数据以及台站相关元信息。SEED格式本质上
+是一个压缩格式，因而可以大大减少网络传输的数据量以及硬盘空间。
 
-数据的传输介质主要是网络传输为主，也有以移动硬盘、光盘或U盘为传输介质的。
+除了SEED格式之外，还有miniSEED格式和dataless SEED格式。其中miniSEED格式中仅包含
+连续波形数据，dataless SEED格式中仅包含台站元信息。之所以要将SEED格式拆分成miniSEED
+和dataless SEED，是因为若每个SEED文件中都包含台站元信息，会造成台站元信息的冗余，
+浪费网络资源及硬盘容量。
 
-最常见的数据交换格式是SEED格式，用于储存多台站多分量的连续波形数据
-以及台站相关元信息。SEED格式本质上是一个压缩文件，因而可以大大减少网络
-传输数据量以及硬盘空间。除了SEED格式之外，miniSEED格式仅包含连续波形数据，
-而dataless SEED格式仅包含台站元信息。
+除了SEED格式之外，还有其他数据格式，比如为数据库设计的CSS 3.0格式，以及众多数据处理
+软件自定义的格式，如SAC、AH、evt等等。不同国家的台网也可能会自定义自己的数据格式，
+比如国内的SEED格式是在国际标准SEED上修改得到的(二者不完全兼容)，日本Hi-net台网的
+数据则使用自己定义的win32格式。
 
-IRIS提供了rdseed软件，用于读取SEED格式，并将其中的波形数据解压成为多种
-地震数据格式。Hi-net提供了win32\_tools，用于将win32格式的数据文件解压成为SAC格式。
+\subsection{格式转换}
+IRIS提供了rdseed\footnote{\url{http://ds.iris.edu/ds/nodes/dmc/forms/rdseed/}}
+软件，用于提取SEED数据中的连续波形数据以及台站元信息，并可将连续波形数据保存为
+多种地震数据格式。
+
+下面的命令可以从SEED数据中提取SAC格式的波形数据，以及台站的RESP仪器响应文件：
+\begin{minted}{console}
+$ rdseed -Rdf file.seed
+\end{minted}
+
+下面的命令可以从SEED数据中提取SAC格式的波形数据，以及台站的PZ仪器响应文件：
+\begin{minted}{console}
+$ rdseed -pdf file.seed
+\end{minted}
