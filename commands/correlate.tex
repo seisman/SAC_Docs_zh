@@ -45,6 +45,9 @@ correlate master 1 number 1 length off type rectangle
 当窗长度(LENGTH选项)以及窗数目(NUMBER选项)超过文件中的数据点数(NPTS)时，
 会自动计算窗之间的重叠。缺省情况下，此窗特性是关闭的。
 
+使用归一化选项，会对相关函数做归一化，最终得到的结果位于-1到1之间，由此可以得到
+常用的互相关系数。
+
 \SACTitle{示例}
 以内存中第三个文件为主文件计算互相关函数：
 \begin{SACCode}
@@ -64,6 +67,14 @@ SAC> cor type hanning number 10
 \begin{SACCode}
 SAC> r file1 file2
 SAC> cor type hanning number 10 length 3.0
+\end{SACCode}
+
+下面的例子计算了两个数据之间的归一化互相关函数，并从中提取出了互相关系数：
+\begin{SACCode}
+SAC> r file1 file2
+SAC> cor norm                                   // 归一化互相关
+SAC> setbb cc (max &2,depmax (abs &2,depmin))   // 取互相关函数的极值
+                                                // 作为互相关系数
 \end{SACCode}
 
 \SACTitle{头段变量}
