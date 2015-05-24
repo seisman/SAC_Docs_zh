@@ -9,7 +9,7 @@ SAC宏的功能相对比较单一，难以满足日常数据处理的需求，�
 \inputminted{bash}{./call-in-script/simple-script.sh}
 
 SAC在启动是默认会显示版本信息，当用脚本多次调用SAC时，版本信息也会显示多次，可以
-通过设置环境变量~``\lstinline{export SAC_DISPLAY_COPYRIGHT=0}''的方式隐藏版本信息。
+通过设置变量~``\lstinline{SAC_DISPLAY_COPYRIGHT=0}''的方式隐藏版本信息。
 
 脚本中从~``\lstinline{sac << EOF}''~开始到~``\lstinline{EOF}''~的全部内容，都会被
 Bash传递给SAC，SAC会逐一解释并执行每行命令。

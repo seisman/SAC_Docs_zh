@@ -1,5 +1,5 @@
 #!/bin/bash
-export SAC_DISPLAY_COPYRIGHT=0
+SAC_DISPLAY_COPYRIGHT=0
 
 declare -i var1 var2 var3 var4
 var1=(1+2)*3

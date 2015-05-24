@@ -1,5 +1,5 @@
 #!/bin/sh
-export SAC_DISPLAY_COPYRIGHT=0
+SAC_DISPLAY_COPYRIGHT=0
 
 for file in *.SAC; do
    sac <<EOF
