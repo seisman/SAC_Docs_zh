@@ -10,6 +10,7 @@ xxxx-xx-xx 3.3版
 - 命令整理
 
     - `hilbert`
+    - `transfer`与仪器响应
 
 - 新增内容：
 
