@@ -2,7 +2,7 @@
 地震仪观测到的地面运动记录可以表示为
 \[  u(t) = s(t) * g(t) * i(t) \]
 其中$s(t)$代表震源项，$g(t)$代表路径效应，$i(t)$代表仪器响应，星号代表卷积。
-翻译成中文就是“地面运动记录是震源项、路径项以及仪器响应三者卷积得到的”。
+翻译成中文就是``地面运动记录是震源项、路径项以及仪器响应三者的卷积''。
 
 四个量中：
 \begin{itemize}
@@ -25,19 +25,6 @@
 \label{fig:ground-motion}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.98\textwidth]{transfer-function}
-\caption{仪器响应频谱图}
-\label{fig:transfer-function}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\textwidth]{raw-data}
-\caption{COLA台站的地震记录}
-\end{figure}
-
 从图~\ref{fig:ground-motion}~可以看到，整个地面运动中最明显的地方是弯弯曲曲
 类似正弦的波形，其周期大概在6000秒，
 也就是两个小时，这很可能是潮汐波引起的长周期地面运动。波形的最大振幅大概是$2\times10^7$。
@@ -50,6 +37,19 @@
 
 从信号处理的角度来看，常见的地震仪是一个带通滤波器，对地震学不关心的超高频和超低频
 的信号进行压制，只保留感兴趣的周期段。下图给出了该台站的仪器响应，即$i(t)$：
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth]{transfer-function}
+\caption{仪器响应频谱图}
+\label{fig:transfer-function}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{raw-data}
+\caption{COLA台站的地震记录}
+\end{figure}
 
 从图~\ref{fig:transfer-function}~中振幅谱可以看出，频率在0.02 Hz到8 Hz内
 的信号具有相同的振幅增益（被增强），而小于0.02 Hz、大于8 Hz的信号则被压制。
@@ -64,7 +64,6 @@
 这才是地震数据处理理想的波形。
 
 为什么要去仪器响应呢？哪些时候需要去仪器响应呢？下面列举出若干需要去仪器响应的场景：
-
 \begin{itemize}
 \item 需要获取某个台站绝对振幅值；
 \item 仪器响应不同的台站之间的波形对比；

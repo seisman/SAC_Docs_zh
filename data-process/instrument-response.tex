@@ -2,58 +2,30 @@
 \label{sec:instrument-response}
 相关命令：\nameref{cmd:transfer}
 
-关于仪器响应的详细介绍，请参考附录中的``\nameref{chap:resp}''一章。本节不会介绍
-仪器响应的细节以及~\nameref{cmd:transfer}命令的语法，只介绍日常数据处理过程中
-最常用的几种命令方式。
+SAC中可以使用命令~\nameref{cmd:transfer}实现去仪器响应，本节只列出日常数据处理
+过程中最常用的命令。关于仪器响应的详细介绍，请参考附录``\nameref{chap:resp}''
+以及教科书中的相关内容。关于~\nameref{cmd:transfer}命令的具体用法，参考该命令的
+语法说明及示例。
 
-\nameref{cmd:transfer}~命令的基本语法是
-``\verb+tranfser from xx to xx freq f1 f2 f3 f4+''。
-即该命令的作用是将波形数据从（from）一种仪器类型转换到（to）另一种仪器类型，
-即首先将数据反卷积~\verb+from+~所给出的仪器响应，再卷积上~\verb+to+~选项给出的
-仪器响应，而后面的freq选项，则用于压制信号中的低频和高频成分。
+本节会介绍RESP文件和PZ文件的几种用法，并对每种方法的优缺点进行比较。
+\subsection{RESP文件}
+通常RESP文件可以通过如下命令从SEED数据中提取出来：
+\begin{minted}{console}
+$ rdseed -Rdf infile.seed
+\end{minted}
+解压得到的仪器响应文件名的格式为~\verb+RESP.NET.STA.LOC.CHN+。
 
-SAC中的仪器类型可以简单分为如下几类：
-\begin{itemize}
-\item 内置仪器类型，参见\ref{table:instrument-type}；
-\item 特殊内置仪器类型，即none、vel和acc；
-\item RESP文件；
-\item PZ文件；
-\item FAP文件；
-\end{itemize}
-
-下面举例说明日常数据处理中的常见用法。
-
-数据ABC.Z的仪器类型是LLL，通过如下命令将波形中的LLL仪器响应去除，并卷积上SRO
-仪器响应：
+\subsubsection{RESP方法1}
 \begin{SACCode}
-SAC> r ABC.z
-SAC> rmean; rtr; taper
-SAC> trans from LLL to SRO
+SAC> r *.SAC
+SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
 \end{SACCode}
+由于波形数据和RESP文件都是用rdseed从SEED数据中解压出来的，因而二者是一一对应的。
+对于内存中的每一个波形，transfer命令会提取台站信息，并根据特定的格式在当前目录下
+寻找对应的RESP文件。
 
-波形数据XXX.Z的仪器类型是RSTN，子类型为NYKM.Z，通过下面的命令将波形中的仪器响应
-去除，并卷积上WWSP仪器响应：
-\begin{SACCode}
-SAC> r XXX.z
-SAC> rmean; rtr; taper
-SAC> trans from RSTN subtype NYKM.Z to WWSP
-\end{SACCode}
-
-从数据中去除WWSP的仪器响应，得到真实的位移场：
-\begin{SACCode}
-SAC> r XXX.z
-SAC> rmean; rtr; taper
-SAC> trans from WWSP to NONE freq 0.1 0.2 10 15
-\end{SACCode}
-
-当然，也可以去除仪器响应，得到真实的速度场：
-\begin{SACCode}
-SAC> r XXX.z
-SAC> rmean; rtr; taper
-SAC> trans from WWSP to VEL freq 0.1 0.2 10 15
-\end{SACCode}
-
-也可以使用当前台站的RESP文件来去除仪器响应：
+\subsubsection{RESP方法2}
+可以使用fname选项为每个波形指定RESP文件：
 \begin{SACCode}
 SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rmean; rtr; taper
@@ -62,8 +34,21 @@ SAC> trans from ev fn RESP.TA.N11A..LHZ to none freq 0.004 0.007 0.2 0.4
     // 简化成from ev fn RESP.TA.N11A..LHZ
 \end{SACCode}
 
-PZ文件~\verb+SAC_PZs_XC_OR075_LHZ+~是需要从波形~\verb+OR075_LHZ.SAC+~
-中去除的仪器响应零极点文件：
+\subsubsection{RESP方法3}
+把所有的PZ文件合并到同一个文件中，比如文件名叫``\verb+RESP.ALL+''，然后使用如下命令：
+\begin{SACCode}
+SAC> r *.SAC
+SAC> trans from evalresp fname RESP.ALL to none freq 0.004 0.007 0.2 0.4
+\end{SACCode}
+
+\subsection{PZ文件}
+SAC PZ仪器响应文件可以直接用rdseed从SEED文件中提取出来：
+\begin{minted}{console}
+$ rdseed -pdf infile.seed
+\end{minted}
+
+\subsubsection{PZ方法1}
+手动为每个波形指定PZ响应文件：
 \begin{SACCode}
 SAC> r OR075_LHZ.SAC
 SAC> rmea; rtr; taper
@@ -75,12 +60,43 @@ SAC> mul 1.0e9      // 用PZ文件transfer to none得到的位移数据的单位
 SAC> w OR075.z      // 此时位移数据的单位为nm
 \end{SACCode}
 
-假设有fapfile文件~\verb+fap.n11a.lhz_0.006-0.2+，其名字表示频率段为0.006 Hz到0.2 Hz，
-要从波形~\verb+2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC+中移除该仪器响应：
+\subsubsection{PZ方法2}
+可以将多个台站的PZ文件合并到一个总PZ文件中，直接使用如下命令：
 \begin{SACCode}
-SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
-SAC> rtr
-SAC> taper
-SAC> trans from fap s fap.n11a.lhz_0.006-0.2 to none freq 0.004 0.006 0.1 0.2
+SAC> r *.SAC
+SAC> trans from pol s SAC_PZs_ALL to none freq 0.008 0.016 0.2 0.4
 SAC> mul 1.0e9
+SAC> w over
 \end{SACCode}
+
+\subsection{对比}
+从易用性来看，RESP方法1、RESP方法3和PZ方法2都是比较易于使用的，只需要一个简单的
+命令，即可对所有波形数据进行处理。而RESP方法2和PZ方法1，需要用户自己从数据文件的
+文件名或头段中提取信息，并指定对应的响应文件，这需要通过写少量的脚本来实现。
+
+从执行效率来看，做了一个简单的测试。共670个波形数据，用不同的方法去仪器响应，
+完成所需时间如下：
+\begin{description}
+\item [RESP方法1] 58秒；
+\item [RESP方法2] 43秒；
+\item [RESP方法3] 227秒；
+\item [PZ方法1] 8秒；
+\item [PZ方法2] 90秒；
+\end{description}
+从中可以总结出执行效率的如下规律：
+\begin{enumerate}
+\item RESP2和PZ1相比，RESP3与PZ2相比，可知，PZ文件的效率要高于RESP文件。这很容易理解，
+    毕竟RESP文件中包含了更为完整的信息，计算量要更大一些；PZ文件中仅包含了零极点信息
+    和总增益信息，对于日常的使用来说，已经足够；
+\item RESP1和RESP2相比，区别只是在于后者使用指定的文件，而后者需要自己构建文件名，
+    但两者之间的执行时间却相差很多，目前无法理解这一时间差；
+\item RESP3和PZ2方法，都是把多个响应函数放在同一个响应文件中，对于每个波形
+    都需要对响应文件做遍历以找到匹配的响应函数，因而速度慢也是正常的；这里5倍和
+    10倍的时间差还是挺大的；
+\end{enumerate}
+
+总结下来：
+\begin{itemize}
+\item 想要写起来简单，用RESP方法1；
+\item 想要执行快，可以用PZ方法1；
+\end{itemize}

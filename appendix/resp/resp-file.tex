@@ -1,6 +1,8 @@
 \section{仪器响应文件}
-SAC中内置了一堆经典地震仪器的响应文件，可以直接使用。而实际数据处理过程中，
-会遇到五花八门的仪器响应，因而SAC又提供了其他三种更通用的仪器响应文件：RESP、PZ和FAP。
+在SAC诞生的80年代，模拟地震仪的类型很少，SAC将这些地震仪器的响应函数都内置到
+程序中，可以直接使用。随着数字地震仪的出现和不断发展，地震仪器的类型越来越丰富，
+不可能把这些地震仪器的响应函数都内置到SAC中，这就需要有更通用的方式来描述仪器响应，
+即仪器响应文件：RESP、PZ和FAP。
 
 \subsection{内置仪器响应}
 SAC内置了很多标准地震仪器的仪器响应，如表~\ref{table:instrument-type}~所示。
@@ -96,12 +98,20 @@ HIGHPASS v &      REFTEK    \\
 \end{itemize}
 
 \subsection{RESP文件}
-RESP文件是用于描述仪器响应的文件，其包含了描述仪器响应所需要的全部信息。RESP文件可以用rdseed程序从SEED文件中直接解压得到，例如：
-\begin{minted}{console}
-$ rdseed -Rdf infile.seed
-\end{minted}
+RESP文件是用于描述仪器响应的文件，其包含了描述仪器响应所需要的全部信息。
 
-RESP文件中，首先给出了台站名、台网名、通道名、开始时间和结束时间等台站的基本信息。仪器响应部分分成多个Stage，每个Stage中又分为多个block，包含了仪器响应的不同信息。
+RESP仪器响应文件可以通过如下几种方式获得：
+\begin{itemize}
+\item 用rdseed程序从SEED数据中提取；
+\item 用evalresp程序从SEED数据中提取；
+\item 从IRIS DMC resp Web Service\footnote{\url{http://service.iris.edu/irisws/resp/1/}}下载；
+\item 手写RESP文件；
+\end{itemize}
+
+一个RESP文件中可以只包含一个仪器响应函数，也可以包含多个台站、多通道、多时间段的
+多个仪器响应函数。每个仪器响应函数中包含了台站名、台网名、通道名、开始时间和结束
+时间等台站的基本信息。具体的仪器响应函数部分又分成多个Stage，每个Stage中又分为多
+个block，包含了仪器响应的不同信息。
 
 \begin{itemize}
 \item Stage1一般对应模拟信号阶段，从中可以提取中这一阶段的输入单位、零极点、归一化因子$A_0$以及第一阶段的增益。
@@ -115,10 +125,11 @@ RESP文件中包含了仪器响应的完整信息，同时也包含了不少冗�
 提取处仪器响应中的重要信息，定义了新的零极点响应文件（即SAC PZ）。
 相对于RESP文件而言，PZ文件中仅包含仪器响应中的零极点和增益信息，在去仪器响应时更方便。
 
-SAC PZ仪器响应文件可以直接用rdseed从SEED文件中提取出来：
-\begin{minted}{console}
-$ rdseed -pdf infile.seed
-\end{minted}
+SAC PZ文件主要通过以下几种方式获得：
+\begin{itemize}
+\item 用rdseed程序从SEED文件中提取；
+\item 从IRIS DMC SAC PZ Web Service\footnote{\url{http://service.iris.edu/irisws/sacpz/1/}}获取；
+\end{itemize}
 
 下面是某个台站的SAC PZ文件：
 \begin{verbatim}
@@ -159,17 +170,25 @@ POLES   5
 CONSTANT        +2.913631e+14
 \end{verbatim}
 
-SAC PZ文件中，以星号开始的行为注释行。以关键字``ZEROS''起始的行给出了零点数目，接下来几行列出了每个零点的实部和虚部。以关键字``POLES''起始的行给出了极点数目，接下来几行列出了每个极点的实部和虚部。最后一行给出了仪器响应中的常数CONSTANT。
+SAC PZ文件中，以星号开始的行为注释行，给出了该PZ文件所对应的台站信息，其中
+INPUT UNIT表明了该PZ文件的输入是位移、速度还是加速度。用rdseed从SEED数据中
+提取出来的PZ文件，输入都是位移，且单位为m。
+
+以关键字``ZEROS''起始的行给出了零点数目，接下来几行列出了
+每个零点的实部和虚部。以关键字``POLES''起始的行给出了极点数目，接下来几行列出了
+每个极点的实部和虚部。最后一行给出了仪器响应中的常数CONSTANT。
+
+根据零极点以及CONSTANT，即可计算得到仪器响应函数：
+\[
+    H(s) = C_0 * \frac{(s-z_1)(s-z_2)...(s-z_{nz})}{(s-p_1)(s-p_2)...(s-p_{nz})}
+\]
+其中$s=2\pi i f$。
 
 一些说明：
 \begin{itemize}
 \item 若有零点~\verb+(0.0,0.0)+~，则这样的``零''零点可以省略。因而列出的零点数可能会少于``ZEROS''行给出的零点数；上例中的三个零点可以不列出；
 \item CONSTANT对应于RESP文件中所有阶段的增益$Sd_0$以及归一化因子$A_0$的乘积；
 \item 若未指定CONSTANT，则默认值为1.0；
-\item 可以将多个台站的PZ文件合并到一个总PZ文件中，此时PZ文件的注释行用于信息匹配；
-    不可省略；
-\item 若PZ文件中只有一个响应函数，则注释行可以省略。在做批处理时，可以写脚本重做
-    一个无注释行的PZ文件。用无注释行的PZ文件去仪器响应的速度会比有注释行的PZ文件快很多；
 \end{itemize}
 
 \subsection{FAP文件}
