@@ -15,7 +15,6 @@
     |-- ChangeLog.md        # 记录修订历史
     |
     |-- Makefile            # make构建文件
-    |-- SConstruct          # scons构建文件
     |
     |-- SAC_Docs.tex        # 主文档
     |-- SAC_macros.tex      # LaTeX导言区
@@ -48,7 +47,7 @@
 
 - TeX发行版：[TeXLive 2014](https://www.tug.org/texlive/)
 - 中文字体：[Fandol](http://www.ctan.org/tex-archive/fonts/fandol)（TeX自带字体）
-- 构建工具：[make](https://www.gnu.org/software/make/)或[scons](http://www.scons.org/)
+- 构建工具：[make](https://www.gnu.org/software/make/)
 - 代码高亮：[pygments](http://pygments.org/)
 - 图片生成：
     - [SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)
@@ -63,10 +62,6 @@
 必须的依赖如下：
 
     yum install python-pygments make
-
-构建源码是若使用`scons`而不是`make`，则需安装：
-
-    yum install scons
 
 若需要重新生成文档中所使用的图片，则需要安装SAC、GMT4。
 
@@ -100,11 +95,6 @@
    ```
    make
    ```
-   或
-   ```
-   scons
-   ```
-
 ### 参与维护 ###
 
 你可以参与到本项目的维护：
