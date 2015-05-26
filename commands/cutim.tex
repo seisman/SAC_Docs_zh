@@ -2,7 +2,8 @@
 \label{cmd:cutim}
 
 \SACTitle{概要}
-截取内存中的文件
+截取内存中的文件\footnote{该命令似乎有问题，执行该命令时，似乎会删除内存中的全部
+波形数据，请勿使用}
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -32,12 +33,12 @@ fg seismo
 echo on
 * no cutting
 lh b e a kztime
-* begin to end---same as not cutting. 
+* begin to end---same as not cutting.
 cutim B E
 lh b e a kztime
 fg seismo
 * First 3 secs of the file.
-cutim B 0 3 
+cutim B 0 3
 lh b e a kztime
 fg seismo
 * From 0.5 secs before to 3 secs after first arrival
@@ -45,11 +46,11 @@ cutim A -0.5 3
 lh b e a kztime
 fg seismo
 * From 0.5 to 5 secs relative to disk file start.
-cutim 0.5 5 
+cutim 0.5 5
 lh b e a kztime
 fg seismo
 * First 3 secs of the file and next 3 sec
-cutim b 0 3 b 3 6 
+cutim b 0 3 b 3 6
 lh b e a kztime
 p1
 \end{SACCode}
