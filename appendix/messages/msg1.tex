@@ -6,3 +6,8 @@
 \item 以其他文件名写入磁盘，不覆盖磁盘文件；
 \item 修改~\verb+lovrok+的值为~\verb+TRUE+；
 \end{itemize}
+
+\SACTitle{1312 Bad number of files in write file list}
+通常在使用~\nameref{cmd:write}~命令时会出现该问题。出现该错误的原因是内存中的
+波形文件的数目与write命令给出的文件名的数目不想匹配。在该错误信息的后面，紧接着
+会给出write命令中给出的文件数目以及内存中的波形数目。
