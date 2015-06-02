@@ -333,7 +333,8 @@ kstcmp为辅助型变量，表示台站分量，由kstnm、cmpaz、cmpinc推导�
 
 \subsection{震相相关变量}
 \subsubsection{\texttt{a, ka, f, kf}}
-a和f分别为事件的初动时刻和结束时刻相对于参考时刻的秒数。ka和kf则是相应的时间标识。
+a和f分别为事件的初动时刻和结束时刻相对于参考时刻的秒数。ka和kf则是相应的时间标识。时间标识指明变量的含义。
+例如，令ka为p，则说明a的值即为p波到时。
 
 \subsubsection{\texttt{tn, ktn}}
 用户自定义的时刻，n可以取0-9，常用于震相拾取，ktn为相应的时间标识。
