@@ -29,9 +29,6 @@ SAC头段版本号。nvhdr\footnote{星号表示该头段变量在SAC中必须�
 SAC> fg seis
 SAC> lh nzyear nzjday nzhour nzmin nzsec nzmsec
 
-  FILE: SEISMOGR - 1
- --------------
-
      nzyear = 1981
      nzjday = 88
      nzhour = 10
@@ -39,9 +36,6 @@ SAC> lh nzyear nzjday nzhour nzmin nzsec nzmsec
       nzsec = 14
      nzmsec = 0
 SAC> lh kzdate kztime
-
-  FILE: SEISMOGR - 1
- --------------
 
      kzdate = MAR 29 (088), 1981
      kztime = 10:38:14.000
@@ -332,12 +326,20 @@ kstcmp为辅助型变量，表示台站分量，由kstnm、cmpaz、cmpinc推导�
 如图~\ref{fig:cmpaz-cmpinc}~所示，在左手坐标系下，若三通道都是正极性则为真，否则为假。
 
 \subsection{震相相关变量}
-\subsubsection{\texttt{a, ka, f, kf}}
-a和f分别为事件的初动时刻和结束时刻相对于参考时刻的秒数。ka和kf则是相应的时间标识。
+\subsubsection{\texttt{a, f, tn}}
+a和f用于存储事件的初动时刻和结束时刻相对于参考时刻的秒数。
 
-\subsubsection{\texttt{tn, ktn}}
-用户自定义的时刻，n可以取0-9，常用于震相拾取，ktn为相应的时间标识。
-比如定义t1为PcP震相的到时，kt1则一般定义为``PcP''。
+tn(n=0-9)用于存储用户自定义的时刻相对于参考时刻的秒数，常用于存储震相到时。
+
+\subsubsection{\texttt{ka, kf, ktn}}
+a、f以及tn都有一个对应的以k开头的字符型头段变量，称之为时间标识。时间标识用于说明
+对应的时间头段变量中所包含时间的含义。
+
+比如头段变量a中通常包含P波到时，则此时ka的值可以设置为P；头段变量t1中包含了震相
+PcP的到时，则一般定义kt1为``PcP''。
+
+在绘图时，若时间头段变量中有值，则默认会在该时刻处绘制一条垂线，若相应的时间标记
+有定义，则将时间标记的值显示在垂线附近。
 
 \subsubsection{\texttt{Xmarker}}
 震相相关的变量对可以构成一个辅助型变量。a和ka可以构成amarker，f和kf可以构成fmarker，
