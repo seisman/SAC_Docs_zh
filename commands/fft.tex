@@ -39,9 +39,6 @@ fft wmean amph
 \begin{SACCode}
 SAC> fg seis
 SAC> lh b e delta npts iftype
-  
-  FILE: SEISMOGR - 1
- --------------
 
           b = 9.459999e+00
           e = 1.945000e+01
@@ -51,19 +48,13 @@ SAC> lh b e delta npts iftype
 SAC> fft
  DC level after DFT is -0.98547
 SAC> lh b e delta npts iftype
-  
-  FILE: SEISMOGR - 1
- --------------
 
           b = 0.000000e+00              // b值为0
-          e = 5.000000e+01                  
+          e = 5.000000e+01
       delta = 9.765625e-02              // delta=1/(1024*0.01)
        npts = 1024                      // 1000 -> 1024
      iftype = SPECTRAL FILE-AMPL/PHASE
 SAC> lh sb sdelta nsnpts                // 保留原值
-  
-  FILE: SEISMOGR - 1
- --------------
 
          sb = 9.459999e+00
      sdelta = 1.000000e-02

@@ -20,30 +20,22 @@ SAC> dg sub teleseis ntkl.[enz]
 SAC> w ntkl.e ntkl.n ntkl.z
 SAC> r ./ntkl.n ./ntkl.e
 SAC> lh cmpinc cmpaz
-
   FILE: ./ntkl.n - 1
  --------------
-
      cmpinc = 9.000000e+01
       cmpaz = 0.000000e+00
-
   FILE: ./ntkl.e - 2
  --------------
-
      cmpinc = 9.000000e+01
       cmpaz = 9.000000e+01
 SAC> rotate to gcp              // 旋转到大圆路径
 SAC> lh cmpinc cmpaz
-
   FILE: ./ntkl.n - 1
  --------------
-
      cmpinc = 9.000000e+01
       cmpaz = 2.440466e+01
-
   FILE: ./ntkl.e - 2
  --------------
-
      cmpinc = 9.000000e+01
       cmpaz = 1.144047e+02
 SAC> w ntkl.r ntkl.t            // 保存为R分量和T分量

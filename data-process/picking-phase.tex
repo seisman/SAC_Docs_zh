@@ -3,21 +3,6 @@
 
 相关命令：\nameref{cmd:plotpk}
 
-震相拾取是SAC中最常用的一个功能。plotpk的用法很简单，但却是教程中最难解释的一部分。
-当在SAC中键入plotpk(简写为ppk)后，此时会出现一个绘图窗口，且焦点位于绘图窗口上，
-SAC程序进入了ppk模式。要退出ppk模式，按``q'' 。
-
-注意：不是把光标移动到终端中去输入``q''，而是直接在绘图窗口中按``q''键即可，也不需要回车。
-另外，在ppk模式下，按任何键都不会显示在终端中。
-
-\begin{SACCode}
-SAC> fg seis
-SAC> ppk        // 进入ppk模式
-// 光标保持在绘图窗口上，按"q"就退出ppk模式
-SAC> wh         // 覆盖原文件的头段区
-SAC> q          // 退出SAC
-\end{SACCode}
-
 \begin{table}[H]
 \centering
 \small
@@ -61,6 +46,22 @@ SAC> q          // 退出SAC
 \end{tabular}
 \end{table}
 
+震相拾取是SAC中最常用的一个功能。plotpk的用法很简单，但却是教程中最难解释的一部分。
+当在SAC中键入plotpk(简写为ppk)后，此时会出现一个绘图窗口，且焦点位于绘图窗口上，
+SAC程序进入了ppk模式。要退出ppk模式，按``q'' 。
+
+注意：不是把光标移动到终端中去输入``q''，而是直接在绘图窗口中按``q''键即可，也不需要回车。
+另外，在ppk模式下，按任何键都不会显示在终端中。
+
+\begin{SACCode}
+SAC> fg seis
+SAC> ppk        // 进入ppk模式
+// 光标保持在绘图窗口上，按"q"就退出ppk模式
+SAC> wh         // 覆盖原文件的头段区
+SAC> q          // 退出SAC
+\end{SACCode}
+
+
 移动光标到绘图窗口内部，光标会以交叉瞄准线的形式出现。在``\nameref{sec:sac-install}''
 一节中提到的SAC全局变量~\verb+SAC_PPK_USE_CROSSHAIRS+~可以控制该光标的形态。当此全局
 变量为0时，光标形态为
@@ -71,6 +72,7 @@ SAC> q          // 退出SAC
 
 此时所有的键入都会解释成``ppk模式''下的命令，表~\ref{table:plotpk-commands}~列出了
 ``ppk模式''支持的所有命令。
+
 
 不同的命令效果可能不同，有些会在绘图窗口显示信息，有些会将信息写入头段变量，
 下面对表~\ref{table:plotpk-commands}~中的说明进行一个说明：

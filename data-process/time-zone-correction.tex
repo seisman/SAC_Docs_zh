@@ -12,7 +12,6 @@ SAC> lh b e kzdate kztime               // 查看头段信息
           e = 1.600968e+03              // e=1600
      kzdate = SEP 10 (254), 1984
      kztime = 03:14:07.000
-
 SAC> ch b (&1,b& - 8*3600)              // 取b值，减去8小时，再赋值给b
 SAC> lh
 
@@ -20,7 +19,6 @@ SAC> lh
           e = -2.719903e+04
      kzdate = SEP 10 (254), 1984        // 参考时间不变
      kztime = 03:14:07.000
-
 SAC> ch allt (0 - &1,b&) iztype IB      // 将参考时间设置为文件起始时间
 SAC> lh b e kzdate kztime
 

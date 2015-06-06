@@ -18,7 +18,7 @@ APK [param v [param v] ... ] [V!ALIDATION! ON|OFF]
 
 \SACTitle{缺省值}
 \begin{SACDFT}
-apk c1 0.985 c2 3.0 c3 0.6 c4 0.03 c5 5.0 c6 0.0039 c7 100. c8 -0.1 
+apk c1 0.985 c2 3.0 c3 0.6 c4 0.03 c5 5.0 c6 0.0039 c7 100. c8 -0.1
     d5 2. d8 3. d9 1. i3 3 i4 40 i6 3 validation on
 \end{SACDFT}
 
@@ -54,22 +54,16 @@ apk c1 0.985 c2 3.0 c3 0.6 c4 0.03 c5 5.0 c6 0.0039 c7 100. c8 -0.1
 \begin{SACCode}
 SAC> fg seis                //利用这个数据做个例子
 SAC> lh a                   //这个数据本身是标有A的，即初动到时
-  FILE: SEISMOGR - 1
- --------------
      a = 1.046400e+01
 SAC> apk v on               //apk，且打开震相验证
  CDV IPD0 81 329103824.49   //台站名，KA的值，后面两个不知道是什么
 SAC> lh a ka f
-  FILE: SEISMOGR - 1
- --------------
       a = 1.049000e+01      //新标记的初动到时，可以p看一下效果
      ka = IPD0              //初动信息，I表示急始，P表示初动P波，
                             //D表示初动向下，0不清楚
 SAC> apk v off              //apk，关闭震相验证
- CDV -123 81 329103824.49                                              53897
-SAC> lh a ka f		
-  FILE: SEISMOGR - 1
- --------------
+ CDV -123 81 329103824.49   53897
+SAC> lh a ka f
      a = 1.049000e+01       //初始震相
      f = 5.389773e+06       //事件结束，这里的f好像有问题？
 \end{SACCode}
