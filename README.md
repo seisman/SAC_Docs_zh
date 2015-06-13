@@ -45,8 +45,7 @@
 
 ## 依赖 ##
 
-- TeX发行版：[TeXLive 2014](https://www.tug.org/texlive/)
-- 中文字体：[Fandol](http://www.ctan.org/tex-archive/fonts/fandol)（TeX自带字体）
+- TeX发行版：[TeXLive 2015](https://www.tug.org/texlive/)
 - 构建工具：[make](https://www.gnu.org/software/make/)
 - 代码高亮：[pygments](http://pygments.org/)
 - 图片生成：
@@ -61,19 +60,13 @@
 
 必须的依赖如下：
 
-    yum install python-pygments make
+    yum install python-pygments make git
 
 若需要重新生成文档中所使用的图片，则需要安装SAC、GMT4。
 
 ### TeXLive ###
 
-安装TeXLive 2014，并将TeX包更新至最新版本，参考[此文](http://seisman.info/install-texlive-under-linux.html)
-
-### 中文字体 ###
-
-使用开源中文字体Fandol，该字体随TeX一起发布，因而只需要直接在`~/.fonts`目录下做一个软链接即可：
-
-    ln -s /opt/texlive/2014/texmf-dist/fonts/opentype/public/fandol ~/.fonts/
+安装TeXLive 2015，并将TeX包更新至最新版本，参考[此文](http://seisman.info/install-texlive-under-linux.html)
 
 ### 编译项目 ###
 
@@ -83,7 +76,7 @@
    git clone https://github.com/seisman/SAC_Docs_zh.git
    ```
 
-2. 重新生成图片（选做）
+2. 重新生成图片（可选，需要SAC和GMT4）
 
    ```
    cd scripts
@@ -95,6 +88,7 @@
    ```
    make
    ```
+
 ### 参与维护 ###
 
 你可以参与到本项目的维护：
