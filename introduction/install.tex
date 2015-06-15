@@ -32,7 +32,9 @@ $ sudo mv sac /usr/local                    # 安装
 \begin{minted}{console}
 $ tar -xvf sac-101.6a_source.tar.gz
 $ cd sac-101.6a
-$ ./configure --prefix=/usr/local/sac
+$ mkdir build
+$ cd build
+$ ../configure --prefix=/usr/local/sac
 $ make
 $ sudo make install
 \end{minted}
