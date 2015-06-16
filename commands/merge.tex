@@ -50,7 +50,7 @@ file2合并成文件file2，此时内存中有两个文件file1和file2。而在
 一个文件file1。
 
 多个文件合并成单个文件的一种方法：
-\begin{SACCode} 
+\begin{SACCode}
 SAC> r file1                        // 读取一个文件
 SAC> merge file2 file3 file4        // merge其余文件
 SAC> w over
@@ -58,14 +58,14 @@ SAC> w over
 
 另一种合并办法：
 \begin{SACCode}
-SAC> r file1 file2 file3 file4  
+SAC> r file1 file2 file3 file4
 SAC> merge                      // 合并内存中的所有文件
 SAC> w over                     // 合并后的文件写入到file1中
 \end{SACCode}
 
 再一种合并方法：
-\begin{SACCode}
-SAC> merge file1 file2 file3 file4  // 内存中无数据，合并filelist中的全部文件
+\begin{SACCode}                     // 内存中无数据
+SAC> merge file1 file2 file3 file4  // 合并filelist中的全部文件
 SAC> w over                         // 保存到file1中
 \end{SACCode}
 

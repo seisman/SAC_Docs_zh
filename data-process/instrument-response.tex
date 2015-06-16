@@ -29,16 +29,16 @@ SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
 \begin{SACCode}
 SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rmean; rtr; taper
-SAC> trans from ev fn RESP.TA.N11A..LHZ to none freq 0.004 0.007 0.2 0.4
-    // from evalresp fname RESP.TA.N11A..LHZ
-    // 简化成from ev fn RESP.TA.N11A..LHZ
+SAC> trans from evalresp fname RESP.TA.N11A..LHZ to none \
+                                freq 0.004 0.007 0.2 0.4
 \end{SACCode}
 
 \subsubsection{RESP方法3}
 把所有的PZ文件合并到同一个文件中，比如文件名叫``\verb+RESP.ALL+''，然后使用如下命令：
 \begin{SACCode}
 SAC> r *.SAC
-SAC> trans from evalresp fname RESP.ALL to none freq 0.004 0.007 0.2 0.4
+SAC> trans from evalresp fname RESP.ALL to none \
+                            freq 0.004 0.007 0.2 0.4
 \end{SACCode}
 
 \subsection{PZ文件}
@@ -52,9 +52,8 @@ $ rdseed -pdf infile.seed
 \begin{SACCode}
 SAC> r OR075_LHZ.SAC
 SAC> rmea; rtr; taper
-SAC> trans from pol s SAC_PZs_XC_OR075_LHZ to none freq 0.008 0.016 0.2 0.4
-    // from polezero subtype SAC_PZs_XC_OR075_LHZ
-    // 简化成from pol s SAC_PZs_XC_OR075_LHZ
+SAC> trans from polezero subtype SAC_PZs_XC_OR075_LHZ to none \
+                        freq 0.008 0.016 0.2 0.4
 SAC> mul 1.0e9      // 用PZ文件transfer to none得到的位移数据的单位为m
                     // 而SAC默认的单位为nm，因而必须乘以1.0e9
 SAC> w OR075.z      // 此时位移数据的单位为nm

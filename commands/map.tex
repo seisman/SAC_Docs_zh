@@ -13,7 +13,8 @@ MAP [MER!CATOR!|EQ!UIDISTANT!|AZ!IMUTHAL_EQUIDISTANT!|ROB!INSON!]
     [WEST minlon] [EAST maxlon] [NORTH maxlat] [SOUTH minlat]
     [MAG!NITUDE!|RE!SIDUAL!|RM!EAN_RESIDUAL!] [EV!EVNTFILE! filename]
     [TOPO!GRAPHY!] [STAN!AMES!] [MAPSCALE on|off] [PLOTSTATIONS on|off]
-    [PLOTEVENTS on|off] [PLOTLEGEND on|off] [LEGENDXY x y] [FILE output-file]
+    [PLOTEVENTS on|off] [PLOTLEGEND on|off] [LEGENDXY x y]
+    [FILE output-file]
 \end{SACSTX}
 
 \SACTitle{输入}
@@ -58,7 +59,8 @@ SAC中可以使用的投影方式包括：
 
 \SACTitle{缺省值}
 \begin{SACDFT}
-map mercator topo off stan off file gmt.ps plotstations on plotevents on
+map mercator topo off stan off file gmt.ps plotstations on
+    plotevents on
 \end{SACDFT}
 
 \SACTitle{示例}

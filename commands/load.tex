@@ -2,7 +2,7 @@
 \label{cmd:load}
 
 \SACTitle{概要}
-导入外部命令（在SAC的linux版本中外部命令的导入需要额外的工作）
+导入外部命令(在SAC的linux版本中外部命令的导入需要额外的工作)
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -11,8 +11,8 @@ LOAD comname [ABBREV abbrevname]
 
 \SACTitle{输入}
 \begin{description}
-\item [comname] 从一个共享目标文件中载入的一个外部函数名 
-\item [ABBREV abbrevname] 命令的简写 
+\item [comname] 从一个共享目标文件中载入的一个外部函数名
+\item [ABBREV abbrevname] 命令的简写
 \end{description}
 
 \SACTitle{说明}
@@ -23,10 +23,10 @@ LOAD comname [ABBREV abbrevname]
 \begin{SACCode}
 % export SACSOLIST = "libcom.so libbar.so"
 #  Add the current directory to the search path.
-% export LD_LIBRARY_PATH {$LD_LIBRARY_PATH}:. 
+% export LD_LIBRARY_PATH {$LD_LIBRARY_PATH}:.
 % sac
 SAC> load foo abbrev myfft* load the command
-SAC> read file1.z file2.z file3.z  * input files to pass to the command
+SAC> read file1.z file2.z file3.z
 SAC> myfft real-imag* invoke command with its arguments,
 * commands must parse their own args.
 SAC> psp

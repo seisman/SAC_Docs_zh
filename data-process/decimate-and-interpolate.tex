@@ -17,7 +17,7 @@ SAC> lh delta npts
 SAC> decimate 5; decimate 2     // 减采样10倍
 SAC> lh delta npts
 
-     delta = 9.999999e-02       //采样间隔delta=0.1，忽略此处的数值误差
+     delta = 9.999999e-02       //采样间隔delta=0.1，忽略浮点数误差
       npts = 100
 SAC> interpolate delta 0.015    // 重新插值到delta=0.015
 SAC> lh delta npts

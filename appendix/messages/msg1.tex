@@ -11,3 +11,24 @@
 通常在使用~\nameref{cmd:write}~命令时会出现该问题。出现该错误的原因是内存中的
 波形文件的数目与write命令给出的文件名的数目不想匹配。在该错误信息的后面，紧接着
 会给出write命令中给出的文件数目以及内存中的波形数目。
+
+\SACTitle{1322 Undefined starting cut for file}
+\nameref{cmd:cut}~命令中时间窗的起始参考头段未定义。默认情况下，会使用磁盘
+文件的起始时间代替，也可以使用~\nameref{cmd:cuterr}~命令控制该错误的处理方式。
+
+\SACTitle{1323 Undefined stop cut for file}
+\nameref{cmd:cut}~命令中时间窗的结束参考头段未定义。默认情况下，会使用磁盘
+文件的结束时间代替，也可以使用~\nameref{cmd:cuterr}~命令控制该错误的处理方式。
+
+\SACTitle{1324 Start cut less than file begin for file}
+\nameref{cmd:cut}~命令中时间窗的开始时间早于磁盘文件的开始时间。默认情况下，
+会使用磁盘文件的开始时间代替，也可以使用~\nameref{cmd:cuterr}~命令控制该错误的
+处理方式。
+
+\SACTitle{1325 Stop cut greater than file end for file}
+\nameref{cmd:cut}~命令中时间窗的结束时间晚于磁盘文件的结束时间。默认情况下，
+会使用磁盘文件的结束时间代替，也可以使用~\nameref{cmd:cuterr}~命令控制该错误的
+处理方式。
+
+\SACTitle{1326 Start cut greater than file end for file}
+\nameref{cmd:cut}~命令中时间窗的开始时间晚于文件结束时间。
