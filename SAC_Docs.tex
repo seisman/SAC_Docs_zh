@@ -3,8 +3,8 @@
 %   作者：SeisMan
 %   项目主页：https://github.com/seisman/SAC_Docs_zh
 %   文档发布页：http://seisman.info/sac-manual.html
-%   编译环境：TeXLive 2014
-%   中文支持：xeCJK + xeLaTeX
+%   编译环境：TeXLive 2015
+%   中文支持：xeLaTeX + ctex
 %
 \input{SAC_macros}
 \begin{document}
@@ -18,7 +18,6 @@
 \input{version}
 \input{contributor}
 
-\frontmatter
 \pdfbookmark[0]{\contentsname}{contents}
 \tableofcontents
 \pdfbookmark[0]{\listfigurename}{lof}
@@ -382,11 +381,10 @@
 
 \part{附录}
 \appendix
-%\titleformat{\chapter}{\centering\Huge\bfseries}{附录\,\thechapter}{1em}{}
 \chapter{错误与警告}
 \input{appendix/messages/msg1}
 \input{appendix/messages/msg2}
-
+\input{appendix/messages/msgn}
 \chapter{仪器响应}
 \label{chap:resp}
 \input{appendix/resp/intro-to-resp}
