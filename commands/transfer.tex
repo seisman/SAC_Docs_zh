@@ -149,7 +149,7 @@ SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rtr; rtr; taper
 SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
 \end{SACCode}
-该命令会首先从SAC数据中提取台站信息，然后自动在当前目录下寻找文件RESP.TA.N11A..LHZ，
+该命令会首先从头段中提取台站信息，然后自动在当前目录下寻找文件~\verb+RESP.TA.N11A..LHZ+，
 一旦文件中的台站信息与数据中的台站信息匹配，则使用该响应函数。
 
 SAC数据中的头段信息可以用一些选项来覆盖：
@@ -184,7 +184,8 @@ SAC> trans from evalresp to evalresp CHANNEL BHZ
 为了显示IU台网COL台站BHZ通道，1992年01月02日16:42:05的仪器响应：
 \begin{SACCode}
 SAC> fg impulse npts 16384 delta .05 begin 0.
-SAC> trans to evalresp sta COL cha BHZ net IU date 1992/2 time 16:42:05
+SAC> trans to evalresp sta COL cha BHZ net IU \
+                    date 1992/2 time 16:42:05
 SAC> fft
 SAC> psp am
 \end{SACCode}
@@ -193,7 +194,8 @@ SAC> psp am
 \begin{SACCode}
 SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rmean; rtr; taper
-SAC> trans from evalresp fname /tmp/Resp/RESP.TA.N11A..LHZ to none freq 0.004 0.007 0.2 0.4
+SAC> trans from evalresp fname /tmp/Resp/RESP.TA.N11A..LHZ to none \
+                        freq 0.004 0.007 0.2 0.4
 \end{SACCode}
 transfer命令默认会使用``RESP.TA.N11A..LHZ''作为响应文件，此处使用FNAME选项强制指定
 使用``/tmp/RESP/RESP.TA.N11A..LHZ''。需要注意的是，即便是使用FNAME强制指定了RESP文件，
@@ -248,6 +250,7 @@ fap选项表明使用FAP文件作为响应函数。
 SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rtr
 SAC> taper
-SAC> trans from fap s fap.n11a.lhz_0.006-0.2 to none freq 0.004 0.006 0.1 0.2
+SAC> trans from fap s fap.n11a.lhz_0.006-0.2 to none \
+                        freq 0.004 0.006 0.1 0.2
 SAC> mul 1.0e9
 \end{SACCode}

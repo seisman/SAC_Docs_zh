@@ -24,10 +24,10 @@ SAC中可以使用的投影方式包括：
 \item EQUIDISTANT: 投影方式为等间距圆柱投影，经纬度为线性。
 \item ROBINSON: 投影方式为Robinson投影，适用于世界地图。
 \item LAMBERT: 适用于东西范围较大的区域。
-\item UTM：通用横向Mercator（尚未实现）。
+\item UTM：通用横向Mercator(尚未实现)。
 \end{itemize}
 
-下面的选项允许用户指定地图的区域，其默认使用台站以及事件经纬度的最小最大值（如果真是如此，这样的缺省值并不合适，因为那样意味着某些台站或事件将位于地图的边界处，但是实际上地图范围给的还是不错的）：
+下面的选项允许用户指定地图的区域，其默认使用台站以及事件经纬度的最小最大值(如果真是如此，这样的缺省值并不合适，因为那样意味着某些台站或事件将位于地图的边界处，但是实际上地图范围给的还是不错的)：
 \begin{itemize}
 \item WEST :  地图的最小经度
 \item EAST : 地图的最大经度
@@ -51,7 +51,7 @@ SAC中可以使用的投影方式包括：
 \item RMean\_residual : 与residual相同，除了将所有残差去除均值之外
 \item PLTLEGEND on | off : 绘制地震震级以及残差的图例[默认为on]
 \item LEGENDXY x y : 绘制图例的绝对位置，默认为[1,1]。位置是相对于页面的左下角，其单位为inch。 这是一个与地震震级和残差有关的图例。
-\item EVENTFILE : 指定一个自由格式的ASCII文本文件，其包含了额外的事件数据,文件的每一行包含单个事件的数据。每行的头两列必须包含纬度和经度（单位为度）。第三列可以包含符号大小信息（比如震级、深度、走时残差等）。
+\item EVENTFILE : 指定一个自由格式的ASCII文本文件，其包含了额外的事件数据,文件的每一行包含单个事件的数据。每行的头两列必须包含纬度和经度(单位为度)。第三列可以包含符号大小信息(比如震级、深度、走时残差等)。
 \item TOPOgraphy on | off : 设置TOPO为开允许用户向地图中添加地形和海洋深度。这个命令读取GMT中grdraster.info的第一个地形文件，当然地形文件中必须要有该区域的数据。地形彩色图使用\$SACAUX/ctables/gmt.cpt。网格文件被写入当前目录
 \item FILE : 默认的输出文件名为gmt.ps，你可以通过FILE选项指定文件名
 \end{itemize}
@@ -70,12 +70,13 @@ SAC> dg sub regional *.z
 SAC> map stan on
 Using Default Postscript Viewer
 	gs -sDEVICE=x11 -q -dNOPROMPT -dTTYPAUSE
-	Set an alternative through the SACPSVIEWER environment variable
-	Press any key to continue
 \end{SACCode}
 绘制出的地图如图\ref{fig:map}所示，整个地图的边界控制的还算不错，还算比较美观，
 三角形代表台站位置，圆形代表地震位置，大小也控制的不错。生成这个图的同时，还有
 一个可以用于生成该地图的shell脚本。
+
+默认情况下，该命令会自动使用gs预览生成的PS文件。如果想用其他PS阅读器预览，可以
+通过修改环境变量SACPSVIEWER来实现，比如~\verb+export SACPSVIERER=evince+。
 
 \begin{figure}[!ht]
 \centering
@@ -92,16 +93,3 @@ Using Default Postscript Viewer
 
 在使用pscoast绘制海岸线时，SAC采用了-Dl选项，其中l代表低精度的海岸线数据。用户
 可以在脚本中修改使用更高精度的海岸线数据。
-
-该脚本采用的shell是csh，其很容易改成bash脚本。
-
-MAP命令的结果将自动被显示。用于显示的默认程序是gs(ghostscript)。用户可以通过设置环境变量SACPSVIEWER选择其他显示工具。\\
-在csh下可以这样设置：
-\begin{minted}{console}
-setenv SACPSVIEWER "gs -sDEVICE=x11 -q -dNOPROMPT -dTTYPAUSE"
-\end{minted}
-
-在bash下可以这样设置：
-\begin{minted}{console}
-export SACPSVIEWER="gs -sDEVICE=x11 -q -dNOPROMPT -dTTYPAUSE"
-\end{minted}
