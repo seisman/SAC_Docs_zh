@@ -46,3 +46,14 @@ SAC> sc rm BAD*.SAC
 
 \SACTitle{1326 Start cut greater than file end for file}
 \nameref{cmd:cut}~命令中时间窗的开始时间晚于文件结束时间。
+
+\SACTitle{1379 No SORT parameters given}
+使用了~\nameref{cmd:sort}~命令，但未指定按照哪个参数排序。
+
+\SACTitle{1801 Header field mismatch:}
+该错误出现在~\nameref{cmd:addf}、\nameref{cmd:subf}、\nameref{cmd:divf}、\nameref{cmd:mulf}
+以及~\nameref{cmd:merge}~和~\nameref{cmd:beam}~中。
+
+出现该错误的原因是多个数据文件中的头段变量不匹配。该命令会明确给出不匹配的头段变量名，以及
+出现不匹配的数据文件，以供用户查错。会出现不匹配的头段变量包括npts、delta、kstnm、knetwk、
+kcmpnm。
