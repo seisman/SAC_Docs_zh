@@ -26,7 +26,7 @@ SAC> macro mystuff
 \begin{enumerate}
 \item 在当前目录搜索；
 \item 在~\nameref{cmd:setmacro}~命令设置的搜索目录中搜索；
-\item 在SAC的全局宏目录（\texttt{sac/aux/macros}）中搜索；
+\item 在SAC的全局宏目录(\texttt{sac/aux/macros})中搜索；
 \end{enumerate}
 
 所有人都可以使用全局宏目录中的宏文件，可以使用installmacro命令将自己的宏文件安装到这个目录中。
@@ -36,7 +36,7 @@ SAC> macro mystuff
 如果想要每次读取不同的文件或者乘以不同的值那么必须每次都修改该文件，
 让宏文件在执行之前允许用户输入参数可以大大增加宏文件的灵活性。
 
-SAC宏参数的格式为：~``\verb+$n$+''，其中n从1开始。
+SAC宏参数的格式为：``\verb+$n$+''，其中n从1开始。
 
 下面将对先前的宏文件进行修改以使其可以接收文件名作为参数：
 \begin{SACCode}
@@ -46,7 +46,7 @@ fft
 bg sgf
 psp am
 \end{SACCode}
-~``\verb+$1$+''~、~``\verb+$2$+''~和~``\verb+$3$+''~分别表示宏文件
+``\verb+$1$+''、``\verb+$2$+''和``\verb+$3$+''分别表示宏文件
 接收到的第一、二、三个参数，用下面的命令执行这个宏文件：
 \begin{SACCode}
 SAC> macro mystuff ABC DEF XYZ
