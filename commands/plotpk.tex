@@ -12,19 +12,19 @@ P!LOT!PK [P!ERPLOT! ON|OFF|n] [BELL ON|OFF] [A!BSOLUTE!|R!ELATIVE!]
 
 \SACTitle{输入}
 \begin{description}
-\item [PERPLOT ON] 一张图绘制n个文件，使用n的旧值 
-\item [PERPLOT OFF] 在一张图上绘制所有文件 
-\item [PERPLOT n] 一张图上绘制n个文件，比如拾取震相时常使用n=3（三分量) 
-\item [BELL ON|OFF]  击键时是否响铃 
-\item [ABSOLUTE] 显示绝对GMT格式时间 
-\item [RELATIVE] 显示相对于每个文件的参考时间 
-\item [REFERENCE ON] 打开参考线显示 
-\item [REFERENCE OFF] 关闭参考线选项 
-\item [REFERENCE v] 打开参考线选项并设置参考值为v，设置为0会很方便 
-\item [MARKALL ON] 同时储存一张图上的所有文件的时间标记，用于拾取震相 
-\item [MARKALL OFF] 只保存光标位置所在的那个文件的震相拾取标记 
-\item [SAVELOCS ON]  保存拾取的位置（由命令L得到，稍后介绍）到暂存块变量中 
-\item [SAVELOCS OFF]  不保存拾取位置到暂存块变量 
+\item [PERPLOT ON] 一张图绘制n个文件，使用n的旧值
+\item [PERPLOT OFF] 在一张图上绘制所有文件
+\item [PERPLOT n] 一张图上绘制n个文件，比如拾取震相时常使用n=3（三分量)
+\item [BELL ON|OFF]  击键时是否响铃
+\item [ABSOLUTE] 显示绝对GMT格式时间
+\item [RELATIVE] 显示相对于每个文件的参考时间
+\item [REFERENCE ON] 打开参考线显示
+\item [REFERENCE OFF] 关闭参考线选项
+\item [REFERENCE v] 打开参考线选项并设置参考值为v，设置为0会很方便
+\item [MARKALL ON] 同时储存一张图上的所有文件的时间标记，用于拾取震相
+\item [MARKALL OFF] 只保存光标位置所在的那个文件的震相拾取标记
+\item [SAVELOCS ON]  保存拾取的位置（由命令L得到，稍后介绍）到暂存块变量中
+\item [SAVELOCS OFF]  不保存拾取位置到暂存块变量
 \end{description}
 
 \SACTitle{缺省值}
@@ -38,23 +38,6 @@ plotpk perplot off absolute reference off markall off savelocs off
 \item NLOCS: 在命令执行期间拾取的光标位置数，每次执行PPK时初始化为0，每次拾取光标位置则加1
 \item XLOCn: 拾取光标位置的x值，如果头段中的参考时间被定义其是GMT时间，否则其为偏移时间
 \item YLOCn: 第n个拾取光标位置的y值
-\end{itemize}
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入数据文件
-\item[-]1202: 变量块个数超过了最大数目
-\end{itemize}
-
-\SACTitle{警告消息}
-\begin{itemize}
-\item[-]1502: 错误的光标位置，请重新尝试（光标位于绘图窗口之外）
-\item[-]1503: 无效字符，请重新尝试（输入的字符SAC无法识别为合法响应）
-\item[-]1905: 需要一个整数,请重新尝试（在响应T之后未输入整数）
-\item[-]1906: 需要一个0到4的整数，请重新尝试（在响应Q之后未输入0, 1, 2 或3）
-\item[-]1907: HYPO行已经写入
-\item[-]1908: HYPO震相拾取文件未打开
-\item[-]1909: 无法计算波形（调整光标位置并重试，绘图总是ABSOLUTE模式）
 \end{itemize}
 
 \SACTitle{相关命令}

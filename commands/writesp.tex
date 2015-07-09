@@ -8,16 +8,16 @@
 \begin{SACSTX}
 W!RITE!SP [ASIS|RLIM|AMPH|RL|IM|AM|PH] [OVER|filelist]
 \end{SACSTX}
- 
+
 \SACTitle{输入}
 \begin{description}
-\item [ASIS]  按照谱文件当前格式写入 
-\item [RLIM]  写入实部和虚部分量 
-\item [AMPH]  写入振幅和相位分量 
-\item [RL]  只写入实部分量 
-\item [IM]  只写入虚部分量 
-\item [AM]  只写入振幅分量 
-\item [PH]  只写入相位分量 
+\item [ASIS]  按照谱文件当前格式写入
+\item [RLIM]  写入实部和虚部分量
+\item [AMPH]  写入振幅和相位分量
+\item [RL]  只写入实部分量
+\item [IM]  只写入虚部分量
+\item [AM]  只写入振幅分量
+\item [PH]  只写入相位分量
 \item [filelist]  SAC二进制数据文件列表，这个列表可以包含简单文件名和绝对/相对路径名
 \end{description}
 
@@ -56,12 +56,6 @@ SAC> readsp file1
 SAC> ifft
 SAC> write file2
 \end{SACCode}
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入数据文件
-\item[-]1305: 对时间序列文件非法操作
-\end{itemize}
 
 \SACTitle{头段变量改变}
 磁盘文件中的b, e, delta将包含频率的起始值、结束值和增值，单位hz

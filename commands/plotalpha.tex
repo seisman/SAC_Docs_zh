@@ -6,19 +6,19 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-P!LOT!A!LPHA! [MORE] [DIR CURRENT|name] [FREE|FORMAT text] [CONTENT text] 
+P!LOT!A!LPHA! [MORE] [DIR CURRENT|name] [FREE|FORMAT text] [CONTENT text]
     [PRINT printer] [filelist]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
 \item [MORE] 将新读入的文件加到内存中老文件之后。如果没有这个选项，新文件将代替内存中的老文件。参见READ命令。
-\item [DIR CURRENT] 从当前目录读取并绘制所有文件 
-\item [DIR name] 从文件夹name中读取并绘制所有文件，其可以是相对或绝对路径 
-\item [FREE] 以自由格式（以空格分隔数据各字段）读取并绘制filelist中的数据文件 
-\item [FORMAT text] 以固定格式读取并绘制filelist中的数据文件，格式声明位于text中 
-\item [CONTENT text] 定义filelist中数据每个字段的含义。text的含义参见READTABLE命令中的 
-\item [filelist] 字符数字型文件列表，其可以包含简单文件名，绝对/相对路径，通配符。 
+\item [DIR CURRENT] 从当前目录读取并绘制所有文件
+\item [DIR name] 从文件夹name中读取并绘制所有文件，其可以是相对或绝对路径
+\item [FREE] 以自由格式（以空格分隔数据各字段）读取并绘制filelist中的数据文件
+\item [FORMAT text] 以固定格式读取并绘制filelist中的数据文件，格式声明位于text中
+\item [CONTENT text] 定义filelist中数据每个字段的含义。text的含义参见READTABLE命令中的
+\item [filelist] 字符数字型文件列表，其可以包含简单文件名，绝对/相对路径，通配符。
 \end{description}
 
 \SACTitle{缺省值}
@@ -35,21 +35,6 @@ plotalpha free content y. dir current
 \begin{SACCode}
 SAC> plotalpha content lp filea
 \end{SACCode}
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入数据文件（未给出文件列表或列表中的文件不可读）
-\item[-]1020: 无效的内置函数名
-\item[-]1320: 可用内存太小不足以读取文件
-\item[-]1314: 数据文件列表不能以数字开头
-\item[-]1315: 数据文件列表中文件的最大数目为：
-\end{itemize}
-
-\SACTitle{警告消息}
-\begin{itemize}
-\item[-]0101: 打开文件
-\item[-]0108: 文件不存在
-\end{itemize}
 
 \SACTitle{相关命令}
 \nameref{cmd:read}、\nameref{cmd:write}、\nameref{cmd:readtable}

@@ -65,14 +65,6 @@ SAC> lh sb sdelta nsnpts                // 保留原值
 变换过程中，B、E和DELTA分别被修改为起始频率、结束频率以及采样频率。
 B、E、NPTS和DELTA的原值被保存在SB、SE、NSNPTS和SDELTA中，这些值在做反傅立叶变换时会用到。
 
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入文件
-\item[-]1306: 对不等间隔数据的非法操作
-\item[-]1307: 对谱文件的非法操作
-\item[-]1606: 超过DFT所允许的最大数据点数
-\end{itemize}
-
 \SACTitle{限制}
 离散傅立叶变换所允许的最大数据点数为$2^{24}=16777216$个。
 

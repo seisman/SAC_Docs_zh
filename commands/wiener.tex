@@ -11,9 +11,9 @@ W!IE!N!E!R [W!INDOW! pdw] [N!COEFF! n] [MU OFF|ON|v] [EPS!ILON! OFF|ON|e]
 
 \SACTitle{输入}
 \begin{description}
-\item [WINDOW pdw] 设置滤波器设计窗口为pdw。关于pdw参见~\nameref{cmd:cut}~命令 
-\item [NCOEFF n] 设置滤波器系数为n个 
-\item [MU off|on|v] 设置自适应步长参数 
+\item [WINDOW pdw] 设置滤波器设计窗口为pdw。关于pdw参见~\nameref{cmd:cut}~命令
+\item [NCOEFF n] 设置滤波器系数为n个
+\item [MU off|on|v] 设置自适应步长参数
 \item [MU Off] 设置自适应步长参数为0
 \item [MU ON] 设置自适应步长为1.95/Rho(0)，其中Rho(0)是pdw中延迟为0时的自相关系数
 \item [MU v] 设置自适应步长为v
@@ -44,20 +44,6 @@ SAC> wiener ncoeff 40 window b a -1
 
 \SACTitle{头段变量}
 depmin、depmax、depmen
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入数据文件
-\item[-]1306: 对不等间隔文件的非法操作
-\item[-]1307: 对谱文件的非法操作
-\item[-]1608: 不良的Wiener滤波器噪声窗口（滤波器设计窗口不在文件窗口内，或用于窗口的
-    头段变量值未定义）
-\end{itemize}
-
-\SACTitle{警告消息}
-\begin{itemize}
-\item[-]1609: Wiener滤波器数字不稳定
-\end{itemize}
 
 \SACTitle{相关命令}
 \nameref{cmd:cut}

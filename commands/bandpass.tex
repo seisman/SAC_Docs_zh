@@ -6,7 +6,7 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-B!AND!P!ASS! [BU!TTER!|BE!SSEL!|C1|C2] [C!ORNERS! v1 v2] [N!POLES! n] [P!ASSES! n] 
+B!AND!P!ASS! [BU!TTER!|BE!SSEL!|C1|C2] [C!ORNERS! v1 v2] [N!POLES! n] [P!ASSES! n]
     [T!RANBW! v] [A!TTEN! v]
 \end{SACSTX}
 
@@ -52,7 +52,7 @@ bandpass butter corner 0.1 0.4 npoles 2 passes 1 tranbw 0.3 atten 30
 选择。其次，当滤波器的通带宽度相比折叠频率很小时，滤波器可能会出现数值不稳定
 。这个问题在增加极数时会更加严重。在要求使用一个非常窄的通带时，一个有效的办
 法是首先对数据进行采样，对采样之后的数据用一个通带宽一些的滤波器进行滤波，最
-后对数据进行插值回到原始采样率。当所需通带宽降到折叠频率的百分之几时很有必	
+后对数据进行插值回到原始采样率。当所需通带宽降到折叠频率的百分之几时很有必
 要使用这种策略。
 
 一般来说，随着极数的增加滤波器将有一个从通带到阻带的尖锐的转变。然而，极数太
@@ -80,14 +80,6 @@ SAC> bp n 4 c 2 5
 \begin{SACCode}
 SAC> bp n 2 be p 2
 \end{SACCode}
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入文件
-\item[-]1306: 对不等间隔文件的非法操作
-\item[-]1307: 对谱文件的非法操作
-\item[-]1002: 由于拐角频率大于Nyquist频率而出现的坏值
-\end{itemize}
 
 \SACTitle{头段变量改变}
 depmin, depmax, depmen

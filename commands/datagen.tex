@@ -61,22 +61,9 @@ LLSN拥有一系列垂直分量和三分量台站。该数据集中包含了9个
 多地有感。该数据集中包含了Regional Seismic Test Network（RSTN）的5个台站的中等周期和长周期数据
 （其中cpk台站的数据无法获取，sdk台站的长周期数据被截断）。这个数据集的数据时长1600秒，长周期
 数据每秒1个采样点，中等周期数据每秒4个采样点。文件包括：
-\begin{SACCode} 
+\begin{SACCode}
     ntkl.z, ntkl.n, ntkl.e, ntkm.z, ntkm.n, ntkm.e
     nykl.z, nykl.n, nykl.e, nykm.z, nykm.n, nykm.e
     onkl.z, onkl.n, onkl.e, onkm.z, onkm.n, onkm.e
     sdkl.z, sdkl.n, sdkl.e, sdkm.z, sdkm.n, sdkm.e
 \end{SACCode}
-
-\SACTitle{错误信息}
-\begin{itemize}
-\item[-]1301: 未读入数据（未指定文件列表或列表中的文件不可读）
-\item[-]1314: 数据文件列表不得以数字开头
-\item[-]1315: 超过最大文件数
-\end{itemize}
-
-\SACTitle{警告信息}
-\begin{itemize}
-\item[-]0101: 打开文件
-\item[-]0108: 文件不存在
-\end{itemize}

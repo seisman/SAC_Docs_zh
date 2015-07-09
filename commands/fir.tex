@@ -15,7 +15,7 @@ FIR [REC|FFT] file
 \item [REC] 递归应用FIR滤波器
 \item [file] 包含FIR滤波器的文件名
 \end{description}
- 
+
 \SACTitle{缺省值}
 \begin{SACDFT}
 fir fft fir
@@ -26,20 +26,6 @@ fir fft fir
 
 \SACTitle{头段变量}
 depmin, depmax, depmen
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入文件
-\item[-]1306: 对不等间隔文件非法操作
-\item[-]1307: 对谱文件非法操作
-\item[-]1601: 文件和滤波器采样频率不匹配
-\item[-]1603: 内存不足以进行FIR滤波
-\end{itemize}
-
-\SACTitle{警告消息}
-\begin{itemize}
-\item[-]1602: 内存不足以使用FFT进行FIR滤波（自动使用递归方法）
-\end{itemize}
 
 \SACTitle{限制}
 变换方法的最大数据点数是4096。

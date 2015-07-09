@@ -13,7 +13,7 @@ R!EAD!H!DR! [MORE] [DIR CURRENT|name] [filelist]
 \begin{description}
 \item [MORE] 将新数据头段放在内存中老文件头段之后。若如果忽略，则新数据文件的头段将代替内存中原文件的头段
 \item [DIR CURRENT] 从当前目录读取文件。这里的当前目录是指启动SAC的目录
-\item [DIR name] 从目录name中读取文件，目录名可以是绝对路径或相对路径 
+\item [DIR name] 从目录name中读取文件，目录名可以是绝对路径或相对路径
 \item [filelist] 文件名列表。其可以是简单文件名也可以使用通配符，路径名可以是相对路径或绝对路径
 \end{description}
 
@@ -21,21 +21,6 @@ R!EAD!H!DR! [MORE] [DIR CURRENT|name] [filelist]
 这个命令将一系列SAC文件的头段读入内存，你可以列出头段内容（\nameref{cmd:listhdr}）、
 改变头段值（\nameref{cmd:chnhdr}）、将头段写回磁盘（\nameref{cmd:writehdr}）。当你
 只需要文件的头段的时候，只读取头段要比读取整个文件到内存快很多。
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入数据文件（未给出要读取的文件列表或列表中文件不可读）
-\item[-]1314: 数据文件列表不得以数字开头
-\item[-]1315: 文件列表中的最大数目为1000
-\item[-]1335: 非法操作-只有头段在内存中
-\end{itemize}
-
-\SACTitle{警告消息}
-\begin{itemize}
-\item[-]0101:：打开文件错误
-\item[-]0108:：文件不存在
-\item[-]0114:：读取文件错误
-\end{itemize}
 
 \SACTitle{相关命令}
 \nameref{cmd:read}、\nameref{cmd:listhdr}、\nameref{cmd:chnhdr}、\nameref{cmd:writehdr}、

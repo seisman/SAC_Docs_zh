@@ -1,4 +1,9 @@
 \pdfbookmark[1]{E1xxx}{E1xxx}
+\SACTitle{1028 External command does not exist}
+执行~\nameref{cmd:load}命令时找不到外部命令。产生该错误的原因很多，可能是环境变量
+\verb+LD_LIBRARY_PATH+不包含要载入的共享库的所在目录，或~\verb+SACSOLIST+中不包含
+要载入的共享库的名字。
+
 \SACTitle{1106 Not a valid SAC command.}
 对于每一行命令，SAC首先会检查是否是SAC内部的命令，如果不是，则检查是否是系统自带
 的命令，比如~\verb+ls+、\verb+cp+等。
@@ -13,6 +18,9 @@ SAC> rm BAD*.SAC
 SAC> sc rm BAD*.SAC
 \end{SACCode}
 
+\SACTitle{1301 No data files read in}
+内存中未读入数据。可能是未指定要读取的文件列表，或列表中的文件不可读。
+
 \SACTitle{1303 Overwrite flag is not on for file}
 该错误主要出现在写SAC文件时，出现该错误的原因是SAC文件的头段变量~\verb+lovrok+的值
 为~\verb+FALSE+，即磁盘中的数据不允许被覆盖。解决该问题的方法有两种：
@@ -21,10 +29,31 @@ SAC> sc rm BAD*.SAC
 \item 修改~\verb+lovrok+的值为~\verb+TRUE+；
 \end{itemize}
 
+\SACTitle{1304 Illegal operation on data file}
+对数据文件的非法操作。
+
+\SACTitle{1305 Illegal operation on time series file}
+某些命令无法对时间序列数据进行操作。
+
+\SACTitle{1306 Illegal operation on unevenly spaced file}
+某些命令无法对不等间隔数据进行操作。
+
+\SACTitle{1307 Illegal operation on spectral file}
+命令不能对内存中的谱文件进行操作。
+
+\SACTitle{1311 No list of filenames to write}
+没有要写入的文件列表。
+
 \SACTitle{1312 Bad number of files in write file list}
 通常在使用~\nameref{cmd:write}~命令时会出现该问题。出现该错误的原因是内存中的
 波形文件的数目与write命令给出的文件名的数目不想匹配。在该错误信息的后面，紧接着
 会给出write命令中给出的文件数目以及内存中的波形数目。
+
+\SACTitle{1317 The following file is not a SAC data file:}
+试图读入非SAC格式的文件所产生的错误。
+
+\SACTitle{1320 Available memory too small to read file}
+系统内存不足。
 
 \SACTitle{1322 Undefined starting cut for file}
 \nameref{cmd:cut}~命令中时间窗的起始参考头段未定义。默认情况下，会使用磁盘
@@ -47,8 +76,32 @@ SAC> sc rm BAD*.SAC
 \SACTitle{1326 Start cut greater than file end for file}
 \nameref{cmd:cut}~命令中时间窗的开始时间晚于文件结束时间。
 
+\SACTitle{1340 data points outside allowed range contained in file}
+文件中数据点的值超过了所允许的范围。比如~\nameref{cmd:log}~中要求数据为正。
+
 \SACTitle{1379 No SORT parameters given}
 使用了~\nameref{cmd:sort}~命令，但未指定按照哪个参数排序。
+
+\SACTitle{1380 Too many SORT parameters:}
+\nameref{cmd:sort}~命令中用于排序的参数太多。
+
+\SACTitle{1381 Not a valid SORT parameter}
+无效的~\nameref{cmd:sort}~参数。
+
+\SACTitle{1383 SORT failed}
+排序失败。
+
+\SACTitle{1606 Maximum allowable DFT is 16777216}
+SAC中与FFT相关的命令，所能允许的最大数据点数是$2^{24}=16777216$。
+
+\SACTitle{1611 Corner frequency greater than Nyquist for file}
+对数据进行滤波时，拐角频率超过了文件的Nyquist采样率。
+
+\SACTitle{1701 Can't divide by zero}
+除零的非法操作。
+
+\SACTitle{1702 Non-positive values found in file}
+数据文件中存在非正值。
 
 \SACTitle{1801 Header field mismatch:}
 该错误出现在~\nameref{cmd:addf}、\nameref{cmd:subf}、\nameref{cmd:divf}、\nameref{cmd:mulf}
@@ -57,3 +110,12 @@ SAC> sc rm BAD*.SAC
 出现该错误的原因是多个数据文件中的头段变量不匹配。该命令会明确给出不匹配的头段变量名，以及
 出现不匹配的数据文件，以供用户查错。会出现不匹配的头段变量包括npts、delta、kstnm、knetwk、
 kcmpnm。
+
+\SACTitle{1802 Time overlap}
+要进行操作的两个数据的时间段不完全重合。
+
+\SACTitle{1803 No binary data files read in.}
+\nameref{cmd:addf}、\nameref{cmd:subf}、\nameref{cmd:merge}~等命令需要先读入二进制数据，再对数据做操作。
+
+\SACTitle{1805 Time gap}
+使用~\nameref{cmd:merge}~命令时，两段数据间存在时间间断。

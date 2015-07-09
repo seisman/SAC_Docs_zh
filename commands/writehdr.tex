@@ -16,10 +16,5 @@ write命令的over选项可以用内存中头段区和数据区覆盖磁盘文�
 但是磁盘中的数据并没有被修改，因而此时不能使用writehdr命令。对被cut的数据
 使用WRITEHDR命令将可能导致磁盘中的数据产生类似于平移或截断的效果。
 
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入数据文件
-\end{itemize}
-
 \SACTitle{相关命令}
 \nameref{cmd:cut}、\nameref{cmd:write}

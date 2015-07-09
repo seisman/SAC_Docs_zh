@@ -6,7 +6,7 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-RGL!ITCHES! [TH!RESHOLD! v] [TY!PE! L!INEAR!|Z!ERO!] [W!INDOW! ON|OF!F!|pdw] 
+RGL!ITCHES! [TH!RESHOLD! v] [TY!PE! L!INEAR!|Z!ERO!] [W!INDOW! ON|OF!F!|pdw]
     [METHOD A!BSOLUTE!|P!OWER!|R!UNAVG!]
 \end{SACSTX}
 
@@ -24,17 +24,17 @@ RGL!ITCHES! [TH!RESHOLD! v] [TY!PE! L!INEAR!|Z!ERO!] [W!INDOW! ON|OF!F!|pdw]
     的THRESH2倍，且大于MINAMP，则认为其是坏点，其值将用当前窗的均值代替。此方法不受WINDOW选项
     的影响，总是适用于整段波形数据。
 \end{description}
-    
+
 对于RUNAVG方法，另有三个与之相关的选项：
 \begin{description}
 \item [SWINLEN v] 设置滑动平均窗的长度为v
 \item [THRESH2 v] 设置坏点的阀值
 \item [MINAMP v] 设置坏点的最小幅度
-\end{description} 
+\end{description}
 
 \SACTitle{缺省值}
 \begin{SACDFT}
-rglitches threshold 1.0e+10 type linear window off method absolute 
+rglitches threshold 1.0e+10 type linear window off method absolute
     swinlen 0.5 thresh2 5.0 minamp 50
 \end{SACDFT}
 
@@ -46,10 +46,3 @@ rglitches threshold 1.0e+10 type linear window off method absolute
 
 \SACTitle{头段变量}
 depmin、depmax、depmen
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入数据文件
-\item[-]1306: 对不等间隔文件的非法操作
-\item[-]1307: 对谱文件的非法操作
-\end{itemize}

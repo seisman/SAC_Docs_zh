@@ -11,10 +11,10 @@ UNWRAP [F!ILL! ON|OFF|n] [I!NTTHR! v] [P!VTHR! v]
 
 \SACTitle{输入}
 \begin{description}
-\item [FILL ON|OFF] 打开/关闭补零选项 
-\item [FILL n] 打开补零选项并设置填充值为n 
-\item [INTTHR v] 改变积分阈值常量为v 
-\item [PVTHR v] 改变主值阈值常量为v 
+\item [FILL ON|OFF] 打开/关闭补零选项
+\item [FILL n] 打开补零选项并设置填充值为n
+\item [INTTHR v] 改变积分阈值常量为v
+\item [PVTHR v] 改变主值阈值常量为v
 \end{description}
 
 \SACTitle{缺省值}
@@ -38,18 +38,6 @@ $2\pi$的整数倍，直到相位的突变小于给定的阀值为止。可以�
 
 这两个阀值的初值通常经验地取为:
 \[ \pi/4 < PVTHR < INTTHR < 2\pi \]
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1301: 未读入数据文件
-\item[-]1306: 对不等间隔文件的非法操作
-\item[-]1606: 超过DFT所允许的最大数据点数
-\end{itemize}
-
-\SACTitle{警告消息}
-\begin{itemize}
-\item[-]1610: 对文件中数据点的相位展开失败（调整阀值然后重试）
-\end{itemize}
 
 \SACTitle{头段变量}
 b、e和delta分别改变为变换的起始频率、结束频率和采样频率。原始的b、e和delta被保存在为sb、se、sdelta，当进行反变换时将值带回。
