@@ -29,7 +29,7 @@ R!ANDOM! [v1 v2] | IMPSTRIN  [n1 n2 ... nN]
 \item [QUADRATIC v1 v2 v3] 二次函数 $v_1 t^{2} + v_2 t + v_3 $
 \item [CUBIC v1 v2 v3 v4] 三次函数 $ v_1 t^{3} + v_2 t^2 + v_3t + v_4 $
 \item [SEISMOGRAM] 地震样本数据。此样本数据有1000个数据点。DELTA、NPTS和BEGIN选项没有效果
-\item [RANDOM v1 v2] 生成随机序列（高斯白噪声）。v1是要生成的随机序列文件的数目，v2是用于
+\item [RANDOM v1 v2] 生成随机序列(高斯白噪声)。v1是要生成的随机序列文件的数目，v2是用于
     产生第一个随机数的``种子''，该种子值保存在USER0中，因而如果需要你可以在稍后生成一个
     完全相同的随机序列。
 \item [DELTA v] 设置采样周期为v，储存在头段delta中
@@ -46,7 +46,7 @@ funcgen impulse npts 100 delta 1.0 begin 0.
 随机序列数为1，种子是12357。
 
 \SACTitle{说明}
-执行这个命令等效于读取单个文件（RANDOM选项会产生多个文件）到内存中，文件名即为函数名。
+执行这个命令等效于读取单个文件(RANDOM选项会产生多个文件)到内存中，文件名即为函数名。
 内存中原有的数据会被该命令生成的函数所替换。
 
 \SACTitle{相关命令}

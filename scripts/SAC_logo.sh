@@ -17,7 +17,7 @@ color red
 axes off all
 # 去刻度
 ticks off all
-# 去边界（这个很重要，不然上面axes那个命令没有效果）
+# 去边界(这个很重要，不然上面axes那个命令没有效果)
 border off
 # 滤波让一些震相明显一点
 bp c 0.001 0.2

@@ -61,7 +61,7 @@ SAC> transcript change file mytran contents e w o c
 SAC> transcript create file myrecord contents commands
 \end{SACCode}
 
-以后，经过适当的编辑，这个文件可以用作宏命令文件，去自动执行相同的一组命令。在最后的例子中假设你需要彻夜处理许多事件。你可以设置每个事件一个副本文件（用不同的副本文件名）去记录处理的结果。另外你可以将处理所有事件得到的任何错误消息保存到一个副本文件中:
+以后，经过适当的编辑，这个文件可以用作宏命令文件，去自动执行相同的一组命令。在最后的例子中假设你需要彻夜处理许多事件。你可以设置每个事件一个副本文件(用不同的副本文件名)去记录处理的结果。另外你可以将处理所有事件得到的任何错误消息保存到一个副本文件中:
 \begin{SACCode}
 SAC> transcript open file errortran contents errors
 SAC> transcript write message 'processing event 1'
