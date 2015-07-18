@@ -2,7 +2,7 @@
 \label{cmd:decimate}
 
 \SACTitle{概要}
-对数据减采样，包含了一个可选的抗混叠FIR滤波器
+对数据进行减采样
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -11,7 +11,7 @@ DEC!IMATE! [n] [F!ILTER! ON|OFF]
 
 \SACTitle{输入}
 \begin{description}
-\item [n] 设置减采样因子为n，即每n个点中取一个点，其取值为2到7，
+\item [n] 设置减采样因子为n，即每n个点中取一个点，n取值范围为2到7
 \item [FILTER ON|OFF] 打开/关闭抗混叠FIR滤波器
 \end{description}
 
