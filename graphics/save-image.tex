@@ -12,7 +12,7 @@ SAC> q
 \end{SACCode}
 
 对于xwindows，最简单的保存图像的方式是截图，常用的工具包括gnome下的screenshot或者
-ImageMagick的import命令。
+ImageMagick的~\verb+import+命令。
 
 \subsection{sgf}
 SGF图形设备会将图像信息保存到SGF文件中。其使用方式为：``启用sgf图形设备''$\rightarrow$
@@ -31,7 +31,7 @@ f001.sgf            // 生成sgf文件
 也可以使用sgftox直接将sgf文件显示在绘图窗口中。
 
 \subsection{PS和PDF}
-自101.5之后，SAC加入了saveimg命令，可以将当前xwindow或sgf图形设备中的图像保存到
+自101.5之后，SAC加入了~\nameref{cmd:saveimg}~命令，可以将当前xwindow或sgf图形设备中的图像保存到
 其它ps或pdf格式的图像文件中，以获得更高质量的绘图效果。
 \footnote{该命令也支持输出为png和xpm格式，但png和xpm为位图图像格式，精度不够，
 且依赖于其它函数库，因而不推荐使用。}

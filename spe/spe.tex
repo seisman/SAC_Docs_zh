@@ -1,7 +1,7 @@
 \section{谱估计子程序}
 
 \subsection{简介}
-SPE，全称为Spectrum Estimation Subprocess，在SAC中键入~\verb+spe+~命令即可
+SPE，全称为Spectrum Estimation Subprocess，在SAC中键入~\verb+spe+命令即可
 进入谱估计子程序。该子程序主要用于处理稳态随机过程，包含了如下三种谱估计方法：
 
 \begin{description}
@@ -77,19 +77,19 @@ SPE在运行期间生成并保存了大量的辅助函数(例如：相关函数�
 新的文件，系统中将为前面所述的辅助函数生成一个空间。
 
 \subsection{相关}
-可以使用\nameref{spe:cor}命令计算相关函数，用\nameref{spe:writecor}命令
-可以激昂相关函数作为SAC的数据文件保存起来，还可以用\nameref{spe:readcor}
-命令再将它们读回SPE中去，这比每次都重复计算相关函数要更为简单。在数据文件
-很长的时候尤为如此。此时用户也可以使用\nameref{spe:plotcor}命令来看一下
-相关函数。如果用户准备使用MEM方法的话，还可以使用\nameref{spe:plotpe}命令
+可以使用~\nameref{spe:cor}~命令计算相关函数，用~\nameref{spe:writecor}~命令
+可以激昂相关函数作为SAC的数据文件保存起来，还可以用~\nameref{spe:readcor}~命令
+再将它们读回SPE中去，这比每次都重复计算相关函数要更为简单。在数据文件
+很长的时候尤为如此。此时用户也可以使用~\nameref{spe:plotcor}~命令来看一下
+相关函数。如果用户准备使用MEM方法的话，还可以使用~\nameref{spe:plotpe}~命令
 来看一下预测误差函数。
 
 \subsection{估计}
-用户可以使用\nameref{spe:pds}、\nameref{spe:mlm}、\nameref{spe:mem}命令来
-选择三种频谱估计中的任何一种。每一种方法都有自己的选项，你可以使用
-\nameref{spe:plotspe}命令来检验谱分析结果。有几种确定比例的选项可以使用。
-同样的你也可以使用\nameref{spe:writespe}命令将谱估计的结果作为SAC的数据
+用户可以使用~\nameref{spe:pds}、\nameref{spe:mlm}、\nameref{spe:mem}~命令来
+选择三种频谱估计中的任何一种。每一种方法都有自己的选项，你可以
+使用~\nameref{spe:plotspe}~命令来检验谱分析结果。有几种确定比例的选项可以使用。
+同样的你也可以使用~\nameref{spe:writespe}~命令将谱估计的结果作为SAC的数据
 文件保存起来。
 
 \subsection{终止}
-可以使用quitsub命令终止谱估计子程序，或使用\nameref{cmd:quit}命令终止整个SAC程序的运行。
+可以使用quitsub命令终止谱估计子程序，或使用~\nameref{cmd:quit}~命令终止整个SAC程序的运行。
