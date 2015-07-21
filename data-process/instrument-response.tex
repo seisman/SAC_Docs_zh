@@ -20,8 +20,8 @@ $ rdseed -Rdf infile.seed
 SAC> r *.SAC
 SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
 \end{SACCode}
-由于波形数据和RESP文件都是用rdseed从SEED数据中解压出来的，因而二者是一一对应的。
-对于内存中的每一个波形，transfer命令会提取台站信息，并根据特定的格式在当前目录下
+由于波形数据和RESP文件都是用~\verb+rdseed+从SEED数据中解压出来的，因而二者是一一对应的。
+对于内存中的每一个波形，\nameref{cmd:transfer}~命令会提取台站信息，并根据特定的格式在当前目录下
 寻找对应的RESP文件。
 
 \subsubsection{RESP方法2}
@@ -42,7 +42,7 @@ SAC> trans from evalresp fname RESP.ALL to none \
 \end{SACCode}
 
 \subsection{PZ文件}
-SAC PZ仪器响应文件可以直接用rdseed从SEED文件中提取出来：
+SAC PZ仪器响应文件可以直接用~\verb+rdseed+从SEED文件中提取出来：
 \begin{minted}{console}
 $ rdseed -pdf infile.seed
 \end{minted}

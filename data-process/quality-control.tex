@@ -25,7 +25,7 @@ t9则都处于未定义状态，其值为~\verb+t9=-12345.0+。
 
 鉴于此，可以通过如下命令删除``坏''波形：
 \begin{minted}{console}
-$ saclst t9 f seis | awk '$2>0{print "rm",$1}' | sh
+$ saclst t9 f seis | awk '$2>0 {print "rm",$1}' | sh
 \end{minted}
 
 注意：一定要在理解该命令的含义的前提下才可使用！

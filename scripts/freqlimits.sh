@@ -12,7 +12,7 @@ r freqlimits.sac
 w over
 q
 EOF
-pssac -JX20c/10c -R0/50/-0.2/1.2 -B10:Freq\(Hz\):/1WSen:.'Freqlimits Function': freqlimits.sac -W2p,blue -K > $PS
+pssac -JX20c/10c -R0/50/-0.2/1.2 -B10:Freq\(Hz\):/1WSen freqlimits.sac -W2p,blue -K > $PS
 psxy -J -R -Sv0.05/0.3/0.2 -Wred -Gred -K -O >> $PS << EOF
 5 0.2 -90 1.4
 15 0.8 90 1.4

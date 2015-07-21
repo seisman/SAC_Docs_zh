@@ -3,8 +3,8 @@
 变量的值，lh命令的输出对于人来说很直观，但是对于机器来说却很不友好。有些时候需要
 直接使用头段变量的值，这就需要一些特殊的技巧。
 
-最常见的情况是第~\pageref{code:origin-time}~页给出的例子。在使用``ch o gmt''指定发震
-时刻后，需要获取头段变量o的值，对该值取负值，并用于``ch allt''中。
+最常见的情况是第~\pageref{code:origin-time}~页给出的例子。在使用``\verb+ch o gmt+''指定发震
+时刻后，需要获取头段变量o的值，对该值取负值，并用于``\verb+ch allt+''中。
 
 本例中，我们需要知道头段变量o的值，并将其值用于其它命令中，准确的说这叫变量
 值的引用。在SAC命令中引用SAC头段变量的值有两种方式，分别是~``\verb+&fname,header&+''
@@ -23,9 +23,6 @@ SAC> w seis.SAC
 SAC> r ./seis.SAC               // 注意"./"
 SAC> lh kevnm o stla            // 查看三个头段变量的值
 
-  FILE: ./seis.SAC - 1          // 这里给出了文件名和文件号
- ----------------
-
      kevnm = K8108838
          o = -4.143000e+01
       stla = 4.800000e+01
@@ -37,9 +34,6 @@ SAC> ch user0 &./seis.SAC,o&    // 利用文件名，引用头段变量o
 SAC> ch user1 &seis.SAC,stla&   // 文件名少了"./"
  ERROR 1363: Illegal data file list name: seis.SAC
 SAC> lh kuser0 user0 user1
-
-  FILE: ./seis.SAC - 1
-   ----------------
 
      kuser0 = K8108838
      user0 = -4.143000e+01

@@ -11,8 +11,8 @@ TSIZE [T!INY!|S!MALL!|M!EDIUM!|L!ARGE! v ] [RATIO v] [OLD|NEW]
 
 \SACTitle{输入}
 \begin{description}
-\item [TINY|SMALL|MEDIUM|LARGE v] 设定标准文本尺寸的值为v 
-\item [RATIO v] 设定文本的宽高比为v 
+\item [TINY|SMALL|MEDIUM|LARGE v] 设定标准文本尺寸的值为v
+\item [RATIO v] 设定文本的宽高比为v
 \item [OLD] 将所有文本尺寸值设置为旧值。旧值即SAC 9之前的版本中的文本尺寸值
 \item [NEW] 设定所有文本尺寸值为SAC初始化时的缺省值
 \end{description}
@@ -23,10 +23,11 @@ tsize ratio 1.0 new
 \end{SACDFT}
 
 \SACTitle{说明}
-大多数的文本注释命令(TITLE、XLABEL、FILEID等)允许你改变要显示的文本的尺寸。
+大多数的文本注释命令(\nameref{cmd:title}、\nameref{cmd:xlabel}、\nameref{cmd:fileid}等)
+允许你改变要显示的文本的尺寸。
 你可以从四个标准尺寸中选择(TINY、SMALL、MEDIUM、LARGE)。每一个标准尺寸都有一个初始值，
 如下表所示，这个尺寸定义为一个字符的高度相对于整个视窗的百分比。有些时候你想要使用一些
-不同于默认尺寸的文本。TSIZE允许你重新定义这四个标准尺寸。你也可以使用这个命令改变字符的宽-高比。
+不同于默认尺寸的文本。\nameref{cmd:tsize}~允许你重新定义这四个标准尺寸。你也可以使用这个命令改变字符的宽-高比。
 \begin{table}[!ht]
 \centering
 \caption{SAC标准文本尺寸}
