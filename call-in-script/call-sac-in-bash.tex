@@ -9,9 +9,9 @@ SAC宏的功能相对比较单一，难以满足日常数据处理的需求，�
 \inputminted{bash}{./call-in-script/simple-script.sh}
 
 SAC在启动是默认会显示版本信息，当用脚本多次调用SAC时，版本信息也会显示多次，可以
-通过设置变量~``\lstinline{SAC_DISPLAY_COPYRIGHT=0}''的方式隐藏版本信息。
+通过设置变量``\verb+SAC_DISPLAY_COPYRIGHT=0+''的方式隐藏版本信息。
 
-脚本中从~``\lstinline{sac << EOF}''~开始到~``\lstinline{EOF}''~的全部内容，都会被
+脚本中从``\verb+sac << EOF+''开始到``\verb+EOF+''的全部内容，都会被
 Bash传递给SAC，SAC会逐一解释并执行每行命令。
 
 \subsection{头段变量和黑板变量}
@@ -20,12 +20,12 @@ Bash传递给SAC，SAC会逐一解释并执行每行命令。
 
 \subsection{内联函数}
 bash可以完成基本的数学运算，但是所有的运算只支持整型数据，浮点型运算或者其它更
-高级的数学运算需要借助bc或者awk来完成。Bash中的变量以~``\lstinline{$}''~作为标识符，
+高级的数学运算需要借助bc或者awk来完成。Bash中的变量以``\verb+$+''作为标识符，
 Bash会首先做变量替换再将替换后的命令传递给SAC。
 \inputminted{bash}{./call-in-script/arithmetic-functions.sh}
 
-本例中的变量~``\lstinline{$var1}''~和~``\lstinline{$var2}''~会首先被SAC解释成
-为1和2，因而SAC实际接收到的命令是~``\lstinline{bp c 1 2}''。
+本例中的变量``\verb+$var1+''~和~``\verb+$var2+''会首先被SAC解释成
+为1和2，因而SAC实际接收到的命令是``\verb+bp c 1 2+''。
 
 借助于awk、sed等工具，也可以实现部分字符串处理函数：
 \inputminted{bash}{./call-in-script/string-functions.sh}
@@ -34,3 +34,12 @@ Bash会首先做变量替换再将替换后的命令传递给SAC。
 Bash具有更灵活的条件判断和循环控制功能，但由于Bash自身的限制，这些特性仅能
 在SAC外部使用，因而下例中需要多次调用SAC，在某些情况下会相当耗时。
 \inputminted{bash}{./call-in-script/do-loops.sh}
+
+\subsection{文件重命名}
+\label{subsec:rename-in-bash}
+bash下可以借助于awk来实现文件重命名。下面的例子中，首先用点号对文件名做分割，
+\verb+$0+表示原始文件名，\verb+$7+表示用逗号分割后的第7段字符，即台网名，
+其他同理。最后将awk的输出传给sh去执行。
+\begin{minted}{console}
+$ ls *.SAC | awk -F "." '{printf "mv %s %s.%s.%s", $0, $7, $8, $10}' | sh
+\end{minted}

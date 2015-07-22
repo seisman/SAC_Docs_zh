@@ -10,15 +10,12 @@
 文件名中每一项的具体含义在``\nameref{chap:naming}''中有介绍，这里不再重复。
 
 默认的文件名比较长，在数据处理时可能会显得比较麻烦，一般都会根据实际需求进行适当的简化。
-数据重命名这一步骤可以单独操作，如果数据有执行合并操作的话，可以在把合并后的文件
-写入磁盘的同时进行重命名操作。
 
-\subsection{重命名格式}
-是否要对数据做重命名，以及按照什么格式重命名，都是没有一定的标准的。通常需要
+是否要对数据文件做重命名，以及按照什么格式重命名，都是没有固定的标准的。通常需要
 用户根据自己所做研究的实际情况来决定。
 
 在某些情况下，我们会将同一事件在所有台站的波形数据放在同一个文件夹下，并将文件名以事件的
-发生日期/时间来命名。那么，SAC文件名中的时间等信息就可以被省略掉：
+发生日期/时间来命名。那么，SAC文件名中的时间等信息就可以被省略掉。数据文件名简化为：
 \begin{minted}{bash}
 YW.MAIO.BHE
 YW.MAIO.BHN
@@ -26,61 +23,14 @@ YW.MAIO.BHZ
 \end{minted}
 
 有时候，我们会将不同事件在同一个台站的波形数据放在同一个文件夹下，并将文件名以台站
-名来命名，此时数据文件名中可能需要保留事件的日期信息：
+名来命名，此时数据文件名中可能需要保留事件的日期信息。数据文件名可以简化为：
 \begin{minted}{bash}
 YW.MAIO.20120224.BHE
 YW.MAIO.20120224.BHN
 YW.MAIO.20120224.BHZ
 \end{minted}
 
-\subsection{重命名脚本}
-\subsubsection*{Bash}
-Bash下可以借助于awk来实现文件重命名。下面的例子中，首先用点号对文件名做分割，
-\verb+$0+表示原始文件名，\verb+$7+表示用逗号分割后的第7段字符，即台网名，
-其他同理。最后将awk的输出传给sh去执行。
-\begin{minted}{console}
-$ ls *.SAC | awk -F "." '{printf "mv %s %s.%s.%s", $0, $7, $8, $10}' | sh
-\end{minted}
-
-\subsubsection*{Perl}
-Perl下先用split函数将文件名用点号分割
-\footnote{由于split函数的第一个参数实际上是正则表达式，故而这里的点号需要转义。}。
-点号分割之后的字符串数组赋值给一系列变量，然后使用rename函数实现重命名。
-\begin{minted}{perl}
-#!/usr/bin/env perl
-use strict;
-use warnings;
-
-foreach my $file (glob "*.SAC") {
-    my ($year, $jday, $hour, $min, $sec, $msec,
-        $net, $sta, $loc, $chn, $q, $suffix) = split /\./, $file;
-    rename $file, "$net.$sta.$chn";
-}
-\end{minted}
-
-上面的方法中定义了一堆变量但是却没有用到。可以将split函数的结果赋值给数组，然后
-直接取数组中需要的元素即可。需要注意的是，Perl的数组下标从零开始。
-\begin{minted}{perl}
-#!/usr/bin/env perl
-use strict;
-use warnings;
-
-foreach my $file (glob "*.SAC") {
-    my @item = split /\./, $file;
-    rename $file, "$item[6].$item[7].$item[9]";
-}
-\end{minted}
-
-\subsubsection*{Python}
-与上面的Perl解法类似，先用split方法将文件名分割成列表，然后直接从列表中取
-需要的元素。
-\begin{minted}{python}
-#!/usr/bin/env python
-# -*- coding: utf8 -*-
-import os
-import glob
-
-for file in glob.glob("*.SAC"):
-    item = file.split('.')
-    os.rename(file, "%s.%s.%s" % (item[6], item[7], item[9]))
-\end{minted}
+数据重命名这一步骤可以单独执行，也可以在执行其他操作的过程中顺便进行重命名(比如将
+数据合并并写入磁盘的时候)。通常需要写脚本来完成重命名的操作，重命名脚本的bash版本
+位于第~\pageref{subsec:rename-in-bash}页，Perl版本位于第~\pageref{subsec:rename-in-perl}~页，
+Python版本位于第~\pageref{subsec:rename-in-python}~页。

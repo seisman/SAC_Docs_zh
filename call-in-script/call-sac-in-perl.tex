@@ -35,3 +35,33 @@ Perl也可以很容易地实现条件判断和循环控制：
 没有简单的办法，只能通过编程实现，下面给出一个半完整的示例：
 \inputminted{perl}{./call-in-script/ch-origin.pl}
 本例中，子程序``ymd2doy''用于计算某日期是一年中的第几天。
+
+\subsection{文件重命名}
+\label{subsec:rename-in-perl}
+Perl下先用~\verb+split+函数将文件名用点号分割，由于~\verb+split+函数的第一个参数
+实际上是正则表达式，故而这里的点号需要转义。点号分割之后的字符串数组赋值给一系列
+变量，然后使用~\verb+rename+函数实现重命名。
+\begin{minted}{perl}
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+foreach my $file (glob "*.SAC") {
+    my ($year, $jday, $hour, $min, $sec, $msec,
+                    $net, $sta, $loc, $chn, $q, $suffix) = split /\./, $file;
+    rename $file, "$net.$sta.$chn";
+}
+\end{minted}
+
+上面的方法中定义了一堆变量但是却没有用到。可以将~\verb+split+函数的结果赋值给数组，
+然后直接取数组中需要的元素即可。需要注意的是，Perl的数组下标从零开始。
+\begin{minted}{perl}
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+foreach my $file (glob "*.SAC") {
+    my @item = split /\./, $file;
+    rename $file, "$item[6].$item[7].$item[9]";
+}
+\end{minted}
