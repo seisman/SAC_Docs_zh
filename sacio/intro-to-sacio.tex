@@ -1,17 +1,21 @@
-这一章的内容一直没有想好怎么写，姑且先放在这里，等等再说。
+\section{SAC I/O简介}
+前一章介绍了SAC提供的一系列用于读写SAC文件的子函数。这些子函数虽然是官方提供
+的，但实际用起来却不好用。比如：
+\begin{itemize}
+\item 函数参数太多太复杂，有些参数基本不会用到，但还是需要定义；
+\item 读文件时无法只读取部分文件，即没有截窗的功能；
+\item 要获取某个头段变量的值，必须单独调用相应的子函数；
+\end{itemize}
 
-SAC自身已经提供了一系列用于读写SAC文件的子函数，但是函数功能过于单一。
-比如读函数只能一次性读取整个文件，无法只读取
-文件的一部分(即没有截窗的功能)；再比如，想要获取多个头段变量的值，必须
-多次调用相应的子函数。
+在了解了SAC文件的具体格式后，可以很容易的写一套函数来实现SAC文件的读写。
 
-在理解了SAC的内部结构之后，可以完全自定义SAC I/O函数库。
+Prof. Lupei Zhu实现了一套相对比较易用的SAC I/O函数库，可以在C或Fortran程序
+中直接调用，姑且称之为~\verb+sacio+。
 
-Prof. Lupei Zhu实现了一个比较方便的SAC I/O函数库，可以直接使用或者作为参考。
-相关地址为：\url{http://www.eas.slu.edu/People/LZhu/downloads/pssac.tar}。
+\verb+sacio+函数库与Prof. Lupei Zhu的其他程序一起发布。你可以从Prof. Lupei Zhu
+的主页下载~\verb+fk+\footnote{\url{http://www.eas.slu.edu/People/LZhu/downloads/fk3.2.tar}}软件包，
+并从中提取出源文件~\verb+sac.h+和~\verb+sacio.c+。
 
-另一方面，我自己正在计划重写SAC I/O函数库以及相应的一些辅助工具。重写SAC I/O
-函数库的原因在于Prof. Lupei Zhu的I/O库中存在一些潜在的Bug以及考虑不周之处，并且
-现有的诸如saclst等辅助工具功能尚有欠缺。
-
-该项目目前还是玩具性质，仅供参考：\url{https://github.com/seisman/sac_tools}。
+\verb+sacio+简单易用，但也存在一些潜在的Bug及缺陷。我在~\verb+sacio+的基础上重写了
+SAC I/O函数库以及SAC相关工具，项目地址为~\url{https://github.com/seisman/sac_tools}。
+该项目目前属于玩具性质，仅供有兴趣的读者参考。
