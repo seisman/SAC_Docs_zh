@@ -11,8 +11,8 @@
 SH波与P-SV波的解偶，更常处理的是R、T、Z向的三分量数据。因而地震信号的旋转是有
 必要的。
 
-SAC提供了~\nameref{cmd:rotate}~命令，用于旋转任意两个分量。在旋转之前，SAC会
-检查两个分量的~\verb+cmpinc+和~\verb+cmpaz+，确定两个分量是正交的。
+SAC提供了~\nameref{cmd:rotate}~命令，用于旋转任意两个相互正交的分量。
+旋转前，SAC会检查两个分量的~\verb+cmpinc+和~\verb+cmpaz+，以确定两个分量是正交的。
 
 \begin{SACCode}
 SAC> dg sub teleseis ntkl.[enz]

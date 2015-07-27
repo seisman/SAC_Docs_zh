@@ -138,10 +138,11 @@ SAC> trans from none to WWSP    // 简写为trans to WWSP
 \end{SACCode}
 
 \subsubsection{evalresp类型}
-\verb+evalresp+类型并不代表真正意义上的仪器类型，而是表示从RESP文件中读取仪器
-响应。transfer命令在使用evalresp选项时，首先会从SAC波形数据中提取出头段信息kstnm、
-kcmpnm、kzdate、kztime、knetwk和locid，然后会在当前目录下寻找文件名为
-``\verb+RESP.<NET>.<STA>.<LOCID>.<CHN>+''的RESP文件(比如``RESP.IU.COLA..BHZ'')，
+\verb+evalresp+类型并不代表真正意义上的仪器类型，而是表示从RESP仪器响应文件中
+读取仪器响应信息。在使用~\verb+evalresp+选项时，\nameref{cmd:transfer}~依次从
+当前内存中的SAC波形数据中提取出各自的头段信息，包括：\verb+kstnm+、\verb+kcmpnm+、
+\verb+kzdate+、\verb+kztime+、\verb+knetwk+和~\verb+locid+，然后会在当前目录下
+寻找文件名为``\verb+RESP.<NET>.<STA>.<LOCID>.<CHN>+''的RESP文件(比如``RESP.IU.COLA..BHZ'')，
 并检测RESP文件中给出的台站信息是否与数据中的台站信息匹配
 \footnote{即，要求RESP文件名以及RESP文件中的台站信息都与数据头段中的台站信息匹配}。
 \begin{SACCode}

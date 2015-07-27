@@ -12,7 +12,7 @@ IMAGE [COLOR|GREY] [BINARY|FULL] [PRINT [pname]]
 \SACTitle{输入}
 \begin{description}
 \item [COLOR|GREY] 绘制彩图或者灰度图
-\item [BINARY|FULL] 绘图时所有正值是一个颜色，所有负值是另一种颜色，或者根据数据值不同变换颜色 
+\item [BINARY|FULL] 绘图时所有正值是一个颜色，所有负值是另一种颜色，或者根据数据值不同变换颜色
 \end{description}
 
 \SACTitle{缺省值}
@@ -21,7 +21,12 @@ image color full
 \end{SACDFT}
 
 \SACTitle{说明}
-这个命令允许用户根据SAC三维数据绘制彩图或灰度图，三维数据一般由spectrogram,scallop或bbfk命令产生，你也可以导入自己生成的SAC格式三维数据。可以使用xlim和ylim查看图形的不同区域，也可以通过一位操作符修改幅度
+该命令允许用户用SAC三维数据绘制彩图或灰度图。
+
+三维数据可以用~\nameref{cmd:spectrogram}、
+\nameref{cmd:sonogram}~或~\nameref{cmd:bbfk}~命令产生，也可以自己生成SAC格式的三维
+数据。可以使用~\nameref{cmd:xlim}~和~\nameref{cmd:ylim}~以控制要显示的绘图效果，
+也可以使用其他命令对数据做振幅上的操作。
 
 \SACTitle{示例}
 以SAC 101.5c自带的contourdata为例：
@@ -37,6 +42,6 @@ SAC> image
 \end{figure}
 
 \SACTitle{头段变量}
-需要: iftype (设为``IXYZ''), nxsize, nysize
+需要：iftype (设为``IXYZ''), nxsize, nysize
 
-使用:xminimum, xmaximum, yminimum, ymaximum
+使用：xminimum, xmaximum, yminimum, ymaximum

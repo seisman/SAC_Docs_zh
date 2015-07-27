@@ -314,10 +314,11 @@ U       &   0       &   0           \\
 对于非标准方向的地震通道来说，很容易根据cmpinc和cmpaz的值，将其旋转到NEU坐标系或者
 RTZ坐标系，这些将在``\nameref{sec:traces-rotating}''一节中说到。
 
-kcmpnm为分量名称，SEED格式规定使用三个字符中的最后一个字符代表通道的方位(如~\verb+BHE+代表东西向分量)。
-对于水平分量，目前更趋向于使用1和2代替N和E。
+\verb+kcmpnm+用于存储分量名称。SEED格式规定通道名的三个字符中的最后一个代表通道的分量
+方位，比如通道名~\verb+BHE+表示该通道为东西向。通常~\verb+kcmpnm+可以取为E、N、Z。
+由于很多台站的水平分量并不严格是东西、南北方向，因而现在更倾向于用1和2代替N和E。
 
-kstcmp为辅助型变量，表示台站分量，由kstnm、cmpaz、cmpinc推导得到。
+\verb+kstcmp+为辅助型变量，表示台站分量，由kstnm、cmpaz、cmpinc推导得到。
 
 \subsubsection{\texttt{lpspol}}
 如图~\ref{fig:cmpaz-cmpinc}~所示，在左手坐标系下，若三通道都是正极性则为真，否则为假。

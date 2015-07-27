@@ -92,7 +92,7 @@ fft
 bg sgf
 psp am
 \end{SACCode}
-\verb+$default$+~指定了宏参数~\verb+values+~的缺省值，若在执行宏文件时不输入
+\verb+$default$+指定了宏参数~\verb+values+的缺省值，若在执行宏文件时不输入
 values的参数值那么这些参数将使用缺省值：
 \begin{SACCode}
 SAC> macro mystuff files ABC DEF XYZ
@@ -175,7 +175,7 @@ else
     message "Peak to peak for $1 below threshold."
 endif
 \end{SACCode}
-在这个例子中，一个文件被读入内存，markptp测出其最大峰峰值，并保存到头段变量user0中，
+在这个例子中，一个文件被读入内存，\nameref{cmd:markptp}~测出其最大峰峰值，并保存到头段变量~\verb+user0+中，
 若该值大于某一确定值，则对其做Fourier变换并绘制振幅图，否则输出信息到终端。
 
 \subsection{循环控制}
@@ -213,7 +213,7 @@ ENDDO
 \end{SACCode}
 其中大写字符串均为关键字，不可更改：
 \begin{itemize}
-\item variable是循环变量名，在变量名前后加上~``\verb+$+''~即可在do循环中引用该变量；
+\item variable是循环变量名，在变量名前后加上``\verb+$+''即可在do循环中引用该变量；
 \item start、stop、increment 循环变量的初值、终值、增值，start、stop必须为整型数，
     increment缺省值为1
 \item entrylist是do循环执行时变量可以取的所有值的集合，值之间以空格分开，其可以为整型、
@@ -223,8 +223,9 @@ ENDDO
 
 下面给出一些DO循环的例子：
 
-该宏文件对数据使用了DIF以进行预白化处理，进行Fourier变换，然后使用DIVOMEGA命令去除
-预白化的影响，有时需要在做变换之前多次预白化，那么就可以这样写：
+该宏文件对数据使用了~\nameref{cmd:dif}~以进行预白化处理，进行Fourier变换，
+然后使用~\nameref{cmd:divomega}~命令去除预白化的影响，有时需要在做
+变换之前多次预白化，那么就可以这样写：
 \begin{SACCode}
 $keys$ file nprew
 $default$ nprew 1
@@ -293,11 +294,11 @@ SAC宏提供嵌套功能，不支持递归，但是SAC并不会去检查宏的�
 
 \subsection{中断宏}
 有些时候需要临时中断宏文件的执行，用户自己从终端输入一些命令，然后继续执行宏文件。
-这个可以利用SAC的pause和resume特性做到。当SAC在宏文件中遇到~``\verb+$TERMINAL$+''~时它会临时停止
-执行宏文件，更改提示符为宏名，然后提示从终端输入命令，然后当SAC在终端中看到~``\verb+$RESUME$+''~
-时则会停止从终端读取命令继续从宏文件读取。如果你不想再继续执行宏文件中的命令，可以
-在终端输入~``\verb+$KILL$+''~，SAC将关闭宏文件，回到上一层。
-在一个宏文件中可以有多个~``\verb+$TERMINAL$+''~中断。
+这个可以利用SAC的pause和resume特性做到。当SAC在宏文件中遇到``\verb+$TERMINAL$+''时它会临时停止
+执行宏文件，更改提示符为宏名，然后提示从终端输入命令，然后当SAC在终端中看到``\verb+$RESUME$+''时
+则会停止从终端读取命令继续从宏文件读取。如果你不想再继续执行宏文件中的命令，可以
+在终端输入``\verb+$KILL$+''，SAC将关闭宏文件，回到上一层。
+在一个宏文件中可以有多个``\verb+$TERMINAL$+''中断。
 
 \subsection{调用外部程序}
 你可以在SAC宏内部执行其他程序，可以向程序传递参数。如果程序是交互式的
@@ -311,8 +312,8 @@ ENDRUN
 结束，SAC宏会在ENDRUN之后继续执行。
 
 \subsection{转义字符}
-字符~``\verb+$+''~和~``\verb+%+''在SAC中具有特殊的含义，有时在字符串中需要使用这些
-特殊字符，但SAC会将其解释成一个变量，此时就需要使用转义字符，SAC中的转义符为~``\verb+@+''~，
+字符``\verb+$+''和``\verb+%+''在SAC中具有特殊的含义，有时在字符串中需要使用这些
+特殊字符，但SAC会将其解释成一个变量，此时就需要使用转义字符，SAC中的转义符为``\verb+@+''，
 可以被转义的特殊符号包括：
 \begin{itemize}
     \item \verb+$+  宏参数标识符
