@@ -201,12 +201,6 @@
 \@namedef{endshadequote*}{\endshadequote}
 \makeatother
 
-% 自定义Tips环境 http://tex.stackexchange.com/questions/158941/
-\usepackage[tikz]{bclogo}
-\DeclareGraphicsRule{.mps}{eps}{*}{}
-\renewcommand\bcStyleTitre[1]{\quad\bfseries\Large{#1}}
-\newenvironment{Tips}{
-\begin{bclogo}[couleur = blue!20, arrondi=0.15, logo=\bcloupe, ombre=true,
-    couleurOmbre=black!30,blur,noborder=true]{Tips}
-}
-{\end{bclogo}}
+% https://github.com/ElegantLaTeX/elegant/blob/master/elegantnote.cls
+\usepackage{manfnt}
+\newenvironment{note}{\par\ttfamily\itshape\noindent{\makebox[0pt][r]{\scriptsize\color{red!90}\textdbend\quad}\textbf{Note:}}}{\par\vspace{.5\baselineskip}}
