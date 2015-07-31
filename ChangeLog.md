@@ -7,6 +7,7 @@ xxxx-xx-xx 3.4版
 For Readers:
 
 - 命令的“错误消息”和“警告消息”集中在附录中
+- 在C程序中调用`distaz`
 
 For Maintainers:
 

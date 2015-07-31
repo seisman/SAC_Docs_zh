@@ -124,3 +124,24 @@ getbbv( char    *kname,     // 黑板变量名
 )
 \end{minted}
 setbbv的函数定义与其类似，不再列出。
+
+\subsection{distaz}
+计算地球上任意两点之间的震中距、方位角和反方位角。
+\begin{minted}{c}
+void
+distaz( double    evla,     // 事件纬度
+        double    evlo,     // 事件经度
+        float    *stla,     // 台站纬度
+        float    *stlo,     // 台站经度
+        int       nsta,     // 台站数目
+        float    *dist,     // 震中距(km)
+        float    *az,       // 方位角
+        float    *baz,      // 反方位角
+        float    *deg,      // 震中距(度)
+        int      *nerr      // 错误码
+)
+\end{minted}
+示例代码如下：
+\inputminted{c}{./libs/distaz.c}
+本例中，台站数目~\verb+nsta=1+。实际上该函数可以计算任意数目的台站到事件的震中距、方位角信息，
+若台站数目~\verb+nsta+不为1，则stla、stlo、dist、az、baz、deg均可用数组或指针表示。

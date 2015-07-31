@@ -1,6 +1,6 @@
 \section{SAC库简介}
 SAC提供了两个函数库：libsacio.a和libsac.a，用户可以在自己的C或Fortran程序
-中直接使用函数库中的子函数。这些库文件位于~\verb+sac/lib+~中。
+中直接使用函数库中的子函数。这些库文件位于~\verb+sac/lib+中。
 
 \subsection{libsacio库}
 这个库文件的子函数可用于读写SAC数据文件、头段变量、黑板变量。这些子函数可以在用户
@@ -34,6 +34,7 @@ readbbf     &       读取一个黑板变量文件    \\
 writebbf    &       写一个黑板变量文件      \\
 getbbv      &       获取一个黑板变量的值    \\
 setbbv      &       给一个黑板变量赋值      \\
+distaz      &       计算地球上任意两点间的震中距、方位角和反方位角  \\
 \bottomrule
 \end{tabular}
 \end{table}
