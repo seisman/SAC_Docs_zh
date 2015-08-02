@@ -11,10 +11,9 @@ MARKV!ALUE! [GE|LE v] [TO marker]
 
 \SACTitle{输入}
 \begin{description}
-\item [GE v] 搜索并标记第一个大于或等于v的数据点 
-\item [LE v] 搜索并标记第一个小于或等于v的数据点 
-\item [TO marker] 定义头段中储存结果的时间标记 
-\item [marker] T0|T1|T2|T3|T4|T5|T6|T7|T8|T9 
+\item [GE v] 搜索并标记第一个大于或等于v的数据点
+\item [LE v] 搜索并标记第一个小于或等于v的数据点
+\item [TO marker] 用于保存数据点的时刻的时间标记头段，marker可以取Tn(n=0-9)
 \end{description}
 
 \SACTitle{缺省值}
@@ -23,9 +22,9 @@ markvalue ge 1 to t0
 \end{SACDFT}
 
 \SACTitle{说明}
-这个命令在每一个数据文件中搜索，满足要求的值并将第一次出现该值的时间标记下来，
-如果测量时间窗已经被定义(参见MTW)，则只有那部分的文件才会被搜索。
-否则将搜索整个文件，结构写入头段中的时间标记中
+该命令会在信号的测量时间窗内搜索第一个满足条件(大于或等于/小于或等于)的数据点，
+并将该数据点所对应的时刻记录下来。默认情况下，测量时间窗为整个信号，可以
+使用~\nameref{cmd:mtw}~命令设置新的测量时间窗。
 
 \SACTitle{示例}
 搜索文件中第一个值大于3.4的点并将结果保存在头段T7中:
@@ -33,10 +32,10 @@ markvalue ge 1 to t0
 SAC> markvalue ge 3.4 to t7
 \end{SACCode}
 
-稍后在以T4起始的10s测量时间窗中使用相同的搜索:
+设定测量时间窗为T4后的10秒，并搜索第一个小于-3的值：
 \begin{SACCode}
 SAC> mtw t4 0 10
-SAC> markvalue
+SAC> markvalue le -3 to t5
 \end{SACCode}
 
 \SACTitle{头段变量改变}

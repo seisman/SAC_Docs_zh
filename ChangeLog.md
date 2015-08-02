@@ -8,6 +8,7 @@ For Readers:
 
 - 命令的“错误消息”和“警告消息”集中在附录中
 - 在C程序中调用`distaz`
+- 命令整理: `mtw`, `markptp`, `markvalue`
 
 For Maintainers:
 

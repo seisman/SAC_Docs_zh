@@ -2,7 +2,7 @@
 \label{cmd:markptp}
 
 \SACTitle{概要}
-在测量时间窗内测量并标记最大峰峰值
+测量并标记信号在测量时间窗内的最大峰对峰振幅
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -11,9 +11,9 @@ MARKP!TP! [L!ENGTH! v] [T!O! marker]
 
 \SACTitle{输入}
 \begin{description}
-\item [LENGTH v] 设置滑动窗的长度为v秒 
-\item [TO marker] 定义头段中用于储存结果的第一个时间标记。最小值的时间记录在这个时间标记中，最大值的时间标记储存在下一个时间标记中。 
-\item [marker] Tn(n=0-9)
+\item [LENGTH v] 设置滑动窗的长度为v秒
+\item [TO marker] 指定某个时间标记头段用于保存最小值的所对应的时刻；最大值所对应
+    的时刻保存在下一个时间标记头段中。时间标记头段marker可以取Tn(n=0-9)。
 \end{description}
 
 \SACTitle{缺省值}
@@ -22,23 +22,34 @@ markptp length 5.0 to t0
 \end{SACDFT}
 
 \SACTitle{说明}
-这个命令测量数据在当前测量时间窗内最大峰峰值对应的时间和幅度。结果写入头段变量中。波谷对应的时间写入命令给出的时间标记中，波峰对应的时间写入下一个命令标记。峰峰值写入USER0中，这个结果也可以通过OAFP命令写入字符数字型震相拾取文件。
+该命令会测量信号在当前测量时间窗内的最大峰峰值对应的时间和幅度。默认情况下，测量
+时间窗为整个信号，可以使用~\nameref{cmd:mtw}~命令设置新的测量时间窗，也可以
+使用~\verb+LENGTH+选项指定测量时所使用的滑动窗长度。
+
+测量结果中，最小值(波谷)所对应的时刻会写到~\verb+TO marker+中所指定的时间标记头段中，
+最大值(波峰)所对应的时刻会写到相应的下一个时间标记头段中。
+最大峰峰值保存到~\verb+user0+中，\verb+kuser0+中的值为~\verb+PTPAMP+。
+
+如果使用~\nameref{cmd:oafp}~打开了字符数字型震相拾取文件，则该命令的结果也会写入到
+文件中。
 
 \SACTitle{示例}
-设置测量时间窗为头段T4和T5之间，并使用默认的滑动时间窗长和标记:
+设置测量时间窗为头段T4和T5之间，并使用默认的滑动时间窗长和时间标记:
 \begin{SACCode}
 SAC> mtw t4 t5
 SAC> markptp
+SAC> lh t0 t1 user0 kuser0
 \end{SACCode}
 
 设置测量时间窗为初动之后的30s，滑动时间窗为3s，起始时间标记为T7:
 \begin{SACCode}
 SAC> mtw a 0 30
-SAC> markp l 3. to t7
+SAC> markptp l 3. to t7
+SAC> lh t7 t8 user0 user1
 \end{SACCode}
 
 \SACTitle{头段变量}
-Tn, USER0, KTn, KUSER0
+Tn, KTn, user0, kuser0
 
 \SACTitle{相关命令}
 \nameref{cmd:mtw}、\nameref{cmd:oapf}
