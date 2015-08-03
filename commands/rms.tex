@@ -2,19 +2,19 @@
 \label{cmd:rms}
 
 \SACTitle{概要}
-利用测量时间窗计算数据的均方根
+计算测量时间窗的信号的均方根
 
 \SACTitle{语法}
 \begin{SACSTX}
-RMS [NOISE ON|OFF|pdw ] [TO USERn]
+RMS [NOISE ON|OFF|pdw] [TO USERn]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [NOISE ON] 打开噪声归一化选项  
-\item [NOISE OFF] 关闭噪声归一化选项  
+\item [NOISE ON] 打开噪声归一化选项
+\item [NOISE OFF] 关闭噪声归一化选项
 \item [NOISE pdw] 打开噪声归一化选项并改变噪声的部分数据窗。关于pdw，参考\nameref{subsec:pdw}一节。
-\item [TO USERn] 定义用于储存结果的头段变量USERn，其中n取0到9 
+\item [TO USERn] 定义用于储存结果的头段变量USERn，其中n取0到9
 \end{description}
 
 \SACTitle{缺省值}
@@ -23,7 +23,9 @@ rms noise off to user0
 \end{SACDFT}
 
 \SACTitle{说明}
-这个命令计算当期测量时间窗(参见MTW)中的数据的均方根。结果写入一个浮点型头段变量USERn中，，如果定义了一个噪声时间窗结果可以用于纠正噪声。计算的一般形式是：对信号窗做一次求和并对可选的噪声窗做另一次求和
+该命令计算当前测量时间窗(参见~\nameref{cmd:mtw})中的数据的均方根。结果写入一个
+浮点型头段变量~\verb+USERn+中，如果定义了一个噪声时间窗结果可以用于纠正噪声。
+计算的一般形式是：对信号窗做一次求和并对可选的噪声窗做另一次求和。
 
 \SACTitle{示例}
 为了计算两个头段T1和T2间的数据的未修正的均方根，并将结果保存在头段USER4中:
