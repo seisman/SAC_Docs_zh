@@ -4,21 +4,56 @@
 \SACTitle{概要}
 从磁盘读取CSS文件到内存
 
-注意：
+注意：READCSS命令读取CSS 3.0或2.0的文本文件。
+3.0版本支持如下数据库表：
+
+wfdisc、wftag、origin、arrival、assoc、sitechan、site、affiliation、origerr、origin、event、sensor、instrument、gregion、
+stassoc和remark sacdata。
+
+2.8版本只支持wfdisc、arrival和origin。
+READCSS之前的版本要求origin文件只有一行与波形有关%此句存疑
+现在的版本可以用来自一个wftag文件或者wfdisc文件中an evid column的信息来提取正确的源(position 284 - 291)。%此句存疑
+如果没有可用的信息，READCSS会默认以前的方式用origin文件的第一行。
+现在，用READCSS读取数据不再会有数据丢失。
+尽管现有的SAC命令只能获取一部分CSS数据，从CSS文本文件读取的存放在内存中的每个数据都可以用命令WRITECSS写入磁盘。
+
+READCSS现在（可以）读取一个非标准的数据库表，名为sacdata(由WRITECSS命令输出的)。%此句存疑
+比如，你现在可以用WRITECSS把频率域数据写入磁盘，然后用READCSS读取
+
+READCSS现在有一个二进制选项，以便读取WRITECSS生成的二进制的CSS文件。
+在二进制模式中，css选项没有作用。
+也就是说，指定文件的全部内容都会读取。
+
+READCSS支持如下的二进制数据格式：在大端序机器(比如Sun)上的t8、t4、f8、f4、s4、s3、s2、i4、i2、g2、e1和ri (real-imag)。
+
+在小端序机器(比如DEC和PC)上： f8、f4、t8、t4、i4、i2、s4、s2和g2。
 
 \SACTitle{语法}
 \begin{SACSTX}
-R!EAD! [MORE] [DIR CURRENT|name] [XDR|ALPHA|SEGY]
-    [SCALE ON|OFF] [filelist]
+READCSS [BINARY|ASCII] [MAXMEM v] [MORE] [TRUST ON|OFF] [VERBOSE ON|OFF] 
+
+[SHIFT ON|OFF] [SCALE ON|OFF] [COMMIT|ROLLBACK|RECALLTRACE] [DIR name] 
+
+wfdisclist [filelist] [css options] [filelist]
 \end{SACSTX}
-所有的选项必须位于filelist之前。
+
+css选项至少是下列之一：
+
+\begin{SACSTX}
+STATION station
+CHANNEL channel
+BANDWIDTH band code
+ORIENTATION orientation code
+\end{SACSTX}
+
+这些选项使命令从符合相关记录内容的wfdisc文件中进行选择。
 
 \SACTitle{输入}
 \begin{description}
-\item [MORE] 将读入的新文件添加到内存中老文件之后。若选项此忽略，则读入的新数据将替代
-    内存中的老数据
-\item [DIR CURRENT] 从``当前目录''读取文件列表中的文件。``当前目录''为启动SAC的目录
-\item [DIR name] 从目录name中读取文件列表中的文件，可以为绝对路径或相对路径
+\item [ASCII] (默认)读取普通的文本文件
+\item [BINARY]读取二进制CSS文件。见WRITECSS了解更多信息
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item [DIR name] wfdisc文件所在的路径
     \footnote{关于dir选项，有一个很大的陷阱，详见``\nameref{sec:read-dir}''。}
 \item [XDR] 读取XDR格式的文件。此格式用于实现不同构架的二进制数据的转换
 \item [ALPHA] 输入文件是SAC的字符数字型文件，该选项与XDR选项不兼容
