@@ -65,6 +65,24 @@ SAC全局变量~\verb+SAC_PPK_USE_CROSSHAIRS+可以控制ppk模式下鼠标在�
 \verb+1+，使得拾取到时时更精确。该全局变量的设置方式参考\nameref{sec:sac-install}一节。
 \end{note}
 
+\subsection{qdp off}
+SAC在默认情况下会打开快速绘图选项，即~\verb+qdp on+。关于~\verb+qdp+，可以
+参考``\nameref{sec:plot-appearance}''一节以及命令~\nameref{cmd:qdp}~的说明。
+
+在拾取震相时，若打开了快速绘图选项，则由于数据没有完全绘制而导致震相的可
+识别度降低，也导致波形拾取精度降低。为了提高拾取精度，通常会在进入ppk模式
+前关闭快速绘图选项，即使用~\verb+qdp off+命令：
+\begin{SACCode}
+SAC> dg sub reg elk.z
+SAC> qdp on     // 打开快速绘图选项(默认值)
+SAC> ppk
+SAC> qdp off    // 关闭快速绘图选项
+SAC> ppk        // 注意观察与之前的区别
+\end{SACCode}
+每次启动SAC后进入ppk模式前，都要手动执行~\verb+qdp off+以关闭快速绘图选项，
+这样相对比较麻烦，可以使用``\nameref{sec:init-macro}''一节中介绍的方法使得
+每次SAC启动时自动关闭快速绘图选项。
+
 \subsection{放大与缩小}
 有时数据时间较长，难以精确标定到时，此时需要将图幅放大，以显示整个波形的一小部分。
 
