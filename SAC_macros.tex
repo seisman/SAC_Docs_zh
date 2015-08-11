@@ -161,29 +161,9 @@
 \usepackage{float}      % 图表浮动体
 
 % 图表标题
-\usepackage{caption}
-\setlength{\belowcaptionskip}{2pt}  % skip above figure caption
-                                    %      below table caption
-\captionsetup[figure]{      % 图标题
-    format=plain,           % plain, hang
-    labelformat=default,    % default, empty, simple, brace, parens
-    labelsep=colon,         % none, colon, period, space, quad, newline, endash
-    justification=centering,
-    labelfont={small,bf,},
-    textfont=small,
-    skip=-10pt,                     % skip below figure caption
-    position=top,
-}
-\captionsetup[table]{      % 表标题
-    format=plain,           % plain, hang
-    labelformat=default,    % default, empty, simple, brace, parens
-    labelsep=colon,         % none, colon, period, space, quad, newline, endash
-    justification=centering,
-    labelfont={small,bf,},
-    textfont=small,
-    skip=0pt,
-    position=bottom,
-}
+\usepackage[labelfont={small,bf}, textfont=small]{caption}
+\captionsetup[figure]{aboveskip=6pt, belowskip=12pt}
+\captionsetup[table]{aboveskip=6pt, belowskip=6pt}
 
 % 自定义quote环境
 % http://tex.stackexchange.com/questions/16964/
