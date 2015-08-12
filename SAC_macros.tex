@@ -96,11 +96,12 @@
 \usepackage[perpage]{footmisc}	% 脚注在每一页单独编号
 
 % 超链接及书签
-\usepackage[CJKbookmarks=true,colorlinks,linkcolor=blue,citecolor=blue]{hyperref}
-                                %colorlinks=false时，链接无颜色，会加一个有颜色的边框
-                                %linkcolor:Color for normal internal links.
-                                %citecolor:Color for bibliographical citations in text.
-                                %urlcolor:Color for linked URLslinkcolor.
+\usepackage[CJKbookmarks=true,   % xxxxxxxxx
+            colorlinks,          % colorlinks=false时，链接无颜色，会加一个有颜色的边框
+            linkcolor=blue,      % linkcolor:Color for normal internal links.
+            citecolor=blue       % citecolor:Color for bibliographical citations in text.
+]{hyperref}
+%urlcolor:Color for linked URLslinkcolor.
 \hypersetup{ % 文档元信息
     pdftitle={\SACDOCTITLE v\SACDOCVERSION},
     pdfauthor={\SACDOCAUTHOR},
