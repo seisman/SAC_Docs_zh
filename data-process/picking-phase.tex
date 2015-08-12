@@ -144,48 +144,57 @@ SAC> q
 其中常用的命令包括``\verb+b+''、``\verb+l+''、``\verb+n+''、``\verb+o+''、
 ``\verb+q+''、``\verb+t+''和``\verb+x+''。
 
-\begin{table}[H]
-\centering
-\small
-\ttfamily
-\caption{ppk模式命令一览表}
-\label{table:plotpk-commands}
-\begin{tabular}{cll}
-	\toprule
-    命令	&	含义	                                &   说明    \\
-	\midrule
-    a	    &	定义事件初至a                           &   1,7	    \\
-    b	    &	如果有，则显示上一张绘图	            &           \\
-    c	    &	计算事件的初至和结束                    &   1,4,7	\\
-    d	    &	设置震相方向为DOWN	                    &           \\
-    e     	&	设置震相起始为EMERGENT(急始)	        &           \\
-    f	    &	定义事件结束f                           &  1,2,3,7	\\
-    g	    &	以HYPO格式将拾取显示到终端              &   4   	\\
-    h   	&	将拾取写成HYPO格式                      &   3,4 	\\
-    i	    &	设置震相起始为IMPULSIVE	                &           \\
-    j	    &	设置噪声水平                            &   2,6,8	\\
-    k       &   即kill，退出ppk模式                     &           \\
-    l	    &	显示光标当前位置                        &   2,4	    \\
-    m	    &	计算最大振幅波形                        &   2,3,5	\\
-    n	    &	显示下一绘图	                        &           \\
-    o	    &	显示前一个绘图窗，最多可以保存5个绘图窗	&           \\
-    p	    &	定义P波到时                             &   1,2,3,7	\\
-    q	    &	即quit，退出ppk模式	                            &           \\
-    s	    &	定义S波到时                             &   1,2,3,7 \\
-    t	    &	用户自定义到时tn，输入t之后需要输入0到9中的任一数	&   1,2,7\\
-    u	    &	设置震相方向为UP	                    &           \\
-    v	    &	定义一个Wood-Anderson波形               &   2,5 	\\
-    w	    &	定义一个通用波形                        &   2,5 	\\
-    x	    &	使用一个新的x轴时间窗，简单说就是放大。 &           \\
-    z	    &	设置参考水平                            &   2,6,8	\\
-    \textbackslash	    &	删除当前全部拾取的定义。当一个文件中包含多个事件时有用。&	\\
-    +	    &	设置震相方向为PLUS	                    &           \\
-    -	    &	设置震相方向为MINUS	                    &           \\
-    \lstinline[showspaces]! !   &	设置震相方向为NEUTRAL	                &           \\
-    n	    &	设置震相质量为n，n取0-4	                &           \\
-	\bottomrule
-\end{tabular}
-\end{table}
+\begin{center}
+\small\ttfamily
+\begin{longtable}{cll}
+\multicolumn{3}{r}{接上页} \\
+\toprule
+命令    &   含义    &   说明    \\
+\midrule
+\endhead
+\caption{ppk模式命令一览表} \label{table:plotpk-commands}   \\
+\toprule
+命令    &   含义    &   说明    \\
+\midrule
+\endfirsthead
+\bottomrule
+\multicolumn{3}{r}{接下页\dots} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+a	    &	定义事件初至a                           &   1,7	    \\
+b	    &	如果有，则显示上一张绘图	            &           \\
+c	    &	计算事件的初至和结束                    &   1,4,7	\\
+d	    &	设置震相方向为DOWN	                    &           \\
+e     	&	设置震相起始为EMERGENT(急始)	        &           \\
+f	    &	定义事件结束f                           &  1,2,3,7	\\
+g	    &	以HYPO格式将拾取显示到终端              &   4   	\\
+h   	&	将拾取写成HYPO格式                      &   3,4 	\\
+i	    &	设置震相起始为IMPULSIVE	                &           \\
+j	    &	设置噪声水平                            &   2,6,8	\\
+k       &   即kill，退出ppk模式                     &           \\
+l	    &	显示光标当前位置                        &   2,4	    \\
+m	    &	计算最大振幅波形                        &   2,3,5	\\
+n	    &	显示下一绘图	                        &           \\
+o	    &	显示前一个绘图窗，最多可以保存5个绘图窗	&           \\
+p	    &	定义P波到时                             &   1,2,3,7	\\
+q	    &	即quit，退出ppk模式	                            &           \\
+s	    &	定义S波到时                             &   1,2,3,7 \\
+t	    &	用户自定义到时tn，输入t之后需要输入0到9中的任一数	&   1,2,7\\
+u	    &	设置震相方向为UP	                    &           \\
+v	    &	定义一个Wood-Anderson波形               &   2,5 	\\
+w	    &	定义一个通用波形                        &   2,5 	\\
+x	    &	使用一个新的x轴时间窗，简单说就是放大。 &           \\
+z	    &	设置参考水平                            &   2,6,8	\\
+\textbackslash	    &	删除当前全部拾取的定义。当一个文件中包含多个事件时有用。&	\\
++	    &	设置震相方向为PLUS	                    &           \\
+-	    &	设置震相方向为MINUS	                    &           \\
+\lstinline[showspaces]! !   &	设置震相方向为NEUTRAL	                &           \\
+n	    &	设置震相质量为n，n取0-4	                &           \\
+\end{longtable}
+\end{center}
+
 注意：ppk模式的命令几乎都是由单个字符组成的，比如退出``\verb+q+''，
 唯一的例外是命令``\verb+t+''，由字符``\verb+t+''和0-9的整数构成。
 
