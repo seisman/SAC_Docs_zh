@@ -96,11 +96,19 @@
 \usepackage[perpage]{footmisc}	% 脚注在每一页单独编号
 
 % 超链接及书签
-\usepackage[CJKbookmarks=true,colorlinks,linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[CJKbookmarks=true,
+            colorlinks,         % colorlinks=false时，链接无颜色，会加一个有颜色的边框
+            linkcolor=blue,     % Color for normal internal links.
+            citecolor=blue,     % Color for bibliographical citations in text.
+            urlcolor=blue       % Color for linked URLs.
+]{hyperref}
 \hypersetup{ % 文档元信息
     pdftitle={\SACDOCTITLE v\SACDOCVERSION},
     pdfauthor={\SACDOCAUTHOR},
 }
+
+% 长表格
+\usepackage{longtable}
 
 % 代码宏包
 \usepackage{listings}
@@ -161,29 +169,9 @@
 \usepackage{float}      % 图表浮动体
 
 % 图表标题
-\usepackage{caption}
-\setlength{\belowcaptionskip}{2pt}  % skip above figure caption
-                                    %      below table caption
-\captionsetup[figure]{      % 图标题
-    format=plain,           % plain, hang
-    labelformat=default,    % default, empty, simple, brace, parens
-    labelsep=colon,         % none, colon, period, space, quad, newline, endash
-    justification=centering,
-    labelfont={small,bf,},
-    textfont=small,
-    skip=-10pt,                     % skip below figure caption
-    position=top,
-}
-\captionsetup[table]{      % 表标题
-    format=plain,           % plain, hang
-    labelformat=default,    % default, empty, simple, brace, parens
-    labelsep=colon,         % none, colon, period, space, quad, newline, endash
-    justification=centering,
-    labelfont={small,bf,},
-    textfont=small,
-    skip=0pt,
-    position=bottom,
-}
+\usepackage[labelfont={small,bf}, textfont=small]{caption}
+\captionsetup[figure]{aboveskip=6pt, belowskip=-12pt}
+\captionsetup[table]{aboveskip=6pt, belowskip=-6pt}
 
 % 自定义quote环境
 % http://tex.stackexchange.com/questions/16964/
