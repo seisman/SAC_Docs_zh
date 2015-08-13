@@ -51,8 +51,40 @@ ORIENTATION orientation code
 \SACTitle{输入}
 \begin{description}
 \item [ASCII] (默认)读取普通的文本文件
-\item [BINARY]读取二进制CSS文件。见WRITECSS了解更多信息
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\item [BINARY] 读取二进制CSS文件。见WRITECSS了解更多信息
+\item [TRUST ON|OFF] 这个选项用于判决从SAC格式转为CSS格式的模棱两可。
+    当转化这数据时，比较事件ID可能意味着这些文件有用于可识别的事件信息，
+    或者它们可能是合并了两个非常不同格式的数据的人工制品。
+    当设置TRUST为ON时，相较于TRUSRT为OFF，SAC更可能接受比较事件ID为事件识别信息，
+    依赖于和现在在内存中的数据文件相关的READ命令的历史。%翻译有疑问
+\item [MAXMEM]用于设定读取数据时所需的物理内存的最大百分比。
+    当达到设定的限制时，即使已经读取了其他数据库表，也不会再读取更多的波形数据。
+    MAXMEN的默认值是0.3。
+\item [MORE] 见READ命令。
+\item [VERBOSE ON|OFF] 如果VERBOSE是ON，SAC展示关于正在读取的波形数据的延伸信息，
+    并且打印出包含的CSS数据库表的概要。
+    SAC也为向SAC内部格式的转化的显示一个进度指示器。
+\item [SHIFT ON|OFF] 如果SHIFT是ON，发震时刻将被设置为0，其他相关时间头段变量将会做相应修改。
+    一些震中距相关头段变量也会受影响。
+    SHIFT ON是默认值。
+\item [SCALE ON|OFF] SCALE选项默认是OFF。
+    当SCALE选项是OFF时，SAC认为从.w文件读取的数据的单位是counts。
+    \footnote{解释counts}
+    当SCALE选项是ON时，SAC会在单位counts的基础上乘以一个比例因子。
+    这个比例因子由.wfdisc文件里的校准(CALIB)给出。
+    这个SCALE选项随着READ SEGY、READGSE和READSUDS的SCALE选项变化。
+    如果SCALE选项是OFF，从这个文件来的CALIB值会被存入SAC的SCALE头段变量中。
+    如果SCALE选项是ON，SAC的SCALE头段区域(header field)将被设置为1.0。
+    SCALE是一个处理仪器响应的粗陋方法。
+    更好的方式是使用TRANSFER命令。
+    建议READ时，让SCALE为OFF，并且用TRANSFER命令。
+    只有在TRANSFER命令需要的响应信息无法获得时，SCALE才应该为ON。
+    
+
+
+
+
+
 \item [DIR name] wfdisc文件所在的路径
     \footnote{关于dir选项，有一个很大的陷阱，详见``\nameref{sec:read-dir}''。}
 \item [XDR] 读取XDR格式的文件。此格式用于实现不同构架的二进制数据的转换
