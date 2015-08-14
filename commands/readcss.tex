@@ -85,16 +85,24 @@ ORIENTATION orientation code
 \item[CHANNEL channel]channel是一个8个或更少字符构成的字符串。
     .wfdisc文件中那些channel匹配的台站的行会被选中。
     channel可以包含通配符：*和？。
+
+
+ORIENTATION type: Usual values are: Z N E (Vertical North East) A B C (Triaxial along
+edges of cube standing on corner) 1 2 3 Orthogonal but non-standard orientation
+Selects those files whose ’chan’ field has a final character which matches code. The
+character * selects all.
+\item [BANDWIDTH type] 一个单字符的编码。
+    常见的值有E：Extremely Short Period，S：Short Period，H：High Broad Band，B：Broad Band，M：Mid Period
+    L：Long Period，V：Very Long Period，U：Ultra Long Period，R：Extremely Long Period。
+    选择那些``chan'' field有个打头字符为``s''的文件%不知何意
+    字符``*'',选择所有文件。
+\item [ORIENTATION type]值常常是
+    ``Z N E''表示竖直、北和东，
+    ``A B C''表示Triaxial along edges of cube standing on corner%不知道怎么翻译
+    ``1 2 3''表示正交但非标准的坐标。
+    选择那些``chan'' field有个相符的结尾字符的文件%不知何意
+    字符``*'',选择所有文件。
 %以下不是，我为了好写，是在read.tex的基础上改内容来写的
-\item [XDR] 读取XDR格式的文件。此格式用于实现不同构架的二进制数据的转换
-\item [ALPHA] 输入文件是SAC的字符数字型文件，该选项与XDR选项不兼容
-\item [SEGY] 读取IRIS/PASSCAL定义的SEGY格式文件。该格式允许一个文件包含一个波形
-\item [SCALE] 只能和SEGY选项搭配使用，该选项默认是关闭的。当SCALE选项为OFF时，
-    SAC直接从SEGY文件中读取数据值；当SCALE为ON时，SAC将每个数据值乘以以文件中给定的
-    SCALE因子。若SCALE为OFF，则这个文件中的SCALE值将储存在SAC头段SCALE中；若SCALE为ON，
-    SAC的SCALE头段将被设置为1.0。
-\item [filelist] 文件列表。可以是简单的文件名，也可以包含相对或绝对路径，也可以使用
-    通配符。
 \end{description}
 
 \SACTitle{缺省值}
