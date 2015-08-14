@@ -10,24 +10,6 @@
 wfdisc、wftag、origin、arrival、assoc、sitechan、site、affiliation、origerr、origin、event、sensor、instrument、gregion、
 stassoc和remark sacdata。
 
-2.8版本只支持wfdisc、arrival和origin。
-READCSS之前的版本要求origin文件只有一行与波形有关%此句存疑
-现在的版本可以用来自一个wftag文件或者wfdisc文件中an evid column的信息来提取正确的源(position 284 - 291)。%此句存疑
-如果没有可用的信息，READCSS会默认以前的方式用origin文件的第一行。
-现在，用READCSS读取数据不再会有数据丢失。
-尽管现有的SAC命令只能获取一部分CSS数据，从CSS文本文件读取的存放在内存中的每个数据都可以用命令WRITECSS写入磁盘。
-
-READCSS现在（可以）读取一个非标准的数据库表，名为sacdata(由WRITECSS命令输出的)。%此句存疑
-比如，你现在可以用WRITECSS把频率域数据写入磁盘，然后用READCSS读取
-
-READCSS现在有一个二进制选项，以便读取WRITECSS生成的二进制的CSS文件。
-在二进制模式中，css选项没有作用。
-也就是说，指定文件的全部内容都会读取。
-
-READCSS支持如下的二进制数据格式：在大端序机器(比如Sun)上的t8、t4、f8、f4、s4、s3、s2、i4、i2、g2、e1和ri (real-imag)。
-
-在小端序机器(比如DEC和PC)上： f8、f4、t8、t4、i4、i2、s4、s2和g2。
-
 \SACTitle{语法}
 \begin{SACSTX}
 READCSS [BINARY|ASCII] [MAXMEM v] [MORE] [TRUST ON|OFF] [VERBOSE ON|OFF] 
@@ -79,14 +61,31 @@ ORIENTATION orientation code
     更好的方式是使用TRANSFER命令。
     建议READ时，让SCALE为OFF，并且用TRANSFER命令。
     只有在TRANSFER命令需要的响应信息无法获得时，SCALE才应该为ON。
-    %以下不是，我为了好写，是在read.tex的基础上改内容来写的
+\item [COMMIT]如果MORE选项进行了设置，COMMIT选项会把头段和波形记录到SAC的内存中，
+    在读取更多文件前从RAM删除之前任何版本的头段和波形。
+    COMMIT是默认值。
+\item [ROLLBACK] 如果设置了MORE选项，ROLLBACK选项在读取更多文件前恢复到上次记录到的头段和波形的版本。
+\item [RECALLTRACE]如果设置了MORE选项，RECALLTRACE选项：
 
+    波形回滚到上一个版本，
 
+    这些波形紧密相关的头段变量回滚到上一个版本，
 
+    记录那些和这些波形不紧密相关的头段变量(可用来获得哪些变量被记录了，哪些则是回滚到上一个版本)。%这一段和前面两段是前面加点的列表，该用哪个列表宏包？
 
-
+    注意：如果MORE选项没有设置，COMMIT、ROLLBACK和RECALLTRACE选项就不发挥作用。%这个『注意』这样排版好吗？原文看上去像一个\item
 \item [DIR name] wfdisc文件所在的路径
     \footnote{关于dir选项，有一个很大的陷阱，详见``\nameref{sec:read-dir}''。}
+\item [filelist] 包含在先前的specified wfdisc(s)文件的名字列表。%这个specified wfdisc(s)的specified怎么翻译？
+    这些文件会被搜索，首先搜索的是DIR选项中设定的路径，然后使用wfdisc文件中设定的路径。
+    如果没有filelist，会将specified wfdisc(s)文件内指定的文件读入内存。
+\item[STATION station]station是一个6个或更少字符构成的字符串。
+    .wfdisc文件中那些KSTNM匹配的台站的行会被选中。
+    station可以包含通配符：*和？。
+\item[CHANNEL channel]channel是一个8个或更少字符构成的字符串。
+    .wfdisc文件中那些channel匹配的台站的行会被选中。
+    channel可以包含通配符：*和？。
+%以下不是，我为了好写，是在read.tex的基础上改内容来写的
 \item [XDR] 读取XDR格式的文件。此格式用于实现不同构架的二进制数据的转换
 \item [ALPHA] 输入文件是SAC的字符数字型文件，该选项与XDR选项不兼容
 \item [SEGY] 读取IRIS/PASSCAL定义的SEGY格式文件。该格式允许一个文件包含一个波形
@@ -103,8 +102,24 @@ ORIENTATION orientation code
 read dir current
 \end{SACDFT}
 
-\SACTitle{说明}
-该命令将SAC文件从磁盘读入到内存中，默认状态下会读取每个磁盘文件中的全部数据点。
+\SACTitle{说明}%说明部分已经“写好”，注意不是read旧的部分，为了排版从前面移动过来的！
+2.8版本只支持wfdisc、arrival和origin。
+READCSS之前的版本要求origin文件只有一行与波形有关%此句存疑
+现在的版本可以用来自一个wftag文件或者wfdisc文件中an evid column的信息来提取正确的源(position 284 - 291)。%此句存疑
+如果没有可用的信息，READCSS会默认以前的方式用origin文件的第一行。
+现在，用READCSS读取数据不再会有数据丢失。
+尽管现有的SAC命令只能获取一部分CSS数据，从CSS文本文件读取的存放在内存中的每个数据都可以用命令WRITECSS写入磁盘。
+
+READCSS现在（可以）读取一个非标准的数据库表，名为sacdata(由WRITECSS命令输出的)。%此句存疑
+比如，你现在可以用WRITECSS把频率域数据写入磁盘，然后用READCSS读取
+
+READCSS现在有一个二进制选项，以便读取WRITECSS生成的二进制的CSS文件。
+在二进制模式中，css选项没有作用。
+也就是说，指定文件的全部内容都会读取。
+
+READCSS支持如下的二进制数据格式：在大端序机器(比如Sun)上的t8、t4、f8、f4、s4、s3、s2、i4、i2、g2、e1和ri (real-imag)。
+
+在小端序机器(比如DEC和PC)上： f8、f4、t8、t4、i4、i2、s4、s2和g2。
 
 \nameref{cmd:cut}命令可以用于指定读取文件的一部分数据。
 在2000年之后产生的SAC文件会被假定年份为四位数字。
