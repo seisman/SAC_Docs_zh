@@ -2,7 +2,7 @@
 \label{cmd:readcss}
 
 \SACTitle{概要}
-从磁盘读取CSS文件到内存
+从磁盘读取CSS文件到内存。
 
 注意：READCSS命令读取CSS 3.0或2.0的文本文件。
 3.0版本支持如下数据库表：
@@ -12,11 +12,9 @@ stassoc和remark sacdata。
 
 \SACTitle{语法}
 \begin{SACSTX}
-READCSS [BINARY|ASCII] [MAXMEM v] [MORE] [TRUST ON|OFF] [VERBOSE ON|OFF] 
-
-[SHIFT ON|OFF] [SCALE ON|OFF] [COMMIT|ROLLBACK|RECALLTRACE] [DIR name] 
-
-wfdisclist [filelist] [css options] [filelist]
+READCSS [BINARY|ASCII] [MAXMEM v] [MORE] [TRUST ON|OFF]
+[VERBOSE ON|OFF] [SHIFT ON|OFF] [SCALE ON|OFF] [COMMIT|ROLLBACK|RECALLTRACE] 
+[DIR name] wfdisclist [filelist] [css options] [filelist]
 \end{SACSTX}
 
 css选项至少是下列之一：
@@ -85,12 +83,6 @@ ORIENTATION orientation code
 \item[CHANNEL channel]channel是一个8个或更少字符构成的字符串。
     .wfdisc文件中那些channel匹配的台站的行会被选中。
     channel可以包含通配符：*和？。
-
-
-ORIENTATION type: Usual values are: Z N E (Vertical North East) A B C (Triaxial along
-edges of cube standing on corner) 1 2 3 Orthogonal but non-standard orientation
-Selects those files whose ’chan’ field has a final character which matches code. The
-character * selects all.
 \item [BANDWIDTH type] 一个单字符的编码。
     常见的值有E：Extremely Short Period，S：Short Period，H：High Broad Band，B：Broad Band，M：Mid Period
     L：Long Period，V：Very Long Period，U：Ultra Long Period，R：Extremely Long Period。
@@ -103,14 +95,22 @@ character * selects all.
     选择那些``chan'' field有个相符的结尾字符的文件%不知何意
     字符``*'',选择所有文件。
 \end{description}
-%以下不是，我为了好写，是在read.tex的基础上改内容来写的
-
-
 \SACTitle{震级}
-\begin{SACDFT}
-read dir current
-\end{SACDFT}
+MB
 
+MS
+
+ML
+
+DEF
+
+确定哪一个震级的值放到SAC的magnitude头段变量。
+MB是体波震级。MS是面波震级。ML是地方震震级。
+DEF指default：如果Ms存在而且大于或等于6.6，则最优先用Ms。否则，如果Mb存在，用Mb。如果Mb不存在，而Ms存在，用Ms。其他情况用Ml。%MB=Mb，MS=Ms，ML=Ml
+\SACTitle{默认值}
+\begin{SACSTX}
+READCSS * ASCII MAXMEM 0.3 VERBOSE OFF COMMIT STATION * BAND * CHAN * ORIENT *
+\end{SACSTX}
 \SACTitle{说明}%说明部分已经“写好”，注意不是read旧的部分，为了排版从前面移动过来的！
 2.8版本只支持wfdisc、arrival和origin。
 READCSS之前的版本要求origin文件只有一行与波形有关%此句存疑
@@ -130,52 +130,11 @@ READCSS支持如下的二进制数据格式：在大端序机器(比如Sun)上�
 
 在小端序机器(比如DEC和PC)上： f8、f4、t8、t4、i4、i2、s4、s2和g2。
 
-\nameref{cmd:cut}命令可以用于指定读取文件的一部分数据。
-在2000年之后产生的SAC文件会被假定年份为四位数字。
-年份为两个数字的文件被假定为20世纪，会被加上1900。
-
-在使用read命令时，正常情况下内存中的老数据会被新读取的数据所替代。若使用more选项，则新数据
-将被读入内存并放在老数据的后面。在如下三种情况下more选项可能会有用：
-\begin{itemize}
-\item 文件列表太长无法在一行中键入
-\item 在长文件列表中某个文件名拼错而没有读入，可以使用more选项再次读入
-\item 一个文件被读入，作了些处理，然后与原始数据比较
-\end{itemize}
-
-\SACTitle{示例}
-read命令的简单示例位于~``\nameref{sec:read-and-write}''~一节。
-
-如果你想要对一个数据进行高通滤波，并与原始数据进行对比：
-\begin{SACCode}
-SAC> r f01
-SAC> hp c 1.3 n 6
-SAC> r more f01
-SAC> p1
-\end{SACCode}
-
-假设SAC的启动目录位于``/me/data''，你想要处理其子目录``event1''和``event2''下的文件。
+%以下不是，我为了好写，是在read.tex的基础上改内容来写的
+\SACTitle{示例}%暂无示例
 \begin{SACCode}
 SAC> read dir event1 f01 f02
 \end{SACCode}
-读取了目录``/me/data/event1''下的文件。
-
-\begin{SACCode}
-SAC> read f03 g03
-\end{SACCode}
-相同目录下的文件被读入。
-
-\begin{SACCode}
-SAC> read dir event2 *
-\end{SACCode}
-``/me/data/event2''下的全部文件被读入:
-
-\begin{SACCode}
-SAC> read dir current f03 g03
-\end{SACCode}
-目录``/me/data''下的文件被读入。
-
-\SACTitle{头段变量}
-e、depmin、depmax、depmen、b
-
 \SACTitle{相关命令}
-\nameref{cmd:cut}、\nameref{cmd:readerr}、\nameref{cmd:wild}
+\nameref{cmd:read}、\nameref{cmd:pickprefs}、\nameref{cmd:pickauthor}、\nameref{cmd:PICKPHASE}、COMMIT, ROLLBACK, RECALLTRACE
+%此处命令还没有！
