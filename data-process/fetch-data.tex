@@ -1,15 +1,15 @@
 \section{数据格式转换}
 \subsection{数据格式}
 通常，地震数据以SEED格式进行保存和传输。
-SEED即Standard for the Exchange of Seismic Data，其可以存储多台站多分量%这个英文名缩写是SESD，不是SEED，怎么回事？
+SEED即Standard for the Exchange of Earthquake Data，其可以存储多台站多分量
 的连续波形数据以及台站相关元信息。SEED格式本质上
-是一种压缩格式，可大大减小网络传输的数据量和硬盘空间，其中包含了SAC格式的波形数据和RESP格式的仪器响应文件。
+是一种压缩格式，可大大减小网络传输的数据量和硬盘空间，其中包含了波形数据和仪器响应文件。
+其中的波形数据可以导出为SAC格式，仪器响应信息可以导出为RESP或PZ格式。
 
 除了SEED格式，还有miniSEED格式和dataless SEED格式。miniSEED格式中仅包含
-连续波形数据，dataless SEED格式中仅包含台站元信息。之所以要将SEED格式拆分成miniSEED
-和dataless SEED，是因为若每个SEED文件中都包含台站元信息，会造成台站元信息的冗余，
+波形数据，dataless SEED格式中仅包含台站元信息。\footnote{台站元信息指stla, stlo, cmpaz, cmpinc等}。
+之所以要将SEED格式拆分成miniSEED和dataless SEED，是因为若每个SEED文件中都包含台站元信息，会造成台站元信息的冗余，
 浪费网络资源及硬盘容量。
-%RESP文件=台站元信息，SAC格式的波形数据=连续波形数据，如果是这样，我建议在此处统一用词，因为要看这一部分的是最开始的初学者，如果变换术语可能会造成困扰
 
 除了SEED格式之外，还有其他数据格式，比如为数据库设计的CSS 3.0格式，以及众多数据处理
 软件自定义的格式，如SAC、AH、evt等等。不同国家的台网也可能会自定义自己的数据格式，
