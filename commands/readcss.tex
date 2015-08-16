@@ -13,7 +13,7 @@ stassoc和remark sacdata。
 \SACTitle{语法}
 \begin{SACSTX}
 READCSS [BINARY|ASCII] [MAXMEM v] [MORE] [TRUST ON|OFF]
-[VERBOSE ON|OFF] [SHIFT ON|OFF] [SCALE ON|OFF] [COMMIT|ROLLBACK|RECALLTRACE] 
+[VERBOSE ON|OFF] [SHIFT ON|OFF] [SCALE ON|OFF] %[COMMIT|ROLLBACK|RECALLTRACE] 
 [DIR name] wfdisclist [filelist] [css options] [filelist]
 \end{SACSTX}
 
@@ -59,19 +59,15 @@ ORIENTATION orientation code
     更好的方式是使用TRANSFER命令。
     建议READ时，让SCALE为OFF，并且用TRANSFER命令。
     只有在TRANSFER命令需要的响应信息无法获得时，SCALE才应该为ON。
-\item [COMMIT]如果MORE选项进行了设置，COMMIT选项会把头段和波形记录到SAC的内存中，
-    在读取更多文件前从RAM删除之前任何版本的头段和波形。
-    COMMIT是默认值。
-\item [ROLLBACK] 如果设置了MORE选项，ROLLBACK选项在读取更多文件前恢复到上次记录到的头段和波形的版本。
-\item [RECALLTRACE]如果设置了MORE选项，RECALLTRACE选项：
-
-    波形回滚到上一个版本，
-
-    这些波形紧密相关的头段变量回滚到上一个版本，
-
-    记录那些和这些波形不紧密相关的头段变量(可用来获得哪些变量被记录了，哪些则是回滚到上一个版本)。%这一段和前面两段是前面加点的列表，该用哪个列表宏包？
-
-    注意：如果MORE选项没有设置，COMMIT、ROLLBACK和RECALLTRACE选项就不发挥作用。%这个『注意』这样排版好吗？原文看上去像一个\item
+%\item [COMMIT]如果MORE选项进行了设置，COMMIT选项会把头段和波形记录到SAC的内存中，
+%   在读取更多文件前从RAM删除之前任何版本的头段和波形。
+%   COMMIT是默认值。
+%\item [ROLLBACK] 如果设置了MORE选项，ROLLBACK选项在读取更多文件前恢复到上次记录到的头段和波形的版本。
+%\item [RECALLTRACE]如果设置了MORE选项，RECALLTRACE选项：
+%   波形回滚到上一个版本，
+%   些波形紧密相关的头段变量回滚到上一个版本，
+%   记录那些和这些波形不紧密相关的头段变量(可用来获得哪些变量被记录了，哪些则是回滚到上一个版本)。
+%   注意：如果MORE选项没有设置，COMMIT、ROLLBACK和RECALLTRACE选项就不发挥作用。
 \item [DIR name] wfdisc文件所在的路径
     \footnote{关于dir选项，有一个很大的陷阱，详见``\nameref{sec:read-dir}''。}
 \item [filelist] 包含在先前的specified wfdisc(s)文件的名字列表。%这个specified wfdisc(s)的specified怎么翻译？
@@ -109,7 +105,7 @@ MB是体波震级。MS是面波震级。ML是地方震震级。
 DEF指default：如果Ms存在而且大于或等于6.6，则最优先用Ms。否则，如果Mb存在，用Mb。如果Mb不存在，而Ms存在，用Ms。其他情况用Ml。%MB=Mb，MS=Ms，ML=Ml
 \SACTitle{默认值}
 \begin{SACSTX}
-READCSS * ASCII MAXMEM 0.3 VERBOSE OFF COMMIT STATION * BAND * CHAN * ORIENT *
+READCSS * ASCII MAXMEM 0.3 VERBOSE OFF STATION * BAND * CHAN * ORIENT *%COMMIT
 \end{SACSTX}
 \SACTitle{说明}%说明部分已经“写好”，注意不是read旧的部分，为了排版从前面移动过来的！
 2.8版本只支持wfdisc、arrival和origin。
@@ -136,5 +132,5 @@ READCSS支持如下的二进制数据格式：在大端序机器(比如Sun)上�
 SAC> read dir event1 f01 f02
 \end{SACCode}
 \SACTitle{相关命令}
-\nameref{cmd:read}、\nameref{cmd:pickprefs}、\nameref{cmd:pickauthor}、\nameref{cmd:PICKPHASE}、COMMIT, ROLLBACK, RECALLTRACE
+\nameref{cmd:read}、\nameref{cmd:pickprefs}、\nameref{cmd:pickauthor}、\nameref{cmd:PICKPHASE}%、COMMIT, ROLLBACK, RECALLTRACE
 %此处命令还没有！
