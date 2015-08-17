@@ -55,7 +55,7 @@ SAC中可以使用的投影方式包括：
 \item TOPOgraphy on | off : 设置TOPO为开允许用户向地图中添加地形和海洋深度。这个命令读取GMT中grdraster.info的第一个地形文件，当然地形文件中必须要有该区域的数据。地形彩色图使用\$SACAUX/ctables/gmt.cpt。网格文件被写入当前目录
 \item FILE : 默认的输出文件名为gmt.ps，你可以通过FILE选项指定文件名
 \end{itemize}
-可以用SAC的TITLE命令指定其标题
+可以用SAC的~\nameref{cmd:title}~命令指定地图标题。
 
 \SACTitle{缺省值}
 \begin{SACDFT}
@@ -67,16 +67,17 @@ map mercator topo off stan off file gmt.ps plotstations on
 利用SAC提供的一些数据作为例子：
 \begin{SACCode}
 SAC> dg sub regional *.z
+SAC> title "Station Location Map"
 SAC> map stan on
 Using Default Postscript Viewer
 	gs -sDEVICE=x11 -q -dNOPROMPT -dTTYPAUSE
 \end{SACCode}
-绘制出的地图如图\ref{fig:map}所示，整个地图的边界控制的还算不错，还算比较美观，
+绘制出的地图如图~\ref{fig:map}所示，整个地图的边界控制的还算不错，还算比较美观，
 三角形代表台站位置，圆形代表地震位置，大小也控制的不错。生成这个图的同时，还有
 一个可以用于生成该地图的shell脚本。
 
 默认情况下，该命令会自动使用gs预览生成的PS文件。如果想用其他PS阅读器预览，可以
-通过修改环境变量SACPSVIEWER来实现，比如~\verb+export SACPSVIERER=evince+。
+通过修改环境变量~\verb+SACPSVIEWER+来实现，比如~\verb+export SACPSVIERER=evince+。
 
 \begin{figure}[!ht]
 \centering
