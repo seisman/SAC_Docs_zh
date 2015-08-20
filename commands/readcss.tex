@@ -1,0 +1,131 @@
+\SACCMD{readcss}
+\label{cmd:readcss}
+
+\SACTitle{概要}
+从磁盘读取CSS文件到内存。
+
+注意：READCSS命令读取CSS 3.0或2.0的文本文件。
+3.0版本支持如下数据库表：
+
+wfdisc、wftag、origin、arrival、assoc、sitechan、site、affiliation、origerr、origin、event、sensor、instrument、gregion、
+stassoc和remark sacdata。
+
+\SACTitle{语法}
+\begin{SACSTX}
+READCSS [BINARY|ASCII] [MAXMEM v] [MORE] [TRUST ON|OFF]
+[VERBOSE ON|OFF] [SHIFT ON|OFF] [SCALE ON|OFF] %[COMMIT|ROLLBACK|RECALLTRACE] 
+[DIR name] wfdisclist [filelist] [css options] [filelist]
+\end{SACSTX}
+
+css选项至少是下列之一：
+
+\begin{SACSTX}
+STATION station
+CHANNEL channel
+BANDWIDTH band code
+ORIENTATION orientation code
+\end{SACSTX}
+
+这些选项使命令从符合相关记录内容的wfdisc文件中进行选择。
+
+\SACTitle{输入}
+\begin{description}
+\item [ASCII] (默认)读取普通的文本文件
+\item [BINARY] 读取二进制CSS文件。见WRITECSS了解更多信息
+\item [TRUST ON|OFF] 这个选项用于解决从SAC格式转为CSS格式时出现的冲突。
+    当转化这数据时，比较事件ID可能意味着这些文件有用于可识别的事件信息，
+    或者它们可能是两个非常不同格式的数据人为合并得来的。
+    当设置TRUST为ON时，相较于TRUSRT为OFF，
+    SAC更可能依赖于现在内存中的数据文件相关的READ命令的历史接受比较事件ID为事件识别信息。%翻译有疑问
+\item [MAXMEM]用于设定读取数据时所需的物理内存的最大百分比。
+    当达到设定的限制时，即使已经读取了其他数据库表，也不会再读取更多的波形数据。
+    MAXMEN的默认值是0.3。
+\item [MORE] 见READ命令。
+\item [VERBOSE ON|OFF] 如果VERBOSE是ON，SAC展示关于正在读取的波形数据的延伸信息，
+    并且打印出包含的CSS数据库表的概要。
+    SAC也为向SAC内部格式的转化的显示一个进度指示器。
+\item [SHIFT ON|OFF] 如果SHIFT是ON，发震时刻将被设置为0，其他相关时间头段变量将会做相应修改。
+    一些震中距相关头段变量也会受影响。
+    SHIFT ON是默认值。
+\item [SCALE ON|OFF] SCALE选项默认是OFF。
+    当SCALE选项是OFF时，SAC认为从.w文件读取的数据的单位是counts。
+    \footnote{解释counts}
+    当SCALE选项是ON时，SAC会在单位counts的基础上乘以一个比例因子。
+    这个比例因子由.wfdisc文件里的校准(CALIB)给出。
+    这个SCALE选项随着READ SEGY、READGSE和READSUDS的SCALE选项变化。
+    如果SCALE选项是OFF，从这个文件来的CALIB值会被存入SAC的SCALE头段变量中。
+    如果SCALE选项是ON，SAC的SCALE头段区域(header field)将被设置为1.0。
+    SCALE是一个处理仪器响应的粗陋方法。
+    更好的方式是使用TRANSFER命令。
+    建议READ时，让SCALE为OFF，并且用TRANSFER命令。
+    只有在TRANSFER命令需要的响应信息无法获得时，SCALE才应该为ON。
+%\item [COMMIT]如果MORE选项进行了设置，COMMIT选项会把头段和波形记录到SAC的内存中，
+%   在读取更多文件前从RAM删除之前任何版本的头段和波形。
+%   COMMIT是默认值。
+%\item [ROLLBACK] 如果设置了MORE选项，ROLLBACK选项在读取更多文件前恢复到上次记录到的头段和波形的版本。
+%\item [RECALLTRACE]如果设置了MORE选项，RECALLTRACE选项：
+%   波形回滚到上一个版本，
+%   些波形紧密相关的头段变量回滚到上一个版本，
+%   记录那些和这些波形不紧密相关的头段变量(可用来获得哪些变量被记录了，哪些则是回滚到上一个版本)。
+%   注意：如果MORE选项没有设置，COMMIT、ROLLBACK和RECALLTRACE选项就不发挥作用。
+\item [DIR name] wfdisc文件所在的路径
+    \footnote{关于dir选项，有一个很大的陷阱，详见``\nameref{sec:read-dir}''。}
+\item [filelist] 包含在先前的specified wfdisc(s)文件的名字列表。%这个specified wfdisc(s)的specified怎么翻译？
+    这些文件会被搜索，首先搜索的是DIR选项中设定的路径，然后使用wfdisc文件中设定的路径。
+    如果没有filelist，会将specified wfdisc(s)文件内指定的文件读入内存。
+\item[STATION station]station是一个6个或更少字符构成的字符串。
+    .wfdisc文件中那些KSTNM匹配的台站的行会被选中。
+    station可以包含通配符：*和？。
+\item[CHANNEL channel]channel是一个8个或更少字符构成的字符串。
+    .wfdisc文件中那些channel匹配的台站的行会被选中。
+    channel可以包含通配符：*和？。
+\item [BANDWIDTH type] 一个单字符的编码。
+    常见的值有E：Extremely Short Period，S：Short Period，H：High Broad Band，B：Broad Band，M：Mid Period
+    L：Long Period，V：Very Long Period，U：Ultra Long Period，R：Extremely Long Period。
+    选择那些``chan'' field有个打头字符为``s''的文件%翻译表述需要修正
+    字符``*'',选择所有文件。
+\item [ORIENTATION type]值常常是
+    ``Z N E''表示竖直、北和东，
+    ``A B C''表示三轴向 (正交)%三轴向 (正交)的翻译是抄的表 C.3
+    ``1 2 3''表示正交但非标准的坐标。
+    选择那些``chan'' field有个相符的结尾字符的文件%翻译表述需要修正
+    字符``*'',选择所有文件。
+\end{description}
+\SACTitle{震级}
+MB
+
+MS
+
+ML
+
+DEF
+
+确定哪一个震级的值放到SAC的magnitude头段变量。
+MB是体波震级。MS是面波震级。ML是地方震震级。
+DEF指default：如果Ms存在而且大于或等于6.6，则最优先用Ms。否则，如果Mb存在，用Mb。如果Mb不存在，而Ms存在，用Ms。其他情况用Ml。%MB=Mb，MS=Ms，ML=Ml
+\SACTitle{默认值}
+\begin{SACSTX}
+READCSS * ASCII MAXMEM 0.3 VERBOSE OFF STATION * BAND * CHAN * ORIENT *%COMMIT
+\end{SACSTX}
+\SACTitle{说明}%目前的说明是原文的注意
+2.8版本只支持wfdisc、arrival和origin。
+READCSS之前的版本要求origin文件只有一行与波形有关%此句存疑
+现在的版本可以用来自一个wftag文件或者wfdisc文件中an evid column的信息来提取正确的源(position 284 - 291)。%此句存疑
+如果没有可用的信息，READCSS会默认以前的方式用origin文件的第一行。
+现在，用READCSS读取数据不再会有数据丢失。
+尽管现有的SAC命令只能获取一部分CSS数据，从CSS文本文件读取的存放在内存中的每个数据都可以用命令WRITECSS写入磁盘。
+
+READCSS现在（可以）读取一个非标准的数据库表，名为sacdata(由WRITECSS命令输出的)。%此句存疑
+比如，你现在可以用WRITECSS把频率域数据写入磁盘，然后用READCSS读取
+
+READCSS现在有一个二进制选项，以便读取WRITECSS生成的二进制的CSS文件。
+在二进制模式中，css选项没有作用。
+也就是说，指定文件的全部内容都会读取。
+
+READCSS支持如下的二进制数据格式：在大端序机器(比如Sun)上的t8、t4、f8、f4、s4、s3、s2、i4、i2、g2、e1和ri (real-imag)。
+
+在小端序机器(比如DEC和PC)上： f8、f4、t8、t4、i4、i2、s4、s2和g2。
+
+\SACTitle{相关命令}
+\nameref{cmd:read}、\nameref{cmd:pickprefs}、\nameref{cmd:pickauthor}、\nameref{cmd:PICKPHASE}%、COMMIT, ROLLBACK, RECALLTRACE
+%此处命令还没有！
