@@ -57,11 +57,8 @@ SAC> wh         // 保存头段
 
 \begin{note}
 SAC全局变量~\verb+SAC_PPK_USE_CROSSHAIRS+可以控制ppk模式下鼠标在绘图窗口内的形态。
-若其值为~\verb+0+，则鼠标会以十字线的形式出现，即
-\tikz[scale=0.3]{
-    \draw[very thick] (0,0) -- (1,0);
-    \draw[very thick] (0.5,-0.5) -- (0.5,0.5);
-}；当其值为~\verb+1+时，会在十字线的基础上加上水平线和垂直线。通常建议设置其值为
+若其值为~\verb+0+，则鼠标会以十字线的形式出现，即“{\Large$+$}”；
+当其值为~\verb+1+时，会在十字线的基础上加上水平线和垂直线。通常建议设置其值为
 \verb+1+，使得拾取到时时更精确。该全局变量的设置方式参考\nameref{sec:sac-install}一节。
 \end{note}
 
