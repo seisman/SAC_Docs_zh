@@ -1,0 +1,38 @@
+\section{如何编译}
+文档是通过\TeX~Live编译的，另外代码抄录环境minted依赖于外部的pygment。
+\subsection{安装\TeX~Live}
+\TeX~Live是由国际\TeX~用户组(\TeX~Users Group，TUG)整理和发布的\TeX~软件发行套装，
+包含与\TeX~系统相关的各种程序、编辑与查看工具、常用宏包及文档、常用字体及多国语言支持。
+
+安装\TeX~Live可以在线的方式，也可以下载ISO镜像的方式：
+\begin{itemize}
+\item 在线安装
+
+打开连接
+\url{https://www.tug.org/texlive/acquire-netinstall.html}
+
+下载~\verb+install-tl-unx.tar.gz+。
+在解压后的目录内，运行安装程序安装：
+\begin{minted}{console}
+./install-tl
+\end{minted}
+或者
+\begin{minted}{console}
+perl install-tl
+\end{minted}
+\item ISO镜像的方式
+
+请参考我的博客：
+\url{http://seisman.info/install-texlive-under-linux.html}
+\end{itemize}
+\subsection{安装pygment}
+也许你的机器还没有安装pygment：
+\begin{minted}{console}
+sudo yum install python-pygments
+\end{minted}
+\subsection{编译}
+进入项目所在目录，输入命令，进行编译
+\begin{minted}{console}
+make
+\end{minted}
+如果你在编译时出现错误，需要帮助，请给我发邮件。
