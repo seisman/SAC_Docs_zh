@@ -17,8 +17,6 @@ R!EAD!CSS [BINARY|ASCII] [MAX!MEM! v] [MORE] [TRUST ON|OFF]
     [ORIENT!ATION! orientation-code]
 \end{SACSTX}
 
-这些选项使命令从符合相关记录内容的wfdisc文件中进行选择。
-
 \SACTitle{输入}
 \begin{description}
 \item [ASCII] 读取ASCII形式的CSS文件（默认值）
@@ -87,31 +85,27 @@ R!EAD!CSS [BINARY|ASCII] [MAX!MEM! v] [MORE] [TRUST ON|OFF]
 READCSS ASCII MAXMEM 0.3 VERBOSE OFF STATION * BAND * CHAN * ORIENT
 \end{SACSTX}
 
-\SACTitle{说明}%目前的说明是原文的注意
-注意：READCSS命令读取CSS 3.0或2.0的文本文件。
-3.0版本支持如下数据库表：
+\SACTitle{说明}
+CSS是一种数据库架构，该命令可以读取CSS 3.0或CSS 2.8中的文件。
 
-wfdisc、wftag、origin、arrival、assoc、sitechan、site、affiliation、origerr、origin、event、sensor、instrument、gregion、
-stassoc和remark sacdata。
+每个CSS数据库包含了若干个数据库表表，每个数据库表包含若干个记录。对于CSS 3.0而言，
+该命令支持读取如下数据库表：wfdisc、wftag、origin、arrival、assoc、sitechan、
+site、affiliation、origerr、origin、event、sensor、instrument、gregion、
+stassoc和remark sacdata。对于CSS 2.8而言，该命令只支持表wfdisc、arrival和origin。
 
-2.8版本只支持wfdisc、arrival和origin。
-READCSS之前的版本要求origin文件只有一行与波形有关%此句存疑
-现在的版本可以用来自一个wftag文件或者wfdisc文件中an evid column的信息来提取正确的源(position 284 - 291)。%此句存疑
-如果没有可用的信息，READCSS会默认以前的方式用origin文件的第一行。
-现在，用READCSS读取数据不再会有数据丢失。
-尽管现有的SAC命令只能获取一部分CSS数据，从CSS文本文件读取的存放在内存中的每个数据都可以用命令WRITECSS写入磁盘。
+关于CSS格式的详细介绍，请参考：
+\begin{itemize}
+\item \url{https://anf.ucsd.edu/pdf/css30.pdf}
+\item \url{http://prod.sandia.gov/techlib/access-control.cgi/2002/023055.pdf}
+\item \url{ftp://ftp.pmel.noaa.gov/newport/lau/tphase/data/css_wfdisc.pdf}
+\end{itemize}
 
-READCSS现在（可以）读取一个非标准的数据库表，名为sacdata(由WRITECSS命令输出的)。%此句存疑
-比如，你现在可以用WRITECSS把频率域数据写入磁盘，然后用READCSS读取
+在CSS数据库的众多表中，最常用的是与波形相关的wfdisc表以及波形数据~\verb+.w+文件。
+wfdisc表中每行代表一个波形记录，共19列，每列代表了波形记录的不同信息。详情参考
+上面列出的格式说明文档。
 
-READCSS现在有一个二进制选项，以便读取WRITECSS生成的二进制的CSS文件。
-在二进制模式中，css选项没有作用。
-也就是说，指定文件的全部内容都会读取。
-
-READCSS支持如下的二进制数据格式：在大端序机器(比如Sun)上的t8、t4、f8、f4、s4、s3、s2、i4、i2、g2、e1和ri (real-imag)。
-
-在小端序机器(比如DEC和PC)上： f8、f4、t8、t4、i4、i2、s4、s2和g2。
+readcss命令的BINARY选项，可以用于读取writecss命令生成的二进制CSS格式。在BINARY模式
+下，cssoptions选项没有作用，即wfdisc文件中包含的全部波形数据都会被读取。
 
 \SACTitle{相关命令}
 \nameref{cmd:read}
-%\nameref{cmd:pickprefs}、\nameref{cmd:pickauthor}、\nameref{cmd:PICKPHASE}
