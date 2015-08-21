@@ -1,0 +1,18 @@
+\section{如何编译}
+\subsection{安装TexLive}
+TeXLive是由国际TeX用户组(TeX Users Group，TUG)整理和发布的TeX软件发行套装，
+包含与TeX系统相关的各种程序、编辑与查看工具、常用宏包及文档、常用字体及多国语言支持。
+打开下面的连接
+
+\url{https://www.tug.org/texlive/acquire-netinstall.html}
+
+下载~\verb+install-tl-unx.tar.gz+。
+在解压后的目录内，运行安装程序安装(安装时间较长，且需要联网)：
+\begin{minted}{console}
+./install-tl
+\end{minted}
+\subsection{编译}
+进入项目所在目录，输入命令，进行编译
+\begin{minted}{console}
+make
+\end{minted}

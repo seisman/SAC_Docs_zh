@@ -1,0 +1,92 @@
+\section{学习git和GitHub}
+git是一款软件，GitHub是一个网站。二者协同使用是为了组织和协调我和你及其他维护者的工作。
+\subsection{注册GitHub账户}
+注册GitHub账户;\footnote{\url{https://github.com/join}}
+向GitHub账户中添加当前机器的SSH秘钥 ， 参考GitHub官方文档
+\footnote{\url{https://help.github.com/articles/generating­ssh­keys/}}
+。添加秘钥的目的是使得GitHub账户信任当前计算机，并赋予其写权限。
+\subsection{安装和配置Git}
+\begin{itemize}
+\item git是版本控制工具，gitk是用于查看的图形工具:
+\begin{minted}{console}
+sudo yum install git gitk
+\end{minted}
+\item git全局配置:
+\begin{minted}{console}
+git config ­­global user.name "Your Name"
+git config ­­global user.email "you@example.com"
+\end{minted}
+\end{itemize}
+\subsection{第一次使用}
+\begin{itemize}
+\item 进入该手册的项目主页 \url{https://github.com/seisman/SAC_Docs_zh}
+，点击右上角的fork;该操作会将叫seisman 账户下的~\verb+SAC_Docs_zh+ 项目复制到你的账户下。
+下面均假定你的账户名USER。
+\item 在终端执行如下操作:
+\begin{minted}{console}
+# 下载源码至本机
+git clone git@github.com:USER/SAC_Docs_zh.git
+# 添加seisman账户下的repo作为其中一个远程repo，并命名为seisman
+cd SAC_Docs_zh/
+git remote add seisman https://github.com/seisman/SAC_Docs_zh.git
+# 新建mydev分支，并切换至该分支，分支名任意
+git co -­b mydev
+# 用编辑器修改文档
+#   比如先修改contributor.tex文件，该文件中包括了该手册的维护者的列表
+#   参照已有的记录，添加自己的姓名/昵称、邮箱
+#   开始时间是你开始维护此手册的时间
+#   结束时间是你决定不再维护此手册的时间
+# 修改该文档后，按如下操作提交并推送修改
+git add contributor.tex           # 将修改的文件添加到缓存区
+git commit ­m "add contributor"   # 提交修改，­m后接注释信息
+git push origin mydev          # 将mydev分支推送到GitHub服务器
+\end{minted}
+\item 进入 \url{https://github.com/USER/SAC_Docs_zh}，点击Pull Request即可;
+\item 提交完Pull Request之后，我会审核修改，并决定是否接受Pull Request;
+\item 若PR已被接受，则可以删除mydev分支:
+git push origin :mydev
+\end{itemize}
+\subsection{第n次使用}
+第一次使用的时候有些复杂，第n次使用的时候步骤就简单很多了。
+命令行操作如下:
+\begin{minted}{console}
+# 从seisman的repo中拉取源码的最新版本
+git pull seisman
+# 将seisman的repo中的最新版本与本地版本合并
+git merge seisman/master
+# 新建新分支
+git co -b mydev2
+#
+# 修改文件 xxx.0 xxx.1 xxx.2
+#
+# 添加到缓冲区
+git add xxx.0 xxx.1 xxx.2
+# 提交更改
+git commit ­m 'commit messages'
+# 推送更改到服务器
+git push
+\end{minted}
+Push之后，进入GitHub网站，提交Pull Request即可。
+\subsection{其他说明}
+\begin{itemize}
+\item 我对于Git也只是了解皮毛，上面的步骤也许有更简单的操作;
+\item Git协作的方式有很多种，可以参考《Git使用规范流程》
+\footnote{\url{http://www.ruanyifeng.com/blog/2015/08/git­use­process.html}}
+、《git简易指南》\footnote{\url{http://www.bootcss.com/p/git­guide/}}
+和《廖雪峰的Git教程》
+\footnote{\url{http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000}}
+\item 可以多次add多次再commit，多次commit再push，多次push之后再pull request;
+\end{itemize}
+总之，希望有人能够参与进来，哪怕只是改几个错别字也很好。
+\subsection{如何维护}
+前面提到了手册中有哪些东西需要维护，根据工作量的大小大致可以分为两类:
+\begin{itemize}
+\item 小工作量维护，比如修复简单的bug和typo、整理部分语句、微调LaTeX模板，可以直接修
+改并提交Pull Requests;
+\item 大工作量维护，比如新增章节、调整文档整体结构等，为了避免多人重复劳动，请先到项
+目主页 \url{https://github.com/seisman/SAC_Docs_zh}中提交Issues
+\begin{itemize}
+\item 若暂时不打算解决该Issue，则设置标签为“Pull Request Welcomed”;若正在解决该Issue，则设置标签为“In Progress”;
+\item Issue列表中所有标签为“Pull Request Welcomed”的Issue均可随意认领;
+\end{itemize}
+\end{itemize}
