@@ -83,7 +83,7 @@ SAC头段区包含了一系列头段变量，从这些头段变量中可以了�
 说明:
 
 \begin{itemize}
-\item 辅助型变量并不SAC头段区中，它们是从其它头段变量推导得到；
+\item 辅助型变量并不在SAC头段区中，而是依据其它头段变量计算得到的；
 \item 所有头段变量的变量名均以变量类型码开头，比如~\verb+nvhdr+是N型变量，\verb+leven+是L型变量；但F型变量除外；
 \item 枚举型变量本质上是~\verb+int+型，只能在固定的几个值取值；C语言中本身
 是没有规定Bool类型的，SAC自定义了~\verb+TRUE+和~\verb+FALSE+；
