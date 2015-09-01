@@ -12,7 +12,7 @@ DOC = SAC_Docs
 all: $(DOC).pdf
 
 $(DOC).pdf: $(DOC).tex
-	latexmk -xelatex -shell-escape -use-make $^
+	latexmk -xelatex -shell-escape $^
 
 upload:
 	lftp dongzhi@home.ustc.edu.cn -e "put -O /public_html $(DOC).pdf; quit"
