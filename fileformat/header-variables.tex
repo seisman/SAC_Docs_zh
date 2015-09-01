@@ -164,8 +164,8 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 事件名。在头段区，其占据16个字节。
 
 \subsubsection{\texttt{evla, evlo, evel, evdp}}
-分别代表事件的纬度(-90到90)、经度(-180到180)、高程(单位为m，未使用)和
-深度(单位为km，以前为m)。
+分别代表事件的纬度(-90到90)、经度(-180到180)、高程(单位为\si{\m}，未使用)和
+深度(单位为 \si{\km}，以前为\si{\m})。
 
 \subsubsection{\texttt{ievreg}\dag}
 事件地理区域\footnote{Flinn-Engdahl Regions:\url{http://en.wikipedia.org/wiki/Flinn-Engdahl_regions}}。
@@ -216,7 +216,7 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 \subsubsection{\texttt{gcarc, dist, az, baz}}
 \begin{description}
 \item [gcarc] 全称Great Circle Arc，即震中到台站的大圆弧的长度，单位为度；
-\item [dist] 震中到台站的距离，单位为km；
+\item [dist] 震中到台站的距离，单位为 \si{\km}；
 \item [az] 方位角，震中到台站的连线与地理北向的夹角；
 \item [baz] 反方位角，台站到震中的连线与地理北向的夹角。
 \end{description}
