@@ -1,0 +1,146 @@
+\section{文档更新历史}
+\subsection*{2012-01-08 1.0版}
+\begin{itemize}
+\item 第一版发布，由DOC转换为PDF
+\item 参考《数字地震波形分析》一书，翻译了大部分官方文档中的内容
+\item 结合SAC 101.4版本，增加、删除和修改了一些命令
+\item 增加了书签，方便定位，支持全文搜索
+\end{itemize}
+
+\subsection*{2012-09-03 1.1版}
+\begin{itemize}
+\item 重新格式化整个文档，使得其看上去更规范，也易于以后的修改
+\item 代码从NotePad++中直接导出，支持语法高亮
+\item 代码及正文英文字体采用Consolas字体
+\item 增加了``在脚本中调用SAC''一节
+\item 新增命令 \verb+transfer+、\verb+traveltime+、\verb+saveimg+、\verb+datagen+
+\item 更新至SAC v101.5c
+\item 公式用公式编辑器编辑
+\end{itemize}
+
+\subsection*{2012-09-18 1.2版}
+\begin{itemize}
+\item 增加了封面配图
+\end{itemize}
+
+\subsection*{2013-03-29 2.0版}
+用LaTeX重新排版文档
+\begin{itemize}
+\item 操作系统：CentOS 6.4
+\item 编译环境：TeX Live 2012
+\item 编译命令：xeLaTeX
+\item 中文实现：ctex宏包
+\item 中文字体：宋体+黑体
+\item 英文主字体：Liberation Sans
+\item 代码字体：Courier 10 Pitch
+\end{itemize}
+
+\subsection*{2013-04-06 2.1版}
+\begin{itemize}
+\item 重新整理了第一章
+\item 修复bugs
+\end{itemize}
+
+\subsection*{2013-04-12 2.2版}
+\begin{itemize}
+\item 重新排版了全部命令
+\item 重新设计了封面
+\end{itemize}
+
+\subsection*{2014-02-22 2.3版}
+\begin{itemize}
+\item 使用git管理源码
+\item 整理结构和布局的修改
+\item 新的小节：``SAC IO升级版''、``黑板变量的读写''、``SAC保存图像''
+\item 修复bugs；
+\end{itemize}
+
+\subsection*{2014-04-18 3.0版}
+\begin{itemize}
+\item 源码托管在GitHub上，正式开源
+\item 丢弃了之前的提交历史，重新开始
+\item 重写了LaTeX导言区
+\item 重新设计了整个文档的结构
+\item 重写了教程部分的大多数内容
+\item 教程部分根据SAC v101.6a进行修正
+\item 修复bugs
+\end{itemize}
+
+\subsection*{2014-09-25 3.1版}
+\begin{itemize}
+\item 重新整理了大部分命令的语法说明
+\item 对``SAC图像''一章进行了修订
+\item 新增``信号迭加子程序''一章
+\item 新增``谱估计子程序''一章
+\item 新增``在Python中调用SAC''一节
+\item 修复bugs
+\end{itemize}
+
+\subsection*{2015-05-02 3.2版}
+对于用户：
+\begin{itemize}
+\item 修复bugs和typos
+\item 命令整理：\verb+systemcommand+、\verb+transfer+
+\item 新增章节
+    \begin{itemize}
+    \item 波形排序
+    \item 标记震相理论走时的三种方法
+    \item 图像格式转换
+    \item SAC初始化宏文件
+    \item SAC命令的长度上限
+    \item 字节序
+    \item 新增附录``仪器响应''，整理了``去仪器响应''一节
+    \end{itemize}
+\item 新增示例：调用SAC的Hilbert函数
+\end{itemize}
+
+对于维护者：
+\begin{itemize}
+\item 新增ChangeLog
+\item 更新README，可根据说明自行编译源码生成PDF
+\item 修改Makefile，对依赖的检测更加智能
+\item 简化用于调用绘图脚本的Makefile
+\item 英文使用TeX默认字体，中文使用开源中文字体Fandol
+\item 使用 \verb+minted+ 实现代码的语法高亮，替代 \verb+listings+
+\item \verb+datetime+ 宏包升级至 \verb+datetime2+
+\end{itemize}
+
+\subsection*{2015-06-06 3.3版}
+对于用户：
+\begin{itemize}
+\item 修改bugs和typos
+\item 命令整理：\verb+hilbert+、\verb+transfer+
+\item 新增内容：
+    \begin{itemize}
+    \item 四个文件重命名脚本
+    \item 读取某个目录下全部文件遇到的问题
+    \item 使用Tab遇到的问题
+    \item 数据命名规则
+    \item 时区校正
+    \item 错误与警告消息
+    \item 未定义变量
+    \item SAC debug
+    \item \verb+wh+ 与 \verb+w over+ 的区别
+    \end{itemize}
+\end{itemize}
+
+对于维护者：
+\begin{itemize}
+\item 删除之前的提交历史，精简repo尺寸，维护者需要重新Fork
+\item 删除了scons脚本
+\end{itemize}
+
+\subsection*{xxxxx-xx-xx 3.4版}
+对于用户：
+\begin{itemize}
+\item 命令的``错误消息''和``警告消息''集中在附录中
+\item 在C程序中调用 \verb+distaz+
+\item 命令整理：\verb+mtw+、\verb+markptp+、\verb+markvalue+、\verb+readcss+
+\item 在C程序中读写SAC文件
+\end{itemize}
+
+对于维护者：
+\begin{itemize}
+\item 更新至TeXLive 2015
+\item ctex宏包更新至2.2
+\end{itemize}
