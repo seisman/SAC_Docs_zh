@@ -16,7 +16,7 @@ C!HANGE!S!TACK! filename|filenumber [W!EIGHT! v] [DI!STANCE! v]
 \item [filename] 迭加文件列表中的文件名
 \item [filenumber] 迭加文件列表中的文件号
 \item [WEIGHT v] 当前文件的权重因子。v的取值范围为0到1，在迭加之前会首先对文件的每个值乘以该权重因子再做迭加。
-\item [DISTANCE v] 该文件所对应的震中距，单位为km。用于计算动态时间延迟
+\item [DISTANCE v] 该文件所对应的震中距，单位为 \si{\km}。用于计算动态时间延迟
 \item [BEGINTIME v] 事件开始的时间
 \item [ENDTIME] 事件结束时间
 \item [DELAY v SECONDS|POINTS] 该文件的静态时间延迟，单位为秒或数据点数
@@ -24,7 +24,7 @@ C!HANGE!S!TACK! filename|filenumber [W!EIGHT! v] [DI!STANCE! v]
 \item [NORMAL|REVERSED] 文件拥有正/负极性
 \end{description}
 
-\SACTitle{}
+\SACTitle{说明}
 该命令允许你修改修改迭加文件列表中任意文件的任意属性。详情参考~\nameref{sss:addstack}~命令。
 
 \SACTitle{错误消息}

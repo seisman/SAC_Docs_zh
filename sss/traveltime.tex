@@ -16,7 +16,7 @@ T!RAVEL!TIME [MODEL string] [PICKS number] [PHASE phase list]
 \item [Picks] 如果number值位于0到9，则第一个震相的到时将储存在头段Tn中。如果命令行选项中没有包含PICKS，VERBOSE就会打开并显示震相到时而不写入头段。
 \item [PHASE] 要pick或显示的震相列表，如果有PICKS n选项，则则震相到时以及其标签将写入到头段Tn和KTn中。
 \item [VERBOSE|QUIET] 若使用VERBOSE，则震相走时将以相对发震时刻(O)和文件起始时间(B)两种方式显示；若使用QUIET，则不在屏幕上显示到时，若二者都没有显示，则显示TRAVELTIME命令使用的深度
-\item [M|KM] EVDP的单位为m或者km。
+\item [M|KM] EVDP的单位为 \si{\m} 或者 \si{\km}。
 \end{description}
 
 \SACTitle{缺省值}
@@ -32,9 +32,9 @@ MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
 
 走时表根据地震深度及震中距获得走时，震中距(GCARC)使用球三角几何，根据事件和台站经纬度计算。
 
-由于历史原因，事件深度EVDP以前的单位为m，RDSEED产生的SAC波形数据单位为m。
+由于历史原因，事件深度EVDP以前的单位为 \si{\m}，RDSEED产生的SAC波形数据单位为 \si{\m}。
 
-在v101.5中，默认的EVDP单位为km，但由于很多波形数据EVDP仍然为m，这里引入这个命令选项以指定深度单位。
+在v101.5中，默认的EVDP单位为 \si{\km}，但由于很多波形数据EVDP仍然为 \si{\m}，这里引入这个命令选项以指定深度单位。
 
 \SACTitle{示例}
 区域事件，使用默认震相：
@@ -67,9 +67,9 @@ SAC/SSS> qs
 SAC> write seismo-picks.z
 \end{SACCode}
 可以看到已经将A定义为Pn的到时，文件seismo-picks.z将有T0到T3四个头段，命令PLOT1可以看到有各震相在相应到时处有标签名。
-注意尽管VERBOSE没有开启，深度(单位km)还是会被打印出来。这是为了保证用户对EVDP的单位有正确的了解，可以通过QUIET选项取消深度的显示。
+注意尽管VERBOSE没有开启，深度(单位 \si{\km})还是会被打印出来。这是为了保证用户对EVDP的单位有正确的了解，可以通过QUIET选项取消深度的显示。
 
-下面例子给出的波形文件是由RDSEED(V5.0)产生的，EVDP单位为m：
+下面例子给出的波形文件是由RDSEED(V5.0)产生的，EVDP单位为 \si{\m}：
 \begin{SACCode}
 SAC> r 2008.052.14.16.03.0000.XC.OR075.00.LHZ.M.SAC
 SAC> lh evdp
@@ -87,7 +87,7 @@ SAC> ch evdp (0.001 * :1,evdp:)
 SAC> setbb station :1,KSTNM:
 SAC> write %station%.z
 \end{SACCode}
-保存的文件OR075.z单位为km，并且各个震相Pn、Pg、Sn及Sg都有注释。震相名是大小敏感的，具体参见iaspei-tau的文档。
+保存的文件OR075.z单位为 \si{\km}，并且各个震相Pn、Pg、Sn及Sg都有注释。震相名是大小敏感的，具体参见iaspei-tau的文档。
 
 \SACTitle{相关命令}
 \nameref{sss:plotrecordsection}
