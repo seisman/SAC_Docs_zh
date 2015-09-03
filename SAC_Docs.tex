@@ -3,14 +3,14 @@
 %   作者：SeisMan
 %   项目主页：https://github.com/seisman/SAC_Docs_zh
 %   文档发布页：http://seisman.info/sac-manual.html
-%   编译环境：TeXLive 2015
+%   编译环境：TeX Live 2015
 %   中文支持：xeLaTeX + ctex
 %
 \input{SAC_macros}
 \begin{document}
 
 \pdfbookmark[0]{封面}{cover}
-\include{cover}
+\input{cover}
 \pagestyle{empty}
 
 \frontmatter
@@ -141,7 +141,6 @@
 \part{SAC命令手册}
 \chapter{SAC命令}
 \input{commands/func_commands}
-
 %\input{commands/3c}
 %\input{commands/crr}
 %\input{commands/depmec}
@@ -152,7 +151,6 @@
 %\input{commands/plotctable}
 % readdb readgse readsdd readsuds
 % writecss writegse writesdd
-
 \input{commands/about}
 \input{commands/abs}
 \input{commands/add}
@@ -391,14 +389,17 @@
 \input{appendix/messages/msg2}
 \input{appendix/messages/msg9}
 \input{appendix/messages/msgn}
+
 \chapter{仪器响应}
 \label{chap:resp}
 \input{appendix/resp/intro-to-resp}
 \input{appendix/resp/physical-details}
 \input{appendix/resp/resp-file}
+
 \chapter{数据命名规则}
 \label{chap:naming}
 \input{appendix/naming-convections}
+
 \chapter{文档更新与维护}
 \label{chap:doc-maintenance}
 \input{appendix/doc-maintenance/intro-to-manual}
@@ -406,4 +407,5 @@
 \input{appendix/doc-maintenance/mainteners-wanted}
 \input{appendix/doc-maintenance/github-and-git}
 \input{appendix/doc-maintenance/compile-doc}
+
 \end{document}
