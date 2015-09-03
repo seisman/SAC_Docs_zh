@@ -4,16 +4,16 @@
 数据申请时一般会选择尽可能长的时间窗，而实际进行数据处理和分析时可能只需要其中
 的一小段时间窗，这就需要对数据时间窗进行截取。
 
-SAC中的~\nameref{cmd:cut}~命令可以实现数据截取，需要注意的是，该命令时
+SAC中的 \nameref{cmd:cut} 命令可以实现数据截取，需要注意的是，该命令时
 ``参数设定类'' 命令，即需要先执行cut命令再执行read命令。
 
 \subsection{pdw}
 \label{subsec:pdw}
 使用cut命令对数据进行截取时需要定义数据时间窗。除了截取数据之外，其他一些命令
-也会需要定义时间窗，比如~\nameref{cmd:rms}、\nameref{cmd:mtw}、\nameref{cmd:xlim}~等，
+也会需要定义时间窗，比如 \nameref{cmd:rms}、\nameref{cmd:mtw}、\nameref{cmd:xlim} 等，
 这些命令都使用同样的方式定义时间窗，在SAC中称为pdw，即partial data window。
 
-pdw定义了一个开始时间和一个结束时间，其格式为~\verb+ref offset ref offset+。
+pdw定义了一个开始时间和一个结束时间，其格式为 \texttt{ref offset ref offset}。
 其中ref为参考时刻，可以取Z、B、E、O、A、F、N和Tn(n=0-9)，而offset为相对于参考时刻的时间偏移量。
 
 参考时刻ref可以取如下值：

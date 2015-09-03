@@ -11,7 +11,7 @@ ka、kf和ktn中则用于保存相应的震相名信息。
 
 \subsection{手动标记}
 最直观的办法是根据SAC文件中的震源深度和震中距信息用某些程序计算出理论到时，
-然后用~\nameref{cmd:chnhdr}~命令手动将到时信息写入到SAC头段中。
+然后用 \nameref{cmd:chnhdr} 命令手动将到时信息写入到SAC头段中。
 \begin{SACCode}
 SAC> dg sub teleseis nykl.z     // 以nykl.z为例
 SAC> lh evdp gcarc              // 查看震源深度和震中距
@@ -30,7 +30,7 @@ SAC> lh t0 kt0 t1 kt1
 话，则更复杂一些。
 
 \subsection{traveltime命令}
-\nameref{cmd:traveltime}~是SAC提供的一个命令，用于计算iasp91或者ak135地球模型下
+\nameref{cmd:traveltime} 是SAC提供的一个命令，用于计算iasp91或者ak135地球模型下
 的震相理论走时，并自动将震相到时信息保存到SAC头段变量中。
 \begin{SACCode}
 SAC> dg sub teleseis nykl.z
@@ -46,14 +46,14 @@ SAC> lh t3 kt3 t4 kt4
 该方法的优点在于是SAC内置命令，使用起来也很简单，缺点在于只支持两种地球速度模型。
 
 \subsection{taup\texttt{\_}setsac命令}
-\verb+taup_setsac+~是taup\footnote{\url{http://www.seis.sc.edu/taup/}}软件提供的用于
+\verb|taup_setsac| 是taup\footnote{\url{http://www.seis.sc.edu/taup/}}软件提供的用于
 计算震相理论到时的独立于SAC的外部命令。
 \begin{minted}{console}
 $ taup_setsac -mod prem -ph P-6,S-7 -evdpkm *.SAC
 \end{minted}
 该命令会根据SAC文件中的震中距和震源深度信息，计算震相在一维地球模型下的理论走时，
 将震相走时写入到头段Tn中，并向KTn中写入震相名称，向USERn中写入震相的射线参数(单位
-为~\verb+s/radian+)。上面的示例中，使用了PREM地球模型，将P和S的走时信息写入到头段
+为 \si{\s\per radian})。上面的示例中，使用了PREM地球模型，将P和S的走时信息写入到头段
 T6和T7中。
 
 该方法的优点在于支持多种地球标准模型、自定义模型以及自定义震相。

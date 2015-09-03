@@ -15,7 +15,7 @@ SAC头段版本号。nvhdr\footnote{星号表示该头段变量在SAC中必须�
 \footnote{1月1日对应的nzjday是1而不是0。}
 、``时''、``分''、``秒''、``毫秒''\footnote{1 s = 1000 ms}。
 这六个头段变量构成了SAC中唯一的绝对时刻，SAC中的其它时刻都被转换为相对于该时刻的
-相对时间(单位为秒)。详细的信息参见第~\ref{sec:sac-time}~节``\nameref{sec:sac-time}''
+相对时间(单位为秒)。详细的信息参见第 \ref{sec:sac-time} 节``\nameref{sec:sac-time}''
 中的介绍。
 
 根据这六个头段还可以推导出其它一些辅助型变量：
@@ -54,11 +54,11 @@ SAC> lh kzdate kztime
 \item ITn：以用户自定义的时间为参考时间(n可取0-9)
 \end{itemize}
 
-若~\verb+iztype=IO+，则表示数据以发震时刻作为参考时刻，此时头段变量o的值应为0。
+若 \texttt{iztype=IO}，则表示数据以发震时刻作为参考时刻，此时头段变量o的值应为0。
 
 \subsubsection{\texttt{iftype}*}
 SAC文件类型，其决定了头段区之后有几个子数据区。该头段变量为枚举类型
-\footnote{枚举型在C源码中使用~\verb+#define+宏来定义的，比如``\verb+#define ITIME 1+''。}
+\footnote{枚举型在C源码中使用 \verb|#define| 宏来定义的，比如``\verb|#define ITIME 1|''。}
 ，可以取如下几个枚举值
 \footnote{枚举值一律使用大写，且以I开头。} ：
 \begin{itemize}
@@ -75,10 +75,10 @@ SAC文件类型，其决定了头段区之后有几个子数据区。该头段�
 \begin{itemize}
 \ttfamily
 \item IUNKN：未知类型
-\item IDISP：位移量，单位为nm
-\item IVEL：速度量，单位为nm/s
-\item IVOLTS：速度量，单位为volts\footnote{不解}
-\item IACC：加速度量：单位为nm/s/s
+\item IDISP：位移量，单位为 \si{\nm}
+\item IVEL：速度量，单位为 \si{\nm\per\s}
+\item IVOLTS：速度量，单位为 \si{\V}\footnote{不解}
+\item IACC：加速度量：单位为 \si{\nm\per\square\s}
 \end{itemize}
 
 \subsection{数据相关变量}
@@ -95,7 +95,7 @@ SAC文件类型，其决定了头段区之后有几个子数据区。该头段�
 文件的起始时间和结束时间(相对于参考时刻的秒数)。
 
 \subsubsection{\texttt{leven}*}
-若数据为等间隔则为~\verb+TRUE+，否则为~\verb+FALSE+。
+若数据为等间隔则为 \texttt{TRUE}，否则为 \texttt{FALSE}。
 
 \subsubsection{\texttt{depmin, depmax, depmen}}
 因变量(Y)的最小值、最大值和均值。
@@ -127,7 +127,7 @@ SAC> lh depmax
 此时可以将数据乘以$10^{20}$变成合适的量级，并修改scale=10e20，这样就可以知道
 自己对数据人为放大了多少倍。
 
-在101.5之前的版本中，在使用~\nameref{cmd:transfer}~命令去仪器响应时，若scale的值
+在101.5之前的版本中，在使用 \nameref{cmd:transfer} 命令去仪器响应时，若scale的值
 有定义，则输出的数据会根据该值进行放大并修改scale。在101.5及其之后的版本中，scale
 被忽略。
 
@@ -164,8 +164,8 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 事件名。在头段区，其占据16个字节。
 
 \subsubsection{\texttt{evla, evlo, evel, evdp}}
-分别代表事件的纬度(-90到90)、经度(-180到180)、高程(单位为\si{\m}，未使用)和
-深度(单位为 \si{\km}，以前为\si{\m})。
+分别代表事件的纬度(-90到90)、经度(-180到180)、高程(单位为 \si{\m}，未使用)和
+深度(单位为 \si{\km}，以前为 \si{\m})。
 
 \subsubsection{\texttt{ievreg}\dag}
 事件地理区域\footnote{Flinn-Engdahl Regions:\url{http://en.wikipedia.org/wiki/Flinn-Engdahl_regions}}。
@@ -233,8 +233,8 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 \begin{itemize}
 \item \url{http://www.eas.slu.edu/People/RBHerrmann/Courses/EASA462/}
 \item \url{http://www.seis.sc.edu/software/distaz/}
-\item SAC源码~\verb+src/ucf/distaz.c+
-\item CPS330\footnote{\url{http://www.eas.slu.edu/eqc/eqccps.html}}源码~\verb+VOLI/src/udelaz.c+
+\item SAC源码 \texttt{src/ucf/distaz.c}
+\item CPS330\footnote{\url{http://www.eas.slu.edu/eqc/eqccps.html}}源码 \texttt{VOLI/src/udelaz.c}
 \end{itemize}
 
 \subsubsection{\texttt{o, ko}}
@@ -263,7 +263,7 @@ o为事件的发生时刻相对于参考时刻的秒数。ko是绘图时变量o�
 一个台站至少需要三个正交的通道(或分量)才能完整地记录地面运动物理量。cmpaz和cmpinc
 指定了单个通道记录的方向矢量。
 
-图~\ref{fig:cmpaz-cmpinc}~给出了SAC所使用的NEU坐标系，需要注意的是这是一个左手坐标系。
+图 \ref{fig:cmpaz-cmpinc} 给出了SAC所使用的NEU坐标系，需要注意的是这是一个左手坐标系。
 图中蓝色箭头为通道所记录的方向矢量，若地面运动与该方向一致，则为正，否则为负。
 其中，头段变量cmpaz表征通道的方位角，其定义为从N向开始顺时针旋转的角度，即图中的角度$\phi$；
 cmpinc表征通道的入射角，定义为U向向下旋转的度数，即图中的角度$\theta$。
@@ -314,14 +314,14 @@ U       &   0       &   0           \\
 对于非标准方向的地震通道来说，很容易根据cmpinc和cmpaz的值，将其旋转到NEU坐标系或者
 RTZ坐标系，这些将在``\nameref{sec:traces-rotating}''一节中说到。
 
-\verb+kcmpnm+用于存储分量名称。SEED格式规定通道名的三个字符中的最后一个代表通道的分量
-方位，比如通道名~\verb+BHE+表示该通道为东西向。通常~\verb+kcmpnm+可以取为E、N、Z。
+\texttt{kcmpnm} 用于存储分量名称。SEED格式规定通道名的三个字符中的最后一个代表通道的分量
+方位，比如通道名 \texttt{BHE} 表示该通道为东西向。通常 \texttt{kcmpnm} 可以取为E、N、Z。
 由于很多台站的水平分量并不严格是东西、南北方向，因而现在更倾向于用1和2代替N和E。
 
-\verb+kstcmp+为辅助型变量，表示台站分量，由kstnm、cmpaz、cmpinc推导得到。
+\texttt{kstcmp} 为辅助型变量，表示台站分量，由kstnm、cmpaz、cmpinc推导得到。
 
 \subsubsection{\texttt{lpspol}}
-如图~\ref{fig:cmpaz-cmpinc}~所示，在左手坐标系下，若三通道都是正极性则为真，否则为假。
+如图 \ref{fig:cmpaz-cmpinc} 所示，在左手坐标系下，若三通道都是正极性则为真，否则为假。
 
 \subsection{震相相关变量}
 \subsubsection{\texttt{a, f, tn}}
@@ -343,7 +343,7 @@ PcP的到时，则一般定义kt1为``PcP''。
 震相相关的变量对可以构成一个辅助型变量。a和ka可以构成amarker，f和kf可以构成fmarker，
 o和ko可以构成omarker，tn和ktn可以构成tnmarker(n=0-9)。
 
-这些辅助型变量可以在~\nameref{cmd:listhdr}中使用。
+这些辅助型变量可以在 \nameref{cmd:listhdr} 中使用。
 
 \subsection{仪器相关变量}
 \subsubsection{\texttt{kinst}, \texttt{iinst}\dag, \texttt{respn}\dag}
@@ -356,12 +356,12 @@ usern和kusern之间没有对应关系。比如可以将波形的信噪比保存
 保存到kuser0中。
 
 \subsubsection{\texttt{lovrok}}
-若为~\verb+TRUE+，则磁盘里的原始数据可被覆盖；若为~\verb+FALSE+，则原始数据不可被覆盖。
+若为 \texttt{TRUE}，则磁盘里的原始数据可被覆盖；若为 \texttt{FALSE}，则原始数据不可被覆盖。
 主要用于保护原始数据，一般来说很少用到，若是出于保护原始数据的目的，
 应优先考虑对原始数据做备份。
 
 \subsubsection{\texttt{lcalda}}
-全称为Calculate Distance and Azimuth。若为~\verb+TRUE+，则当事件和台站的坐标被
+全称为Calculate Distance and Azimuth。若为 \texttt{TRUE}，则当事件和台站的坐标被
 写入或被修改时，头段变量dist、gcarc、az、baz将自动计算；否则dist、gcarc、az、baz
 不会被自动计算，SAC头段中会存在信息的不兼容。
 

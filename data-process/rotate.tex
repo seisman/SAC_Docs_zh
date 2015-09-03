@@ -11,8 +11,8 @@
 SH波与P-SV波的解偶，更常处理的是R、T、Z向的三分量数据。因而地震信号的旋转是有
 必要的。
 
-SAC提供了~\nameref{cmd:rotate}~命令，用于旋转任意两个相互正交的分量。
-旋转前，SAC会检查两个分量的~\verb+cmpinc+和~\verb+cmpaz+，以确定两个分量是正交的。
+SAC提供了 \nameref{cmd:rotate} 命令，用于旋转任意两个相互正交的分量。
+旋转前，SAC会检查两个分量的 \texttt{cmpinc} 和 \texttt{cmpaz}，以确定两个分量是正交的。
 
 \begin{SACCode}
 SAC> dg sub teleseis ntkl.[enz]
@@ -41,7 +41,7 @@ SAC> lh cmpinc cmpaz
 SAC> w ntkl.r ntkl.t            // 保存为R分量和T分量
 \end{SACCode}
 
-图~\ref{fig:rotate}~中，左图中从上至下为N、E、Z分量，右图中从上至下为R、T、Z分量。
+图 \ref{fig:rotate} 中，左图中从上至下为N、E、Z分量，右图中从上至下为R、T、Z分量。
 旋转到R、T分量后，可以很容易地识别出Rayleigh和Love波。
 
 \begin{figure}[H]

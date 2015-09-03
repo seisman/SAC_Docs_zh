@@ -62,7 +62,7 @@ SAC> readtable content p. filea
 \begin{SACCode}
 SAC> readtable content r format \(24x,f12.3,14x,f10.2\) fileb
 \end{SACCode}
-注意：在左括号和右括号两边的``\verb+\+''是SAC的转义字符，这很重要，因为SAC使用括号作为内联函数。由于没有重复计数器，因而只有一个Y-X数据对被从文件的每行读入。
+注意：在左括号和右括号两边的``\verb|\|''是SAC的转义字符，这很重要，因为SAC使用括号作为内联函数。由于没有重复计数器，因而只有一个Y-X数据对被从文件的每行读入。
 
 假设你有一个文件FILEC，其每行包括一个X值和7个不同数据集的Y值，其为(8F10.2)格式。为了在内存中创建7个不同的数据集，可以使用下面的命令：
 \begin{SACCode}

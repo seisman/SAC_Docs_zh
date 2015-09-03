@@ -11,9 +11,9 @@ SAC提供了如下几类内联函数：
 \item 其他函数；
 \end{itemize}
 
-所有的内联函数的共同形式是：``\verb+(func)+''，其中func为内联函数名。某种程度
-上，内联函数与前面说到头段变量(``\verb+& &+'')和黑板变量(``\verb+% %+'')类似，
-可以认为是通过``\verb+( )+''引用了内联函数的结果或值。
+所有的内联函数的共同形式是：``\texttt{(func)}''，其中func为内联函数名。某种程度
+上，内联函数与前面说到头段变量(``\verb|& &|'')和黑板变量(``\verb|% %|'')类似，
+可以认为是通过``\texttt{( )}''引用了内联函数的结果或值。
 
 内联函数支持嵌套，目前最多可以嵌套10层。
 
@@ -24,7 +24,7 @@ SAC提供了如下几类内联函数：
 \end{SACCode}
 所有的操作数都被认为是实型的，所有的算术运算都按照双精度浮点型进行运算；
 
-SAC支持的操作符是包括：``\verb| +  -  *  /  ** |''。
+SAC支持的操作符是包括：``\texttt{ +  -  *  /  ** }''。
 
 看几个简单的例子:
 \begin{SACCode}
@@ -46,8 +46,8 @@ SAC> setbb var1 ( ( 4 + 7 ) / 3 )   // 支持空格
 \end{SACCode}
 
 \subsection{常规算术运算函数}
-SAC提供了20个常规算术运算函数，其基本形式为``\verb+(func arg1 arg2 ...)+''。
-具体函数如表~\ref{table:regular-arithmetic-functions}~所示。
+SAC提供了20个常规算术运算函数，其基本形式为``\texttt{(func arg1 arg2 ...)}''。
+具体函数如表 \ref{table:regular-arithmetic-functions} 所示。
 
 \begin{table}[!ht]
 \centering
@@ -135,7 +135,7 @@ SAC> div ( max (abs %vmax%) (abs %vmin%) )      // 嵌套
 此例可以通过多重嵌套的方式在单个命令中完成，但上面的写法可读性更强。
 
 \subsection{字符串操作函数}
-SAC提供了若干个函数用于字符串的处理，如表~\ref{table:string-operation-functions}~所示：
+SAC提供了若干个函数用于字符串的处理，如表 \ref{table:string-operation-functions} 所示：
 
 \begin{table}[!ht]
 \centering
@@ -226,7 +226,7 @@ SAC> getbb bbday
 输入的字符串作为返回值，如果用户只是敲击回车键，SAC则会使用该默认值``MONDAY''。
 
 \subsection{其他函数}
-这类函数目前只有一个：gettime，其语法为``\verb+(gettime max|min [value])+''。
+这类函数目前只有一个：gettime，其语法为``\texttt{(gettime max|min [value])}''。
 
 gettime函数用于返回数据中首先出现大于或小于value的时间相对于文件参考时刻的相对时间；
 若没有指定value，max会返回文件中第一个最大值的相对时间，min会返回文件中第一个最小值

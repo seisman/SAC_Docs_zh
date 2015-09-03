@@ -4,27 +4,27 @@
 \end{verbatim}
 其中
 \begin{itemize}
-\item \verb+yyyy.ddd.hh.mm.ss.ffff+是SAC文件中第一个数据点对应的时间
+\item \texttt{yyyy.ddd.hh.mm.ss.ffff} 是SAC文件中第一个数据点对应的时间
     \begin{itemize}
-    \item \verb+yyyy+为年；
-    \item \verb+ddd+为一年的第多少天；
-    \item \verb+hh.mm.ss+为时、分、秒；
-    \item \verb+ffff+为毫秒；需要注意的是$\SI{1}{\s}=\SI{1000}{\ms}$，
+    \item \texttt{yyyy} 为年；
+    \item \texttt{ddd} 为一年的第多少天；
+    \item \texttt{hh.mm.ss} 为时、分、秒；
+    \item \texttt{ffff} 为毫秒；需要注意的是 $\SI{1}{\s}=\SI{1000}{\ms}$，
         这里毫秒用了4位来表示。
     \end{itemize}
-\item \verb+NN+为台网名，2字符；
-\item \verb+SSSSS+为台站名，一般是3个字符，偶尔见到4字符的；
-\item \verb+LL+为location id，为空或两字符；
-\item \verb+CCC+为通道名；
-\item \verb+Q+为质量控制标识；
-\item \verb+SAC+为文件后缀；
+\item \texttt{NN} 为台网名，2字符；
+\item \texttt{SSSSS} 为台站名，一般是3个字符，偶尔见到4字符的；
+\item \texttt{LL} 为location id，为空或两字符；
+\item \texttt{CCC} 为通道名；
+\item \texttt{Q} 为质量控制标识；
+\item \texttt{SAC} 为文件后缀；
 \end{itemize}
 
 \section{Location ID}
 关于Location ID，我并没有找到权威的解释。
 
-常见的Location ID为空值，非空值一般常见到~\verb+00+、\verb+01+、\verb+10+，
-偶尔也会见到~\verb+60+等。
+常见的Location ID为空值，非空值一般常见到 \texttt{00}、\texttt{01}、\texttt{10}，
+偶尔也会见到 \texttt{60} 等。
 
 Location ID可以认为是台站的subcode，即一个台站处，有多套仪器，这些仪器可能
 是相同的型号，但是位于不同的深度或者指向不同的方位；也有可能是不同型号的仪器。
@@ -32,10 +32,10 @@ Location ID可以认为是台站的subcode，即一个台站处，有多套仪�
 \section{质量控制}
 质量控制符Q用于表征当前SAC数据的数据质量。该标识符可以取如下四种：
 \begin{itemize}
-\item \verb+D+ 不确定状态的数据
-\item \verb+M+ 已合并的数据
-\item \verb+R+ 原始波形数据
-\item \verb+Q+ 经过质量控制的数据
+\item \texttt{D} 不确定状态的数据
+\item \texttt{M} 已合并的数据
+\item \texttt{R} 原始波形数据
+\item \texttt{Q} 经过质量控制的数据
 \end{itemize}
 常见的数据标识符为H或Q。
 

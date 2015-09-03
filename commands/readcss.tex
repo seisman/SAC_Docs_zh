@@ -30,19 +30,19 @@ R!EAD!CSS [BINARY|ASCII] [MAX!MEM! v] [MORE] [TRUST ON|OFF]
     当使用的内存达到设定的上限时，即使已经读取了其他数据库表，也不会再读取更多的波形数据。
     MAXMEN的默认值是0.3。
 \item [MORE] 将读入的波形数据放在内存中的原有波形之后，若不使用该选项，
-    则新读入的波形数据会覆盖内存中的原有波形数据，详情参考~\nameref{cmd:read}~命令。
+    则新读入的波形数据会覆盖内存中的原有波形数据，详情参考 \nameref{cmd:read} 命令。
 \item [VERBOSE ON|OFF] 如果VERBOSE是ON，SAC会显示正在读取的波形数据的扩展信息，
     并打印出CSS数据库表的概要信息以及数据格式转换的进度信息。
 \item [SHIFT ON|OFF] 若SHIFT是ON，则发震时刻将被设置为0，其他相关时间头段变量也会做
     相应修改。与震中距相关的一些头段变量也会受影响。默认值为SHIFT ON。
 \item [SCALE ON|OFF] SCALE选项默认是OFF。
     wfdisc文件中有一个字段为校准因子(CALIB)。
-    当SCALE选项是OFF时，SAC直接从~\verb+.w+文件读取数字信号数据，此时数据的单位是counts，
+    当SCALE选项是OFF时，SAC直接从 \texttt{.w} 文件读取数字信号数据，此时数据的单位是counts，
     并将CALIB的值保存到SAC头段变量SCALE中。
     当SCALE选项是ON时，SAC会给读取的数据乘以CALIB值，并设置SAC的头段变量SCALE的值为1.0。
     设置SCALE ON，将数据乘以CALIB值，在某种程度上可以认为是对数据去除了仪器响应，但
-    该方法很粗糙，完整地去除仪器响应应使用~\nameref{cmd:transfer}~命令。
-    仅当~\nameref{cmd:transfer}~命令所需的仪器响应信息无法获取时，才建议使用SCALE ON。
+    该方法很粗糙，完整地去除仪器响应应使用 \nameref{cmd:transfer} 命令。
+    仅当 \nameref{cmd:transfer} 命令所需的仪器响应信息无法获取时，才建议使用SCALE ON。
 \item [MAGNITUDE] 指定要将哪一种震级放在SAC的头段变量mag中。
     Mb是体波震级，Ms是面波震级，ML是地方震震级。
     默认值是DEF，其算法为：若Ms存在且大于或等于6.6，则最优先用Ms。
@@ -64,20 +64,20 @@ R!EAD!CSS [BINARY|ASCII] [MAX!MEM! v] [MORE] [TRUST ON|OFF]
     需要注意，filelist所指定的波形文件名必须位于之前指定的wfdisc文件中。
 \item[STATION station] station是一个6个或更少字符构成的字符串。
     wfdisc文件中台站名kstnm与station匹配的行会被选中并读取。
-    station中可以包含通配符~\verb+*+和~\verb+?+。
+    station中可以包含通配符 \texttt{*} 和 \texttt{?} 。
 \item[CHANNEL channel]  channel是一个8个或更少字符构成的字符串。
     wfdisc文件中通道名与channel匹配的行会被选中并读取。
-    channel中可以包含通配符~\verb+*+和~\verb+?+。
+    channel中可以包含通配符 \texttt{*} 和 \texttt{?} 。
 \item [BANDWIDTH type] 单字符编码。常见的取值为E、S、H、B、M、L、V、U、R等。
-    bandcode的具体含义参考附录中表~\ref{tbl:bandcode}。
+    bandcode的具体含义参考附录中表 \ref{tbl:bandcode}。
     channel字段中第一个字符与bandcode匹配的行会被选择并读取。
-    bandcode中使用通配符~\verb+*+会匹配所有bandcode。
+    bandcode中使用通配符 \texttt{*} 会匹配所有bandcode。
 \item [ORIENTATION orientation-code] orientation-code通常可以取
     ``Z N E''(表示竖直、北和东)、
     ``A B C''(表示正交的三轴向)、
     ``1 2 3''(表示正交但非标准的三个方向)。
     channel字段中最后一个字符与orientatio-code相匹配的行会被选中并读取。
-    orientation-code使用通配符~\verb+*+会匹配所有orientation-code。
+    orientation-code使用通配符 \texttt{*} 会匹配所有orientation-code。
 \end{description}
 
 \SACTitle{默认值}
@@ -100,7 +100,7 @@ stassoc和remark sacdata。对于CSS 2.8而言，该命令只支持表wfdisc、a
 \item \url{ftp://ftp.pmel.noaa.gov/newport/lau/tphase/data/css_wfdisc.pdf}
 \end{itemize}
 
-在CSS数据库的众多表中，最常用的是与波形相关的wfdisc表以及波形数据~\verb+.w+文件。
+在CSS数据库的众多表中，最常用的是与波形相关的wfdisc表以及波形数据 \texttt{.w} 文件。
 wfdisc表中每行代表一个波形记录，共19列，每列代表了波形记录的不同信息。详情参考
 上面列出的格式说明文档。
 

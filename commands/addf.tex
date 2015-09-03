@@ -24,7 +24,7 @@ ADDF [N!EWHDR! [ON|OFF]] filelist
 该命令仅可对等间隔时间序列进行操作，且要求相加的两个数据文件有相同的采样周期和
 数据点数，数据文件所对应的绝对时刻也应匹配。
 
-对于采样周期和数据点数是否匹配的检查，可以通过~\nameref{cmd:binoperr}~命令进一步设置为
+对于采样周期和数据点数是否匹配的检查，可以通过 \nameref{cmd:binoperr} 命令进一步设置为
 ignore、warning或fatal。
 
 在ignore或warnings的前提下，若两个待相加的文件采样周期不等，SAC会忽略采样周期的差异，

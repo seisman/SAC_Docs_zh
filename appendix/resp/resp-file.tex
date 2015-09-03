@@ -5,8 +5,8 @@
 即仪器响应文件：RESP、PZ和FAP。
 
 \subsection{内置仪器响应}
-SAC内置了很多标准地震仪器的仪器响应，如表~\ref{table:instrument-type}~所示。
-部分仪器类型还拥有子类型，如表~\ref{table:instrument-subtype}~所示。在SAC命令中，
+SAC内置了很多标准地震仪器的仪器响应，如表 \ref{table:instrument-type} 所示。
+部分仪器类型还拥有子类型，如表 \ref{table:instrument-subtype} 所示。在SAC命令中，
 可以直接使用这些仪器类型。
 
 \begin{table}[tp]
@@ -90,7 +90,7 @@ HIGHPASS v &      REFTEK    \\
 \end{tabular}
 \end{table}
 
-除了表~\ref{table:instrument-type}~中列出的众多仪器类型之外，还有几个特别的仪器类型：
+除了表 \ref{table:instrument-type} 中列出的众多仪器类型之外，还有几个特别的仪器类型：
 \begin{itemize}
 \item none：即位移，也是SAC的默认值
 \item vel：速度
@@ -186,7 +186,7 @@ INPUT UNIT表明了该PZ文件的输入是位移、速度还是加速度。用rd
 
 一些说明：
 \begin{itemize}
-\item 若有零点~\verb+(0.0,0.0)+，则这样的``零''零点可以省略。因而列出的零点数可能会少于``ZEROS''行给出的零点数；上例中的三个零点可以不列出；
+\item 若有零点 \texttt{(0.0,0.0)}，则这样的``零''零点可以省略。因而列出的零点数可能会少于``ZEROS''行给出的零点数；上例中的三个零点可以不列出；
 \item CONSTANT对应于RESP文件中所有阶段的增益$Sd_0$以及归一化因子$A_0$的乘积；
 \item 若未指定CONSTANT，则默认值为1.0；
 \end{itemize}
@@ -205,17 +205,17 @@ FAP文件可以从程序evalresp v3.3.2中获得，FAP相对于PZ文件的优势
 RESP、PZ和FAP都可以用于表征仪器的响应函数，常见的是RESP和PZ，而这两种还是有很大区别的：
 
 \begin{itemize}
-\item RESP文件包含了仪器响应的完整信息，而PZ文件中仅包含了零极点和增益信息，
-    二者的主要差异在于PZ文件中未包含FIR滤波器的信息；
-\item RESP文件中可以知道输入数据是位移、速度还是加速度，而PZ文件默认输入为
-    位移。因而若RESP文件中输入是速度，则PZ文件中会多一个``零''零点；若RESP
-    文件中输入是加速度，则PZ文件中会多两个``零''零点；
-\item SAC中的默认位移单位是~\verb+nm+，RESP文件中有指定输入单位为~\verb+m+，因而
-    在用RESP去仪器响应时，transfer会在去除仪器响应之后在对数据做单位上的变换以
-    使得得到的位移数据的单位是~\verb+nm+，即与SAC的标准相一致。而PZ文件中并未提供
-    输入单位信息，或者说即便提供了也没有被利用到，故而用PZ文件去除仪器响应得到的
-    位移物理量单位是~\verb+m+，为了与SAC标准相一致，需要对数据乘以10的9次方将数据
-    单位由~\verb+m+转换成~\verb+nm+；
+\item RESP文件包含了仪器响应的完整信息，而PZ文件中仅包含了零极点
+    和增益信息，二者的主要差异在于PZ文件中未包含FIR滤波器的信息；
+\item RESP文件中可以知道输入数据是位移、速度还是加速度，而PZ文件默认输入
+    为位移。因而若RESP文件中输入是速度，则PZ文件中会多一个``零''零点；
+    若RESP文件中输入是加速度，则PZ文件中会多两个``零''零点；
+\item SAC中的默认位移单位是 \si{\nm}，RESP文件中有指定输入单位为 \si{\m}，
+    因而在用RESP去仪器响应时，transfer会在去除仪器响应之后在对数据做单位
+    上的变换以使得得到的位移数据的单位是 \si{\nm}，即与SAC的标准相一致。
+    而PZ文件中并未提供输入单位信息，或者说即便提供了也没有被利用到，故而
+    用PZ文件去除仪器响应得到的位移物理量单位是 \si{\m}，为了与SAC标准相
+    一致，需要对数据乘以10的9次方将数据单位由 \si{\m} 转换成 \si{\nm}；
 \end{itemize}
 
 对于大多数情况，建议使用PZ文件，数据处理速度要快很多。
