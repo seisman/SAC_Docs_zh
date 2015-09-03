@@ -27,7 +27,7 @@ P!LOT!R!ECORD!S!ECTION! [L!ABLES! ON|OFF|headerfield]
 \item [CURSOR ON|OFF]
 \item [REDUCED ON|OFF|VELOCITY vel|PHASE phase] reduced走时曲线。可以指定reduce速度或者一个参考震相
 \item [ORIENT PORTRAIT|LANDSCAPE] portrait模式中，水平轴为时间，纵轴为震中距；landscape模式下，水平轴为震中距，垂直轴为时间
-\item [TTIME ON|OFF|DEFAULT|TEXT] 绘制走时曲线。需要首先用~\nameref{sss:traveltime}~命令计算走时曲线
+\item [TTIME ON|OFF|DEFAULT|TEXT] 绘制走时曲线。需要首先用 \nameref{sss:traveltime} 命令计算走时曲线
 \item [XLABEL ON|OFF|DEFAULT|TEXT] 打开/关闭/设置X轴标签
 \item [YLABEL ON|OFF|DEFAULT|TEXT] 打开/关闭/设置Y轴标签
 \end{description}
@@ -44,28 +44,28 @@ plotrecordsection labels filename origin default referenceline on
 在landscape模式下则交换XY轴。每个文件的零振幅将会画在距离轴上对应的震中距处。
 
 为了能够正确绘图，迭加列表中的所有文件必须定义震中距属性，该属性可以来自于文件
-头段，也可以在~\nameref{sss:globalstack}、\nameref{sss:addstack}、\nameref{sss:changestack}
+头段，也可以在 \nameref{sss:globalstack}、\nameref{sss:addstack}、\nameref{sss:changestack}
 等命令的DISTANCE选项中定义。
 
-\nameref{sss:distancewindow}~和~\nameref{sss:timewindow}~命令可以控制要显示的数据窗。
-横纵轴的尺寸由~\nameref{sss:distanceaxis}~和~\nameref{sss:timeaxis}~命令控制。
-\nameref{sss:velocitymodel}~定义了速度模型，用于计算动态延迟。
-\nameref{sss:velocityroset}~命令用于控制速度rosette的显示效果。
+\nameref{sss:distancewindow} 和 \nameref{sss:timewindow} 命令可以控制要显示的数据窗。
+横纵轴的尺寸由 \nameref{sss:distanceaxis} 和 \nameref{sss:timeaxis} 命令控制。
+\nameref{sss:velocitymodel} 定义了速度模型，用于计算动态延迟。
+\nameref{sss:velocityroset} 命令用于控制速度rosette的显示效果。
 
 \SACTitle{光标模式}
 在光标模式下，有两个额外的功能：缩放和决定视速度。
 
-缩放功能需要用户指定要显示的区域。用户首先将光标放在当前图形区域的一个角落，键入\verb+c1+，
-再将光标移动到对角的另一个角落，键入~\verb+c2+。两次键入
+缩放功能需要用户指定要显示的区域。用户首先将光标放在当前图形区域的一个角落，键入\texttt{c1}，
+再将光标移动到对角的另一个角落，键入 \texttt{c2}。两次键入
 确定了唯一的矩形区域，也确定了要绘制的区域的时间范围和距离范围，此时，会自动重新
-绘制缩放后的剖面图，用户可以键入~\verb+o+~命令重新绘制原始图形。缩放功能最多
+绘制缩放后的剖面图，用户可以键入 \texttt{o} 命令重新绘制原始图形。缩放功能最多
 可以递归5次。
 
-视速度确定功能需要用于移动光标，并分别键入~\verb+v1+和~\verb+v2+以标记点，
+视速度确定功能需要用于移动光标，并分别键入 \texttt{v1} 和 \texttt{v2} 以标记点，
 SAC会自动计算视速度，显示在输出设备上并保持到黑板变量vapp中。可以多次设置v2，但
 只有最后一次的值会保存到黑板变量中。
 
-除了c1、c2、v1、v2之外，光标模式下还有一个命令，即~\verb+q+，用于退出光标模式。
+除了c1、c2、v1、v2之外，光标模式下还有一个命令，即 \texttt{q}，用于退出光标模式。
 
 \SACTitle{相关命令}
 \nameref{sss:globalstack}、\nameref{sss:addstack}、\nameref{sss:changestack}、

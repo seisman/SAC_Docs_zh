@@ -28,7 +28,7 @@ MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
 该命令使用\href{http://www.iris.edu/software/downloads/processing/}{iaspei-tau}
 程序计算走时，要求内存中的波形文件的事件和台站位置以及发震时刻必须定义。
 
-内存中所有文件拾取的震相的到时存储在头段变量Tn中，其中n的范围为0到9。计算的走时是相对于发震时刻(O)的，但存储在Tn中的时间是相对于文件起始时间(B)。生成的走时曲线可以绘制在~\nameref{sss:plotrecordsection}~命令生成的剖面图上。
+内存中所有文件拾取的震相的到时存储在头段变量Tn中，其中n的范围为0到9。计算的走时是相对于发震时刻(O)的，但存储在Tn中的时间是相对于文件起始时间(B)。生成的走时曲线可以绘制在 \nameref{sss:plotrecordsection} 命令生成的剖面图上。
 
 走时表根据地震深度及震中距获得走时，震中距(GCARC)使用球三角几何，根据事件和台站经纬度计算。
 

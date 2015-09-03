@@ -10,7 +10,6 @@
 
     .
     |-- README.md           # 本文档
-    |-- ChangeLog.md        # 记录修订历史
     |
     |-- Makefile            # make构建文件
     |
@@ -22,18 +21,18 @@
     |-- contributor.tex     # 维护者列表
     |
     |-- figures             # 文档内的插图
-    |-- scripts             # 用于绘制插图的脚本与数据
+    |-- scripts             # 用于绘制插图的脚本
     |
     |-- introduction        # 简介
     |-- basic               # SAC基础
     |-- fileformat          # 文件格式
     |-- data-process        # 数据处理
     |-- graphics            # 绘图
-    |-- macros              # 编程
+    |-- macros              # SAC宏语言
     |-- call-in-script      # 脚本中调用
-    |-- sac-libs            # 函数库
-    |-- sacio               # I/O
-    |-- sac-tools           # 相关工具
+    |-- libs                # 函数库的使用
+    |-- sacio               # SAC I/O
+    |-- tools               # 相关工具
     |-- tricks-and-traps    # 技巧与陷阱
     |-- appendix            # 附录
     |

@@ -75,7 +75,7 @@ SAC> transcript write message 'processing event 1'
 \begin{SACCode}
 SCA> transcript history file .sachist
 \end{SACCode}
-这就在当前目录创建并写入了一个副本文件``./.sachist''。任何储存在那里的文件将被载入命令历史中。
+这就在当前目录创建并写入了一个副本文件``\verb|~/.sachist|''。任何储存在那里的文件将被载入命令历史中。
 如果这个命令位于你的启动初始化宏文件中，则每次你运行SAC时将在当前目录产生一个单独的命令行历史。
 在一个新执行的SAC中，上下键将浏览完整的命令历史，你可以修改以前输入的命令并再次执行它，
-如果你没有在SAC内或初始化宏文件中输入这个命令，则命令行历史将自动保存到~\verb+~/.sac_history+
+如果你没有在SAC内或初始化宏文件中输入这个命令，则命令行历史将自动保存到 \verb|~/.sac_history|

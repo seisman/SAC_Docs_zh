@@ -10,8 +10,8 @@
 \end{itemize}
 
 \subsection{decimate}
-\nameref{cmd:decimate}~专门用于解决上面所说的第二种情形，即等间隔数据的减采样。
-在减采样过程中，根据Nyquist采样定理，可能会出现混叠现象，而~\nameref{cmd:decimate}~对
+\nameref{cmd:decimate} 专门用于解决上面所说的第二种情形，即等间隔数据的减采样。
+在减采样过程中，根据Nyquist采样定理，可能会出现混叠现象，而 \nameref{cmd:decimate} 对
 数据自动做了低通滤波，以避免混叠现象的产生。
 
 下面的示例中，将一个等间隔数据，减采样10倍：
@@ -29,7 +29,7 @@ SAC> lh delta npts
 \end{SACCode}
 
 \subsection{interpolate}
-与~\nameref{cmd:decimate}~相比，\nameref{cmd:interpolate}~命令功能更加强大，
+与 \nameref{cmd:decimate} 相比，\nameref{cmd:interpolate} 命令功能更加强大，
 其可以对等间隔或不等间隔数据进行增采样或减采样。
 
 比如增采样，即插值：
@@ -46,9 +46,9 @@ SAC> lh
      npts = 1999
 \end{SACCode}
 
-对于减采样，\nameref{cmd:interpolate}~与~\nameref{cmd:decimate}~的功能略有重复，
-但~\nameref{cmd:interpolate}~在减采样时不会对数据进行低通滤波，因而
-使用~\nameref{cmd:interpolate}~进行减采样时可能会出现混叠现象，故而需要手动进行低通
+对于减采样，\nameref{cmd:interpolate} 与 \nameref{cmd:decimate} 的功能略有重复，
+但 \nameref{cmd:interpolate} 在减采样时不会对数据进行低通滤波，因而
+使用 \nameref{cmd:interpolate} 进行减采样时可能会出现混叠现象，故而需要手动进行低通
 滤波。
 
 下面的示例将数据减采样到20 Hz。根据Nyquist采样定理，为了保证不产生混叠现象，

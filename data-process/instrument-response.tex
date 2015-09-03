@@ -2,9 +2,9 @@
 \label{sec:instrument-response}
 相关命令：\nameref{cmd:transfer}
 
-SAC中可以使用命令~\nameref{cmd:transfer}~实现去仪器响应，本节只列出日常数据处理
+SAC中可以使用命令 \nameref{cmd:transfer} 实现去仪器响应，本节只列出日常数据处理
 过程中最常用的命令。关于仪器响应的详细介绍，请参考附录``\nameref{chap:resp}''
-以及教科书中的相关内容。关于~\nameref{cmd:transfer}~命令的具体用法，参考该命令的
+以及教科书中的相关内容。关于 \nameref{cmd:transfer} 命令的具体用法，参考该命令的
 语法说明及示例。
 
 本节会介绍RESP文件和PZ文件的几种用法，并对每种方法的优缺点进行比较。
@@ -13,15 +13,15 @@ SAC中可以使用命令~\nameref{cmd:transfer}~实现去仪器响应，本节�
 \begin{minted}{console}
 $ rdseed -Rdf infile.seed
 \end{minted}
-解压得到的仪器响应文件名的格式为~\verb+RESP.NET.STA.LOC.CHN+。
+解压得到的仪器响应文件名的格式为 \texttt{RESP.NET.STA.LOC.CHN}。
 
 \subsubsection{RESP方法1}
 \begin{SACCode}
 SAC> r *.SAC
 SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
 \end{SACCode}
-由于波形数据和RESP文件都是用~\verb+rdseed+从SEED数据中解压出来的，因而二者是一一对应的。
-对于内存中的每一个波形，\nameref{cmd:transfer}~命令会提取台站信息，并根据特定的格式在当前目录下
+由于波形数据和RESP文件都是用 \texttt{rdseed} 从SEED数据中解压出来的，因而二者是一一对应的。
+对于内存中的每一个波形，\nameref{cmd:transfer} 命令会提取台站信息，并根据特定的格式在当前目录下
 寻找对应的RESP文件。
 
 \subsubsection{RESP方法2}
@@ -34,7 +34,7 @@ SAC> trans from evalresp fname RESP.TA.N11A..LHZ to none \
 \end{SACCode}
 
 \subsubsection{RESP方法3}
-把所有的PZ文件合并到同一个文件中，比如文件名叫``\verb+RESP.ALL+''，然后使用如下命令：
+把所有的PZ文件合并到同一个文件中，比如文件名叫``\texttt{RESP.ALL}''，然后使用如下命令：
 \begin{SACCode}
 SAC> r *.SAC
 SAC> trans from evalresp fname RESP.ALL to none \
@@ -42,7 +42,7 @@ SAC> trans from evalresp fname RESP.ALL to none \
 \end{SACCode}
 
 \subsection{PZ文件}
-SAC PZ仪器响应文件可以直接用~\verb+rdseed+从SEED文件中提取出来：
+SAC PZ仪器响应文件可以直接用 \texttt{rdseed} 从SEED文件中提取出来：
 \begin{minted}{console}
 $ rdseed -pdf infile.seed
 \end{minted}
