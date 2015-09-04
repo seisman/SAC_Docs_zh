@@ -51,8 +51,8 @@ SAC> lh
 使用 \nameref{cmd:interpolate} 进行减采样时可能会出现混叠现象，故而需要手动进行低通
 滤波。
 
-下面的示例将数据减采样到20 Hz。根据Nyquist采样定理，为了保证不产生混叠现象，
-应首先对数据做10 Hz的低通滤波。
+下面的示例将数据减采样到 \SI{20}{\Hz}。根据Nyquist采样定理，为了保证
+不产生混叠现象，应首先对数据做 \SI{10}{\Hz} 的低通滤波。
 \begin{SACCode}
 SAC> fg seis
 SAC> lh npts delta

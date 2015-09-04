@@ -11,8 +11,8 @@ QUANTIZE [GAINS n ...] [LEVEL v] [MANTISSA n]
 
 \SACTitle{输入}
 \begin{description}
-\item [GAINS n ...] 设置允许的增益表，必须单调递减的，增益的最大数目为8 
-\item [LEVEL v] 设置最低增益的量化水平，即Least Significant Bit，单位为伏特 
+\item [GAINS n ...] 设置允许的增益表，必须单调递减的，增益的最大数目为8
+\item [LEVEL v] 设置最低增益的量化水平，即Least Significant Bit，单位为伏特
 \item [MANTISSA n] 设置Bits，用其尾数表示。
 \end{description}
 
@@ -36,7 +36,7 @@ $\pm \frac{2^n-1}{2}$。
     Err = \frac{1}{12}(Delta*Level^2)
 \]
 
-其中Delta是采样周期。量化噪声的单位是counts*counts/Hz，相当于功率谱密度。
+其中Delta是采样周期。量化噪声的单位是 \si{counts*counts\per\Hz}，相当于功率谱密度。
 量化噪声的均方根为$\frac{1}{6}Level^2$。然而，仅当信号的均方根水平远大于量化噪声的
 均方根值时，才是量化噪声的一个精确的近似。
 
