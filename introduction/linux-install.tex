@@ -1,11 +1,41 @@
-\section{安装SAC}
-\label{sec:sac-install}
-本节介绍如何在Linux下安装SAC，要求读者了解Linux的一些基本概念和操作。
+\section{在Linux下安装SAC}
+\label{sec:sac-install-for-linux}
 
-\subsection*{安装依赖包}
-Linux下安装软件最麻烦的一个问题就是软件之间的依赖关系。
+Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包。
+对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法，要求
+读者了解Linux的一些基本概念和操作。
 
-对于Ubuntu/Debian系\footnote{很久不用Ubuntu，无法保证完全正确。}：
+\subsection{安装二进制包}
+\subsubsection{安装依赖包}
+官方提供的二进制包中的可执行文件可以直接使用，在运行时需要用到几个动态
+链接库。大部分Linux发行版下，都默认安装了这几个动态链接库。若不幸没有
+安装或不确定有没有安装，可以通过如下命令安装所需的软件包。
+
+对于Ubuntu/Debian：
+\begin{minted}{console}
+$ sudo apt-get update
+$ sudo apt-get install libc6 libsm6 libice6 libxpm4 libx11-6
+$ sudo apt-get install zlib1g libncurses5
+\end{minted}
+
+对于CentOS/Fedora/RHEL：
+\begin{minted}{console}
+$ sudo yum install glibc libSM libICE libXpm libX11
+$ sudo yum install zlib ncurses
+\end{minted}
+
+\subsubsection{安装二进制包}
+直接将官方提供的二进制包解压并移动到安装目录即可：
+\begin{minted}{console}
+$ tar -xvf sac-101.6a-linux_x86_64.tar.gz   # 解压
+$ sudo mv sac /usr/local                    # 安装
+\end{minted}
+
+\subsection{编译源码}
+\subsubsection{安装依赖包}
+编译源码时需要安装若干软件包。
+
+对于Ubuntu/Debian系：
 \begin{minted}{console}
 $ sudo apt-get update
 $ sudo apt-get install build-essential
@@ -20,16 +50,8 @@ $ sudo yum install glibc ncurses-devel libSM-devel libICE-devel
 $ sudo yum install libXpm-devel libX11-devel zlib-devel
 \end{minted}
 
-\subsection*{安装}
-安装的方法在这一步分成两个部分，分别是二进制包安装和源代码编译，根据
-实际情况二者选一。
-\subsubsection*{二进制包安装}
-\begin{minted}{console}
-$ tar -xvf sac-101.6a-linux_x86_64.tar.gz   # 解压
-$ sudo mv sac /usr/local                    # 安装
-\end{minted}
-
-\subsubsection*{源代码编译}
+\subsubsection{编译源码}
+将源码按如下命令解压、配置、编译、安装：
 \begin{minted}{console}
 $ tar -xvf sac-101.6a_source.tar.gz
 $ cd sac-101.6a
@@ -40,12 +62,13 @@ $ make
 $ sudo make install
 \end{minted}
 
-\subsection*{配置变量}
-向 \verb|~/.bashrc| 中加入如下语句以配置环境变量和SAC全局变量：
+\subsection{配置变量}
+向 \verb|~/.bashrc| \footnote{某些发行版需要修改 \verb|~/.bash_profile|}
+中加入如下语句以配置环境变量和SAC全局变量：
 \begin{minted}{bash}
 export SACHOME=/usr/local/sac
-export SACAUX=$SACHOME/aux
-export PATH=$SACHOME/bin:$PATH
+export SACAUX=${SACHOME}/aux
+export PATH=${SACHOME}/bin:${PATH}
 
 export SAC_DISPLAY_COPYRIGHT=1
 export SAC_PPK_LARGE_CROSSHAIRS=1
@@ -73,7 +96,7 @@ export SAC_USE_DATABASE=0
 $ source ~/.bashrc
 \end{minted}
 
-\subsection*{启动SAC}
+\subsection{启动SAC}
 终端键入小写的sac\footnote{Ubuntu的源里有一个名叫sac的软件，是用来显示
 登录账户的一些信息；CentOS的源里也有一个名叫sac的软件，是CSS语法分析器的
 Java接口。所以一定不要试图用发行版自带的软件包管理器安装sac!!!}，显示
