@@ -1,6 +1,7 @@
 \section{C程序中的SAC I/O}
-SAC的官方库中提供了一系列用于读写SAC文件的子函数，可以直接在C程序中调用。
-但这些子程序用起来不太方便，比如：
+SAC自带的函数库中提供了一系列用于读写SAC文件的子函数，具体细节可以参考
+``\nameref{sec:libsacio}''一节，这些子函数可以直接在C程序中调用。
+但这些子函数用起来不太方便，比如：
 \begin{itemize}
 \item 函数参数太多太复杂，有些参数基本不会用到，但还是需要定义；
 \item 读文件时无法只读取部分文件，即没有截窗的功能；
@@ -78,7 +79,7 @@ clean:
 \subsection{读SAC数据的一段}
 有些时候，数据可能很长，但用户只需要其中的一小段。为了读取一小段数据而把整个
 文件都读入进去实在太浪费了。SAC中的 \nameref{cmd:cut} 命令可以实现数据的
-截取，\verb|read_sac2| 则是实现了类似的功能。下面的例子截取了数据中以 \texttt{T0} 
+截取，\verb|read_sac2| 则是实现了类似的功能。下面的例子截取了数据中以 \texttt{T0}
 为参考的$-0.5$到$2.5$秒，即相当于 \texttt{cut t0 -0.5 2.5} 。
 \inputminted{C}{./sacio/readsac2.c}
 \verb|read_sac2| 与 \verb|read_sac| 相比，多了三个用于定义时间窗的参数，
