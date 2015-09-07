@@ -51,7 +51,7 @@ SAC> lh kzdate kztime
 \item IDAY：以参考日期当天的午夜作为参考时间
 \item IO：以事件发生时间为参考时间
 \item IA：以初动到时为参考时间
-\item ITn：以用户自定义的时间为参考时间(n可取0-9)
+\item ITn：以用户自定义的时间为参考时间(n可取0--9)
 \end{itemize}
 
 若 \texttt{iztype=IO}，则表示数据以发震时刻作为参考时刻，此时头段变量o的值应为0。
@@ -124,7 +124,7 @@ SAC> lh depmax
 因变量比例因子，即真实物理场被乘以该比例因子而得到现有数据。
 
 假设真实物理场的Y值大概在$10^{-20}$量级，由于数据量级太小处理起来可能不太方便。
-此时可以将数据乘以$10^{20}$变成合适的量级，并修改scale=10e20，这样就可以知道
+此时可以将数据乘以$10^{20}$变成合适的量级，并修改scale=$10^20$，这样就可以知道
 自己对数据人为放大了多少倍。
 
 在101.5之前的版本中，在使用 \nameref{cmd:transfer} 命令去仪器响应时，若scale的值
@@ -256,8 +256,8 @@ o为事件的发生时刻相对于参考时刻的秒数。ko是绘图时变量o�
 台站地理区域。
 
 \subsubsection{\texttt{stla, stlo, stel, stdp}}
-台站纬度(-90到90度)、经度(-180到180度)、高程(单位m，目前未使用)、
-相对地表的深度(单位m，目前未使用)。
+台站纬度(-90到90度)、经度(-180到180度)、高程(单位 \si{m}，目前未使用)、
+相对地表的深度(单位 \si{m}，目前未使用)。
 
 \subsubsection{\texttt{cmpaz, cmpinc, kcmpnm, kstcmp}}
 一个台站至少需要三个正交的通道(或分量)才能完整地记录地面运动物理量。cmpaz和cmpinc
@@ -327,7 +327,7 @@ RTZ坐标系，这些将在``\nameref{sec:traces-rotating}''一节中说到。
 \subsubsection{\texttt{a, f, tn}}
 a和f用于存储事件的初动时刻和结束时刻相对于参考时刻的秒数。
 
-tn(n=0-9)用于存储用户自定义的时刻相对于参考时刻的秒数，常用于存储震相到时。
+Tn(n=0--9)用于存储用户自定义的时刻相对于参考时刻的秒数，常用于存储震相到时。
 
 \subsubsection{\texttt{ka, kf, ktn}}
 a、f以及tn都有一个对应的以k开头的字符型头段变量，称之为时间标识。时间标识用于说明
@@ -341,7 +341,7 @@ PcP的到时，则一般定义kt1为``PcP''。
 
 \subsubsection{\texttt{Xmarker}}
 震相相关的变量对可以构成一个辅助型变量。a和ka可以构成amarker，f和kf可以构成fmarker，
-o和ko可以构成omarker，tn和ktn可以构成tnmarker(n=0-9)。
+o和ko可以构成omarker，tn和ktn可以构成tnmarker(n=0--9)。
 
 这些辅助型变量可以在 \nameref{cmd:listhdr} 中使用。
 
@@ -351,7 +351,7 @@ kinst为记录仪器的通用名称，iinst为记录仪器的类型，respn为�
 
 \subsection{其它变量}
 \subsubsection{\texttt{usern, kusern}}
-usern(n=0-9)和kusern(n=0-2)均用来存储用户自定义值。不像a和ka那样成对存在，
+usern(n=0--9)和kusern(n=0--2)均用来存储用户自定义值。不像a和ka那样成对存在，
 usern和kusern之间没有对应关系。比如可以将波形的信噪比保存在user0中，将任意字符串
 保存到kuser0中。
 

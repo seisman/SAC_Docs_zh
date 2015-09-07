@@ -10,12 +10,11 @@ SAC自带的函数库中提供了一系列用于读写SAC文件的子函数，�
 
 在了解了SAC文件的具体格式后，可以很容易的写一套函数来实现SAC文件的读写。
 
-Prof. Lupei Zhu实现了一套相对比较易用的SAC I/O函数库，可以在C或Fortran程序
-中直接调用，姑且称之为 \texttt{sacio}。
+Prof. Lupei Zhu实现了一套相对比较易用的SAC I/O函数库，可以在C或Fortran
+程序中直接调用，姑且称之为 \texttt{sacio}。
 
-\texttt{sacio} 函数库与Prof. Lupei Zhu的其他程序一起发布。你可以从Prof. Lupei Zhu
-的主页下载 \texttt{fk} \footnote{\url{http://www.eas.slu.edu/People/LZhu/downloads/fk3.2.tar}}软件包，
-并从中提取出源文件 \texttt{sac.h} 和 \texttt{sacio.c}。
+\texttt{sacio} 函数库与Prof. Lupei Zhu的其他程序一起发布。你可以从
+Prof. Lupei Zhu的主页下载 \texttt{fk} \footnote{\url{http://www.eas.slu.edu/People/LZhu/downloads/fk3.2.tar}}软件包，并从中提取出源文件 \texttt{sac.h} 和 \texttt{sacio.c}。
 
 \texttt{sacio} 简单易用，但也存在一些潜在的Bug及缺陷。我在 \texttt{sacio} 的基础上重写了
 SAC I/O函数库以及SAC相关工具，项目地址为 \url{https://github.com/seisman/sac_tools}。
@@ -88,13 +87,13 @@ clean:
 \item[-5] 以 \texttt{B} 作为时间标记
 \item[-3] 以 \texttt{O} 作为时间标记
 \item[-2] 以 \texttt{A} 作为时间标记
-\item[0-9] 以 \texttt{T0 T9} 中的某个为时间标记
+\item[0--9] 以 \texttt{T0-T9} 中的某个为时间标记
 \end{description}
 这里只读入了数据的一小部分数据，但子程序中对头段中的 \texttt{B}、\texttt{E}、\texttt{NPTS} 等
 做了修改，因而返回的头段与数据是相互兼容的。
 
 \begin{note}
-tmark的有效取值为什么是-5、-3、-2、0--9？
+tmark的有效取值为什么是-5、-3、-2、0-9？
 
 在头段区中，若以T0作为参考位，T3是T0后的第3个变量，T7是T0后的第7个变量，
 B是T0前的第5个变量，O是T0前的第3个变量。
@@ -107,7 +106,8 @@ B是T0前的第5个变量，O是T0前的第3个变量。
 \end{note}
 
 \subsection{从零创建SAC文件}
-在做合成数据时，经常需要从无到有完全创建一个SAC文件。这相对于一般的“读->处理->写”
-而言要更复杂一些，因为必须首先构建一个基本的头段区。下面的例子展示了如何用 \texttt{sachdr} 构建
-一个最基本的头段区，并填充其他一些头段，最后将创建的头段及数据写入到文件中。
+在做合成数据时，经常需要从无到有完全创建一个SAC文件。这相对于一般的
+``读$\rightarrow$处理$\rightarrow$写''而言要更复杂一些，因为必须首先
+构建一个基本的头段区。下面的例子展示了如何用 \texttt{sachdr} 构建一个
+最基本的头段区，并填充其他一些头段，最后将创建的头段及数据写入到文件中。
 \inputminted{C}{./sacio/write_sac.c}
