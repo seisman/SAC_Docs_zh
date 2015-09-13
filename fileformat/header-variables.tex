@@ -15,8 +15,7 @@ SAC头段版本号。nvhdr\footnote{星号表示该头段变量在SAC中必须�
 \footnote{1月1日对应的nzjday是1而不是0。}
 、``时''、``分''、``秒''、``毫秒''\footnote{1 s = 1000 ms}。
 这六个头段变量构成了SAC中唯一的绝对时刻，SAC中的其它时刻都被转换为相对于该时刻的
-相对时间(单位为秒)。详细的信息参见第 \ref{sec:sac-time} 节``\nameref{sec:sac-time}''
-中的介绍。
+相对时间(单位为秒)。详细的信息参见``\nameref{sec:sac-time}'' 一节中的介绍。
 
 根据这六个头段还可以推导出其它一些辅助型变量：
 \begin{itemize}
@@ -124,7 +123,7 @@ SAC> lh depmax
 因变量比例因子，即真实物理场被乘以该比例因子而得到现有数据。
 
 假设真实物理场的Y值大概在$10^{-20}$量级，由于数据量级太小处理起来可能不太方便。
-此时可以将数据乘以$10^{20}$变成合适的量级，并修改scale=$10^20$，这样就可以知道
+此时可以将数据乘以$10^{20}$变成合适的量级，并修改scale=$10^{20}$，这样就可以知道
 自己对数据人为放大了多少倍。
 
 在101.5之前的版本中，在使用 \nameref{cmd:transfer} 命令去仪器响应时，若scale的值
@@ -146,7 +145,7 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 \ttfamily
 \item IGOOD：高质量数据；
 \item IGLCH：数据中有毛刺(glitches)；
-\item IDROP：数据有丢失(Dropouts)；
+\item IDROP：数据有丢失(dropouts)；
 \item ILOWSN：低信噪比数据；
 \item IOTHER：其它；
 \end{itemize}

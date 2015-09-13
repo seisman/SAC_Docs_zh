@@ -18,14 +18,14 @@ pdw定义了一个开始时间和一个结束时间，其格式为 \texttt{ref o
 
 参考时刻ref可以取如下值：
 \begin{itemize}
-\item B: 磁盘文件起始值
-\item E: 磁盘文件结束值
-\item O: 事件开始时间
-\item A: 初动到时
-\item F: 信号结束时间
-\item Tn: 用户自定义时间标记，n = 0,1...9
-\item Z: 参考时刻
-\item N: 将offset解释为数据点数而非时间偏移量，其仅可以用于结束值
+\item B：磁盘文件起始值
+\item E：磁盘文件结束值
+\item O：事件开始时间
+\item A：初动到时
+\item F：信号结束时间
+\item Tn：用户自定义时间标记，n = 0--9
+\item Z：参考时刻
+\item N：将offset解释为数据点数而非时间偏移量，其仅可以用于结束值
 \end{itemize}
 
 若开始或结束的offset省略则认为其值为0。若开始ref省略则认为其为Z；若结束ref省略则
@@ -42,7 +42,7 @@ pdw定义了一个开始时间和一个结束时间，其格式为 \texttt{ref o
 \end{SACCode}
 
 \subsection{cut}
-\nameref{cmd:cut}命令是``参数设定类''命令，因而需要先cut再read：
+\nameref{cmd:cut} 命令是``参数设定类''命令，因而需要先cut再read：
 \begin{SACCode}
 SAC> cut t0 -5 5        // 截取t0前后各5秒，共计10秒的数据
 SAC> r *.SAC            // 先cut再read

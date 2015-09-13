@@ -125,11 +125,9 @@ RESP文件中包含了仪器响应的完整信息，同时也包含了不少冗�
 提取处仪器响应中的重要信息，定义了新的零极点响应文件(即SAC PZ)。
 相对于RESP文件而言，PZ文件中仅包含仪器响应中的零极点和增益信息，在去仪器响应时更方便。
 
-SAC PZ文件主要通过以下几种方式获得：
-\begin{itemize}
-\item 用rdseed程序从SEED文件中提取；
-\item 从IRIS DMC SAC PZ Web Service\footnote{\url{http://service.iris.edu/irisws/sacpz/1/}}获取；
-\end{itemize}
+SAC PZ文件可以用rdseed程序从SEED文件中提取，也可以从IRIS DMC SAC PZ Web Service
+\footnote{\url{http://service.iris.edu/irisws/sacpz/1/}}获取，当然也可以
+手写SAC PZ文件。
 
 下面是某个台站的SAC PZ文件：
 \begin{verbatim}
@@ -193,7 +191,7 @@ INPUT UNIT表明了该PZ文件的输入是位移、速度还是加速度。用rd
 
 \subsection{FAP文件}
 FAP文件是响应函数的另一种表现形式，其包含了很多记录行，每行三个字段，
-分别是频率(HZ)、振幅及相位。
+分别是频率(\si{Hz})、振幅及相位。
 
 频率不需要等间隔分段。在执行transfer时，低于第一行频率的频段将使用第一行的振幅和相位；
 同理大于最后一行频率的频段将使用最后一行的振幅和相位。

@@ -28,7 +28,7 @@ SAC> write rand.SAC
 
 \subsection{大小写}
 SAC的命令和选项都是不区分大小写的，这意味着你可以根据自己的喜好使用 \texttt{funcgen}
-或者 \texttt{FUNCGEN} ，SAC在解释命令前都会将其转换为大写字母。
+或者 \texttt{FUNCGEN}，SAC在解释命令前都会将其转换为大写字母。
 
 需要注意的是，由于Linux本身是区分大小写的，所以对于出现在参数中的文件名、目录名
 或者由引号包围的字符串来说，大小写是完全不同的。比如 \texttt{rand.SAC} 和
@@ -46,7 +46,7 @@ SAC> w rand.SAC
 的前提下尽量减少用户的击键数；坏处在于，若对命令不是足够熟悉，简写后的命令变得很
 难读和难理解。比如你一看就知道 \texttt{delta} 代表的是采样周期
 \footnote{也称为采样时间，即两次数据采样的时间间隔，本文档将统一使用``采样周期''。}，
-而 \texttt{d} 却不那么直观，可能是 \texttt{delta} ，也可能是 \texttt{demon}。
+而 \texttt{d} 却不那么直观，可能是 \texttt{delta}，也可能是 \texttt{demon}。
 所以，在终端调用SAC时，可以多用简写以减少击键数，但在脚本中调用SAC时应仅使用那些
 常用命令的简写，不要滥用，否则一段时间后你会看不懂自己写的脚本的。
 
@@ -119,15 +119,15 @@ SAC> plot
 \end{SACCode}
 
 \begin{enumerate}
-\item \texttt{funcgen} 的默认值为 \texttt{funcgen impulse npts 100 delta 1.0 begin 0.} 。
+\item \texttt{funcgen} 的默认值为 \texttt{funcgen impulse npts 100 delta 1.0 begin 0.}
 \item 第一个 \texttt{funcgen} 命令没有使用任何选项和参数，其直接使用系统默认值，
-    生成一个脉冲数据，并保存到内存中。该数据的起始时间为 \texttt{0} ，采样周期为 \texttt{1.0} ，
-    数据点数为 \texttt{100}。
-\item \texttt{plot} 命令会打开一个绘图窗口，并将内存中的数据绘制在窗口中；
+    生成一个脉冲数据，并保存到内存中。该数据的起始时间为 \texttt{0}，采样周期为 \texttt{1.0}，
+    数据点数为 \texttt{100}
+\item \texttt{plot} 命令会打开一个绘图窗口，并将内存中的数据绘制在窗口中
 \item 第二个 \texttt{funcgen} 命令生成了一个step函数
     \footnote{注意：内存中的脉冲函数已经没了。}，
-    并设置其采样周期为 \texttt{0.1} ，数据点数为 \texttt{1000} 。
-\item \texttt{0.1} 和 \texttt{1000} 分别成为 \texttt{delta} 和 \texttt{npts} 的``参数当前值''。
+    并设置其采样周期为 \texttt{0.1}，数据点数为 \texttt{1000}
+\item \texttt{0.1} 和 \texttt{1000} 分别成为 \texttt{delta} 和 \texttt{npts} 的``参数当前值''
 \item 第三个 \texttt{funcgen} 命令生成了boxcar函数，从绘图结果可以看出 \texttt{delta} 的值为
-    \texttt{0.1} ，\texttt{npts} 的值为 \texttt{1000} 。即继承了上一次命令的参数值。
+    \texttt{0.1}，\texttt{npts} 的值为 \texttt{1000}，即继承了上一次命令的参数值
 \end{enumerate}

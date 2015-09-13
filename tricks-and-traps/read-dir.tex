@@ -35,9 +35,9 @@ SAC> r dirraw/*.SAC
 
 严格来说，这算是SAC的一个bug。如上面的第三种方法所示，SAC的read命令有dir选项，
 用于指定要从哪个目录中读取SAC数据。在上面例子中，因为目录名为 \texttt{dirraw} ，
-SAC在解释 \texttt{r dirraw/*.SAC} 时出现了一些问题，SAC会从 \texttt{dirraw/*.SAC} 
+SAC在解释 \texttt{r dirraw/*.SAC} 时出现了一些问题，SAC会从 \texttt{dirraw/*.SAC}
 中识别处关键字dir，然后忽略了后面的其他字符，因而在SAC看来，这个命令实际上
-等效于 \texttt{r dir} ，只给定了关键字dir，却没有给定目录名以及要读取的SAC文件名，
+等效于 \texttt{r dir}，只给定了关键字dir，却没有给定目录名以及要读取的SAC文件名，
 因而出现了如上所示错误。
 
 因而，要避免这个错误，就要求目录名不要以 \texttt{dir} 开头。

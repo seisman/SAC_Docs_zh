@@ -96,12 +96,13 @@ $A_0$是归一化因子，且$s=i 2\pi f$。
 假设模数转换器是 $m$ 位，电压范围是 $\pm n$ \si{\V}，那么
 $\SI{1}{counts}=\frac{2n}{2^m} \si{\V}$，电压也能精确到$\frac{2n}{2^m} \si{\V}$。
 例如，\num{24} 位模数转换器的输入电压范围是 \SI{+-20}{\V}，则输出的最大范围是
-\SI{+-2e23}{counts}。因而ADC的放大系数为
+$\pm 2^{23}$ \si{counts}。因而ADC的放大系数为
 \[
-    S_d = \SI{2e24/40}{counts\per\V} = \SI{4.1943e5}{counts\per\V}
+    S_d = \SI[exponent-base = 2]{e24/40}{counts\per\V} = \SI{4.1943e5}{counts\per\V}
 \]
 即若ADC接收到的输入电压为 \SI{1}{\V}，则其输出为 \SI{4.1983e5}{counts}。
-结合地震仪的放大系数可知，\SI{1}{\Hz} 频率的 \SI{1}{\m\per\square\s} 的地面运动加速度在ADC的输出为：
+结合地震仪的放大系数可知，频率为 \SI{1}{\Hz} 的 \SI{1}{\m\per\square\s}
+的地面运动加速度在ADC的输出为：
 
 \[
     \SI{1}{\m\per\square\s} *
@@ -110,7 +111,7 @@ $\SI{1}{counts}=\frac{2n}{2^m} \si{\V}$，电压也能精确到$\frac{2n}{2^m} \
     \SI{6.29145e7}{counts}
 \]
 
-另一方面，ADC的输入电压上限为 \SI{20}{\V}，因而仪器所能记录的最大加速度为$20/150=\SI{0.13}{\m\per\square\s}$。
+另一方面，由于ADC的输入电压的上限为 \SI{20}{\V}，因而仪器所能记录的最大加速度为$20/150=\SI{0.13}{\m\per\square\s}$。
 
 \subsection{数字信号阶段}
 这个阶段会对数据信号进行进一步的处理，主要包含三个部分，即离散信号滤波、数据重采样、时间延迟校正。
