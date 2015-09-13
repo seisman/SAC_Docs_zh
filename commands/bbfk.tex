@@ -40,10 +40,10 @@ BBFK命令允许用户计算宽频频率-波数谱。
 \SACTitle{头段数据}
 分情况决定头段的信息:
 \begin{itemize}
-\item 若参考台站设置在KUSER1中并且其对于所有文件是相同的，则所有文件的USER7和USER8都需要设置为偏移量
-\item 若所有文件台站纬度(STLA)以及台站经度(STLO)都设置了，则偏移量通过这些经纬度计算，以第一个文件作为参考台站
-\item 若所有文件的USER7和USER8都设置了，则它们直接作为偏移量
-\item 若所有文件的事件纬度(EVLA)以及事件经度(EVLO)都设置了，则他们用于计算偏移量，使用第一个台站作为参考台站
+\item 若参考台站设置在kuser1中并且其对于所有文件是相同的，则所有文件的user7和user8都需要设置为偏移量
+\item 若所有文件台站纬度(stla)以及台站经度(stlo)都设置了，则偏移量通过这些经纬度计算，以第一个文件作为参考台站
+\item 若所有文件的user7和user8都设置了，则它们直接作为偏移量
+\item 若所有文件的事件纬度(evla)以及事件经度(evlo)都设置了，则他们用于计算偏移量，使用第一个台站作为参考台站
 \end{itemize}
 
 \SACTitle{输出}
@@ -53,16 +53,16 @@ FK的峰值、反方位角以及波数将分别写入黑板变量 \verb|BBFK_AMP
 
 \SACTitle{错误消息}
 \begin{itemize}
-\item[-]尺寸m或者n不是一个偶数。
-\item[-]偏移量X、Y、Z未设置在头段变量USER7,8,9中。
-\item[-]未找到filterdesign得到的系数数据，或者滤波器类型不是``BP''
+\item[-] 尺寸m或者n不是一个偶数
+\item[-] 偏移量X、Y、Z未设置在头段变量user7、user8、user9中
+\item[-] 未找到filterdesign得到的系数数据，或者滤波器类型不是``BP''
 \end{itemize}
 
 \SACTitle{限制}
 \begin{itemize}
-\item 台站最多允许有100个。
-\item 极性等值线的最大尺寸是m x n = 40000.
-\item 二维等值线输出的最大尺寸是i = 200.
+\item 台站最多允许有100个
+\item 极性等值线的最大尺寸是$m\times n = 40000$
+\item 二维等值线输出的最大尺寸是$i = 200$
 \end{itemize}
 
 \SACTitle{相关命令}

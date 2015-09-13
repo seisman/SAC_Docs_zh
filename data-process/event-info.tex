@@ -7,10 +7,8 @@
 SAC文件的头段中。SAC提供了用于可以修改头段变量的命令 \nameref{cmd:chnhdr}，
 以及将修改后的头段变量写到磁盘文件的命令 \nameref{cmd:writehdr}
 \footnote{
-也可以使用``\texttt{w over}''将修改写回磁盘文件。二者的区别在于，``\texttt{wh}''
-仅仅覆盖磁盘文件的头段区，而``\texttt{w over}''则覆盖整个文件。这里使用``\texttt{wh}''
-是因为此处只修改了头段区，而没有对数据做任何修改，使用``\texttt{wh}''即可满足要求，
-且从执行效率上看``\texttt{wh}''比``\texttt{w over}''要快不少。}。
+也可以使用 \texttt{w over} 将修改写回磁盘文件。关于 \texttt{wh} 和
+\texttt{w over} 的区别，参考 \nameref{sec:wh-and-wover} 一节。}。
 
 \subsection{经纬度、深度与震级}
 想要修改事件的经纬度、深度和震级，操作如下：

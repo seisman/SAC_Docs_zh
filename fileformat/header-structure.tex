@@ -83,11 +83,13 @@ SAC头段区包含了一系列头段变量，从这些头段变量中可以了�
 说明:
 
 \begin{itemize}
-\item 辅助型变量并不在SAC头段区中，而是依据其它头段变量推导得到的；
-\item 所有头段变量的变量名均以变量类型码开头，比如 \texttt{nvhdr} 是N型变量，\texttt{leven} 是L型变量；但F型变量除外；
-\item 枚举型变量本质上是 \texttt{int} 型，只能在固定的几个值取值；C语言中本身
-是没有规定Bool类型的，SAC自定义了 \texttt{TRUE} 和 \texttt{FALSE}；
-\item 字符型变量长度为8，只有 \texttt{kevnm} 很特殊，其长度为16；C语言中用``\verb|\0|''作为字符串的结束标识符，因而源码中变量的实际长度还要加1；
+\item 辅助型变量并不在SAC头段区中，而是从其它头段变量推导得到的；
+\item 所有头段变量的变量名均以变量类型码开头，比如 \texttt{nvhdr} 是N型变量，
+    \texttt{leven} 是L型变量；但F型变量除外；
+\item 枚举型变量本质上是 \texttt{int} 型，只能在固定的几个值取值；
+\item 逻辑型变量可以取值 \texttt{TRUE} 和 \texttt{FALSE}，本质上分别是1和0；
+\item 字符型变量长度为8\footnote{C语言中用``\verb|\0|''作为字符串的结束标识符，因而源码中变量的实际长度还要加1}，
+    只有 \texttt{kevnm} 很特殊，其长度为16；
 \item 变量名为 \texttt{internal} 表示该变量是SAC内部使用的头段变量，用户不可对其进行操作；
 \item 变量名为 \texttt{unused} 表示该变量尚未使用，为以后可能出现的新头段变量占位；
 \item 当某个头段变量未定义时，其包含未定义值；不同类型的头段变量有不同的未定义值；

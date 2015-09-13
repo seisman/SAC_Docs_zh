@@ -51,9 +51,9 @@ $ gcc sacio.o prog.o -o prog -lm
 
 写成Makfile会更简单一些：
 \begin{minted}{make}
-all: readsachead clean
+all: prog clean
 
-readsachead: sacio.o readsachead.o
+prog: sacio.o prog.o
     $(CC) -o $@ $^ -lm
 
 clean:
@@ -61,17 +61,17 @@ clean:
 \end{minted}
 
 \subsection{读写SAC文件}
-下面的例子展示了如何在C程序中读取一个SAC二进制文件，经过简单的数据处理后，
+下面的示例展示了如何在C程序中读取一个SAC二进制文件，经过简单的数据处理后，
 最后写回到原文件中：
 \inputminted{C}{./sacio/readsac.c}
 \verb|read_sac| 函数将SAC文件的头段区保存到结构体 \texttt{SACHEAD hd} 中，
-可以通过 \texttt{hd.npts}、\texttt{hd.delta} 这样的方式引用头段变量的值。SAC文件的
-数据区保存到指针 \texttt{float *data} 中，\verb|read_sac| 会根据头段中的数据点数
+可以通过 \texttt{hd.npts}、\texttt{hd.delta} 这样的方式引用SAC头段变量的值。SAC文件的
+数据区保存到指针/数组 \texttt{float *data} 中，\verb|read_sac| 会根据头段中的数据点数
 为指针 \texttt{data} 分配内存空间并读入数据，在用完之后要记得用 \texttt{free(data)} 释放
 已分配的内存，以避免内存泄露。
 
 \subsection{仅读取SAC头段区}
-有些时候只需要SAC文件的头段区的一些信息，此时若读取整个文件就有些浪费了，
+有时候只需要SAC文件头段区的一些信息，若读取整个文件就有些浪费了，
 \verb|read_sachead| 仅读取SAC头段区而不读取数据区。
 \inputminted{C}{./sacio/readsachead.c}
 

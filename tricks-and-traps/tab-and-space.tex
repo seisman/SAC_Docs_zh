@@ -19,7 +19,7 @@ sac << EOF
 EOF
 \end{minted}
 由于SAC命令前有Tab键(Tab键和空格是肉眼无法区分的，只要知道上面的脚本中含
-有Tab即可)，导致执行该脚本的结果如下:
+有Tab即可)，导致执行该脚本的结果如下：
 \begin{minted}{console}
 sh: line 0: fg: no job control
 22:24:49 up 12 days, 12:24,
@@ -40,8 +40,8 @@ please report it to: sac-help@iris.washington.edu
 \end{minted}
 
 引起该问题的原因尚不清楚，但比较明显的是，由于命令的行首有Tab，
-导致SAC对命令的解析出现了问题，所有的命令斗都被当做外部命令来解释了。
-在任意脚本语言中调用SAC,都有可能会出现类似的问题:
+导致SAC对命令的解析出现了问题，所有的命令都被当做外部命令来解释了。
+在任意脚本语言中调用SAC，都有可能会出现类似的问题：
 \begin{minted}{perl}
 #!/usr/bin/env perl
 use strict;
