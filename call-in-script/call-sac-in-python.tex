@@ -26,17 +26,13 @@ Python也可以很容易地实现条件判断和循环控制：
 该Python脚本与上一个Bash脚本相比，实现了几乎相同的功能，但Python脚本中仅启动和退出SAC
 一次，与Bash脚本的多次启动相比，其效率要高很多。
 
+\subsection{修改发震时刻}
+要将发震时刻写入到SAC文件中，首先要将计算发震日期是一年的第几天。Python
+内置的 \texttt{datetime} 模块可以很容易实现。
+\inputminted{python}{./call-in-script/ch-origin.py}
+
 \subsection{文件重命名}
 \label{subsec:rename-in-python}
 与前面的Perl脚本类似，先用 \texttt{split} 方法将文件名分割成列表，然后直接从列表中取
 需要的元素。
-\begin{minted}{python}
-#!/usr/bin/env python
-# -*- coding: utf8 -*-
-import os
-import glob
-
-for file in glob.glob("*.SAC"):
-    item = file.split('.')
-    os.rename(file, "%s.%s.%s" % (item[6], item[7], item[9]))
-\end{minted}
+\inputminted{python}{./call-in-script/rename.py}
