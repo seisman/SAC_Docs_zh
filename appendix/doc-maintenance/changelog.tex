@@ -24,12 +24,12 @@
 \end{itemize}
 
 \subsection*{2013-03-29 2.0版}
-用LaTeX重新排版文档
+用 \LaTeX 重新排版文档
 \begin{itemize}
 \item 操作系统：CentOS 6.4
-\item 编译环境：TeX Live 2012
-\item 编译命令：xeLaTeX
-\item 中文实现：ctex宏包
+\item 编译环境：\TeX~Live~2012
+\item 编译命令：XeLaTeX
+\item 中文实现：\CTeX 宏包
 \item 中文字体：宋体+黑体
 \item 英文主字体：Liberation Sans
 \item 代码字体：Courier 10 Pitch
@@ -59,7 +59,7 @@
 \begin{itemize}
 \item 源码托管在GitHub上，正式开源
 \item 丢弃了之前的提交历史，重新开始
-\item 重写了LaTeX导言区
+\item 重写了 \LaTeX 导言区
 \item 重新设计了整个文档的结构
 \item 重写了教程部分的大多数内容
 \item 教程部分根据SAC v101.6a进行修正
@@ -133,14 +133,36 @@
 \subsection*{xxxxx-xx-xx 3.4版}
 对于用户：
 \begin{itemize}
-\item 命令的``错误消息''和``警告消息''集中在附录中
-\item 在C程序中调用 \texttt{distaz}
+\item 调整与修订：
+    \begin{itemize}
+    \item 将命令的``错误消息''和``警告消息''集中整理到附录中
+    \item 将文件重命名脚本移动到``在脚本中调用SAC''一章
+    \item 重新整理了``震相拾取''一节的内容
+    \end{itemize}
+\item 新增内容：
+    \begin{itemize}
+    \item 在Mac OS X 10.10中安装SAC
+    \item 在C程序中调用SAC提供的 \texttt{distaz} 函数
+    \item 数据处理中使用 \texttt{decimate} 和 \texttt{interpolate} 进行数据重采样
+    \item 在C程序中读写SAC文件
+    \item 在Fortran程序中读写SAC文件
+    \item 在Python脚本中读写SAC文件
+    \item 在matlab中读写SAC文件
+    \item 修改SAC所能读取的文件数目的上限
+    \item 文档维护与更新并征集维护者
+    \end{itemize}
 \item 命令整理：\texttt{mtw}、\texttt{markptp}、\texttt{markvalue}、\texttt{readcss}
-\item 在C程序中读写SAC文件
+\item 修正Bugs和Typos
 \end{itemize}
 
 对于维护者：
 \begin{itemize}
-\item 更新至TeXLive 2015
-\item ctex宏包更新至2.2
+\item 更新至 \TeX~Live~2015
+\item \CTeX 宏包版本要求$\geq 2.2$
+\item listings宏包版本要求$\geq 1.6$
+\item 新增``文档维护与更新''一章以介绍文档维护的流程
+\item 使用longtable宏包处理跨页长表格
+\item 使用siunitx宏包处理数字与单位之间的间隙
+\item 小括号统一使用英文输入法下的半角括号，而不是中文输入法下的全角符号
+\item Tips环境改成note环境
 \end{itemize}
