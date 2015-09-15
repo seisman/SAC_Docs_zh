@@ -9,7 +9,7 @@
 COL!OR! [ON|OFF|color] [I!NCREMENT! [ON|OFF]] [S!KELETON! color]
     [B!ACKGROUND! color] [L!IST! S!TANDARD!|colorlist]
 \end{SACSTX}
-color是下面中的一个:
+color是下面中的一个：
 \begin{SACSTX}
 W!HITE!|R!ED!|G!REEN!|Y!ELLOW!|BLU!E!|M!AGENTA!|C!YAN!|BLA!CK!
 \end{SACSTX}
@@ -23,7 +23,7 @@ W!HITE!|R!ED!|G!REEN!|Y!ELLOW!|BLU!E!|M!AGENTA!|C!YAN!|BLA!CK!
 \item [color] 打开颜色选项并将数据设置为颜色color
 \item [INCREMENT ON] 每个数据文件绘出后，根据colorlist的顺序改变颜色
 \item [INCREMENT OFF] 不改变数据颜色
-\item [SKELETON colo]: 按照标准颜色名或颜色号修改边框颜色
+\item [SKELETON color] 按照标准颜色名或颜色号修改边框颜色
 \item [BACKGROUND color] 修改背景色为color
         \footnote{白色背景与黑色线条对比强烈，可以考虑设置背景色为cyan}
 \item [LIST colorlist] 改变颜色列表，将数据颜色设置为列表中第一个颜色，并打开颜色开关
@@ -64,7 +64,7 @@ SAC> color red increment
 SAC> color red background white skeleton blue
 \end{SACCode}
 
-为了设置一个数据颜色不断变换，颜色列表为red、white、blue，背景色为aquamarine(!!!)：
+为了设置一个数据颜色不断变换，颜色列表为red、white、blue，背景色为aquamarine：
 \begin{SACCode}
 SAC> color red increment backgroud 47 list red white blue
 \end{SACCode}

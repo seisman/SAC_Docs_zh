@@ -3,9 +3,10 @@
 \label{sec:sgftoeps}
 \label{sec:sgftox}
 
-SGF格式是SAC自定义的图像文件格式，转换到常见的其他图像格式，需要使用转换工具sgftops。
+SGF格式是SAC自定义的图像文件格式，转换到常见的其他图像格式，需要使用
+转换工具 \texttt{sgftops}。
 
-sgftops可以将SGF格式的文件转换为PS格式。其用法如下：
+\texttt{sgftops} 可以将SGF格式的文件转换为PS格式。其用法如下：
 \begin{minted}{console}
 $ sgftops
 Usage: sgftops sgf_file ps_file [line_width scale_id]
@@ -31,5 +32,6 @@ rotation angle: 0
 scale........ : 0.75
 \end{minted}
 
-sgftoeps和sgftox通过调用sgftops，将sgf文件转换为eps文件或直接显示在图形窗口中，
-这二者均依赖于ghostscript，不再多说。
+\texttt{sgftoeps} 和 \texttt{sgftox} 通过调用 \texttt{sgftops}，将sgf
+文件转换为eps文件或直接显示在图形窗口中，这二者均依赖于 \texttt{ghostscript}，
+不再多说。

@@ -43,18 +43,18 @@ line solid increment off list standard
 数据用线显示某些数据用符号显示
 
 \SACTitle{示例}
-选择依次变化的线型，从线型1开始:
+选择依次变化的线型，从线型1开始：
 \begin{SACCode}
 SAC> line 1 increment
 \end{SACCode}
 
-改变线型表使之包含线型3、5和1:
+改变线型表使之包含线型3、5和1：
 \begin{SACCode}
 SAC> line list 3 5 1
 \end{SACCode}
 
 使用 \nameref{cmd:plot2} 在同一个图形上绘制三个文件，第一个使用实线无符号，
-第二个没有线条，用三角符号，第三个无线条，用十字符号:
+第二个没有线条，用三角符号，第三个无线条，用十字符号：
 \begin{SACCode}
 SAC> read file1 file2 file3
 SAC> line list 1 0 0 increment

@@ -10,54 +10,54 @@ SAC头段区包含了一系列头段变量，从这些头段变量中可以了�
 \caption{SAC头段变量列表}
 \label{table:header-variables}
 \begin{tabular}{c|c|lllll}
-	\toprule
-    Byte	&	Type	&	\multicolumn{5}{c}{Names}\\
-	\midrule
-	0		&	F	&	delta	&	depmin	&	depmax	&	scale	&	odelta	\\
-	20		&	F	&	b		&	e		&	o		&	a		&	internal\\
-	40		&	F	&	t0		&	t1		&	t2		&	t3		&	t4		\\
-	60		&	F	&	t5		&	t6		&	t7		&	t8		&	t9		\\
-	80		&	F	&	f		&	resp0	&	resp1	&	resp2	&	resp3	\\
-	100		&	F	&	resp4	&	resp5	&	resp6	&	resp7	&	resp8	\\
-    120		&	F	&	resp9	&	stla	&	stlo	&	stel	&	stdp	\\
-	140		&	F	&	evla	&	evlo	&	evel	&	evdp	&	mag		\\
-	160		&	F	&	user0	&	user1	&	user2	&	user3	&	user4	\\
-	180		&	F	&	user5	&	user6	&	user7	&	user8	&	user9	\\
-	200		&	F	&	dist	&	az		&	baz		&	gcarc	&	internal\\
-	220		&	F	&	internal&	depmen	&	cmpaz	&	cmpinc	&	xminimum\\
-	240		&	F	&	xmaximum&	yminimum&	ymaximum&	unused	&	unused	\\
-	260		&	F	&	unused	&	unused	&	unused	&	unused	&	unused	\\
-	280		&	N	&	nzyear	&	nzjday	&	nzhour	&	nzmin	&	nzsec	\\
-	300		&	N	&	nzmsec	&	nvhdr	&	norid	&	nevid	&	npts	\\
-	320		&	N	&	internal&	nwfid	&	nxsize	&	nysize	&	unused	\\
-	340		&	I	&	iftype	&	idep	&	iztype	&	unused	&	iinst	\\
-	360		&	I	&	istreg	&	ievreg	&	ievtyp	&	iqual	&	isynth	\\
-    380		&	I	&	imagtyp &	imagsrc	&	unused	&	unused	&	unused	\\
-	400		&	I	&	unused	&	unused	&	unused	&	unused	&	unused	\\
-	420		&	L	&	leven	&	lpspol	&	lovrok	&	lcalda	&	unused	\\
-	440		&	K	&	kstnm	&	kevnm*	&			&			&			\\
-	464		&	K	&	khole	&	ko		&	ka		&			&			\\
-	488		&	K	&	kt0		&	kt1		&	kt2		&			&			\\
-	512		&	K	&	kt3		&	kt4		&	kt5		&			&			\\
-	536		&	K	&	kt6		&	kt7		&	kt8		&			&			\\
-	560		&	K	&	kt9		&	kf		&	kuser0	&			&			\\
-	584		&	K	&	kuser1	&	kuser2	&	kcmpnm	&			&			\\
-	608		&	K	&	knetwk	&	kdatrd	&	kinst	&			&			\\
-    \bottomrule
+\toprule
+Byte	&	Type	&	\multicolumn{5}{c}{Names}\\
+\midrule
+0		&	F	&	delta	&	depmin	&	depmax	&	scale	&	odelta	\\
+20		&	F	&	b		&	e		&	o		&	a		&	internal\\
+40		&	F	&	t0		&	t1		&	t2		&	t3		&	t4		\\
+60		&	F	&	t5		&	t6		&	t7		&	t8		&	t9		\\
+80		&	F	&	f		&	resp0	&	resp1	&	resp2	&	resp3	\\
+100		&	F	&	resp4	&	resp5	&	resp6	&	resp7	&	resp8	\\
+120		&	F	&	resp9	&	stla	&	stlo	&	stel	&	stdp	\\
+140		&	F	&	evla	&	evlo	&	evel	&	evdp	&	mag		\\
+160		&	F	&	user0	&	user1	&	user2	&	user3	&	user4	\\
+180		&	F	&	user5	&	user6	&	user7	&	user8	&	user9	\\
+200		&	F	&	dist	&	az		&	baz		&	gcarc	&	internal\\
+220		&	F	&	internal&	depmen	&	cmpaz	&	cmpinc	&	xminimum\\
+240		&	F	&	xmaximum&	yminimum&	ymaximum&	unused	&	unused	\\
+260		&	F	&	unused	&	unused	&	unused	&	unused	&	unused	\\
+280		&	N	&	nzyear	&	nzjday	&	nzhour	&	nzmin	&	nzsec	\\
+300		&	N	&	nzmsec	&	nvhdr	&	norid	&	nevid	&	npts	\\
+320		&	N	&	internal&	nwfid	&	nxsize	&	nysize	&	unused	\\
+340		&	I	&	iftype	&	idep	&	iztype	&	unused	&	iinst	\\
+360		&	I	&	istreg	&	ievreg	&	ievtyp	&	iqual	&	isynth	\\
+380		&	I	&	imagtyp &	imagsrc	&	unused	&	unused	&	unused	\\
+400		&	I	&	unused	&	unused	&	unused	&	unused	&	unused	\\
+420		&	L	&	leven	&	lpspol	&	lovrok	&	lcalda	&	unused	\\
+440		&	K	&	kstnm	&	kevnm*	&			&			&			\\
+464		&	K	&	khole	&	ko		&	ka		&			&			\\
+488		&	K	&	kt0		&	kt1		&	kt2		&			&			\\
+512		&	K	&	kt3		&	kt4		&	kt5		&			&			\\
+536		&	K	&	kt6		&	kt7		&	kt8		&			&			\\
+560		&	K	&	kt9		&	kf		&	kuser0	&			&			\\
+584		&	K	&	kuser1	&	kuser2	&	kcmpnm	&			&			\\
+608		&	K	&	knetwk	&	kdatrd	&	kinst	&			&			\\
+\bottomrule
 \end{tabular}
 \end{table}
 
-整个头段区，共有头段变量133个，占632个字节。头段区的前四个字节是第一个头段变量
-\texttt{delta}，第5--8个字节是第二个头段变量 \texttt{depmin}，第21--24个字节是第6个
-头段变量 \texttt{b}，以此类推。
+整个头段区，共有头段变量133个，占632个字节。头段区的前四个字节是第一个
+头段变量 \texttt{delta}，第5--8个字节是第二个头段变量 \texttt{depmin}，
+第21--24个字节是第6个头段变量 \texttt{b}，以此类推。
 
-表的第一列给出了当前行的第一个头段变量在文件中的起始字节，第二列给出了当前行
-的头段变量的变量类型。
+表的第一列给出了当前行的第一个头段变量在文件中的起始字节，第二列给出了
+当前行的头段变量的变量类型。
 
-表 \ref{table:header-variables-type} 列出了SAC头段中的头段变量类型及其相关信息。
-第一列为头段变量类型代码，第二类给出了其
-代表的头段变量类型，第三列指出C源码中该变量的是用什么类型定义的，第四列给出了每个
-变量所占据的字节数，第五列给出了写字符型SAC文件时的输出格式，最后一列则给出该类型
+表 \ref{table:header-variables-type} 列出了SAC头段中的头段变量类型及其
+相关信息。第一列为头段变量类型代码，第二类给出了其代表的头段变量类型，
+第三列指出C源码中该变量的是用什么类型定义的，第四列给出了每个变量所占据
+的字节数，第五列给出了写字符型SAC文件时的输出格式，最后一列则给出该类型
 的未定义值。
 
 \begin{table}[H]
@@ -67,33 +67,36 @@ SAC头段区包含了一系列头段变量，从这些头段变量中可以了�
 \ttfamily
 \small
 \begin{tabular}{cllcll}
-	\toprule
-    Code    &	Type        &   C Type & sizeof &   printf	&   未定义值        \\
-	\midrule
-    F		&	浮点型		&   float  &  4     &	\%15.7f &   -12345.0        \\
-    N		&	整型		&   int    &  4     &	\%10d   &   -12345        \\
-    I		&	枚举型		&   int    &  4     &	\%10d   &   -12345	        \\
-    L		&	逻辑型		&   int    &  4     &	\%10d   &   FALSE        \\
-    K		&	字符型		&   char*  &  8     &	\%-8.8s & \lstinline[showspaces=true]!"-12345  "!     \\
-    A		&	辅助型		&          &        &			& 	    \\
-	\bottomrule
+\toprule
+Code    &	Type        &   C Type & sizeof &   printf	&   未定义值        \\
+\midrule
+F		&	浮点型		&   float  &  4     &	\%15.7f &   -12345.0        \\
+N		&	整型		&   int    &  4     &	\%10d   &   -12345        \\
+I		&	枚举型		&   int    &  4     &	\%10d   &   -12345	        \\
+L		&	逻辑型		&   int    &  4     &	\%10d   &   FALSE        \\
+K		&	字符型		&   char*  &  8     &	\%-8.8s & \lstinline[showspaces=true]!"-12345  "!     \\
+A		&	辅助型		&          &        &			& 	    \\
+\bottomrule
 \end{tabular}
 \end{table}
 
-说明:
-
+说明：
 \begin{itemize}
+\item 所有头段变量的变量名均以变量类型码开头，比如 \texttt{nvhdr} 是
+    N型变量，\texttt{leven} 是L型变量，但F型变量除外；
+\item 枚举型变量本质上是 \texttt{int} 型，只能在固定的几个值中取值
+\item 逻辑型变量可以取值 \texttt{TRUE} 和 \texttt{FALSE}，本质上分别是
+    整型的1和0
+\item 字符型变量长度为8\footnote{C语言中用``\verb|\0|''作为字符串的
+    结束标识符，因而源码中变量的实际长度为9。}，只有 \texttt{kevnm}
+    很特殊，其长度为16；
+\item 变量名为 \texttt{internal} 表示该变量是SAC内部使用的头段变量，
+    用户不可对其进行操作；
+\item 变量名为 \texttt{unused} 表示该变量尚未使用，为以后可能出现的
+    新头段变量占位；
+\item 当某个头段变量未定义时，其包含未定义值；不同类型的头段变量有不同
+    的未定义值；若一个整型头段变量的值为 \texttt{-12345}，则认为该变量
+    未定义；实际使用时，可以直接用 \texttt{undef} 表示所有类型的头段变量
+    的未定义值，SAC会根据头段变量的类型自动将其转换成相应类型的未定义值。
 \item 辅助型变量并不在SAC头段区中，而是从其它头段变量推导得到的；
-\item 所有头段变量的变量名均以变量类型码开头，比如 \texttt{nvhdr} 是N型变量，
-    \texttt{leven} 是L型变量；但F型变量除外；
-\item 枚举型变量本质上是 \texttt{int} 型，只能在固定的几个值取值；
-\item 逻辑型变量可以取值 \texttt{TRUE} 和 \texttt{FALSE}，本质上分别是1和0；
-\item 字符型变量长度为8\footnote{C语言中用``\verb|\0|''作为字符串的结束标识符，因而源码中变量的实际长度还要加1}，
-    只有 \texttt{kevnm} 很特殊，其长度为16；
-\item 变量名为 \texttt{internal} 表示该变量是SAC内部使用的头段变量，用户不可对其进行操作；
-\item 变量名为 \texttt{unused} 表示该变量尚未使用，为以后可能出现的新头段变量占位；
-\item 当某个头段变量未定义时，其包含未定义值；不同类型的头段变量有不同的未定义值；
-    若一个整型头段变量的值为 \texttt{-12345}，则认为该变量未定义；实际使用时，可以直接
-    用 \texttt{undef} 表示所有类型的头段变量的未定义值，SAC会根据头段变量的类型自动将其
-    转换成相应类型的未定义值。
 \end{itemize}

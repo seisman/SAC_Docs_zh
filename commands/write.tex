@@ -51,14 +51,14 @@ APPEND、PREPEND、DELETE、CHANGE选项通过以所需要的方式修改每个�
 \SACTitle{示例}
 该命令的简单示例可以参考``\nameref{sec:read-and-write}''一节。
 
-对一组数据文件进行滤波，然后将结果存入一组新数据文件:
+对一组数据文件进行滤波，然后将结果存入一组新数据文件：
 \begin{SACCode}
 SAC> read d1 d2 d3
 SAC> lowpass butter npoles 4
 SAC> write f1 f2 f3
 \end{SACCode}
 
-也可以使用CHANGE选项完成这一操作:
+也可以使用CHANGE选项完成这一操作：
 \begin{SACCode}
 SAC> read d1 d2 d3
 SAC> lowpass butter npoles 4

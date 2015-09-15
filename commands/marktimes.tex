@@ -30,7 +30,8 @@ marktimes velocities 2. 3. 4. 5. 6. distance
 \end{SACDFT}
 
 \SACTitle{说明}
-这个命令在头段中标记震相的到时，给定事件的发生时间，震中距以及速度即可计算到	时。下面的方程用于简单估计走时:
+这个命令在头段中标记震相的到时，给定事件的发生时间，震中距以及速度即可
+计算到时。下面的方程用于简单估计走时：
  		\[ time(j) = origin + \frac{distance}{velocity(j)} \]
 结果被写入指定的时间标记中
 
@@ -40,12 +41,12 @@ marktimes velocities 2. 3. 4. 5. 6. distance
 SAC> marktimes distance 340. to t4
 \end{SACCode}
 
-选择一个不同的速度集:
+选择一个不同的速度集：
 \begin{SACCode}
 SAC> markt v 3.5 4.0 4.5 5.0 5.5
 \end{SACCode}
 
-设置新的参考时间并将结果保存在T2中:
+设置新的参考时间并将结果保存在T2中：
 \begin{SACCode}
 SAC> markt origin gmt 1984 231 12 43 17 237 to t2
 \end{SACCode}

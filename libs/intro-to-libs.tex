@@ -1,15 +1,16 @@
 \section{SAC库简介}
-SAC提供了两个函数库：libsacio.a和libsac.a，用户可以在自己的C或Fortran程序
-中直接使用函数库中的子函数。这些库文件位于 \verb|${SACHOME}/lib| 中。
+SAC提供了两个函数库：\texttt{libsacio.a} 和 \texttt{libsac.a}，用户
+可以在自己的C或Fortran程序中直接使用函数库中的子函数。这些库文件位于
+\verb|${SACHOME}/lib| 中。
 
 \subsection{libsacio库}
 这个库文件的子函数可用于读写SAC数据文件、头段变量、黑板变量。这些子函数可以在用户
 的C或Fortran程序中直接使用。
 
-libsacio.a中可用的子函数包括：
+\texttt{libsacio.a} 中可用的子函数包括：
 \begin{table}[H]
 \centering
-\caption{libsacio子函数}
+\caption{\texttt{libsacio}子函数}
 \ttfamily
 \begin{tabular}{ll}
 \toprule
@@ -44,7 +45,7 @@ distaz      &       计算地球上任意两点间的震中距、方位角和反
 $ gcc -c source.c -I/usr/local/sac/include
 $ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsacio
 \end{minted}
-也可以利用SAC提供的sac-config命令简化此编译命令：
+也可以利用SAC提供的 \texttt{sac-config} 命令简化此编译命令：
 \begin{minted}{console}
 $ gcc -c source.c `sac-config -c`
 $ gcc -o prog source.o -lm `sac-config -l sacio`
@@ -55,16 +56,17 @@ $ gcc -o prog source.o -lm `sac-config -l sacio`
 $ gfortran -c source.f
 $ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsacio
 \end{minted}
-也可以利用SAC提供的sac-config命令简化此编译命令：
+也可以利用SAC提供的 \texttt{sac-config} 命令简化此编译命令：
 \begin{minted}{console}
 $ gfortran -c souce.f
 $ gfortran -o prog source.o `sac-config -l sacio`
 \end{minted}
 
 \subsection{libsac.a库}
-这个库是从101.2版本才引入的，其是libsacio.a的超集，包含了几个数据处理常用的子函数。
+这个库是从101.2版本才引入的，其是 \texttt{libsacio.a} 的超集，包含了
+几个数据处理常用的子函数。
 
-libsac.a包含如下子函数：
+\texttt{libsac.a} 包含如下子函数：
 \begin{itemize}
 \item xapiir  无限脉冲响应滤波器；
 \item firtrn  有限脉冲滤波器，Hilbert变换；
@@ -78,7 +80,7 @@ libsac.a包含如下子函数：
 $ gcc -c source.c -I/usr/local/sac/include
 $ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsac
 \end{minted}
-也可以利用SAC提供的sac-config命令简化此编译命令：
+也可以利用SAC提供的 \texttt{sac-config} 命令简化此编译命令：
 \begin{minted}{console}
 $ gcc -c source.c `sac-config -c`
 $ gcc -o prog source.o -lm `sac-config -l sac`
@@ -89,7 +91,7 @@ $ gcc -o prog source.o -lm `sac-config -l sac`
 $ gfortran -c source.f
 $ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsac
 \end{minted}
-也可以利用SAC提供的sac-config命令简化此编译命令：
+也可以利用SAC提供的 \texttt{sac-config} 命令简化此编译命令：
 \begin{minted}{console}
 $ gfortran -c souce.f
 $ gfortran -o prog source.o `sac-config -l sac`

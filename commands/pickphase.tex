@@ -12,13 +12,13 @@ PICKPH!ASE! AUTHOR [filename]
 \end{SACSTX}
 
 \SACTitle{输入}
-\begin{itemize}
-\item header : 头段变量名：t0 - t9.
-\item phase : 对于给出的头段变量对应的拾取的震相名
-\item author : 告诉SAC作者列表，为某个头段所对应的作者，或者是"-"
-\item FILE : 如果使用了FILE选项，SAC将从参考文件中读取震相列表。如果参考文件的文件名在命令行上给出，则SAC将读取这个指定的文件，否则SAC将根据上一次执行PICKPHASE读取最近输入的文件名.如果未给出文件名，则SAC使用\texttt{sac/aux/csspickprefs}
-\item AUTHOR : 这个选项和FILE选项相似，其另一个功能是允许SAC读取指定的头段变量信息
-\end{itemize}
+\begin{description}
+\item [header] 头段变量名：t0--t9.
+\item [phase] 对于给出的头段变量对应的拾取的震相名
+\item [author] 告诉SAC作者列表，为某个头段所对应的作者，或者是"-"
+\item [FILE] 如果使用了FILE选项，SAC将从参考文件中读取震相列表。如果参考文件的文件名在命令行上给出，则SAC将读取这个指定的文件，否则SAC将根据上一次执行PICKPHASE读取最近输入的文件名.如果未给出文件名，则SAC使用\texttt{sac/aux/csspickprefs}
+\item [AUTHOR] 这个选项和FILE选项相似，其另一个功能是允许SAC读取指定的头段变量信息
+\end{description}
 
 \SACTitle{缺省值}
 PICKPHASE FILE

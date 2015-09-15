@@ -63,7 +63,7 @@ $ sudo make install
 \end{minted}
 
 \subsection{配置变量}
-向 \verb|~/.bashrc| \footnote{某些发行版需要修改 \verb|~/.bash_profile|}
+向 \verb|~/.bashrc|\footnote{某些发行版需要修改 \verb|~/.bash_profile|}
 中加入如下语句以配置环境变量和SAC全局变量：
 \begin{minted}{bash}
 export SACHOME=/usr/local/sac
@@ -77,18 +77,17 @@ export SAC_USE_DATABASE=0
 
 其中，
 \begin{itemize}
-\item \texttt{SACHOME} 为SAC的安装目录；
-\item \texttt{SACAUX} 中包含了SAC运行所需的辅助文件；
-\item \texttt{PATH} 为Linux系统环境变量；
+\item \texttt{SACHOME} 为SAC的安装目录
+\item \texttt{SACAUX} 目录中包含了SAC运行所需的辅助文件
+\item \texttt{PATH} 为Linux系统环境变量
 \item \verb|SAC_DISPLAY_COPYRIGHT| 用于控制是否在启动SAC时显示版本和版权
     信息，一般设置为1。在脚本中多次调用SAC时会重复显示版本和版权信息，
-    干扰脚本的正常输出，因而在脚本中一般将其值设置为0，设置方法可以参考
-    ``\nameref{sec:sac-bash}''、``\nameref{sec:sac-perl}''和
-    ``\nameref{sec:sac-python}''中的相关内容；
+    干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法
+    可以参考``\nameref{chap:sac-script}''中的相关内容
 \item \verb|SAC_PPK_LARGE_CROSSHAIRS| 用于控制震相拾取过程中光标的大小，
-    在``\nameref{sec:phase-picking}''一节会具体说明；
-\item \verb|SAC_USE_DATABASE| 用于控制是否允许将SAC格式转换为GSE2.0格式；
-    一般用不到该特性，故而设置其值为0；
+    在 \nameref{sec:phase-picking} 时会用到
+\item \verb|SAC_USE_DATABASE| 用于控制是否允许将SAC格式转换为GSE2.0格式，
+    一般用不到该特性，故而设置其值为0
 \end{itemize}
 
 修改完 \verb|~/.bashrc| 后，执行以下命令使配置的环境变量生效：

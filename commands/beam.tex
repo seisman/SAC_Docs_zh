@@ -15,17 +15,25 @@ BEAM [B!EARING! v] [V!ELOCITY! v] [REF!ERENCE! ON|OFF| lat lon [el]]
 \begin{description}
 \item [BEARING v] 方位，由北算起的度数
 \item [VELOCITY v] 速度，单位为公里每秒
-\item [REFERENCE lat lon el] 参考点，打开REFERENCE选项并定义参考点，这样其他文件的偏移量以此而定。lat、lon、el分别代表纬度、经度、深度(下为正)
+\item [REFERENCE lat lon el] 参考点，打开REFERENCE选项并定义参考点，
+    这样其他文件的偏移量以此而定。lat、lon、el分别代表纬度、经度、
+    深度(下为正)
 \item [REFERENCE ON|OFF] 开或关REFERENCE选项
-\item [OFFSET REF] 偏移量是相对于REFERENCE选项设置的参考点的。这要求开启REFERENCE选项
-\item [OFFSET USER] 偏移量直接从USER7, USER8以及USER9中获取，(分别代表纬度、经度以及海拔)。这就要求所有文件的USER7和USER8必须定义。如果设置了EC选项，则OFFSET USER要求USER9必须被设置。
-\item [OFFSET STATION] 偏移量相对于第一个台站的位置，这要求所有文件的STLA、STLO必须定义
-\item [OFFSET EVENT] 偏移量相对于第一个事件的位置，这要求所有文件的EVLA、EVLO必须定义
-\item [OFFSET CASCADE] SAC将会按照前面给出的顺序考虑决定偏移量的方法，并检查必要的数据是否具备。它将使用第一个满足要求的方法
-\item [EC] 高程校正。anginc: 入射角，从z轴算起，单位为度(震源距离越远，入射角越小)；
-    survel: 表面介质速度(\si{\km\per\s})。
-\item [CENTER] 用于计算射线束的中心台站。X为距参考台站的东向偏移；Y为距参考台站的北向偏移；
-	Z为距参考台站的向上偏移，其单位为米；
+\item [OFFSET REF] 偏移量是相对于REFERENCE选项设置的参考点的。
+    这要求开启REFERENCE选项
+\item [OFFSET USER] 偏移量直接从USER7、USER8以及USER9中获取，分别
+    代表纬度、经度以及海拔。这就要求所有文件的USER7和USER8必须定义。
+    如果设置了EC选项，则OFFSET USER要求USER9必须被设置。
+\item [OFFSET STATION] 偏移量相对于第一个台站的位置，这要求所有文件的
+    STLA、STLO必须定义
+\item [OFFSET EVENT] 偏移量相对于第一个事件的位置，这要求所有文件的
+    EVLA、EVLO必须定义
+\item [OFFSET CASCADE] SAC将会按照前面给出的顺序考虑决定偏移量的方法，
+    并检查必要的数据是否具备。它将使用第一个满足要求的方法
+\item [EC] 高程校正。anginc：入射角，从z轴算起，单位为度(震源距离越远，
+    入射角越小)；survel：表面介质速度(\si{\km\per\s})。
+\item [CENTER] 用于计算射线束的中心台站。X为距参考台站的东向偏移；
+    Y为距参考台站的北向偏移；Z为距参考台站的向上偏移，其单位为米；
 \item [WRITE fname] 将射线束写入磁盘
 \end{description}
 
@@ -36,8 +44,9 @@ beam  b 90  v 9.0 ec 33  6.0 c  0. 0. 0. w BEAM
 
 \SACTitle{说明}
 BEAM不覆盖SAC内存中的数据，因而当变换方位和速度时这一操作可以重复执行。
-射线结果写入到磁盘文件中，并且每次可以写到不同的文件。这个设计考虑到了用户
-的需求，即比较多次使用这一命令的不同结果，以寻找最佳射线束的方位和速度。
+射线结果写入到磁盘文件中，并且每次可以写到不同的文件。这个设计考虑到了
+用户的需求，即比较多次使用这一命令的不同结果，以寻找最佳射线束的方位和
+速度。
 
 \SACTitle{头段数据}
 参见 \nameref{cmd:bbfk} 命令。

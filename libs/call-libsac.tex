@@ -1,7 +1,8 @@
 \section{调用libsac库}
 \label{sec:libsac}
 \subsection{next2}
-SAC在做FFT时要保证数据点数为$2^n$个，对于不足$2^n$个点的数据需要补零至$2^n$次方个点。
+SAC在做FFT时要保证数据点数为$2^n$个，对于不足$2^n$个点的数据需要补零至$2^n$
+次方个点。
 
 next2函数定义为：
 \begin{minted}{c}
@@ -9,8 +10,8 @@ int next2(int num)  // 输入为num，返回值为大于num的最小2次幂
 \end{minted}
 
 \subsection{xapiir}
-xapiir用于设计IIR滤波器，并对数据进行滤波。这个子函数底层调用了design和apply两个
-子函数。
+\texttt{xapiir} 用于设计IIR滤波器，并对数据进行滤波。这个子函数底层
+调用了 \texttt{design} 和 \texttt{apply} 两个子函数。
 \begin{minted}{c}
 void
 xapiir(float    *data,      // 待滤波的数据，滤波后的数据保存在该数组中
@@ -79,7 +80,7 @@ float *hilbert(float *in, int npts) {
 \end{minted}
 
 \subsection{envelope}
-该子函数用于计算数据的包络函数，其底层调用了firtrn函数。
+该子函数用于计算数据的包络函数，其底层调用了 \texttt{firtrn} 函数。
 \begin{minted}{c}
 void
 envelope( int    n,     // 数据点数
@@ -91,8 +92,8 @@ envelope( int    n,     // 数据点数
 相关示例代码为 \texttt{envelopec.c} 和 \texttt{envelopef.f} 。
 
 \subsection{crscor}
-该子函数用于计算两个数据的互相关，此互相关在频率域中完成，相对时间域互相关而言
-效率更高。
+该子函数用于计算两个数据的互相关，此互相关在频率域中完成，相对时间域
+互相关而言效率更高。
 
 \begin{minted}{c}
 void
@@ -109,4 +110,5 @@ crscor( float   *data1,     // 数据1
 )
 \end{minted}
 
-示例代码为 \texttt{convolvec.c}、\texttt{convolvef.f}、\texttt{correlatec.c} 和 \texttt{correlatef.f}。
+示例代码为 \texttt{convolvec.c}、\texttt{convolvef.f}、\texttt{correlatec.c}
+和 \texttt{correlatef.f}。

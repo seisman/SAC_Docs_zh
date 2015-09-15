@@ -19,7 +19,7 @@ LOAD comname [ABBREV abbrevname]
 这个命令允许用户载入由SAC外部命令接口写的命令。(参见EXTERNAL\_INTERFACE文档)。这个命令必须是一个储存在共享目标库(.so文件)中。SAC将检查所有环境变量SACSOLIST中的共享目标库，这个环境变量需要包含一个或多个共享目标库，每个库以空格分割。到这些共享目标库的路径必须在环境变量LD\_LIBRARY\_PATH中指定。如果SACSOLIST为设置，则SAC将使用由LD\_LIBRARY\_PATH中指定的路径在共享文件库libsac.so中寻找。一个叫做libcom.so的库随着SAC发布。
 
 \SACTitle{示例}
-设置你的环境变量使得SAC在当前目录从库文件libbar.so中查找一个称为foo的命令，并为foo设置别名为myfft:
+设置你的环境变量使得SAC在当前目录从库文件libbar.so中查找一个称为foo的命令，并为foo设置别名为myfft：
 \begin{SACCode}
 % export SACSOLIST = "libcom.so libbar.so"
 #  Add the current directory to the search path.
@@ -32,7 +32,7 @@ SAC> myfft real-imag* invoke command with its arguments,
 SAC> psp
 \end{SACCode}
 
-如何创建一个包含你的命令的共享目标库:
+如何创建一个包含你的命令的共享目标库：
 \begin{SACCode}
 Solaris::
 cc -o libxxx.so -G extern.c foo.c bar.c

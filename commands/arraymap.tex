@@ -21,20 +21,19 @@ arraymap array
 \end{SACDFT}
 
 \SACTitle{头段数据}
-下面的两个头段变量必须使用SAC宏文件wrxyz或者与之功能相似的其他函数提前设定，
-所有的偏移是相对于某个参考点的千米数。
+下面的两个头段变量必须使用SAC宏文件wrxyz或者与之功能相似的其他函数
+提前设定，所有的偏移是相对于某个参考点的千米数。
 \begin{itemize}
-\item USER7: 向东的偏移(x).
-\item USER8: 向北的偏移(y).
+\item USER7：向东的偏移(x).
+\item USER8：向北的偏移(y).
 \end{itemize}
 
 \SACTitle{说明}
 不是很清楚这个命令的作用是什么，对于每个数据来说，需要用宏文件wrxyz
-\footnote{位于 \verb|$SACAUX/macros| 目录中}
-定义头段
-变量user7和user8，然后才能利用该命令绘制出arraymap，从命令的名字来理解，应该
-是绘制某个台站的台站分布图，理论上只需要台站的真实位置即可。不知这个究竟在什
-么场合要使用。
+\footnote{位于 \verb|$SACAUX/macros| 目录中}定义头段变量user7和user8，
+然后才能利用该命令绘制出arraymap，从命令的名字来理解，应该
+是绘制某个台站的台站分布图，理论上只需要台站的真实位置即可。不知这个
+究竟在什么场合要使用。
 
 \SACTitle{限制}
 在bbfk中允许的最多台站数

@@ -2,16 +2,17 @@
 \label{sec:sac-perl}
 
 \subsection{简介}
-下面的脚本中给出了一个简单的例子，展示了如何在Perl中调用SAC。相对于Bash来说，Perl脚本似乎
-需要更多的键入，但是相对于Perl的优势来说，这些都不算什么。
+下面的脚本中给出了一个简单的例子，展示了如何在Perl中调用SAC。相对于
+Bash来说，Perl脚本似乎需要更多的键入，但是相对于Perl的优势来说，
+这些都不算什么。
 \inputminted{perl}{./call-in-script/simple-script.pl}
 
 \subsection{头段变量}
-Perl无法直接引用SAC文件的头段变量值，依然需要利用SAC宏的的语法。Perl的优势在于可以
-一边向SAC传递信息，一边运行自身的命令。
+Perl无法直接引用SAC文件的头段变量值，依然需要利用SAC宏的的语法。
+Perl的优势在于可以一边向SAC传递信息，一边运行自身的命令。
 \inputminted{perl}{./call-in-script/variables.pl}
-本例中第9行，在SAC运行的同时Perl临时定义了一个变量，并成功将其传递给了SAC，这在
-Bash中是不容易做到的。
+本例中第9行，在SAC运行的同时Perl临时定义了一个变量，并成功将其传递给了
+SAC，这在Bash中是不容易做到的。
 
 \subsection{内联函数}
 Perl可以完成各种复杂的数学运算：
@@ -23,26 +24,27 @@ Perl对字符串的处理更是Perl的杀手锏：
 \subsection{条件判断和循环控制}
 Perl也可以很容易地实现条件判断和循环控制：
 \inputminted{perl}{./call-in-script/do-loops.pl}
-这个例子中只启动了一次SAC，然后开始循环读入当前目录下的每一个SAC文件，最后统一
-做数据处理，并写到新文件中。
+这个例子中只启动了一次SAC，然后开始循环读入当前目录下的每一个SAC文件，
+最后统一做数据处理，并写到新文件中。
 
-该Perl脚本与上一个Bash脚本相比，实现了几乎相同的功能，但Perl脚本中仅启动和退出SAC
-一次，与Bash脚本的多次启动相比，其效率要高很多。
+该Perl脚本与上一个Bash脚本相比，实现了几乎相同的功能，但Perl脚本中仅
+启动和退出SAC一次，与Bash脚本的多次启动相比，其效率要高很多。
 
 \subsection{修改发震时刻}
 \label{subsec:ch-origin}
-除此之外，在设置发震时刻的时候，还会遇到另一个问题，如何计算发震日期是一年的第几天。
-没有简单的办法，只能通过编程实现，下面给出一个半完整的示例：
+除此之外，在设置发震时刻的时候，还会遇到另一个问题，如何计算发震日期是
+一年的第几天。没有简单的办法，只能通过编程实现，下面给出一个半完整的示例：
 \inputminted{perl}{./call-in-script/ch-origin.pl}
-本例中，子程序``ymd2doy''用于计算某日期是一年中的第几天。
+本例中，子程序 \texttt{ymd2doy} 用于计算某日期是一年中的第几天。
 
 \subsection{文件重命名}
 \label{subsec:rename-in-perl}
-Perl下先用 \texttt{split} 函数将文件名用点号分割，由于 \texttt{split} 函数的第一个参数
-实际上是正则表达式，故而这里的点号需要转义。点号分割之后的字符串数组赋值给一系列
-变量，然后使用 \texttt{rename} 函数实现重命名。
+Perl下先用 \texttt{split} 函数将文件名用点号分割，由于 \texttt{split}
+函数的第一个参数实际上是正则表达式，故而这里的点号需要转义。点号分割之
+后的字符串数组赋值给一系列变量，然后使用 \texttt{rename} 函数实现重命名。
 \inputminted{perl}{./call-in-script/rename1.pl}
 
-上面的方法中定义了一堆变量但是却没有用到。可以将 \texttt{split} 函数的结果赋值给数组，
-然后直接取数组中需要的元素即可。需要注意的是，Perl的数组下标从零开始。
+上面的方法中定义了一堆变量但是却没有用到。可以将 \texttt{split} 函数的
+结果赋值给数组，然后直接取数组中需要的元素即可。需要注意的是，Perl的数
+组下标从零开始。
 \inputminted{perl}{./call-in-script/rename2.pl}

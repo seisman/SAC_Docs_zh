@@ -1,7 +1,7 @@
 \section{内联函数}
 
-内联函数是SAC实现的一些函数，其可以在SAC命令中使用。在执行命令时，内联函数会首先被
-调用，内联函数的结果将替代命令中的内联函数的位置。
+内联函数是SAC实现的一些函数，其可以在SAC命令中使用。在执行命令时，
+内联函数会首先被调用，内联函数的结果将替代命令中的内联函数的位置。
 
 SAC提供了如下几类内联函数：
 \begin{itemize}
@@ -11,9 +11,10 @@ SAC提供了如下几类内联函数：
 \item 其他函数；
 \end{itemize}
 
-所有的内联函数的共同形式是：``\texttt{(func)}''，其中func为内联函数名。某种程度
-上，内联函数与前面说到头段变量(``\verb|& &|'')和黑板变量(``\verb|% %|'')类似，
-可以认为是通过``\texttt{( )}''引用了内联函数的结果或值。
+所有的内联函数的共同形式是：``\texttt{(func)}''，其中 \texttt{func} 为
+内联函数名。某种程度上，内联函数与前面说到头段变量（``\verb|& &|''）和
+黑板变量（``\verb|% %|''）类似，可以认为是通过``\texttt{( )}''引用了
+内联函数的结果或值。
 
 内联函数支持嵌套，目前最多可以嵌套10层。
 
@@ -56,31 +57,31 @@ SAC提供了20个常规算术运算函数，其基本形式为``\texttt{(func ar
 \caption{常规算数运算函数}
 \label{table:regular-arithmetic-functions}
 \begin{tabular}{lll}
-	\toprule
-	命令	&	语法	&	功能	\\
-	\midrule
-	add		&	( add v1 v2 ... vn )	    &	v1+v2+...+vn	\\
-	subtract&	( subtract v1 v2 ... vn )   &	v1-v2-...-vn	\\
-	multiply&	( multiply v1 v2 ... vn )   &	v1*v2*...*vn	\\
-	divide	&	( divide v1 v2 ... vn )	    &	v1/v2/.../vn	\\
-	absolute&	( absolute v )			    &	取绝对值	\\
-	abs     &	( abs v )			        &	取绝对值	\\
-	power	&	( power v )				    &	取10的v次方     \\
-	alog10	&	( alog10 v)				    &	以10为底取v的对数	\\
-	alog	&	( alog v)				    &	取v的自然对数	\\
-	exp	    &	( exp v)				    &	取e的v次方	\\
-	sqrt	&	( sqrt v) 				    &	求v的平方根	\\
-	pi		&	( pi )					    &	返回pi值	\\
-    sine    &	( sine v )				    &	正弦(v为弧度，下同)\\
-	cosine	&	( cosine v )				&	余弦	\\
-    tangent	&	( tangent v )			    &	正切	\\
-	arcsine	&	( arcsine v )			    &	反正弦	\\
-	arccosine&	( arccosine v ) 			&	反余弦	\\
-	arctangent&	( arctangent v )			&	反正切	\\
-    integer &	( integer v )			    &	取整	\\
-	maximum	&	( maximum v1 v2 ... vn )	&	求最大值	\\
-	minimum	&	( minimum v1 v2 ... vn )	&	求最小值	\\
-	\bottomrule
+    \toprule
+    命令    &   语法    &   功能    \\
+    \midrule
+    add     &   ( add v1 v2 ... vn )        &   v1+v2+...+vn    \\
+    subtract&   ( subtract v1 v2 ... vn )   &   v1-v2-...-vn    \\
+    multiply&   ( multiply v1 v2 ... vn )   &   v1*v2*...*vn    \\
+    divide  &   ( divide v1 v2 ... vn )     &   v1/v2/.../vn    \\
+    absolute&   ( absolute v )              &   取绝对值    \\
+    abs     &   ( abs v )                   &   取绝对值    \\
+    power   &   ( power v )                 &   取10的v次方     \\
+    alog10  &   ( alog10 v)                 &   以10为底取v的对数   \\
+    alog    &   ( alog v)                   &   取v的自然对数   \\
+    exp     &   ( exp v)                    &   取e的v次方  \\
+    sqrt    &   ( sqrt v)                   &   求v的平方根 \\
+    pi      &   ( pi )                      &   返回pi值    \\
+    sine    &   ( sine v )                  &   正弦(v为弧度，下同)\\
+    cosine  &   ( cosine v )                &   余弦    \\
+    tangent &   ( tangent v )               &   正切    \\
+    arcsine &   ( arcsine v )               &   反正弦  \\
+    arccosine&  ( arccosine v )             &   反余弦  \\
+    arctangent& ( arctangent v )            &   反正切  \\
+    integer &   ( integer v )               &   取整    \\
+    maximum &   ( maximum v1 v2 ... vn )    &   求最大值    \\
+    minimum &   ( minimum v1 v2 ... vn )    &   求最小值    \\
+    \bottomrule
 \end{tabular}
 \end{table}
 
@@ -135,8 +136,8 @@ SAC> div ( max (abs %vmax%) (abs %vmin%) )      // 嵌套
 此例可以通过多重嵌套的方式在单个命令中完成，但上面的写法可读性更强。
 
 \subsection{字符串操作函数}
-SAC提供了若干个函数用于字符串的处理，如表 \ref{table:string-operation-functions} 所示：
-
+SAC提供了若干个函数用于字符串的处理，如表 \ref{table:string-operation-functions}
+所示：
 \begin{table}[!ht]
 \centering
 \ttfamily
@@ -144,17 +145,17 @@ SAC提供了若干个函数用于字符串的处理，如表 \ref{table:string-o
 \caption{字符串操作函数}
 \label{table:string-operation-functions}
 \begin{tabular}{lll}
-	\toprule
-	命令	&	语法(简写形式)	&	功能	\\
-	\midrule
-	change		&	( cha s1 s2 s3 ) 	&	在s3中用s1代替s2	\\
-	substring 	&	( substring n1 n2 s ) 	&	取s中第n1到第n2个字符\\
-	delete		&	( del s1 s2 )		&	从s2中删去s1	\\
-	concatenate &	( conc s1 s2 ... sn )	&	将多个字符串拼接起来 \\
-	before		&	( bef s1 s2)			&	得到s2中位于s1前的部分字符串\\
-	after		&	( aft s1 s2 )			&	得到s2中位于s1后的部分字符串\\
-	reply		&	( rep s1 )			&	发送信息s1到终端并得到回应	\\
-	\bottomrule
+    \toprule
+    命令        &   语法(简写形式)          &   功能    \\
+    \midrule
+    change      &   ( cha s1 s2 s3 )        &   在s3中用s1代替s2    \\
+    substring   &   ( substring n1 n2 s )   &   取s中第n1到第n2个字符\\
+    delete      &   ( del s1 s2 )           &   从s2中删去s1    \\
+    concatenate &   ( conc s1 s2 ... sn )   &   将多个字符串拼接起来 \\
+    before      &   ( bef s1 s2)            &   得到s2中位于s1前的部分字符串\\
+    after       &   ( aft s1 s2 )           &   得到s2中位于s1后的部分字符串\\
+    reply       &   ( rep s1 )              &   发送信息s1到终端并得到回应  \\
+    \bottomrule
 \end{tabular}
 \end{table}
 
@@ -178,7 +179,7 @@ SAC> message (substring 1 5 %val%)
  12345
 \end{SACCode}
 
-下面的例子展示concatenate函数的用法以及如何灵活定义标题：
+下面的例子展示 \texttt{concatenate} 函数的用法以及如何灵活定义标题：
 \begin{SACCode}
 SAC> fg seis
 SAC> echo on processed
@@ -196,7 +197,7 @@ SAC> title "Seismogram of &1,kevnm& &1,kstnm&"
  ==>  title "Seismogram of K8108838 CDV"                // 正确标题！
 \end{SACCode}
 
-下面的例子使用reply函数实现了交互：
+下面的例子使用 \texttt{reply} 函数实现了交互：
 \begin{SACCode}
 SAC> fg seis
 SAC> echo on processed
@@ -211,7 +212,7 @@ SAC> bp c %low% %high%
  ==>  bp c 2.1 6.5
 \end{SACCode}
 
-下面的例子中reply函数包含了一个默认值值：
+下面的例子中 \texttt{reply} 函数包含了一个默认值值：
 \begin{SACCode}
 SAC> setbb bbday (reply "Enter the day of the week: [Monday]")
 Enter the day of the week: [Monday]Tuesday      // 用户输入Tuesday
@@ -222,18 +223,20 @@ Enter the day of the week: [Monday]             // 用户无输入
 SAC> getbb bbday
  bbday = 'Monday'
 \end{SACCode}
-当reply函数执行时，引号中的字符串将出现在屏幕上，提示用户输入。如果用户输入，SAC会将
-输入的字符串作为返回值，如果用户只是敲击回车键，SAC则会使用该默认值``MONDAY''。
+当 \texttt{reply} 函数执行时，引号中的字符串将出现在屏幕上，提示用户
+输入。如果用户输入，SAC会将输入的字符串作为返回值，如果用户只是敲击
+回车键，SAC则会使用该默认值``MONDAY''。
 
 \subsection{其他函数}
-这类函数目前只有一个：gettime，其语法为``\texttt{(gettime max|min [value])}''。
+这类函数目前只有一个：\texttt{gettime}，其语法为
+``\texttt{(gettime max|min [value])}''。
 
-gettime函数用于返回数据中首先出现大于或小于value的时间相对于文件参考时刻的相对时间；
-若没有指定value，max会返回文件中第一个最大值的相对时间，min会返回文件中第一个最小值
-的相对时间。
+\texttt{gettime} 函数用于返回数据中首先出现大于或小于value的时间相对于
+文件参考时刻的相对时间；若没有指定value，\texttt{max} 会返回文件中第一
+个最大值的相对时间，\texttt{min} 会返回文件中第一个最小值的相对时间。
 
-对于所有的文件有一个最大振幅，要找到这些文件中第一个文件中第一次大于该值所对应的时
-间偏移量：
+对于所有的文件有一个最大振幅，要找到这些文件中第一个文件中第一次大于
+该值所对应的时间偏移量：
 \begin{SACCode}
 SAC> fg seis
 SAC> echo on processed

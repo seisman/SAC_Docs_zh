@@ -13,7 +13,8 @@ RMS [NOISE ON|OFF|pdw] [TO USERn]
 \begin{description}
 \item [NOISE ON] 打开噪声归一化选项
 \item [NOISE OFF] 关闭噪声归一化选项
-\item [NOISE pdw] 打开噪声归一化选项并改变噪声的部分数据窗。关于pdw，参考\nameref{subsec:pdw}一节。
+\item [NOISE pdw] 打开噪声归一化选项并改变噪声的部分数据窗。
+    关于pdw，参考 \nameref{subsec:pdw} 一节。
 \item [TO USERn] 定义用于储存结果的头段变量USERn，其中n取0到9
 \end{description}
 
@@ -28,13 +29,13 @@ rms noise off to user0
 计算的一般形式是：对信号窗做一次求和并对可选的噪声窗做另一次求和。
 
 \SACTitle{示例}
-为了计算两个头段T1和T2间的数据的未修正的均方根，并将结果保存在头段USER4中:
+为了计算两个头段T1和T2间的数据的未修正的均方根，并将结果保存在头段USER4中：
 \begin{SACCode}
 SAC> mtw t1 t2
 SAC> rms to user4
 \end{SACCode}
 
-使用一个5秒长的噪声窗(结束于头段值T3)，并就算修正后的均方根:
+使用一个5秒长的噪声窗(结束于头段值T3)，并就算修正后的均方根：
 \begin{SACCode}
 SAC> mtw t1 t2
 SAC> rms noise t3 -5.0 0.0

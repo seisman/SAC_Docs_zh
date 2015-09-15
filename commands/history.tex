@@ -11,35 +11,35 @@ HISTORY
 
 \SACTitle{说明}
 该命令可以打印最近执行的命令历史，也可以用于重复执行命令历史中某个特定的命令：
-\begin{itemize}
-\item !! : 重复上一命令
-\item !n : 重叠第n行的命令
-\item !-n : 重复最近的命令行减去n得到的命令
-\item !str : 重复最近的以字符串str开始的命令
-\end{itemize}
+\begin{description}
+\item [!!] 重复上一命令
+\item [!n] 重复第n行的命令
+\item [!-n] 重复最近的命令行减去n得到的命令
+\item [!str] 重复最近的以字符串str开始的命令
+\end{description}
 
 \SACTitle{示例}
-打印命令历史列表:
+打印命令历史列表：
 \begin{SACCode}
 SAC> history
 \end{SACCode}
 
-重复命令1:
+重复命令1：
 \begin{SACCode}
 SAC> !1
 \end{SACCode}
 
-重复最后一条命令:
+重复最后一条命令：
 \begin{SACCode}
 SAC> !!
 \end{SACCode}
 
-重复倒数第二个命令:
+重复倒数第二个命令：
 \begin{SACCode}
 SAC> !-2
 \end{SACCode}
 
-重复以ps开头的命令::
+重复以ps开头的命令：
 \begin{SACCode}
 SAC> !ps
 \end{SACCode}

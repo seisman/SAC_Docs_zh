@@ -32,7 +32,7 @@ sgf prefix f number 1 directory current size normal
 
 \SACTitle{说明}
 这个命令控制SGF文件的命名规则和后续SGF文件的图形尺寸。每次绘图被储存在磁盘上单独的文件中
-，每一个SGF文件由4部分组成，分别为:
+，每一个SGF文件由4部分组成，分别为：
 \begin{itemize}
 \item pathname 目录路径名
 \item prefix 框架前缀
@@ -47,22 +47,22 @@ sgf prefix f number 1 directory current size normal
 SGFTOPS命令可以完成这个转换，尽管大于单页的图形需要适当的后期处理
 
 \SACTitle{示例}
-定义一个不是你当前目录的目录并重置图形框架号为序列中的下一个值:
+定义一个不是你当前目录的目录并重置图形框架号为序列中的下一个值：
 \begin{SACCode}
 SAC> sgf directory /mydir/sgfstore frame 0
 \end{SACCode}
 
-设置视口x方向绘图尺寸为3英寸:
+设置视口x方向绘图尺寸为3英寸：
 \begin{SACCode}
 SAC> sgf size fixed 3.0
 \end{SACCode}
 
-创建一个大小相当于贴在墙上的海报的图形
+创建一个大小相当于贴在墙上的海报的图形：
 \begin{SACCode}
 SAC> sgf size fixed 30.0
 \end{SACCode}
 
-设置视口x方向的绘图尺寸为每10秒地震数据1英寸长:
+设置视口x方向的绘图尺寸为每10秒地震数据1英寸长：
 \begin{SACCode}
 SAC> sgf size scaled 0.1
 \end{SACCode}

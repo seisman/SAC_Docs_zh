@@ -33,19 +33,19 @@ getbb to terminal names on newline on all
 将结果保存到文本文件中，然后用 \nameref{cmd:readtable} 命令将这个文件读回SAC，绘图或者进行更多的分析。
 
 \SACTitle{示例}
-假设你已经设置了一些黑板变量:
+假设你已经设置了一些黑板变量：
 \begin{SACCode}
 SAC> setbb c1 2.45 c2 4.94
 \end{SACCode}
 
-稍后可以这样打印他们的值:
+稍后可以这样打印他们的值：
 \begin{SACCode}
 SAC> getbb c1 c2
  c1 = 2.45
  c2 = 4.94
 \end{SACCode}
 
-想要在一行内只打印其值:
+想要在一行内只打印其值：
 \begin{SACCode}
 SAC> getbb names off newline off c1 c2
  2.45 4.94
@@ -53,7 +53,7 @@ SAC> getbb names off newline off c1 c2
 
 假设你有一个宏文件叫GETXY，其可以对单个文件进行某些分析操作，并将结果储存在两个头段变量中X和Y中。
 你想要对当前目录中所有垂直分量进行操作，保存每对X和Y的值，然后绘图。下面的宏文件的第一个参数是
-用于储存这些结果的文本文件:
+用于储存这些结果的文本文件：
 \begin{SACCode}
 DO FILE WILD *Z
   READ FILE

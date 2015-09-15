@@ -2,10 +2,10 @@
 \label{sec:instrument-response}
 相关命令：\nameref{cmd:transfer}
 
-SAC中可以使用命令 \nameref{cmd:transfer} 实现去仪器响应，本节只列出日常数据处理
-过程中最常用的命令。关于仪器响应的详细介绍，请参考附录``\nameref{chap:resp}''
-以及教科书中的相关内容。关于 \nameref{cmd:transfer} 命令的具体用法，参考该命令的
-语法说明及示例。
+SAC中可以使用命令 \nameref{cmd:transfer} 实现去仪器响应，本节只列出
+日常数据处理过程中最常用的命令。关于仪器响应的详细介绍，请参考附录
+``\nameref{chap:resp}''以及教科书中的相关内容。关于 \nameref{cmd:transfer} 
+命令的具体用法，参考该命令的语法说明及示例。
 
 本节会介绍RESP文件和PZ文件的几种用法，并对每种方法的优缺点进行比较。
 \subsection{RESP文件}
@@ -20,12 +20,12 @@ $ rdseed -Rdf infile.seed
 SAC> r *.SAC
 SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
 \end{SACCode}
-由于波形数据和RESP文件都是用 \texttt{rdseed} 从SEED数据中解压出来的，因而二者是一一对应的。
-对于内存中的每一个波形，\nameref{cmd:transfer} 命令会提取台站信息，并根据特定的格式在当前目录下
-寻找对应的RESP文件。
+由于波形数据和RESP文件都是用 \texttt{rdseed} 从SEED数据中解压出来的，
+因而二者是一一对应的。对于内存中的每一个波形，\texttt{transfer} 命令
+会提取台站信息，并根据特定的格式在当前目录下寻找对应的RESP文件。
 
 \subsubsection{RESP方法2}
-可以使用fname选项为每个波形指定RESP文件：
+可以使用 \texttt{fname} 选项为每个波形指定RESP文件：
 \begin{SACCode}
 SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rmean; rtr; taper
@@ -34,7 +34,8 @@ SAC> trans from evalresp fname RESP.TA.N11A..LHZ to none \
 \end{SACCode}
 
 \subsubsection{RESP方法3}
-把所有的PZ文件合并到同一个文件中，比如文件名叫``\texttt{RESP.ALL}''，然后使用如下命令：
+把所有的PZ文件合并到同一个文件中，比如文件名叫``\texttt{RESP.ALL}''，
+然后使用如下命令：
 \begin{SACCode}
 SAC> r *.SAC
 SAC> trans from evalresp fname RESP.ALL to none \
@@ -69,12 +70,13 @@ SAC> w over
 \end{SACCode}
 
 \subsection{对比}
-从易用性来看，RESP方法1、RESP方法3和PZ方法2都是比较易于使用的，只需要一个简单的
-命令，即可对所有波形数据进行处理。而RESP方法2和PZ方法1，需要用户自己从数据文件的
-文件名或头段中提取信息，并指定对应的响应文件，这需要通过写少量的脚本来实现。
+从易用性来看，RESP方法1、RESP方法3和PZ方法2都是比较易于使用的，
+只需要一个简单的命令，即可对所有波形数据进行处理。而RESP方法2和PZ
+方法1，需要用户自己从数据文件的文件名或头段中提取信息，并指定对应的
+响应文件，这需要通过写少量的脚本来实现。
 
-从执行效率来看，做了一个简单的测试。共670个波形数据，用不同的方法去仪器响应，
-完成所需时间如下：
+从执行效率来看，做了一个简单的测试。共670个波形数据，用不同的方法去
+仪器响应，完成所需时间如下：
 \begin{description}
 \item [RESP方法1] 58秒；
 \item [RESP方法2] 43秒；
@@ -84,14 +86,15 @@ SAC> w over
 \end{description}
 从中可以总结出执行效率的如下规律：
 \begin{enumerate}
-\item RESP2和PZ1相比，RESP3与PZ2相比，可知，PZ文件的效率要高于RESP文件。这很容易理解，
-    毕竟RESP文件中包含了更为完整的信息，计算量要更大一些；PZ文件中仅包含了零极点信息
-    和总增益信息，对于日常的使用来说，已经足够；
-\item RESP1和RESP2相比，区别只是在于后者使用指定的文件，而后者需要自己构建文件名，
-    但两者之间的执行时间却相差很多，目前无法理解这一时间差；
-\item RESP3和PZ2方法，都是把多个响应函数放在同一个响应文件中，对于每个波形
-    都需要对响应文件做遍历以找到匹配的响应函数，因而速度慢也是正常的；这里5倍和
-    10倍的时间差还是挺大的；
+\item RESP2和PZ1相比，RESP3与PZ2相比，可知，PZ文件的效率要高于RESP
+    文件。这很容易理解，毕竟RESP文件中包含了更为完整的信息，计算量要
+    更大一些；PZ文件中仅包含了零极点信息和总增益信息，对于日常的
+    使用来说，已经足够；
+\item RESP1和RESP2相比，区别只是在于后者使用指定的文件，而后者需要
+    自己构建文件名，但两者之间的执行时间却相差很多，目前无法理解这一时间差；
+\item RESP3和PZ2方法，都是把多个响应函数放在同一个响应文件中，
+    对于每个波形都需要对响应文件做遍历以找到匹配的响应函数，因而速度
+    慢也是正常的；这里5倍和10倍的时间差还是挺大的；
 \end{enumerate}
 
 总结下来：

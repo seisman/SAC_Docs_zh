@@ -7,13 +7,13 @@ my ($year, $month, $day, $hour, $min, $sec, $msec)
 
 my $doy = &ymd2doy($year, $month, $day);
 
-open(SAC, "| sac");
-print SAC "echo on\n";
+open(SAC, "| sac") or die "Error opening sac \n";
+print SAC "echo on \n";
 print SAC "r seis.SAC \n";
-print SAC "ch o gmt $year $doy $hour $min $sec $msec\n";
+print SAC "ch o gmt $year $doy $hour $min $sec $msec \n";
 print SAC "ch allt (0 - &1,o&) iztype IO \n";
 print SAC "wh \n";
-print SAC "q\n";
+print SAC "q \n";
 close(SAC);
 
 sub ymd2doy {

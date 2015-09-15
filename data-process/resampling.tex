@@ -4,17 +4,19 @@
 如下情形，需要对数据进行重采样：
 \begin{itemize}
 \item 不同仪器的采样周期可能不同，需要将所有的数据重采样到相同的采样周期；
-\item 数据的采样周期很小，导致数据量很大，而实际研究中不需要如此小的采样周期，因而可以对数据做减采样以减小数据量；
-\item 数据的采样周期过大，实际研究中需要更小的采样周期，此时需对数据做插值重采样；
+\item 数据的采样周期很小，导致数据量很大，而实际研究中不需要如此小的采样
+    周期，因而可以对数据做减采样以减小数据量；
+\item 数据的采样周期过大，实际研究中需要更小的采样周期，此时需对数据做
+    插值重采样；
 \item 数据为不等间隔数据，需要插值成为等间隔数据；
 \end{itemize}
 
 \subsection{decimate}
-\nameref{cmd:decimate} 专门用于解决上面所说的第二种情形，即等间隔数据的减采样。
-在减采样过程中，根据Nyquist采样定理，可能会出现混叠现象，而 \nameref{cmd:decimate} 对
-数据自动做了低通滤波，以避免混叠现象的产生。
+\nameref{cmd:decimate} 专门用于解决上面所说的第二种情形，即等间隔数据的
+减采样。在减采样过程中，根据Nyquist采样定理，可能会出现混叠现象，而 
+\texttt{decimate} 对数据自动做了低通滤波，以避免混叠现象的产生。
 
-下面的示例中，将一个等间隔数据，减采样10倍：
+下面的示例中，将一个等间隔数据减采样10倍：
 \begin{SACCode}
 SAC> fg seis
 SAC> lh delta npts
@@ -29,8 +31,8 @@ SAC> lh delta npts
 \end{SACCode}
 
 \subsection{interpolate}
-与 \nameref{cmd:decimate} 相比，\nameref{cmd:interpolate} 命令功能更加强大，
-其可以对等间隔或不等间隔数据进行增采样或减采样。
+与 \nameref{cmd:decimate} 相比，\nameref{cmd:interpolate} 命令功能
+更加强大，其可以对等间隔或不等间隔数据进行增采样或减采样。
 
 比如增采样，即插值：
 \begin{SACCode}
@@ -46,10 +48,10 @@ SAC> lh
      npts = 1999
 \end{SACCode}
 
-对于减采样，\nameref{cmd:interpolate} 与 \nameref{cmd:decimate} 的功能略有重复，
-但 \nameref{cmd:interpolate} 在减采样时不会对数据进行低通滤波，因而
-使用 \nameref{cmd:interpolate} 进行减采样时可能会出现混叠现象，故而需要手动进行低通
-滤波。
+对于减采样，\texttt{interpolate} 与 \texttt{decimate} 的功能略有重复，
+但 \texttt{interpolate} 在减采样时不会对数据进行低通滤波，因而使用 
+\texttt{interpolate} 进行减采样时可能会出现混叠现象，故而需要手动进行
+低通滤波。
 
 下面的示例将数据减采样到 \SI{20}{\Hz}。根据Nyquist采样定理，为了保证
 不产生混叠现象，应首先对数据做 \SI{10}{\Hz} 的低通滤波。
