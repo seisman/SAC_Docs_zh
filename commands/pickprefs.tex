@@ -12,7 +12,7 @@ PICKPR!EFS! ON|OFF
 \SACTitle{输入}
 \begin{itemize}
 \item ON : 指示SAC通过参考文件将到时信息由CSS缓冲区传送到SAC缓冲区。这对于需要特定到时位于特定头段变量的宏文件来说很有用
-\item OFF : 指示SAC绕过参考文件，载入给定文件的前10个震相拾取。这个是默认值，它允许用户注意一些在PICKPREFS ON时无法注意的拾取。 
+\item OFF : 指示SAC绕过参考文件，载入给定文件的前10个震相拾取。这个是默认值，它允许用户注意一些在PICKPREFS ON时无法注意的拾取。
 \end{itemize}
 
 \SACTitle{缺省值}
@@ -27,6 +27,3 @@ pickprefs off
 使用参考文件的缺点是它将只接收列在参考文件中或在命令PICKPHASE、PICKAUTHOR中输入的震相或作者列表。换句话说，如果一个CSS数据文件有一个pP的到时，不管其来自于平面文件还是Oracle数据库，而pP未在参考文件中指定，那么用户就绝不会知道pP在那里。pP震相将读入SAC中的CSS数据缓冲区，但是它不会转变到SAC数据缓冲区中，也不会参与任何SAC命令。它可以通过WRITECSS命令写出，或者可能通过COMMIT命令刷新然后全部丢失。
 
 我们给出的解决办法是允许用户绕过参考文件。在0.59版本中，默认是从CSS缓冲区中直接读入前10个可用的拾取到SAC缓冲区中，通过这个新命令PICKREFS的使用，用户可以告诉SAC使用指定的参考文件。
-
-\SACTitle{相关命令}
-\nameref{cmd:pickauthor}、\nameref{cmd:pickphase}

@@ -6,23 +6,23 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-SP!ECTRO!G!RAM! [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF] 
+SP!ECTRO!G!RAM! [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF]
     [SQRT|NLOG|LOG10|NOSCALING]
-    [YMIN v] [YMAX v] [METHOD PDS|MEM|MLM] [COLOR|GRAY] 
+    [YMIN v] [YMAX v] [METHOD PDS|MEM|MLM] [COLOR|GRAY]
     [PRINT pname]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [WINDOW v] 设置滑动数据窗的长度为v秒，这个窗长决定了FFT的尺寸 
-\item [SLICE v] 设置数据滑动间隔为v秒，对每个滑动间隔将产生一个频谱图线 
-\item [ORDER n] 指定用于计算谱估计的自相关中的点数 
-\item [CBAR ON|OFF] 打开/关闭参考颜色条 
+\item [WINDOW v] 设置滑动数据窗的长度为v秒，这个窗长决定了FFT的尺寸
+\item [SLICE v] 设置数据滑动间隔为v秒，对每个滑动间隔将产生一个频谱图线
+\item [ORDER n] 指定用于计算谱估计的自相关中的点数
+\item [CBAR ON|OFF] 打开/关闭参考颜色条
 \item [SQRT|NLOG|LOG10|NOSCALING] 指定振幅的自然对数、以10为底的对数或平方根
-\item [YMIN v] 指定绘图的最小频率  
-\item [YMAX v] 指定绘图最大频率 
-\item [METHOD PDS|MEM|MLM] 指定使用的谱估计方法，PDS代表功率密度谱估计，MLM代表最大似然，MEM代表最大熵谱估计。  
-\item [COLOR|GRAY] 指定是彩色图还是灰度图 
+\item [YMIN v] 指定绘图的最小频率
+\item [YMAX v] 指定绘图最大频率
+\item [METHOD PDS|MEM|MLM] 指定使用的谱估计方法，PDS代表功率密度谱估计，MLM代表最大似然，MEM代表最大熵谱估计。
+\item [COLOR|GRAY] 指定是彩色图还是灰度图
 \end{description}
 
 \SACTitle{缺省值}
@@ -54,6 +54,6 @@ Time ->
 \SACTitle{头段变量改变}
 需要：delta
 
-改变：npts, delta, b, e, iftype, depmin, depmax, depmen
+改变：npts、delta、b、e、iftype、depmin、depmax、depmen
 
-创建：nxsize, xminimum, xmaximum, ,break nysize, yminimum, ymaximum
+创建：nxsize、xminimum、xmaximum、nysize、yminimum、ymaximum

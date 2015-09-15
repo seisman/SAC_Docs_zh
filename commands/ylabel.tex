@@ -6,21 +6,21 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-YLAB!E!L [ON|OFF|text] [L!OCATION! T!OP!|B!OTTOM!|R!IGHT!|L!EFT!] 
+YLAB!E!L [ON|OFF|text] [L!OCATION! T!OP!|B!OTTOM!|R!IGHT!|L!EFT!]
     [SIZE T!INY!|S!MALL!|M!EDIUM!|L!ARGE!]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
 \item [ON] 打开Y轴标签选项，但不改变标签文本
-\item [OFF] 关闭Y轴标签选项 
+\item [OFF] 关闭Y轴标签选项
 \item [text] 打开Y轴标签选项，改变文本内容。如果文本包含空格，需要用引号括起来
 \item [LOCATION] 设定Y轴标签的位置。可以取TOP、BOTTOM、RIGHT、LEFT
 \item [SIZE] 改变绘图标签的文本尺寸
 \item [TINY] 每行132个字符
-\item [SMALL] 每行100个字符 
-\item [MEDIUM] 每行80字符 
-\item [LARGE] 大尺寸，每行50字符 
+\item [SMALL] 每行100个字符
+\item [MEDIUM] 每行80字符
+\item [LARGE] 大尺寸，每行50字符
 \end{description}
 
 \SACTitle{缺省值}
@@ -31,6 +31,3 @@ ylabel off location bottom size small
 \SACTitle{说明}
 如果这个选项为开，则Y轴标签将放在每张图上，其尺寸和位置以及文本均可以改变。
 文本质量以及字体可以使用GTEXT命令设置。
-
-\SACTitle{相关命令}
-\nameref{cmd:gtext}

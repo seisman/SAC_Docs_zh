@@ -79,9 +79,6 @@ SAC> endframe
 文本尺寸并不是当前标度的。当你生成一个图像并想要将文本放在一个矩形或圆中时会产生一个问题。在这种情况下，图形窗口必须与输出页具有相同的尺寸，以避免图形的偏差。这可以通过使用WINDOW命令设置窗的水平(x)尺寸为0.75，垂直(y)尺寸为0.69。
 例如： WINDOW 1 X 0.05 0.80 Y 0.05 0.74。这个命令必须在窗口被创建之前执行。(即在BEGINWINDOW或BEGINDEVICES之前)
 
-\SACTitle{相关命令}
-\nameref{cmd:vspace}、\nameref{cmd:begindevices}、\nameref{cmd:beginframe}、\nameref{cmd:endframe}
-
 \begin{table}[!ht]
 \centering
 \ttfamily

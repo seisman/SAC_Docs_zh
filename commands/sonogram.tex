@@ -6,29 +6,29 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-SONO!GRAM! [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF] 
-    [YMIN v] [YMAX v] [FMIN v] [FMAX v] [BINARY|FULL] 
+SONO!GRAM! [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF]
+    [YMIN v] [YMAX v] [FMIN v] [FMAX v] [BINARY|FULL]
     [METHOD PDS|MEM|MLM] [COLOR|GRAY] [PRINT pname]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [WINDOW v] 设置滑动数据窗的长度为v秒，这个窗长决定了FFT的尺寸 
-\item [SLICE v] 设置数据滑动间隔为v秒，对每个滑动间隔将产生一个频谱图线 
-\item [ORDER n] 指定用于计算谱估计的自相关中的点数 
-\item [CBAR ON|OFF] 打开/关闭参考颜色条 
-\item [BINARY|FULL] 产生一个双色或彩色图像 
-\item [YMIN v] 指定绘图的最小频率  
-\item [YMAX v] 指定绘图最大频率 
-\item [FMIN v] 指定每次滑动频谱图被平滑的最小带宽 
-\item [FMAX v] 指定每次滑动频谱图被平滑的最大带宽  
-\item [METHOD PDS|MEM|MLM] 指定使用的谱估计方法，PDS代表功率密度谱估计，MLM代表最大似然，MEM代表最大熵谱估计。 
-\item [COLOR|GRAY] 指定是彩色图还是灰度图 
+\item [WINDOW v] 设置滑动数据窗的长度为v秒，这个窗长决定了FFT的尺寸
+\item [SLICE v] 设置数据滑动间隔为v秒，对每个滑动间隔将产生一个频谱图线
+\item [ORDER n] 指定用于计算谱估计的自相关中的点数
+\item [CBAR ON|OFF] 打开/关闭参考颜色条
+\item [BINARY|FULL] 产生一个双色或彩色图像
+\item [YMIN v] 指定绘图的最小频率
+\item [YMAX v] 指定绘图最大频率
+\item [FMIN v] 指定每次滑动频谱图被平滑的最小带宽
+\item [FMAX v] 指定每次滑动频谱图被平滑的最大带宽
+\item [METHOD PDS|MEM|MLM] 指定使用的谱估计方法，PDS代表功率密度谱估计，MLM代表最大似然，MEM代表最大熵谱估计。
+\item [COLOR|GRAY] 指定是彩色图还是灰度图
 \end{description}
- 
+
 \SACTitle{缺省值}
 \begin{SACDFT}
-sonogram window 2 slice 1 method mem order 100 ymin 0 ymax 	
+sonogram window 2 slice 1 method mem order 100 ymin 0 ymax
     fnyquist fmin 2.0 fmax 6.0 full color
 \end{SACDFT}
 
@@ -44,6 +44,6 @@ sonogram命令计算了一个谱图，其等效于同一谱图两种不同平滑
 \SACTitle{头段变量}
 需要：delta
 
-修改：npts, delta, b, e, iftype, depmin, depmax, depmen
+修改：npts、delta、b、e、iftype、depmin、depmax、depmen
 
-创建：nxsize, xminimum, xmaximum, ,break nysize, yminimum, ymaximum
+创建：nxsize、xminimum、xmaximum、nysize、yminimum、ymaximum
