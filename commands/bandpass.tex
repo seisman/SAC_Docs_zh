@@ -18,7 +18,7 @@ B!AND!P!ASS! [BU!TTER!|BE!SSEL!|C1|C2] [C!ORNERS! v1 v2] [N!POLES! n] [P!ASSES! 
 \item [C2] 应用一个Chebyshev II滤波器
 \item [CORNERS v1 v2] 设定拐角频率分别为v1和v2，即频率通带为v1--v2
 \item [NPOLES n] 设置极数为N，范围：1--10
-\item [PASSES n] 设通道数为N，范围: 1--2
+\item [PASSES n] 设通道数为N，范围：1--2
 \item [TRANBW v] 设置Chebyshev转换带宽为v
 \item [ATTEN v] 设置Chebyshev衰减因子为v
 \end{description}
@@ -76,7 +76,7 @@ Chebyshev滤波器设计起来更复杂一点，你还需要提供转换带宽�
 SAC> bp n 4 c 2 5
 \end{SACCode}
 
-在此之后如果要应用一个二极双通具有相同频率的Bessel:
+在此之后如果要应用一个二极双通具有相同频率的Bessel：
 \begin{SACCode}
 SAC> bp n 2 be p 2
 \end{SACCode}

@@ -30,7 +30,7 @@ getbb to terminal names on newline on all
 \SACTitle{说明}
 该命令用于获取或打印黑板变量的值。可以控制打印哪些黑板变量以及具体的打印格式。
 你可以将黑板变量打印到终端或者文本文件中。你可以使用这些选项对一系列数据文件进行测量，
-将结果保存到文本文件中，然后用READALPHA命令将这个文件读回SAC，绘图或者进行更多的分析。
+将结果保存到文本文件中，然后用 \nameref{cmd:readtable} 命令将这个文件读回SAC，绘图或者进行更多的分析。
 
 \SACTitle{示例}
 假设你已经设置了一些黑板变量:
@@ -65,7 +65,7 @@ READALPHA CONTENT P 1
 PLOT
 \end{SACCode}
 最终这个文本文件将包含成对的x-y数据点，每行一个，对应一个垂直分量的数据文件。为了关闭文本文件
-并清空缓存区，最后将输出重定向到终端的GETBB命令是必要的。
+并清空缓存区，最后将输出重定向到终端的getbb命令是必要的。
 
 \SACTitle{相关命令}
 \nameref{cmd:setbb}、\nameref{cmd:evaluate}

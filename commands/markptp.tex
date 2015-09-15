@@ -40,14 +40,14 @@ markptp length 5.0 to t0
 若stw的长度小于等于零，则 \texttt{stw=mtw/2}。
 
 \SACTitle{示例}
-设置测量时间窗为头段T4和T5之间，并使用默认的滑动时间窗长和时间标记:
+设置测量时间窗为头段T4和T5之间，并使用默认的滑动时间窗长和时间标记：
 \begin{SACCode}
 SAC> mtw t4 t5
 SAC> markptp
 SAC> lh t0 t1 user0 kuser0
 \end{SACCode}
 
-设置测量时间窗为初动之后的30s，滑动时间窗为3s，起始时间标记为T7:
+设置测量时间窗为初动之后的 \SI{30}{s}，滑动时间窗为 \SI{3}{s}，起始时间标记为T7：
 \begin{SACCode}
 SAC> mtw a 0 30
 SAC> markptp l 3. to t7

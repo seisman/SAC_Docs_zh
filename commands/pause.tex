@@ -13,7 +13,7 @@ PAUSE [MESSAGE text] [PERIOD ON|OFF|v]
 \begin{description}
 \item [MESSAGE text] 在暂停之前发送到终端的文本，若文本包含空格则应用引号括起来
 \item [PERIOD ON] 打开period选项但不改变暂停的长度，如果这个选项为开，SAC会暂停一段时间然后自动恢复执行
-\item [PERIOD OFF] 关闭period选项开关。当这个选项关闭时，SAC将暂停知道输入回车键
+\item [PERIOD OFF] 关闭period选项开关。当这个选项关闭时，SAC将暂停直到输入回车键
 \item [PERIOD v] 打开period选项开关并改变暂停的时间长度为v秒
 \end{description}
 
@@ -25,7 +25,7 @@ pause message 'Pausing' period off
 \SACTitle{说明}
 这个命令使你能够暂停SAC宏文件的执行。当这个命令被执行时，SAC发送信息到终端、暂停，
 然后等待你在终端输入回车或者暂停时间结束。当你想要研究一个特定命令的输出时可以让
-宏文件暂停执行再继续。它在用于说明或者教学时特别有用。ECHO命令也很有用的。
+宏文件暂停执行再继续。它在用于说明或者教学时特别有用。\nameref{cmd:echo} 命令也很有用的。
 
 \SACTitle{相关命令}
 \nameref{cmd:echo}

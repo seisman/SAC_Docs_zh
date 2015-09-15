@@ -34,17 +34,17 @@ fileid on type default location ur format nonames
 这个ID最多可以由10个SAC头段变量构成。文件ID的位置以及格式也可以修改。
 
 \SACTitle{示例}
-将文件名放在左上角:
+将文件名放在左上角：
 \begin{SACCode}
 SAC> fileid location ul type name
 \end{SACCode}
 
-定义一个特殊的文件id，包含台站分量、经纬度:
+定义一个特殊的文件id，包含台站分量、经纬度：
 \begin{SACCode}
 SAC> fileid type list kstcmp stla stlo
 \end{SACCode}
 
-文件id为头段名后加一个冒号:
+文件id为头段名后加一个冒号：
 \begin{SACCode}
 SAC> fileid format colon
 \end{SACCode}

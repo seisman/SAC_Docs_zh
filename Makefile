@@ -19,4 +19,4 @@ upload:
 
 clean:
 	latexmk -c
-	-rm -r _minted-$(DOC)
+	-rm -r _minted-$(DOC) *.minted* *.pyg

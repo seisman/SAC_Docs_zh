@@ -17,27 +17,27 @@ SETBB variable  [APPEND] value [variable [APPEND] value ...]
 \end{description}
 
 \SACTitle{说明}
-setbb命令可以给黑板变量赋值，这些值可以通过GETBB命令获取，或在命令中直接引用。
-你可以使用EVALUATE对黑板变量做基本算术操作，并将结果保存在新的黑板变量中，你也可以
-通过UNSETBB命令删除一个黑板变量。
+setbb命令可以给黑板变量赋值，这些值可以通过getbb命令获取，或在命令中直接引用。
+你可以使用evaluate对黑板变量做基本算术操作，并将结果保存在新的黑板变量中，你也可以
+通过unsetbb命令删除一个黑板变量。
 
 \SACTitle{示例}
-同时设置多个黑板变量:
+同时设置多个黑板变量：
 \begin{SACCode}
 SAC> setbb c1 2.45 c2 4.94
 \end{SACCode}
 
-稍后在命令中使用这些变量:
+稍后在命令中使用这些变量：
 \begin{SACCode}
 SAC> bandpass corners %c1% %c2%
 \end{SACCode}
 
-设置包含空格的黑板变量:
+设置包含空格的黑板变量：
 \begin{SACCode}
 SAC> setbb mytitle 'sample filter response'
 \end{SACCode}
 
-检查以确保黑板变量的值正确:
+检查以确保黑板变量的值正确：
 \begin{SACCode}
 SAC> getbb mytitle
  MYTITLE = Sample filter response

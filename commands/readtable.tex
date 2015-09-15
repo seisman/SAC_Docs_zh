@@ -50,7 +50,10 @@ content字段允许的字符如下:
 \item I: 忽略这个输入
 \end{itemize}
 
-还有一个重复计数器可以跟在上面的任何字符之后。这个重复计数器是一个1位或2位整数，其代表重复前面那个字符多少次，``.''是一个无穷次重复的计数器，其只能出现在content的text的最后，意味着最后一个字符可以表示接下来的所有输入列。
+还有一个重复计数器可以跟在上面的任何字符之后。这个重复计数器是一个1位或
+2位整数，其代表重复前面那个字符多少次，``\texttt{.}''是一个无穷次重复
+的计数器，其只能出现在content的text的最后，意味着最后一个字符可以表示
+接下来的所有输入列。
 
 \SACTitle{示例}
 为了读取一个或多个自由格式的X-Y数据对：
@@ -58,7 +61,7 @@ content字段允许的字符如下:
 SAC> readtable content p. filea
 \end{SACCode}
 
-你不能在文件行之间打断一个X-Y数据对。假设你有一个包含了格式化数据的文件，在每行的中间有一个X-Y数据对。每行的其它数据都没有用。假设每行Y数据在X数据之前，一旦正确的格式声明给出了，就可以用下面的命令:
+你不能在文件行之间打断一个X-Y数据对。假设你有一个包含了格式化数据的文件，在每行的中间有一个X-Y数据对。每行的其它数据都没有用。假设每行Y数据在X数据之前，一旦正确的格式声明给出了，就可以用下面的命令：
 \begin{SACCode}
 SAC> readtable content r format \(24x,f12.3,14x,f10.2\) fileb
 \end{SACCode}
@@ -70,11 +73,11 @@ SAC> readtable content xn . format \(8f10.2\) filec
 \end{SACCode}
 这将在内存中产生7个不同的数据文件，其名称分别为FILEC01, FILEC02等等。
 
-现在假设你不想读入第5个Y数据集，可以执行下面的命令:
+现在假设你不想读入第5个Y数据集，可以执行下面的命令：
 \begin{SACCode}
 SAC> readtable content xn6 format \(5f10.20x,2f10.2\) filec
 \end{SACCode}
-另一个可以少敲键盘但是稍微低效一点的命令如下:
+另一个可以少敲键盘但是稍微低效一点的命令如下：
 \begin{SACCode}
 SAC> READTABLE CONTENT XN4IN2 FORMAT \(8F10.2\) FILEC
 \end{SACCode}

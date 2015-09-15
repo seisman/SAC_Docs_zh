@@ -1,8 +1,11 @@
 \pdfbookmark[1]{E1xxx}{E1xxx}
 \SACTitle{1028 External command does not exist}
-执行 \nameref{cmd:load} 命令时找不到外部命令。产生该错误的原因很多，可能是环境变量
-\verb|LD_LIBRARY_PATH| 不包含要载入的共享库的所在目录，或 \texttt{SACSOLIST} 中不包含
-要载入的共享库的名字。
+执行 \nameref{cmd:load} 命令时找不到外部命令。产生该错误的原因很多，可能
+是环境变量 \verb|LD_LIBRARY_PATH| 不包含要载入的共享库的所在目录，或
+\verb|$SACSOLIST| 中不包含要载入的共享库的名字。
+
+\SACTitle{1103 No help package is available}
+没有可用的帮助文档包，可能原因是没找到 \verb|${SACAUX}/help| 目录。
 
 \SACTitle{1106 Not a valid SAC command.}
 对于每一行命令，SAC首先会检查是否是SAC内部的命令，如果不是，则检查是否是系统自带

@@ -15,7 +15,7 @@ T!RAVEL!TIME [MODEL string] [PICKS number] [PHASE phase list]
 \item [MODEL] iasp91或ak135，缺省为iasp91
 \item [Picks] 如果number值位于0到9，则第一个震相的到时将储存在头段Tn中。如果命令行选项中没有包含PICKS，VERBOSE就会打开并显示震相到时而不写入头段。
 \item [PHASE] 要pick或显示的震相列表，如果有PICKS n选项，则则震相到时以及其标签将写入到头段Tn和KTn中。
-\item [VERBOSE|QUIET] 若使用VERBOSE，则震相走时将以相对发震时刻(O)和文件起始时间(B)两种方式显示；若使用QUIET，则不在屏幕上显示到时，若二者都没有显示，则显示TRAVELTIME命令使用的深度
+\item [VERBOSE|QUIET] 若使用VERBOSE，则震相走时将以相对发震时刻(O)和文件起始时间(B)两种方式显示；若使用QUIET，则不在屏幕上显示到时，若二者都没有显示，则显示traveltime命令使用的深度
 \item [M|KM] EVDP的单位为 \si{\m} 或者 \si{\km}。
 \end{description}
 

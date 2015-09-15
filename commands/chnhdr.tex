@@ -13,7 +13,7 @@ C!HN!H!DR! [FILE n1 n2 ...] field v [field v ...] [ALLT v]
 \begin{description}
 \item [FILE n1 n2] 只修改内存中的指定文件的头段变量，n为内存中文件的文件号
 \item [field v] SAC头段变量名及其值\footnote{为了保证数据内部一致性，以下头段变量的值
-    不可用该命令修改：NVHDR、NPTS、NWFID、NORID和NEVID}
+    不可用该命令修改：nvhdr、npts、nwfid、norid和nevid}
 \item [ALLT v] 将所有已定义的时间相关头段变量的值加v秒，同时将参考时刻减去v秒
 \end{description}
 
@@ -41,19 +41,19 @@ writehdr命令，SAC会对新值做有效性检查，不过你可以使用listhd
 而非相对时间来改变时间偏移变量的值。绝对时刻首先被转换为相对时间，然后再存入头段中。
 
 \SACTitle{示例}
-为了定义内存中所有文件的事件经纬度、事件名::
+为了定义内存中所有文件的事件经纬度、事件名：
 \begin{SACCode}
 SAC> ch evla 34.3 evlo -118.5
 SAC> ch kevnm 'LA goes under'
 \end{SACCode}
 
-为了定义第二、四个文件的事件经纬度、事件名:
+为了定义第二、四个文件的事件经纬度、事件名：
 \begin{SACCode}
 SAC> ch file 2 4 EVLA 34.3 EVLO -118.5
 SAC> ch file 2 4 KEVNM 'LA goes under'
 \end{SACCode}
 
-设定初动到时为无定义状态:
+设定初动到时为无定义状态：
 \begin{SACCode}
 SAC> ch a undef
 \end{SACCode}
@@ -61,16 +61,16 @@ SAC> ch a undef
 假设你知道事件的GMT起始时间，你想要快速改变头段中所有的时间变量，使得发震时刻是0
 即参考时间为发震时刻，并且所有的相对时间根据这个时间去纠正相对值。
 
-首先用GMT选项设置事件起始时间:
+首先用GMT选项设置事件起始时间：
 \begin{SACCode}
 SAC> ch o GMT 1982 123 13 37 10 103
 \end{SACCode}
-现在使用LISTHDR检查发震时刻o相对于当前参考时间的描述:
+现在使用listhdr检查发震时刻o相对于当前参考时间的描述：
 \begin{SACCode}
 SAC> lh o
  o = 123.103
 \end{SACCode}
-现在使用ALLT选项从所有的偏移时间中减去这个值，并加到参考时间上,你同时需要改变描述参考时间类型的字段:
+现在使用ALLT选项从所有的偏移时间中减去这个值，并加到参考时间上,你同时需要改变描述参考时间类型的字段：
 \begin{SACCode}
 SAC> ch allt -123.103 iztype iO
 \end{SACCode}
