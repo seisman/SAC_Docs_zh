@@ -6,22 +6,22 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-SYM!BOL! [ON|OFF|n] [SIZE v] [SPACING v] [INCRE!MENT! ON|OFF] 
+SYM!BOL! [ON|OFF|n] [SIZE v] [SPACING v] [INCRE!MENT! ON|OFF]
     [LIST STANDARD|nlist]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [ON] 打开符号绘图开关，不改变符号号 
-\item [OFF] 关闭符号绘图开关 
-\item [n] 打开符号绘图开关。将符号号设置为n。目前有16个不同的符号，符号0意味着关闭符号开关  
-\item [SIZE v] 设置符号尺寸为v。值为0.01意味着占据整个绘图尺寸的1\%	
+\item [ON] 打开符号绘图开关，不改变符号号
+\item [OFF] 关闭符号绘图开关
+\item [n] 打开符号绘图开关。将符号号设置为n。目前有16个不同的符号，符号0意味着关闭符号开关
+\item [SIZE v] 设置符号尺寸为v。值为0.01意味着占据整个绘图尺寸的1\%
 \item [SPACING v] 设置符号间隔为v。这是绘图时符号间的最小间隔；如果你想每个数据点
     都有符号，则设其值为0，对注释行使用0.2到0.4
 \item [INCREMENT ON] 对每个数据文件操作完成后按符号列表递增为下一个符号
 \item [INCREMENT OFF] 关闭上述INCREMENT选项
-\item [LIST nlist] 改变符号表的内容。输入符号号码表。设置表中的第一个符号码，并打开符号绘图开关 
-\item [LIST STANDARD] 改变到标准符号表。设置表中的第一个符号表，并打开符号绘制选项。 
+\item [LIST nlist] 改变符号表的内容。输入符号号码表。设置表中的第一个符号码，并打开符号绘图开关
+\item [LIST STANDARD] 改变到标准符号表。设置表中的第一个符号表，并打开符号绘制选项。
 \end{description}
 
 \SACTitle{缺省值}
@@ -55,6 +55,3 @@ SAC> line list 1 0 0 increment
 SAC> symbol list 0 3 7 increment
 SAC> plot2
 \end{SACCode}
-
-\SACTitle{相关命令}
-\nameref{cmd:line}

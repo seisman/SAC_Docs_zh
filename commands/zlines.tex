@@ -11,8 +11,8 @@ ZLINES  [ON|OFF] [LIST n1 n2 ... nn] [REGIONS v1 v2 ... vn]
 
 \SACTitle{输入}
 \begin{description}
-\item [ON|OFF] 打开等值线显示选项 
-\item [LIST n1 n2 .. nn] 设置要使用的线型表，这个表上的每个输入用于相应的等值线。如果等值线的数目大于这个表中给出的线型的数目，则使用整个线型表 
+\item [ON|OFF] 打开等值线显示选项
+\item [LIST n1 n2 .. nn] 设置要使用的线型表，这个表上的每个输入用于相应的等值线。如果等值线的数目大于这个表中给出的线型的数目，则使用整个线型表
 \item [REGIONS v1 v2 .. vn] 设置等值线范围表。这个表的长度应小于线型表的长度，小于范围值的等值线使用线型表中相应的线型。超过最后一个范围值的等值线采用线型表中最后一个线型的值
 \end{description}
 
@@ -31,6 +31,3 @@ SAC> zlines list 1 2 3 4
 \begin{SACCode}
 SAC> zlines list 2 1 regions 0.0
 \end{SACCode}
-
-\SACTitle{相关命令}
-\nameref{cmd:contour}

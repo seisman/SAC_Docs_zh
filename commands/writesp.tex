@@ -36,21 +36,21 @@ SAC数据文件可以为时间序列文件或谱文件。头段中的IFTYPE用�
 为了帮助你跟踪磁盘上的数据，SAC将在你给出的文件名后加一个后缀以标识储存在文件的谱分量。后缀分别为``.RL'', ``.IM'', ``.AM''和``.PH''分别对应不同的分量。
 
 \SACTitle{示例}
-假设你想要对FILE1的谱文件振幅进行一些操作:
+假设你想要对FILE1的谱文件振幅进行一些操作：
 \begin{SACCode}
 SAC> read file1
 SAC> fft amph
 SAC> writesp over
 \end{SACCode}
 
-SAC将输出两个文件FILE1.AM和FILE1.PH，现在可以对振幅文件进行操作:
+SAC将输出两个文件FILE1.AM和FILE1.PH，现在可以对振幅文件进行操作：
 \begin{SACCode}
 SAC> read file1.am
 SAC> ...perform operations.
 SAC> write over
 \end{SACCode}
 
-现在磁盘中的文件为修改后的谱文件，如果你想要重建SAC谱数据并进行反变换:
+现在磁盘中的文件为修改后的谱文件，如果你想要重建SAC谱数据并进行反变换：
 \begin{SACCode}
 SAC> readsp file1
 SAC> ifft
@@ -58,7 +58,4 @@ SAC> write file2
 \end{SACCode}
 
 \SACTitle{头段变量改变}
-磁盘文件中的b, e, delta将包含频率的起始值、结束值和增值，单位hz
-
-\SACTitle{相关命令}
-\nameref{cmd:readsp}
+磁盘文件中的b、e、delta将包含频率的起始值、结束值和增值，单位为 \si{Hz}
