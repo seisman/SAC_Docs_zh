@@ -12,7 +12,7 @@ COPYHDR [FROM name|n] hdrlist
 \SACTitle{输入}
 \begin{description}
 \item [FROM name] 从内存中文件名为name的文件中复制头段列表
-\item [FROM n] 从内存中第n个文件中复制头段列表 
+\item [FROM n] 从内存中第n个文件中复制头段列表
 \item [hdrlist] 要复制的头段变量列表
 \end{description}
 
@@ -27,7 +27,7 @@ copyhdr from 1
 
 \SACTitle{示例}
 假设你使用ppk命令在文件FILE1中标记了多个时间，并将其储存到头段变量T3和T4中。
-为了将这些时间标记复制到到FILE2和FILE3中:
+为了将这些时间标记复制到到FILE2和FILE3中：
 \begin{SACCode}
 SAC> r FILE1
 SAC> ppk
@@ -37,7 +37,7 @@ SAC> copyhdr from 1 T3 T4
 \end{SACCode}
 
 假设你读取了很多文件，你想要复制文件ABC中的头段变量evla和evlo到其他所有文件中去，
-这时使用文件名而非数字会更简单:
+这时使用文件名而非数字会更简单：
 \begin{SACCode}
 SAC> copyhdr from abc stla stlo
 \end{SACCode}

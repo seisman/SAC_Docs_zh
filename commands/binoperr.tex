@@ -42,7 +42,7 @@ binoperr npts fatal delta fatal
 若要操作的两个文件采样周期不匹配，则SAC会使用第一个数据文件的采样周期作为结果文件的采样周期。
 
 \SACTitle{示例}
-假定file1有1000个数据点，file2有950个数据点:
+假定file1有1000个数据点，file2有950个数据点：
 \begin{SACCode}
 SAC> binoperr npts fatal
 SAC> read file1
@@ -50,7 +50,7 @@ SAC> addf file2
 ERROR:  Header field mismatch: NPTS file1 file2
 \end{SACCode}
 
-上例中由于数据点数不匹配导致文件加法未执行，假设你输入:
+上例中由于数据点数不匹配导致文件加法未执行，假设你输入：
 \begin{SACCode}
 SAC> binoperr npts warning
 SAC> addf file2

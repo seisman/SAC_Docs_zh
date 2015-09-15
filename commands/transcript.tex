@@ -27,12 +27,12 @@ TRANSCRIPT [OPEN|CREATE|CLOSE|CHANGE|WRITE|HISTORY] [FILE filename]
 \end{description}
 其中list可以取：
 \begin{itemize}
-\item ERRORS : 执行命令期间产生的错误消息
-\item WARNINGS : 执行命令期间产生的警告消息
-\item OUTPUT : 执行命令期间的输出消息
-\item COMMANDS : 终端输出的原始命令
-\item MACROS : 宏文件中出现的原始命令
-\item PROCESSED : 经终端或宏处理之后的命令
+\item ERRORS：执行命令期间产生的错误消息
+\item WARNINGS：执行命令期间产生的警告消息
+\item OUTPUT：执行命令期间的输出消息
+\item COMMANDS：终端输出的原始命令
+\item MACROS：宏文件中出现的原始命令
+\item PROCESSED：经终端或宏处理之后的命令
 \end{itemize}
 
 \SACTitle{缺省值}
@@ -46,22 +46,22 @@ transcript open file transcript contents all
 其中的一个用途是记录终端输入的命令然后用于一个宏文件中，如下例所示。
 
 \SACTitle{示例}
-为了创建一个新的副本文件，文件名为MYTRAN，包含了除已处理命令之外的其他全部类型:
+为了创建一个新的副本文件，文件名为mytran，包含了除已处理命令之外的其他全部类型：
 \begin{SACCode}
 SAC> transcript create file mytran cont err warn out com macros
 \end{SACCode}
 
-如果之后不想把宏命令送入这个文件，你可以使用CHANGE选项:
+如果之后不想把宏命令送入这个文件，你可以使用CHANGE选项：
 \begin{SACCode}
 SAC> transcript change file mytran contents e w o c
 \end{SACCode}
 
-为了定义一个名为MYRECORD的副本文件，其记录了终端输入的命令:
+为了定义一个名为myrecord的副本文件，其记录了终端输入的命令：
 \begin{SACCode}
 SAC> transcript create file myrecord contents commands
 \end{SACCode}
 
-以后，经过适当的编辑，这个文件可以用作宏命令文件，去自动执行相同的一组命令。在最后的例子中假设你需要彻夜处理许多事件。你可以设置每个事件一个副本文件(用不同的副本文件名)去记录处理的结果。另外你可以将处理所有事件得到的任何错误消息保存到一个副本文件中:
+以后，经过适当的编辑，这个文件可以用作宏命令文件，去自动执行相同的一组命令。在最后的例子中假设你需要彻夜处理许多事件。你可以设置每个事件一个副本文件(用不同的副本文件名)去记录处理的结果。另外你可以将处理所有事件得到的任何错误消息保存到一个副本文件中：
 \begin{SACCode}
 SAC> transcript open file errortran contents errors
 SAC> transcript write message 'processing event 1'
@@ -71,11 +71,11 @@ SAC> transcript write message 'processing event 1'
 运行信息和出错信息将添加到文件的后面，第二天检查一下这个出错信息副本文件，就可以快速
 查阅在处理期间是否出现了错误。
 
-为了将保存一个命令行副本，以记录SAC当前和将来要运行的命令:
+为了将保存一个命令行副本，以记录SAC当前和将来要运行的命令：
 \begin{SACCode}
 SCA> transcript history file .sachist
 \end{SACCode}
 这就在当前目录创建并写入了一个副本文件``\verb|~/.sachist|''。任何储存在那里的文件将被载入命令历史中。
 如果这个命令位于你的启动初始化宏文件中，则每次你运行SAC时将在当前目录产生一个单独的命令行历史。
 在一个新执行的SAC中，上下键将浏览完整的命令历史，你可以修改以前输入的命令并再次执行它，
-如果你没有在SAC内或初始化宏文件中输入这个命令，则命令行历史将自动保存到 \verb|~/.sac_history|
+如果你没有在SAC内或初始化宏文件中输入这个命令，则命令行历史将自动保存到 \verb|~/.sac_history|。

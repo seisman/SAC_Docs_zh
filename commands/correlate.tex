@@ -19,8 +19,8 @@ COR!RELATE! [M!ASTER! name|n] [N!UMBER! n] [L!ENGTH! ON|OFF|v] [NO!RMALIZED!]
 \item [NORMALIZED] 对相关结果进行归一化
 \item [TYPE RECTANGLE] 给每个窗应用矩形函数，其等价于不对窗加函数
 \item [TYPE HAMMING|HANNING] 对每个窗应用Hamming/Hanning函数
-\item [TYPE COSINE] 对每个窗的前后10\%的数据点应用COSINE函数
-\item [TYPE TRIANGLE] 对每个窗应用TRIANGLE函数
+\item [TYPE COSINE] 对每个窗的前后10\%的数据点应用余弦函数
+\item [TYPE TRIANGLE] 对每个窗应用三角函数
 \end{description}
 
 \SACTitle{缺省值}
@@ -45,7 +45,7 @@ correlate master 1 number 1 length off type rectangle
 当窗长度(LENGTH选项)以及窗数目(NUMBER选项)超过文件中的数据点数(NPTS)时，
 会自动计算窗之间的重叠。缺省情况下，此窗特性是关闭的。
 
-使用归一化选项，会对相关函数做归一化，最终得到的结果位于-1到1之间，由此可以得到
+使用归一化选项，会对相关函数做归一化，最终得到的结果位于$-1$到$1$之间，由此可以得到
 常用的互相关系数。
 
 \SACTitle{示例}

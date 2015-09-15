@@ -44,12 +44,7 @@ gcc -o libxxx.so -shared extern.c foo.c bar.c sac.a
 其中sac.a可以从你得到sac的地方获得
 
 \SACTitle{SAC发布的外部命令}
-在SAC的发布版中有一个外部命令，叫做FLIPXY。FLIPXY将一个或多个X-Y数据文件作为输入，并调换X和Y。这个命令在SAC/aux/external中的libcom.so中，同时还有FLIPXY的源代码作为参考。为了导入FLIPXY，libcom.so必须包含在SACSOLIST中
-
-\SACTitle{错误消息}
-\begin{itemize}
-\item[-]1028: 外部命令不存在：这意味着SAC无法找到你的外部命令
-\end{itemize}
-
-这个错误产生的原因很多，一个可能是环境变量LD\_LIBRARY\_PATH不包含到达你的共享库的目录。
-另一个可能的原因是SACSOLIST不包含你的共享库的名字
+在SAC的发布版中有一个外部命令，叫做FLIPXY。FLIPXY将一个或多个X-Y数据文件
+作为输入，并调换X和Y。这个命令在 \verb|${SACAUX}/external| 中的libcom.so
+中，同时还有FLIPXY的源代码作为参考。为了导入FLIPXY，libcom.so必须包含在
+\verb|$SACSOLIST| 中。
