@@ -11,8 +11,8 @@ XVP!ORT! xvmin xvmax
 
 \SACTitle{输入}
 \begin{description}
-\item [xvmin] X轴视口的最小值，范围为0.0到xvmax
-\item [xvmax] X轴视口的最大值，范围为xmin到1.0
+\item [xvmin] X轴视口的最小值，范围为 \texttt{0.0} 到 \texttt{xvmax}
+\item [xvmax] X轴视口的最大值，范围为 \texttt{xmin} 到 \texttt{1.0}
 \end{description}
 
 \SACTitle{缺省值}
@@ -21,15 +21,17 @@ xvport 0.1 0.9
 \end{SACDFT}
 
 \SACTitle{说明}
-视口(viewspace)是实际绘制的视窗的一部分。用于定义视口和视窗的坐标系称为虚拟坐标系。
-虚拟坐标系不依赖于特定物理设备显示面的尺寸、形状或分辨率。SAC的坐标系在x和y方向都是0到1的范围。
-视窗左下角的坐标为 \texttt{(0.0, 0.0)}，右上角的坐标为 \texttt{(1.0, 1.0)}。
-这个坐标系的使用便于你指定一个图形的位置，而不必考虑特定的输出设备。
+视口（viewport）是视窗（viewspace）的一部分。在SAC中，定义视口时使用的是
+相对坐标系，即坐标系在X和Y方向都是0到1的范围。视窗左下角的坐标为
+\texttt{(0.0, 0.0)}，右上角的坐标为 \texttt{(1.0, 1.0)}。该坐标系是与
+输出设备无关的，因而可以很方便地指定一个图形的位置。
 
-XVPORT和YVPORT命令控制在视窗中哪个位置上绘制指定的图形。默认值使用了视窗的部分，
-在图形的每边留下一些空间绘制坐标轴、标签和标题。你可以使用这个命令把一个给定的图形安
-排在任何位置。当与BEGINFRAME和ENDFRAME命令一起使用，这些命令让你创建特殊的构图以在相同的
-框架中放置若干不同的图形。
+\texttt{xvport} 和 \texttt{yvport} 定义了视口相对于视窗的位置，后续的
+命令将在定义的视口中绘图。默认值 \texttt{xvport 0.1 0.9} 在X方向上使用了
+视窗的80\%，在图形的左右两边留下一些空间绘制坐标轴、标签和标题。
+
+当与 \nameref{cmd:beginframe} 和 \nameref{cmd:endframe} 命令一起使用时，
+可以让你能够在一个视窗内绘制若干不同的图形，构成复杂的组合图。
 
 \SACTitle{示例}
-参见 \nameref{cmd:beginframe}
+参见 \nameref{sec:composite-plots} 一节。

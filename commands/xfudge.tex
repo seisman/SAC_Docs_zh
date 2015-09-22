@@ -2,7 +2,7 @@
 \label{cmd:xfudge}
 
 \SACTitle{概要}
-改变X轴的``插入因子''
+设置X轴范围的附加因子
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -11,9 +11,9 @@ XFUDGE [ON|OFF|v]
 
 \SACTitle{输入}
 \begin{description}
-\item [ON] 打开插入选项，但不改变插入因子
-\item [OFF] 关闭插入选项
-\item [v] 打开插入因子，改变插入因子为v
+\item [v] 设置附加因子为 \texttt{v}
+\item [ON] 打开附加选项，但不改变附加因子
+\item [OFF] 关闭附加选项
 \end{description}
 
 \SACTitle{缺省值}
@@ -22,9 +22,16 @@ xfudge 0.03
 \end{SACDFT}
 
 \SACTitle{说明}
-当打开此选项时，实际轴范围将根据插入因子改变，确定线性坐标轴范围的方法是：
-\[ XDIFF=XFUDGE*(XMAX-XMIN) \]
-\[ XMIN=XMIN-XDIFF \]
-\[ XMAX=XMAX+XDIFF \]
-其中XMIN和XMAX是数据的极值，XFUDGE是插入因子，这个算法对于对数坐标也是相似的。
-该选项仅当坐标轴的范围设置为数据极值时方可使用。
+当坐标轴的范围设置为数据的时间极值时，\texttt{xmin=b}，\texttt{xmax=e}。实际绘图时
+会将 \texttt{xmin} 调小一点，将 \texttt{xmax} 调大一点，使得绘图时波形的两端
+与边框之间留有一些空隙。附加因子定义了这个空隙相对于时间极值的比例。
+
+实际绘图时，会根据附加因子计算新的坐标轴范围：
+\begin{verbatim}
+            xdiff = xfudge * ( b - e )
+            xmin = b - xdiff
+            xmax = e + xdiff
+\end{verbatim}
+其中 \texttt{b} 和 \texttt{e} 是数据的时间范围，\texttt{xfudge} 是附加
+因子，\texttt{xmin} 和 \texttt{xmax} 是计算得到的X坐标轴范围。
+该算法对对数坐标也得类似的效果。

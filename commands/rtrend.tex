@@ -3,7 +3,6 @@
 
 \SACTitle{概要}
 去除线性趋势
-\footnote{101.6和101.6a的rtrend命令存在Bug，详情参考\url{http://seisman.info/sac-bugs.html}}
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -22,8 +21,8 @@ rtrend quiet
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令利用最小二乘方法将数据拟合成一条直线，然后从数据中减去该直线所表征的线性趋势。
-数据可以是不等间隔的。
+该命令利用最小二乘方法将数据拟合成一条直线，然后从数据中减去该直线所
+表征的线性趋势。数据可以是不等间隔的。
 
 若有$n$个数据$(x_i,y_i)$，利用最小二乘法拟合直线$y=ax+b$。其中斜率为
 \[

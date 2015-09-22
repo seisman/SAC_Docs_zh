@@ -11,43 +11,53 @@ MERGE [V!ERBOSE!] [G!AP! Z!ERO!|I!NTERP!] [O!VERLAP! C!OMPARE!|A!VERAGE!] [filel
 
 \SACTitle{输入}
 \begin{description}
-\item [VERBOSE] 输出数据合并的细节。
-\item [GAP ZERO|INTERP] 如何处理数据间断。ZERO表示将数据间断处补零值；INTERP表示对
-    数据间断处进行线性插值。
-\item [OVERLAP COMPARE|AVERAGE] 如何处理数据重叠。COMPARE表示对重叠的时间段内的
-    数据进行比较，若不匹配则退出；AVERAGE表示对重叠时间段内的数据进行平均。
+\item [VERBOSE] 合并数据时在终端显示合并的细节
+\item [GAP ZERO|INTERP] 如何处理数据间断。\texttt{ZERO} 表示将数据间断
+    处补零值；\texttt{INTERP} 表示对数据间断处进行线性插值
+\item [OVERLAP COMPARE|AVERAGE] 如何处理数据重叠。\texttt{COMPARE} 表示
+    对重叠的时间段内的数据进行比较，若不匹配则退出；\texttt{AVERAGE} 表
+    示对重叠时间段内的数据进行平均
 \item [filelist] SAC二进制数据文件列表
 \end{description}
 
 \SACTitle{说明}
-此命令在101.6版中完全重写，功能和用法上也与之前的版本完全不同。
+该命令用于将一系列时间上相邻的数据文件首尾相连合并成一个文件。在合并数据
+时，会先检查要合并的文件是否有相同的 \texttt{kstnm}、\texttt{kentwk}、
+\texttt{kcmpnm}、\texttt{delta}。
 
-在旧版本中，内存中的每个文件与filelist中的每个文件分别合并，且内存中的文件必须早于
-filelist中的文件。因而在合并多段数据时，只能先读取第一段数据，再merge第二段数据，再
-merge第三段数据，依次不断循环执行。
+在SAC v101.6中完全重新了该命令，因而该命令的功能和语法与之前的版本有所
+不同。
 
-新版本的merge命令，会将内存中的全部数据文件以及filelist中的全部文件合并成单个文件。
-若内存中无数据，则只合并filelist中的数据文件；若filelist为空，则只合并内存中的数据
-文件。
+在v101.6之前的版本中，\texttt{merge} 命令的用法与 \nameref{cmd:addf} 命令的
+用法相似。该命令会将内存中的文件依次分别与filelist中的文件进行合并，且内存中的文件的
+开始时刻必须早于filelist中的文件的开始时刻。因而在将多个数据文件合并成一个文件时，只能
+先读取第一段数据，然后 \texttt{merge} 第二段数据，再 \texttt{merge} 第三段数据，
+依次不断循环执行。
 
-新版的merge命令可以合并任意数目和任意顺序的数据文件。
-merge会检查所有要合并的文件，以保证他们拥有相同的kstnm、kentwk、kcmpnm、delta。
+旧版本的 \texttt{merge} 命令用起来相对复杂。需要多次执行 \texttt{merge} 命令，且
+需要用户自己判断波形文件的先后顺序。
+
+v101.6之后的新版 \texttt{merge} 命令，会将内存中的全部数据文件以及filelist中的
+全部文件合并成单个文件。若内存中无数据，则只合并filelist中的数据文件；若filelist为空，
+则只合并内存中的数据文件。且新版的 \texttt{merge} 命令可以合并任意数目和任意顺序的
+数据文件。
 
 若要合并的数据段之间存在间断，可以通过补零或线性插值的方式弥补间断；若数据段之间
-存在重叠，可对重叠的部分进行比较判断或直接进行平均。
+存在重叠，可对重叠的部分进行比较，判断重叠的区域内振幅是否匹配，或者直接进行振幅的平均。
 
 \SACTitle{示例}
-下面看一个数据合并的例子
-\footnote{这样的修改使得不同版本的语法不完全兼容，实际使用时新版的merge命令要更方便
-也更符合人的正常思维。}：
+下面看一个数据合并的示例：
 \begin{SACCode}
 SAC> read file1 file2
 SAC> merge file3 file4
 \end{SACCode}
-在101.5c及其之前的版本中，这个例子的结果是，file3与file1合并成文件file1，file4与
-file2合并成文件file2，此时内存中有两个文件file1和file2。而在101.6及其之后的版本中，
+在v101.6之前的版本中，本示例的运行结果是：file3与file1合并成文件file1，file4与
+file2合并成文件file2，此时内存中有两个文件file1和file2。而在v101.6及其之后的版本中，
 这个例子的结果是，文件file1、file2、file3、file4合并成文件file1，此时内存中只有
-一个文件file1。
+一个文件file1。这样的修改使得不同版本的语法不兼容，但实际使用时新版的 \texttt{merge}
+命令要更方便也更符合人的正常思维。
+
+下面介绍几个新版本的 \texttt{merge} 命令的用法示例。
 
 多个文件合并成单个文件的一种方法：
 \begin{SACCode}
@@ -64,7 +74,8 @@ SAC> w over                     // 合并后的文件写入到file1中
 \end{SACCode}
 
 再一种合并方法：
-\begin{SACCode}                     // 内存中无数据
+\begin{SACCode}
+                                    // 内存中无数据
 SAC> merge file1 file2 file3 file4  // 合并filelist中的全部文件
 SAC> w over                         // 保存到file1中
 \end{SACCode}

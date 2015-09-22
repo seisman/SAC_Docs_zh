@@ -10,18 +10,22 @@ BENIOFF
 \end{SACSTX}
 
 \SACTitle{说明}
-此命令用于模拟1960年左右美国空军VELA计划中的短周期地震仪的响应的数值近似。
+1960年左右，美国空军VELA计划中使用了一些可变磁阻短周期地震仪，这些仪器以
+加州理工的Hugo Benioff教授命名。其自然频率为 \SI{1}{\Hz}，与一个电流计
+耦合在一起（自然频率为 \SI{5}{\Hz}）。耦合因子的标称值为0.01，其响应在
+\SI{1}{\Hz} 到 \SI{5}{\Hz} 频段内近乎为平的。
 
-这个远距离地震测量(LRSM)项目使用卡车和拖车部署可移动的地震系统，主要是北美，
-以进行可控源地震实验。大多数地震剖面位于Nevada试验场附近的径向线和圆弧上。
-两个半永久的台站安装在Kanab, UT 和 Mina, NV。
+该命令生成的滤波器是Benioff短周期地震仪的数字等效，用于将宽频带地震数据
+模拟成短周期系统。
 
-LLNL在LRSM项目结束后继续维护KN-UT和MI-NV台站。这两个台站使用一个可变磁阻短周期
-地震仪(自然频率为 \SI{1}{\Hz})，该仪器以加州理工的Hugo Benioff教授命名。这个短周期地震仪
-与一个电流计耦合在一起(自然频率为 \SI{5}{\Hz})。耦合因子的标称值为0.01，其响应在
-\SI{1}{\Hz} 到 \SI{5}{\Hz}
-频段内近乎为平的。当LLNL将此系统转换为宽频带远震系统时，设计了一个模拟滤波器以将
-其通带滤波成LRSM短周期的通带。此命令设计了模拟滤波器的数字等效，以模拟LRSM短周期系统。
+该滤波器的响应函数如下图所示：
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{benioff}
+\caption{Benioff滤波器的响应函数}
+\label{fig:benioff}
+\end{figure}
 
 \SACTitle{头段变量}
 depmin、depmax、depmen
