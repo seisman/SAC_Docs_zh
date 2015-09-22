@@ -3,9 +3,9 @@ SAC提供了两个函数库：\texttt{libsacio.a} 和 \texttt{libsac.a}，用户
 可以在自己的C或Fortran程序中直接使用函数库中的子函数。这些库文件位于
 \verb|${SACHOME}/lib| 中。
 
-\subsection{libsacio库}
-这个库文件的子函数可用于读写SAC数据文件、头段变量、黑板变量。这些子函数可以在用户
-的C或Fortran程序中直接使用。
+\subsection{\texttt{libsacio}库}
+此库文件包含的子函数可用于读写SAC数据文件、SAC头段变量、黑板变量文件。
+这些子函数可以在用户的C或Fortran程序中直接使用。
 
 \texttt{libsacio.a} 中可用的子函数包括：
 \begin{table}[H]
@@ -68,11 +68,11 @@ $ gfortran -o prog source.o `sac-config -l sacio`
 
 \texttt{libsac.a} 包含如下子函数：
 \begin{itemize}
-\item xapiir  无限脉冲响应滤波器；
-\item firtrn  有限脉冲滤波器，Hilbert变换；
-\item crscor  互相关；
-\item next2   返回比输入值大的最小的2的幂次；
-\item envelope 计算包络函数;
+\item \texttt{xapiir}  无限脉冲响应滤波器；
+\item \texttt{firtrn}  有限脉冲滤波器，Hilbert变换；
+\item \texttt{crscor}  互相关；
+\item \texttt{next2}   返回比输入值大的最小的2的幂次；
+\item \texttt{envelope} 计算包络函数;
 \end{itemize}
 
 对于C源码，用如下命令编译
