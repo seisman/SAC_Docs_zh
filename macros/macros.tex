@@ -276,8 +276,8 @@ do station list abc def xyz
 enddo
 \end{SACCode}
 
-在下面的例子中我们修改上一个宏文件使得其可以处理目录mydir中所有以``.Z''
-结束的文件：
+在下面的示例展示了如何处理目录 \texttt{mydir} 中所有以 \texttt{.Z} 结束
+的文件：
 \begin{SACCode}
 do file wild dir mydir *.Z
     macro preview $file$
