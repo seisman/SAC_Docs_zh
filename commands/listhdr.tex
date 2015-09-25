@@ -6,20 +6,21 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-L!IST!H!DR! [D!EFAULT!|P!ICKS!|SP!ECIAL!] [FILES ALL|NONE|LIST]
+L!IST!H!DR! [D!EFAULT!|P!ICKS!|SP!ECIAL!] [FILES ALL|NONE|list]
     [COLUMNS 1|2] [INCLUSIVE ON|OFF] [hdrlist]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [DEFAULT] 使用默认的头段变量列表。列出所有已定义的头段变量
-\item [PICKS] 使用picks头段列表。列出与到时拾取相关的头段变量
+\item [DEFAULT] 使用默认的头段变量列表，即列出所有已定义的头段变量
+\item [PICKS] 使用picks头段列表，即列出与到时拾取相关的头段变量
 \item [SPECIAL] 使用用户自定义的特殊头段变量列表
 \item [FILES ALL] 列出内存中所有文件的头段
 \item [FILES NONE] 不列出头段，为将来的命令设置默认值
-\item [FILES list] 列出部分文件的头段，list是要列出的文件的文件号
+\item [FILES list] 列出部分文件的头段，\texttt{list}是要列出的文件的文件号
 \item [COLUMNS 1|2] 输出格式为每行一/两列
-\item [INCLUSIVE ON|OFF] ON表示列出未定义的头段变量的值，OFF则不列出
+\item [INCLUSIVE ON|OFF] \texttt{ON} 表示列出未定义的头段变量的值，
+    \texttt{OFF} 则不列出
 \item [hdrlist] 指定头段变量列表
 \end{description}
 
@@ -29,15 +30,17 @@ listhdr default files all columns 1 inclusive off
 \end{SACDFT}
 
 \SACTitle{说明}
-用户可以自定义要列出的项或使用两个标准列表中的某个，DEFAULT列表包含全部头段变量，
-PICKS列表包含直接或间接用于定义到时拾取的头段变量，这个列表包含B、E、O、A、Tn、
-KZTIME、KZDATE。用户可以随时定义一个特殊列表而且可以通过SPECIAL选项再次使用该列表。
-该命令的输出包含头段变量名、一个等于号以及头段变量的当前值。某些文件的某些头段
-变量可能未定义。SAC对这些未定义的头段变量，用一个特别的标志以标记它们，这个特殊的
-标识是``undefined''。
+该命令可以列出指定的头段变量的值，用户可以使用默认列表 \texttt{DEFAULT}
+列出全部头段变量，或 \texttt{PICKS} 列出与到时拾取相关的头段变量，
+包括 \texttt{B}、\texttt{E}、\texttt{O}、\texttt{A}、\texttt{Tn}、
+\texttt{KZTIME}、\texttt{KZDATE}。用户可以自定义一个特殊列表并通过
+\texttt{SPECIAL} 选项再次使用该列表。
+
+该命令的输出包含头段变量名、一个等于号以及头段变量的当前值。未定义的
+头段变量的值用 \texttt{undefined} 表示。
 
 \SACTitle{示例}
-获取picks列表，输出为两列显示：
+获取 \texttt{picks} 列表，输出为两列显示：
 \begin{SACCode}
 SAC> lh picks column 2
 \end{SACCode}
@@ -62,7 +65,7 @@ SAC> lh kstnm stla stlo stel stdp
 SAC> lh special
 \end{SACCode}
 
-只是设置默认两列输出：
+为后面的 \texttt{lh} 命令设置输出为两列：
 \begin{SACCode}
 SAC> lh columns 2 files none
 \end{SACCode}

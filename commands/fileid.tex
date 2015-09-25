@@ -7,19 +7,20 @@
 \SACTitle{语法}
 \begin{SACSTX}
 FILEID [ON|OFF] [T!YPE! D!EFAULT!|N!AME!|L!IST! hdrlist]
-    LOCATION [UR|UL|LR|LL] [F!ORMAT! E!QUALS!|C!OLONS!|N!ONAMES!]
+    [L!OCATION! UR|UL|LR|LL] [F!ORMAT! E!QUALS!|C!OLONS!|N!ONAMES!]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [ON] 打开文件id选项，不改变文件id类型或位置
-\item [OFF] 关闭文件id选项
+\item [ON] 显示文件id，不改变文件id类型或位置
+\item [OFF] 不显示文件id
 \item [TYPE DEFAULT] 设置文件id为默认类型
 \item [TYPE NAME] 使用文件名作为文件id
 \item [TYPE LIST hdrlist] 定义在文件id中显示的头段列表
-\item [LOCATION UR|UL|LR|LL] 文件id的显示位置，分别表示右上角、左上角、右下角、左下角
-\item [FORMAT EQUALS] 格式为头段名、等于号以及头段值
-\item [FORMAT COLON] 格式为头段名，冒号，头段值
+\item [LOCATION UR|UL|LR|LL] 文件id的显示位置，分别表示右上角、左上角、
+    右下角、左下角
+\item [FORMAT EQUALS] 格式为 \texttt{variable=value}
+\item [FORMAT COLON] 格式为 \texttt{variable:value}
 \item [FORMAT NONAMES] 格式只包含头段值
 \end{description}
 
@@ -29,9 +30,10 @@ fileid on type default location ur format nonames
 \end{SACDFT}
 
 \SACTitle{说明}
-文件ID用于标识绘图的内容。默认的文件ID包括事件名、台站名、分量、参考日期及时间。
-如果需要也可以使用文件名代替默认的文件id，或者根据头段变量定义一个特殊的文件ID，
-这个ID最多可以由10个SAC头段变量构成。文件ID的位置以及格式也可以修改。
+文件ID用于标识绘图的内容。默认的文件ID包括事件名、台站名、分量、参考
+日期及时间。如果需要也可以使用文件名代替默认的文件id，或者根据头段变量
+定义一个特殊的文件ID，这个ID最多可以由10个SAC头段变量构成。文件ID的位置
+以及格式也可以修改。
 
 \SACTitle{示例}
 将文件名放在左上角：

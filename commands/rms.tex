@@ -13,9 +13,8 @@ RMS [NOISE ON|OFF|pdw] [TO USERn]
 \begin{description}
 \item [NOISE ON] 打开噪声归一化选项
 \item [NOISE OFF] 关闭噪声归一化选项
-\item [NOISE pdw] 打开噪声归一化选项并改变噪声的部分数据窗。
-    关于pdw，参考 \nameref{subsec:pdw} 一节。
-\item [TO USERn] 定义用于储存结果的头段变量USERn，其中n取0到9
+\item [NOISE pdw] 打开噪声归一化选项并设置噪声的测量时间窗 \nameref{subsec:pdw}
+\item [TO USERn] 将测量结果存储到头段变量 \texttt{USERn} 中
 \end{description}
 
 \SACTitle{缺省值}
@@ -24,22 +23,33 @@ rms noise off to user0
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令计算当前测量时间窗(参见 \nameref{cmd:mtw})中的数据的均方根。结果写入一个
-浮点型头段变量 \texttt{USERn} 中，如果定义了一个噪声时间窗结果可以用于纠正噪声。
-计算的一般形式是：对信号窗做一次求和并对可选的噪声窗做另一次求和。
+该命令用于计算当前测量时间窗（由 \nameref{cmd:mtw} 定义）内的数据的
+均方根，并将测量结果写入头段变量 \texttt{USERn} 中。
+
+均方根的定义为：
+\[
+ RMS = \sqrt{\frac{1}{N} \sum_{i=1}^n y_i^2}
+\]
+
+\texttt{NOISE} 选项定义了噪声的测量时间窗，用于计算噪声的均方根，以对
+信号的均方根做修正。若使用该选项，则会首先计算 \texttt{mtw} 定义的时间
+窗内的数据点的平方和的均值，然后再计算 \texttt{NOISE pdw} 定义的时间窗
+内数据点的平方和的均值，最后将信号的平方和均值减去噪声的平方和均值，
+并取其平方根作为测量结果。
 
 \SACTitle{示例}
-为了计算两个头段T1和T2间的数据的未修正的均方根，并将结果保存在头段USER4中：
+为了计算两个头段 \texttt{T1} 和 \texttt{T2} 间的数据的未修正的均方根，
+并将结果保存在头段 \texttt{USER4} 中：
 \begin{SACCode}
 SAC> mtw t1 t2
 SAC> rms to user4
 \end{SACCode}
 
-使用一个5秒长的噪声窗(结束于头段值T3)，并就算修正后的均方根：
+将 \texttt{T3} 前5秒作为噪声窗，计算修正后的均方根：
 \begin{SACCode}
 SAC> mtw t1 t2
 SAC> rms noise t3 -5.0 0.0
 \end{SACCode}
 
-\SACTitle{头段变量改变}
+\SACTitle{头段变量}
 USERn

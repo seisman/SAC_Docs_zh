@@ -10,12 +10,13 @@ HISTORY
 \end{SACSTX}
 
 \SACTitle{说明}
-该命令可以打印最近执行的命令历史，也可以用于重复执行命令历史中某个特定的命令：
+该命令可以打印最近执行的命令历史，也可用于重复执行命令历史中某个特定的
+命令：
 \begin{description}
 \item [!!] 重复上一命令
 \item [!n] 重复第n行的命令
-\item [!-n] 重复最近的命令行减去n得到的命令
-\item [!str] 重复最近的以字符串str开始的命令
+\item [!-n] 重复倒数第n个命令
+\item [!str] 重复最近的以字符串 \texttt{str} 开头的命令
 \end{description}
 
 \SACTitle{示例}
@@ -39,7 +40,7 @@ SAC> !!
 SAC> !-2
 \end{SACCode}
 
-重复以ps开头的命令：
+重复以 \texttt{ps} 开头的命令：
 \begin{SACCode}
 SAC> !ps
 \end{SACCode}
