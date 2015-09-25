@@ -11,8 +11,8 @@ SMOOTH [MEAN|MEDIAN] [H!ALFWIDTH! n]
 
 \SACTitle{输入}
 \begin{description}
-\item [MEAN|MEDIAN] 应用均值/中值平滑算法 
-\item [HALFWIDTH n] 设置滑动窗的半宽为n
+\item [MEAN|MEDIAN] 应用均值/中值平滑算法
+\item [HALFWIDTH n] 设置滑动窗的半宽为n个数据点
 \end{description}
 
 \SACTitle{缺省值}
@@ -21,9 +21,11 @@ smooth mean halfwidth 1
 \end{SACDFT}
 
 \SACTitle{说明}
-此命令对每个数据点应用算术平滑算法。具体算法以及滑动窗的尺寸是可以变化的。
-每个窗的窗长通过指定其半宽度来定义，使得滑动窗以每个数据点为中心，包含了数据点及其
-前后各n个点，共计$2n+1$个点。
+此命令对数据应用算术平滑算法，可以选择均值平滑或中值平滑算法。
+
+滑动窗的窗长通过指定其半宽度n来定义，对于第n到第npts-n+1个的每个数据
+点而言，应用一个窗长为$2n+1$个数据点平滑窗。对于两端的$2(n-1$)个数据点而言，
+做特殊处理。
 
 \SACTitle{头段变量}
 depmin、depmax、depmen

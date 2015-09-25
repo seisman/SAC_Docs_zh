@@ -11,16 +11,14 @@ MULF [NEWHDR [ON|OFF]] filelist
 
 \SACTitle{输入}
 \begin{description}
-\item [NEWHDR ON|OFF] 若为OFF，则生成的数据文件使用内存中原文件的头段；
-    若为ON，则生成的数据文件使用filelist中新文件的头段。缺省值为OFF。
-\item [filelist] SAC二进制文件列表。
+\item [NEWHDR ON|OFF] 指定新生成的文件使用哪个文件的头段。\texttt{OFF}
+    表示使用内存中原文件的头段区，\texttt{ON} 表示使用filelist中文件的
+    头段区。缺省值为 \texttt{OFF}
+\item [filelist] SAC二进制文件列表
 \end{description}
 
 \SACTitle{说明}
 参见 \nameref{cmd:addf} 命令的相关说明。
-
-\SACTitle{示例}
-参见 \nameref{cmd:addf} 命令的相关示例。
 
 \SACTitle{头段变量}
 depmin、depmax、depmen、npts、delta
