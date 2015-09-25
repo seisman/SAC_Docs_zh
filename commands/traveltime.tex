@@ -6,17 +6,22 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-T!RAVEL!TIME [MODEL string] [PICKS number] [PHASE phase list]
+T!RAVEL!TIME [MODEL model] [PICKS n] [PHASE phaselist]
     [VERBOSE|QUIET] [M|KM]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [MODEL] iasp91或ak135，缺省为iasp91
-\item [PICKS] 如果number值位于0到9，则第一个震相的到时将储存在头段Tn中。如果命令行选项中没有包含PICKS，VERBOSE就会打开并显示震相到时而不写入头段。
-\item [PHASE] 要pick或显示的震相列表，如果有PICKS n选项，则则震相到时以及其标签将写入到头段Tn和KTn中。
-\item [VERBOSE|QUIET] 若使用VERBOSE，则震相走时将以相对发震时刻(O)和文件起始时间(B)两种方式显示；若使用QUIET，则不在屏幕上显示到时，若二者都没有显示，则显示traveltime命令使用的深度
-\item [M|KM] 头段变量evdp的单位为 \si{\m} 或者 \si{\km}
+\item [MODEL] 预定义的速度模型，可以取 \texttt{iasp91} 或 \texttt{ak135}，
+    缺省值为 \texttt{为iasp91}
+\item [PICKS] \texttt{number}的取值为0到9，表明将第一个震相的到时存储到对应的头段
+    变量 \texttt{Tn} 中，其余震相依次写入到后面的头段变量 \texttt{Tn} 中；若未指定
+    \texttt{PICKS}选项，则只计算震相到时但不写入头段中
+\item [PHASE] 要计算/标记的震相列表，若使用了 \texttt{PICKS n} 选项，则震相到时
+    信息将被写入头段 \texttt{Tn} 和 \texttt{KTn} 中
+\item [VERBOSE|QUIET] 若使用 \texttt{VERBOSE}，则会在终端输出震相走时及其相对于
+    文件参考时刻的秒数；若使用 \texttt{QUIET}，则不在屏幕上显示震相走时信息
+\item [M|KM] 头段变量 \texttt{evdp} 的单位为 \si{\m} 或者 \si{\km}
 \end{description}
 
 \SACTitle{缺省值}
@@ -25,23 +30,22 @@ traveltime MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令使用iaspei-tau
-\footnote{\url{https://seiscode.iris.washington.edu/projects/iaspei-tau}}
-程序计算走时，要求内存中的波形文件的事件和台站位置以及发震时刻必须定义。
+该命令使用 \href{https://seiscode.iris.washington.edu/projects/iaspei-tau}{iaspei-tau}
+程序计算标准速度模型下的震相理论走时，要求内存中的SAC数据文件中必须包含事件位置、台站位置
+以及发震时刻。震相名区分大小写，可使用的震相名参考 
+\href{https://seiscode.iris.washington.edu/projects/iaspei-tau}{iaspei-tau} 
+的相关文档。
 
-内存中所有文件拾取的震相的到时存储在头段变量Tn中，其中n的范围为0到9。计算的走时是相对于发震时刻(O)的，但存储在Tn中的时间是相对于文件起始时间(B)。
+若使用了 \texttt{PICKS n} 选项，则会将震相列表中第一个震相的到时存储在头段变量 \texttt{Tn}
+中，余下的震相到时依次存储到其余的 \texttt{Tn} 中。对于每个震相，终端会输出两个时间，前者
+时震相到时相对于参考时刻的秒数，后者是震相相对于发震时刻的走时。
 
-走时表根据地震深度及震中距获得走时，震中距(gcarc)使用球三角几何，根据事件和台站经纬度计算。
-
-由于历史原因，事件深度evdp以前的单位为 \si{\m}，rdseed产生的SAC波形数据单位为 \si{\m}。
-在新版的SAC中，默认的evdp单位为 \si{\km}，但由于很多波形数据evdp仍然为 \si{\m}，这里引入这个
-命令选项以指定深度单位。
-
-在SAC2000中，命令traveltime位于子程序SSS中，当前版本(v101.5)没有SAC2000版本的全部功能，
-但可以不用进入SSS而直接运行。
+由于历史原因，事件深度 \texttt{evdp} 以前的单位为 \si{\m}，而在新版的SAC中，默认的
+\texttt{evdp} 单位为 \si{\km}，为了能够兼容以前的 \texttt{evdp} 为 \si{\m} 的
+波形数据，新版的SAC中引入了 \texttt{km} 和 \texttt{m} 选项以指定深度单位。
 
 \SACTitle{示例}
-区域事件，使用默认震相：
+区域事件，使用默认震相列表：
 \begin{SACCode}
 SAC> fg seismo
 SAC> traveltime
@@ -51,28 +55,30 @@ traveltime: error finding phase S
 traveltime: setting phase Pn       at 10.464321 s [ t = 51.894321 s ]
 traveltime: setting phase Pg       at 22.904724 s [ t = 64.334724 s ]
 traveltime: setting phase Sn       at 50.047722 s [ t = 91.477722 s ]
-traveltime: setting phase Sg      at 66.414337 s [ t = 107.844337 s ]
+traveltime: setting phase Sg       at 66.414337 s [ t = 107.844337 s ]
 \end{SACCode}
+由于震中距比较小，没有P和S震相，所以会出现 \texttt{error finding phase P} 的错误，
+该错误可忽略。以Pn震相为例，震相走时为 \SI{51.89}{\s}，相对于参考时刻的秒数为 \SI{10.46}{\s}。
 
-对于区域事件，初至波为Pn或Pg，因而这里没有P波到达，对上面的例子，拾取不会写入头段中。
+上面的示例，只是计算了震相走时，不会写入到头段变量中。要将震相走时存储到头段变量中，需要
+使用\texttt{PICKS n}选项：
 \begin{SACCode}
 SAC> fg seismo
 SAC> traveltime picks 0 phase Pn Pg Sn Sg
 traveltime: depth: 15.000000
-SAC> lh AMARKER T0MARKER T1MARKER T2MARKER T3MARKER
-AMARKER = 10.464
+SAC> lh T0MARKER T1MARKER T2MARKER T3MARKER
 T0MARKER = 10.464           (Pn)
 T1MARKER = 22.905           (Pg)
 T2MARKER = 50.048           (Sn)
 T3MARKER = 66.414           (Sg)
 SAC> write seismo-picks.z
 \end{SACCode}
-可以看到已经将A定义为Pn的到时，文件seismo-picks.z将有T0到T3四个头段，
-命令PLOT1可以看到有各震相在相应到时处有标签名。
-注意尽管VERBOSE没有开启，深度(单位 \si{\km})还是会被打印出来。
-这是为了保证用户对EVDP的单位有正确的了解，可以通过QUIET选项取消深度的显示。
+可以看到，\texttt{T0} 到 \texttt{T3} 分别保存了震相Pn、Pg、Sn、Sg震相的到时相对于
+文件参考时刻的秒数。\texttt{KT0} 到 \texttt{KT3} 中则分别存储了相应的震相名。
+此处，尽管没有使用 \texttt{VERBOSE} 选项，深度信息还是会被打印出来，这是为了提醒用户
+注意 \texttt{evdp} 的单位，可以通过 \texttt{QUIET} 选项设置不显示深度信息。
 
-下面例子给出的波形文件是由rdseed v5.0产生的，震源深度evdp的单位为 \si{\m}：
+\texttt{rdseed v5.0} 生成的波形数据，震源深度 \texttt{evdp} 的单位为 \si{\m}：
 \begin{SACCode}
 SAC> r 2008.052.14.16.03.0000.XC.OR075.00.LHZ.M.SAC
 SAC> lh evdp
@@ -84,9 +90,7 @@ t0marker = 61.48            (Pn)
 t1marker = 76.413           (Pg)
 t2marker = 109.66           (Sn)
 t3marker = 132.11           (Sg)
-SAC> ch evdp (0.001 * :1,evdp:)
-SAC> setbb station :1,KSTNM:
+SAC> ch evdp (0.001 * &1,evdp&) // 将evdp的单位改成km
+SAC> setbb station &1,KSTNM&
 SAC> write %station%.z
 \end{SACCode}
-保存的文件OR075.z单位为 \si{\km}，并且各个震相Pn、Pg、Sn及Sg都有注释。
-震相名是大小敏感的，具体参见iaspei-tau的文档。
