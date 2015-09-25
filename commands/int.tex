@@ -15,8 +15,9 @@ int trapezoidal
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令使用梯形法或矩形法对数据进行数值积分，不要求数据等间隔。除积分之外，还会
-根据具体情况修改因变量类型idep，并重新计算depmax、depmin、depmen。
+该命令使用梯形法或矩形法对数据进行数值积分，可以处理等间隔数据或非等间隔数据。除积分之外，
+还会根据具体情况修改因变量类型 \texttt{idep}，并重新计算 \texttt{depmax}、
+\texttt{depmin}、\texttt{depmen}。
 
 对于函数$f(x)$其积分用梯形法表示为
 \[
@@ -28,9 +29,9 @@ int trapezoidal
 \]
 二者均有边界条件$y_0=0$。
 
-若使用梯形积分，数据点数npts将减1，文件的头段变量b和e也会相应修改。
-\footnote{若使用矩形积分，
-理论上npts、b、e也应有所修改，但实际代码中却未对此多做处理，暂不确定是否是Bug。}
+对于等间隔数据，若使用梯形积分，数据点数 \texttt{npts} 将减1，文件的头段变量 
+\texttt{b} 将增加半个采样周期\footnote{若使用矩形积分，理论上 \texttt{npts} 和
+\texttt{b} 也应有所修改，但实际代码中却未对此多做处理，暂不确定是否是Bug。}。
 
 \SACTitle{头段变量}
 depmin、depmax、depmin、idep、npts、b、e
