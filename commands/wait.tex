@@ -2,29 +2,32 @@
 \label{cmd:wait}
 
 \SACTitle{概要}
-控制SAC在绘制多个图形时是否暂停
+控制SAC在输出大量文本或绘制多个图形时是否暂停
 
 \SACTitle{语法}
 \begin{SACSTX}
-WAIT [ON|OFF|EVERY]
+WAIT [T!EXT! ON|OFF] [P!LOTS! ON|OFF|E!VERY!]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [ON] 按常规模式打开等待选项 
-\item [OFF] 关闭等待选项 
-\item [EVERY] 每个图形之间均等待
+\item [TEXT ON|OFF] 打开/关闭文本等待选项
+\item [PLOTS ON|OFF] 打开/关闭绘图等待选项
+\item [PLOTS EVERY] 每个图形之间均等待
 \end{description}
 
 \SACTitle{缺省值}
 \begin{SACDFT}
-wait on
+wait text on plots on
 \end{SACDFT}
 
 \SACTitle{说明}
-当你读取了多个数据文件并使用PLOT绘制，每个文件将产生一个框架，如果你绘制到终端，
-正常情况下SAC将在每张图后暂停并发送信息``WAITING''到终端。然后你可以键入回车看到下一张图，
-或输入``GO''使SAC不暂停地绘制剩下的图形，或键入``KILL''终止绘制这组文件。SAC绘制最后
-一张图之后不再暂停，因为通常的输入提示符提供了相同的功能。当这个选项关闭时，SAC在不
-同的绘图之间不暂停。在每个图形模式下，SAC不仅在用PLOT命令产生的绘图之间，而且在绘制
-每个图形时都暂停。如果你是在命令文件或者作业控制程序的控制下使用SAC，那么这一点将很有用。
+\texttt{TEXT} 选项用于控制当SAC输出到终端的内容超过一屏时，是等待用户
+输入，还是继续输出。
+
+\texttt{PLOTS} 选项用于控制绘制多张图时是否要暂停。在读取多个数据文件
+并 \texttt{plot} 命令绘图时，每个文件将产生一个frame，正常情况下SAC将
+在每张图后暂停并发送信息``Waiting''到终端，用户键入回车即可看到下一张图，
+或输入``Go''使SAC不暂停地绘制剩下的图形，或键入``Kill''终止绘制这组文件。
+SAC绘制完最后一张图后不再暂停，因为SAC的输入提示符已经实现了暂停功能。
+当这个选项关闭时，SAC在不同的绘图间不暂停。
