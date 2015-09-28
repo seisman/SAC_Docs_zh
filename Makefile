@@ -1,5 +1,5 @@
 #
-# Makefile for LaTeX project SAC_Docs_zh
+#  
 #
 # Reference:
 # 	1. http://tex.stackexchange.com/questions/40738/
