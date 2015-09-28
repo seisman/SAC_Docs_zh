@@ -2,25 +2,27 @@
 \label{cmd:width}
 
 \SACTitle{概要}
-控制图形设备的线宽
+控制线宽
 
 \SACTitle{语法}
 \begin{SACSTX}
-WIDTH [ON|OFF|linewidth] [SKELETON width] [INCREMENT ON|OFF]
-    [LIST STANDARD|widthlist]
+WIDTH [ON|OFF|width] [SK!ELETON! width] [I!NCREMENT! ON|OFF]
+    [L!IST! S!TANDARD!|widthlist]
 \end{SACSTX}
-其中linewidth、width、widthlist是整数值，且LIST选项必须放在命令的最后
+其中 \texttt{width} 只能取整数
 
 \SACTitle{输入}
 \begin{description}
-\item [WIDTH ON] 打开WIDTH选项但是不改变当前线宽值
-\item [WIDTH OFF] 关闭width选项
-\item [WIDTH linewidth] 改变数据的线宽为linewidth并打开WIDTH选项
-\item [SKELETON width] 改变图形边框宽度为width并打开WIDTH选项
-\item [INCREMENT ON] 按照widthlist表中的次序，依次改变一个宽度值
+\item [WIDTH width] 设置数据的线宽为 \texttt{width}
+\item [WIDTH ON] 打开 \texttt{WIDTH} 选项但是不改变当前线宽值
+\item [WIDTH OFF] 关闭 \texttt{WIDTH} 选项
+\item [SKELETON width] 设置图形边框宽度为 \tetxtt{width}
+\item [LIST STANDARD] 设置为标准线宽列表，设置数据宽度为标准列表中的
+    第一个宽度，并打开 \texttt{WIDTH} 选项
+\item [LIST widthlist] 改变宽度列表的内容。输入宽度列表。设置数据宽度
+    为列表中的第一个宽度，并打开 \texttt{WIDTH} 选项
+\item [INCREMENT ON] 按照 \texttt{widthlist} 表中的次序，依次改变一个宽度值
 \item [INCREMENT OFF] 关闭线宽递增功能
-\item [LIST widthlist] 改变宽度列表的内容。输入宽度列表。设置数据宽度为列表中的第一个宽度，并打开width选项。
-\item [LIST STANDARD] 设置为标准线宽列表，设置数据宽度为列表中的第一个宽度，并打开width选项。
 \end{description}
 
 \SACTitle{缺省值}
@@ -29,8 +31,9 @@ width off skeleton 1 increment off list standard
 \end{SACDFT}
 
 \SACTitle{说明}
-WIDTH指定了绘制数据时的线条宽度。SKELETON指定了坐标轴的宽度，其就仅修改坐标轴的
-宽度，网格、文本、标签和框架号总是用1号细线表示。
+\texttt{width} 指定了绘制数据时的线条宽度。\texttt{SKELETON}指定了
+坐标轴的宽度，其就仅修改坐标轴的宽度，网格、文本、标签和框架号总是
+用1号细线表示。
 
 若将WIDTH设置为递增，则每次绘图之后，宽度都会按照宽度表中的顺序自动修改。
 
