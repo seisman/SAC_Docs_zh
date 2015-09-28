@@ -22,9 +22,10 @@ os.putenv("SAC_DISPLAY_COPYRIGHT", "0")
 p = subprocess.Popen(['sac'], stdin=subprocess.PIPE)
 
 s = ""
-s += "r seis.SAC\n"
+s += "r *.SAC\n"
+s += "synchronize \n"
 s += "ch o gmt %d %d %d %d %d %d\n" % (year, doy, hour, min, sec, msec)
 s += "ch allt (0 - &1,o&) iztype IO\n"
-s += "w over\n"
-s += "quit\n"
+s += "wh\n"
+s += "q\n"
 p.communicate(s.encode())
