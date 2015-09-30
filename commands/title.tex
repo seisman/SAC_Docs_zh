@@ -12,11 +12,14 @@ TITLE [ON|OFF|text] [L!OCATION! T!OP!|B!OTTOM!|R!IGHT!|L!EFT!]
 
 \SACTitle{输入}
 \begin{description}
+\item [text] 显示标题，并设置标题内容，若 \texttt{text} 包空格，则需要
+    用引号括起来
 \item [ON] 显示标题，但不改变标题内容
 \item [OFF] 不显示标题
-\item [text] 显示标题，并改变标题内容。如果文本中包含空格，则标题需要用单引号括起来
-\item [LOCATION] 设置标题的位置，可以取TOP、BOTTOM、RIGHT、LEFT
-\item [SIZE] 设置标题文本尺寸，可以取TINY、SMALL、MEDIUM、LARGE
+\item [LOCATION] 设置标题的位置，可以取 \texttt{TOP}、\texttt{BOTTOM}、
+    \texttt{RIGHT}、\texttt{LEFT}
+\item [SIZE] 设置标题的尺寸，可以取 \texttt{TINY}、\texttt{SMALL}、
+    \texttt{MEDIUM}、\texttt{LARGE}
 \end{description}
 
 \SACTitle{缺省值}
@@ -25,5 +28,5 @@ title off location top size small
 \end{SACDFT}
 
 \SACTitle{说明}
-若打开该选项，则在每个图形上都显示标题，标题的尺寸、位置及内容均可改变，文本质量和
-字体可以通过 \nameref{cmd:gtext} 命令设置。
+若打开该选项，则在每个图形上都显示标题，标题的尺寸、位置及内容均可改变，
+文本质量和字体可以通过 \nameref{cmd:gtext} 命令设置。

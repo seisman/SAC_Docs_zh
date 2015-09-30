@@ -6,7 +6,7 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-S!YSTEM!C!OMMAND! command [ options ]
+S!YSTEM!C!OMMAND! command [options]
 \end{SACSTX}
 
 \SACTitle{输入}
@@ -16,21 +16,22 @@ S!YSTEM!C!OMMAND! command [ options ]
 \end{description}
 
 \SACTitle{说明}
-在SAC中是可以执行大部分系统命令的，比如常见的 \texttt{ls}、\texttt{cp} 等。
+在SAC中是可以执行大部分系统命令的，比如常见的 \texttt{ls}、\texttt{cp}
+等。但某些命令无法直接在SAC中执行，比如用于查看PS文件的 \texttt{gs} 命令
+会首先被SAC解释为 \nameref{cmd:grayscale} 的简写，故而在SAC中无法直接
+调用 \texttt{gs} 命令。
 
-但是某些命令无法直接在SAC中执行，比如用于查看PS文件的gs命令会首先被SAC解释为
-\nameref{cmd:grayscale} 的简写，故而在SAC中无法直接调用gs命令。
+另一个经常使用但无法直接调用的命令是 \texttt{rm}。为了避免在读入数据时
+将命令 \texttt{r *.SAC} 误敲成 \texttt{rm *.SAC} 而导致数据文件被误删除，
+故而在SAC中禁止直接调用 \texttt{rm} 命令。
 
-另一个经常使用但无法直接调用的命令是 \texttt{rm}。由于 \nameref{cmd:read} 命令
-可以被简写为 \texttt{r} ，在读入文件时键入 \texttt{r *.SAC} 很可能会一时手误
-敲成 \texttt{rm *.SAC} ，为了避免类似的误操作，故而在SAC中禁止直接调用 \texttt{rm} 命令。
-
-当需要在SAC内部执行删除命令时，则需要使用 \nameref{cmd:systemcommand} 调用系统命令。
+\nameref{cmd:systemcommand} 的作用就是为了能够在SAC内部间接调用这些无法
+被SAC直接调用的系统命令。
 
 \SACTitle{示例}
-调用系统命令删除某些SAC文件：
+调用系统命令 \texttt{rm} 删除某些SAC文件：
 \begin{SACCode}
-SAC> rm junks
+SAC> rm junks           // 无法直接调用rm命令
  ERROR 1106: Not a valid SAC command.
-SAC> sc rm junks
+SAC> sc rm junks        // 通过sc间接调用rm命令
 \end{SACCode}

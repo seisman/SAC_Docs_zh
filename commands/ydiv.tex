@@ -2,29 +2,12 @@
 \label{cmd:ydiv}
 
 \SACTitle{概要}
-控制y轴的刻度间隔
+控制Y轴的刻度间隔
 
 \SACTitle{语法}
 \begin{SACSTX}
-YDIV [N!ICE!|I!NCREMENT! v|NU!MBER! n] [P!OWER! ON|OFF]
+YDIV [NI!CE!|I!NCREMENT! v|NU!MBER! n] [P!OWER! ON|OFF]
 \end{SACSTX}
 
-\SACTitle{输入}
-\begin{description}
-\item [NICE] 由SAC自动选择合适的刻度间隔
-\item [INCREMENT v] 设置刻度间隔增量为v
-\item [NUMBER n] 设置刻度的总数目数为n  
-\item [POWER ON] 打开幂指数选项。SAC以幂指数形式给出刻度值
-\item [POWER OFF] 关闭幂选项 
-\end{description}
-
-\SACTitle{缺省值}
-\begin{SACDFT}
-ydiv nice power on
-\end{SACDFT}
-
 \SACTitle{说明}
-这个命令控制y轴的刻度间隔。多数时候默认的NICE间隔即可满足需求。SAC的NICE刻度间隔
-是根据坐标轴的最小最大值、坐标轴的长度以及当前坐标轴文本尺寸来决定的。
-
-你也可以使用INCREMENT选项强制刻度间隔为一个定值，或者使用NUMBER选项设置刻度间隔的数目。
+该命令的选项、默认值和说明，与 \nameref{cmd:xdiv} 相同。

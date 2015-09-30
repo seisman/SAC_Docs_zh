@@ -142,7 +142,7 @@ SAC> trans from none to WWSP    // 简写为trans to WWSP
 读取仪器响应信息。在使用 \texttt{evalresp} 选项时，\nameref{cmd:transfer} 依次从
 当前内存中的SAC波形数据中提取出各自的头段信息，包括：\texttt{kstnm}、\texttt{kcmpnm}、
 \texttt{kzdate}、\texttt{kztime}、\texttt{knetwk} 和 \texttt{locid}，然后会在当前目录下
-寻找文件名为``\texttt{RESP.<NET>.<STA>.<LOCID>.<CHN>}''的RESP文件(比如``RESP.IU.COLA..BHZ'')，
+寻找文件名为``\texttt{RESP.<NET>.<STA>.<LOCID>.<CHN>}''的RESP文件（比如``RESP.IU.COLA..BHZ''），
 并检测RESP文件中给出的台站信息是否与数据中的台站信息匹配
 \footnote{即，要求RESP文件名以及RESP文件中的台站信息都与数据头段中的台站信息匹配}。
 \begin{SACCode}
@@ -161,7 +161,7 @@ SAC数据中的头段信息可以用一些选项来覆盖：
 则使用当前系统日期，TIME同理；若NETWORK未指定，则默认使用任意台网名；
 若LOCID或KHOLE未指定，则默认使用任意LOCID。
 
-假设台网IU的所有台站都具有完全相同的仪器响应函数，而此时我们只有COLA台站的RESP
+假设台网IU的所有台站都具有完全相同的仪器响应函数，而此时你只有COLA台站的RESP
 文件``RESP.IU.COLA..BHZ''。为了给所有台站去除仪器响应，一种办法是对IU台网的每一个
 台站复制一份``RESP.IU.COLA..BHZ''，重命名，并修改RESP文件中的台站信息。显然，这样
 很麻烦，利用上面的选项可以大大简化这一过程：

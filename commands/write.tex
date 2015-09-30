@@ -69,3 +69,10 @@ SAC> write change d f
 \begin{SACCode}
 SAC> write over
 \end{SACCode}
+
+\SACTitle{BUGS}
+\begin{itemize}
+\item 使用 \texttt{dir off} 和 \texttt{dir current} 选项会直接报错，因而
+    关键字 \texttt{off} 和 \texttt{current} 会被当作普通目录名，而由于
+    目录不存在因而无法写入
+\end{itemize}
