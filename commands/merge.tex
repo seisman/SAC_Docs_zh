@@ -16,7 +16,7 @@ MERGE [V!ERBOSE!] [G!AP! Z!ERO!|I!NTERP!] [O!VERLAP! C!OMPARE!|A!VERAGE!] [filel
     数据间断处进行线性插值。
 \item [OVERLAP COMPARE|AVERAGE] 如何处理数据重叠。COMPARE表示对重叠的时间段内的
     数据进行比较，若不匹配则退出；AVERAGE表示对重叠时间段内的数据进行平均。
-\item [filelist] SAC二进制数据文件列表\footnote{暂时不支持通配符。}
+\item [filelist] SAC二进制数据文件列表
 \end{description}
 
 \SACTitle{说明}
@@ -71,3 +71,8 @@ SAC> w over                         // 保存到file1中
 
 \SACTitle{头段变量改变}
 npts、depmin、depmax、depmen、e
+
+\SACTitle{BUGS}
+\begin{itemize}
+\item v101.6a中 \texttt{filelist} 暂不支持通配符，在下一版本中将修复此bug
+\end{itemize}
