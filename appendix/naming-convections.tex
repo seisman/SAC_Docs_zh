@@ -1,5 +1,5 @@
-用rdseed程序从标准SEED格式中解压得到的SAC文件，通常都具有固定格式的
-文件名。具体格式为：
+用 \texttt{rdseed} 程序从标准SEED格式中解压得到的SAC文件，通常都具有
+固定格式的文件名。具体格式为：
 \begin{verbatim}
     yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC
 \end{verbatim}
@@ -13,23 +13,21 @@
     \item \texttt{ffff} 为毫秒；需要注意的是 $\SI{1}{\s}=\SI{1000}{\ms}$，
         这里毫秒用了4位来表示。
     \end{itemize}
-\item \texttt{NN} 为台网名，2字符；
-\item \texttt{SSSSS} 为台站名，一般是3个字符，偶尔见到4字符的；
-\item \texttt{LL} 为location id，为空或两字符；
+\item \texttt{NN} 为台网名\footnote{所有永久或临时台网的台网名列表：
+    \url{http://www.fdsn.org/networks/}}，长度不超过2个字符；
+\item \texttt{SSSSS} 为台站名，长度不超过5个字符；
+\item \texttt{LL} 为位置码，为空或两字符；
 \item \texttt{CCC} 为通道名；
 \item \texttt{Q} 为质量控制标识；
 \item \texttt{SAC} 为文件后缀；
 \end{itemize}
 
-\section{Location ID}
-关于Location ID，我并没有找到权威的解释。
+\section{位置码}
+位置码（Location ID）用于区分同一个台站处几套类似的仪器，这些仪器可能是
+相同的型号，但位于不同的深度或者指向不同的方位；也有可能是不同型号的仪器。
 
-常见的Location ID为空值，非空值一般常见到 \texttt{00}、\texttt{01}、
-\texttt{10}，偶尔也会见到 \texttt{60} 等。
-
-Location ID可以认为是台站的subcode，即一个台站处，有多套仪器，这些
-仪器可能是相同的型号，但是位于不同的深度或者指向不同的方位；也有可
-能是不同型号的仪器。
+位置码通常用两位字母或数字表示，比如常见的 \texttt{00}、\texttt{01}、
+\texttt{10} 等。对于一个台站只有一套仪器的情况，位置码通常是空值。
 
 \section{质量控制}
 质量控制符 \texttt{Q} 用于表征当前SAC数据的数据质量。该标识符可以
@@ -40,7 +38,7 @@ Location ID可以认为是台站的subcode，即一个台站处，有多套仪�
 \item \texttt{R} 原始波形数据
 \item \texttt{Q} 经过质量控制的数据
 \end{itemize}
-常见的数据标识符为 \texttt{H} 或 \texttt{Q}。
+常见的数据标识符为 \texttt{M} 或 \texttt{Q}。
 
 \section{通道名}
 通道名用三个字符来表示，这三个字符分别代表了Band Code、Instrument Code
@@ -100,25 +98,25 @@ N        &       Accelerometer              \\
 常见的是高增益（H）仪器，记录地面运动速度。
 
 \subsection{Orientation Code}
-Orientation Code表示了传感器记录的地面运动的方向。
+Orientation Code表示了传感器记录的地面运动的方向。地震学中常见的方位码
+有如下几种：
 \begin{table}[H]
 \centering
 \caption{Orientation Code}
 \begin{tabular}{cl}
 \toprule
-Code     &     说明   \\
+Code    &   说明   \\
 \midrule
 N E Z   &   南北向、东西向、垂向   \\
-1 2 3   &   3为垂向；1、2为水平方向，正交但与东西南北向有偏离   \\
-T R Z   &   切向、径向，主要用于射线束中    \\
-A B C   &   三轴向（正交）    \\
-U V W   &   可选分量    \\
+1 2 3   &   3为垂向；1、2为水平方向，正交但与正东西、正南北向有偏离 \\
+T R Z   &   T为切向、R为径向，通常R方向是震中到台站的大圆连线方向    \\
 \bottomrule
 \end{tabular}
 \end{table}
-常见的是N、E、Z以及1、2、3。
 
-需要注意的是：当仪器的方向与东西方向的夹角小于5度时，Orientation Code
-取为E；当与东西方向夹角大于5度时，Orientation Code取为1或2。对于南北
-方向同理。因而，即便Orientation Code为N，也并不意味着台站是南北方向的，
-真实的方向还是需要看SAC头段中的 \texttt{cmpaz} 和 \texttt{cpminc}。
+通常情况下，若仪器的方向与正东西方向的夹角小于5度时，方位码取为 \texttt{E}；
+当与正东西方向夹角大于5度时，方位码取为 \texttt{1} 或 \texttt{2}。因而，
+方位码为 \texttt{E} 并不意味着分量是正东西方向的，真实的分量方向应以SAC
+头段中的 \texttt{cmpaz} 和 \texttt{cpminc} 为准。更进一步，由于仪器放置
+过程中的技术问题，SAC头段中的 \texttt{cmpaz} 在某些情况下也会产生一定的
+误差。
