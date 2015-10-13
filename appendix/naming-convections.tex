@@ -42,19 +42,19 @@
 常见的质量控制符为 \texttt{M} 或 \texttt{Q}。
 
 \section{通道名}
-通道名用三个字符来表示，这三个字符分别代表了Band Code、Instrument Code
-和Orientation Code。
+通道名用三个字符来表示，这三个字符分别代表了频带码（Band Code）、
+仪器码（Instrument Code）和方位码（Orientation Code）。
 
-\subsection{Band Code}
-Band Code是通道名的第一个字符，表示了仪器的采样率以及响应频带等信息。
+\subsection{频带码}
+频带码是通道名的第一个字符，代表了仪器的采样率以及响应频带等信息。
 
 \begin{table}[H]
 \centering\small
-\caption{Band Code}
+\caption{频带码}
 \label{tbl:bandcode}
 \begin{tabular}{cllc}
 \toprule
-Band Code   &   Band Type   &   采样率（\si{Hz}） & 拐角周期（sec） \\
+频带码      &   频带类型    &   采样率（\si{Hz}） & 拐角周期（sec） \\
 \midrule
 F           &   ...         &   1000-5000   &     > 10    \\
 G           &   ...         &   1000-5000   &     < 10    \\
@@ -66,7 +66,7 @@ H           &   High Broad Band         &   80-250    &   < 10    \\
 B           &   Broad Band          &   10-80   & > 10    \\
 M           &   Mid Period          &   1-10   & > 10    \\
 L           &   Long Period         &   $\approx$ 1   &   \\
-V           &   Very  Long Period         & $\approx$ 0.1   &   \\
+V           &   Very Long Period         & $\approx$ 0.1   &   \\
 U           &   Ultra Long Period         & $\approx$ 0.01    &   \\
 R           &   Extremely Long Period     & 0.0001-0.001    &   \\
 P           &   Order of 0.1 to 1 days   & 0.00001-0.0001    &   \\
@@ -77,46 +77,44 @@ O           &   Opaque Instrument Channel         & variable    &   NA    \\
 \bottomrule
 \end{tabular}
 \end{table}
-常见的仪器一般是宽频带（B）或长周期（L）。
 
-\subsection{Instrument Code}
-Instrument Code是通道名的第二个字符，代表了不同的仪器传感器。
+\subsection{仪器码}
+仪器码是通道名的第二个字符，代表了不同的仪器传感器。
 \begin{table}[H]
 \centering
-\caption{Instrument Code}
+\caption{仪器码}
 \begin{tabular}{cl}
 \toprule
-Instrument Code    &     说明   \\
+仪器码      &   说明   \\
 \midrule
-H        &       High Gain Seismometer      \\
-L        &       Low Gain Seismometer       \\
-G        &       Gravimeter                 \\
-M        &       Mass position Seismometer  \\
-N        &       Accelerometer              \\
+\texttt{H}  &   High Gain Seismometer      \\
+\texttt{L}  &   Low Gain Seismometer       \\
+\texttt{G}  &   Gravimeter                 \\
+\texttt{M}  &   Mass position Seismometer  \\
+\texttt{N}  &   Accelerometer              \\
 \bottomrule
 \end{tabular}
 \end{table}
 常见的是高增益（H）仪器，记录地面运动速度。
 
-\subsection{Orientation Code}
-Orientation Code表示了传感器记录的地面运动的方向。地震学中常见的方位码
-有如下几种：
+\subsection{方位码}
+方位码表示了传感器记录的地面运动的方向。地震学中常见的方位码有如下几种：
 \begin{table}[H]
 \centering
-\caption{Orientation Code}
+\caption{方位码}
 \begin{tabular}{cl}
 \toprule
-Code    &   说明   \\
+方位码           &   说明   \\
 \midrule
-N E Z   &   南北向、东西向、垂向   \\
-1 2 3   &   3为垂向；1、2为水平方向，正交但与正东西、正南北向有偏离 \\
-T R Z   &   T为切向、R为径向，通常R方向是震中到台站的大圆连线方向    \\
+\texttt{N E Z}   &   南北向、东西向、垂向   \\
+\texttt{1 2 3}   &   3为垂向；1、2为水平方向，正交但与正东西、正南北向有偏离 \\
+\texttt{T R Z}   &   T为切向、R为径向，通常R方向是震中到台站的大圆连线方向    \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-通常情况下，若仪器的方向与正东西方向的夹角小于5度时，方位码取为 \texttt{E}；
-当与正东西方向夹角大于5度时，方位码取为 \texttt{1} 或 \texttt{2}。因而，
+通常情况下，若仪器的方向与正东西方向的夹角小于2度时，方位码取为 \texttt{E}；
+当与正东西方向夹角大于2度时，方位码取为 \texttt{1} 或 \texttt{2}。因而，
 方位码为 \texttt{E} 并不意味着分量是正东西方向的，真实的分量方向应以SAC
 头段中的 \texttt{cmpaz} 和 \texttt{cpminc} 为准。更进一步，由于仪器放置
 过程中的技术问题，SAC头段中的 \texttt{cmpaz} 在某些情况下也会产生一定的
