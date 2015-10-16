@@ -12,10 +12,10 @@ MATHOP NORMAL|MATH|FORTRAN|NONE|OLD
 \SACTitle{输入}
 \begin{description}
 \item [NORMAL] 使用正常的数学操作符优先级
-\item [MATH] 与NORMAL相同
-\item [FORTRAN] 与NORMAL相同
+\item [MATH] 与 \texttt{NORMAL} 相同
+\item [FORTRAN] 与 \texttt{NORMAL} 相同
 \item [NONE] 不使用操作符优先级
-\item [OLD] 与NONE相同
+\item [OLD] 与 \texttt{NONE} 相同
 \end{description}
 
 \SACTitle{缺省值}
@@ -24,15 +24,15 @@ mathop NORMAL
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令控制数学操作符的优先级。正常情况下，乘法和除法的优先级要比加法和减法高，指数
-运算拥有最高的优先级。
+该命令控制数学操作符的优先级。正常情况下，乘法和除法的优先级要比加法和
+减法高，指数运算拥有最高的优先级。
 
-101.6之间的版本中，SAC在进行代数运算时没有考虑操作符的优先级，整个表达式按照从左到右
-的顺序依次进行计算。
+101.6之前的版本中，SAC在进行代数运算时没有考虑操作符的优先级，整个表达式
+按照从左到右的顺序依次进行计算。
 
-SAC在101.6之后的版本中，默认使用正常的操作符优先级。对于一些在老版本SAC下写的脚本
-或宏来说，可能依赖于旧的优先级顺序。可以考虑修改脚本以适应新版本的优先级或者直接
-设定适应OLD优先级。
+SAC在101.6之后的版本中，默认使用正常的操作符优先级。对于一些在老版本SAC
+下写的脚本或宏来说，可能依赖于旧的优先级顺序。可以考虑修改脚本以适应新版
+本的优先级或者直接设定适应 \texttt{OLD} 优先级。
 
 \SACTitle{示例}
 正常的操作符优先级：

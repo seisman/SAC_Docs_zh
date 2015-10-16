@@ -6,7 +6,7 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-T!RAVEL!TIME [MODEL model] [PICKS n] [PHASE phaselist]
+TRAVELTIME [M!ODEL! model] [PICKS n] [PHASE phaselist]
     [VERBOSE|QUIET] [M|KM]
 \end{SACSTX}
 
@@ -31,18 +31,20 @@ traveltime MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
 
 \SACTitle{说明}
 该命令使用 \href{https://seiscode.iris.washington.edu/projects/iaspei-tau}{iaspei-tau}
-程序计算标准速度模型下的震相理论走时，要求内存中的SAC数据文件中必须包含事件位置、台站位置
-以及发震时刻。震相名区分大小写，可使用的震相名参考 
-\href{https://seiscode.iris.washington.edu/projects/iaspei-tau}{iaspei-tau} 
+程序计算标准速度模型下的震相理论走时，要求内存中的SAC数据文件中必须包含
+事件位置、台站位置以及发震时刻。震相名区分大小写，可使用的震相名参考
+\href{https://seiscode.iris.washington.edu/projects/iaspei-tau}{iaspei-tau}
 的相关文档。
 
-若使用了 \texttt{PICKS n} 选项，则会将震相列表中第一个震相的到时存储在头段变量 \texttt{Tn}
-中，余下的震相到时依次存储到其余的 \texttt{Tn} 中。对于每个震相，终端会输出两个时间，前者
-时震相到时相对于参考时刻的秒数，后者是震相相对于发震时刻的走时。
+若使用了 \texttt{PICKS n} 选项，则会将震相列表中第一个震相的到时存储在
+头段变量 \texttt{Tn} 中，余下的震相到时依次存储到其余的 \texttt{Tn} 中。
+对于每个震相，终端会输出两个时间，前者时震相到时相对于参考时刻的秒数，
+后者是震相相对于发震时刻的走时。
 
-由于历史原因，事件深度 \texttt{evdp} 以前的单位为 \si{\m}，而在新版的SAC中，默认的
-\texttt{evdp} 单位为 \si{\km}，为了能够兼容以前的 \texttt{evdp} 为 \si{\m} 的
-波形数据，新版的SAC中引入了 \texttt{km} 和 \texttt{m} 选项以指定深度单位。
+由于历史原因，事件深度 \texttt{evdp} 以前的单位为 \si{\m}，而在新版的
+SAC中，默认的 \texttt{evdp} 单位为 \si{\km}，为了能够兼容以前的
+\texttt{evdp} 为 \si{\m} 的波形数据，新版的SAC中引入了 \texttt{km} 和
+\texttt{m} 选项以指定深度单位。
 
 \SACTitle{示例}
 区域事件，使用默认震相列表：
@@ -57,11 +59,12 @@ traveltime: setting phase Pg       at 22.904724 s [ t = 64.334724 s ]
 traveltime: setting phase Sn       at 50.047722 s [ t = 91.477722 s ]
 traveltime: setting phase Sg       at 66.414337 s [ t = 107.844337 s ]
 \end{SACCode}
-由于震中距比较小，没有P和S震相，所以会出现 \texttt{error finding phase P} 的错误，
-该错误可忽略。以Pn震相为例，震相走时为 \SI{51.89}{\s}，相对于参考时刻的秒数为 \SI{10.46}{\s}。
+由于震中距比较小，没有P和S震相，所以会出现 \texttt{error finding phase P}
+的错误，该错误可忽略。以Pn震相为例，震相走时为 \SI{51.89}{\s}，相对于参考
+时刻的秒数为 \SI{10.46}{\s}。
 
-上面的示例，只是计算了震相走时，不会写入到头段变量中。要将震相走时存储到头段变量中，需要
-使用\texttt{PICKS n}选项：
+上面的示例，只是计算了震相走时，不会写入到头段变量中。要将震相走时存储到
+头段变量中，需要使用 \texttt{PICKS n}选项：
 \begin{SACCode}
 SAC> fg seismo
 SAC> traveltime picks 0 phase Pn Pg Sn Sg
@@ -73,10 +76,11 @@ T2MARKER = 50.048           (Sn)
 T3MARKER = 66.414           (Sg)
 SAC> write seismo-picks.z
 \end{SACCode}
-可以看到，\texttt{T0} 到 \texttt{T3} 分别保存了震相Pn、Pg、Sn、Sg震相的到时相对于
-文件参考时刻的秒数。\texttt{KT0} 到 \texttt{KT3} 中则分别存储了相应的震相名。
-此处，尽管没有使用 \texttt{VERBOSE} 选项，深度信息还是会被打印出来，这是为了提醒用户
-注意 \texttt{evdp} 的单位，可以通过 \texttt{QUIET} 选项设置不显示深度信息。
+可以看到，\texttt{T0} 到 \texttt{T3} 分别保存了震相Pn、Pg、Sn、Sg震相的
+到时相对于文件参考时刻的秒数。\texttt{KT0} 到 \texttt{KT3} 中则分别存储了
+相应的震相名。此处，尽管没有使用 \texttt{VERBOSE} 选项，深度信息还是会被
+打印出来，这是为了提醒用户注意 \texttt{evdp} 的单位，可以通过 \texttt{QUIET}
+选项设置不显示深度信息。
 
 \texttt{rdseed v5.0} 生成的波形数据，震源深度 \texttt{evdp} 的单位为 \si{\m}：
 \begin{SACCode}

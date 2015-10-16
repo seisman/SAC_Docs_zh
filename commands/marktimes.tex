@@ -12,15 +12,16 @@ MARKT!IMES! [T!O! marker] [D!ISTANCE! H!EADER!|v] [O!RIGIN! H!EADER!|v|GMT time]
 
 \SACTitle{输入}
 \begin{description}
-\item [TO marker] 定义头段中用于储存结果的第一个时间标记。对下一个的速度使用下一个时间
-\item [marker]  T0|T1|T2|T3|T4|T5|T6|T7|T8|T9
-\item [DISTANCE HEADER] 使用头段中的DIST代表距离用于走时计算
-\item [DISTANCE v] 使用v作为走时计算中的距离
-\item [ORIGIN HEADER] 使用头段中的参考时间(O)用于走时计算
-\item [ORIGIN v] 使用相对参考时间偏移v秒用于走时计算
-\item [ORIGIN GMT time] 使用Greenwich平均时间作为参考时间
+\item [TO marker] 定义头段中用于储存结果的第一个时间标记。对下一个的速度
+    使用下一个时间
+\item [marker] \texttt{T0|T1|T2|T3|T4|T5|T6|T7|T8|T9}
+\item [DISTANCE HEADER] 使用头段中的 \texttt{dist} 代表距离用于走时计算
+\item [DISTANCE v] 使用 \texttt{v} 作为走时计算中的距离
+\item [ORIGIN HEADER] 使用头段中的参考时间（\texttt{O}）用于走时计算
+\item [ORIGIN v] 使用相对参考时间偏移 \texttt{v} 秒用于走时计算
+\item [ORIGIN GMT time] 使用GMT时间作为参考时间
 \item [time] GMT时间包含六个整数：年、儒略日、时、分、秒、毫秒
-\item [VELOCITIES v ... ] 设置用于走时计算的速度集，最多可以输入10个速度
+\item [VELOCITIES v ...] 设置用于走时计算的速度集，最多可以输入10个速度
 \end{description}
 
 \SACTitle{缺省值}
@@ -36,7 +37,7 @@ marktimes velocities 2. 3. 4. 5. 6. distance
 结果被写入指定的时间标记中
 
 \SACTitle{示例}
-使用默认的速度集，强制距离为 \SI{340}{\km}，第一个时间标记为T4：
+使用默认的速度集，强制距离为 \SI{340}{\km}，第一个时间标记为 \texttt{T4}：
 \begin{SACCode}
 SAC> marktimes distance 340. to t4
 \end{SACCode}
@@ -46,7 +47,7 @@ SAC> marktimes distance 340. to t4
 SAC> markt v 3.5 4.0 4.5 5.0 5.5
 \end{SACCode}
 
-设置新的参考时间并将结果保存在T2中：
+设置新的参考时间并将结果保存在 \texttt{T2} 中：
 \begin{SACCode}
 SAC> markt origin gmt 1984 231 12 43 17 237 to t2
 \end{SACCode}

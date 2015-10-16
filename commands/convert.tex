@@ -8,7 +8,7 @@
 \begin{SACSTX}
 CONV!ERT! [FROM] [format] infile [TO [format] outfile]|[OVER [format]]
 \end{SACSTX}
-其中format可以为 \texttt{SAC|ALPHA}
+其中 \texttt{format} 可以为 \texttt{SAC|ALPHA}
 
 \SACTitle{输入}
 \begin{description}
@@ -25,5 +25,6 @@ convert from sac infile over sac
 \end{SACDFT}
 
 \SACTitle{说明}
-这个命令将单个文件从一种格式转换为另一种格式。该命令已经逐渐被read和write命令
-所取代，convert命令已经不再需要，保留该命令只是为了兼容性考虑。
+该命令将单个文件从一种格式转换为另一种格式。该命令已经逐渐被 \nameref{cmd:read}
+和 \nameref{cmd:write} 命令所取代，\texttt{convert} 命令已经不再需要，
+保留该命令只是为了兼容性考虑。

@@ -23,8 +23,9 @@
 \item \texttt{-Q}：选择波形数据的质量，可以取 \texttt{E}、\texttt{D}、
     \texttt{M}、 \texttt{R}、\texttt{Q}，其中 \texttt{E} 代表输出全部
     质量的波形数据，其他值的含义参考``\nameref{sec:quality-control}''一节。
-\item \texttt{-b n}：输出的波形数据的最大数据点数，默认值为20000000。若
-    波形数据的的数据点数超过该值，则会给出警告并把数据分割成多段。
+\item \texttt{-b n}：输出的波形数据的最大数据点数，默认值为20000000，
+    能所取到的最大值是4字节整型的上限，即2147483647。若波形数据的的数据
+    点数超过该值，则会给出警告并把数据分割成多段。
 \item \texttt{-g file}：为SEED或miniSEED数据单独指定响应文件。响应文件
     可以是SEED格式也可以是dateless SEED格式，也可以通过设置环境变量
     \verb|ALT_RESPONSE_FILE| 指定响应文件，这样做的好处在于可以多个SEED

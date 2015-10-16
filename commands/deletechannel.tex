@@ -2,7 +2,7 @@
 \label{cmd:deletechannel}
 
 \SACTitle{概要}
-从内存文件列表中删去一个或多个文件
+从内存中的文件列表中删除一个或多个文件
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -10,21 +10,21 @@ D!ELETE!C!HANNEL! ALL
 \end{SACSTX}
 或
 \begin{SACSTX}
-D!ELETE!C!HANNEL! fname|filenumber|range [fname|filenumber|range ...]
+D!ELETE!C!HANNEL! fname|fno|range [fname|fno|range ...]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
 \item [ALL] 删除内存中全部文件
-\item [fname] 要删除的内存文件列表中的文件名
-\item [filenumber] 文件列表中指定文件的文件号，第一个文件是1，第二个文件是2...
-\item [range] 要删除的一系列文件号，用破折号隔开，如11-20
+\item [fname] 要删除文件的文件名
+\item [filenumber] 要删除文件的文件号。第一个文件的文件号是1
+\item [range] 要删除文件的文件号范围，范围用破折号分开，如\texttt{11-20}
 \end{description}
 
 \SACTitle{示例}
 \begin{SACCode}
-  dc 3 5                         // 删除第三、五个文件
+  dc 3 5                         // 删除第3、5个文件
   dc SO01.sz SO02.sz             // 删除这些名字的文件
-  dc 11-20                       // 删除11-20的全部文件
-  dc 3 5 11-20 SO01.sz SO02.sz   // 删除上面的全部
+  dc 11-20                       // 删除第11至20个文件
+  dc 3 5 11-20 SO01.sz SO02.sz   // 删除上面的全部文件
 \end{SACCode}

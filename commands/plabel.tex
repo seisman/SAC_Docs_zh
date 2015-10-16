@@ -16,14 +16,17 @@ PLABEL [n] [ON|OFF|text] [SIZE T!INY!|S!MALL!|M!EDIUM!|L!ARGE!]
 \item [ON] 打开绘图标签选项，但不改变标签文本
 \item [OFF] 关闭绘图标签选项
 \item [text] 改变绘图标签的文本内容，同时打开了绘图标签选项
-\item [SIZE TINY|SMALL|MEDIUM|LARGE] 修改绘图标签的文本尺寸。TINY、SMALL、MEDIUM、LARGE分别表示
-    一行132、100、80、50个字符。
+\item [SIZE TINY|SMALL|MEDIUM|LARGE] 修改绘图标签的文本尺寸。\texttt{TINY}、
+    \texttt{SMALL}、\texttt{MEDIUM}、\texttt{LARGE} 分别表示一行132、
+    100、80、50个字符
 \item [BELOW] 将此标签放在前一标签的下面
-\item [POSITION x y a] 定义该标签的位置。其中x的取值为0到1，y的取值为0到最大视口(一般为0.75)，a是标签相对于水平方向顺时针旋转的角度。
+\item [POSITION x y a] 定义该标签的位置。其中x的取值为0到1，y的取值为0到
+    最大视口（一般为0.75），a是标签相对于水平方向顺时针旋转的角度。
 \end{description}
 
 \SACTitle{缺省值}
-默认字体大小为small，标签1的位置为0.15 0.2 0.。默认其他标签的位置为上一个标签之下。
+默认字体大小为 \texttt{small}，标签1的位置为 \texttt{0.15 0.2 0.}。
+默认其他标签的位置为上一个标签之下。
 
 \SACTitle{说明}
 这个命令允许你为接下来的绘图命令定义通用的绘图标签。你可以定义每个标签的

@@ -14,12 +14,14 @@ GT!EXT! [S!OFTWARE!|H!ARDWARE!] [F!ONT! n] [SIZE size] [SYS!TEM! system]
 \begin{description}
 \item [SOFTWARE]  绘图中使用软件文本
 \item [HARDWARE]  绘图中使用硬件文本
-\item [FONT n] 设置软件文本字体为n，n取值为1到8
-\item [SIZE]  改变缺省文本大小，可以取TINY、SMALL、MEDIUM、LARGE，这些缺省文本尺寸
-    的具体大小可以参考TSIZE命令
-\item [SYSTEM system] 修改字体子系统，可以取值为SOFTWARE、CORE、XFT
-\item [NAME name] 修改CORE或XFT子系统的默认字体名，可以取Helvetica、Times-Roman、
-    Courier、ZapfDingbats
+\item [FONT n] 设置软件文本字体为 \texttt{n}，\texttt{n} 取值为1到8
+\item [SIZE size]  改变缺省文本大小，可以取 \texttt{TINY}、\texttt{SMALL}、
+    \texttt{MEDIUM}、\texttt{LARGE}，这些缺省文本尺寸的具体大小可以
+    参考 \nameref{cmd:tsize} 命令
+\item [SYSTEM system] 修改字体子系统，可以取值为 \texttt{SOFTWARE}、
+    \texttt{CORE}、\texttt{XFT}
+\item [NAME name] 修改 \texttt{CORE} 或 \texttt{XFT} 子系统的默认字体名，
+    可以取Helvetica、Times-Roman、Courier、ZapfDingbats
 \end{description}
 
 \SACTitle{缺省值}
@@ -28,9 +30,9 @@ gtext software font 1 size small
 \end{SACDFT}
 
 \SACTitle{说明}
-软件文本使用了图形库的文本显示功能，将每个字符以线段的形式保存起来，因而可以任意
-缩放或旋转至任意角度。使用软件文本在不同图形设备上可以产生相同的结果，但是其速度会
-慢于硬件文本。目前有8种可用的软件字体：
+软件文本使用了图形库的文本显示功能，将每个字符以线段的形式保存起来，因而
+可以任意缩放或旋转至任意角度。使用软件文本在不同图形设备上可以产生相同的
+结果，但是其速度会慢于硬件文本。目前有8种可用的软件字体：
 \begin{enumerate}
 \item simplex block
 \item simplex italics
@@ -42,10 +44,10 @@ gtext software font 1 size small
 \item riplex italics
 \end{enumerate}
 
-硬件文本使用图形设备自身的文本显示功能，因而文本在不同的设备上尺寸可能不同，
-所以使用硬件文本会导致在不同的图形设备上看到不同的图。如果一个设备有超过一个
-硬件文本尺寸，那么最接近预期值的那个尺寸将被使用。
-其最主要优点在于速度较快，因而当速度比质量重要时可以使用。
+硬件文本使用图形设备自身的文本显示功能，因而文本在不同的设备上尺寸可能
+不同，所以使用硬件文本会导致在不同的图形设备上看到不同的图。如果一个设备
+有超过一个硬件文本尺寸，那么最接近预期值的那个尺寸将被使用。其最主要优点
+在于速度较快，因而当速度比质量重要时可以使用。
 
 \SACTitle{示例}
 选择triplex软件字体：

@@ -11,34 +11,43 @@ C!HN!H!DR! [FILE n1 n2 ...] field v [field v ...] [ALLT v]
 
 \SACTitle{输入}
 \begin{description}
-\item [FILE n1 n2] 只修改内存中的指定文件的头段变量，n为内存中文件的文件号
-\item [field v] SAC头段变量名及其值\footnote{为了保证数据内部一致性，以下头段变量的值
-    不可用该命令修改：nvhdr、npts、nwfid、norid和nevid}
-\item [ALLT v] 将所有已定义的时间相关头段变量的值加v秒，同时将参考时刻减去v秒
+\item [FILE n1 n2] 只修改内存中的指定文件的头段变量，\texttt{n} 为内存中
+    文件的文件号
+\item [field v] SAC头段变量名及其值\footnote{为了保证数据内部一致性，
+    以下头段变量的值不可用该命令修改：\texttt{nvhdr}、\texttt{npts}、
+    \texttt{nwfid}、\texttt{norid} 和 \texttt{nevid}}
+\item [ALLT v] 将所有已定义的时间相关头段变量的值加 \texttt{v} 秒，同时
+    将参考时刻减去 \texttt{v} 秒
 \end{description}
 
 \SACTitle{说明}
-关于值v的说明：
+关于值 \texttt{v} 的说明：
 \begin{itemize}
 \item 头段变量的类型和值的类型必须匹配；
 \item 对于有内部空格的字符串要用单引号括起来；
-\item 逻辑型头段变量的取值为TRUE或FALSE，YES或NO也可以接受；
-\item 对于相对时间头段变量(B、E、O、A、F、Tn)，v可以是相对参考时刻的时间偏移量(浮点型)，
-    也可以使用绝对时刻的形式 \texttt{GMT v1 v2 v3 v4 v5 v6}，其中v1、v2、v3、v4、
-    v5、v6是GMT年、一年的第一天、时、分、秒、毫秒。如果v1是两位整数，SAC假定其为当前世纪，
-    除非那个时间是未来时间，那种情况下SAC假定是上个世纪，最好还是用4位整数表示年。
+\item 逻辑型头段变量的取值为 \texttt{TRUE} 或 \texttt{FALSE}，\texttt{YES}
+    或 \texttt{NO} 也可以接受
+\item 对于相对时间头段变量（\texttt{B}、\texttt{E}、\texttt{O}、\texttt{A}、
+    \texttt{F}、\texttt{Tn}），\texttt{v} 可以是相对参考时刻的时间
+    偏移量（浮点型），也可以使用绝对时刻的形式 \texttt{GMT v1 v2 v3 v4 v5 v6}，
+    其中 \texttt{v1}、\texttt{v2}、\texttt{v3}、\texttt{v4}、\texttt{v5}、
+    \texttt{v6} 是GMT年、一年的第一天、时、分、秒、毫秒。如果 \texttt{v1}
+    是两位整数，SAC假定其为当前世纪，除非那个时间是未来时间，那种情况下
+    SAC假定是上个世纪，最好还是用4位整数表示年。
 \item 对于任意类型的头段变量，均可以设置其值为 \texttt{undef}，使头段变量未定义
 \end{itemize}
 
-该命令允许你修改指定的一个或多个文件的头段变量值。在未指定文件号的情况下，则对内
-存中的所有文件进行操作。要将内存中修改后的头段覆盖磁盘文件的头段，需要使用write或
-writehdr命令，SAC会对新值做有效性检查，不过你可以使用listhdr自己检查。
+该命令允许你修改指定的一个或多个文件的头段变量值。在未指定文件号的情况下，
+则对内存中的所有文件进行操作。要将内存中修改后的头段覆盖磁盘文件的头段，
+需要使用 \nameref{cmd:write} 或 \nameref{cmd:writehdr} 命令，SAC会对新值
+做有效性检查，不过你可以使用 \nameref{cmd:listhdr} 自己检查。
 
-头段中用6个变量定义了参考时刻，这是SAC中唯一的绝对时刻，其它时刻都被转换成相对
-于参考时刻的相对时间。可以使用``ALLT v''修改参考时刻以及相对时间。
-参考时间被减去了v秒，相对时间被加上了v秒，
-这保证了数据的绝对时刻不发生改变。为了方便，你可以通过输入绝对时刻
-而非相对时间来改变时间偏移变量的值。绝对时刻首先被转换为相对时间，然后再存入头段中。
+头段中用6个变量定义了参考时刻，这是SAC中唯一的绝对时刻，其它时刻都被转换
+成相对于参考时刻的相对时间。可以使用 \texttt{ALLT v} 修改参考时刻以及相对
+时间。参考时间被减去了 \texttt{v} 秒，相对时间被加上了 \texttt{v} 秒，
+这保证了数据的绝对时刻不发生改变。为了方便，你可以通过输入绝对时刻而非
+相对时间来改变时间偏移变量的值。绝对时刻首先被转换为相对时间，然后再存入
+头段中。
 
 \SACTitle{示例}
 为了定义内存中所有文件的事件经纬度、事件名：
@@ -58,19 +67,22 @@ SAC> ch file 2 4 KEVNM 'LA goes under'
 SAC> ch a undef
 \end{SACCode}
 
-假设你知道事件的GMT起始时间，你想要快速改变头段中所有的时间变量，使得发震时刻是0
-即参考时间为发震时刻，并且所有的相对时间根据这个时间去纠正相对值。
+假设你知道事件的GMT起始时间，你想要快速改变头段中所有的时间变量，使得
+发震时刻是0即参考时间为发震时刻，并且所有的相对时间根据这个时间去纠正
+相对值。
 
 首先用GMT选项设置事件起始时间：
 \begin{SACCode}
 SAC> ch o GMT 1982 123 13 37 10 103
 \end{SACCode}
-现在使用listhdr检查发震时刻o相对于当前参考时间的描述：
+现在使用 \nameref{cmd:listhdr} 检查发震时刻 \texttt{o} 相对于当前参考时间
+的描述：
 \begin{SACCode}
 SAC> lh o
  o = 123.103
 \end{SACCode}
-现在使用ALLT选项从所有的偏移时间中减去这个值，并加到参考时间上，你同时需要改变描述参考时间类型的字段：
+现在使用 \texttt{ALLT} 选项从所有的偏移时间中减去这个值，并加到参考时间上，
+同时需要改变描述参考时间类型的字段：
 \begin{SACCode}
 SAC> ch allt -123.103 iztype iO
 \end{SACCode}

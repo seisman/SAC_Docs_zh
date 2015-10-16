@@ -29,13 +29,15 @@ SAC> title 'particle-motion plot for station xyz'
 SAC> plotpm
 \end{SACCode}
 
-如果你想要值绘制每个文件在初动附近的一部分，你可以使用xlim命令：
+如果你想要值绘制每个文件在初动附近的一部分，你可以使用 \nameref{cmd:xlim}
+命令：
 \begin{SACCode}
 SAC> xlim a -0.2 2.0
 SAC> PLOTPM
 \end{SACCode}
 
-你也可以使用plotpk在之前的绘图窗口中设置新的区域，然后绘制命令如下：
+也可以使用 \nameref{cmd:plotpk} 在之前的绘图窗口中设置新的区域，然后绘制
+命令如下：
 \begin{SACCode}
 SAC> beginwindow 2
 SAC> plotpk

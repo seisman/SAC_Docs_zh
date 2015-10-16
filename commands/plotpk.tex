@@ -12,19 +12,20 @@ P!LOT!PK [P!ERPLOT! ON|OFF|n] [BELL ON|OFF] [A!BSOLUTE!|R!ELATIVE!]
 
 \SACTitle{输入}
 \begin{description}
-\item [PERPLOT ON] 一张图绘制n个文件，使用n的旧值
+\item [PERPLOT ON] 一张图绘制 \texttt{n} 个文件，使用n的旧值
 \item [PERPLOT OFF] 在一张图上绘制所有文件
-\item [PERPLOT n] 一张图上绘制n个文件，比如拾取震相时常使用n=3(三分量)
+\item [PERPLOT n] 一张图上绘制 \texttt{n} 个文件
 \item [BELL ON|OFF]  击键时是否响铃
 \item [ABSOLUTE] 显示绝对GMT格式时间
 \item [RELATIVE] 显示相对于每个文件的参考时间
 \item [REFERENCE ON] 打开参考线显示
 \item [REFERENCE OFF] 关闭参考线选项
-\item [REFERENCE v] 打开参考线选项并设置参考值为v，设置为0会很方便
+\item [REFERENCE v] 打开参考线选项并设置参考值为 \texttt{v}，设置为0会很方便
 \item [MARKALL ON] 同时储存一张图上的所有文件的时间标记，用于拾取震相
 \item [MARKALL OFF] 只保存光标位置所在的那个文件的震相拾取标记
-\item [SAVELOCS ON]  保存拾取的位置(由命令L得到，稍后介绍)到暂存块变量中
-\item [SAVELOCS OFF]  不保存拾取位置到暂存块变量
+\item [SAVELOCS ON]  保存拾取的位置（由命令 \texttt{L} 得到，稍后介绍）到
+    黑板变量中
+\item [SAVELOCS OFF]  不保存拾取位置到黑板变量
 \end{description}
 
 \SACTitle{缺省值}
@@ -33,9 +34,17 @@ plotpk perplot off absolute reference off markall off savelocs off
 \end{SACDFT}
 
 \SACTitle{说明}
-这个命令的格式类似于PLOT1，这个绘图需要一个带有光标的终端。在该命令后将在屏幕上出现光标，输入单个字符即可执行不同的操作。有些但不是全部字符将在屏幕上产生图形输出。错误以及输出信息将在屏幕上部打印，当前在头段中的震相拾取将自动	显示在屏幕上。不同的光标响应的输出可以定向到SAC头段中，也可以定向到一个字符数字型震相拾取文件(OAPF)，或者到一个HYPO震相拾取文件，或者到终端。如果你使用SAVELOCS选项保存由L光标选项得到的光标位置到暂存块变量，那么下面的黑板变量将被定义：
+该命令的格式类似于 \nameref{cmd:plot1}，这个绘图需要一个带有光标的终端。
+在该命令后将在屏幕上出现光标，输入单个字符即可执行不同的操作。有些但不是
+全部字符将在屏幕上产生图形输出。错误以及输出信息将在屏幕上部打印，当前在
+头段中的震相拾取将自动	显示在屏幕上。不同的光标响应的输出可以定向到SAC
+头段中，也可以定向到一个字符数字型震相拾取文件（OAPF），或者到一个HYPO
+震相拾取文件，或者到终端。如果你使用 \texttt{SAVELOCS} 选项保存由 \texttt{L}
+光标选项得到的光标位置到暂存块变量，那么下面的黑板变量将被定义：
 \begin{itemize}
-\item NLOCS：命令执行期间拾取的光标位置数，每次执行PPK时初始化为0，每次拾取光标位置则加1
-\item XLOCn：拾取光标位置的x值，如果头段中的参考时间被定义其是GMT时间，否则其为偏移时间
-\item YLOCn：第n个拾取光标位置的y值
+\item \texttt{NLOCS}：命令执行期间拾取的光标位置数，每次执行ppk时初始化为0，
+    每次拾取光标位置则加1
+\item \texttt{XLOCn}：拾取光标位置的x值，如果头段中的参考时间被定义其是
+    GMT时间，否则其为偏移时间
+\item \texttt{YLOCn}：第 \texttt{n} 个拾取光标位置的y值
 \end{itemize}

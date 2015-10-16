@@ -16,23 +16,27 @@ SAVE!IMG! filename.format
 \end{description}
 
 \SACTitle{说明}
-该命令将当前绘图窗口中的图像保存到图像文件中，可用的格式包PS、PDF、PNG和XPM，命令
-会根据图像文件的扩展名自动识别文件格式。
+该命令将当前绘图窗口中的图像保存到图像文件中，可用的格式包PS、PDF、PNG
+和XPM，命令会根据图像文件的扩展名自动识别文件格式。
 
-SAVEIMG相对于SGF文件的好处在于，SGF文件中的字母和数字是由线段组成的，而SAVEIMG产生的
-ps或pdf图像采用Postscript的特性直接产生字体。对大多数情况，低精度的png或xpm文件也
-能满足要求。出于可移植性的考虑，SAC默认是不支持PNG格式的。
+\texttt{saveimg} 相对于SGF文件的好处在于，SGF文件中的字母和数字是由线段
+组成的，而 \texttt{saveimg} 产生的ps或pdf图像采用Postscript的特性直接
+产生字体。对大多数情况，低精度的png或xpm文件也能满足要求。出于可移植性的
+考虑，SAC默认是不支持PNG格式的。
 
 png和xpm将拥有当前窗口的横纵比，pdf或ps文件拥有固定的横纵比X/Y=11/8.5=1.2941，
 对这些绘图，如果显示窗口设置为1.2941会看起来比较好。
 
-与SGF文件类似，saveimg生成的PS文件是没有BoundingBox的。对于sgf文件，脚本sgftoeps.csh可以
-生成一个有BoundingBox的eps文件。对于saveimg生成的PS文件，目前还没有相应的脚本。
+与SGF文件类似，\texttt{saveimg} 生成的PS文件是没有BoundingBox的。对于
+sgf文件，脚本 \texttt{sgftoeps.csh} 可以生成一个有BoundingBox的eps文件。
+对于 \texttt{saveimg} 生成的PS文件，目前还没有相应的脚本。
 
-为了使用saveimg保存一个绘图，图像必须是可见的，即通过plot、plot1等命令绘制出来。
-saveimg在子程序SSS中无法工作，但如果输入qs退出子程序，此时图像窗口未关闭，saveimg
-此时可用于保存该图像。另外如果使用了beginframe命令在一个窗口中绘制多张图，必须等到
-执行endframe命令之后方可使用saveimg命令。
+为了使用 \texttt{saveimg} 保存一个绘图，图像必须是可见的，即通过
+\nameref{cmd:plot}、\nameref{cmd:plot1} 等命令绘制出来。\texttt{saveimg}
+在子程序SSS中无法工作，但如果输入 \nameref{cmd:quitsub} 退出子程序，
+此时图像窗口未关闭，\texttt{saveimg} 此时可用于保存该图像。另外如果使用了
+\nameref{cmd:beginframe} 命令在一个窗口中绘制多张图，必须等到执行
+\nameref{cmd:endframe} 命令之后方可使用 \texttt{saveimg} 命令。
 
 \SACTitle{示例}
 将图像保存为PDF文件：

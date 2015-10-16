@@ -12,29 +12,35 @@ PICKS [ON|OFF] [pick V!ERTICAL!|H!ORIZONTAL!|C!ROSS!] [W!IDTH! v] [H!EIGHT! v]
 \SACTitle{输入}
 \begin{description}
 \item [ON|OFF] 打开/关闭时间标记的显示
-\item [pick] SAC中与时间标记有关的头段变量名，可以取O、A、F、Tn(n=0--9)
+\item [pick] SAC中与时间标记有关的头段变量名，可以取 \texttt{O}、\texttt{A}、
+    \texttt{F}、\texttt{Tn}（n=0--9）
 \item [VERTICAL] 在时间标记处绘制垂直线，时间标记ID位于线的右下方
-\item [HORIZONTAL] 在最接近时间标记的数据点处绘制水平线，时间标记ID位于线上或线下
+\item [HORIZONTAL] 在最接近时间标记的数据点处绘制水平线，时间标记ID位于
+    线上或线下
 \item [CROSS] 在时间标记处绘制垂直线，在最近的数据点处绘制水平线
-\item [WIDTH v] 时间标记的宽度为v
-\item [HEIGHT v] 修改时间标记的高度为v。高度和宽度仅对HORIZONTAL和CROSS使用，其数值为占图形的比例
+\item [WIDTH v] 时间标记的宽度为 \texttt{v}
+\item [HEIGHT v] 修改时间标记的高度为 \texttt{v}。高度和宽度仅对
+    \texttt{HORIZONTAL} 和 \texttt{CROSS} 使用，其数值为占图形的比例
 \end{description}
 
 \SACTitle{缺省值}
 \begin{SACDFT}
 pick on width 0.1 height 0.1
 \end{SACDFT}
-所有的拾取标记类型都是VERTICAL
+所有的拾取标记类型都是 \texttt{VERTICAL}
 
 \SACTitle{说明}
-这个命令控制SAC绘图上时间标记的显示。这些时间标记标识了如震相到时、事件发生时刻等。
-当打开显示选项时，每一个定义了的时间标记都会在绘图上相应时刻处绘制一条线，并且在其
-旁有一个时间标记ID。时间标记ID是一个8字符长的头段变量。头段变量中KA、KF、KO以及KTn分别
-是A、F、O 和Tn的时间标记ID。如果时间标记id未定义，那么标记的名字就是就头段变量本身。
-每一个时间标记可以被显示为一条垂直线、一条水平线或一个交叉线。
+这个命令控制SAC绘图上时间标记的显示。这些时间标记标识了如震相到时、事件
+发生时刻等。当打开显示选项时，每一个定义了的时间标记都会在绘图上相应时刻
+处绘制一条线，并且在其旁有一个时间标记ID。时间标记ID是一个8字符长的头段
+变量。头段变量中 \texttt{KA}、\texttt{KF}、\texttt{KO} 以及 \texttt{KTn}
+分别是 \texttt{A}、\texttt{F}、\texttt{O} 和 \texttt{Tn} 的时间标记ID。
+如果时间标记id未定义，那么标记的名字就是就头段变量本身。每一个时间标记
+可以被显示为一条垂直线、一条水平线或一个交叉线。
 
 \SACTitle{示例}
-以交叉符号显示时间标记T4、T5和T6，并改变交叉符号的高度和宽度：
+以交叉符号显示时间标记 \texttt{T4}、\texttt{T5} 和 \texttt{T6}，并改变
+交叉符号的高度和宽度：
 \begin{SACCode}
 SAC> picks t4 c t5 c t6 c w 0.3 h 0.1
 \end{SACCode}
