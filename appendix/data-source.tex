@@ -1,15 +1,58 @@
 \section{数据来源}
-地震的波形数据来源有很多：
-\begin{enumerate}
-\item \href{http://www.seisdmc.ac.cn/}{中国地震局国家测震台网数据备份中心}
-\item \href{http://e-service.cwb.gov.tw/wdps/}{台湾中央气象局}
-\item \href{http://www.aeic.alaska.edu/}{Alaska Earthquake Information Center}
-\item \href{http://www.earthquakescanada.nrcan.gc.ca/stndon/CNSN-RNSC/index-eng.php}{Canadian National Seismic Network}
-\item \href{http://www.iris.edu/hq/}{Incorporated Research Institutions for Seismology}
-\item \href{http://www.fnet.bosai.go.jp/}{NIED F-net}
-\item \href{http://www.hinet.bosai.go.jp/}{NIED Hi-net}
+地震波形数据的来源有很多，下面列举并简单介绍常见的数据来源。
+
+\subsection{国家测震台网数据备份中心}
+\href{http://www.seisdmc.ac.cn/}{国家测震台网数据备份中心}，隶属于
+中国地震局地球物理研究所。到2014年底，国家测震台网已建成由170个台站
+和3个小孔径台阵（共30个子台）组成的国家地震台网；859个台站组成的31个
+区域地震台网，33个子台组成的6个火山监测台网；291套地震仪器组成的32个
+应急流动观测台网。国家测震台网数据备份中心可以提供从2007年8月起的
+全球M5.5级以上地震事件以及国内及周边地区M3.5级以上地震事件的波形数据。
+
+要申请数据备份中心的数据，需要注册账户并升级账户属性。
+要升级账户属性，需要按程序进行申请，并且签署和遵守
+\href{http://www.seisdmc.ac.cn/class/view?id=8}{相关协议}。
+
+\subsection{IRIS DMC}
+\label{subsec:IRIS}
+\href{http://ds.iris.edu/ds/nodes/dmc/}{IRIS DMC} 是世界上最大的地震
+波形数据中心。
+
+IRIS DMC的大部分数据是完全公开的，无需注册即可直接申请下载波形数据。
+从IRIS DMC申请数据的工具有很多：
+\href{https://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/}{BREQ\_FAST}、
+\href{http://ds.iris.edu/wilber3/find_event}{Wilber III}、
+\href{http://service.iris.edu/}{Web Service}、
+\href{http://ds.iris.edu/ds/nodes/dmc/software/downloads/irisfetch.m/}{irisfetch.m}、
+\href{https://seiscode.iris.washington.edu/projects/ws-fetch-scripts}{Web Service Fetch scripts}、
+\href{http://www.seis.sc.edu/sod/}{SOD} 和
+\href{https://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/}{JWEED}。
+
+\subsection{NIED}
+\label{subsec:NIED}
+\href{http://www.bosai.go.jp/}{NIED}是日本的国家防灾科学技术研究所。其
+下包含若干台网：高感度地震观测网 \href{http://www.hinet.bosai.go.jp/}{Hi-net}、
+宽频带地震台网 \href{http://www.fnet.bosai.go.jp/}{F-net}、强地面运动地震
+台网 \href{http://www.kyoshin.bosai.go.jp/}{K-net和KiK-net} 和
+火山观测网 \href{http://www.vnet.bosai.go.jp/}{V-net}。
+
+\subsection{Natural Resources Canada}
+\label{subsec:nrcan}
+加拿大政府的网站 \href{http://www.nrcan.gc.ca/home}{Natural Resources Canada}
+提供了
+\href{http://www.earthquakescanada.nrcan.gc.ca/stndon/CNSN-RNSC/index-eng.php}{Canadian National Seismic Network}、
+\href{http://can-ndc.nrcan.gc.ca/yka/index-en.php}{Yellowknife Seismic Array}、
+POLARIS Network等台网/台阵的连续波形数据以及这些台网/台阵1975年至今的事件
+波形数据。
+
+事件波形数据可以直接 \href{http://www.earthquakescanada.nrcan.gc.ca/stndon/NWFA-ANFO/eve/index-eng.php}{点击下载}；
+连续波形数据则可以通过工具
+\href{http://www.earthquakescanada.nrcan.gc.ca/stndon/AutoDRM/index-eng.php}{AutoDRM} 下载。
+
+\subsection{其他}
+\begin{itemize}
 \item \href{http://www.ncedc.org/}{Northern California Earthquake Data Center}
 \item \href{http://pnsn.org/}{Pacific Northwest Seismic Network}
 \item \href{http://www.scsn.org/}{Southern California Seismic Network}
 \item \href{http://scedc.caltech.edu/}{Southern California Seismic Network at Caltech}
-\end{enumerate}
+\end{itemize}
