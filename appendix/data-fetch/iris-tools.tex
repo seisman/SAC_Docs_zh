@@ -4,15 +4,72 @@
 需求选择合适的工具，并自行阅读相应工具的说明文档。
 
 \subsection{Wilber III}
+\noindent 主页：\url{http://ds.iris.edu/wilber3/find_event}
+
+\noindent 优缺点及适用范围：
+\begin{itemize}
+\item 网页端
+\item 直观地显示地震分布、台站分布
+\item 适用于下载基于事件的波形数据
+\item 只能下载事件波形数据，无法下载连续波形数据
+\item 一次只能下载单个事件波形数据，难以自动化
+\end{itemize}
 
 \subsection{BREQ\_FAST}
+\noindent 主页：\url{https://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/}
+
+\noindent 优缺点及适用范围：
+\begin{itemize}
+\item 通过发送邮件申请数据
+\item 邮件的内容格式固定
+\item 易于自动化及批量申请
+\item 申请得到的数据放在IRIS的FTP里
+\end{itemize}
 
 \subsection{JWEED}
+\noindent 主页：\url{https://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/}
+
+\noindent 优缺点及适用范围：
+\begin{itemize}
+\item Java写的带界面客户端
+\item 跨平台，但兼容性不够
+\item 运行稍慢
+\item 适用于下载基于事件的波形数据
+\item 只能下载事件波形数据，无法下载连续波形数据
+\end{itemize}
 
 \subsection{Web Service}
+\noindent 主页：\url{http://service.iris.edu/}
+
+\noindent 优缺点及适用范围：
+\begin{itemize}
+\item 网页服务
+\item 按照固定的格式构建一个URL即可申请相应的数据
+\end{itemize}
 
 \subsection{Web Service fetch scripts}
+\noindent 主页：\url{https://seiscode.iris.washington.edu/projects/ws-fetch-scripts}
+
+\noindent 优缺点及适用范围：
+\begin{itemize}
+\item Perl脚本
+\item 基于Web Service
+\end{itemize}
 
 \subsection{irisfetch.m}
+\noindent 主页：\url{https://ds.iris.edu/ds/nodes/dmc/software/downloads/irisfetch.m/}
+
+\noindent 优缺点及适用范围：
+\begin{itemize}
+\item Matlab脚本，可以在Matlab中直接调用相关函数获取数据
+\item 基于Web Service
+\end{itemize}
 
 \subsection{SOD}
+\noindent 主页：\url{http://www.seis.sc.edu/sod/}
+
+\noindent 优缺点及适用范围：
+\begin{itemize}
+\item 命令行工具
+\item 易于批量处理
+\end{itemize}
