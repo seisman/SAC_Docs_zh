@@ -39,7 +39,8 @@ Perl也可以很容易地实现条件判断和循环控制：
 
 \subsection{文件重命名}
 \label{subsec:rename-in-perl}
-Perl下先用 \texttt{split} 函数将文件名用点号分割，由于 \texttt{split}
+下面的例子将 \texttt{rdseed} 解压出的文件名修改成 \texttt{NET.STA.LOC.CHN}
+格式。先用 \texttt{split} 函数将文件名用点号分割，由于 \texttt{split}
 函数的第一个参数实际上是正则表达式，故而这里的点号需要转义。点号分割之
 后的字符串数组赋值给一系列变量，然后使用 \texttt{rename} 函数实现重命名。
 \inputminted{perl}{./call-in-script/rename1.pl}

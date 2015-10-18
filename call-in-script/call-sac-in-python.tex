@@ -36,6 +36,7 @@ Python也可以很容易地实现条件判断和循环控制：
 
 \subsection{文件重命名}
 \label{subsec:rename-in-python}
-与前面的Perl脚本类似，先用 \texttt{split} 方法将文件名分割成列表，然后
-直接从列表中取需要的元素。
+下面的例子将 \texttt{rdseed} 解压出的文件名修改成 \texttt{NET.STA.LOC.CHN}
+格式。先用 \texttt{split} 方法将文件名分割成列表，然后直接从列表中取需要的
+元素。
 \inputminted{python}{./call-in-script/rename.py}
