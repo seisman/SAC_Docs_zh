@@ -21,10 +21,11 @@
     \item 根据发震时刻、P波到时、S波到时确定数据时间窗
     \item 数据格式：SAC、SEED、miniSEED、ASCII、dataless SEED
     \item 申请得到的数据位于IRIS的FTP中
+    \item 申请得到的数据已经写入事件信息
     \end{itemize}
 \item 缺点：
     \begin{itemize}
-    \item 一次只能下载单个事件的波形数据，难以自动化
+    \item 一次只能下载一个事件的波形数据，难以自动化
     \item 只能用于基于事件的波形数据，无法用于基于台站的波形数据或
         连续波形数据
     \end{itemize}
@@ -81,7 +82,7 @@
     \item 地震台站对筛选条件：方位角范围、反方位角范围、震中距范围
     \item 数据格式：SAC、RESP、PZ、ASCII、miniSEED
     \item 可以生成 \verb|BREQ_FAST| 格式的文件，供发邮件申请数据
-    \item 数据会直接下载保存到磁盘中
+    \item 数据会直接下载保存到本地
     \end{itemize}
 \item 缺点：无法下载连续数据
 \end{itemize}
