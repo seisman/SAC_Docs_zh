@@ -2,30 +2,27 @@
 \label{cmd:plotpk}
 
 \SACTitle{概要}
-产生一个用于拾取到时的图
+绘图并拾取震相到时
 
 \SACTitle{语法}
 \begin{SACSTX}
-P!LOT!PK [P!ERPLOT! ON|OFF|n] [BELL ON|OFF] [A!BSOLUTE!|R!ELATIVE!]
-    [R!EFERENCE! ON|OFF|v] [MARKALL ON|OFF] [S!AVELOC! ON|OFF]
+P!LOT!PK [P!ERPLOT! ON|OFF|n] [B!ELL! ON|OFF] [A!BSOLUTE!|R!ELATIVE!]
+    [REF!ERENCE! ON|OFF|v] [M!ARKALL! ON|OFF] [S!AVELOC! ON|OFF]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [PERPLOT ON] 一张图绘制 \texttt{n} 个文件，使用n的旧值
-\item [PERPLOT OFF] 在一张图上绘制所有文件
-\item [PERPLOT n] 一张图上绘制 \texttt{n} 个文件
-\item [BELL ON|OFF]  击键时是否响铃
-\item [ABSOLUTE] 显示绝对GMT格式时间
-\item [RELATIVE] 显示相对于每个文件的参考时间
-\item [REFERENCE ON] 打开参考线显示
-\item [REFERENCE OFF] 关闭参考线选项
-\item [REFERENCE v] 打开参考线选项并设置参考值为 \texttt{v}，设置为0会很方便
-\item [MARKALL ON] 同时储存一张图上的所有文件的时间标记，用于拾取震相
-\item [MARKALL OFF] 只保存光标位置所在的那个文件的震相拾取标记
-\item [SAVELOCS ON]  保存拾取的位置（由命令 \texttt{L} 得到，稍后介绍）到
-    黑板变量中
-\item [SAVELOCS OFF]  不保存拾取位置到黑板变量
+\item [PERPLOT n] 一张图绘制 \texttt{n} 个文件
+\item [PERPLOT ON] 一张图绘制 \texttt{n} 个文件，使用 \texttt{n} 的旧值
+\item [PERPLOT OFF] 一张图上绘制所有文件
+\item [BELL ON|OFF] 绘图区内击键时是否响铃
+\item [ABSOLUTE|RELATIVE] 绝对/相对绘图模式
+\item [REFERENCE ON|OFF] 是否显示参考线
+\item [REFERENCE v] 显示参考线，并设置参考值为 \texttt{v}
+\item [MARKALL ON] 一次标记一张图上所有文件的到时
+\item [MARKALL OFF] 只标记光标位置所对应的震相到时
+\item [SAVELOCS ON|OFF] 是否将 \texttt{L} 命令（表 \ref{table:plotpk-commands}）
+    拾取的位置保存到黑板变量中
 \end{description}
 
 \SACTitle{缺省值}
@@ -34,17 +31,49 @@ plotpk perplot off absolute reference off markall off savelocs off
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令的格式类似于 \nameref{cmd:plot1}，这个绘图需要一个带有光标的终端。
-在该命令后将在屏幕上出现光标，输入单个字符即可执行不同的操作。有些但不是
-全部字符将在屏幕上产生图形输出。错误以及输出信息将在屏幕上部打印，当前在
-头段中的震相拾取将自动	显示在屏幕上。不同的光标响应的输出可以定向到SAC
-头段中，也可以定向到一个字符数字型震相拾取文件（OAPF），或者到一个HYPO
-震相拾取文件，或者到终端。如果你使用 \texttt{SAVELOCS} 选项保存由 \texttt{L}
-光标选项得到的光标位置到暂存块变量，那么下面的黑板变量将被定义：
+执行该命令后，即进入 \texttt{ppk} 模式，可用于手动拾取震相。在 \texttt{ppk}
+模式下，键盘的输入将被解释为ppk命令（表 \ref{table:plotpk-commands}）。
+详情请参考 \nameref{sec:phase-picking} 一节。
+
+\texttt{PERPLOT} 选项用于控制每张图上显示的文件数目，在标记三分量数据时
+通常设置为``\texttt{p 3}''，使得一次显示一个台站的三分量数据。
+
+在一张图上绘制多个波形时，所有波形共用X轴，此时存在 \texttt{absolute} 和
+\texttt{relative} 两种绘图模式。在 \texttt{absolute} 模式下，所有波形将
+按照其绝对时刻对齐，即X轴表示对于\textbf{某个固定参考时刻}的秒数；在 \texttt{relative}
+模式下，所有波形将按照自己的参考时刻对齐，即X轴表示相对于\textbf{各自参考时刻}的
+秒数。
+
+在标记震相到时时，默认情况只会标记光标位置所对应的波形文件，\texttt{MARKALL}
+选项会将到时标记应用到当前绘图窗口内的所有波形，常用于一次性拾取单个台站
+三分量的震相到时。
+
+若使用 \texttt{SAVELOCS} 选项，则会将 \texttt{L} 命令所拾取的当前光标
+位置会保存到黑板变量中：
 \begin{itemize}
-\item \texttt{NLOCS}：命令执行期间拾取的光标位置数，每次执行ppk时初始化为0，
-    每次拾取光标位置则加1
-\item \texttt{XLOCn}：拾取光标位置的x值，如果头段中的参考时间被定义其是
-    GMT时间，否则其为偏移时间
-\item \texttt{YLOCn}：第 \texttt{n} 个拾取光标位置的y值
+\item \texttt{NLOCS}：每次执行 \texttt{ppk} 命令时，该变量初始化为0，
+    每使用 \texttt{L} 命令拾取一次光标位置，其值加1
+\item \texttt{XLOCn}：保存第 \texttt{n} 次光标拾取的位置的X值；若参考
+    时刻 \texttt{kzdate} 和 \texttt{kztime} 有定义，则 \texttt{XLOCn}
+    保存绝对时刻的值，否则保存时间偏移的秒数
+\item \texttt{YLOCn}：保存第 \texttt{n} 次光标拾取的位置的Y值
+\end{itemize}
+
+\SACTitle{BUGS}
+\begin{itemize}
+\item \texttt{BELL} 选项在某些平台上不可用
+\item \texttt{REFERENCE} 选项无效
+\item 按照说明文档，绘图时默认使用 \texttt{absolute} 模式，但似乎代码存在
+    Bug。某些情况下默认使用 \texttt{relative} 模式，但在查看若干头段变量
+    之后再绘图，则会使用 \texttt{absolute} 模式。示例代码如下：
+\begin{SACCode}
+SAC> dg sub local cdv.z
+SAC> w 1.SAC
+SAC> ch nzsec 50
+SAC> w 2.SAC
+SAC> r *.SAC
+SAC> ppk            // 第一次绘图为relative模式
+SAC> lh kztime      // 查看头段变量的值
+SAC> ppk            // 第二次绘图为absolute模式
+\end{SACCode}
 \end{itemize}
