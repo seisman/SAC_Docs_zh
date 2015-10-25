@@ -4,8 +4,8 @@
 数据申请时一般会选择尽可能长的时间窗，而实际进行数据处理和分析时可能只
 需要其中的一小段数据，这就需要对数据进行时间窗截取。
 
-SAC中的 \nameref{cmd:cut} 命令可以实现数据截取，需要注意的是，该命令时
-``参数设定类'' 命令，即需要先执行 \texttt{cut} 命令再执行 
+SAC中的 \texttt{cut} 命令可以实现数据截取，需要注意的是，该命令是
+``参数设定类'' 命令，即需要先执行 \texttt{cut} 命令再执行
 \texttt{read} 命令。
 
 \subsection{pdw}
@@ -33,7 +33,7 @@ pdw定义了一个开始时间和一个结束时间，其格式为 \texttt{ref o
     其仅可以用于结束值
 \end{itemize}
 
-若开始或结束的 \texttt{offset} 省略则认为其值为0。若开始 \texttt{ref} 
+若开始或结束的 \texttt{offset} 省略则认为其值为0。若开始 \texttt{ref}
 省略则认为其为Z；若结束 \texttt{ref} 省略则认为其值与开始 \texttt{ref}
 相同。
 
@@ -48,7 +48,7 @@ pdw定义了一个开始时间和一个结束时间，其格式为 \texttt{ref o
 \end{SACCode}
 
 \subsection{cut}
-\nameref{cmd:cut} 命令是``参数设定类''命令，因而需要先 \texttt{cut} 再 
+\nameref{cmd:cut} 命令是``参数设定类''命令，因而需要先 \texttt{cut} 再
 \texttt{read}：
 \begin{SACCode}
 SAC> cut t0 -5 5        // 截取t0前后各5秒，共计10秒的数据
