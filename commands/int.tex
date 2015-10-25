@@ -29,9 +29,9 @@ int trapezoidal
 \]
 二者均有边界条件$y_0=0$。
 
-对于等间隔数据，若使用梯形积分，数据点数 \texttt{npts} 将减1，文件的头段变量 
+对于等间隔数据，若使用梯形积分，数据点数 \texttt{npts} 将减1，文件的头段变量
 \texttt{b} 将增加半个采样周期\footnote{若使用矩形积分，理论上 \texttt{npts} 和
 \texttt{b} 也应有所修改，但实际代码中却未对此多做处理，暂不确定是否是Bug。}。
 
 \SACTitle{头段变量}
-depmin、depmax、depmin、idep、npts、b、e
+depmin、depmax、depmen、idep、npts、b、e
