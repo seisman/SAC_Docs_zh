@@ -6,22 +6,24 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-PLABEL [n] [ON|OFF|text] [SIZE T!INY!|S!MALL!|M!EDIUM!|L!ARGE!]
-    [BELOW|POSITION x y [a]]
+PLABEL [n] [ON|OFF|text] [S!IZE! T!INY!|S!MALL!|M!EDIUM!|L!ARGE!]
+    [B!ELOW!|P!OSITION! x y [a]]
 \end{SACSTX}
 
 \SACTitle{输入}
 \begin{description}
-\item [n] 通用标签号。若省略，则在前一个标签号上加1
-\item [ON] 打开绘图标签选项，但不改变标签文本
+\item [n] 设置第 \texttt{n} 个通用标签的属性，若省略，则在前一通用标签
+    号上加1
+\item [text] 设置标签的内容，并打开通用标签选项
+\item [ON] 打开通用标签选项，但不改变标签文本
 \item [OFF] 关闭绘图标签选项
-\item [text] 改变绘图标签的文本内容，同时打开了绘图标签选项
-\item [SIZE TINY|SMALL|MEDIUM|LARGE] 修改绘图标签的文本尺寸。\texttt{TINY}、
+\item [SIZE TINY|SMALL|MEDIUM|LARGE] 修改通用标签的文本尺寸。\texttt{TINY}、
     \texttt{SMALL}、\texttt{MEDIUM}、\texttt{LARGE} 分别表示一行132、
     100、80、50个字符
 \item [BELOW] 将此标签放在前一标签的下面
-\item [POSITION x y a] 定义该标签的位置。其中x的取值为0到1，y的取值为0到
-    最大视口（一般为0.75），a是标签相对于水平方向顺时针旋转的角度。
+\item [POSITION x y a] 定义该标签的位置。其中 \texttt{x} 的取值为0到1，
+    \texttt{y} 的取值为0到最大视口（一般为0.75），\texttt{a} 是标签相对
+    于水平方向顺时针旋转的角度
 \end{description}
 
 \SACTitle{缺省值}
@@ -29,21 +31,29 @@ PLABEL [n] [ON|OFF|text] [SIZE T!INY!|S!MALL!|M!EDIUM!|L!ARGE!]
 默认其他标签的位置为上一个标签之下。
 
 \SACTitle{说明}
-这个命令允许你为接下来的绘图命令定义通用的绘图标签。你可以定义每个标签的
+该命令允许你为接下来的绘图命令定义通用的绘图标签。你可以定义每个标签的
 位置及文本尺寸。文本质量以及字体可以用 \nameref{cmd:gtext} 命令设定，
 也可以使用 \nameref{cmd:title}、\nameref{cmd:xlabel}、\nameref{cmd:ylabel}
 生成图形的标题以及轴标签。
 
 \SACTitle{示例}
-下面的命令将在接下来的绘图中在左上角产生一个四行的标签：
+为绘图定义一系列标签：
 \begin{SACCode}
-SAC> PLABEL 'Sample seismogram' POSITION .12 .5
-SAC> PLABEL 'from earthquake'
-SAC> PLABEL 'on January 24, 1980'
-SAC> PLABEL 'in Livermore Valley, CA'
+// 三行标签
+SAC> dg sub local cdv.z
+SAC> plabel 'Sample seismogram' p .12 .5
+SAC> plabel 'from earthquake'
+SAC> plabel 'in Livermore Valley, CA'
+// 放在左下角的标签
+SAC> plabel 5 'LLNL station: CDV' S T P .12 .12
+SAC> p
 \end{SACCode}
 
-一个额外的小标签可以放在左下角：
-\begin{SACCode}
-SAC> PLABEL 5 'LLNL station: CDV' S T P .12 .12
-\end{SACCode}
+\SACTitle{BUGS}
+\begin{itemize}
+\item \texttt{text} 必须用引号括起来（v101.6a）
+\item \texttt{text} 的最后一个字符会被忽略（v101.6a）
+\item \texttt{text} 不能以 \texttt{on} 或 \texttt{off} 开头，会被误解释
+    为选项 \texttt{on} 或 \texttt{off}，前者导致直接出现段错误，后者导致
+    不显示标签（v101.6a）
+\end{itemize}
