@@ -11,9 +11,7 @@ P!LOT!2 [A!BSOLUTE!|R!ELATIVE!]
 
 \SACTitle{输入}
 \begin{description}
-\item [ABSOLUTE] 所有文件时间为绝对时间，具有不同的文件开始时间的文件将
-    会相对于第一个文件移动
-\item [RELATIVE] 每个文件相对于自己的开始时间绘图
+\item [ABSOLUTE|RELATIVE] 绝对/相对绘图模式
 \end{description}
 
 \SACTitle{缺省值}
@@ -22,23 +20,31 @@ p2 absolute
 \end{SACDFT}
 
 \SACTitle{说明}
-所有文件列表中的文件都将绘制在同一个绘图窗口中。可以选择绘制一个包含绘图
-符号以及文件名的图例以区别不同的文件，在使用这个命令之前X和Y的范围可以被
-定义。参见 \nameref{cmd:xlim} 和 \nameref{cmd:ylim} 命令。如果没有给出轴
-的范围那么将根据文件列表中的极值确定轴范围。图例的位置可以通过 \nameref{cmd:fileid}
-命令控制。不像 \nameref{cmd:plot} 和 \nameref{cmd:plot1}，\nameref{cmd:plot2}
-可以绘制谱文件。实部-虚部数据被绘制为实部-频率。振幅/相位数据被绘制为
-振幅-频率。虚部和相位信息忽略。谱文件总是用相对模式绘图。注意到在频率域
-\texttt{b}、\texttt{e} 和 \texttt{delta} 分别被设置为0，Nqquist频率以及
-频率间隔 \texttt{df}。头段值 \texttt{depmin} 和 \texttt{depmax} 未改变。
-如同 \nameref{cmd:plotsp}，如果 \nameref{cmd:xlim} 关闭，绘图将从
-\texttt{df=delta} 处开始，而非0。如果 \nameref{cmd:xlim} 或 \nameref{cmd:ylim}
-在数据变换到频率域之前被改变了，最好在使用 \texttt{plot2}绘图之前输入
+所有波形数据将绘制在一个绘图窗口中，所有波形共用X轴和Y轴。\nameref{cmd:xlim}
+和 \nameref{cmd:ylim} 用于控制X轴和Y轴的范围，若未指定轴范围，则根据所有
+文件的极值确定轴范围。由于所有波形重叠在一起，所以通常需要用 \nameref{cmd:line}、
+\nameref{cmd:color}、\nameref{cmd:symbol}、\nameref{cmd:width} 为不同波形
+设置不同的属性，图例的位置由 \nameref{cmd:fileid} 控制。
+
+多个波形共用X轴时，有 \texttt{absolute} 和 \texttt{relative} 两种绘图
+模式。在 \texttt{absolute} 模式下，所有波形将按照其绝对时刻对齐，即X轴
+表示相对于某个固定参考时刻的秒数；在 \texttt{relative} 模式下，所有数据
+将按照文件开始时间对齐，X轴的范围为0到最大时间差（所有文件中结束时间和
+开始时间的最大时间差，即最大 \texttt{e-b}），每个波形从X轴的零点开始绘制。
+
+与 \nameref{cmd:plot} 和 \nameref{cmd:plot1} 不同，\nameref{cmd:plot2}
+可以直接用于绘制谱文件。实部-虚部格式的谱数据被绘制为实部-频率。振幅-相位
+数据被绘制为振幅-频率图，虚部和相位信息被忽略。谱文件总是用 \texttt{relative}
+模式绘图。在频率域 \texttt{b}、\texttt{e} 和 \texttt{delta} 分别被设置为0、
+Nqquist频率以及频率间隔 \texttt{df}。头段值 \texttt{depmin} 和 \texttt{depmax}
+未改变。与 \nameref{cmd:plotsp} 类似，若 \texttt{xlim off}，绘图将从
+\texttt{df=delta} 处开始，而非0。若 \nameref{cmd:xlim} 或 \nameref{cmd:ylim}
+在数据变换到频率域之前被改变了，最好在使用 \texttt{plot2} 绘图之前输入
 \texttt{xlim off} 和 \texttt{ylim off}。
 
-注意：由于某些原因，可能在内存中同时存在时间序列文件和谱文件并且没有选择
-相对绘图选项，则时间序列将以绝对模式绘图，谱文件将以相对模式绘图。相对
-模式意味着相对于第一个文件。因而内存中文件的顺序将影响绘图之间的关系。
+若内存中同时存在时间序列文件和谱文件，且绘图时没有选择 \texttt{relative}
+模式，则时间序列将以绝对模式绘图，谱文件将以相对模式绘图绘图。相对
+模式意味着相对于第一个文件，因而内存中文件的顺序将影响绘图之间的关系。
 
 \SACTitle{示例}
 \begin{SACCode}
@@ -48,7 +54,7 @@ SAC> ylim 0.0001 0.006
 SAC> linlog
 SAC> symbol 2 increment
 SAC> title 'rayleigh wave amplitude spectra for nessel'
-SAC> xlabel 'frequency (hz)'
+SAC> xlabel 'frequency (Hz)'
 SAC> plot2
 SAC> fft
 SAC> xlim off ylim off
