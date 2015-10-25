@@ -31,14 +31,7 @@ SAC> fg seismogram      // 生成地震波形样本，简写为fg seis
 \footnote{101.4的软件包中没有自带波形数据，因而无法使用该命令。}，
 并用 \nameref{cmd:plot1}（简写 \texttt{p1}）将三个波形画在一张图上：
 \begin{SACCode}
-SAC> dg sub local cdv.n cdv.e cdv.z
+SAC> dg sub local cdv.?
 SAC> p1
 \end{SACCode}
-简单解释一下，\nameref{cmd:datagen} 命令中，\texttt{sub} 为选项，
-其参数可以取 \texttt{local}、\texttt{regional}、\texttt{teleseism}，
-分别对应近震、区域震和远震，分别又可以使用不同的参数以读取不同台站的
-SAC数据。
-
-\texttt{p1} 会将内存中的所有文件（本例中是3个）同时绘制在一张图上，
-当内存中的文件数目很多时，需要修改 \texttt{p1} 的其它参数，以控制
-每张图上显示的波形数目。
+更多示例参考 \nameref{cmd:datagen} 命令的语法说明。
