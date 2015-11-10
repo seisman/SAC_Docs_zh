@@ -44,5 +44,5 @@ Bash下可以借助于 \texttt{awk} 来实现文件重命名。下面的例子�
 割后的第7段字符，即台网名，其他同理。最后将 \texttt{awk} 的输出传给
 \texttt{sh} 去执行。
 \begin{minted}{console}
-$ ls *.SAC | awk -F "." '{printf "mv %s %s.%s.%s", $0, $7, $8, $10}' | sh
+$ ls *.SAC | awk -F "." '{printf "mv %s %s.%s.%s\n", $0, $7, $8, $10}' | sh
 \end{minted}
