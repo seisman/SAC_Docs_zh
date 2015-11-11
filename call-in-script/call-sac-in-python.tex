@@ -28,18 +28,18 @@ Python也可以很容易地实现条件判断和循环控制：
 该Python脚本与上一个Bash脚本相比，实现了几乎相同的功能，但Python脚本中
 仅启动和退出SAC一次，与Bash脚本的多次启动相比，其效率要高很多。
 
-\subsection{修改发震时刻}
-\label{subsec:ch-origin-python}
-要将发震时刻写入到SAC文件中，首先要将计算发震日期是一年的第几天。Python
-内置的 \texttt{datetime} 模块可以很容易实现。
-\inputminted{python}{./call-in-script/ch-origin.py}
-
 \subsection{文件重命名}
 \label{subsec:rename-in-python}
 下面的例子将 \texttt{rdseed} 解压出的文件名修改成 \texttt{NET.STA.LOC.CHN}
 格式。先用 \texttt{split} 方法将文件名分割成列表，然后直接从列表中取需要的
 元素。
 \inputminted{python}{./call-in-script/rename.py}
+
+\subsection{修改发震时刻}
+\label{subsec:ch-origin-python}
+要将发震时刻写入到SAC文件中，首先要将计算发震日期是一年的第几天。Python
+内置的 \texttt{datetime} 模块可以很容易实现。
+\inputminted{python}{./call-in-script/ch-origin.py}
 
 \subsection{去仪器响应}
 下面的例子展示了如何利用PZ文件去仪器响应。

@@ -30,13 +30,6 @@ Perl也可以很容易地实现条件判断和循环控制：
 该Perl脚本与上一个Bash脚本相比，实现了几乎相同的功能，但Perl脚本中仅
 启动和退出SAC一次，与Bash脚本的多次启动相比，其效率要高很多。
 
-\subsection{修改发震时刻}
-\label{subsec:ch-origin-perl}
-除此之外，在设置发震时刻的时候，还会遇到另一个问题，如何计算发震日期是
-一年的第几天。没有简单的办法，只能通过编程实现，下面给出一个半完整的示例：
-\inputminted{perl}{./call-in-script/ch-origin.pl}
-本例中，子程序 \texttt{ymd2doy} 用于计算某日期是一年中的第几天。
-
 \subsection{文件重命名}
 \label{subsec:rename-in-perl}
 下面的例子将 \texttt{rdseed} 解压出的文件名修改成 \texttt{NET.STA.LOC.CHN}
@@ -49,6 +42,13 @@ Perl也可以很容易地实现条件判断和循环控制：
 结果赋值给数组，然后直接取数组中需要的元素即可。需要注意的是，Perl的数
 组下标从零开始。
 \inputminted{perl}{./call-in-script/rename2.pl}
+
+\subsection{修改发震时刻}
+\label{subsec:ch-origin-perl}
+除此之外，在设置发震时刻的时候，还会遇到另一个问题，如何计算发震日期是
+一年的第几天。没有简单的办法，只能通过编程实现，下面给出一个半完整的示例：
+\inputminted{perl}{./call-in-script/ch-origin.pl}
+本例中，子程序 \texttt{ymd2doy} 用于计算某日期是一年中的第几天。
 
 \subsection{去仪器响应}
 下面的例子展示了如何利用PZ文件去仪器响应。
