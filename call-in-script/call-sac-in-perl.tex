@@ -30,6 +30,13 @@ Perl也可以很容易地实现条件判断和循环控制：
 该Perl脚本与上一个Bash脚本相比，实现了几乎相同的功能，但Perl脚本中仅
 启动和退出SAC一次，与Bash脚本的多次启动相比，其效率要高很多。
 
+\subsection{文件合并}
+\label{subsec:merge-in-perl}
+假定SEED文件以及从SEED中解压出来的SAC文件都放在同一目录下，下面的脚本中
+定义的 \texttt{merge} 子函数，可以用于对SEED中解压出来的SAC文件做合并。
+其中涉及到的细节在注释中有详细介绍。
+\inputminted{perl}{./call-in-script/merge.pl}
+
 \subsection{文件重命名}
 \label{subsec:rename-in-perl}
 下面的例子将 \texttt{rdseed} 解压出的文件名修改成 \texttt{NET.STA.LOC.CHN}
