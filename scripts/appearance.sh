@@ -34,7 +34,7 @@ pstext -J$J -R$R -K -O >> $PS << EOF
 EOF
 
 pstext -J$J -R$R -K -O -N -Gblue -D-1.5c/-1.5cv1p,blue >> $PS << EOF
-10.4 -1.48 15 0 0 CT PICKS
+10.4 -1.48 15 0 8 CT PICKS
 EOF
 
 pstext -J$J -R$R -N -K -O >> $PS << EOF
@@ -50,52 +50,52 @@ EOF
 
 # TITLE
 pstext -J$J -R$R -N -K -O -D2c/0.5cv1p,blue -Gblue >> $PS << EOF
-14.5 1.8 15 0 0 LB TITLE
+14.5 1.8 15 0 8 LB TITLE
 EOF
 
 # FILEID
 pstext -J$J -R$R -N -K -O -D2c/0cv1p,blue -Gblue >> $PS << EOF
-19. 1.45 15 0 0 LM FILEID
+19. 1.45 15 0 8 LM FILEID
 EOF
 
 # QDP
 pstext -J$J -R$R -N -K -O -D-0.5c/0.5cv1p,blue -Gblue >> $PS << EOF
-19.2 -1.40 15 0 0 CB QDP
+19.2 -1.40 15 0 8 CB QDP
 EOF
 
 # filenumber
 pstext -J$J -R$R -N -K -O -D-1c/0cv1p,blue -Gblue >> $PS << EOF
-19.9 -2.00 15 0 0 RM FILENO
+19.9 -2.00 15 0 8 RM FILENO
 EOF
 
 # xlabel
 pstext -J$J -R$R -N -K -O -D0c/-0.5cv1p,blue -Gblue >> $PS << EOF
-14.5 -1.95 15 0 0 CT XLABEL
+14.5 -1.95 15 0 8 CT XLABEL
 EOF
 
 # ylabel
 pstext -J$J -R$R -N -K -O -D0c/-1.5cv1p,blue -Gblue >> $PS << EOF
-8.4 -0.25 15 0 0 CT YLABEL
+8.4 -0.25 15 0 8 CT YLABEL
 EOF
 
 # axes
 pstext -J$J -R$R -N -K -O -D0c/-1cv1p,blue -Gblue >> $PS << EOF
-11 -1.65 15 0 0 CT AXES
+11 -1.65 15 0 8 CT AXES
 EOF
 
 # ticks
 pstext -J$J -R$R -N -K -O -D1c/0cv1p,blue -Gblue >> $PS << EOF
-19.9 0 15 90 0 CT TICKS
+19.9 0 15 90 8 CT TICKS
 EOF
 
 # border
 pstext -J$J -R$R -N -K -O -D0c/1cv1p,blue -Gblue >> $PS << EOF
-12 1.62 15 00 0 CB BORDER
+12 1.62 15 0 8 CB BORDER
 EOF
 
 # grid
 pstext -J$J -R$R -N -K -O -D1c/0cv1p,blue -Gblue >> $PS << EOF
-16 0.5 15 0 0 LM GRID
+16 0.5 15 0 8 LM GRID
 EOF
 
 psxy -J$J -R$R -T -O >> $PS
