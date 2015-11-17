@@ -108,7 +108,7 @@
 
 % 代码宏包
 \usepackage{listings}
-\usepackage[usenames,dvipsnames,svgnames]{xcolor} % 用于code
+\usepackage[usenames, dvipsnames, svgnames]{xcolor} % 用于code
 \lstset{
     basicstyle=\footnotesize\ttfamily,
     xleftmargin=2pc,                    % 整体布局
@@ -116,6 +116,7 @@
     backgroundcolor=\color{Lavender},   % 背景色
     rulecolor=\color{Silver},           % 边框颜色
     frame=single,                       % 边框
+    columns=flexible,
 }
 \lstdefinelanguage{SAC} {
     keywords={SAC>},   % SAC提示符
