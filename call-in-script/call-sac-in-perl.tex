@@ -1,62 +1,73 @@
-\section{在Perl中调用SAC}
+\section{Perl中调用SAC}
 \label{sec:sac-perl}
 
-\subsection{简介}
-下面的脚本中给出了一个简单的例子，展示了如何在Perl中调用SAC。相对于
-Bash来说，Perl脚本似乎需要更多的键入，但是相对于Perl的优势来说，
-这些都不算什么。
-\inputminted{perl}{./call-in-script/simple-script.pl}
+\subsection{简单示例}
+下面的脚本展示了如何在Perl中调用SAC。
+\inputminted{perl}{./call-in-script/0.simple-script.pl}
+Perl中调用SAC本质上是使用 \texttt{open(SAC, "| sac")} 语句定义了一个名为
+\texttt{SAC} 指向 \texttt{sac} 的句柄，然后通过 \texttt{print SAC} 语句
+将要执行的SAC命令传递给SAC。
 
-\subsection{头段变量}
-Perl无法直接引用SAC文件的头段变量值，依然需要利用SAC宏的的语法。
-Perl的优势在于可以一边向SAC传递信息，一边运行自身的命令。
-\inputminted{perl}{./call-in-script/variables.pl}
-本例中第9行，在SAC运行的同时Perl临时定义了一个变量，并成功将其传递给了
-SAC，这在Bash中是不容易做到的。
-
-\subsection{内联函数}
-Perl可以完成各种复杂的数学运算：
-\inputminted{perl}{./call-in-script/arithmetic-functions.pl}
-
-Perl对字符串的处理更是Perl的杀手锏：
-\inputminted{perl}{./call-in-script/string-functions.pl}
-
-\subsection{条件判断和循环控制}
-Perl也可以很容易地实现条件判断和循环控制：
-\inputminted{perl}{./call-in-script/do-loops.pl}
-这个例子中只启动了一次SAC，然后开始循环读入当前目录下的每一个SAC文件，
-最后统一做数据处理，并写到新文件中。
-
-该Perl脚本与上一个Bash脚本相比，实现了几乎相同的功能，但Perl脚本中仅
-启动和退出SAC一次，与Bash脚本的多次启动相比，其效率要高很多。
+\subsection{数据转换}
+首先要将SEED格式的数据转换成SAC格式。
+\begin{itemize}
+\item 假定每个目录下有且只有一个SEED数据
+\item \texttt{rdseed} 一次只能处理一个SEED数据
+\item \texttt{rdseed} 的 \texttt{-pdf} 选项会提取出SAC波形数据和PZ格式的仪器响应文件
+\end{itemize}
+\inputminted{perl}{./call-in-script/1.rdseed.pl}
 
 \subsection{文件合并}
 \label{subsec:merge-in-perl}
-假定SEED文件以及从SEED中解压出来的SAC文件都放在同一目录下，下面的脚本中
-定义的 \texttt{merge} 子函数，可以用于对SEED中解压出来的SAC文件做合并。
-其中涉及到的细节在注释中有详细介绍。
-\inputminted{perl}{./call-in-script/merge.pl}
+SEED文件的波形数据可能会因为多种原因而出现间断，导致同一个通道会解压出来
+多个SAC文件，因而需要将属于同一个通道的SAC数据合并起来。
+\begin{itemize}
+\item 此处使用了新版 \nameref{cmd:merge} 命令的语法，要求SAC版本大于v101.6
+\item \texttt{merge} 命令还有更多选项可以控制数据合并的细节，见命令的语法介绍
+\item 合并后的数据，以最早的数据段的文件名命名
+\item 多余的数据段均被删除，以保证每个通道只有一个SAC文件
+\item 由于脚本运行速度比SAC运行速度快，因而应先退出SAC再删除多余的数据段
+\end{itemize}
+\inputminted{perl}{./call-in-script/2.merge.pl}
 
 \subsection{文件重命名}
 \label{subsec:rename-in-perl}
-下面的例子将 \texttt{rdseed} 解压出的文件名修改成 \texttt{NET.STA.LOC.CHN}
-格式。先用 \texttt{split} 函数将文件名用点号分割，由于 \texttt{split}
-函数的第一个参数实际上是正则表达式，故而这里的点号需要转义。点号分割之
-后的字符串数组赋值给一系列变量，然后使用 \texttt{rename} 函数实现重命名。
-\inputminted{perl}{./call-in-script/rename1.pl}
+从SEED解压出的SAC文件名较长，因而对其重命名以简化。
+\begin{itemize}
+\item SEED解压出的默认文件名格式为 \texttt{yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC}
+\item 重命名后的文件名为 \texttt{NET.STA.LOC.CHN.SAC}
+\end{itemize}
+\inputminted{perl}{./call-in-script/3.rename.pl}
 
-上面的方法中定义了一堆变量但是却没有用到。可以将 \texttt{split} 函数的
-结果赋值给数组，然后直接取数组中需要的元素即可。需要注意的是，Perl的数
-组下标从零开始。
-\inputminted{perl}{./call-in-script/rename2.pl}
-
-\subsection{修改发震时刻}
-\label{subsec:ch-origin-perl}
-除此之外，在设置发震时刻的时候，还会遇到另一个问题，如何计算发震日期是
-一年的第几天。没有简单的办法，只能通过编程实现，下面给出一个半完整的示例：
-\inputminted{perl}{./call-in-script/ch-origin.pl}
-本例中，子程序 \texttt{ymd2doy} 用于计算某日期是一年中的第几天。
+\subsection{添加事件信息}
+\label{subsec:event-info-perl}
+若SEED中不包含事件信息，则解压得到的SAC文件中也不会包含事件信息。因而
+需要用户手动添加事件的发震时刻、经纬度、深度和震级信息。
+\begin{itemize}
+\item 输入参数包括：目录名、发震时刻、经度、纬度、深度、震级
+\item 发震时刻的格式为 \texttt{yyyy-mm-ddThh:mm:ss.xxx}，其中 \texttt{T}
+    用于分隔日期和时间
+\end{itemize}
+\inputminted{perl}{./call-in-script/4.eventinfo.pl}
 
 \subsection{去仪器响应}
-下面的例子展示了如何利用PZ文件去仪器响应。
-\inputminted{perl}{./call-in-script/transfer.pl}
+\label{subsec:transfer-perl}
+使用PZ文件去仪器响应。若数据的时间跨度太长，在该时间跨度内可能仪器响应会
+发生变化，因而会存在一个通道有多个PZ文件的情况。目前该脚本在遇到这种情况
+时会自动退出。
+\inputminted{perl}{./call-in-script/5.transfer.pl}
+
+\subsection{分量旋转}
+\label{subsec:rotate-perl}
+将成对的水平分量旋转到大圆路径。
+\begin{itemize}
+\item 检查三分量是否缺失
+\item 检查 \texttt{delta} 是否相等
+\item 取三分量中的最大 \texttt{b} 和最小 \texttt{e} 值作为数据窗口，此
+    操作要求三分量的 \texttt{kzdate} 和 \texttt{kztime} 必须相同，这一点
+    在添加事件信息时使用 \nameref{cmd:synchronize} 已经实现
+\item 未检查分量的 \texttt{cmpinc} 和 \texttt{cmpaz} 是否符合要求。若不
+    符合要求，SAC会报错且不会旋转，写到磁盘中的R和T分量实际上是原数据，
+    暂不知如何处理。
+\end{itemize}
+\inputminted{perl}{./call-in-script/6.rotate.pl}
