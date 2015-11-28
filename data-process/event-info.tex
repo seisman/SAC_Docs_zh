@@ -4,7 +4,8 @@
     \texttt{o}、\texttt{nzyear}、\texttt{nzjday}、\texttt{nzhour}、
     \texttt{nzmin}、\texttt{nzsec}、\texttt{nzmsec}
 
-相关脚本：\hyperref[subsec:event-info-perl]{Perl脚本}
+相关脚本：\hyperref[subsec:event-info-perl]{Perl脚本}、
+          \hyperref[subsec:event-info-python]{Python脚本}
 
 一般来说，从SEED连续波形中解压得到的SAC数据中是没有事件信息的。这就需要
 用户从地震目录中获取事件的发震时刻、经度、纬度、深度和震级信息，并将这些
@@ -109,6 +110,3 @@ SAC> wh
 \nameref{cmd:synchronize} 的作用是使内存中所有的数据拥有相同的参考时刻，
 在此命令的基础上，所有数据的头段变量 \texttt{o} 将拥有相同的值，所以
 直接引用第一个头段变量的 \texttt{o} 值就不再是一件危险的事情了。
-
-进行实际数据处理时，可以参考第 \ref{subsec:event-info-perl} 节中提供的
-Perl脚本或第 \ref{subsec:ch-origin-python} 节中提供的Python脚本。
