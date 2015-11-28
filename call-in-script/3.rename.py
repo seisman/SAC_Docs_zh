@@ -5,6 +5,8 @@ import os
 import sys
 import glob
 
+os.putenv("SAC_DISPLAY_COPYRIGHT", '0')
+
 if len(sys.argv) != 2:
     sys.exit("Usage: python %s dirname\n" % sys.argv[0])
 

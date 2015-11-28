@@ -20,6 +20,7 @@ s = ""
 for sacfile in glob.glob("*.SAC"):
     net, sta, loc, chn = sacfile.split('.')[0:4]
     pz = glob.glob("SAC_PZs_%s_%s_%s_%s_*_*" % (net, sta, chn, loc))
+    # 暂不考虑多个PZ文件的情况
     if len(pz) != 1:
         sys.exit("PZ file error for %s" % sacfile)
 
