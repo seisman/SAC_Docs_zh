@@ -57,11 +57,11 @@
 
 CentOS/Fedora/RHEL下用如下命令安装::
 
-    sudo yum -y install python-pygments make git
+    sudo yum install python-pygments make git
 
 Ubuntu/Debian下用如下命令安装::
 
-    sudo apt-get -y install python-pygments make git
+    sudo apt-get install python-pygments make git
 
 若需要重新生成文档中所使用的图片，则需要安装SAC、GMT4。
 

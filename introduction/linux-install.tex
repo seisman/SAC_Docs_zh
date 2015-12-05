@@ -14,14 +14,14 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
 对于Ubuntu/Debian：
 \begin{minted}{console}
 $ sudo apt-get update
-$ sudo apt-get -y install libc6 libsm6 libice6 libxpm4 libx11-6
-$ sudo apt-get -y install zlib1g libncurses5
+$ sudo apt-get install libc6 libsm6 libice6 libxpm4 libx11-6
+$ sudo apt-get install zlib1g libncurses5
 \end{minted}
 
 对于CentOS/Fedora/RHEL：
 \begin{minted}{console}
-$ sudo yum -y install glibc libSM libICE libXpm libX11
-$ sudo yum -y install zlib ncurses
+$ sudo yum install glibc libSM libICE libXpm libX11
+$ sudo yum install zlib ncurses
 \end{minted}
 
 \subsubsection{安装二进制包}
@@ -38,16 +38,16 @@ $ sudo mv sac /usr/local                    # 安装
 对于Ubuntu/Debian系：
 \begin{minted}{console}
 $ sudo apt-get update
-$ sudo apt-get -y install build-essential
-$ sudo apt-get -y install libncurses5-dev libsm-dev libice-dev
-$ sudo apt-get -y install libxpm-dev libx11-dev zlib1g-dev
+$ sudo apt-get install build-essential
+$ sudo apt-get install libncurses5-dev libsm-dev libice-dev
+$ sudo apt-get install libxpm-dev libx11-dev zlib1g-dev
 \end{minted}
 
 对于CentOS/Fedora/RHEL系：
 \begin{minted}{console}
-$ sudo yum -y install gcc gcc-c++ make
-$ sudo yum -y install glibc ncurses-devel libSM-devel libICE-devel
-$ sudo yum -y install libXpm-devel libX11-devel zlib-devel
+$ sudo yum install gcc gcc-c++ make
+$ sudo yum install glibc ncurses-devel libSM-devel libICE-devel
+$ sudo yum install libXpm-devel libX11-devel zlib-devel
 \end{minted}
 
 \subsubsection{编译源码}
