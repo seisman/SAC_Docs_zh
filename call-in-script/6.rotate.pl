@@ -61,7 +61,7 @@ foreach my $key (keys %sets) {
     $T = $prefix."T";
     $Z0 = $prefix."Z";
 
-    print SAC "cut $begin $end \n";
+    print SAC "cuterr FI;cut $begin $end \n";
     print SAC "r $E $N \n";
     print SAC "rotate to gcp \n";
     print SAC "w $R $T \n";
