@@ -71,3 +71,17 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
     暂不知如何处理。
 \end{itemize}
 \inputminted{perl}{./call-in-script/6.rotate.pl}
+
+\subsection{数据重采样}
+\label{subsec:resample-perl}
+通常有两种情况下需要对数据进行重采样：
+\begin{itemize}
+\item 原始数据的采样率过高，而实际研究中不需要如此高的采样率，此时，对数据
+    做减采样可以大大减少数据量；
+\item 原始数据中，不同台站的采样率不同，可能会影响到后期的数据处理，因而
+    需要让所有数据使用统一的采样率；
+\end{itemize}
+下面的Perl脚本中使用 \nameref{cmd:interpolate} 命令将所有数据重采样到相同
+的采样周期。用户可以在命令行中直接指定要使用的重采样后的采样周期，若命令行
+中的采样周期指定为0，则以大多数数据所使用的采样周期作为重采样后的采样周期。
+\inputminted{perl}{./call-in-script/7.resample.pl}
