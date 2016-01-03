@@ -52,8 +52,8 @@ foreach my $key (keys %sets) {
     die "$key: delta not equal\n" if $Zdelta != $Edelta or $Zdelta != $Ndelta;
 
     # 获取三分量里的最大B和最小E值作为数据窗
-    my $begin = max($Zb, $Eb, $Nb);
-    my $end = min($Ze, $Ee, $Ne);
+    my $begin = max($Zb, $Eb, $Nb) + $Zdelta;
+    my $end = min($Ze, $Ee, $Ne) - $Zdelta;
 
     # 输出文件名为 NET.STA.LOC.[RTZ]
     my $prefix = substr $key, 0, length($key)-2;
