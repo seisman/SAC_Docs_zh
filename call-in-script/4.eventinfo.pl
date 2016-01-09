@@ -3,7 +3,8 @@ use strict;
 use warnings;
 use POSIX qw(strftime);
 
-@ARGV == 6 or die "Usage: perl $0 dirname yyyy-mm-ddThh:mm:ss.xxx evlo evla evdp mag\n";
+@ARGV == 6 or die
+    "Usage: perl $0 dirname yyyy-mm-ddThh:mm:ss.xxx evlo evla evdp mag\n";
 my ($dir, $origin, $evlo, $evla, $evdp, $mag) = @ARGV;
 
 # 对发震时刻做解析
@@ -21,8 +22,7 @@ chdir $dir;
 open(SAC, "| sac") or die "Error in opening SAC\n";
 print SAC "wild echo off \n";
 print SAC "r *.SAC \n";
-# 同步所有文件的参考时刻
-print SAC "synchronize \n";
+print SAC "synchronize \n";   # 同步所有文件的参考时刻
 print SAC "ch o gmt $year $jday $hour $minute $sec $msec \n";
 print SAC "ch allt (0 - &1,o&) iztype IO \n";
 print SAC "ch evlo $evlo evla $evlo evdp $evdp mag $mag \n";
