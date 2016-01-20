@@ -45,54 +45,44 @@ distaz      &       计算地球上任意两点间的震中距、方位角和反
 $ gcc -c source.c -I/usr/local/sac/include
 $ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsacio
 \end{minted}
-也可以利用SAC提供的 \texttt{sac-config} 命令简化此编译命令：
-\begin{minted}{console}
-$ gcc -c source.c `sac-config -c`
-$ gcc -o prog source.o -lm `sac-config -l sacio`
-\end{minted}
 
 对于Fortran77源码，用如下命令编译
 \begin{minted}{console}
 $ gfortran -c source.f
 $ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsacio
 \end{minted}
-也可以利用SAC提供的 \texttt{sac-config} 命令简化此编译命令：
-\begin{minted}{console}
-$ gfortran -c souce.f
-$ gfortran -o prog source.o `sac-config -l sacio`
-\end{minted}
 
 \subsection{libsac.a库}
-这个库是从101.2版本才引入的，其是 \texttt{libsacio.a} 的超集，包含了
-几个数据处理常用的子函数。
+这个库是从101.2版本才引入的，包含了几个数据处理常用的子函数。
 
 \texttt{libsac.a} 包含如下子函数：
-\begin{itemize}
-\item \texttt{xapiir}  无限脉冲响应滤波器；
-\item \texttt{firtrn}  有限脉冲滤波器，Hilbert变换；
-\item \texttt{crscor}  互相关；
-\item \texttt{next2}   返回比输入值大的最小的2的幂次；
-\item \texttt{envelope} 计算包络函数;
-\end{itemize}
+\begin{table}[H]
+\centering
+\caption{\texttt{libsac} 子函数}
+\ttfamily
+\begin{tabular}{ll}
+\toprule
+子函数      &       说明            \\
+\midrule
+xapiir      &       无限脉冲响应滤波器 \\
+firtrn      &       有限脉冲滤波器，Hilbert变换 \\
+crscor      &       互相关 \\
+next2       &       返回比输入值大的最小的2的幂次 \\
+envelope    &       计算包络函数 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-对于C源码，用如下命令编译
+对于C源码，用如下命令编译\footnote{调用 \texttt{libsac.a} 中的函数时，一般
+也需要同时调用 \texttt{libsacio.a}，故而写成 \texttt{-lsac -lsacio}。注意，
+两个 \texttt{-l} 选项的顺序不可变。}
 \begin{minted}{console}
 $ gcc -c source.c -I/usr/local/sac/include
-$ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsac
-\end{minted}
-也可以利用SAC提供的 \texttt{sac-config} 命令简化此编译命令：
-\begin{minted}{console}
-$ gcc -c source.c `sac-config -c`
-$ gcc -o prog source.o -lm `sac-config -l sac`
+$ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsac -lsacio
 \end{minted}
 
 对于Fortran77源码，用如下命令编译
 \begin{minted}{console}
 $ gfortran -c source.f
-$ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsac
-\end{minted}
-也可以利用SAC提供的 \texttt{sac-config} 命令简化此编译命令：
-\begin{minted}{console}
-$ gfortran -c souce.f
-$ gfortran -o prog source.o `sac-config -l sac`
+$ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsac -lsacio
 \end{minted}
