@@ -35,6 +35,7 @@ xapiir(float    *data,      // 待滤波的数据，滤波后的数据保存在�
 相关示例代码为 \texttt{filterc.c} 和 \texttt{filterf.f} 。
 
 \subsection{firtrn}
+\texttt{firtrn} 用于做数据应用FIR滤波器或对数据做Hilbert变换：
 \begin{minted}{c}
 void
 firtrn( char    *ftype,     // 类型，取'HILBERT'或'DERIVATIVE'
@@ -45,7 +46,7 @@ firtrn( char    *ftype,     // 类型，取'HILBERT'或'DERIVATIVE'
 )
 \end{minted}
 
-参考示例:
+下面的示例展示了如何计算数据的Hilbert变换:
 \inputminted{c}{./libs/firtrn.c}
 
 \subsection{envelope}
