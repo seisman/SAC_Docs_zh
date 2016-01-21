@@ -4,20 +4,18 @@
 \texttt{sac-config} 是SAC提供的一个简单的配置脚本，用于返回编译、链接
 SAC函数库时所需要的一些信息。
 
-其用法如下：
+下面给出一些示例：
 \begin{minted}{console}
-Usage: sac-config [-clvp] [--prefix[=DIR]] [--version] [--libs] [--cflags] libs
-       Display information regarding SAC, specifically used
-         during the compilation of programs using the libraries
-         of SAC: sacio and sac
-
-          --cflags       Output Compilation Flags
-          -c
-          --libs         Output Sac Libraries
-          -l
-          --prefix=path  Set alternative Prefix to path for SAC
-          --prefix       Display Current SAC Prefix Path
-          -p
-          --version      Display SAC version information
-          -v
+$ sac-config --version
+101.6a
+$ sac-config -c                      # 返回include路径
+-I/usr/local/sac/include
+$ sac-config -l                      # 返回lib路径
+-L/usr/local/sac/lib
+$ sac-config -l sacio                # 链接sacio库
+-L/usr/local/sac/lib -lsacio
+$ sac-config -l sacio sac            # 链接sacio和sac库
+-L/usr/local/sac/lib -lsacio -lsac
+$ sac-config --prefix=/opt/sac -c    # 设置SAC根路径并返回include路径
+-I/opt/sac/include
 \end{minted}
