@@ -1,9 +1,8 @@
 \section{SAC设计思想}
 SAC的设计思想大概可以总结如下:
 \begin{enumerate}
-\item 每个信号\footnote{信号，或称之为trace，即\textbf{单个}台站
-    \textbf{单个}仪器\textbf{单个}分量记录到的连续时间序列。}
-    被保存到单独的SAC格式数据文件中；
+\item 每个信号\footnote{信号，或称之为trace，即\textbf{单个}台站\textbf{单个}仪器\textbf{单个}分量
+    记录到的连续时间序列。}被保存到单独的SAC格式数据文件中；
 \item SAC格式包含了描述数据特征的头段区和存储信号的数据区，
     参见``\nameref{chap:sac-file-format}''一章；
 \item 将单个或多个SAC文件从磁盘读入内存；
