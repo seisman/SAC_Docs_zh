@@ -170,7 +170,6 @@ SAC> q
 \endfoot
 \bottomrule
 \endlastfoot
-
 a       &   定义事件初至a                           &   1,7     \\
 b       &   如果有，则显示上一张绘图                &           \\
 c       &   计算事件的初至和结束                    &   1,4,7   \\
@@ -204,11 +203,7 @@ n       &   设置震相质量为n，n取0-4                 &           \\
 \end{center}
 
 注意：ppk模式的命令几乎都是由单个字符组成的，比如退出``\texttt{q}''，
-唯一的例外是命令``\texttt{t}''，由字符``\texttt{t}''和0--9的整数构成
-\footnote{标记到时时需要按下字母T和数字键才能完成一次标记，因而在有大量
-波形数据需要标记时效率较低，考虑到设置震相质量这一功能很少使用，故而对
-源码做了一些修改，使得只键入数字键即可标记到时，可以较大得提高标记到时的
-效率，详细介绍见 \url{http://seisman.info/faster-ppk.html}}。
+唯一的例外是命令``\texttt{t}''，由字符``\texttt{t}''和0--9的整数构成。
 
 不同的命令效果可能不同，有些会在绘图窗口显示信息，有些会将信息写入头段i
 变量，下面对表 \ref{table:plotpk-commands} 中的说明进行一个说明：
@@ -222,3 +217,18 @@ n       &   设置震相质量为n，n取0-4                 &           \\
 \item [7] 绘图窗口显示含有到时标识的垂直线
 \item [8] 绘图窗口显示含有标识的水平线
 \end{description}
+
+\subsection{ppk修改版}
+SAC的 \nameref{cmd:plotpk} 命令在实际使用中有两大痛点：
+\begin{enumerate}
+\item 拾取震相时需要按下 \texttt{T} 和数字键才能标记一个到时，且某些数字键与按键 \texttt{T} 距离太远
+\item 无法删除已标记的到时
+\end{enumerate}
+
+为了解决这两个问题，对代码做了一些修改，增加了如下两个功能：
+\begin{enumerate}
+\item 直接使用数字键即可标记震相到时
+\item 使用 \texttt{@} 可删除标记到时
+\end{enumerate}
+
+详情请参考 \url{http://seisman.info/faster-ppk.html}。
