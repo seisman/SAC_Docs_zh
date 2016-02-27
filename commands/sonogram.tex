@@ -6,9 +6,8 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-SONO!GRAM! [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF]
-    [YMIN v] [YMAX v] [FMIN v] [FMAX v] [BINARY|FULL]
-    [METHOD PDS|MEM|MLM] [COLOR|GRAY]
+SONO!GRAM! [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF] [YMIN v] [YMAX v]
+    [FMIN v] [FMAX v] [BINARY|FULL] [METHOD PDS|MEM|MLM] [COLOR|GRAY]
 \end{SACSTX}
 
 \SACTitle{输入}
@@ -29,9 +28,10 @@ SONO!GRAM! [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF]
 
 \SACTitle{缺省值}
 \begin{SACDFT}
-sonogram window 2 slice 1 method mem order 100 ymin 0 ymax
-    fnyquist fmin 2.0 fmax 6.0 full color
+sonogram window 2 slice 1 method mem order 100 ymin 0 ymax fnyquist
+    fmin 2.0 fmax 6.0 full color
 \end{SACDFT}
+此处 \texttt{fnyquist} 代表Nyquist采样频率。
 
 \SACTitle{说明}
 \texttt{sonogram} 命令计算了一个谱图，其等效于同一谱图两种不同平滑版本的差。

@@ -6,8 +6,8 @@
 
 \SACTitle{语法}
 \begin{SACSTX}
-TRANS!FER! [FROM type [options]] [TO type [options]]
-    [FREQ!LIMITS! f1 f2 f3 f4] [PREWH!ITENING! ON|OFF|n]
+TRANS!FER! [FROM type [options]] [TO type [options]] [FREQ!LIMITS! f1 f2 f3 f4]
+    [PREWH!ITENING! ON|OFF|n]
 \end{SACSTX}
 
 \SACTitle{输入}
@@ -266,7 +266,6 @@ fap选项表明使用FAP文件作为响应函数。
 SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rtr
 SAC> taper
-SAC> trans from fap s fap.n11a.lhz_0.006-0.2 to none \
-                        freq 0.004 0.006 0.1 0.2
+SAC> trans from fap s fap.n11a.lhz_0.006-0.2 to none freq 0.004 0.006 0.1 0.2
 SAC> mul 1.0e9
 \end{SACCode}
