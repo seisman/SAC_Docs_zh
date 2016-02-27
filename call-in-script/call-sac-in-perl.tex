@@ -3,6 +3,8 @@
 
 \subsection{简单示例}
 下面的脚本展示了如何在Perl中调用SAC。
+
+下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/0.simple-script.pl}{0.simple-script.pl}
 \inputminted{perl}{./call-in-script/0.simple-script.pl}
 Perl中调用SAC本质上是使用 \texttt{open(SAC, "| sac")} 语句定义了一个名为
 \texttt{SAC} 指向 \texttt{sac} 的句柄，然后通过 \texttt{print SAC} 语句
@@ -15,6 +17,8 @@ Perl中调用SAC本质上是使用 \texttt{open(SAC, "| sac")} 语句定义了�
 \item \texttt{rdseed} 一次只能处理一个SEED数据
 \item \texttt{rdseed} 的 \texttt{-pdf} 选项会提取出SAC波形数据和PZ格式的仪器响应文件
 \end{itemize}
+
+下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/1.rdseed.pl}{1.rdseed.pl}
 \inputminted{perl}{./call-in-script/1.rdseed.pl}
 
 \subsection{文件合并}
@@ -28,6 +32,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 \item 多余的数据段均被删除，以保证每个通道只有一个SAC文件
 \item 由于脚本运行速度比SAC运行速度快，因而应先退出SAC再删除多余的数据段
 \end{itemize}
+
+下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/2.merge.pl}{2.merge.pl}
 \inputminted{perl}{./call-in-script/2.merge.pl}
 
 \subsection{文件重命名}
@@ -37,6 +43,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 \item SEED解压出的默认文件名格式为 \texttt{yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC}
 \item 重命名后的文件名为 \texttt{NET.STA.LOC.CHN.SAC}
 \end{itemize}
+
+下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/3.rename.pl}{3.rename.pl}
 \inputminted{perl}{./call-in-script/3.rename.pl}
 
 \subsection{添加事件信息}
@@ -48,6 +56,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 \item 发震时刻的格式为 \texttt{yyyy-mm-ddThh:mm:ss.xxx}，其中 \texttt{T}
     用于分隔日期和时间
 \end{itemize}
+
+下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/4.eventinfo.pl}{4.eventinfo.pl}
 \inputminted{perl}{./call-in-script/4.eventinfo.pl}
 
 \subsection{去仪器响应}
@@ -55,6 +65,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 使用PZ文件去仪器响应。若数据的时间跨度太长，在该时间跨度内可能仪器响应会
 发生变化，因而会存在一个通道有多个PZ文件的情况。目前该脚本在遇到这种情况
 时会自动退出。
+
+下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/5.transfer.pl}{5.transfer.pl}
 \inputminted{perl}{./call-in-script/5.transfer.pl}
 
 \subsection{分量旋转}
@@ -70,6 +82,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
     符合要求，SAC会报错且不会旋转，写到磁盘中的R和T分量实际上是原数据，
     暂不知如何处理。
 \end{itemize}
+
+下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/6.rotate.pl}{6.rotate.pl}
 \inputminted{perl}{./call-in-script/6.rotate.pl}
 
 \subsection{数据重采样}
@@ -84,4 +98,6 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下面的Perl脚本中使用 \nameref{cmd:interpolate} 命令将所有数据重采样到相同
 的采样周期。用户可以在命令行中直接指定要使用的重采样后的采样周期，若命令行
 中的采样周期指定为0，则以大多数数据所使用的采样周期作为重采样后的采样周期。
+
+下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/7.resample.pl}{7.resample.pl}
 \inputminted{perl}{./call-in-script/7.resample.pl}
