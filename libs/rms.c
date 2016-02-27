@@ -1,5 +1,5 @@
 /*
- * 本例中使用了Lupei Zhu的sacio库还读入子程序
+ * 本例中使用了Lupei Zhu的sacio库的数据读入子程序
  *
  * 编译方式：
  *    gcc prog.c sacio.c -lm -L/usr/local/sac/lib -lsac -lsacio
