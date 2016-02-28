@@ -174,11 +174,11 @@ a       &   定义事件初至a                           &   1,7     \\
 b       &   如果有，则显示上一张绘图                &           \\
 c       &   计算事件的初至和结束                    &   1,4,7   \\
 d       &   设置震相方向为DOWN                      &           \\
-e       &   设置震相起始为EMERGENT（急始）          &           \\
+e       &   设置震相onset为EMERGENT（急始）         &           \\
 f       &   定义事件结束f                           &  1,2,3,7  \\
 g       &   以HYPO格式将拾取显示到终端              &   4       \\
 h       &   将拾取写成HYPO格式                      &   3,4     \\
-i       &   设置震相起始为IMPULSIVE                 &           \\
+i       &   设置震相onset为IMPULSIVE                &           \\
 j       &   设置噪声水平                            &   2,6,8   \\
 k       &   即kill，退出ppk模式                     &           \\
 l       &   显示光标当前位置                        &   2,4     \\
@@ -217,6 +217,17 @@ n       &   设置震相质量为n，n取0-4                 &           \\
 \item [7] 绘图窗口显示含有到时标识的垂直线
 \item [8] 绘图窗口显示含有标识的水平线
 \end{description}
+
+\subsection{标定P波和S波}
+ppk模式下可以键入 \texttt{p} 或 \texttt{s} 来分别标定P波和S波到时。关于P波和S波到时的标定，有如下几点说明：
+
+\begin{itemize}
+\item 用 \texttt{p} 标定的P波到时信息保存到头段变量 \texttt{A} 中
+\item 用 \texttt{s} 标定的S波到时信息保存到头段变量 \texttt{T0} 中
+\item 震相onset类型、震相方向和震相质量等信息仅用于标记P和S波，这些信息会保留在头段变量 \texttt{KA} 或 \texttt{KT0} 中。
+\end{itemize}
+
+以标记P波到时为例，在进入ppk模式后，依次按下 \texttt{e} 、 \texttt{d} 、 \texttt{1} 、\texttt{p} 四个按键，此时会将P波到时信息保存在头段变量 \texttt{A} 中，头段变量 \texttt{KA} 中的值则是 \texttt{EPD1}，这四个字符表明这是一个EMERGENT且极性向下的P波，震相质量为1，即震相比较清晰。
 
 \subsection{ppk修改版}
 SAC的 \nameref{cmd:plotpk} 命令在实际使用中有两大痛点：
