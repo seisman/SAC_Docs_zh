@@ -157,9 +157,9 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 \subsubsection{\texttt{kevnm}}
 事件名，长度为16个字节。
 
-\subsubsection{\texttt{evla, evlo, evel, evdp}}
-分别代表事件的纬度（-90到90）、经度（-180到180）、高程（单位为 \si{\m}，
-未使用）和深度（单位为 \si{\km}，以前为 \si{\m}）。
+\subsubsection{\texttt{evla, evlo, evel\dag, evdp}}
+分别代表事件的纬度（-90到90）、经度（-180到180）、高程（单位为 \si{\m} ）
+和深度（单位为 \si{\km}，以前为 \si{\m}）。
 
 \subsubsection{\texttt{ievreg}\dag}
 事件地理区域\footnote{Flinn-Engdahl Regions:\url{http://en.wikipedia.org/wiki/Flinn-Engdahl_regions}}。
@@ -248,9 +248,9 @@ iqual\footnote{\dag 标识仅表示SAC程序内部未使用该头段变量，即
 \subsubsection{\texttt{istreg}\dag}
 台站地理区域。
 
-\subsubsection{\texttt{stla, stlo, stel, stdp}}
-台站纬度（-90到90度）、经度（-180到180度）、高程（单位 \si{m}，目前未使用）、
-相对地表的深度（单位 \si{m}，目前未使用）。
+\subsubsection{\texttt{stla, stlo, stel\dag, stdp\dag}}
+台站纬度（-90到90度）、经度（-180到180度）、高程（单位 \si{m}）、
+相对地表的深度（单位 \si{m}）。
 
 \subsubsection{\texttt{cmpaz, cmpinc, kcmpnm, kstcmp}}
 一个台站至少需要三个正交的通道/分量才能完整地记录地面运动物理量。
