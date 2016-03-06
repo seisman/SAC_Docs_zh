@@ -63,11 +63,13 @@ plotpk perplot off absolute reference off markall off savelocs off
 
 \SACTitle{BUGS}
 \begin{itemize}
-\item \texttt{BELL} 选项在某些平台上不可用
-\item \texttt{REFERENCE} 选项无效
+\item \texttt{BELL} 选项在某些平台上不可用（v101.6a）
+\item \texttt{REFERENCE} 选项无效（v101.6a）
 \item 按照说明文档，绘图时默认使用 \texttt{absolute} 模式，但似乎代码存在
     Bug。某些情况下默认使用 \texttt{relative} 模式，但在查看若干头段变量
-    之后再绘图，则会使用 \texttt{absolute} 模式。示例代码如下：
+    之后再绘图，则会使用 \texttt{absolute} 模式（v101.6a）
+
+示例代码如下：
 \begin{SACCode}
 SAC> dg sub local cdv.z
 SAC> w 1.SAC
