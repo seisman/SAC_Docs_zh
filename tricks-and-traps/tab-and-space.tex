@@ -3,22 +3,20 @@
 这一节提到的``Tab与空格''也算是编程界的圣战之一了。这一节并不打算争论
 究竟该使用Tab还是空格，而是讨论一下在SAC中使用Tab会遇到的陷阱。
 
-从终端启动一个SAC会话，试着在SAC中键入Tab键，你会发现这些Tab键仅仅
-起到了命令补全的作用，你是无法直接在SAC中输入一个Tab键的。所以，当你
-从终端使用SAC的时候，因为不可能输入Tab键，所以Tab不会造成任何问题。
+从终端启动SAC，试着在SAC中键入Tab键，你会发现这些Tab键仅仅起到了命令
+补全的作用，因而你是无法直接在交互式SAC中输入一个Tab键的。因此，在
+交互式SAC下，Tab键不会造成任何问题。但，当在脚本中调用SAC，或者写SAC
+宏时，Tab键就会产生影响。
 
-但当在脚本中调用SAC时，就可以通过脚本把Tab传递给SAC。
-
-Bash 中:
+以在Bash中调用SAC为例:
 \begin{minted}{bash}
 sac << EOF
-    fg seis     // 此行行首有Tab
-    w seis.sac  // 此行行首有Tab
-    q           // 此行行首有Tab
+    fg seis     // 此行行首有Tab，只是你看不见
+    w seis.sac  // 此行行首有Tab，只是你看不见
+    q           // 此行行首有Tab，只是你看不见
 EOF
 \end{minted}
-由于SAC命令前有Tab键（Tab键和空格是肉眼无法区分的，只要知道上面的脚本中含
-有Tab即可），导致执行该脚本的结果如下：
+由于SAC命令前有Tab键，导致执行该脚本的结果如下：
 \begin{minted}{console}
 sh: line 0: fg: no job control
 22:24:49 up 12 days, 12:24,
