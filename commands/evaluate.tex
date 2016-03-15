@@ -13,6 +13,8 @@ EVAL!UATE! [TO TERM|name] [v] op v [op v ...]
 ADD|SUBTRACT|MULTIPLY|DIVIDE|POWER|SQRT|EXP|ALOG|ALOG10|
 SIN|ASIN|COS|ACOS|TAN|ATAN|EQ|NE|LE|GE|LT|GT
 \end{SACSTX}
+其中， \texttt{ADD|SUBTRACT|MULTIPLY|DIVIDE|POWER} 可以分别用
+\texttt{+}、\texttt{-}、\texttt{*}、\texttt{/}、\texttt{**} 替代。
 
 \SACTitle{输入}
 \begin{description}
@@ -21,15 +23,6 @@ SIN|ASIN|COS|ACOS|TAN|ATAN|EQ|NE|LE|GE|LT|GT
 \item [v] 浮点数或整数。SAC中所有的运算都是浮点运算，整数会首先转换为浮点型
 \item [op] 算术或逻辑操作符
 \end{description}
-
-\SACTitle{其他形式}
-\begin{itemize}
-\item \texttt{+} 代替 \texttt{ADD}
-\item \texttt{-} 代替 \texttt{SUBTRACT}
-\item \texttt{*} 代替 \texttt{MULTIPLY}
-\item \texttt{/} 代替 \texttt{DIVIDE}
-\item \texttt{**} 代替 \texttt{POWER}
-\end{itemize}
 
 \SACTitle{缺省值}
 \begin{SACDFT}
