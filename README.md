@@ -4,42 +4,6 @@
 
 本项目由[seisman](http://seisman.info/about.html)发起，手册用[LaTeX](http://www.latex-project.org/)写成，源码托管在[github](https://github.com/seisman/SAC_Docs_zh)上，最终生成的PDF在[SeisMan博客](http://seisman.info/sac-manual.html)发布。
 
-## 文档结构 ##
-
-文档源码的目录结构如下：
-
-    .
-    |-- README.md           # 本文档
-    |
-    |-- Makefile            # make构建文件
-    |
-    |-- SAC_Docs.tex        # 主文档
-    |-- SAC_macros.tex      # LaTeX导言区
-    |-- cover.tex           # 封面页
-    |-- frontmatterIII.tex  # 废话页
-    |-- version.tex         # 版本说明
-    |-- contributor.tex     # 维护者列表
-    |
-    |-- figures             # 文档内的插图
-    |-- scripts             # 用于绘制插图的脚本
-    |
-    |-- introduction        # 简介
-    |-- basic               # SAC基础
-    |-- fileformat          # 文件格式
-    |-- data-process        # 数据处理
-    |-- graphics            # 绘图
-    |-- macros              # SAC宏语言
-    |-- call-in-script      # 脚本中调用
-    |-- libs                # 函数库的使用
-    |-- sacio               # SAC I/O
-    |-- tools               # 相关工具
-    |-- tricks-and-traps    # 技巧与陷阱
-    |-- appendix            # 附录
-    |
-    |-- commands            # 基础命令
-    |-- sss                 # SSS子程序
-    `-- spe                 # SPE子程序
-
 ## 依赖 ##
 
 - TeX发行版：[TeXLive 2015](https://www.tug.org/texlive/)
@@ -99,3 +63,5 @@ Ubuntu/Debian下用如下命令安装::
 - 提出术语翻译建议
 - 文档布局调整
 - LaTeX源码优化
+
+详情见 [Wiki](https://github.com/seisman/SAC_Docs_zh/wiki)。
