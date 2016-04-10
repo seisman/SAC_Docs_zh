@@ -1,0 +1,16 @@
+language: python
+python:
+    - "3.5"
+sudo: required
+dist: trusty
+
+install:
+    - pip install pygments ghp-import
+    - bash ./.texlive-minmal-installer.sh
+    - source ./srcfile
+
+script:
+    make
+
+after_success:
+    bash .travis-deploy.sh
