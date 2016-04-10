@@ -7,15 +7,12 @@
 #
 DOC = SAC_Docs
 
-.PHONY: $(DOC).pdf all upload clean
+.PHONY: $(DOC).pdf all clean
 
 all: $(DOC).pdf
 
 $(DOC).pdf: $(DOC).tex
 	latexmk -xelatex -shell-escape -interaction=nonstopmode $^
-
-upload:
-	lftp dongzhi@home.ustc.edu.cn -e "put -O /public_html $(DOC).pdf; quit"
 
 clean:
 	latexmk -c
