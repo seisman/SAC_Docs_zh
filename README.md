@@ -2,16 +2,22 @@
 
 《SAC参考手册》是介绍地震学常用软件[SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)用法的中文手册。
 
-本项目由[seisman](http://seisman.info/about.html)发起，手册用[LaTeX](http://www.latex-project.org/)写成，源码托管在[github](https://github.com/seisman/SAC_Docs_zh)上，最终生成的PDF在[SeisMan博客](http://seisman.info/sac-manual.html)发布。
+## 相关信息 ##
+
+[![Build Status](https://travis-ci.org/seisman/SAC_Docs_zh.svg?branch=master)](https://travis-ci.org/seisman/SAC_Docs_zh)
+
+- 发起者：[seisman](http://seisman.info/about.html)
+- 源码语言：[LaTeX](http://www.latex-project.org/)写成
+- 源码托管：https://github.com/seisman/SAC_Docs_zh
+- 正式版文档下载地址：http://seisman.info/sac-manual.html
+- 测试版文档下载地址：https://github.com/seisman/SAC_Docs_zh/raw/pdf/SAC_Docs.pdf
 
 ## 依赖 ##
 
 - TeX发行版：[TeXLive 2015](https://www.tug.org/texlive/)
 - 构建工具：[make](https://www.gnu.org/software/make/)
 - 代码高亮：[pygments](http://pygments.org/)
-- 图片生成：
-    - [SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)
-    - [GMT4](http://gmt.soest.hawaii.edu/gmt4/)
+- 图片生成：[SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)、[GMT4](http://gmt.soest.hawaii.edu/gmt4/)
 
 ## 如何编译 ##
 
