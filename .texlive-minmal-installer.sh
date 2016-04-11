@@ -2,7 +2,7 @@
 #
 # Install minimal TeXLive 2015 for SAC_Docs_zh
 #
-REMOTE="http://ctan.mirrors.hoobly.com/systems/texlive/tlnet/"
+REMOTE=http://ctan.sharelatex.com/tex-archive/systems/texlive/tlnet/
 TEXBIN=/usr/local/texlive/2015/bin/x86_64-linux
 PACKAGES="environ trimspaces zhnumber fandol zapfding titlesec algorithm2e relsize latexmk ctex datetime2 tracklang minted ifplatform xstring enumitem tikz-3dplot siunitx symbol footmisc framed manfnt"
 
@@ -29,7 +29,8 @@ option_src 0
 EOF
 
 sudo ./install-tl -profile texlive.profile -repository $REMOTE
-sudo $TEXBIN/tlmgr install $PACKAGES
+sudo $TEXBIN/tlmgr update --self --all --repository $REMOTE
+sudo $TEXBIN/tlmgr install $PACKAGES --repository $REMOTE
 
 cd -
 echo export PATH=$TEXBIN:'$PATH' > srcfile
