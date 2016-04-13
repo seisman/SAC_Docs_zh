@@ -36,7 +36,7 @@
 [![License (CC BY-NC-SA 3.0 CN)](https://img.shields.io/badge/license-CC%20BY--NC--SA%203.0%20CN-red.svg)](http://creativecommons.org/licenses/by-nc-sa/3.0/cn/)
 [![License (CC0 1.0)](https://img.shields.io/badge/license-CC0%201.0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-本项目的文档部分遵循 [**署名-非商业性使用-相同方式共享 3.0 中国大陆 (CC BY-NC-SA 3.0 CN)**](http://creativecommons.org/licenses/by-nc-sa/3.0/cn/)。
+本项目的文档部分遵循 [**署名-非商业性使用-相同方式共享 3.0 中国大陆 (CC BY-NC-SA 3.0 CN)**](http://creativecommons.org/licenses/by-nc-sa/3.0/cn/) 许可协议。
 任何人都可以自由地分享、修改本作品，但必须遵循如下条件：
 
 - 署名：必须提到原作者，提供指向此许可协议的链接，表明是否有做修改
