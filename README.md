@@ -43,5 +43,5 @@
 - 非商业性使用：不能对本作品进行任何形式的商业性使用
 - 相同方式共享：若对本作品进行了修改，必须以相同的许可协议共享
 
-本项目中的脚本遵循 [**CC0 1.0 通用 (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.zh) 许可协议。
+本项目中的脚本遵循 [**CC0 1.0 通用 (CC0 1.0)**](https://creativecommons.org/publicdomain/zero/1.0/deed.zh) 许可协议。
 即所有脚本放弃一切权利，全归公共领域。任何人可以自由无限制地使用、修改、共享本项目中的脚本。
