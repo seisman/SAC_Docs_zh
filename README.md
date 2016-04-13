@@ -19,47 +19,6 @@
 - 代码高亮：[pygments](http://pygments.org/)
 - 图片生成：[SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)、[GMT4](http://gmt.soest.hawaii.edu/gmt4/)
 
-## 如何编译 ##
-
-本源码仅在Linux下测试通过，Windows及Mac OS X下未测试。
-
-### 安装依赖 ###
-
-CentOS/Fedora/RHEL下用如下命令安装::
-
-    sudo yum install python-pygments make git
-
-Ubuntu/Debian下用如下命令安装::
-
-    sudo apt-get install python-pygments make git
-
-若需要重新生成文档中所使用的图片，则需要安装SAC、GMT4。
-
-### TeXLive ###
-
-安装TeXLive 2015，并将TeX宏包更新至最新版本，参考[此文](http://seisman.info/install-texlive-under-linux.html)
-
-### 编译项目 ###
-
-1. 获取源码
-
-   ```
-   git clone https://github.com/seisman/SAC_Docs_zh.git
-   ```
-
-2. 重新生成图片（可选，需要SAC和GMT4）
-
-   ```
-   cd scripts
-   make
-   ```
-
-3. 编译文档
-
-   ```
-   make
-   ```
-
 ## 参与维护 ##
 
 你可以参与到本项目的维护：
