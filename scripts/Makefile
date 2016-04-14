@@ -1,13 +1,10 @@
 FIGURE = ../figures
-PDF = $(addsuffix .pdf, $(basename $(wildcard *.sh)))
+PDF = $(patsubst %.sh, $(FIGURE)/%.pdf, $(wildcard *.sh))
 
-all: get $(PDF) install
+all: $(PDF) install
 
-get:
-	sh GetData.wget
-
-%.pdf: %.sh
+$(FIGURE)/%.pdf: %.sh
 	sh $<
 
 install:
-	mv $(PDF) ${FIGURE}
+	-mv *.pdf $(FIGURE)/
