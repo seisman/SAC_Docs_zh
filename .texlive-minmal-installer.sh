@@ -14,8 +14,6 @@ curl -sSL $REMOTE/install-tl-unx.tar.gz | tar -xz -C ./ --strip-components=1
 cat << EOF > texlive.profile
 selected_scheme scheme-minimal
 TEXMFHOME ~/.texmf
-TEXMFCONFIG ~/.texlive/texmf-config
-TEXMFVAR ~/.texlive/texmf-var
 collection-basic 1
 collection-genericrecommended 1
 collection-latex 1
