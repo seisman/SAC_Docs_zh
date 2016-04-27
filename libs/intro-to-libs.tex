@@ -1,13 +1,13 @@
 \section{SAC库简介}
-SAC提供了两个函数库：\texttt{libsacio.a} 和 \texttt{libsac.a}，用户
+SAC提供了两个函数库：!libsacio.a! 和 !libsac.a!，用户
 可以在自己的C或Fortran程序中直接使用函数库中的子函数。这些库文件位于
-\verb|${SACHOME}/lib| 中。
+!${SACHOME}/lib! 中。
 
 \subsection{\texttt{libsacio}库}
 此库文件包含的子函数可用于读写SAC数据文件、SAC头段变量、黑板变量文件。
 这些子函数可以在用户的C或Fortran程序中直接使用。
 
-\texttt{libsacio.a} 中可用的子函数包括：
+!libsacio.a! 中可用的子函数包括：
 \begin{table}[H]
 \centering
 \caption{\texttt{libsacio}子函数}
@@ -52,10 +52,10 @@ $ gfortran -c source.f
 $ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsacio
 \end{minted}
 
-\subsection{libsac.a库}
+\subsection{\texttt{libsac}库}
 这个库是从101.2版本才引入的，包含了几个数据处理常用的子函数。
 
-\texttt{libsac.a} 包含如下子函数：
+!libsac.a! 包含如下子函数：
 \begin{table}[H]
 \centering
 \caption{\texttt{libsac} 子函数}
@@ -74,9 +74,9 @@ rms         &       计算数据的均方根 \\
 \end{tabular}
 \end{table}
 
-对于C源码，用如下命令编译\footnote{调用 \texttt{libsac.a} 中的函数时，一般
-也需要同时调用 \texttt{libsacio.a}，故而写成 \texttt{-lsac -lsacio}。注意，
-两个 \texttt{-l} 选项的顺序不可变。}
+对于C源码，用如下命令编译\footnote{调用 !libsac.a! 中的函数时，一般
+也需要同时调用 !libsacio.a!，故而写成 !-lsac -lsacio!。注意，
+两个 !-l! 选项的顺序不可变。}
 \begin{minted}{console}
 $ gcc -c source.c -I/usr/local/sac/include
 $ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsac -lsacio

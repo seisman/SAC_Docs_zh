@@ -11,7 +11,7 @@ XFUDGE [ON|OFF|v]
 
 \SACTitle{输入}
 \begin{description}
-\item [v] 设置附加因子为 \texttt{v}
+\item [v] 设置附加因子为 !v!
 \item [ON] 打开附加选项，但不改变附加因子
 \item [OFF] 关闭附加选项
 \end{description}
@@ -22,8 +22,8 @@ xfudge 0.03
 \end{SACDFT}
 
 \SACTitle{说明}
-当坐标轴的范围设置为数据的时间极值时，\texttt{xmin=b}，\texttt{xmax=e}。实际绘图时
-会将 \texttt{xmin} 调小一点，将 \texttt{xmax} 调大一点，使得绘图时波形的两端
+当坐标轴的范围设置为数据的时间极值时，!xmin=b!，!xmax=e!。实际绘图时
+会将 !xmin! 调小一点，将 !xmax! 调大一点，使得绘图时波形的两端
 与边框之间留有一些空隙。附加因子定义了这个空隙相对于时间极值的比例。
 
 实际绘图时，会根据附加因子计算新的坐标轴范围：
@@ -32,6 +32,6 @@ xfudge 0.03
             xmin = b - xdiff
             xmax = e + xdiff
 \end{verbatim}
-其中 \texttt{b} 和 \texttt{e} 是数据的时间范围，\texttt{xfudge} 是附加
-因子，\texttt{xmin} 和 \texttt{xmax} 是计算得到的X坐标轴范围。
+其中 !b! 和 !e! 是数据的时间范围，!xfudge! 是附加
+因子，!xmin! 和 !xmax! 是计算得到的X坐标轴范围。
 该算法对对数坐标也得类似的效果。

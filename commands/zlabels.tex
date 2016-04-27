@@ -8,20 +8,20 @@
 \begin{SACSTX}
 ZLABELS [ON|OFF] [SPACING v1 [v2 [v3]]] [SIZE v] [ANGLE v] [LIST c1 c2 ... cn]
 \end{SACSTX}
-\texttt{LIST} 选项只能放在这个命令的最后
+!LIST! 选项只能放在这个命令的最后
 
 \SACTitle{输入}
 \begin{description}
 \item [ON|OFF] 打开/关闭等值线标签选项开关
 \item [SPACING v1 v2 v3] 设置相邻标签名的最小、适中和最大间隔（视口坐标系）
-    分别为 \texttt{v1}、\texttt{v2} 和 \texttt{v3}。如果第二、三个值省略
+    分别为 !v1!、!v2! 和 !v3!。如果第二、三个值省略
     则使用前面一个值
-\item [SIZE v] 设置标签的尺寸（高度）为 \texttt{v}
-\item [ANGLE v] 设置标签文本最大角度为 \texttt{v}（自水平方向起算的角度，
+\item [SIZE v] 设置标签的尺寸（高度）为 !v!
+\item [ANGLE v] 设置标签文本最大角度为 !v!（自水平方向起算的角度，
     单位为度）
 \item [LIST c1 c2 . cn] 设置使用的等值线标签的列表。在这个表上的每个输入
     用于相应的等值线，如果等值线数目大于这个表的长度，则重复使用整个等值线表
-\item [cn]  可以取 \texttt{ON|OFF|INT|FLOATn|EXPn|text}
+\item [cn]  可以取 !ON|OFF|INT|FLOATn|EXPn|text!
 \item [ON] 在相应的等值线上放置标签，使用Fortran自由格式，用等值线值形成标签名
 \item [OFF] 在相应的等值线上不放置标签名
 \item [INT] 在相应的等值线上放置整数标签名

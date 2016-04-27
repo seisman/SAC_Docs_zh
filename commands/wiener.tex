@@ -12,14 +12,14 @@ W!IE!N!E!R [W!INDOW! pdw] [N!COEFF! n] [MU OFF|ON|v] [EPS!ILON! OFF|ON|e]
 \SACTitle{输入}
 \begin{description}
 \item [WINDOW pdw] 设置滤波器设计窗口为 \nameref{subsec:pdw}
-\item [NCOEFF n] 设置滤波器系数为 \texttt{n} 个
+\item [NCOEFF n] 设置滤波器系数为 !n! 个
 \item [MU off|on|v] 设置自适应步长参数
 \item [MU Off] 设置自适应步长参数为0
-\item [MU ON] 设置自适应步长为1.95/Rho(0)，其中Rho(0)是 \texttt{pdw} 中
+\item [MU ON] 设置自适应步长为1.95/Rho(0)，其中Rho(0)是 !pdw! 中
     延迟为0时的自相关系数
 \item [MU v] 设置自适应步长为v
 \item [EPSILON ON|OFF|e] 设置岭回归（ridge regression）参数为。
-    若为 \texttt{OFF}，则SAC将依次设置epsilon值为0.0、$10^{-5}$、$10^{-4}$、
+    若为 !OFF!，则SAC将依次设置epsilon值为0.0、$10^{-5}$、$10^{-4}$、
     $10^{-3}$、$10^{-2}$，直到滤波器稳定为止。若epsilon=0不稳定，则SAC会给出警告
     信息，若所有值均不稳定，则SAC会给出错误信息。
 \end{description}
@@ -30,7 +30,7 @@ wiener window b 0 10 ncoeff 30 mu off epsilon off
 \end{SACDFT}
 
 \SACTitle{说明}
-对文件的 \texttt{pdw} 内的数据估计自相关函数，并利用Yule-Walker方法设计
+对文件的 !pdw! 内的数据估计自相关函数，并利用Yule-Walker方法设计
 预测误差滤波器，然后将滤波器应用到整个信号，即信号被误差序列替换。
 该滤波器可以用作预白化或用作瞬时信号的检测预处理器。若mu指定为非0值，则
 滤波器为时域自适应的，大值mu可能会导致不稳定。

@@ -10,8 +10,8 @@ int next2(int num)  // 输入为num，返回值为大于num的最小2次幂
 \end{minted}
 
 \subsection{xapiir}
-\texttt{xapiir} 用于设计IIR滤波器，并对数据进行滤波。这个子函数底层
-调用了 \texttt{design} 和 \texttt{apply} 两个子函数。
+!xapiir! 用于设计IIR滤波器，并对数据进行滤波。这个子函数底层
+调用了 !design! 和 !apply! 两个子函数。
 \begin{minted}{c}
 void
 xapiir(float    *data,      // 待滤波的数据，滤波后的数据保存在该数组中
@@ -32,10 +32,10 @@ xapiir(float    *data,      // 待滤波的数据，滤波后的数据保存在�
 )
 \end{minted}
 
-相关示例代码为 \texttt{filterc.c} 和 \texttt{filterf.f} 。
+相关示例代码为 !filterc.c! 和 !filterf.f! 。
 
 \subsection{firtrn}
-\texttt{firtrn} 用于做数据应用FIR滤波器或对数据做Hilbert变换：
+!firtrn! 用于做数据应用FIR滤波器或对数据做Hilbert变换：
 \begin{minted}{c}
 void
 firtrn( char    *ftype,     // 类型，取'HILBERT'或'DERIVATIVE'
@@ -50,7 +50,7 @@ firtrn( char    *ftype,     // 类型，取'HILBERT'或'DERIVATIVE'
 \inputminted{c}{./libs/firtrn.c}
 
 \subsection{envelope}
-该子函数用于计算数据的包络函数，其底层调用了 \texttt{firtrn} 函数。
+该子函数用于计算数据的包络函数，其底层调用了 !firtrn! 函数。
 \begin{minted}{c}
 void
 envelope( int    n,     // 数据点数
@@ -59,7 +59,7 @@ envelope( int    n,     // 数据点数
 )
 \end{minted}
 
-相关示例代码为 \texttt{envelopec.c} 和 \texttt{envelopef.f} 。
+相关示例代码为 !envelopec.c! 和 !envelopef.f! 。
 
 \subsection{crscor}
 该子函数用于计算两个数据的互相关，此互相关在频率域中完成，相对时间域
@@ -80,8 +80,8 @@ crscor( float   *data1,     // 数据1
 )
 \end{minted}
 
-示例代码为 \texttt{convolvec.c}、\texttt{convolvef.f}、\texttt{correlatec.c}
-和 \texttt{correlatef.f}。
+示例代码为 !convolvec.c!、!convolvef.f!、!correlatec.c!
+和 !correlatef.f!。
 
 \subsection{rms}
 该子函数用于计算信号的均方根，其中计算公式为：

@@ -1,45 +1,45 @@
-用 \texttt{rdseed} 程序从标准SEED格式中解压得到的SAC文件，通常都具有
+用 !rdseed! 程序从标准SEED格式中解压得到的SAC文件，通常都具有
 固定格式的文件名。具体格式为：
 \begin{verbatim}
     yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC
 \end{verbatim}
 其中
 \begin{itemize}
-\item \texttt{yyyy.ddd.hh.mm.ss.ffff} 是SAC文件中第一个数据点对应的时间
+\item !yyyy.ddd.hh.mm.ss.ffff! 是SAC文件中第一个数据点对应的时间
     \begin{itemize}
-    \item \texttt{yyyy} 为年；
-    \item \texttt{ddd} 为一年的第多少天；
-    \item \texttt{hh.mm.ss} 为时、分、秒；
-    \item \texttt{ffff} 为毫秒；需要注意的是 $\SI{1}{\s}=\SI{1000}{\ms}$，
+    \item !yyyy! 为年；
+    \item !ddd! 为一年的第多少天；
+    \item !hh.mm.ss! 为时、分、秒；
+    \item !ffff! 为毫秒；需要注意的是 $\SI{1}{\s}=\SI{1000}{\ms}$，
         这里毫秒用了4位来表示。
     \end{itemize}
-\item \texttt{NN} 为台网名\footnote{所有永久或临时台网的台网名列表：
+\item !NN! 为台网名\footnote{所有永久或临时台网的台网名列表：
     \url{http://www.fdsn.org/networks/}}，长度不超过2个字符；
-\item \texttt{SSSSS} 为台站名，长度不超过5个字符；
-\item \texttt{LL} 为位置码，为空或两字符；
-\item \texttt{CCC} 为通道名；
-\item \texttt{Q} 为质量控制标识；
-\item \texttt{SAC} 为文件后缀；
+\item !SSSSS! 为台站名，长度不超过5个字符；
+\item !LL! 为位置码，为空或两字符；
+\item !CCC! 为通道名；
+\item !Q! 为质量控制标识；
+\item !SAC! 为文件后缀；
 \end{itemize}
 
 \section{位置码}
 位置码（Location ID）用于区分同一个台站处几套类似的仪器，这些仪器可能是
 相同的型号，但位于不同的深度或者指向不同的方位；也有可能是不同型号的仪器。
 
-位置码通常用两位字母或数字表示，比如常见的 \texttt{00}、\texttt{01}、
-\texttt{10} 等。对于一个台站只有一套仪器的情况，位置码通常是空值。
+位置码通常用两位字母或数字表示，比如常见的 !00!、!01!、
+!10! 等。对于一个台站只有一套仪器的情况，位置码通常是空值。
 
 \section{质量控制}
 \label{sec:quality-control}
-质量控制符 \texttt{Q} 用于表征当前SAC数据的数据质量。该标识符可以
+质量控制符 !Q! 用于表征当前SAC数据的数据质量。该标识符可以
 取如下四种：
 \begin{itemize}
-\item \texttt{D} 不确定状态的数据
-\item \texttt{M} 已合并的数据
-\item \texttt{R} 原始波形数据
-\item \texttt{Q} 经过质量控制的数据
+\item !D! 不确定状态的数据
+\item !M! 已合并的数据
+\item !R! 原始波形数据
+\item !Q! 经过质量控制的数据
 \end{itemize}
-常见的质量控制符为 \texttt{M} 或 \texttt{Q}。
+常见的质量控制符为 !M! 或 !Q!。
 
 \section{通道名}
 通道名用三个字符来表示，这三个字符分别代表了频带码（Band Code）、
@@ -87,11 +87,11 @@ O           &   Opaque Instrument Channel         & variable    &   NA    \\
 \toprule
 仪器码      &   说明   \\
 \midrule
-\texttt{H}  &   High Gain Seismometer      \\
-\texttt{L}  &   Low Gain Seismometer       \\
-\texttt{G}  &   Gravimeter                 \\
-\texttt{M}  &   Mass position Seismometer  \\
-\texttt{N}  &   Accelerometer              \\
+!H!  &   High Gain Seismometer      \\
+!L!  &   Low Gain Seismometer       \\
+!G!  &   Gravimeter                 \\
+!M!  &   Mass position Seismometer  \\
+!N!  &   Accelerometer              \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -106,16 +106,16 @@ O           &   Opaque Instrument Channel         & variable    &   NA    \\
 \toprule
 方位码           &   说明   \\
 \midrule
-\texttt{N E Z}   &   南北向、东西向、垂向   \\
-\texttt{1 2 3}   &   3为垂向；1、2为水平方向，正交但与正东西、正南北向有偏离 \\
-\texttt{T R Z}   &   T为切向、R为径向，通常R方向是震中到台站的大圆连线方向    \\
+!N E Z!   &   南北向、东西向、垂向   \\
+!1 2 3!   &   3为垂向；1、2为水平方向，正交但与正东西、正南北向有偏离 \\
+!T R Z!   &   T为切向、R为径向，通常R方向是震中到台站的大圆连线方向    \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-通常情况下，若仪器的方向与正东西方向的夹角小于2度时，方位码取为 \texttt{E}；
-当与正东西方向夹角大于2度时，方位码取为 \texttt{1} 或 \texttt{2}。因而，
-方位码为 \texttt{E} 并不意味着分量是正东西方向的，真实的分量方向应以SAC
-头段中的 \texttt{cmpaz} 和 \texttt{cpminc} 为准。更进一步，由于仪器放置
-过程中的技术问题，SAC头段中的 \texttt{cmpaz} 在某些情况下也会产生一定的
+通常情况下，若仪器的方向与正东西方向的夹角小于2度时，方位码取为 !E!；
+当与正东西方向夹角大于2度时，方位码取为 !1! 或 !2!。因而，
+方位码为 !E! 并不意味着分量是正东西方向的，真实的分量方向应以SAC
+头段中的 !cmpaz! 和 !cpminc! 为准。更进一步，由于仪器放置
+过程中的技术问题，SAC头段中的 !cmpaz! 在某些情况下也会产生一定的
 误差。

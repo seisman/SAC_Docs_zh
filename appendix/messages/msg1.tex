@@ -9,11 +9,11 @@
 
 \SACTitle{1106 Not a valid SAC command.}
 对于每一行命令，SAC首先会检查是否是SAC内部的命令，如果不是，则检查是否是系统自带
-的命令，比如 \texttt{ls}、\texttt{cp} 等。
+的命令，比如 !ls!、!cp! 等。
 
-一个例外是系统命令 \texttt{rm}。在SAC中直接执行rm命令会出现如上所示的错误。出现该
-错误的原因是SAC禁用了系统命令 \texttt{rm}，主要目的是为了防止将 \texttt{r *.SAC} 误敲成
-\texttt{rm *.SAC} 而导致数据的误删除。可以使用 \nameref{cmd:systemcommand} 命令显式
+一个例外是系统命令 !rm!。在SAC中直接执行rm命令会出现如上所示的错误。出现该
+错误的原因是SAC禁用了系统命令 !rm!，主要目的是为了防止将 !r *.SAC! 误敲成
+!rm *.SAC! 而导致数据的误删除。可以使用 \nameref{cmd:systemcommand} 命令显式
 调用系统命令，如下：
 \begin{SACCode}
 SAC> rm BAD*.SAC
@@ -25,11 +25,11 @@ SAC> sc rm BAD*.SAC
 内存中未读入数据。可能是未指定要读取的文件列表，或列表中的文件不可读。
 
 \SACTitle{1303 Overwrite flag is not on for file}
-该错误主要出现在写SAC文件时，出现该错误的原因是SAC文件的头段变量 \texttt{lovrok} 的值
-为 \texttt{FALSE}，即磁盘中的数据不允许被覆盖。解决该问题的方法有两种：
+该错误主要出现在写SAC文件时，出现该错误的原因是SAC文件的头段变量 !lovrok! 的值
+为 !FALSE!，即磁盘中的数据不允许被覆盖。解决该问题的方法有两种：
 \begin{itemize}
 \item 以其他文件名写入磁盘，不覆盖磁盘文件；
-\item 修改 \texttt{lovrok} 的值为 \texttt{TRUE}；
+\item 修改 !lovrok! 的值为 !TRUE!；
 \end{itemize}
 
 \SACTitle{1304 Illegal operation on data file}

@@ -13,8 +13,8 @@ TRACE [ON|OFF] name [name ...]
 \begin{description}
 \item [ON|OFF] 打开/关闭变量追踪选项
 \item [name] 要追踪的黑板变量或/和头段变量名。对于头段变量，其格式为
-    \texttt{filename,hdrname}，其中 \texttt{filename} 是要追踪的SAC文件名
-    或文件号，\texttt{hdrname} 是SAC头段变量名
+    !filename,hdrname!，其中 !filename! 是要追踪的SAC文件名
+    或文件号，!hdrname! 是SAC头段变量名
 \end{description}
 
 \SACTitle{缺省值}
@@ -30,7 +30,7 @@ trace on
 前值。
 
 \SACTitle{示例}
-追踪黑板变量TEMP1和文件MYFILE的头段变量 \texttt{T0}：
+追踪黑板变量TEMP1和文件MYFILE的头段变量 !T0!：
 \begin{SACCode}
 SAC> trace on temp1 myfile,t0
   TRACE  (on) TEMP1 = 1.45623
@@ -38,7 +38,7 @@ SAC> trace on temp1 myfile,t0
 \end{SACCode}
 
 在执行命令时，SAC会检查变量值是否发生改变。若发生改变则将相关信息显示出来。
-假设在完成一些计算之后改变了TEMP1，并定义了 \texttt{T0} 的值，则SAC将
+假设在完成一些计算之后改变了TEMP1，并定义了 !T0! 的值，则SAC将
 显示如下信息：
 \begin{SACCode}
   TRACE (mod) TEMP1 = 2.34293

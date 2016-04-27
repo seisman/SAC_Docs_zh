@@ -12,7 +12,7 @@ SGF [P!REFIX! text] [N!UMBER! n] [D!IRECTORY! CURRENT|pathname]
 
 \SACTitle{输入}
 \begin{description}
-\item [PREFIX text] 设置SGF的文件名前缀为 \texttt{text}（最多24字符长）
+\item [PREFIX text] 设置SGF的文件名前缀为 !text!（最多24字符长）
 \item [NUMBER n] 设置下一个SGF的编号为n。若n为0，则SAC搜索SGF文件
     目录下的SGF文件最大编号，并将其值加1
 \item [DIRECTORY CURRENT] 将SGF文件放在当前目录
@@ -35,12 +35,12 @@ sgf prefix f number 1 directory current size normal
 该命令控制SGF文件的命名规则和后续SGF文件的图形尺寸。SGF文件名由4部分
 组成，分别为：
 \begin{itemize}
-\item \texttt{pathname} 目录路径名，默认为当前目录
-\item \texttt{prefix} 前缀，默认值为 \texttt{f}
-\item \texttt{number} 三位数的frame编号，默认值为 \texttt{001}
-\item \texttt{.sgf} 用于表示SAC图形文件的后缀
+\item !pathname! 目录路径名，默认为当前目录
+\item !prefix! 前缀，默认值为 !f!
+\item !number! 三位数的frame编号，默认值为 !001!
+\item !.sgf! 用于表示SAC图形文件的后缀
 \end{itemize}
-因而SGF的第一个文件名为 \texttt{f001.sgf}。每次新建一个frame时，frame
+因而SGF的第一个文件名为 !f001.sgf!。每次新建一个frame时，frame
 编号加1。可以强制frame编号从某个给定的值开始。如果你为准备一个报告需要
 工作几天时间，而同时又希望所有图形都按一个统一的顺序排列，那么令frame
 编号不从1开始便很有用了。

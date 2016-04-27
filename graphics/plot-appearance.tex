@@ -41,15 +41,15 @@ SAC> p                      // 绘图
 \item[PLABEL] 通用标签。\nameref{cmd:plabel} 可指定通用标签的文本、位置和尺寸。
 \end{description}
 
-标签文本需要用单引号或双引号包围，文本尺寸选项 \texttt{size} 可以选择
-\texttt{tiny}、\texttt{small}、\texttt{medium} 或 \texttt{large}，
-文本位置选项 \texttt{location} 则可以取 \texttt{top}、\texttt{bottom}、
-\texttt{left} 或 \texttt{right}。
+标签文本需要用单引号或双引号包围，文本尺寸选项 !size! 可以选择
+!tiny!、!small!、!medium! 或 !large!，
+文本位置选项 !location! 则可以取 !top!、!bottom!、
+!left! 或 !right!。
 
 可以通过 \nameref{cmd:plabel} 命令定义最多三个通用标签。通用标签与轴标
 签类似，其更通用之处在于可以任意指定其位置。每个标签可以用
-\texttt{position x y a} 来指定其位置，其中x、y为标签位置相对于窗口尺寸
-的比例，a表示标签相对于水平方向顺时针旋转的角度；也可以用 \texttt{below}
+!position x y a! 来指定其位置，其中x、y为标签位置相对于窗口尺寸
+的比例，a表示标签相对于水平方向顺时针旋转的角度；也可以用 !below!
 设置新标签位于上一标签的下方。
 
 \subsubsection{标记}
@@ -65,7 +65,7 @@ QDP，全称为``quick and dirty plot''。在开发SAC的那个年代，计算�
 一般，若在绘图时绘制全部数据点，则绘图过程会耗费大量时间。因而SAC采用了
 ``qdp''的方式：每隔若干个数据点绘制一个数据点\footnote{本质上就是绘图时
 的一次``减采样''，但是没有做抗混淆处理。}。图中右下角的``2''即表示每两个
-点中绘制一个点。目前计算机的性能已经足够强大，因而一般使用 \texttt{qdp off}
+点中绘制一个点。目前计算机的性能已经足够强大，因而一般使用 !qdp off!
 命令关闭该选项。
 
 \subsubsection{框架}

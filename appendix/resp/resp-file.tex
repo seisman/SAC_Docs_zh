@@ -93,9 +93,9 @@ HIGHPASS v &      REFTEK    \\
 除了表 \ref{table:instrument-type} 中列出的众多仪器类型之外，还有几个
 特别的仪器类型：
 \begin{itemize}
-\item \texttt{none}：即位移，也是SAC的默认值
-\item \texttt{vel}：速度
-\item \texttt{acc}：加速度
+\item !none!：即位移，也是SAC的默认值
+\item !vel!：速度
+\item !acc!：加速度
 \end{itemize}
 
 \subsection{RESP文件}
@@ -174,16 +174,16 @@ CONSTANT        +2.913631e+14
 \end{verbatim}
 
 SAC PZ文件中，以星号开始的行为注释行，给出了该PZ文件所对应的台站信息，
-其中 \texttt{INPUT UNIT} 表明了该PZ文件的输入是位移、速度还是加速度。
-用 \texttt{rdseed} 从SEED数据中提取出来的PZ文件，输入都是位移，
+其中 !INPUT UNIT! 表明了该PZ文件的输入是位移、速度还是加速度。
+用 !rdseed! 从SEED数据中提取出来的PZ文件，输入都是位移，
 且单位为 \si{\m}。
 
-以关键字 \texttt{ZEROS} 起始的行给出了零点数目，接下来几行列出了每个
-零点的实部和虚部。以关键字 \texttt{POLES} 起始的行给出了极点数目，
+以关键字 !ZEROS! 起始的行给出了零点数目，接下来几行列出了每个
+零点的实部和虚部。以关键字 !POLES! 起始的行给出了极点数目，
 接下来几行列出了每个极点的实部和虚部。最后一行给出了仪器响应中的常数
-\texttt{CONSTANT}。
+!CONSTANT!。
 
-根据零极点以及 \texttt{CONSTANT}，即可计算得到仪器响应函数：
+根据零极点以及 !CONSTANT!，即可计算得到仪器响应函数：
 \[
     H(s) = C_0 * \frac{(s-z_1)(s-z_2)...(s-z_{nz})}{(s-p_1)(s-p_2)...(s-p_{nz})}
 \]
@@ -191,19 +191,19 @@ SAC PZ文件中，以星号开始的行为注释行，给出了该PZ文件所对
 
 一些说明：
 \begin{itemize}
-\item 若有零点 \texttt{(0.0,0.0)}，则这样的``零''零点可以省略。因而
+\item 若有零点 !(0.0,0.0)!，则这样的``零''零点可以省略。因而
     列出的零点数可能会少于``ZEROS''行给出的零点数；上例中的三个零点
     可以不列出；
-\item \texttt{CONSTANT} 对应于RESP文件中所有阶段的增益$Sd_0$以及归一化
+\item !CONSTANT! 对应于RESP文件中所有阶段的增益$Sd_0$以及归一化
     因子$A_0$的乘积；
-\item 若未指定 \texttt{CONSTANT}，则默认值为1.0；
+\item 若未指定 !CONSTANT!，则默认值为1.0；
 \end{itemize}
 
 \subsection{FAP文件}
 FAP文件是响应函数的另一种表现形式，其包含了很多记录行，每行三个字段，
 分别是频率（\si{Hz}）、振幅及相位。
 
-频率不需要等间隔分段。在执行 \texttt{transfer} 时，低于第一行频率的
+频率不需要等间隔分段。在执行 !transfer! 时，低于第一行频率的
 频段将使用第一行的振幅和相位；同理大于最后一行频率的频段将使用最后
 一行的振幅和相位。
 

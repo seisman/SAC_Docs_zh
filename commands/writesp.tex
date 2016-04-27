@@ -24,7 +24,7 @@ writesp asis
 \end{SACDFT}
 
 \SACTitle{说明}
-SAC数据文件可以为时间序列文件或谱文件。头段中的 \texttt{IFTYPE} 用于区分
+SAC数据文件可以为时间序列文件或谱文件。头段中的 !IFTYPE! 用于区分
 这两种格式。当你读取一个时间序列到内存，对其做快速Fourier变换，然后将数据
 写回磁盘，此时的文件即为谱文件。
 
@@ -40,8 +40,8 @@ SAC数据文件可以为时间序列文件或谱文件。头段中的 \texttt{IF
 \nameref{cmd:readsp} 命令。
 
 为了帮助你跟踪磁盘上的数据，SAC将在你给出的文件名后加一个后缀以标识储存
-在文件的谱分量。后缀分别为 \texttt{.RL}、\texttt{.IM}、\texttt{.AM} 和
-\texttt{.PH} 分别对应不同的分量。
+在文件的谱分量。后缀分别为 !.RL!、!.IM!、!.AM! 和
+!.PH! 分别对应不同的分量。
 
 \SACTitle{示例}
 假设你想要对FILE1的谱文件振幅进行一些操作：

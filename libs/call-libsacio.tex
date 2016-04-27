@@ -1,7 +1,7 @@
 \section{调用libsacio库}
 \label{sec:libsacio}
 \subsection{rsac1}
-子函数 \texttt{rsac1} 用于读取等采样间隔的SAC数据。
+子函数 !rsac1! 用于读取等采样间隔的SAC数据。
 
 函数定义如下：
 \begin{minted}{c}
@@ -17,11 +17,11 @@ rsac1(  char    *kname,     // 要读入的文件名
 )
 \end{minted}
 
-相关示例代码为 \texttt{rsac1c.c} \footnote{代码位于 \texttt{sac/doc/examples}，
-下同。}和 \texttt{rsac1f.f}。
+相关示例代码为 !rsac1c.c! \footnote{代码位于 !sac/doc/examples!，
+下同。}和 !rsac1f.f!。
 
 \subsection{rsac2}
-子函数 \texttt{rsac2} 用于读取非等间隔采样的。
+子函数 !rsac2! 用于读取非等间隔采样的。
 \begin{minted}{c}
 void
 rsac2(  char    *kname,     // 要读入的文件名
@@ -33,10 +33,10 @@ rsac2(  char    *kname,     // 要读入的文件名
         int      kname_s    // 数组kname的长度
 )
 \end{minted}
-相关示例代码为 \texttt{rsac2c.c} 和 \texttt{rsac2f.f}。
+相关示例代码为 !rsac2c.c! 和 !rsac2f.f!。
 
 \subsection{wsac1}
-子函数 \texttt{wsac1} 用于写等间隔SAC文件。
+子函数 !wsac1! 用于写等间隔SAC文件。
 \begin{minted}{c}
 void
 wsac1(  char  *kname,       // 要写入的文件名
@@ -49,7 +49,7 @@ wsac1(  char  *kname,       // 要写入的文件名
 )
 \end{minted}
 
-相关示例代码为 \texttt{wsac1c.c} 和 \texttt{wsac1f.f}。
+相关示例代码为 !wsac1c.c! 和 !wsac1f.f!。
 
 \subsection{wsac2}
 写非等间隔SAC文件。
@@ -65,10 +65,10 @@ wsac2(  char  *kname,       // 文件名
 )
 \end{minted}
 
-相关示例代码为 \texttt{wsac2c.c} 和 \texttt{wsac2f.f}。
+相关示例代码为 !wsac2c.c! 和 !wsac2f.f!。
 
 \subsection{wsac0}
-子函数 \texttt{wsac0} 相对来说更加通用也更复杂，利用该函数可以创建
+子函数 !wsac0! 相对来说更加通用也更复杂，利用该函数可以创建
 包含更多头段的SAC文件。
 
 \begin{minted}{c}
@@ -81,12 +81,12 @@ wsac0(  char  *kname,       // 文件名
 )
 \end{minted}
 
-要使用子函数 \texttt{wsac0}，首先要调用子函数 \texttt{newhdr} 创建一个
+要使用子函数 !wsac0!，首先要调用子函数 !newhdr! 创建一个
 完全未定义的头段区，并利用其它头段变量相关子函数设置头段变量的值，
-并由 \texttt{wsac0} 写入到文件中。必须要赋值的头段变量为 \texttt{delta}、
-\texttt{b}、\texttt{e}、\texttt{npts}、\texttt{iftype}。
+并由 !wsac0! 写入到文件中。必须要赋值的头段变量为 !delta!、
+!b!、!e!、!npts!、!iftype!。
 
-相关示例代码为 \texttt{wsacnc.c} 、\texttt{wsacnf.f}。n=3、4、5。
+相关示例代码为 !wsacnc.c! 、!wsacnf.f!。n=3、4、5。
 
 \subsection{getfhv}
 获取浮点型头段变量的值。
@@ -99,7 +99,7 @@ getfhv( char  *kname,       // 头段变量名
 )
 \end{minted}
 
-相关示例代码为 \texttt{gethvc.c} 和 \texttt{gethvf.f}。
+相关示例代码为 !gethvc.c! 和 !gethvf.f!。
 
 至于如何获取和设置其它类型的头段变量，方法类似，不再多说。
 
@@ -113,7 +113,7 @@ readbbf( char   *kname,     // 要读取的文件
 )
 \end{minted}
 
-\texttt{writebbf} 与之类似，不再列出。
+!writebbf! 与之类似，不再列出。
 
 \subsection{getbbv}
 获取一个黑板变量的值。
@@ -126,7 +126,7 @@ getbbv( char    *kname,     // 黑板变量名
         int     kvalue_s    // 变量值的长度
 )
 \end{minted}
-\texttt{setbbv} 的函数定义与其类似，不再列出。
+!setbbv! 的函数定义与其类似，不再列出。
 
 \subsection{distaz}
 计算地球上任意两点之间的震中距、方位角和反方位角。
@@ -146,7 +146,7 @@ distaz( double    evla,     // 事件纬度
 \end{minted}
 示例代码如下：
 \inputminted{c}{./libs/distaz.c}
-本例中，台站数目 \texttt{nsta=1} 。实际上该函数可以计算任意数目的台站
-到事件的震中距、方位角信息，若台站数目 \texttt{nsta} 不为1，则
-\texttt{stla}、\texttt{stlo}、\texttt{dist}、\texttt{az}、\texttt{baz}、
-\texttt{deg} 均可用数组或指针表示。
+本例中，台站数目 !nsta=1! 。实际上该函数可以计算任意数目的台站
+到事件的震中距、方位角信息，若台站数目 !nsta! 不为1，则
+!stla!、!stlo!、!dist!、!az!、!baz!、
+!deg! 均可用数组或指针表示。

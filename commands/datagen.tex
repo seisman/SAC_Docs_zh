@@ -21,10 +21,10 @@ D!ATA!G!EN! [MORE] [SUB L!OCAL!|R!EGIONAL!|T!ELESEIS!] [filelist]
 \SACTitle{说明}
 SAC提供了一些样本地震数据以供用户学习时使用，该命令将读取一个或多个样本
 地震数据到内存中。事实上，该命令与 \nameref{cmd:read} 命令类似，只是该
-命令是从特殊的数据目录（\verb|$SACAUX/datagen|）中读取文件。
+命令是从特殊的数据目录（!$SACAUX/datagen!）中读取文件。
 
-该命令提供了三种子类型，分别是 \texttt{local}、\texttt{regional} 和
-\texttt{teleseis}，分别对应近震、区域地震和远震。不同的子类型，其所
+该命令提供了三种子类型，分别是 !local!、!regional! 和
+!teleseis!，分别对应近震、区域地震和远震。不同的子类型，其所
 包含的数据文件也不同。
 
 \subsubsection*{LOCAL}
@@ -89,5 +89,5 @@ SAC> w cdv.e cdv.n cdv.z
 SAC> dg sub local *
 SAC> w delete /opt/sac/aux/datagen/local/
 \end{SACCode}
-\texttt{delete} 选项的作用是从原始的文件名中删去 \texttt{/opt/sac/aux/datagen/local/}，
+!delete! 选项的作用是从原始的文件名中删去 !/opt/sac/aux/datagen/local/!，
 只留下文件名。

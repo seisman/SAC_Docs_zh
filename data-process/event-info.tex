@@ -1,8 +1,8 @@
 \section{事件信息}
 \label{sec:event-info}
-相关头段：\texttt{evla}、\texttt{evlo}、\texttt{evdp}、\texttt{mag}、
-    \texttt{o}、\texttt{nzyear}、\texttt{nzjday}、\texttt{nzhour}、
-    \texttt{nzmin}、\texttt{nzsec}、\texttt{nzmsec}
+相关头段：!evla!、!evlo!、!evdp!、!mag!、
+    !o!、!nzyear!、!nzjday!、!nzhour!、
+    !nzmin!、!nzsec!、!nzmsec!
 
 相关脚本：\hyperref[subsec:event-info-perl]{Perl脚本}、
           \hyperref[subsec:event-info-python]{Python脚本}
@@ -11,8 +11,8 @@
 用户从地震目录中获取事件的发震时刻、经度、纬度、深度和震级信息，并将这些
 信息写入到SAC文件的头段中。SAC提供了用于可以修改头段变量的命令
 \nameref{cmd:chnhdr}，以及将修改后的头段变量写到磁盘文件的命令
-\nameref{cmd:writehdr}\footnote{也可以使用 \texttt{w over} 将修改写回
-磁盘文件。关于 \texttt{wh} 和 \texttt{w over} 的区别，参考
+\nameref{cmd:writehdr}\footnote{也可以使用 !w over! 将修改写回
+磁盘文件。关于 !wh! 和 !w over! 的区别，参考
 \nameref{sec:wh-and-wover} 一节。}。
 
 \subsection{经纬度、深度与震级}
@@ -49,18 +49,18 @@ SAC> lh kzdate kztime o
 SAC> wh                          // 写回磁盘
 \end{SACCode}
 上面的例子中，首先从地震目录中获取了地震的发震时刻，然后计算发震日期
-是一年中的第几天，本例中为第173天，再利用``\texttt{ch o gmt yyyy ddd hh mm sss xxx}''
-语法将发震时刻赋值给头段变量 \texttt{o}，SAC会自动将发震时刻转换为
-相对于参考时刻的相对时间。此时SAC文件的参考时刻为``\texttt{1987-06-22T11:09:56.363}''，
-而 \texttt{o} 值对应的时刻为发震时刻``\texttt{1987-06-22T11:10:10.363}''，所以
-头段变量 \texttt{o} 的值为发震时刻相对于参考时刻的时间差，即 \SI{14}{\s}。
+是一年中的第几天，本例中为第173天，再利用``!ch o gmt yyyy ddd hh mm sss xxx!''
+语法将发震时刻赋值给头段变量 !o!，SAC会自动将发震时刻转换为
+相对于参考时刻的相对时间。此时SAC文件的参考时刻为``!1987-06-22T11:09:56.363!''，
+而 !o! 值对应的时刻为发震时刻``!1987-06-22T11:10:10.363!''，所以
+头段变量 !o! 的值为发震时刻相对于参考时刻的时间差，即 \SI{14}{\s}。
 
 将发震时刻写入头段之后，还需要将参考时刻修改为发震时刻，与此同时还要
-修改所有的相对时间。\texttt{ch allt xx.xx} 的功能是将所有已定义的
-相对时间加上 \texttt{xx.xx} 秒，同时从参考时刻中减去 \texttt{xx.xx} 秒，
-此时参考时刻即为发震时刻，而 \texttt{o} 值为0。
+修改所有的相对时间。!ch allt xx.xx! 的功能是将所有已定义的
+相对时间加上 !xx.xx! 秒，同时从参考时刻中减去 !xx.xx! 秒，
+此时参考时刻即为发震时刻，而 !o! 值为0。
 
-上面的做法需要执行5个命令才能实现，而且需要人工查看 \texttt{o} 的值，
+上面的做法需要执行5个命令才能实现，而且需要人工查看 !o! 的值，
 因而无法用于处理大量数据。下面就对这一例子做进一步简化，这其中需要使用
 SAC提供的``在命令中引用头段变量的值''的功能。具体的语法以及用法在
 ``\nameref{chap:sac-programming}''一章中会介绍。
@@ -70,16 +70,16 @@ SAC> ch o gmt 1987 173 11 10 10 363
 SAC> ch allt (0 - &1,o&) iztype IO
 SAC> wh
 \end{SACCode}
-在这个例子中，\verb|(0 - &1,o&)| 代替了上个例子中的 \texttt{-14}。
-简单介绍一下 \verb|(0 - &1,o&)|的含义，\verb|&1,o&| 表示引用内存中
-第一个SAC文件的头段变量 \texttt{o} 的值（即14），然后 \verb|(0 - 14)|
-得到的结果即为 \texttt{-14}。此处简化的优点在于，不需要使用 \texttt{lh o}
+在这个例子中，!(0 - &1,o&)! 代替了上个例子中的 !-14!。
+简单介绍一下 !(0 - &1,o&)!的含义，!&1,o&! 表示引用内存中
+第一个SAC文件的头段变量 !o! 的值（即14），然后 !(0 - 14)!
+得到的结果即为 !-14!。此处简化的优点在于，不需要使用 !lh o!
 查看头段变量的值，完全可以实现自动化。
 
 \begin{note}
-在SAC v101.6及之后的版本中，上例中的\verb|(0 - &1,o&)|还可以写成
-\verb|(0-&1,o&)|、\verb|(-&1,o&)|或\verb|(-&1,o)|。
-而在SAC v101.5c及之前的版本中，只能使用\verb|(0 - &1,o&)|，注意减号
+在SAC v101.6及之后的版本中，上例中的!(0 - &1,o&)!还可以写成
+!(0-&1,o&)!、!(-&1,o&)!或!(-&1,o)!。
+而在SAC v101.5c及之前的版本中，只能使用!(0 - &1,o&)!，注意减号
 两边的空格。考虑到命令的通用性，建议使用上面示例中的写法。
 \end{note}
 
@@ -92,10 +92,10 @@ SAC> ch allt (0 - &1,o&) iztype IO
 SAC> wh
 \end{SACCode}
 这样的做法是有很大风险的。因为内存中一次性读入了很多SAC数据，而在使用
-\verb|ch allt| 命令时，\verb|&1,o&| 引用的是第一个SAC数据的 \texttt{o}
-头段。第二个命令已经保证了内存中所有的数据的 \texttt{o} 都有相同的绝对
+!ch allt! 命令时，!&1,o&! 引用的是第一个SAC数据的 !o!
+头段。第二个命令已经保证了内存中所有的数据的 !o! 都有相同的绝对
 时刻（即发震时刻），只要所有数据的参考时刻是一致的，那么所有数据的头段
-变量 \texttt{o} 的值也必然是一样的。所以当且仅当内存中的所有数据的参考
+变量 !o! 的值也必然是一样的。所以当且仅当内存中的所有数据的参考
 时刻完全一致时，上面的例子才是安全的。实际处理数据时会遇到很复杂的情况，
 ``所有数据的参考时刻完全一致''这一假设不一定成立。
 
@@ -108,5 +108,5 @@ SAC> ch allt (0 - &1,o&) iztype IO
 SAC> wh
 \end{SACCode}
 \nameref{cmd:synchronize} 的作用是使内存中所有的数据拥有相同的参考时刻，
-在此命令的基础上，所有数据的头段变量 \texttt{o} 将拥有相同的值，所以
-直接引用第一个头段变量的 \texttt{o} 值就不再是一件危险的事情了。
+在此命令的基础上，所有数据的头段变量 !o! 将拥有相同的值，所以
+直接引用第一个头段变量的 !o! 值就不再是一件危险的事情了。

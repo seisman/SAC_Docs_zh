@@ -27,9 +27,9 @@ SAC> p1
 
 当一次性读入多个波形数据时，若直接使用 \nameref{cmd:plot1} 绘图，会一次
 性显示全部波形，导致窗口内波形太密，反而什么都看不清。\nameref{cmd:plot1}
-提供了``\texttt{perplot n}''选项以指定窗口内一次最多显示多少个波形，余下
+提供了``!perplot n!''选项以指定窗口内一次最多显示多少个波形，余下
 的波形则处于等待状态。在查看波形的时候，经常需要将每个台站的三分量波形记
-录放在一起看，此时设置选项 \texttt{perplot} 的参数值为 \texttt{3} 即可。
+录放在一起看，此时设置选项 !perplot! 的参数值为 !3! 即可。
 \begin{SACCode}
 SAC> dg sub local cdv.[enz] cvl.[enz] cvy.[enz]  // 生成9个地震波形
 cdv.e cdv.n cdv.z cvl.e cvl.n cvl.z cvy.e cvy.n cvy.z
@@ -39,9 +39,9 @@ Waiting
 SAC>
 \end{SACCode}
 
-默认情况下，所有的波形数据会按照绝对时间（\texttt{absolute}）对齐，若波形
+默认情况下，所有的波形数据会按照绝对时间（!absolute!）对齐，若波形
 数据具有不同的开始时间，则波形数据之间会出现相对错动；也可以使所有的
-波形数据相对于（\texttt{relative}）各自的开始时间绘图，此时X轴的起始
+波形数据相对于（!relative!）各自的开始时间绘图，此时X轴的起始
 坐标为0。
 
 \subsection{plot2}

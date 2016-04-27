@@ -12,7 +12,8 @@ DOC = SAC_Docs
 all: $(DOC).pdf
 
 $(DOC).pdf: $(DOC).tex
-	latexmk -xelatex -shell-escape -interaction=nonstopmode $^
+	#latexmk -xelatex -shell-escape -interaction=nonstopmode $^
+	latexmk -xelatex -shell-escape $^
 
 clean:
 	latexmk -c

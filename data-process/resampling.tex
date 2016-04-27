@@ -14,7 +14,7 @@
 \subsection{decimate}
 \nameref{cmd:decimate} 专门用于解决上面所说的第二种情形，即等间隔数据的
 减采样。在减采样过程中，根据Nyquist采样定理，可能会出现混叠现象，而 
-\texttt{decimate} 对数据自动做了低通滤波，以避免混叠现象的产生。
+!decimate! 对数据自动做了低通滤波，以避免混叠现象的产生。
 
 下面的示例中，将一个等间隔数据减采样10倍：
 \begin{SACCode}
@@ -48,9 +48,9 @@ SAC> lh
      npts = 1999
 \end{SACCode}
 
-对于减采样，\texttt{interpolate} 与 \texttt{decimate} 的功能略有重复，
-但 \texttt{interpolate} 在减采样时不会对数据进行低通滤波，因而使用 
-\texttt{interpolate} 进行减采样时可能会出现混叠现象，故而需要手动进行
+对于减采样，!interpolate! 与 !decimate! 的功能略有重复，
+但 !interpolate! 在减采样时不会对数据进行低通滤波，因而使用 
+!interpolate! 进行减采样时可能会出现混叠现象，故而需要手动进行
 低通滤波。
 
 下面的示例将数据减采样到 \SI{20}{\Hz}。根据Nyquist采样定理，为了保证

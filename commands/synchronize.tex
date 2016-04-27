@@ -11,9 +11,9 @@ SYNC!HRONIZE! [R!OUND! ON|OFF] [B!EGIN! ON|OFF]
 
 \SACTitle{输入}
 \begin{description}
-\item [ROUND ON] 打开 \texttt{ROUND}选项。若打开该选项，则会对每个文件的
+\item [ROUND ON] 打开 !ROUND!选项。若打开该选项，则会对每个文件的
     开始时间做微调以使得开始时间是采样间隔的整数倍
-\item [ROUND OFF] 关闭 \texttt{ROUND} 选项
+\item [ROUND OFF] 关闭 !ROUND! 选项
 \item [BEGIN ON] 设置每个文件的开始时间为0
 \item [BEGIN OFF] 保持参考时间的绝对时刻不变
 \end{description}
@@ -32,8 +32,8 @@ synchronize round off begin off
 当数据文件具有不同的参考时刻时，对数据使用 \nameref{cmd:cut} 或 \nameref{cmd:xlim}
 命令就会有些麻烦，因而可以使用该命令使得所有数据的参考时刻一致。
 
-如果使用了 \texttt{BEGIN} 选项，则会将所有文件的 \texttt{kzdate} 和
-\texttt{kztime} 设置为同样的值，并将所有文件的开始时间（B）设置为零，
+如果使用了 !BEGIN! 选项，则会将所有文件的 !kzdate! 和
+!kztime! 设置为同样的值，并将所有文件的开始时间（B）设置为零，
 这样做会使得数据丢失绝对时间信息。
 
 \SACTitle{示例}
@@ -56,7 +56,7 @@ SAC> listhdr b kztime kzdate
 \end{SACCode}
 
 这些文件有相同的参考日期，不同的参考时刻以及不同的开始时间偏移量。可以
-执行 \texttt{synchronize} 同步参考时刻：
+执行 !synchronize! 同步参考时刻：
 \begin{SACCode}
 SAC> synchronize
 SAC> listhdr

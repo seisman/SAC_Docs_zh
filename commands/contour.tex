@@ -23,8 +23,8 @@ contour aspect off
 
 \SACTitle{说明}
 这个命令用于绘制二维数组数据的等值线图，包括 \nameref{cmd:spectrogram}
-命令的输出。这个文件操作的SAC文件必须``XYZ''类型的（SAC头段中 \texttt{IFTYPE}
-为 \texttt{IXYZ}）。有些命令可以控制数据显示的方式：
+命令的输出。这个文件操作的SAC文件必须``XYZ''类型的（SAC头段中 !IFTYPE!
+为 !IXYZ!）。有些命令可以控制数据显示的方式：
 \begin{itemize}
 \item \nameref{cmd:zlevels} 控制等值线的数目以及间隔
 \item \nameref{cmd:zlines} 控制等值线的线型
@@ -33,7 +33,7 @@ contour aspect off
 \item \nameref{cmd:zcolors} 控制等值线颜色
 \end{itemize}
 
-根据 \texttt{contour} 选项的不同，有两种不同的绘制等值线算法。一种快速
+根据 !contour! 选项的不同，有两种不同的绘制等值线算法。一种快速
 扫描方法用于既不选择实线型也没有时标和标识的情况。另一种慢一点的方法，
 在绘图之前要组合全部的线段。你可以使用快速扫描方法粗看你的数据，然后选择
 其他选项绘制最终图形。

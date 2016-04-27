@@ -11,22 +11,22 @@ SAC自带的函数库中提供了一系列用于读写SAC文件的子函数，�
 在了解了SAC文件的具体格式后，可以很容易的写一套函数来实现SAC文件的读写。
 
 Prof. Lupei Zhu实现了一套相对比较易用的SAC I/O函数库，可以在C或Fortran
-程序中直接调用，姑且称之为 \texttt{sacio}。
+程序中直接调用，姑且称之为 !sacio!。
 
-\texttt{sacio} 函数库与Prof. Lupei Zhu的其他程序一起发布。你可以从
-Prof. Lupei Zhu的主页下载 \texttt{fk} \footnote{
+!sacio! 函数库与Prof. Lupei Zhu的其他程序一起发布。你可以从
+Prof. Lupei Zhu的主页下载 !fk! \footnote{
 \url{http://www.eas.slu.edu/People/LZhu/downloads/fk3.2.tar}}软件包，
-并从中提取出源文件 \texttt{sac.h} 和 \texttt{sacio.c}。
+并从中提取出源文件 !sac.h! 和 !sacio.c!。
 
-\texttt{sacio} 简单易用，但也存在一些潜在的Bug及缺陷。seisman在
-\texttt{sacio} 的基础上重写了SAC I/O函数库以及SAC相关工具，项目地址为
+!sacio! 简单易用，但也存在一些潜在的Bug及缺陷。seisman在
+!sacio! 的基础上重写了SAC I/O函数库以及SAC相关工具，项目地址为
 \url{https://github.com/seisman/sac_tools}。该项目目前属于玩具性质，
 仅供有兴趣的读者参考。
 
 \subsection{sacio函数接口}
-\texttt{sac.h} 中SAC格式的头段区被定义为 \texttt{SACHEAD} 类型的结构体，
-每一个头段变量都是结构体的成员。\texttt{sacio.c} 定义了一系列用于读写
-SAC文件的函数，表 \ref{table:sacio-function} 中列出了 \texttt{sacio}
+!sac.h! 中SAC格式的头段区被定义为 !SACHEAD! 类型的结构体，
+每一个头段变量都是结构体的成员。!sacio.c! 定义了一系列用于读写
+SAC文件的函数，表 \ref{table:sacio-function} 中列出了 !sacio!
 提供的函数接口。
 
 \begin{table}[H]
@@ -37,11 +37,11 @@ SAC文件的函数，表 \ref{table:sacio-function} 中列出了 \texttt{sacio}
 \toprule
 函数名      &   功能        \\
 \midrule
-\verb|read_sachead|      &   仅读取SAC文件的头段部分 \\
-\verb|read_sac|          &   读取整个SAC文件 \\
-\verb|read_sac2|         &   读取SAC文件中一部分 \\
-\verb|write_sac|         &   将数据写到SAC文件中 \\
-\verb|sachdr|            &   初始化SAC头段\\
+!read_sachead!      &   仅读取SAC文件的头段部分 \\
+!read_sac!          &   读取整个SAC文件 \\
+!read_sac2!         &   读取SAC文件中一部分 \\
+!write_sac!         &   将数据写到SAC文件中 \\
+!sachdr!            &   初始化SAC头段\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -68,33 +68,33 @@ clean:
 下面的示例展示了如何在C程序中读取一个SAC二进制文件，经过简单的数据处理后，
 最后写回到原文件中：
 \inputminted{C}{./sacio/readsac.c}
-\verb|read_sac| 函数将SAC文件的头段区保存到结构体 \texttt{SACHEAD hd} 中，
-可以通过 \texttt{hd.npts}、\texttt{hd.delta} 这样的方式引用SAC头段变量的值。
-SAC文件的数据区保存到指针/数组 \texttt{float *data} 中，\verb|read_sac|
-会根据头段中的数据点数为指针 \texttt{data} 分配内存空间并读入数据，在用完
-之后要记得用 \texttt{free(data)} 释放已分配的内存，以避免内存泄露。
+!read_sac! 函数将SAC文件的头段区保存到结构体 !SACHEAD hd! 中，
+可以通过 !hd.npts!、!hd.delta! 这样的方式引用SAC头段变量的值。
+SAC文件的数据区保存到指针/数组 !float *data! 中，!read_sac!
+会根据头段中的数据点数为指针 !data! 分配内存空间并读入数据，在用完
+之后要记得用 !free(data)! 释放已分配的内存，以避免内存泄露。
 
 \subsection{仅读取SAC头段区}
 有时候只需要SAC文件头段区的一些信息，若读取整个文件就有些浪费了，
-\verb|read_sachead| 仅读取SAC头段区而不读取数据区。
+!read_sachead! 仅读取SAC头段区而不读取数据区。
 \inputminted{C}{./sacio/readsachead.c}
 
 \subsection{读SAC数据的一段}
 有些时候，数据可能很长，但用户只需要其中的一小段。为了读取一小段数据
 而把整个文件都读入进去实在太浪费了。SAC中的 \nameref{cmd:cut} 命令可以
-实现数据的截取，\verb|read_sac2| 则是实现了类似的功能。下面的例子截取了
-数据中以 \texttt{T0}为参考的$-0.5$到$2.5$秒，即相当于 \texttt{cut t0 -0.5 2.5}。
+实现数据的截取，!read_sac2! 则是实现了类似的功能。下面的例子截取了
+数据中以 !T0!为参考的$-0.5$到$2.5$秒，即相当于 !cut t0 -0.5 2.5!。
 \inputminted{C}{./sacio/readsac2.c}
-\verb|read_sac2| 与 \verb|read_sac| 相比，多了三个用于定义时间窗的参数，
-其中\texttt{tmark} 表示参考时间标记，可以取值为：
+!read_sac2! 与 !read_sac! 相比，多了三个用于定义时间窗的参数，
+其中!tmark! 表示参考时间标记，可以取值为：
 \begin{description}
-\item[-5] 以 \texttt{B} 作为时间标记
-\item[-3] 以 \texttt{O} 作为时间标记
-\item[-2] 以 \texttt{A} 作为时间标记
-\item[0--9] 以 \texttt{T0-T9} 中的某个为时间标记
+\item[-5] 以 !B! 作为时间标记
+\item[-3] 以 !O! 作为时间标记
+\item[-2] 以 !A! 作为时间标记
+\item[0--9] 以 !T0-T9! 中的某个为时间标记
 \end{description}
-这里只读入了数据的一小部分数据，但子程序中对头段中的 \texttt{b}、\texttt{e}、
-\texttt{npts} 等做了修改，因而返回的头段与数据是相互兼容的。
+这里只读入了数据的一小部分数据，但子程序中对头段中的 !b!、!e!、
+!npts! 等做了修改，因而返回的头段与数据是相互兼容的。
 
 \begin{note}
 tmark的有效取值为什么是-5、-3、-2、0-9？
@@ -102,10 +102,10 @@ tmark的有效取值为什么是-5、-3、-2、0-9？
 在头段区中，若以T0作为参考位，T3是T0后的第3个变量，T7是T0后的第7个变量，
 B是T0前的第5个变量，O是T0前的第3个变量。
 
-\texttt{sacio.c} 的代码中使用了 \verb|tref = *((float *)hd + 10 + tmark)|
-来获取某个时间头段变量的值。首先将结构体指针 \texttt{hd} 强制转换成
-\texttt{float} 型，加上 \texttt{10} 使得指针指向结构体的成员 \texttt{T0}
-所在的位置，然后 \texttt{tmark} 取不同的值，则将指针相应地前移或后移
+!sacio.c! 的代码中使用了 !tref = *((float *)hd + 10 + tmark)!
+来获取某个时间头段变量的值。首先将结构体指针 !hd! 强制转换成
+!float! 型，加上 !10! 使得指针指向结构体的成员 !T0!
+所在的位置，然后 !tmark! 取不同的值，则将指针相应地前移或后移
 相应的浮点变量，最后取指针所在位置的浮点变量值。由此即可很简单地获取某个
 时间标记头段中的值。这种用法在自己的程序中也会经常用到。
 \end{note}
@@ -113,6 +113,6 @@ B是T0前的第5个变量，O是T0前的第3个变量。
 \subsection{从零创建SAC文件}
 在做合成数据时，经常需要从无到有完全创建一个SAC文件。这相对于一般的
 ``读$\rightarrow$处理$\rightarrow$写''而言要更复杂一些，因为必须首先
-构建一个基本的头段区。下面的例子展示了如何用 \texttt{sachdr} 构建一个
+构建一个基本的头段区。下面的例子展示了如何用 !sachdr! 构建一个
 最基本的头段区，并填充其他一些头段，最后将创建的头段及数据写入到文件中。
 \inputminted{C}{./sacio/write_sac.c}

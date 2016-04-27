@@ -2,7 +2,7 @@
 \label{cmd:writecss}
 
 \SACTitle{概要}
-将内存中的数据以 \texttt{CSS 3.0} 格式写入磁盘
+将内存中的数据以 !CSS 3.0! 格式写入磁盘
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -12,16 +12,16 @@ W!RITE!CSS [B!INARY!|A!SCII!] [DIR ON|OFF|CURRENT|name] name
 \SACTitle{输入}
 \begin{description}
 \item [ASCII] 以标准ASCII格式写入磁盘
-\item [BINARY] 以 \texttt{CSS 3.0} 二进制文件输出
+\item [BINARY] 以 !CSS 3.0! 二进制文件输出
 \item [DIR ON] 打开目录选项，但不改变目录名
 \item [DIR OFF] 关闭目录选项，即写入当前目录
 \item [DIR CURRENT] 打开目录选项并设置写目录为当前目录
-\item [DIR name] 打开目录选项并设置写目录为 \texttt{name} 。将所有文件
-    写入目录 \texttt{name} 中，其可以是相对路径或绝对路径
-\item [name] 以文件名 \texttt{name} 写入磁盘。只能指定一个名字其不能包含
-    通配符。对于 \texttt{ASCII} 型输出，以 \texttt{name} 为基础，在其后
-    加上各个CSS表所对应的后缀（比如： \texttt{name.wfdisc}、\texttt{name.origin}）。
-    对于 \texttt{BINARY} 输出，则 \texttt{name} 是输出文件名
+\item [DIR name] 打开目录选项并设置写目录为 !name! 。将所有文件
+    写入目录 !name! 中，其可以是相对路径或绝对路径
+\item [name] 以文件名 !name! 写入磁盘。只能指定一个名字其不能包含
+    通配符。对于 !ASCII! 型输出，以 !name! 为基础，在其后
+    加上各个CSS表所对应的后缀（比如： !name.wfdisc!、!name.origin!）。
+    对于 !BINARY! 输出，则 !name! 是输出文件名
 \end{description}
 
 \SACTitle{缺省值}

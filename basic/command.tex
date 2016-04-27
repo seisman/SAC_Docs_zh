@@ -8,10 +8,9 @@ SAC> funcgen random delta 0.1 npts 1000
 SAC> rmean; rtrend; taper                 // 一行内多个命令用分号隔开
 SAC> write rand.SAC
 \end{SACCode}
-其中，\texttt{funcgen}、\texttt{write}、\texttt{rmean}、\texttt{rtrend}
-和 \texttt{taper} 是命令；\texttt{random} 是选项；
-\texttt{0.1} 是选项 \texttt{delta} 的参数，\texttt{1000} 是选项
-\texttt{npts} 的参数；而 \texttt{rand.SAC} 则是一个无选项的参数
+其中，!funcgen!、!write!、!rmean!、!rtrend! 和 !taper! 是命令；
+!random! 是选项；!0.1! 是选项 !delta! 的参数，!1000! 是选项
+!npts! 的参数；而 !rand.SAC! 则是一个无选项的参数
 \footnote{其实可以有很多选项，这里都省略了。}。
 
 \begin{note}
@@ -29,12 +28,12 @@ SAC> write rand.SAC
 
 \subsection{大小写}
 SAC的命令和选项都是不区分大小写的，这意味着你可以根据自己的喜好使用
-\texttt{funcgen} 或者 \texttt{FUNCGEN}，SAC在解释命令前都会将其转换
+!funcgen! 或者 !FUNCGEN!，SAC在解释命令前都会将其转换
 为大写字母。
 
 需要注意的是，由于Linux本身是区分大小写的，所以对于出现在参数中的文件名、
-目录名或者由引号包围的字符串来说，大小写是完全不同的。比如 \texttt{rand.SAC}
-和 \texttt{RAND.SAC} 是两个完全不同的参数。
+目录名或者由引号包围的字符串来说，大小写是完全不同的。比如 !rand.SAC!
+和 !RAND.SAC! 是两个完全不同的参数。
 
 \subsection{命令简写}
 SAC的大多数命令及选项都有简写形式。比如上面的命令简写形式如下：
@@ -46,10 +45,10 @@ SAC> w rand.SAC
 
 命令和选项究竟可以简写成怎样的形式，是由SAC自身规定的。简写的好处在于，
 在不产生歧义的前提下尽量减少用户的击键数；坏处在于，若对命令不是足够熟悉，
-简写后的命令变得很难读和难理解。比如你一看就知道 \texttt{delta} 代表的
+简写后的命令变得很难读和难理解。比如你一看就知道 !delta! 代表的
 是采样周期\footnote{也称为采样时间，即两次数据采样的时间间隔，本文档将
-统一使用``采样周期''。}，而 \texttt{d} 却不那么直观，可能是 \texttt{delta}，
-也可能是 \texttt{demon}。所以，在终端调用SAC时，可以多用简写以减少击键数，
+统一使用``采样周期''。}，而 !d! 却不那么直观，可能是 !delta!，
+也可能是 !demon!。所以，在终端调用SAC时，可以多用简写以减少击键数，
 但在脚本中调用SAC时应仅使用那些常用命令的简写，不要滥用，否则一段时间后
 你会看不懂自己写的脚本的。
 
@@ -59,7 +58,7 @@ SAC自带了英文的帮助文档，详细解释了每个命令的语法，可�
 \begin{SACCode}
 SAC> help funcgen write   // 命令的简写是h fg w
 \end{SACCode}
-也可以直接查看 \verb|$SACHOME/aux/help| 下的文档，或者查看本文档的
+也可以直接查看 !$SACHOME/aux/help! 下的文档，或者查看本文档的
 命令部分。
 
 \subsection{参数默认值}
@@ -79,7 +78,7 @@ SAC> help funcgen write   // 命令的简写是h fg w
 
 任意一个子函数，又都有自己的局部变量。这些局部变量在每次子函数被调用时
 都会被定义、初始化、使用和赋值，一旦子函数调用结束，变量即被撤销。如果
-给这些变量加上 \texttt{static} 修饰符，则这些局部变量变身为静态局部变量。
+给这些变量加上 !static! 修饰符，则这些局部变量变身为静态局部变量。
 
 静态局部变量，会在程序刚开始的时候就完成初始化，也是唯一的一次初始化。
 静态局部变量仅在定义它的子函数里可见，子函数可以任意修改静态局部变量的值，
@@ -126,17 +125,17 @@ SAC> plot
 \end{SACCode}
 
 \begin{enumerate}
-\item \texttt{funcgen} 的默认值为 \texttt{funcgen impulse npts 100 delta 1.0 begin 0.}
-\item 第一个 \texttt{funcgen} 命令没有使用任何选项和参数，其直接使用系统默认值，
-    生成一个脉冲数据，并保存到内存中。该数据的起始时间为 \texttt{0}，
-    采样周期为 \texttt{1.0}，数据点数为 \texttt{100}
-\item \texttt{plot} 命令会打开一个绘图窗口，并将内存中的数据绘制在窗口中
-\item 第二个 \texttt{funcgen} 命令生成了一个step函数\footnote{注意：
-    内存中的脉冲函数已经没了。}，并设置其采样周期为 \texttt{0.1}，数据
-    点数为 \texttt{1000}
-\item \texttt{0.1} 和 \texttt{1000} 分别成为 \texttt{delta} 和
-    \texttt{npts} 的``参数当前值''
-\item 第三个 \texttt{funcgen} 命令生成了boxcar函数，从绘图结果可以看出
-    \texttt{delta} 的值为 \texttt{0.1}，\texttt{npts} 的值为 \texttt{1000}，
+\item !funcgen! 的默认值为 !funcgen impulse npts 100 delta 1.0 begin 0.!
+\item 第一个 !funcgen! 命令没有使用任何选项和参数，其直接使用系统默认值，
+    生成一个脉冲数据，并保存到内存中。该数据的起始时间为 !0!，
+    采样周期为 !1.0!，数据点数为 !100!
+\item !plot! 命令会打开一个绘图窗口，并将内存中的数据绘制在窗口中
+\item 第二个 !funcgen! 命令生成了一个step函数\footnote{注意：
+    内存中的脉冲函数已经没了。}，并设置其采样周期为 !0.1!，数据
+    点数为 !1000!
+\item !0.1! 和 !1000! 分别成为 !delta! 和
+    !npts! 的``参数当前值''
+\item 第三个 !funcgen! 命令生成了boxcar函数，从绘图结果可以看出
+    !delta! 的值为 !0.1!，!npts! 的值为 !1000!，
     即继承了上一次命令的参数值
 \end{enumerate}

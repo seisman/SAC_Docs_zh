@@ -17,10 +17,10 @@ L!IST!H!DR! [D!EFAULT!|P!ICKS!|SP!ECIAL!] [FILES ALL|NONE|list] [COLUMNS 1|2]
 \item [SPECIAL] 使用用户自定义的特殊头段变量列表
 \item [FILES ALL] 列出内存中所有文件的头段
 \item [FILES NONE] 不列出头段，为将来的命令设置默认值
-\item [FILES list] 列出部分文件的头段，\texttt{list}是要列出的文件的文件号
+\item [FILES list] 列出部分文件的头段，!list!是要列出的文件的文件号
 \item [COLUMNS 1|2] 输出格式为每行一/两列
-\item [INCLUSIVE ON|OFF] \texttt{ON} 表示列出未定义的头段变量的值，
-    \texttt{OFF} 则不列出
+\item [INCLUSIVE ON|OFF] !ON! 表示列出未定义的头段变量的值，
+    !OFF! 则不列出
 \item [hdrlist] 指定头段变量列表
 \end{description}
 
@@ -30,17 +30,17 @@ listhdr default files all columns 1 inclusive off
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令可以列出指定的头段变量的值，用户可以使用默认列表 \texttt{DEFAULT}
-列出全部头段变量，或 \texttt{PICKS} 列出与到时拾取相关的头段变量，
-包括 \texttt{B}、\texttt{E}、\texttt{O}、\texttt{A}、\texttt{Tn}、
-\texttt{KZTIME}、\texttt{KZDATE}。用户可以自定义一个特殊列表并通过
-\texttt{SPECIAL} 选项再次使用该列表。
+该命令可以列出指定的头段变量的值，用户可以使用默认列表 !DEFAULT!
+列出全部头段变量，或 !PICKS! 列出与到时拾取相关的头段变量，
+包括 !B!、!E!、!O!、!A!、!Tn!、
+!KZTIME!、!KZDATE!。用户可以自定义一个特殊列表并通过
+!SPECIAL! 选项再次使用该列表。
 
 该命令的输出包含头段变量名、一个等于号以及头段变量的当前值。未定义的
-头段变量的值用 \texttt{undefined} 表示。
+头段变量的值用 !undefined! 表示。
 
 \SACTitle{示例}
-获取 \texttt{picks} 列表，输出为两列显示：
+获取 !picks! 列表，输出为两列显示：
 \begin{SACCode}
 SAC> lh picks column 2
 \end{SACCode}
@@ -65,7 +65,7 @@ SAC> lh kstnm stla stlo stel stdp
 SAC> lh special
 \end{SACCode}
 
-为后面的 \texttt{lh} 命令设置输出为两列：
+为后面的 !lh! 命令设置输出为两列：
 \begin{SACCode}
 SAC> lh columns 2 files none
 \end{SACCode}

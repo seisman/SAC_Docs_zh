@@ -6,15 +6,15 @@
 
 下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/0.simple-script.py}{0.simple-script.py}
 \inputminted{python}{./call-in-script/0.simple-script.py}
-Python中使用 \texttt{subprocess} 模块的 \texttt{Popen} 方法调用SAC，
-通过 \texttt{p.communicate()} 将命令 \texttt{s.encode()} 传递给SAC。
+Python中使用 !subprocess! 模块的 !Popen! 方法调用SAC，
+通过 !p.communicate()! 将命令 !s.encode()! 传递给SAC。
 
 \subsection{数据转换}
 首先要将SEED格式的数据转换成SAC格式。
 \begin{itemize}
 \item 假定每个目录下有且只有一个SEED数据
-\item \texttt{rdseed} 一次只能处理一个SEED数据
-\item \texttt{rdseed} 的 \texttt{-pdf} 选项会提取出SAC波形数据和PZ格式的仪器响应文件
+\item !rdseed! 一次只能处理一个SEED数据
+\item !rdseed! 的 !-pdf! 选项会提取出SAC波形数据和PZ格式的仪器响应文件
 \end{itemize}
 
 下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/1.rdseed.py}{1.rdseed.py}
@@ -26,7 +26,7 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 多个SAC文件，因而需要将属于同一个通道的SAC数据合并起来。
 \begin{itemize}
 \item 此处使用了新版 \nameref{cmd:merge} 命令的语法，要求SAC版本大于v101.6
-\item \texttt{merge} 命令还有更多选项可以控制数据合并的细节，见命令的语法介绍
+\item !merge! 命令还有更多选项可以控制数据合并的细节，见命令的语法介绍
 \item 合并后的数据，以最早的数据段的文件名命名
 \item 多余的数据段均被删除，以保证每个通道只有一个SAC文件
 \item 由于脚本运行速度比SAC运行速度快，因而应先退出SAC再删除多余的数据段
@@ -39,8 +39,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 \label{subsec:rename-in-python}
 从SEED解压出的SAC文件名较长，因而对其重命名以简化。
 \begin{itemize}
-\item SEED解压出的默认文件名格式为 \texttt{yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC}
-\item 重命名后的文件名为 \texttt{NET.STA.LOC.CHN.SAC}
+\item SEED解压出的默认文件名格式为 !yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC!
+\item 重命名后的文件名为 !NET.STA.LOC.CHN.SAC!
 \end{itemize}
 
 下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/3.rename.py}{3.rename.py}
@@ -52,7 +52,7 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 需要用户手动添加事件的发震时刻、经纬度、深度和震级信息。
 \begin{itemize}
 \item 输入参数包括：目录名、发震时刻、经度、纬度、深度、震级
-\item 发震时刻的格式为 \texttt{yyyy-mm-ddThh:mm:ss.xxx}，其中 \texttt{T}
+\item 发震时刻的格式为 !yyyy-mm-ddThh:mm:ss.xxx!，其中 !T!
     用于分隔日期和时间
 \end{itemize}
 
@@ -73,11 +73,11 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 将成对的水平分量旋转到大圆路径。
 \begin{itemize}
 \item 检查三分量是否缺失
-\item 检查 \texttt{delta} 是否相等
-\item 取三分量中的最大 \texttt{b} 和最小 \texttt{e} 值作为数据窗口，此
-    操作要求三分量的 \texttt{kzdate} 和 \texttt{kztime} 必须相同，这一点
+\item 检查 !delta! 是否相等
+\item 取三分量中的最大 !b! 和最小 !e! 值作为数据窗口，此
+    操作要求三分量的 !kzdate! 和 !kztime! 必须相同，这一点
     在添加事件信息时使用 \nameref{cmd:synchronize} 已经实现
-\item 未检查分量的 \texttt{cmpinc} 和 \texttt{cmpaz} 是否符合要求。若不
+\item 未检查分量的 !cmpinc! 和 !cmpaz! 是否符合要求。若不
     符合要求，SAC会报错且不会旋转，写到磁盘中的R和T分量实际上是原数据，
     暂不知如何处理。
 \end{itemize}

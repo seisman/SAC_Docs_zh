@@ -26,9 +26,9 @@ WILD [ECHO ON|OFF] [SINGLE char] [MULTIPLE char] [CONCATENATION chars]
 选项            &   UNIX    &   VAX     &   PRIME   \\
 \midrule
 echo            &   on      &   on      &   on      \\
-single          & \texttt{?}& \texttt{?}& \texttt{+}\\
-multiple        & \texttt{*}& \texttt{*}& \texttt{'}\\
-concatenation   & \texttt{[,]}& \texttt{(,)}& \texttt{[,]}\\
+single          & !?!& !?!& !+!\\
+multiple        & !*!& !*!& !'!\\
+concatenation   & ![,]!& !(,)!& ![,]!\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -39,15 +39,15 @@ concatenation   & \texttt{[,]}& \texttt{(,)}& \texttt{[,]}\\
 \nameref{cmd:read}、\nameref{cmd:readtable} 以及 \nameref{cmd:readhdr}
 命令中使用通配符及一些扩展名，使用这些表示符号，你可以很容易地访问一组文件：
 \begin{itemize}
-\item 所有以字母 \texttt{abc} 开头的文件
-\item 所有以 \texttt{z} 结尾的文件
+\item 所有以字母 !abc! 开头的文件
+\item 所有以 !z! 结尾的文件
 \item 所有文件名中严格包含三个字母的文件
 \end{itemize}
 
 通配符代号有三个元素。对于不同的系统三个元素会有不同的缺省符。你可以使用
-这个命令改变通配符。多重匹配字符（\texttt{*}）用于匹配字符串中任意字符串，
-包括空字符串。单个匹配符（\texttt{?}）用于匹配任意单个字符。连接符号
-（\texttt{[} 和 \texttt{]}）用于包围由逗号分隔的要匹配的字符串。在这个
+这个命令改变通配符。多重匹配字符（!*!）用于匹配字符串中任意字符串，
+包括空字符串。单个匹配符（!?!）用于匹配任意单个字符。连接符号
+（![! 和 !]!）用于包围由逗号分隔的要匹配的字符串。在这个
 字符串中，可以包含单通配符或多通配符。
 
 SAC使用通配符完成文件名的扩展，通常有几个步骤：

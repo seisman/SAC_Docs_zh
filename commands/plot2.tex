@@ -26,23 +26,23 @@ p2 absolute
 \nameref{cmd:color}、\nameref{cmd:symbol}、\nameref{cmd:width} 为不同波形
 设置不同的属性，图例的位置由 \nameref{cmd:fileid} 控制。
 
-多个波形共用X轴时，有 \texttt{absolute} 和 \texttt{relative} 两种绘图
-模式。在 \texttt{absolute} 模式下，所有波形将按照其绝对时刻对齐，即X轴
-表示相对于某个固定参考时刻的秒数；在 \texttt{relative} 模式下，所有数据
+多个波形共用X轴时，有 !absolute! 和 !relative! 两种绘图
+模式。在 !absolute! 模式下，所有波形将按照其绝对时刻对齐，即X轴
+表示相对于某个固定参考时刻的秒数；在 !relative! 模式下，所有数据
 将按照文件开始时间对齐，X轴的范围为0到最大时间差（所有文件中结束时间和
-开始时间的最大时间差，即最大 \texttt{e-b}），每个波形从X轴的零点开始绘制。
+开始时间的最大时间差，即最大 !e-b!），每个波形从X轴的零点开始绘制。
 
 与 \nameref{cmd:plot} 和 \nameref{cmd:plot1} 不同，\nameref{cmd:plot2}
 可以直接用于绘制谱文件。实部-虚部格式的谱数据被绘制为实部-频率。振幅-相位
-数据被绘制为振幅-频率图，虚部和相位信息被忽略。谱文件总是用 \texttt{relative}
-模式绘图。在频率域 \texttt{b}、\texttt{e} 和 \texttt{delta} 分别被设置为0、
-Nqquist频率以及频率间隔 \texttt{df}。头段值 \texttt{depmin} 和 \texttt{depmax}
-未改变。与 \nameref{cmd:plotsp} 类似，若 \texttt{xlim off}，绘图将从
-\texttt{df=delta} 处开始，而非0。若 \nameref{cmd:xlim} 或 \nameref{cmd:ylim}
-在数据变换到频率域之前被改变了，最好在使用 \texttt{plot2} 绘图之前输入
-\texttt{xlim off} 和 \texttt{ylim off}。
+数据被绘制为振幅-频率图，虚部和相位信息被忽略。谱文件总是用 !relative!
+模式绘图。在频率域 !b!、!e! 和 !delta! 分别被设置为0、
+Nqquist频率以及频率间隔 !df!。头段值 !depmin! 和 !depmax!
+未改变。与 \nameref{cmd:plotsp} 类似，若 !xlim off!，绘图将从
+!df=delta! 处开始，而非0。若 \nameref{cmd:xlim} 或 \nameref{cmd:ylim}
+在数据变换到频率域之前被改变了，最好在使用 !plot2! 绘图之前输入
+!xlim off! 和 !ylim off!。
 
-若内存中同时存在时间序列文件和谱文件，且绘图时没有选择 \texttt{relative}
+若内存中同时存在时间序列文件和谱文件，且绘图时没有选择 !relative!
 模式，则时间序列将以绝对模式绘图，谱文件将以相对模式绘图绘图。相对
 模式意味着相对于第一个文件，因而内存中文件的顺序将影响绘图之间的关系。
 

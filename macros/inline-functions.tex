@@ -11,9 +11,9 @@ SAC提供了如下几类内联函数：
 \item 其他函数；
 \end{itemize}
 
-所有的内联函数的共同形式是：``\texttt{(func)}''，其中 \texttt{func} 为
-内联函数名。某种程度上，内联函数与前面说到头段变量（``\verb|& &|''）和
-黑板变量（``\verb|% %|''）类似，可以认为是通过``\texttt{( )}''引用了
+所有的内联函数的共同形式是：``!(func)!''，其中 !func! 为
+内联函数名。某种程度上，内联函数与前面说到头段变量（``!& &!''）和
+黑板变量（``!% %!''）类似，可以认为是通过``!( )!''引用了
 内联函数的结果或值。
 
 内联函数支持嵌套，目前最多可以嵌套10层。
@@ -25,7 +25,7 @@ SAC提供了如下几类内联函数：
 \end{SACCode}
 所有的操作数都被认为是实型的，所有的算术运算都按照双精度浮点型进行运算；
 
-SAC支持的操作符是包括：``\texttt{ +  -  *  /  ** }''。
+SAC支持的操作符是包括：``! +  -  *  /  ** !''。
 
 看几个简单的例子:
 \begin{SACCode}
@@ -47,7 +47,7 @@ SAC> setbb var1 ( ( 4 + 7 ) / 3 )   // 支持空格
 \end{SACCode}
 
 \subsection{常规算术运算函数}
-SAC提供了20个常规算术运算函数，其基本形式为``\texttt{(func arg1 arg2 ...)}''。
+SAC提供了20个常规算术运算函数，其基本形式为``!(func arg1 arg2 ...)!''。
 具体函数如表 \ref{table:regular-arithmetic-functions} 所示。
 
 \begin{table}[!ht]
@@ -179,7 +179,7 @@ SAC> message (substring 1 5 %val%)
  12345
 \end{SACCode}
 
-下面的例子展示 \texttt{concatenate} 函数的用法以及如何灵活定义标题：
+下面的例子展示 !concatenate! 函数的用法以及如何灵活定义标题：
 \begin{SACCode}
 SAC> fg seis
 SAC> echo on processed
@@ -197,7 +197,7 @@ SAC> title "Seismogram of &1,kevnm& &1,kstnm&"
  ==>  title "Seismogram of K8108838 CDV"                // 正确标题！
 \end{SACCode}
 
-下面的例子使用 \texttt{reply} 函数实现了交互：
+下面的例子使用 !reply! 函数实现了交互：
 \begin{SACCode}
 SAC> fg seis
 SAC> echo on processed
@@ -212,7 +212,7 @@ SAC> bp c %low% %high%
  ==>  bp c 2.1 6.5
 \end{SACCode}
 
-下面的例子中 \texttt{reply} 函数包含了一个默认值值：
+下面的例子中 !reply! 函数包含了一个默认值值：
 \begin{SACCode}
 SAC> setbb bbday (reply "Enter the day of the week: [Monday]")
 Enter the day of the week: [Monday]Tuesday      // 用户输入Tuesday
@@ -223,17 +223,17 @@ Enter the day of the week: [Monday]             // 用户无输入
 SAC> getbb bbday
  bbday = 'Monday'
 \end{SACCode}
-当 \texttt{reply} 函数执行时，引号中的字符串将出现在屏幕上，提示用户
+当 !reply! 函数执行时，引号中的字符串将出现在屏幕上，提示用户
 输入。如果用户输入，SAC会将输入的字符串作为返回值，如果用户只是敲击
 回车键，SAC则会使用该默认值``MONDAY''。
 
 \subsection{其他函数}
-这类函数目前只有一个：\texttt{gettime}，其语法为
-``\texttt{(gettime max|min [value])}''。
+这类函数目前只有一个：!gettime!，其语法为
+``!(gettime max|min [value])!''。
 
-\texttt{gettime} 函数用于返回数据中首先出现大于或小于value的时间相对于
-文件参考时刻的相对时间；若没有指定value，\texttt{max} 会返回文件中第一
-个最大值的相对时间，\texttt{min} 会返回文件中第一个最小值的相对时间。
+!gettime! 函数用于返回数据中首先出现大于或小于value的时间相对于
+文件参考时刻的相对时间；若没有指定value，!max! 会返回文件中第一
+个最大值的相对时间，!min! 会返回文件中第一个最小值的相对时间。
 
 对于所有的文件有一个最大振幅，要找到这些文件中第一个文件中第一次大于
 该值所对应的时间偏移量：

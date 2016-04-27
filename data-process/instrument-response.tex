@@ -16,10 +16,10 @@ RESP文件和PZ文件的几种用法，并对每种方法的优缺点进行比�
 \subsection{RESP文件}
 
 \subsubsection{RESP方法1}
-使用 \texttt{evalresp} 选项但不指定RESP文件时，\texttt{transfer} 会对
+使用 !evalresp! 选项但不指定RESP文件时，!transfer! 会对
 内存中的所有SAC数据进行循环。对于内存中的每个SAC数据，从头段中提取台站
 分量信息，然后在当前目录下寻找并使用对应的仪器响应文件
-\texttt{RESP.NET.STA.LOC.CHN}。
+!RESP.NET.STA.LOC.CHN!。
 \begin{SACCode}
 SAC> r *.SAC
 SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
@@ -27,7 +27,7 @@ SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
 该方法的好处是，可以一次处理多个SAC数据，且无需指定仪器响应文件的文件名。
 
 \subsubsection{RESP方法2}
-可以使用 \texttt{evalresp fname} 选项为每个波形分别指定RESP文件：
+可以使用 !evalresp fname! 选项为每个波形分别指定RESP文件：
 \begin{SACCode}
 SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
 SAC> rmean; rtr; taper
@@ -38,7 +38,7 @@ SAC> trans from evalresp fname RESP.TA.N11A..LHZ to none \
 一次只能处理一个SAC数据，数据的批量处理需要写脚本实现。
 
 \subsubsection{RESP方法3}
-可以将所有台站的RESP文件都合并到同一个文件中（\texttt{cat RESP.*.*.*.* >> RESP.ALL}），
+可以将所有台站的RESP文件都合并到同一个文件中（!cat RESP.*.*.*.* >> RESP.ALL!），
 并指定该总RESP文件为仪器响应文件，此时命令会从总RESP文件中自动寻找匹配
 的仪器响应。
 \begin{SACCode}
@@ -63,7 +63,7 @@ SAC> w OR075.z      // 此时位移数据的单位为nm
 该方法的缺点是，一次只能处理一个波形数据，且需要用户编程指定PZ文件名。
 
 \subsubsection{PZ方法2}
-可以将所有台站的PZ文件合并到同一个文件中（\verb|cat SAC_PZs_* >> SAC.PZs|），
+可以将所有台站的PZ文件合并到同一个文件中（!cat SAC_PZs_* >> SAC.PZs!），
 并指定该总PZ文件为仪器响应文件，此时命令会从总PZ文件中自动寻找匹配的仪器
 响应。
 \begin{SACCode}

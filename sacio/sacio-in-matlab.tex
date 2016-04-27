@@ -1,8 +1,8 @@
 \section{Matlab脚本中的SAC I/O}
-SAC官方自带了几个可以读写SAC文件的Matlab脚本，位于 \verb|${SACHOME}/utils| 目录下。
+SAC官方自带了几个可以读写SAC文件的Matlab脚本，位于 !${SACHOME}/utils! 目录下。
 
 \subsection{readsac}
-\verb+readsac.m+ 中定义了函数 \verb|readsac|，可以用于读取SAC文件，其参数
+!readsac.m! 中定义了函数 !readsac!，可以用于读取SAC文件，其参数
 为要读取的SAC文件名。文件名可以是：
 \begin{enumerate}
 \item 单个文件名
@@ -11,7 +11,7 @@ SAC官方自带了几个可以读写SAC文件的Matlab脚本，位于 \verb|${SA
 \item 空字符串，表示读取当前目录下的全部SAC文件
 \end{enumerate}
 
-\verb|readsac| 函数有三种用法。第一种用法：
+!readsac! 函数有三种用法。第一种用法：
 \begin{minted}{matlab}
 % 读取SAC文件，并保存到结构体S中
 >> S = readsac('seis.SAC');
@@ -44,9 +44,9 @@ ans = 50.8900
 \end{minted}
 
 \subsection{getsacdata}
-在用 \verb|readsac| 读取SAC文件时，可以直接读入到结构体S中，也可以读入到
+在用 !readsac! 读取SAC文件时，可以直接读入到结构体S中，也可以读入到
 多个数组中。读入到数组中便于matlab处理，但是却丢失了SAC头段中的很多信息；
-读入到结构体S中，有时却需要用数组做处理，这就可以使用 \verb|getsacdata|
+读入到结构体S中，有时却需要用数组做处理，这就可以使用 !getsacdata!
 函数，可以从结构体S中提取出自变量和因变量数组：
 \begin{minted}{matlab}
 % 从文件中读入结构体S
@@ -56,7 +56,7 @@ ans = 50.8900
 \end{minted}
 
 \subsection{writesac}
-\verb|writesac.m| 中定义了函数 \verb|writesac|，用于写SAC格式的文件，其
+!writesac.m! 中定义了函数 !writesac!，用于写SAC格式的文件，其
 输入是结构体S，返回值是状态码：
 \begin{minted}{matlab}
 % 读入SAC数据

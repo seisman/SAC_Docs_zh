@@ -14,17 +14,17 @@ RGL!ITCHES! [TH!RESHOLD! v] [TY!PE! L!INEAR!|Z!ERO!] [W!INDOW! ON|OF!F!|pdw]
 \begin{description}
 \item [WINDOW ON|OFF|pdw] 指定需要做校正的数据段。缺省值为OFF，即校正
     整个数据文件；\nameref{subsec:pdw} 指定了时间窗，表示仅对该时间窗
-    内的数据进行检测和校正；ON表示只校正上一次 \texttt{pdw} 定义的时间
+    内的数据进行检测和校正；ON表示只校正上一次 !pdw! 定义的时间
     窗内的数据；
-\item [THRESHOLD v] 设置阈值水平为 \texttt{v}。当某个特定的指标大于该
+\item [THRESHOLD v] 设置阈值水平为 !v!。当某个特定的指标大于该
     阈值时即认为是坏点，并做校正
-\item [METHOD ABSOLUTE] 若数据点的绝对值大于或等值阈值 \texttt{v}，则做校正
+\item [METHOD ABSOLUTE] 若数据点的绝对值大于或等值阈值 !v!，则做校正
 \item [METHOD POWER] 用向后差分法计算信号的能量，若能量超过阈值v则做校正
-\item [METHOD RUNAVG] 将一个长为 \texttt{SWINLEN} 的窗从整个数据的末尾以
+\item [METHOD RUNAVG] 将一个长为 !SWINLEN! 的窗从整个数据的末尾以
     一个数据点的增量移动到数据的开头，并计算每个滑动窗内的平均值和标准差。
-    若某个点与当前窗的均值的差的绝对值大于标准差\texttt{THRESH}的2倍，
-    且大于 \texttt{MINAMP}，则认为其是坏点，其值将用当前窗的均值代替。
-    此方法不受 \texttt{WINDOW} 选项的影响，总是适用于整段波形数据。
+    若某个点与当前窗的均值的差的绝对值大于标准差!THRESH!的2倍，
+    且大于 !MINAMP!，则认为其是坏点，其值将用当前窗的均值代替。
+    此方法不受 !WINDOW! 选项的影响，总是适用于整段波形数据。
 \end{description}
 
 对于RUNAVG方法，另有三个与之相关的选项：

@@ -13,8 +13,8 @@ TRANSCRIPT [OPEN|CREATE|CLOSE|CHANGE|WRITE|HISTORY] [FILE filename]
 
 \SACTitle{输入}
 \begin{description}
-\item [OPEN] 打开副本文件，若文件已存在，则将输出追加到文件的尾部，相当于重定向符号 \verb|>>|
-\item [CREATE] 创建一个新的副本文件，相当于重定向符号 \verb|>|
+\item [OPEN] 打开副本文件，若文件已存在，则将输出追加到文件的尾部，相当于重定向符号 !>>!
+\item [CREATE] 创建一个新的副本文件，相当于重定向符号 !>!
 \item [CLOSE] 关闭一个已打开的副本文件
 \item [CHANGE] 修改一个已打开的副本文件的内容
 \item [WRITE] 将信息写入副本文件，不改变其状态或内容
@@ -42,18 +42,18 @@ transcript open file transcript contents all
 输出信息。
 
 \SACTitle{示例}
-创建一个新的副本文件，文件名为 \texttt{mytran} ，包含了除已处理命令之外的其他
+创建一个新的副本文件，文件名为 !mytran! ，包含了除已处理命令之外的其他
 全部输出内容：
 \begin{SACCode}
 SAC> transcript create file mytran cont err warn out com macros
 \end{SACCode}
 
-若之后不想把宏命令送入这个副本文件中，则可以使用 \texttt{CHANGE} 选项：
+若之后不想把宏命令送入这个副本文件中，则可以使用 !CHANGE! 选项：
 \begin{SACCode}
 SAC> transcript change file mytran contents e w o c
 \end{SACCode}
 
-定义一个名为 \texttt{myrecord} 的副本文件，其记录了终端输入的命令：
+定义一个名为 !myrecord! 的副本文件，其记录了终端输入的命令：
 \begin{SACCode}
 SAC> transcript create file myrecord contents commands
 \end{SACCode}
@@ -73,9 +73,9 @@ SAC> transcript write message 'processing event 1'
 \begin{SACCode}
 SCA> transcript history file .sachist
 \end{SACCode}
-这就在当前目录创建并写入了一个副本文件 ``\verb|./.sachist|''。任何储存在
+这就在当前目录创建并写入了一个副本文件 ``!./.sachist!''。任何储存在
 那里的文件将被载入命令历史中。如果这个命令位于你的启动初始化宏文件中，
 则每次你运行SAC时将在当前目录产生一个单独的命令行历史。在一个新执行的SAC中，
 上下键将浏览完整的命令历史，你可以修改以前输入的命令并再次执行它，如果你
 没有在SAC内或初始化宏文件中输入这个命令，则命令行历史将自动保存到
-\verb|~/.sac_history|。
+!~/.sac_history!。

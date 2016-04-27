@@ -5,8 +5,8 @@
 日常工作中经常需要识别震相、将波形按理论到时排序或迭加、计算震相到时
 残差等等，这些都需要用到震相理论到时。将震相理论到时写入到SAC文件的
 头段中，可以使得后期处理更加简单。SAC头段中可以用于保存震相到时信息的
-头段包括：\texttt{a}、\texttt{f} 以及\texttt{tn}（n=0--9），
-\texttt{ka}、\texttt{kf} 和 \texttt{ktn} 则用于保存相应的震相名信息。
+头段包括：!a!、!f! 以及!tn!（n=0--9），
+!ka!、!kf! 和 !ktn! 则用于保存相应的震相名信息。
 
 给SAC文件标记理论到时有三种方法，下面一一介绍。
 
@@ -43,20 +43,20 @@ SAC> lh t3 kt3 t4 kt4
          t4 = 7.999642e+02
         kt4 = S
 \end{SACCode}
-该命令会将震相P、S的理论到时依次写入头段变量 \texttt{t3}、\texttt{t4} 中，
+该命令会将震相P、S的理论到时依次写入头段变量 !t3!、!t4! 中，
 并在相应的K头段中写入震相名信息。该方法的优点在于是SAC内置命令，使用起来
 也很简单，缺点在于只支持两种地球速度模型。
 
-\subsection{taup\texttt{\_}setsac命令}
-\verb|taup_setsac| 是 \href{http://www.seis.sc.edu/taup/}{taup}
+\subsection{\texttt{taup\_setsac}命令}
+!taup_setsac! 是 \href{http://www.seis.sc.edu/taup/}{taup}
 软件提供的用于计算震相理论到时的独立于SAC的外部命令。
 \begin{minted}{console}
 $ taup_setsac -mod prem -ph P-6,S-7 -evdpkm *.SAC
 \end{minted}
 该命令会根据SAC文件中的震中距和震源深度信息，计算震相在一维地球模型下的
-理论走时，将震相走时写入到头段Tn中，并向 \texttt{KTn} 中写入震相名称，
-向 \texttt{USERn} 中写入震相的射线参数（单位为 \si{\s\per radian}）。
-上面的示例中，使用了PREM地球模型，将P和S的走时信息写入到头段 \texttt{T6}
-和 \texttt{T7} 中。
+理论走时，将震相走时写入到头段Tn中，并向 !KTn! 中写入震相名称，
+向 !USERn! 中写入震相的射线参数（单位为 \si{\s\per radian}）。
+上面的示例中，使用了PREM地球模型，将P和S的走时信息写入到头段 !T6!
+和 !T7! 中。
 
 该方法的优点在于支持多种地球标准模型、自定义模型以及自定义震相。

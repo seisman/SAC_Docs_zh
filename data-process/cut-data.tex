@@ -4,37 +4,37 @@
 数据申请时一般会选择尽可能长的时间窗，而实际进行数据处理和分析时可能只
 需要其中的一小段数据，这就需要对数据进行时间窗截取。
 
-SAC中的 \texttt{cut} 命令可以实现数据截取，需要注意的是，该命令是
-``参数设定类'' 命令，即需要先执行 \texttt{cut} 命令再执行
-\texttt{read} 命令。
+SAC中的 !cut! 命令可以实现数据截取，需要注意的是，该命令是
+``参数设定类'' 命令，即需要先执行 !cut! 命令再执行
+!read! 命令。
 
 \subsection{pdw}
 \label{subsec:pdw}
-使用 \texttt{cut} 命令对数据进行截取时需要定义数据时间窗。除了截取数据
+使用 !cut! 命令对数据进行截取时需要定义数据时间窗。除了截取数据
 之外，其他一些命令也会需要定义时间窗，比如 \nameref{cmd:rms}、
 \nameref{cmd:mtw}、\nameref{cmd:xlim} 等，这些命令都使用同样的方式定义
 时间窗，在SAC中称为pdw，即partial data window。
 
-pdw定义了一个开始时间和一个结束时间，其格式为 \texttt{ref offset ref offset}。
-其中 \texttt{ref} 为参考时刻，可以取 \texttt{Z}、\texttt{B}、\texttt{E}、
-\texttt{O}、\texttt{A}、\texttt{F}、\texttt{N} 和 \texttt{Tn}（n=0--9），
-而 \texttt{offset} 为相对于参考时刻的时间偏移量。
+pdw定义了一个开始时间和一个结束时间，其格式为 !ref offset ref offset!。
+其中 !ref! 为参考时刻，可以取 !Z!、!B!、!E!、
+!O!、!A!、!F!、!N! 和 !Tn!（n=0--9），
+而 !offset! 为相对于参考时刻的时间偏移量。
 
-参考时刻 \texttt{ref} 可以取如下值：
+参考时刻 !ref! 可以取如下值：
 \begin{itemize}
-\item \texttt{B}：磁盘文件起始值
-\item \texttt{E}：磁盘文件结束值
-\item \texttt{O}：事件开始时间
-\item \texttt{A}：初动到时
-\item \texttt{F}：信号结束时间
-\item \texttt{Tn}：用户自定义时间标记，n=0--9
-\item \texttt{Z}：参考时刻
-\item \texttt{N}：将 \texttt{offset} 解释为数据点数而非时间偏移量，
+\item !B!：磁盘文件起始值
+\item !E!：磁盘文件结束值
+\item !O!：事件开始时间
+\item !A!：初动到时
+\item !F!：信号结束时间
+\item !Tn!：用户自定义时间标记，n=0--9
+\item !Z!：参考时刻
+\item !N!：将 !offset! 解释为数据点数而非时间偏移量，
     其仅可以用于结束值
 \end{itemize}
 
-若开始或结束的 \texttt{offset} 省略则认为其值为0。若开始 \texttt{ref}
-省略则认为其为Z；若结束 \texttt{ref} 省略则认为其值与开始 \texttt{ref}
+若开始或结束的 !offset! 省略则认为其值为0。若开始 !ref!
+省略则认为其为Z；若结束 !ref! 省略则认为其值与开始 !ref!
 相同。
 
 下面的例子中展示了一些常见的pdw及其含义：
@@ -48,8 +48,8 @@ pdw定义了一个开始时间和一个结束时间，其格式为 \texttt{ref o
 \end{SACCode}
 
 \subsection{cut}
-\nameref{cmd:cut} 命令是``参数设定类''命令，因而需要先 \texttt{cut} 再
-\texttt{read}：
+\nameref{cmd:cut} 命令是``参数设定类''命令，因而需要先 !cut! 再
+!read!：
 \begin{SACCode}
 SAC> cut t0 -5 5        // 截取t0前后各5秒，共计10秒的数据
 SAC> r *.SAC            // 先cut再read

@@ -14,7 +14,7 @@ bg sgf
 psp am
 \end{SACCode}
 
-假设上面的代码保存到文件 \texttt{mystuff} 中，且该文件位于当前目录中，
+假设上面的代码保存到文件 !mystuff! 中，且该文件位于当前目录中，
 可以通过下面的命令执行该宏文件：
 \begin{SACCode}
 SAC> macro mystuff
@@ -29,7 +29,7 @@ SAC> macro mystuff
 \begin{enumerate}
 \item 在当前目录搜索；
 \item 在 \nameref{cmd:setmacro} 命令设置的搜索目录中搜索；
-\item 在SAC的全局宏目录（\verb|${SACHOME}/aux/macros|）中搜索；
+\item 在SAC的全局宏目录（!${SACHOME}/aux/macros!）中搜索；
 \end{enumerate}
 
 所有人都可以使用全局宏目录中的宏文件，可以使用 \nameref{cmd:installmacro}
@@ -39,7 +39,7 @@ SAC> macro mystuff
 如果想要每次读取不同的文件或者乘以不同的值那么必须每次都修改该文件，
 让宏文件在执行之前允许用户输入参数可以大大增加宏文件的灵活性。
 
-SAC宏参数的格式为：``\verb|$n$|''，其中n从1开始。
+SAC宏参数的格式为：``!$n$!''，其中n从1开始。
 
 下面将对先前的宏文件进行修改以使其可以接收文件名作为参数：
 \begin{SACCode}
@@ -49,7 +49,7 @@ fft
 bg sgf
 psp am
 \end{SACCode}
-``\verb|$1$|''、``\verb|$2$|''和``\verb|$3$|''分别表示宏文件
+``!$1$!''、``!$2$!''和``!$3$!''分别表示宏文件
 接收到的第一、二、三个参数，用下面的命令执行这个宏文件：
 \begin{SACCode}
 SAC> macro mystuff ABC DEF XYZ
@@ -74,7 +74,7 @@ fft
 bg sgf
 psp am
 \end{SACCode}
-\verb|$keys$| 表明``files''和``values''是关键字。可以按照下面的输入来
+!$keys$! 表明``files''和``values''是关键字。可以按照下面的输入来
 执行这个宏文件：
 \begin{SACCode}
 SAC> macro mystuff files ABC DEF XYZ values 4 8 9
@@ -99,7 +99,7 @@ fft
 bg sgf
 psp am
 \end{SACCode}
-\verb|$default$| 指定了宏参数 \texttt{values} 的缺省值，若在执行宏文件时
+!$default$! 指定了宏参数 !values! 的缺省值，若在执行宏文件时
 不输入values的参数值那么这些参数将使用缺省值：
 \begin{SACCode}
 SAC> macro mystuff files ABC DEF XYZ
@@ -116,7 +116,7 @@ SAC> macro mystuff values 10 12 3 files ABC DEF XYZ
 SAC> macro mystuff
 files? ABC DEF XYZ          // 用户输入ABC DEF XYZ
 \end{SACCode}
-注意到SAC并不会提示输入参数 \texttt{values} 的值，因为它们已经有了
+注意到SAC并不会提示输入参数 !values! 的值，因为它们已经有了
 缺省值。SAC并非在一开始就提示输入参数，其等到需要计算参数值却发现没有
 缺省值或者输入值时才会提示需要输入该参数。
 
@@ -167,13 +167,13 @@ SAC宏的条件判断格式如下：
 \begin{SACCode}
     token 关系运算符 token
 \end{SACCode}
-其中 \texttt{token} 可以是一个常数、宏参数、黑板变量或头段变量，关系
-运算符则是 \texttt{GT}、\texttt{GE}、\texttt{LE}、\texttt{LT}、
-\texttt{EQ}、\texttt{NE}中的一个。上面的逻辑表达式在计算之前 \texttt{token}
+其中 !token! 可以是一个常数、宏参数、黑板变量或头段变量，关系
+运算符则是 !GT!、!GE!、!LE!、!LT!、
+!EQ!、!NE!中的一个。上面的逻辑表达式在计算之前 !token!
 会被转换为浮点型数。
 
-条件判断语句目前最多支持10次嵌套，且 \texttt{elseif}、\texttt{else}
-是可选的，\texttt{elseif} 的次数没有限制。
+条件判断语句目前最多支持10次嵌套，且 !elseif!、!else!
+是可选的，!elseif! 的次数没有限制。
 
 下面给出一个例子：
 \begin{SACCode}
@@ -187,7 +187,7 @@ else
 endif
 \end{SACCode}
 在这个例子中，一个文件被读入内存，\nameref{cmd:markptp} 测出其最大峰峰值，
-并保存到头段变量 \texttt{user0} 中，若该值大于某一确定值，则对其做Fourier
+并保存到头段变量 !user0! 中，若该值大于某一确定值，则对其做Fourier
 变换并绘制振幅图，否则输出信息到终端。
 
 \subsection{循环控制}
@@ -225,14 +225,14 @@ ENDDO
 \end{SACCode}
 其中大写字符串均为关键字，不可更改：
 \begin{itemize}
-\item variable是循环变量名，在变量名前后加上``\verb|$|''即可在do循环中引用
+\item variable是循环变量名，在变量名前后加上``!$!''即可在do循环中引用
     该变量；
-\item \texttt{start}、\texttt{stop}、\texttt{increment} 循环变量的初值、
-    终值、增值，\texttt{start}、\texttt{stop} 必须为整型数，\texttt{increment}
+\item !start!、!stop!、!increment! 循环变量的初值、
+    终值、增值，!start!、!stop! 必须为整型数，!increment!
     缺省值为1
-\item \texttt{entrylist} 是do循环执行时变量可以取的所有值的集合，值之间
-    以空格分开，其可以为整型、浮点型或字符型。\texttt{DO WILD} 中
-    \texttt{entrylist} 由字符串和通配符构成，循环执行前，这个列表将根据
+\item !entrylist! 是do循环执行时变量可以取的所有值的集合，值之间
+    以空格分开，其可以为整型、浮点型或字符型。!DO WILD! 中
+    !entrylist! 由字符串和通配符构成，循环执行前，这个列表将根据
     通配符扩展为一系列文件名。
 \end{itemize}
 
@@ -266,8 +266,8 @@ do time2 from 2 to 10 by 2
 enddo
 \end{SACCode}
 
-在下面的例子中，一个宏文件调用另一个名为 \texttt{preview} 的宏文件，
-通过do循环以达到多次调用 \texttt{preview} 的目的：
+在下面的例子中，一个宏文件调用另一个名为 !preview! 的宏文件，
+通过do循环以达到多次调用 !preview! 的目的：
 \begin{SACCode}
 do station list abc def xyz
     do component list z n e
@@ -276,7 +276,7 @@ do station list abc def xyz
 enddo
 \end{SACCode}
 
-在下面的示例展示了如何处理目录 \texttt{mydir} 中所有以 \texttt{.Z} 结束
+在下面的示例展示了如何处理目录 !mydir! 中所有以 !.Z! 结束
 的文件：
 \begin{SACCode}
 do file wild dir mydir *.Z
@@ -304,7 +304,7 @@ while 1 gt 0
     endif
 enddo
 \end{SACCode}
-这个 \texttt{while} 循环是一个无限循环，它只能通过 \texttt{break} 来中断。
+这个 !while! 循环是一个无限循环，它只能通过 !break! 来中断。
 
 \subsection{嵌套与递归}
 SAC宏提供嵌套功能，不支持递归，但是SAC并不会去检查宏的调用是否保证不是
@@ -312,12 +312,12 @@ SAC宏提供嵌套功能，不支持递归，但是SAC并不会去检查宏的�
 
 \subsection{中断宏}
 有些时候需要临时中断宏文件的执行，用户自己从终端输入一些命令，然后继续
-执行宏文件。这个可以利用SAC的 \texttt{pause} 和 \texttt{resume} 特性做到。
-当SAC在宏文件中遇到 \verb|$TERMINAL$| 时会临时停止执行宏文件，更改
-提示符为宏名，然后提示从终端输入命令，然后当SAC在终端中看到 \verb|$RESUME$|
+执行宏文件。这个可以利用SAC的 !pause! 和 !resume! 特性做到。
+当SAC在宏文件中遇到 !$TERMINAL$! 时会临时停止执行宏文件，更改
+提示符为宏名，然后提示从终端输入命令，然后当SAC在终端中看到 !$RESUME$!
 时则会停止从终端读取命令继续从宏文件读取。如果你不想再继续执行宏文件中的
-命令，可以在终端输入 \verb|$KILL$|，SAC将关闭宏文件，回到上一层。
-在一个宏文件中可以有多个 \verb|$TERMINAL$| 中断。
+命令，可以在终端输入 !$KILL$!，SAC将关闭宏文件，回到上一层。
+在一个宏文件中可以有多个 !$TERMINAL$! 中断。
 
 \subsection{调用外部程序}
 你可以在SAC宏内部执行其他程序，可以向程序传递参数。如果程序是交互式的
@@ -328,16 +328,16 @@ inputlines
 ENDRUN
 \end{SACCode}
 宏参数、黑板变量、头段变量、内联函数均可使用，在程序执行之前它们会被计算，
-当程序执行结束，SAC宏会在 \texttt{ENDRUN} 之后继续执行。
+当程序执行结束，SAC宏会在 !ENDRUN! 之后继续执行。
 
 \subsection{转义字符}
-字符``\verb|$|''和``\verb|%|''在SAC中具有特殊的含义，有时在字符串中需要
+字符``!$!''和``!%!''在SAC中具有特殊的含义，有时在字符串中需要
 使用这些特殊字符，但SAC会将其解释成一个变量，此时就需要使用转义字符，
-SAC中的转义符为``\verb|@|''，可以被转义的特殊符号包括：
+SAC中的转义符为``!@!''，可以被转义的特殊符号包括：
 \begin{itemize}
-\item \verb|$| 宏参数标识符
-\item \verb|%| 黑板变量标识符
-\item \verb|&| 头段变量标识符
-\item \verb|@| 转义字符本身
-\item \verb|()| 内联函数起始符
+\item !$! 宏参数标识符
+\item !%! 黑板变量标识符
+\item !&! 头段变量标识符
+\item !@! 转义字符本身
+\item !()! 内联函数起始符
 \end{itemize}
