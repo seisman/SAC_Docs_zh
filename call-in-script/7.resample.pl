@@ -32,7 +32,7 @@ foreach (glob "*.*.*.[RTZ]") {
     # 用interpolate实现减采样或增采样
     # 若是减采样，则需要对数据做低通滤波以防止出现混淆效应
     # 低通滤波时或许需要加上p 2以避免滤波引起的相移
-    print SAC "lp c %f\n", 0.5/$delta if $delta > $delta0;
+    printf SAC "lp c %f\n", 0.5/$delta if $delta > $delta0;
     print SAC "interpolate delta $delta \n";
 
     print SAC "w over\n";
