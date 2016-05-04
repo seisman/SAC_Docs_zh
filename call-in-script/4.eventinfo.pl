@@ -25,7 +25,7 @@ print SAC "r *.SAC \n";
 print SAC "synchronize \n";   # 同步所有文件的参考时刻
 print SAC "ch o gmt $year $jday $hour $minute $sec $msec \n";
 print SAC "ch allt (0 - &1,o&) iztype IO \n";
-print SAC "ch evlo $evlo evla $evlo evdp $evdp mag $mag \n";
+print SAC "ch evlo $evlo evla $evla evdp $evdp mag $mag \n";
 print SAC "wh \n";
 print SAC "q \n";
 close(SAC);
