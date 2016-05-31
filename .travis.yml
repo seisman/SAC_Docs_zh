@@ -1,20 +1,28 @@
 language: python
-python:
-    - "3.5"
 sudo: required
 dist: trusty
 
-branches:
-    only:
-      - master
+branch:
+    except:
+        - pdf
 
 install:
+    # python
     - pip install pygments ghp-import
-    - bash ./.texlive-minmal-installer.sh
-    - source ./srcfile
+    # TeXLive
+    - curl -sSL https://raw.githubusercontent.com/ustctug/mini-texlive/master/install-tl.sh -o install-tl.sh
+    - sed -i 's!http://mirrors.ustc.edu.cn/CTAN!http://ctan.sharelatex.com/tex-archive!' install-tl.sh
+    - sudo bash install-tl.sh
+    - source ~/.bash_profile
+    - export TLMGR=`which tlmgr`
+    - sudo $TLMGR update --self --all -repository http://ctan.sharelatex.com/tex-archive/systems/texlive/tlnet/
+    - sudo $TLMGR install tracklang siunitx symbol
 
 script:
     make
 
-after_success:
-    bash .travis-deploy.sh
+deploy:
+    provider: script
+    script: ./.travis-deploy.sh
+    on:
+        branch: master
