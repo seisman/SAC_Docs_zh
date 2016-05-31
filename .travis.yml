@@ -22,7 +22,7 @@ script:
     make
 
 deploy:
-    skip_cleanup: false
+    skip_cleanup: true
     provider: script
     script: ./.travis-deploy.sh
     on:
