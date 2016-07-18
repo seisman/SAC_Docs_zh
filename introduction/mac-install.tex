@@ -1,17 +1,24 @@
 \section{在Mac下安装SAC}
 \label{sec:sac-install-for-mac}
-本节介绍如何在Mac OS X 10.10 Yosemite安装SAC。
+本节介绍如何在Mac OS X 如何安装SAC。
 
-Mac下安装SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包。对于
-大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法。
+Mac下安装SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包
+\footnote{似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法}。
+对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法。
 
 \subsection{准备工作}
 首先要安装Mac下的命令行工具。在终端执行如下命令：
 \begin{minted}{console}
 $ xcode-select --install
 \end{minted}
-还需要安装X11相关工具，到 \href{http://xquartz.macosforge.org/landing/}{XQuartz}
-下载dmg安装包并安装即可。
+即可。
+
+此外，还需要安装X11图形界面相关工具，即 XQuartz。可以直接到 \href{http://xquartz.macosforge.org/landing/}{XQuartz}
+下载dmg安装包并安装。对于 Homebrew 用户，可以使用
+\begin{minted}{console}
+$ brew cask install xquartz
+\end{minted}
+安装。
 
 \subsection{安装二进制包}
 直接将官方的二进制包解压并移动到安装目录即可：
