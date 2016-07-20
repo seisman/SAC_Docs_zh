@@ -14,6 +14,19 @@ $ pip install obspy
 的波形放在一张图上进行对比，最后将滤波后的数据写到文件中。
 \inputminted{python}{sacio/obspy-example.py}
 
+% Obspy最新版本到1.0.1，穩定性比之前好很多
+% 可直接讀取多種通用波形格式，包含直接讀miniseed檔案
+% 讀取波形後要把資訊寫入SAC檔頭
+% 可使用SACTrace.from_obspy_trace
+% 詳細可看
+% https://docs.obspy.org/packages/autogen/obspy.io.sac.sactrace.html
+% 若要cut波形，讀取完波形，不管是stream或trace
+% 都可使用trim(stream.trim or trace.trim)
+% 個人認為特點是規格化時間讀取和輸出 (utcdatetime)
+% https://docs.obspy.org/packages/autogen/obspy.core.utcdatetime.UTCDateTime.html
+% 和規格化讀取地震目錄讀取和輸出(read_events）
+% https://docs.obspy.org/master/packages/autogen/obspy.core.event.catalog.read_events.html
+
 \subsection{其他}
 ObsPy是一个相对完整的数据处理模块，SAC的读写只是其中的一小部分。个人
 感觉，ObsPy在读写SAC文件时还存在如下几个问题：
