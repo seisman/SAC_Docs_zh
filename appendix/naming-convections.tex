@@ -23,11 +23,13 @@
 \end{itemize}
 
 \section{位置码}
-位置码（Location ID）用于区分同一个台站处几套类似的仪器，这些仪器可能是
-相同的型号，但位于不同的深度或者指向不同的方位；也有可能是不同型号的仪器。
 
-位置码通常用两位字母或数字表示，比如常见的 !00!、!01!、
-!10! 等。对于一个台站只有一套仪器的情况，位置码通常是空值。
+关于位置码的详细介绍，见 \href{http://ds.iris.edu/ds/newsletter/vol1/no1/specification-of-seismograms-the-location-identifier/}{IRIS: DS Newsletter: Vol. 1, No. 1}。
+
+位置码用于区分同一个台站下多个传感器的不同数据，或者同一个传感器传来的多个数据流。
+通常来说，同一个台站不同位置码的两个地震数据具有极为相似但有略有不同的波形。
+
+常见的位置码为空，偶尔会见到 !00! 、 !01! 、 !10! 这样的，也有遇到 !60! 这样的。
 
 \section{质量控制}
 \label{sec:quality-control}
