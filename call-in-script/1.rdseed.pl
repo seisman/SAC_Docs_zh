@@ -7,9 +7,9 @@ my ($dir) = @ARGV;
 
 chdir $dir;  # cd进数据所在目录，以避免处理路径
 
-my @seed = glob "*.seed";
 # rdseed一次只能处理一个SEED文件
-die "One and only one SEED file is needed!\n" if @seed != 1;
-system "rdseed -pdf @seed";
+foreach my $seed (glob "*.seed") {
+    system "rdseed -pdf $seed";
+}
 
 chdir "..";
