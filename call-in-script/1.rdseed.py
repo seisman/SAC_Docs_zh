@@ -15,11 +15,7 @@ dir = sys.argv[1]
 
 os.chdir(dir)  # cd进数据所在目录，以避免处理路径
 
-# 假定当前目录只有一个SEED
-seed = glob.glob("*.seed")
-if len(seed) != 1:
-    sys.exit("One and only one SEED file is needed!")
-
-subprocess.call(['rdseed', '-pdf', seed[0]])
+for seed in glob.glob("*.seed"):
+    subprocess.call(['rdseed', '-pdf', seed])
 
 os.chdir("..")
