@@ -44,6 +44,15 @@ foreach my $key (keys %sets) {
         next;
     }
 
+    # 检查水平分量是否正交
+    my (undef, $cmpaz_E) = split m/\s+/, `saclst cmpaz f $E`;
+    my (undef, $cmpaz_N) = split m/\s+/, `saclst cmpaz f $N`;
+    unless ((($cmpaz_E - $cmpaz_N) == 90) or (($cmpaz_E - $cmpaz_N) == -90)) {
+        warn "$E $N are not orthogonal!\n";
+        unlink glob "$key?.SAC";
+        next;
+    }
+
     # 假定kzdate和kztime相同
     # 检查B, E, DELTA
     my (undef, $Zb, $Ze, $Zdelta) = split " ", `saclst b e delta f $Z`;
