@@ -27,7 +27,6 @@ foreach my $key (keys %sets) {
     $Z = "${key}Z.SAC";
     if (!-e $Z) {  # 若不存在，则删除该台站的所有数据
         warn "$key: Vertical component missing!\n";
-        unlink glob "$key?.SAC";
         next;
     }
 
@@ -40,7 +39,6 @@ foreach my $key (keys %sets) {
         $N = "${key}2.SAC";
     } else {   # 水平分量缺失
         warn "$key: Horizontal components missing!\n";
-        unlink glob "$key?.SAC";
         next;
     }
 
@@ -50,7 +48,6 @@ foreach my $key (keys %sets) {
     my $cmpaz_delta = abs($cmpaz_E - $cmpaz_N);
     unless ((abs($cmpaz_delta - 90) <= 0.01) or (abs($cmpaz_delta - 270) <= 0.01)) {
         warn "$key: $E $N are not orthogonal!\n";
-        unlink glob "$key?.SAC";
         next;
     }
 
@@ -61,7 +58,6 @@ foreach my $key (keys %sets) {
     my (undef, $Nb, $Ne, $Ndelta) = split " ", `saclst b e delta f $N`;
     unless ( $Zdelta == $Edelta and $Zdelta == $Ndelta) {
         warn "$key: delta not equal!\n";
-        unlink glob "$key?.SAC";
         next;
     }
 
