@@ -3,6 +3,7 @@
 
 import os
 import sys
+import math
 import glob
 import subprocess
 
@@ -44,6 +45,17 @@ for key in sets:
         for fname in glob.glob(key + "?.SAC"):
             os.unlink(fname)
         continue
+
+    # 检查水平分量是否正交
+    Ecmpaz = subprocess.check_output(['saclst', 'cmpaz', 'f', E]).decode().split()[1:]
+    Ncmpaz = subprocess.check_output(['saclst', 'cmpaz', 'f', E]).decode().split()[1:]
+    cmpaz_delta = math.abs(Ecmpaz - Ncmpaz)
+    if not (math.abs(cmpaz_delta-90)<=0.01 or math.abs(cmpaz_delta-270)<=0.01):
+        print("%s: %s %s are not orthogonal!\n" % (key, E, N))
+        for fname in glob.glob(key + "?.SAC"):
+            os.unlink(fname)
+        continue
+
 
     # 检查B, E, DELTA
     Zb, Ze, Zdelta = subprocess.check_output(['saclst', 'b', 'e', 'delta', 'f', Z]).decode().split()[1:]
