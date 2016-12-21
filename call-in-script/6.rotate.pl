@@ -26,8 +26,7 @@ foreach my $key (keys %sets) {
     # 检查Z分量是否存在
     $Z = "${key}Z.SAC";
     if (!-e $Z) {  # 若不存在，则删除该台站的所有数据
-        warn "Vertical component missing!\n";
-        unlink glob "$key?.SAC";
+        warn "$key: Vertical component missing!\n";
         next;
     }
 
@@ -39,8 +38,16 @@ foreach my $key (keys %sets) {
         $E = "${key}1.SAC";
         $N = "${key}2.SAC";
     } else {   # 水平分量缺失
-        warn "Horizontal components missing!\n";
-        unlink glob "$key?.SAC";
+        warn "$key: Horizontal components missing!\n";
+        next;
+    }
+
+    # 检查水平分量是否正交
+    my (undef, $cmpaz_E) = split m/\s+/, `saclst cmpaz f $E`;
+    my (undef, $cmpaz_N) = split m/\s+/, `saclst cmpaz f $N`;
+    my $cmpaz_delta = abs($cmpaz_E - $cmpaz_N);
+    unless ((abs($cmpaz_delta - 90) <= 0.01) or (abs($cmpaz_delta - 270) <= 0.01)) {
+        warn "$key: $E $N are not orthogonal!\n";
         next;
     }
 
@@ -49,7 +56,10 @@ foreach my $key (keys %sets) {
     my (undef, $Zb, $Ze, $Zdelta) = split " ", `saclst b e delta f $Z`;
     my (undef, $Eb, $Ee, $Edelta) = split " ", `saclst b e delta f $E`;
     my (undef, $Nb, $Ne, $Ndelta) = split " ", `saclst b e delta f $N`;
-    die "$key: delta not equal\n" if $Zdelta != $Edelta or $Zdelta != $Ndelta;
+    unless ( $Zdelta == $Edelta and $Zdelta == $Ndelta) {
+        warn "$key: delta not equal!\n";
+        next;
+    }
 
     # 获取三分量里的最大B和最小E值作为数据窗
     my $begin = max($Zb, $Eb, $Nb) + $Zdelta;

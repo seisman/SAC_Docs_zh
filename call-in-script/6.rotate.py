@@ -27,9 +27,7 @@ for key in sets:
     # 检测Z分量是否存在
     Z = key + "Z.SAC"
     if not os.path.exists(Z):
-        print("%s: Vertical component missing!\n" % key)
-        for fname in glob.glob(key + "?.SAC"):
-            os.unlink(fname)
+        print("%s: Vertical component missing!" % key)
         continue
 
     # 检测水平分量是否存在
@@ -40,15 +38,25 @@ for key in sets:
         E = key + "1.SAC"
         N = key + "2.SAC"
     else:
-        print("%s: Horizontal components missings!\n" % key)
-        for fname in glob.glob(key + "?.SAC"):
-            os.unlink(fname)
+        print("%s: Horizontal components missings!" % key)
+        continue
+
+    # 检查水平分量是否正交
+    Ecmpaz = subprocess.check_output(['saclst', 'cmpaz', 'f', E]).decode().split()[1]
+    Ncmpaz = subprocess.check_output(['saclst', 'cmpaz', 'f', N]).decode().split()[1]
+    cmpaz_delta = abs(float(Ecmpaz) - float(Ncmpaz))
+    if not (abs(cmpaz_delta-90)<=0.01 or abs(cmpaz_delta-270)<=0.01):
+        print("%s: cmpaz1=%s, cmpaz2=%s are not orthogonal!" % (key, Ecmpaz, Ncmpaz))
         continue
 
     # 检查B, E, DELTA
     Zb, Ze, Zdelta = subprocess.check_output(['saclst', 'b', 'e', 'delta', 'f', Z]).decode().split()[1:]
     Eb, Ee, Edelta = subprocess.check_output(['saclst', 'b', 'e', 'delta', 'f', E]).decode().split()[1:]
     Nb, Ne, Ndelta = subprocess.check_output(['saclst', 'b', 'e', 'delta', 'f', N]).decode().split()[1:]
+
+    if not (float(Zdelta) == float(Edelta) and float(Zdelta) == float(Ndelta)):
+        print("%s: delta not equal!" % key)
+        continue
 
     # 获取三分量的最大B和最小E值作为数据窗
     begin = max(float(Zb), float(Eb), float(Nb))
