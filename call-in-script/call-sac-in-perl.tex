@@ -78,9 +78,7 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 \item 取三分量中的最大 !b! 和最小 !e! 值作为数据窗口，此
     操作要求三分量的 !kzdate! 和 !kztime! 必须相同，这一点
     在添加事件信息时使用 \nameref{cmd:synchronize} 已经实现
-\item 未检查分量的 !cmpinc! 和 !cmpaz! 是否符合要求。若不
-    符合要求，SAC会报错且不会旋转，写到磁盘中的R和T分量实际上是原数据，
-    暂不知如何处理。
+\item 检查两个水平分量是否正交，若不正交，则无法旋转
 \end{itemize}
 
 下载地址： \href{https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/6.rotate.pl}{6.rotate.pl}
