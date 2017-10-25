@@ -2,7 +2,7 @@
 \label{sss:velocitymodel}
 
 \SACTitle{概要}
-设置计算动延迟时所使用的迭加速度模型参数
+设置计算动延迟时所使用的叠加速度模型参数
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -34,7 +34,7 @@ velocitymodel 2 off
 \end{SACDFT}
 
 \SACTitle{说明}
-第一个速度模型用于计算某个特定震相的动态台站延迟。在信号迭加(\nameref{sss:sumstack})、绘图叠加图(\nameref{sss:plotstack})、绘制剖面图(\nameref{sss:plotrecordsection})时会使用该模型。第二个速度模型用于在绘图剖面图时显示相对于第二震相的延迟。这两个模型的参数可以很容易的进行交换。
+第一个速度模型用于计算某个特定震相的动态台站延迟。在信号叠加(\nameref{sss:sumstack})、绘图叠加图(\nameref{sss:plotstack})、绘制剖面图(\nameref{sss:plotrecordsection})时会使用该模型。第二个速度模型用于在绘图剖面图时显示相对于第二震相的延迟。这两个模型的参数可以很容易的进行交换。
 
 可以使用两种速度模型，即折射波速度模型：
 \[ T_{delay} = TVM(1) - \frac{TOVM+DIST}{VAPP} \]
@@ -49,7 +49,7 @@ velocitymodel 2 off
 \end{itemize}
 
 \SACTitle{示例}
-设置第一个迭加速度模型为折射波模型，视速度为 \SI{6.5}{\km\per\s}，让SAC
+设置第一个叠加速度模型为折射波模型，视速度为 \SI{6.5}{\km\per\s}，让SAC
 自动计算TOVM以使得 \SI{200}{\km}处的时间延迟为零：
 \begin{SACCode}
 velocitymodel 1 refractedwave vapp 6.5 tovm calculate dvm 200 tvm 35

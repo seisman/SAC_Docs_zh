@@ -2,7 +2,7 @@
 \label{sss:plotrecordsection}
 
 \SACTitle{概要}
-用迭加文件列表中的文件绘制剖面图
+用叠加文件列表中的文件绘制剖面图
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -37,10 +37,10 @@ plotrecordsection labels filename origin default referenceline on size 0.1
 \end{SACDFT}
 
 \SACTitle{说明}
-该命令将利用迭加文件列表中绘制剖面图。在portrait模式下，X轴为时间，Y轴为震中距，
+该命令将利用叠加文件列表中绘制剖面图。在portrait模式下，X轴为时间，Y轴为震中距，
 在landscape模式下则交换XY轴。每个文件的零振幅将会画在距离轴上对应的震中距处。
 
-为了能够正确绘图，迭加列表中的所有文件必须定义震中距属性，该属性可以来自于文件
+为了能够正确绘图，叠加列表中的所有文件必须定义震中距属性，该属性可以来自于文件
 头段，也可以在 \nameref{sss:globalstack}、\nameref{sss:addstack}、\nameref{sss:changestack}
 等命令的DISTANCE选项中定义。
 
