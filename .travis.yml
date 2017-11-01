@@ -10,8 +10,7 @@ install:
     # python
     - pip install pygments ghp-import
     # TeXLive
-    - curl -sSL https://raw.githubusercontent.com/ustctug/mini-texlive/master/install-tl.sh -o install-tl.sh
-    - sed -i 's!http://mirrors.ustc.edu.cn/CTAN!http://ctan.sharelatex.com/tex-archive!' install-tl.sh
+    - curl -sSL https://gist.githubusercontent.com/seisman/ad00252a9f03fc644146a11e6983d9c5/raw/install-tl.sh -o install-tl.sh
     - sudo bash install-tl.sh
     - source ~/.bash_profile
     - export TLMGR=`which tlmgr`
