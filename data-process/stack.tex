@@ -13,24 +13,24 @@ SAC 通过提供一个子程序 Signal Stack Subprocess（简称 sss）来实现
 \subsection{添加文件}
 
 首先，需要让 SAC 读入要叠加的 SAC 文件。
-
 \begin{SACCode}
+SAC> sss   // 进入 sss 子程序
+Signal Stacking Subprocess.
 SAC/SSS> addstack a.SAC weight 1 delay 20 seconds
 \end{SACCode}
 
-上面的例子是读入文件 a.SAC。
-weight 1 是设置权重，即用 1 乘以 SAC 文件的每一个点的值，权重可以是 0 到 1 的数。
-delay 20 seconds 是波形向后延迟 20 秒。
+上面的示例中读入了文件 a.SAC，weight 1 设置了文件在叠加中的权重，即用 1 乘以
+SAC 文件的每一个点的值，权重可以是 0 到 1 的数。
+delay 20 seconds 表示将波形向后延迟 20 秒。
 
-再看下面的例子。加文件列表中，我们可以看到有两个 a.SAC，这是因为之前在 sss 外读取了一次文件 a.SAC。
-第二个 a.SAC 的 delayt 属性即 DELAY TIME 是 10s。
+在SAC主程序中读入的文件，在进入子程序时会保留。如下面的例子所示：
 
 \begin{SACCode}
 SAC> r a.SAC    // 读取了文件 a.SAC
-SAC> sss
+SAC> sss   // 进入 sss 子程序
 Signal Stacking Subprocess.
-SAC/SSS> addstack a.SAC delay 10 s    // 添加了 a.SAC，并且延迟 10s
-SAC/SSS> addstack b.SAC
+SAC/SSS> addstack a.SAC delay 10 s    // 添加文件 a.SAC，并延迟 10s
+SAC/SSS> addstack b.SAC               // 添加文件 b.SAC
 SAC/SSS> liststack    // 列出叠加文件列表中的文件属性
 
  filename  weight      delayt      delayn     delayvm   polarity   distance
@@ -48,9 +48,7 @@ SAC/SSS> liststack    // 列出叠加文件列表中的文件属性
 
 \subsection{叠加文件}
 
-本小节用两个脉冲函数做例子说明 sss 叠加文件。
-
-首先，生成两个脉冲函数文件，然后尝试把它们叠加起来
+本小节首先生成两个脉冲函数文件，然后尝试用多种方式把它们叠加起来。
 
 \begin{SACCode}
 SAC> funcgen impulse npts 10 delta 1 begin 0
@@ -75,11 +73,11 @@ SAC/SSS> sumstack    // 叠加波形
 \label{fig:stack-without-delay}
 \end{figure}
 
-执行后，SAC 会自动弹出叠加后的波形图。我们可以看到两个脉冲信号。
-叠加的方式需要理解到两点：一是波形是按相对时刻对齐的。
+执行后，SAC 会自动弹出叠加后的波形图，此时可以看到两个脉冲信号。
+叠加的方式需要注意两点：一是波形是按相对时刻对齐的；
 二是叠加后会做归一化，所以最大振幅只有 0.5。
 
-下面我们尝试把 a.SAC 和 b.SAC 叠加起来，并做动校正让脉冲信号重合，并且振幅就是简单的求和使其等于 2。
+下面尝试把 a.SAC 和 b.SAC 叠加起来，并做动校正让脉冲信号重合，并且振幅就是简单的求和使其等于 2。
 
 \begin{SACCode}
 SAC/SSS> zero stack
