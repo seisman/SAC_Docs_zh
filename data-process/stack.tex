@@ -10,7 +10,7 @@ SAC 通过提供一个子程序 Signal Stack Subprocess（简称 sss）来实现
 在SAC中键入``!sss!''即可进入该子程序；在子程序中键入 \nameref{cmd:quitsub} 即可
 退出子程序并回到主程序；也可键入 \nameref{cmd:quit} 直接从子程序中退出SAC。
 
-\subsection{添加和移除文件}
+\subsection{添加文件}
 
 首先，需要让 SAC 读入要叠加的 SAC 文件。
 
@@ -72,7 +72,7 @@ SAC/SSS> sumstack    // 叠加波形
 \centering
 \includegraphics[width=0.8\textwidth]{stack-without-delay}
 \caption{不做动校正的叠加}
-\label{fig:filter-waveform}
+\label{fig:stack-without-delay}
 \end{figure}
 
 执行后，SAC 会自动弹出叠加后的波形图。我们可以看到两个脉冲信号。
@@ -95,5 +95,5 @@ SAC/SSS> sumstack n off
 \centering
 \includegraphics[width=0.8\textwidth]{stack-with-delay}
 \caption{做动校正的叠加}
-\label{fig:filter-waveform}
+\label{fig:stack-with-delay}
 \end{figure}
