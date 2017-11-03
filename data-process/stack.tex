@@ -1,16 +1,16 @@
 \section{信号叠加}
-\label{sec:stack-files}
+\label{sec:stack-traces}
 相关命令：\nameref{sss:addstack}、\nameref{sss:liststack}、
 \nameref{sss:sumstack}、\nameref{sss:zerostack}
 
-信号叠加可能是叠加地震波波形，也可能是叠加互相关函数等等，它是消除噪声，加强有效信号的常用手段。
-SAC 通过提供一个子程序 Signal Stack Subprocess，简称 sss， 来实现。
+信号叠加是消除噪声、增强有效信号的常用手段。
+SAC 通过提供一个子程序 Signal Stack Subprocess（简称 sss）来实现。
 
 \subsection{sss 的进入和退出}
 在SAC中键入``!sss!''即可进入该子程序；在子程序中键入 \nameref{cmd:quitsub} 即可
 退出子程序并回到主程序；也可键入 \nameref{cmd:quit} 直接从子程序中退出SAC。
 
-\subsection{添加文件移除文件}
+\subsection{添加和移除文件}
 
 首先，需要让 SAC 读入要叠加的 SAC 文件。
 
@@ -26,9 +26,6 @@ delay 20 seconds 是波形向后延迟 20 秒。
 第二个 a.SAC 的 delayt 属性即 DELAY TIME 是 10s。
 
 \begin{SACCode}
-SEISMIC ANALYSIS CODE [07/05/2015 (Version 101.6a)]
-Copyright 1995 Regents of the University of California
-
 SAC> r a.SAC    // 读取了文件 a.SAC
 SAC> sss
 Signal Stacking Subprocess.
@@ -56,8 +53,6 @@ SAC/SSS> liststack    // 列出叠加文件列表中的文件属性
 首先，生成两个脉冲函数文件，然后尝试把它们叠加起来
 
 \begin{SACCode}
-SEISMIC ANALYSIS CODE [07/05/2015 (Version 101.6a)]
-Copyright 1995 Regents of the University of California
 SAC> funcgen impulse npts 10 delta 1 begin 0
 // 生成一个脉冲函数，数据点数 10 个，采样间隔 1s， 头段 b 为 0
 SAC> w a.SAC
@@ -82,7 +77,8 @@ SAC/SSS> sumstack    // 叠加波形
 
 执行后，SAC 会自动弹出叠加后的波形图。我们可以看到两个脉冲信号。
 叠加的方式需要理解到两点：一是波形是按相对时刻对齐的。
-二是叠加默认会均一化，所以看到最大振幅只有 0.5。
+二是叠加后会做归一化，所以最大振幅只有 0.5。
+
 下面我们尝试把 a.SAC 和 b.SAC 叠加起来，并做动校正让脉冲信号重合，并且振幅就是简单的求和使其等于 2。
 
 \begin{SACCode}
