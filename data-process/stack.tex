@@ -15,18 +15,18 @@ SAC 通过提供一个子程序 Signal Stack Subprocess，简称 sss， 来实�
 首先，需要让 SAC 读入要叠加的 SAC 文件。
 
 \begin{SACCode}
-SAC/SSS> ADDSTACK a WEIGHT 1 DELAY 20 SECONDS
+SAC/SSS> addstack a.SAC weight 1 delay 20 seconds
 \end{SACCode}
 
-上面的例子是读入文件 a。
+上面的例子是读入文件 a.SAC。
 WEIGHT 1 是设置权重，即用 1 乘以 SAC 文件的每一个点的值，权重可以是 0 到 1 的数。
 DELAY 20 SECONDS 是波形向后延迟 20 秒。
 
-再看下面的例子。打开 SAC 后，读取了文件a。
-然后，进入了 sss，用简写的方式添加了 a 和 b，其中文件 a 延迟 10s。
+再看下面的例子。打开 SAC 后，读取了文件 a.SAC。
+然后，进入了 sss，用简写的方式添加了 a.SAC 和 b.SAC，其中文件 a.SAC 延迟 10s。
 接着输入的 \nameref{sss:liststack} 命令不是列出当前路径的内容而是列出 sss 添加了哪些文件。
-首先，我们可以看到有两个文件 a，这是因为之前在 sss 外读取了一次文件 a。
-第二个 a 的 delayt 属性即 DELAY TIME 是 10。
+首先，我们可以看到有两个文件 a.SAC，这是因为之前在 sss 外读取了一次文件 a.SAC。
+第二个 a.SAC 的 delayt 属性即 DELAY TIME 是 10。
 
 \begin{SACCode}
 SEISMIC ANALYSIS CODE [07/05/2015 (Version 101.6a)]
@@ -35,17 +35,17 @@ Copyright 1995 Regents of the University of California
 SAC> r a
 SAC> sss
 Signal Stacking Subprocess.
-SAC/SSS> as a delay 10 s
-SAC/SSS> as b
+SAC/SSS> as a.SAC delay 10 s
+SAC/SSS> as b.SAC
 SAC/SSS> ls
 
  filename  weight      delayt      delayn     delayvm   polarity   distance
                            delayti     delayni      begin       end
- a         1.000       0.000       0.000       0.000   NORMAL   -12345.000
+ a.SAC         1.000       0.000       0.000       0.000   NORMAL   -12345.000
                              0.000       0.000      10.000      14.000
- a         1.000       10.00       0.000       0.000   NORMAL   -12345.000
+ a.SAC         1.000       10.00       0.000       0.000   NORMAL   -12345.000
                              0.000       0.000      10.000      14.000
- b         1.000       0.000       0.000       0.000   NORMAL   -12345.000
+ b.SAC         1.000       0.000       0.000       0.000   NORMAL   -12345.000
                              0.000       0.000      20.000      24.000
  Time Window:       0.000       0.000
  Stack Velocity Model 1 OFF
@@ -63,10 +63,10 @@ SEISMIC ANALYSIS CODE [07/05/2015 (Version 101.6a)]
 Copyright 1995 Regents of the University of California
 SAC> funcgen impulse npts 10 delta 1 begin 0
 // 生成一个脉冲函数，数据点数 10 个，采样间隔 1s， 头段 b 为 0
-SAC> w a
+SAC> w a.SAC
 SAC> funcgen impulse npts 10 delta 1 begin 10
 // 生成一个脉冲函数，数据点数 10 个，采样间隔 1s， 头段 b 为 10
-SAC> w b
+SAC> w b.SAC
 \end{SACCode}
 
 上面的步骤生成了两个脉冲函数，我们现在尝试把它们叠加起来：
@@ -75,8 +75,8 @@ SAC> w b
 SAC> sss
  Signal Stacking Subprocess.
 SAC/SSS> zs         // 清除之前添加的文件及各种设置
-SAC/SSS> as a
-SAC/SSS> as b
+SAC/SSS> as a.SAC
+SAC/SSS> as b.SAC
 SAC/SSS> tw 0 19    // 确定时窗，必选设定
 SAC/SSS> ss
 \end{SACCode}
@@ -91,12 +91,12 @@ SAC/SSS> ss
 ss 就是叠加命令。执行后，SAC 会自动弹出叠加后的波形图。我们可以看到两个脉冲信号。
 叠加的方式需要理解到两点：一是波形是按相对时刻对齐的。
 二是叠加默认会均一化，所以看到最到振幅只有 0.5。
-下面我们尝试把 a 和 b 叠加起来，并做动校正让脉冲信号重合，并且振幅就是简单的求和使其等于 2。
+下面我们尝试把 a.SAC 和 b.SAC 叠加起来，并做动校正让脉冲信号重合，并且振幅就是简单的求和使其等于 2。
 
 \begin{SACCode}
 SAC/SSS> zs
-SAC/SSS> as a delay 10 s
-SAC/SSS> as b
+SAC/SSS> as a.SAC delay 10 s
+SAC/SSS> as b.SAC
 SAC/SSS> tw 0 19
 SAC/SSS> ss n off
 \end{SACCode}
