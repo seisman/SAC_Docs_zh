@@ -16,4 +16,4 @@ $(DOC).pdf: $(DOC).tex
 
 clean:
 	latexmk -c
-	-rm -r _minted-$(DOC) *.minted* *.pyg
+	-rm -r _minted-$(DOC) *.minted* *.pyg *.xdv
