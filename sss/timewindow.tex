@@ -2,7 +2,7 @@
 \label{sss:timewindow}
 
 \SACTitle{概要}
-设置迭加的时间窗范围
+设置叠加的时间窗范围
 
 \SACTitle{语法}
 \begin{SACSTX}
@@ -15,9 +15,9 @@ T!IME!W!INDOW! v1 v2
 \end{description}
 
 \SACTitle{缺省值}
-无缺省值，在迭加之前必须指定时间窗范围。
+无缺省值，在叠加之前必须指定时间窗范围。
 
 \SACTitle{说明}
-该命令用于设置迭加时间窗，该设置会影响 \nameref{sss:sumstack}、\nameref{sss:plotstack}、\nameref{sss:plotrecordsection} 等命令的执行效果，迭加时间窗必须在使用这些命令之前定义。
+该命令用于设置叠加时间窗，该设置会影响 \nameref{sss:sumstack}、\nameref{sss:plotstack}、\nameref{sss:plotrecordsection} 等命令的执行效果，叠加时间窗必须在使用这些命令之前定义。
 
-如果某个文件的数据落在迭加时间窗外，则对迭加时间窗内的数据补零值。
+如果某个文件在叠加时间窗的范围内无数据，则对相应部分补零值处理。
