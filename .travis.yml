@@ -8,7 +8,7 @@ branch:
 
 install:
     # python
-    - pip install pygments ghp-import
+    - pip install pygments
     - sudo bash install-tl.sh
     - source ~/.bash_profile
     - export TLMGR=`which tlmgr`
@@ -17,10 +17,13 @@ install:
 
 script:
     make
+    mkdir tmpdir
+    cp SAC_Docs.pdf tmpdir/
 
 deploy:
+    provider: pages
     skip_cleanup: true
-    provider: script
-    script: ./.travis-deploy.sh
+    github-token: $GITHUB_TOKEN
+    target-branch: pdf
     on:
         branch: master
