@@ -16,9 +16,9 @@ install:
     - sudo $TLMGR install tracklang siunitx symbol
 
 script:
-    make
-    mkdir tmpdir
-    cp SAC_Docs.pdf tmpdir/
+    - make
+    - mkdir tmpdir
+    - cp SAC_Docs.pdf tmpdir/
 
 deploy:
     provider: pages
