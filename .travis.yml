@@ -23,7 +23,7 @@ script:
 deploy:
     provider: pages
     skip_cleanup: true
-    github-token: $GITHUB_TOKEN
+    github-token: $GH_TOKEN
     target-branch: pdf
     on:
         branch: master
