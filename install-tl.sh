@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #REMOTE="http://ctan.sharelatex.com/tex-archive/systems/texlive/tlnet"
-REMOTE="http://ctan.math.washington.edu/tex-archive/systems/texlive/telnet"
+REMOTE="http://ctan.math.washington.edu/tex-archive/systems/texlive/tlnet"
 
 mkdir -p /tmp/install-texlive
 cd /tmp/install-texlive/
