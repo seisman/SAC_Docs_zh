@@ -9,7 +9,7 @@
 《SAC参考手册》是介绍地震学常用软件[SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)用法的中文手册。
 
 - 项目主页：https://github.com/seisman/SAC_Docs_zh
-- 正式版文档发布地址：http://seisman.info/sac-manual.html
+- 正式版文档发布地址：http://blog.seisman.info/sac-manual/
 - 开发版文档发布地址：https://github.com/seisman/SAC_Docs_zh/raw/pdf/SAC_Docs.pdf
 
 ## 参与维护
