@@ -12,7 +12,7 @@ install:
     - sudo bash install-tl.sh
     - source ~/.bash_profile
     - export TLMGR=`which tlmgr`
-    - sudo $TLMGR update --self --all -repository http://ctan.sharelatex.com/tex-archive/systems/texlive/tlnet/
+    - sudo $TLMGR update --self --all
     - sudo $TLMGR install tracklang siunitx symbol
 
 script:
