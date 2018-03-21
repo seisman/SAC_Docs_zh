@@ -167,9 +167,9 @@ SAC选择了另外一种简化模式，“起始相对时间+采样间隔+数据
     SAC> ch iztype IUNKN
     SAC> w seis
 
-``lh`` 是命令 `listhdr </commands/listhdr.html>`__
+:doc:`/commands/`lh`` 是命令 `listhdr`
 的简写，用于列出头段变量的值。 ``ch`` 是
-`chnhdr </commands/chnhdr.html>`__ 的简写，用于修改头段变量的值。这里
+:doc:`/commands/chnhdr` 的简写，用于修改头段变量的值。这里
 额外多做了一个操作修改 ``iztype`` 的操作，这是由于这个数据稍稍有
 一点bug。
 
@@ -324,7 +324,7 @@ SAC只有在修改与时间相关的头段变量时才可能会检查到这个�
 
 第一、三类时间变量的修改会导致数据绝对时刻发生改变。一般通过修改第三类
 时间变量来校正时间零漂和时区差异。在设置了发震时刻后，应使用
-`chnhdr </commands/chnhdr.html>`__ 命令的 ``allt``
+:doc:`/commands/chnhdr` 命令的 ``allt``
 选项修改第一、三类时间变量。
 
 .. [1]

@@ -18,10 +18,10 @@ writehdr
 说明
 ----
 
-`write </commands/write.html>`__ 命令的 ``over``
+:doc:`/commands/write` 命令的 ``over``
 选项可以用内存中头段区和数据区
 覆盖磁盘文件中的头段区和数据区。该命令用内存中头段区覆盖磁盘文件中的头段区，
-数据区不会被覆盖。如果使用了 `cut </commands/cut.html>`__
+数据区不会被覆盖。如果使用了 :doc:`/commands/cut`
 命令，读取数据时将仅读入 部分数据，内存中的头段区将会做相应修改以反映
 ``cut`` 命令的效果， 但是磁盘中的数据并没有被修改，因而此时不能使用
 ``writehdr`` 命令。 对被 ``cut`` 的数据使用 ``writehdr``

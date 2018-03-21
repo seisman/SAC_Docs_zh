@@ -54,8 +54,8 @@ CONCATENATION chars
 
 很多现代操作系统都提供了通配符特性，也可以称为文件扩展。它是一个可以
 让你使用简短文件名以及简单的简写形式去指定一组文件的表示符号。SAC在
-`read </commands/read.html>`__\ 、\ `readtable </commands/readtable.html>`__
-以及 `readhdr </commands/readhdr.html>`__
+:doc:`/commands/read`\ 、\ :doc:`/commands/readtable`
+以及 :doc:`/commands/readhdr`
 命令中使用通配符及一些扩展名，使用这些表示符号，你可以很容易地访问一组文件：
 
 -  所有以字母 ``abc`` 开头的文件

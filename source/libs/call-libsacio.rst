@@ -23,7 +23,7 @@ rsac1
             int      kname_s    // 数组kname的长度
     )
 
-相关示例代码为 ``rsac1c.c``  [1]_和 ``rsac1f.f``\ 。
+相关示例代码为 ``rsac1c.c``  [1]_ 和 ``rsac1f.f``\ 。
 
 rsac2
 -----

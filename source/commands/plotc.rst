@@ -66,16 +66,16 @@ plotc create file out border on
 当你重新显示一个文件或者宏时，图形在终端屏幕上将会重新绘制，光标也将打开。
 你可以像你当初创建这个文件一样向其中加入目标。当你完成创建图件之后你可以
 将其发送到不同的图形设备，使用
-`begindevices </commands/begindevices.html>`__ 命令临时关闭
+:doc:`/commands/begindevices` 命令临时关闭
 终端屏幕打开其他图形设备（比如
-`sgf </commands/sgf.html>`__\ ），然后重新显示这个文件。
+:doc:`/commands/sgf`\ ），然后重新显示这个文件。
 
-为了注释一个SAC绘图，要执行 `vspace </commands/vspace.html>`__
+为了注释一个SAC绘图，要执行 :doc:`/commands/vspace`
 命令设置正确的横纵比， 然后执行
-`beginframe </commands/beginframe.html>`__
+:doc:`/commands/beginframe`
 命令关闭自动刷新，执行需要的SAC绘图命令， 执行
-`plotc </commands/plotc.html>`__ 命令（创建或者重新显示），然后执行
-`endframe </commands/endframe.html>`__ 命令恢复自动刷新。
+:doc:`/commands/plotc` 命令（创建或者重新显示），然后执行
+:doc:`/commands/endframe` 命令恢复自动刷新。
 
 示例
 ----
@@ -100,9 +100,9 @@ plotc create file out border on
     ...用光标和键盘进行各种操作...
     SAC> endframe
 
-`plotsp </commands/plotsp.html>`__
-用于绘制滤波响应曲线以及两个轴，\ `plotc </commands/plotc.html>`__
-用于交互式地添加注释。\ `vspace </commands/vspace.html>`__
+:doc:`/commands/plotsp`
+用于绘制滤波响应曲线以及两个轴，\ :doc:`/commands/plotc`
+用于交互式地添加注释。\ :doc:`/commands/vspace`
 命令限制了图形中纵横比为3:4的
 区域为绘图区域。这个对于之后将输出发送到具有纵横比3:4的SGF设备来说很有必要。
 在这之后你将有一个叫做 ``BANDPASS.PCF`` 的文件，其中包很了这个图形的
@@ -130,24 +130,12 @@ plotc create file out border on
 
 文本尺寸并不是当前标度的。当你生成一个图像并想要将文本放在一个矩形或圆中
 时会产生一个问题。在这种情况下，图形窗口必须与输出页具有相同的尺寸，以
-避免图形的偏差。这可以通过使用 `window </commands/window.html>`__
+避免图形的偏差。这可以通过使用 :doc:`/commands/window`
 命令设置窗的水平X
 尺寸为0.75，垂直Y尺寸为0.69。例如：\ ``WINDOW 1 X 0.05 0.80 Y 0.05 0.74``\ 。
 这个命令必须在窗口被创建之前执行。（即在
-`beginwindow </commands/beginwindow.html>`__ 或
-`begindevices </commands/begindevices.html>`__ 之前）
-
-.. raw:: latex
-
-   \centering
-
-.. raw:: latex
-
-   \ttfamily
-
-.. raw:: latex
-
-   \small
+:doc:`/commands/beginwindow` 或
+:doc:`/commands/begindevices` 之前）
 
 .. table:: plotc命令表
 

@@ -19,4 +19,5 @@ q
 EOF
 rm origin.am origin.ph unwrap.am unwrap.ph
 ps2raster -A -Tf unwrap.ps
+ps2raster -A -Tg unwrap.ps
 rm unwrap.ps

@@ -13,7 +13,7 @@ SAC提供的命令可以帮助用户实现地震数据的预处理，但无法�
 
 .. toctree::
 
-    sacio-in-c
-    sacio-in-fortran
-    sacio-in-matlab
-    sacio-in-python
+   sacio-in-c
+   sacio-in-fortran
+   sacio-in-matlab
+   sacio-in-python

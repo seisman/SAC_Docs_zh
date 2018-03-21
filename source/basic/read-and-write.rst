@@ -3,14 +3,14 @@
 SAC的读和写
 ===========
 
-SAC的读命令是 `read </commands/read.html>`__\ （简写为
-``r``\ ），写命令为 `write </commands/write.html>`__\ （简写为
+SAC的读命令是 :doc:`/commands/read`\ （简写为
+:doc:`/commands/`r``\ ），写命令为 `write`\ （简写为
 ``w``\ ）。读和写是紧密联系的，所以把 这两者放在一起讲。
 
 注意：本节的所有示例都运行在同一个SAC会话中。
 
 要演示如何读SAC文件，首先得有一些SAC数据才行，利用上一节提到的
-`datagen </commands/datagen.html>`__ 生成一些数据。
+:doc:`/commands/datagen` 生成一些数据。
 
 .. code:: bash
 
@@ -58,11 +58,11 @@ SAC中，在指定文件名的时候，可以使用绝对路径，也可以使�
     ./cdv.e ...cdv.n ...cdv.z
 
 需要注意的是，SAC在执行读取命令时，会读入新的波形数据，并删除内存中
-原有的波形数据，所以经过上面四次 `read </commands/read.html>`__
+原有的波形数据，所以经过上面四次 :doc:`/commands/read`
 之后，内存中依然 只有三个波形。
 
 如果想要在读取新数据时将波形直接追加到内存中的波形数据集之后，而不替换
-内存中的原有波形，则需要使用 `read </commands/read.html>`__ 的 ``more``
+内存中的原有波形，则需要使用 :doc:`/commands/read` 的 ``more``
 选项  [1]_：
 
 .. code:: bash

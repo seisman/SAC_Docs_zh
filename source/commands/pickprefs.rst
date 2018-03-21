@@ -9,7 +9,7 @@ pickprefs
 用于控制SAC管理震相和/或从不同的输入数据格式（例如CSS、GSE、SUDS...）
 读入到时间标记变量 ``T0`` 到 ``T9``\ ，若这个选项为OFF（缺省状态），
 则载入到时间标记的震相为SAC在输入文件中发现的第一个拾取，如果这个选项为ON，
-SAC将使用 `readcss </commands/readcss.html>`__ 命令中描述的参考文件
+SAC将使用 :doc:`/commands/readcss` 命令中描述的参考文件
 
 语法
 ----
@@ -44,19 +44,19 @@ COMMIT、ROLLBACK、RECALLTRACE。有两个缓冲区的一个缺点是将到时�
 到时表转移到SAC格式中相对静态的 ``Tn`` 拾取变得更加复杂了，这个问题
 在0.58版本中通过设置了一个称为csspickprefs的参考文件得以解决。这个文件在
 ``$SACAUX`` 目录下，你可以覆盖它写入你想要的信息。更多关于csspickprefs
-的信息，参见 `readcss </commands/readcss.html>`__
+的信息，参见 :doc:`/commands/readcss`
 命令。关于如何覆盖默认参考文件，参看
-`pickauthor </commands/pickauthor.html>`__ 或
-`pickphase </commands/pickphase.html>`__\ 。
+:doc:`/commands/pickauthor` 或
+:doc:`/commands/pickphase`\ 。
 
 使用参考文件的缺点是它将只接收列在参考文件中或在命令
-`pickphase </commands/pickphase.html>`__\ 、
-`pickauthor </commands/pickauthor.html>`__
+:doc:`/commands/pickphase`\ 、
+:doc:`/commands/pickauthor`
 中输入的震相或作者列表。换句话说，如果一个CSS 数据文件有一个 ``pP``
 的到时，不管其来自于平面文件还是Oracle数据库， 而 ``pP``
 未在参考文件中指定，那么用户就绝不会知道 ``pP`` 在那里。 ``pP``
 震相将读入SAC中的CSS数据缓冲区，但是它不会转变到SAC数据缓冲区中，
-也不会参与任何SAC命令。它可以通过 `writecss </commands/writecss.html>`__
+也不会参与任何SAC命令。它可以通过 :doc:`/commands/writecss`
 命令写出，或者可能 通过COMMIT命令刷新然后全部丢失。
 
 SAC给出的解决办法是允许用户绕过参考文件。在0.59版本中，默认是从CSS缓冲区

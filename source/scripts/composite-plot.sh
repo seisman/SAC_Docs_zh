@@ -25,4 +25,5 @@ saveimg composite-plot.ps
 q
 EOF
 ps2raster -A -Tf composite-plot.ps
+ps2raster -A -Tg composite-plot.ps
 rm composite-plot.ps

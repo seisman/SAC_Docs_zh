@@ -28,4 +28,5 @@ q
 EOF
 rm $sta.[nezrt]
 ps2raster -A -Tf rotate.ps
+ps2raster -A -Tg rotate.ps
 rm rotate.ps

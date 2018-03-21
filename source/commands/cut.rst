@@ -38,18 +38,18 @@ cut off
 
 ``cut`` 命令仅设置了要读取的时间窗选项，并不对内存中的数据进行截取。
 因而，若要该命令起作用，需要在 ``cut`` 命令设置时间窗后使用 ``read``
-命令。与此相反，\ `cutim </commands/cutim.html>`__
+命令。与此相反，\ :doc:`/commands/cutim`
 命令会在命令执行时直接 对内存中的数据进行截取。
 
 若截窗选项为关，则读取整个文件；若截窗选项为开，则只读取由 ``pdw``
 定义的部分。
 
 如果你想对一组有不同参考时刻的文件使用同样的时间窗，必须在执行 ``cut``
-前先使用 `synchronize </commands/synchronize.html>`__
+前先使用 :doc:`/commands/synchronize`
 命令使所有文件具有相同的参考时刻。 ``synchronize``
 命令修改了文件的头段使得所有文件具有相同的参考时刻，
 并调整所有相对时间。因而，你需要先读取所有文件，执行 ``synchronize``
-命令，使用 `writehdr </commands/writehdr.html>`__
+命令，使用 :doc:`/commands/writehdr`
 将修改后的头段写入到磁盘文件中，然后 再执行 ``cut``
 命令，并读取数据，这样才能得到正确的结果。
 
@@ -173,7 +173,7 @@ cut off
            npts = 301
 
 当要截取的窗超过了文件的时间范围时，可以使用
-`cuterr </commands/cuterr.html>`__ 命令的 ``FILLZ``
+:doc:`/commands/cuterr` 命令的 ``FILLZ``
 选项，在文件的开始或结尾处补0，再读入内存。
 
 .. code:: bash

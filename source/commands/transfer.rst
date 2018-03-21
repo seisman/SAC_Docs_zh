@@ -99,13 +99,10 @@ freqlimits
 之间保持为1，在 ``f3`` 到 ``f4`` 之间从1渐渐变成0，大于 ``f4``
 的频段值为0。过渡带内分别为余弦波的 四分之一周期。如下图所示：
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: freqlimits
+.. figure:: /images/freqlimits.*
    :alt: Freqlimits尖灭函数
    :width: 90.0%
+   :align: center
 
    Freqlimits尖灭函数
 
@@ -129,14 +126,14 @@ freqlimits
 
 需要注意，该滤波器是零相位、非因果滤波器，因而，若数据点数不为2的指数幂次，
 会导致在频段 ``(f1,f4)`` 之外振幅不完全为0。若想要数据点数为2的幂次方，
-可以参考SAC中的 `cut </commands/cut.html>`__ 命令。
+可以参考SAC中的 :doc:`/commands/cut` 命令。
 
 prewhitening
 ~~~~~~~~~~~~
 
 ``prewhitening`` 用于控制数据的预白化。预白化可以将输入时间序列在
 变换到频率域之前，进行谱的平化。这会减小谱值的动态范围，并提高数据在高频
-的计算精度。参见 `whiten </commands/whiten.html>`__
+的计算精度。参见 :doc:`/commands/whiten`
 命令。打开预白化选项，会在谱操作
 之前在频率域进行谱白化，并在谱操作后在时间域做谱白化的补偿，也可以设置
 预白化选项的阶数。默认情况下，预白化选项是关闭的，阶数为 ``n=6``\ 。
@@ -193,7 +190,7 @@ evalresp类型
 
 ``evalresp`` 类型并不代表真正意义上的仪器类型，而是表示从RESP仪器
 响应文件中读取仪器响应信息。在使用 ``evalresp`` 选项时，
-`transfer </commands/transfer.html>`__
+:doc:`/commands/transfer`
 依次从当前内存中的SAC波形数据中提取出各自的
 头段信息，包括：\ ``kstnm``\ 、\ ``kcmpnm``\ 、\ ``kzdate``\ 、
 ``kztime``\ 、\ ``knetwk`` 和 ``locid``\ ，然后会在当前目录下

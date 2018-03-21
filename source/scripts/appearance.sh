@@ -58,4 +58,5 @@ echo 16 0.5 15 0 8 LM GRID | pstext -J$J -R$R -N -K -O -D1c/0cv1p,blue -Gblue >>
 
 psxy -J$J -R$R -T -O >> $PS
 ps2raster -A -P -Tf $PS
+ps2raster -A -P -Tg $PS
 rm $PS seis.SAC .gmt*

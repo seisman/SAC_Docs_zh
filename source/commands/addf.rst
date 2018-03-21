@@ -46,7 +46,7 @@ filelist
 
 若两个待相加的文件的时刻不完全匹配，则会给出警告，但相加操作会继续执行。若采样间隔或数据
 点数不匹配，默认情况下SAC会认为这是致命（\ ``fatal``\ ）错误，直接报错退出。可以通过
-`binoperr </commands/binoperr.html>`__
+:doc:`/commands/binoperr`
 命令将采样间隔或数据点数的不匹配设置为忽略（\ ``ignore``\ ）、
 警告（\ ``warning``\ ）或致命（\ ``fatal``\ ）。
 

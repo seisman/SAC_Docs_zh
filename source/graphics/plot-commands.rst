@@ -7,7 +7,7 @@ SAC提供了许多与绘图有关的命令，包括控制图像外观的参数�
 plot
 ----
 
-`plot </commands/plot.html>`__
+:doc:`/commands/plot`
 命令会绘制内存块中的所有波形数据，但每次只显示一个
 波形，然后等待用户输入再决定是否显示下一个波形。该命令的具体用法在第
 nameref-sec-display 节已经详细介绍。
@@ -15,7 +15,7 @@ nameref-sec-display 节已经详细介绍。
 plot1
 -----
 
-`plot1 </commands/plot1.html>`__
+:doc:`/commands/plot1`
 命令会绘制内存块中的所有波形数据，在一个窗口中一次
 显示多个波形，这些波形共用一个X轴（时间轴），但拥有单独的Y轴。
 
@@ -27,19 +27,16 @@ plot1
 
 执行 nameref-fig-plot1。
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: plot1
+.. figure:: /images/plot1.*
    :alt: plot1绘图效果
    :width: 85.0%
+   :align: center
 
    plot1绘图效果
 
-当一次性读入多个波形数据时，若直接使用 `plot1 </commands/plot1.html>`__
+当一次性读入多个波形数据时，若直接使用 :doc:`/commands/plot1`
 绘图，会一次
-性显示全部波形，导致窗口内波形太密，反而什么都看不清。\ `plot1 </commands/plot1.html>`__
+性显示全部波形，导致窗口内波形太密，反而什么都看不清。\ :doc:`/commands/plot1`
 提供了“``perplot n``”选项以指定窗口内一次最多显示多少个波形，余下
 的波形则处于等待状态。在查看波形的时候，经常需要将每个台站的三分量波形记
 录放在一起看，此时设置选项 ``perplot`` 的参数值为 ``3`` 即可。
@@ -61,13 +58,13 @@ plot1
 plot2
 -----
 
-`plot2 </commands/plot2.html>`__
+:doc:`/commands/plot2`
 会一次性将内存块中的所有波形绘制在一个窗口内，
 所有的波形共用X轴，因而绘图时也可以使用绝对模式或相对模式。与
-`plot1 </commands/plot1.html>`__
+:doc:`/commands/plot1`
 不同的是，所有的波形还同时共用Y轴，因而波形会相互 覆盖。
 
-`plot2 </commands/plot2.html>`__
+:doc:`/commands/plot2`
 适合绘制多个波形的对比图，常用于数据处理前后波形对比
 或真实波形与合成波形间的对比。
 
@@ -87,20 +84,17 @@ plot2
 中红线为滤波前波形，蓝线为滤波后波形，二者共用X轴和Y轴，
 从这样的波形对比图中，可以很明显得看到滤波对于波形的影响。
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: plot2
+.. figure:: /images/plot2.*
    :alt: plot2绘图效果。红色为滤波前波形，蓝色为滤波后波形。
    :width: 85.0%
+   :align: center
 
    plot2绘图效果。红色为滤波前波形，蓝色为滤波后波形。
 
 plotpk
 ------
 
-`plotpk </commands/plotpk.html>`__
+:doc:`/commands/plotpk`
 是SAC中最常用的命令之一。其可以在窗口中显示指定
 个数的波形，所有波形共用X轴，但拥有单独的Y轴。该命令主要用于震相拾取，
 在“nameref-sec-phase-picking”一节有详细介绍。
@@ -108,7 +102,7 @@ plotpk
 plotpm
 ------
 
-`plotpm </commands/plotpm.html>`__
+:doc:`/commands/plotpm`
 可以利用成对的波形数据，提取出任一时间段内两个
 波形数据的振幅信息，绘制在“振幅-振幅”图中。若一对波形数据恰好是同
 一台站两个互相垂直的分量，则“振幅-振幅”图即为“质点运动图”。从
@@ -130,19 +124,19 @@ plotpm
     SAC> xlim 1300 1340                 // 仅绘制Rayleigh面波的部分时间窗
     SAC> ppm                            // 绘制质点运动图
 
-鉴于 `plotpm </commands/plotpm.html>`__
+鉴于 :doc:`/commands/plotpm`
 命令绘图的效果很糟糕，就不再贴效果图了，读者
 可以根据上面的命令自行绘制。
 
 plotsp
 ------
 
-`plotsp </commands/plotsp.html>`__
+:doc:`/commands/plotsp`
 命令用于绘制不同格式的谱文件，可以绘制“振幅+相位”
 或者“实部+虚部”，同时可以任意指定X、Y轴为线性轴或对数轴。
 
 下面的命令对波形数据进行FFT得到谱文件，并使用
-`plotsp </commands/plotsp.html>`__ 命令 绘制其振幅谱：
+:doc:`/commands/plotsp` 命令 绘制其振幅谱：
 
 .. code:: bash
 
@@ -150,12 +144,9 @@ plotsp
     SAC> fft
     SAC> psp am loglog
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: plotsp
+.. figure:: /images/plotsp.*
    :alt: plotsp绘制振幅谱
    :width: 95.0%
+   :align: center
 
    plotsp绘制振幅谱

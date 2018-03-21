@@ -24,7 +24,7 @@
     SAC> r data/*.SAC
     SAC> ...
 
-第三种，使用 `read </commands/read.html>`__\ 命令的 ``dir`` 选项：
+第三种，使用 :doc:`/commands/read`\ 命令的 ``dir`` 选项：
 
 .. code:: bash
 

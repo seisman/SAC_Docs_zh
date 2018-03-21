@@ -4,7 +4,7 @@
 数据格式
 --------
 
-通常，地震数据以SEED格式进行保存和传输。SEED [1]_即 Standard for the
+通常，地震数据以SEED格式进行保存和传输。SEED [1]_ 即 Standard for the
 Exchange of Earthquake Data，其可以存储多台站多分量
 的波形数据以及台站元数据 [2]_。SEED格式本质上是一个
 压缩格式，因而可以大大减少网络传输的数据量以及硬盘空间，同时又可以通过

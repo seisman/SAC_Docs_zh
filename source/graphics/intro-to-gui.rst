@@ -2,10 +2,10 @@
 ========
 
 SAC支持两种图形设备，分别是xwindows和sgf，默认的图形设备是xwindows。
-可以使用 `begindevices </commands/begindevices.html>`__ 和
-`enddevices </commands/enddevices.html>`__ 命令
+可以使用 :doc:`/commands/begindevices` 和
+:doc:`/commands/enddevices` 命令
 开启/关闭指定的图形设备；同时也可以使用
-`setdevice </commands/setdevice.html>`__ 命令 设定默认的图形设备。
+:doc:`/commands/setdevice` 命令 设定默认的图形设备。
 
 xwindows
 --------
@@ -14,13 +14,10 @@ xwindows即X Window System，也称为X11或X，是一种以位图方式显示�
 窗口系统。几乎所有的现代操作系统都能支持与使用X，Linux下知名的桌面
 环境GNOME和KDE也都是以X窗口系统为基础建构成的。
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: window
+.. figure:: /images/window.*
    :alt: SAC绘图窗口
    :width: 90.0%
+   :align: center
 
    SAC绘图窗口
 
@@ -31,8 +28,8 @@ xwindows即X Window System，也称为X11或X，是一种以位图方式显示�
 
 左上角的“Graphics Window: 1”指明了当前绘图窗口的编号为“1”，SAC最多
 支持同时打开10个X窗口，编号为1–10。默认情况下只启动并使用1号X窗口。
-`beginwindow </commands/beginwindow.html>`__
-命令用于启动指定编号的X窗口； `window </commands/window.html>`__
+:doc:`/commands/beginwindow`
+命令用于启动指定编号的X窗口； :doc:`/commands/window`
 命令还可以设置每个X窗口的长宽比以及X窗口相对于屏幕 的位置。
 
 sgf
@@ -44,6 +41,6 @@ SGF，全称SAC Graphic File，即SAC图形文件，是SAC自定义的一种文�
 
 若启用了SGF图形设备，每次绘制的图件将分别保存到单独的sgf文件中。默认
 情况下，sgf图形文件的文件名格式为 ``fnnn.sgf`` ，其中“nnn”为图件
-编号，起始编号为001，每生成一个图件该编号递增。\ `sgf </commands/sgf.html>`__
+编号，起始编号为001，每生成一个图件该编号递增。\ :doc:`/commands/sgf`
 命令 可以控制SGF图形设备的选项，比如文件名前缀（默认为 ``f``\ ）、
 起始编号（默认从 ``001`` 开始）、保存目录、文件尺寸等。

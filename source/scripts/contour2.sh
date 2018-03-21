@@ -13,4 +13,5 @@ saveimg contour2.ps
 q
 END
 ps2raster -A -Tf contour2.ps
+ps2raster -A -Tg contour2.ps
 rm contour2.ps

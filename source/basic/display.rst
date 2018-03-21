@@ -1,17 +1,11 @@
-.. _sec:display:
-
 绘图
 ====
 
-SAC中有四个常用的绘图命令，分别是
-`plot </commands/plot.html>`__\ 、\ `plot1 </commands/plot1.html>`__\ 、
-`plot2 </commands/plot2.html>`__\ 、\ `plotpk </commands/plotpk.html>`__\ 。这一节只介绍最基础的
-``plot`` 命令，其他的命令及更多的绘图功能将在 nameref-chap-sac-graphics
-中说明。
+SAC中有四个常用的绘图命令，分别是 :doc:`/commands/plot`\ 、\ :doc:`/commands/plot1` 、
+:doc:`/commands/plot2`\ 、\ :doc:`/commands/plotpk`\ 。这一节只介绍最基础的
+``plot`` 命令，其他的命令及更多的绘图功能将在 :doc:`/graphics/index` 中说明。
 
-``plot`` 命令会在单个图形窗口中显示单个波形：
-
-.. code:: bash
+``plot`` 命令会在单个图形窗口中显示单个波形::
 
     SAC> r cdv.[nez]
     SAC> p
@@ -37,5 +31,4 @@ SAC中有四个常用的绘图命令，分别是
     Waitingk
     SAC>
 
-.. [1]
-   Linux下的快捷键是Alt+Tab。
+.. [1] Linux下的快捷键是Alt+Tab。

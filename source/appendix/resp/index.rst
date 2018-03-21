@@ -3,7 +3,6 @@
 
 .. toctree::
 
-    intro-to-resp
-    physical-details
-    resp-file
-
+   intro-to-resp
+   physical-details
+   resp-file

@@ -7,8 +7,8 @@ binoperr
 ----
 
 控制二元文件操作
-`addf </commands/addf.html>`__\ 、\ `subf </commands/subf.html>`__\ 、
-`mulf </commands/mulf.html>`__\ 、\ `divf </commands/divf.html>`__
+:doc:`/commands/addf`\ 、\ :doc:`/commands/subf`\ 、
+:doc:`/commands/mulf`\ 、\ :doc:`/commands/divf`
 中的错误
 
 语法

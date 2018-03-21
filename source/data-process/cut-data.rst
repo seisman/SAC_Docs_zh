@@ -1,7 +1,7 @@
 数据截窗
 ========
 
-相关命令：\ `cut </commands/cut.html>`__
+相关命令：\ :doc:`/commands/cut`
 
 数据申请时一般会选择尽可能长的时间窗，而实际进行数据处理和分析时可能只
 需要其中的一小段数据，这就需要对数据进行时间窗截取。
@@ -16,8 +16,8 @@ pdw
 
 使用 ``cut`` 命令对数据进行截取时需要定义数据时间窗。除了截取数据
 之外，其他一些命令也会需要定义时间窗，比如
-`rms </commands/rms.html>`__\ 、
-`mtw </commands/mtw.html>`__\ 、\ `xlim </commands/xlim.html>`__
+:doc:`/commands/rms`\ 、
+:doc:`/commands/mtw`\ 、\ :doc:`/commands/xlim`
 等，这些命令都使用同样的方式定义 时间窗，在SAC中称为pdw，即partial data
 window。
 
@@ -62,7 +62,7 @@ pdw定义了一个开始时间和一个结束时间，其格式为
 cut
 ---
 
-`cut </commands/cut.html>`__ 命令是“参数设定类”命令，因而需要先 ``cut``
+:doc:`/commands/cut` 命令是“参数设定类”命令，因而需要先 ``cut``
 再 ``read``\ ：
 
 .. code:: bash

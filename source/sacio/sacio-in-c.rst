@@ -17,7 +17,7 @@ Prof. Lupei Zhu实现了一套相对比较易用的SAC I/O函数库，可以在C
 程序中直接调用，姑且称之为 ``sacio``\ 。
 
 ``sacio`` 函数库与Prof. Lupei Zhu的其他程序一起发布。你可以从 Prof.
-Lupei Zhu的主页下载 ``fk``  [1]_软件包， 并从中提取出源文件 ``sac.h`` 和
+Lupei Zhu的主页下载 ``fk``  [1]_ 软件包， 并从中提取出源文件 ``sac.h`` 和
 ``sacio.c``\ 。
 
 ``sacio`` 简单易用，但也存在一些潜在的Bug及缺陷。seisman在 ``sacio``
@@ -32,10 +32,6 @@ sacio函数接口
 每一个头段变量都是结构体的成员。\ ``sacio.c`` 定义了一系列用于读写
 SAC文件的函数，表 `[table:sacio-function] <#table:sacio-function>`__
 中列出了 ``sacio`` 提供的函数接口。
-
-.. raw:: latex
-
-   \centering
 
 .. table:: ``sacio``\ 函数列表
 
@@ -94,7 +90,7 @@ SAC文件的函数，表 `[table:sacio-function] <#table:sacio-function>`__
 ---------------
 
 有些时候，数据可能很长，但用户只需要其中的一小段。为了读取一小段数据
-而把整个文件都读入进去实在太浪费了。SAC中的 `cut </commands/cut.html>`__
+而把整个文件都读入进去实在太浪费了。SAC中的 :doc:`/commands/cut`
 命令可以 实现数据的截取，\ ``read_sac2``
 则是实现了类似的功能。下面的例子截取了 数据中以
 ``T0``\ 为参考的\ :math:`-0.5`\ 到\ :math:`2.5`\ 秒，即相当于

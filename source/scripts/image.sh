@@ -8,4 +8,5 @@ saveimg image.ps
 q
 END
 ps2raster -A -P -Tf image.ps
+ps2raster -A -P -Tg image.ps
 rm image.ps

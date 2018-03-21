@@ -126,4 +126,4 @@ SPE在运行期间生成并保存了大量的辅助函数(例如：相关函数�
 ----
 
 可以使用quitsub命令终止谱估计子程序，或使用
-`quit </commands/quit.html>`__ 命令终止整个SAC程序的运行。
+:doc:`/commands/quit` 命令终止整个SAC程序的运行。

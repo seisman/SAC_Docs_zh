@@ -5,7 +5,7 @@
 1028 External command does not exist
 ------------------------------------
 
-执行 `load </commands/load.html>`__
+执行 :doc:`/commands/load`
 命令时找不到外部命令。产生该错误的原因很多，可能 是环境变量
 ``LD_LIBRARY_PATH`` 不包含要载入的共享库的所在目录，或 ``$SACSOLIST``
 中不包含要载入的共享库的名字。
@@ -25,7 +25,7 @@
 ``rm``\ 。在SAC中直接执行rm命令会出现如上所示的错误。出现该
 错误的原因是SAC禁用了系统命令 ``rm``\ ，主要目的是为了防止将 ``r *.SAC``
 误敲成 ``rm *.SAC`` 而导致数据的误删除。可以使用
-`systemcommand </commands/systemcommand.html>`__ 命令显式
+:doc:`/commands/systemcommand` 命令显式
 调用系统命令，如下：
 
 .. code:: bash
@@ -78,7 +78,7 @@
 1312 Bad number of files in write file list
 -------------------------------------------
 
-通常在使用 `write </commands/write.html>`__
+通常在使用 :doc:`/commands/write`
 命令时会出现该问题。出现该错误的原因是内存中的
 波形文件的数目与write命令给出的文件名的数目不想匹配。在该错误信息的后面，紧接着
 会给出write命令中给出的文件数目以及内存中的波形数目。
@@ -96,60 +96,60 @@
 1322 Undefined starting cut for file
 ------------------------------------
 
-`cut </commands/cut.html>`__
+:doc:`/commands/cut`
 命令中时间窗的起始参考头段未定义。默认情况下，会使用磁盘
-文件的起始时间代替，也可以使用 `cuterr </commands/cuterr.html>`__
+文件的起始时间代替，也可以使用 :doc:`/commands/cuterr`
 命令控制该错误的处理方式。
 
 1323 Undefined stop cut for file
 --------------------------------
 
-`cut </commands/cut.html>`__
+:doc:`/commands/cut`
 命令中时间窗的结束参考头段未定义。默认情况下，会使用磁盘
-文件的结束时间代替，也可以使用 `cuterr </commands/cuterr.html>`__
+文件的结束时间代替，也可以使用 :doc:`/commands/cuterr`
 命令控制该错误的处理方式。
 
 1324 Start cut less than file begin for file
 --------------------------------------------
 
-`cut </commands/cut.html>`__
+:doc:`/commands/cut`
 命令中时间窗的开始时间早于磁盘文件的开始时间。默认情况下，
 会使用磁盘文件的开始时间代替，也可以使用
-`cuterr </commands/cuterr.html>`__ 命令控制该错误的 处理方式。
+:doc:`/commands/cuterr` 命令控制该错误的 处理方式。
 
 1325 Stop cut greater than file end for file
 --------------------------------------------
 
-`cut </commands/cut.html>`__
+:doc:`/commands/cut`
 命令中时间窗的结束时间晚于磁盘文件的结束时间。默认情况下，
 会使用磁盘文件的结束时间代替，也可以使用
-`cuterr </commands/cuterr.html>`__ 命令控制该错误的 处理方式。
+:doc:`/commands/cuterr` 命令控制该错误的 处理方式。
 
 1326 Start cut greater than file end for file
 ---------------------------------------------
 
-`cut </commands/cut.html>`__ 命令中时间窗的开始时间晚于文件结束时间。
+:doc:`/commands/cut` 命令中时间窗的开始时间晚于文件结束时间。
 
 1340 data points outside allowed range contained in file
 --------------------------------------------------------
 
-文件中数据点的值超过了所允许的范围。比如 `log </commands/log.html>`__
+文件中数据点的值超过了所允许的范围。比如 :doc:`/commands/log`
 中要求数据为正。
 
 1379 No SORT parameters given
 -----------------------------
 
-使用了 `sort </commands/sort.html>`__ 命令，但未指定按照哪个参数排序。
+使用了 :doc:`/commands/sort` 命令，但未指定按照哪个参数排序。
 
 1380 Too many SORT parameters
 -----------------------------
 
-`sort </commands/sort.html>`__ 命令中用于排序的参数太多。
+:doc:`/commands/sort` 命令中用于排序的参数太多。
 
 1381 Not a valid SORT parameter
 -------------------------------
 
-无效的 `sort </commands/sort.html>`__ 参数。
+无效的 :doc:`/commands/sort` 参数。
 
 1383 SORT failed
 ----------------
@@ -185,8 +185,8 @@ SAC中与FFT相关的命令，所能允许的最大数据点数是\ :math:`2^{24
 --------------------------
 
 该错误出现在
-`addf </commands/addf.html>`__\ 、\ `subf </commands/subf.html>`__\ 、\ `divf </commands/divf.html>`__\ 、\ `mulf </commands/mulf.html>`__
-以及 `merge </commands/merge.html>`__ 和 `beam </commands/beam.html>`__
+:doc:`/commands/addf`\ 、\ :doc:`/commands/subf`\ 、\ :doc:`/commands/divf`\ 、\ :doc:`/commands/mulf`
+以及 :doc:`/commands/merge` 和 :doc:`/commands/beam`
 中。
 
 出现该错误的原因是多个数据文件中的头段变量不匹配。该命令会明确给出不匹配的头段变量名，以及
@@ -201,10 +201,10 @@ kcmpnm。
 1803 No binary data files read in.
 ----------------------------------
 
-`addf </commands/addf.html>`__\ 、\ `subf </commands/subf.html>`__\ 、\ `merge </commands/merge.html>`__
+:doc:`/commands/addf`\ 、\ :doc:`/commands/subf`\ 、\ :doc:`/commands/merge`
 等命令需要先读入二进制数据，再对数据做操作。
 
 1805 Time gap
 -------------
 
-使用 `merge </commands/merge.html>`__ 命令时，两段数据间存在时间间断。
+使用 :doc:`/commands/merge` 命令时，两段数据间存在时间间断。

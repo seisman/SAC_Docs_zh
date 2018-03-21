@@ -30,7 +30,7 @@ FONT n
 SIZE size
     改变缺省文本大小，可以取 ``TINY``\ 、\ ``SMALL``\ 、
     ``MEDIUM``\ 、\ ``LARGE``\ ，这些缺省文本尺寸的具体大小可以 参考
-    `tsize </commands/tsize.html>`__ 命令
+    :doc:`/commands/tsize` 命令
 
 SYSTEM system
     修改字体子系统，可以取值为 ``SOFTWARE``\ 、 ``CORE``\ 、\ ``XFT``

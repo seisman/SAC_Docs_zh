@@ -34,4 +34,5 @@ pstext -J -R -K -O -D0c/0.3c >> $PS << EOF
 EOF
 psxy -J -R -O -T >> $PS
 ps2raster -A -P -Tf $PS
+ps2raster -A -P -Tg $PS
 rm seis.* $PS .gmt*

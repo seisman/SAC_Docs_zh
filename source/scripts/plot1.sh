@@ -12,4 +12,5 @@ saveimg plot1.ps
 q
 END
 ps2raster -A -Tf plot1.ps
+ps2raster -A -Tg plot1.ps
 rm plot1.ps

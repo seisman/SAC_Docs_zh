@@ -1,11 +1,9 @@
-.. _sec:sac-install-for-mac:
-
 在Mac下安装SAC
 ==============
 
 本节介绍如何在Mac OS X 如何安装SAC。
 
-Mac下安装SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包 [1]_。
+Mac下安装SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包 [1]_ 。
 对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法。
 
 准备工作
@@ -19,8 +17,8 @@ Mac下安装SAC，可以直接使用官方提供的二进制包，也可以手�
 
 即可。
 
-此外，还需要安装X11图形界面相关工具，即 XQuartz。可以按照\ `Apple
-的官方支持 <https://support.apple.com/zh-cn/HT201341>`__\ 来解决。 对于
+此外，还需要安装X11图形界面相关工具，即 XQuartz。可以按照 `Apple
+的官方支持 <https://support.apple.com/zh-cn/HT201341>`_ 来解决。 对于
 Homebrew 用户，可以使用
 
 .. code:: console
@@ -37,14 +35,14 @@ Homebrew 用户，可以使用
 .. code:: console
 
     $ tar -xvf sac-101.6a-mac_x86_64.tar.gz
-    $ sudo mv sac /opt
+    $ sudo mv sac /usr/local
 
 编译源码
 --------
 
 按照如下命令即可正确编译源码。需要注意的是，由于SAC默认使用的editline库
-在Mac下无法正常编译，因而执行 ``configure`` 时使用了
-``--enable-readline`` 选项使得SAC使用readline库而不是editline库。
+在Mac下无法正常编译，因而执行 ``configure`` 时使用了 ``--enable-readline``
+选项使得SAC使用readline库而不是editline库。
 
 .. code:: console
 
@@ -74,21 +72,16 @@ Homebrew 用户，可以使用
 其中，
 
 -  ``SACHOME`` 为SAC的安装目录
-
 -  ``SACAUX`` 目录中包含了SAC运行所需的辅助文件
-
--  ``PATH`` 为系统环境变量
-
+-  ``PATH`` 为Linux系统环境变量
 -  ``SAC_DISPLAY_COPYRIGHT`` 用于控制是否在启动SAC时显示版本和版权
    信息，一般设置为1。在脚本中多次调用SAC时会重复显示版本和版权信息，
    干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法
-   可以参考中的相关内容；
-
+   可以参考“:doc:`/call-in-script/index` ” 中的相关内容
 -  ``SAC_PPK_LARGE_CROSSHAIRS`` 用于控制震相拾取过程中光标的大小， 在
-   时会用到
-
+    “:doc:`/data-process/picking-phase` ”时会用到
 -  ``SAC_USE_DATABASE`` 用于控制是否允许将SAC格式转换为GSE2.0格式，
-   一般用不到该特性，故而设置其值为0；
+   一般用不到该特性，故而设置其值为0
 
 修改完 ``~/.bash_profile`` 后，执行以下命令使配置的环境变量生效：
 
@@ -109,5 +102,4 @@ Homebrew 用户，可以使用
 
     SAC>
 
-.. [1]
-   似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法
+.. [1] 似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法

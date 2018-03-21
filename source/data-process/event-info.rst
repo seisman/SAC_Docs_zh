@@ -12,8 +12,8 @@
 一般来说，从SEED连续波形中解压得到的SAC数据中是没有事件信息的。这就需要
 用户从地震目录中获取事件的发震时刻、经度、纬度、深度和震级信息，并将这些
 信息写入到SAC文件的头段中。SAC提供了用于可以修改头段变量的命令
-`chnhdr </commands/chnhdr.html>`__\ ，以及将修改后的头段变量写到磁盘文件的命令
-`writehdr </commands/writehdr.html>`__\  [1]_。
+:doc:`/commands/chnhdr`\ ，以及将修改后的头段变量写到磁盘文件的命令
+:doc:`/commands/writehdr`\  [1]_。
 
 经纬度、深度与震级
 ------------------
@@ -32,7 +32,7 @@
 
 通常，需要将发震时刻信息写入SAC头段，并设置SAC文件的参考时刻为发震时刻。
 这样设置的好处在于，可以直观地从X轴坐标上读取震相走时。要实现这一操作，
-需要用到 `chnhdr </commands/chnhdr.html>`__ 的两个特殊用法。
+需要用到 :doc:`/commands/chnhdr` 的两个特殊用法。
 
 先看看如何修改\ **一个**\ SAC文件的发震时刻，假设发震时刻为1987年06月22日
 11时10分10.363秒： [code:origin-time]
@@ -117,7 +117,7 @@ SAC数据添加同样的发震时刻，最直观的想法是：
     SAC> ch allt (0 - &1,o&) iztype IO
     SAC> wh
 
-`synchronize </commands/synchronize.html>`__
+:doc:`/commands/synchronize`
 的作用是使内存中所有的数据拥有相同的参考时刻，
 在此命令的基础上，所有数据的头段变量 ``o`` 将拥有相同的值，所以
 直接引用第一个头段变量的 ``o`` 值就不再是一件危险的事情了。

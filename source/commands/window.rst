@@ -39,11 +39,8 @@ ASPECT value|ON|OFF
 
 下面列出前5个绘图窗口位置的缺省值：
 
-.. raw:: latex
-
-   \centering
-
 .. table:: SAC标准窗口
+   :align: center
 
    +---+-------+-------+-------+-------+
    | n | xwmin | xwmax | ywmin | ywmax |

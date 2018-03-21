@@ -22,4 +22,5 @@ saveimg benioff.ps
 quit
 EOF
 ps2raster -A -Tf benioff.ps
+ps2raster -A -Tg benioff.ps
 rm benioff.ps

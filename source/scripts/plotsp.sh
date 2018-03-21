@@ -9,4 +9,5 @@ saveimg plotsp.ps
 q
 EOF
 ps2raster -A -Tf plotsp.ps
+ps2raster -A -Tg plotsp.ps
 rm plotsp.ps

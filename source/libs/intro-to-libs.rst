@@ -13,14 +13,6 @@ SAC提供了两个函数库：\ ``libsacio.a`` 和 ``libsac.a``\ ，用户
 
 ``libsacio.a`` 中可用的子函数包括：
 
-.. raw:: latex
-
-   \centering
-
-.. raw:: latex
-
-   \ttfamily
-
 .. table:: ``libsacio``\ 子函数
 
    +----------+------------------------------------------------+
@@ -87,14 +79,6 @@ SAC提供了两个函数库：\ ``libsacio.a`` 和 ``libsac.a``\ ，用户
 这个库是从101.2版本才引入的，包含了几个数据处理常用的子函数。
 
 ``libsac.a`` 包含如下子函数：
-
-.. raw:: latex
-
-   \centering
-
-.. raw:: latex
-
-   \ttfamily
 
 .. table:: ``libsac`` 子函数
 

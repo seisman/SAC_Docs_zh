@@ -30,5 +30,6 @@ EOF
 psxy -J -R -T -O >> $PS
 
 ps2raster -A -P -Tf $PS
+ps2raster -A -P -Tg $PS
 rm $PS .gmt*
 rm freqlimits.sac

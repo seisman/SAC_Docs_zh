@@ -3,7 +3,7 @@
 震相拾取
 ========
 
-相关命令：\ `plotpk </commands/plotpk.html>`__
+相关命令：\ :doc:`/commands/plotpk`
 
 震相拾取，或者说标定到时，是SAC的一种常用功能。
 
@@ -70,7 +70,7 @@ qdp off
 
 SAC在默认情况下会打开快速绘图选项，即 ``qdp on``\ 。关于 ``qdp``\ ，
 可以参考“nameref-sec-plot-appearance”一节以及命令
-`qdp </commands/qdp.html>`__ 的说明。
+:doc:`/commands/qdp` 的说明。
 
 在拾取震相时，若打开了快速绘图选项，则由于数据没有完全绘制而导致震相的可
 识别度降低，也导致波形拾取精度降低。为了提高拾取精度，通常会在进入ppk
@@ -161,15 +161,8 @@ nameref-table-plotpk-commands 列出了ppk模式下的所有命令，
 其中常用的命令包括“``b``”、“``l``”、“``n``”、
 “``o``”、“``q``”、“``t``”和“``x``”。 所有命令均不区分大小写。
 
-.. raw:: latex
-
-   \small
-
-.. raw:: latex
-
-   \ttfamily
-
 .. table:: ppk模式命令一览表
+   :align: center
 
    +-----------------+---------------------------------------------------+---------+
    | 命令            | 含义                                              | 说明    |
@@ -302,7 +295,7 @@ ppk模式下可以键入 ``p`` 或 ``s``
 ppk修改版
 ---------
 
-SAC的 `plotpk </commands/plotpk.html>`__ 命令在实际使用中有两大痛点：
+SAC的 :doc:`/commands/plotpk` 命令在实际使用中有两大痛点：
 
 #. 拾取震相时需要按下 ``T`` 和数字键才能标记一个到时，且某些数字键与按键
    ``T`` 距离太远

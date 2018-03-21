@@ -3,12 +3,12 @@
 等值线图
 ========
 
-SAC中 `spectrogram </commands/spectrogram.html>`__
+SAC中 :doc:`/commands/spectrogram`
 等命令可以生成IXYZ数据（即3D数据），
-这种数据需要用等值线图来展示。\ `contour </commands/contour.html>`__
+这种数据需要用等值线图来展示。\ :doc:`/commands/contour`
 命令用于等值线，
-`zcolors </commands/zcolors.html>`__\ 、\ `zlabels </commands/zlabels.html>`__\ 、\ `zlevels </commands/zlevels.html>`__\ 、
-`zlines </commands/zlines.html>`__\ 、\ `zticks </commands/zticks.html>`__
+:doc:`/commands/zcolors`\ 、\ :doc:`/commands/zlabels`\ 、\ :doc:`/commands/zlevels`\ 、
+:doc:`/commands/zlines`\ 、\ :doc:`/commands/zticks`
 分别用于控制等值线的颜色、 标签、间距、线型以及刻度。
 
 下面的例子中，读入了XYZ文件contourdata，从头段中找出Z数据的范围。
@@ -30,13 +30,10 @@ SAC中 `spectrogram </commands/spectrogram.html>`__
     SAC> title 'Katmai topography from survey data [inc = 25 km]'
     SAC> contour
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: contour1
+.. figure:: /images/contour1.*
    :alt: contour绘制等值线I
    :width: 90.0%
+   :align: center
 
    contour绘制等值线I
 
@@ -53,12 +50,9 @@ SAC中 `spectrogram </commands/spectrogram.html>`__
     SAC> title 'Katmai topography from survey data [labels and ticks]'
     SAC> contour
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: contour2
+.. figure:: /images/contour2.*
    :alt: contour绘制等值线图II
    :width: 90.0%
+   :align: center
 
    contour绘制等值线图II

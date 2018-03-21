@@ -2,10 +2,11 @@ SAC相关工具
 ###########
 
 .. toctree::
+   :maxdepth: 1
 
-    byte-swap.rst
-    sgftops.rst
-    sac-config.rst
-    saclst.rst
-    rdseed.rst
-    pssac.rst
+   byte-swap
+   sgftops
+   sac-config
+   saclst
+   rdseed
+   pssac

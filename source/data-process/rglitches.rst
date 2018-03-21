@@ -1,7 +1,7 @@
 去毛刺
 ======
 
-相关命令：\ `rglitches </commands/rglitches.html>`__
+相关命令：\ :doc:`/commands/rglitches`
 
 地震仪器偶尔会出现问题，导致连续地震数据流中出现尖锋或者数据丢失。
 这些所谓的毛刺，肉眼很容易识别，但是在使用程序自动处理数据时却很
@@ -12,13 +12,10 @@
 
 nameref-fig-deglitches 中直观地看到。
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: rglitches
+.. figure:: /images/rglitches.*
    :alt: 地震波形去毛刺。上图为包含glitches的地震信号，下图为去除glitches后的地震信号。
    :width: 95.0%
+   :align: center
 
    地震波形去毛刺。上图为包含glitches的地震信号，
    下图为去除glitches后的地震信号。

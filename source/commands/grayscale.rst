@@ -66,7 +66,7 @@ grayscale videotype normal scale 1.0 zoom 1 xcrop off ycrop off
 说明
 ----
 
-这个命令可以用于绘制 `spectrogram </commands/spectrogram.html>`__
+这个命令可以用于绘制 :doc:`/commands/spectrogram`
 命令输出的灰度图，用这个 命令显示的SAC数据须是“xyz”文件。
 
 注意：SAC启动了一个脚本来运行图像操作和显示程序，然后再显示SAC的提示符。

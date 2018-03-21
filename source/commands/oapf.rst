@@ -37,7 +37,7 @@ oapf standard apf
 说明
 ----
 
-震相拾取文件可以作为自动拾取（\ `apk </commands/apk.html>`__\ ）以及人工拾取（\ `plotpk </commands/plotpk.html>`__\ ）
+震相拾取文件可以作为自动拾取（\ :doc:`/commands/apk`\ ）以及人工拾取（\ :doc:`/commands/plotpk`\ ）
 命令产生的简单数据库。每个震相拾取被写在文件的一行上。这个文件的每个常规
 行包含一个文件id、一个震相拾取id、震相拾取的时间、拾取的幅度以及一些格式
 信息。这些行为80个字符长。文件id是一些标准的头段信息或者文件名。拾取到的

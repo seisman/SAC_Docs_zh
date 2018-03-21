@@ -23,7 +23,6 @@
 
 一次完整的启动和退出称为一个SAC会话。
 
-.. [1]
-   Livermore实验室由University of California于1952年创立，2007年改由
+.. [1] Livermore实验室由University of California于1952年创立，2007年改由
    University of California、Bechtel National、BWX Technologies、
    Washington Group International共同组成的安全机构管理。

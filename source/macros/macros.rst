@@ -38,12 +38,12 @@ SAC宏
 
 #. 在当前目录搜索；
 
-#. 在 `setmacro </commands/setmacro.html>`__ 命令设置的搜索目录中搜索；
+#. 在 :doc:`/commands/setmacro` 命令设置的搜索目录中搜索；
 
 #. 在SAC的全局宏目录（\ ``${SACHOME}/aux/macros``\ ）中搜索；
 
 所有人都可以使用全局宏目录中的宏文件，可以使用
-`installmacro </commands/installmacro.html>`__
+:doc:`/commands/installmacro`
 命令将自己的宏文件安装到这个目录中。你也可以通过绝对/相对路径指定搜索路径。
 
 宏参数
@@ -232,7 +232,7 @@ SAC宏的条件判断格式如下：
         message "Peak to peak for $1 below threshold."
     endif
 
-在这个例子中，一个文件被读入内存，\ `markptp </commands/markptp.html>`__
+在这个例子中，一个文件被读入内存，\ :doc:`/commands/markptp`
 测出其最大峰峰值， 并保存到头段变量 ``user0``
 中，若该值大于某一确定值，则对其做Fourier
 变换并绘制振幅图，否则输出信息到终端。
@@ -290,9 +290,9 @@ SAC宏的条件判断格式如下：
 
 下面给出一些DO循环的例子：
 
-该宏文件对数据使用了 `dif </commands/dif.html>`__
+该宏文件对数据使用了 :doc:`/commands/dif`
 以进行预白化处理，进行Fourier变换， 然后使用
-`divomega </commands/divomega.html>`__
+:doc:`/commands/divomega`
 命令去除预白化的影响，有时需要在做
 变换之前多次预白化，那么就可以这样写：
 

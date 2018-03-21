@@ -11,24 +11,25 @@ SAC数据处理
 要采用哪些步骤以及各个步骤之间的先后顺序。
 
 .. toctree::
+   :maxdepth: 1
 
-    data-request
-    data-format
-    merge-traces
-    naming
-    time-zone-correction
-    event-info
-    station-info
-    rglitches
-    rmean-rtrend-taper
-    instrument-response
-    cut-data
-    rotate
-    resampling
-    filter
-    traveltime
-    sort-traces
-    quality-control
-    picking-phase
-    data-analysis
-    stack
+   data-request
+   data-format
+   merge-traces
+   naming
+   time-zone-correction
+   event-info
+   station-info
+   rglitches
+   rmean-rtrend-taper
+   instrument-response
+   cut-data
+   rotate
+   resampling
+   filter
+   traveltime
+   sort-traces
+   quality-control
+   picking-phase
+   data-analysis
+   stack

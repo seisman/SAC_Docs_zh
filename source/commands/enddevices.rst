@@ -30,4 +30,4 @@ XWINDOWS
 说明
 ----
 
-参见命令 `begindevices </commands/begindevices.html>`__ 的说明。
+参见命令 :doc:`/commands/begindevices` 的说明。

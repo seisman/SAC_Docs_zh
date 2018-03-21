@@ -21,7 +21,7 @@ bbfk
 
 FILTER
     使用最近一次
-    `filterdesign </commands/filterdesign.html>`__\ 命令设计的带通滤波器
+    :doc:`/commands/filterdesign`\ 命令设计的带通滤波器
 
 NORMALIZE
     用Capo方法归一化协方差矩阵，如果各信号道的振幅差别

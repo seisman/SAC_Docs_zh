@@ -6,7 +6,7 @@ SAC debug
 这个时候先不要怀疑SAC有bug，而是要先把自己写的东西好好debug一下。
 
 SAC其实自带了一个debug工具，即命令
-`echo </commands/echo.html>`__\ 。该命令用于控制
+:doc:`/commands/echo`\ 。该命令用于控制
 是否显示SAC的输出（即警告信息、错误信息和正常的输出信息）以及输入（包括
 传递给SAC的命令、宏以及对命令的处理）。
 
@@ -85,6 +85,6 @@ SAC其实自带了一个debug工具，即命令
 传递给SAC的不是 ``w over``\ ，而是 ``w overq``\ ，即内存中有三个
 波形文件，而 ``write`` 命令中却只给了一个文件名，因而出现了错误1312。
 
-由此可见，\ `echo </commands/echo.html>`__
+由此可见，\ :doc:`/commands/echo`
 命令可以帮助用户清楚地知道真正传递给SAC的
 是什么，因而是一个很好的SAC调试工具。

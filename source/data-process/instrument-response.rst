@@ -3,15 +3,15 @@
 去仪器响应
 ==========
 
-相关命令：\ `transfer </commands/transfer.html>`__
+相关命令：\ :doc:`/commands/transfer`
 
 相关脚本：、
 
-SAC中可以使用命令 `transfer </commands/transfer.html>`__
+SAC中可以使用命令 :doc:`/commands/transfer`
 实现去仪器响应，本节只列出
 日常数据处理过程中最常用的命令。关于仪器响应的详细介绍，请参考附录
 “nameref-chap-resp”以及教科书中的相关内容。关于
-`transfer </commands/transfer.html>`__
+:doc:`/commands/transfer`
 命令的具体用法，参考该命令的语法说明及示例。
 
 SAC中常用的仪器响应文件有两种格式，即RESP文件和SAC PZ文件。本节会介绍

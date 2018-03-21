@@ -28,13 +28,10 @@ benioff
 
 该滤波器的响应函数如下图所示：
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: benioff
+.. figure:: /images/benioff.*
    :alt: Benioff滤波器的响应函数
    :width: 80.0%
+   :align: center
 
    Benioff滤波器的响应函数
 

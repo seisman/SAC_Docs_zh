@@ -31,10 +31,10 @@ APPEND
 ----
 
 ``setbb`` 命令可以给黑板变量赋值，这些值可以通过
-`getbb </commands/getbb.html>`__ 命令获取，或在命令中直接引用。可以使用
-`evaluate </commands/evaluate.html>`__ 对黑板变量
+:doc:`/commands/getbb` 命令获取，或在命令中直接引用。可以使用
+:doc:`/commands/evaluate` 对黑板变量
 做基本算术操作，并将结果保存在新的黑板变量中，也可以通过
-`unsetbb </commands/unsetbb.html>`__ 命令删除一个黑板变量。
+:doc:`/commands/unsetbb` 命令删除一个黑板变量。
 
 示例
 ----

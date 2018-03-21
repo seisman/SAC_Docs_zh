@@ -35,7 +35,7 @@ div 1.0
 说明
 ----
 
-参见 `add </commands/add.html>`__ 的相关说明。
+参见 :doc:`/commands/add` 的相关说明。
 
 头段变量改变
 ------------

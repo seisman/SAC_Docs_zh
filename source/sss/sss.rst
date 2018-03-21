@@ -4,8 +4,8 @@
 Signal Stack Subprocess，是SAC提供的一个用于信号叠加的子程序。
 
 在SAC中键入“``sss``”即可进入该子程序；在子程序中键入
-`quitsub </commands/quitsub.html>`__ 即可
-退出子程序并回到主程序；也可键入 `quit </commands/quit.html>`__
+:doc:`/commands/quitsub` 即可
+退出子程序并回到主程序；也可键入 :doc:`/commands/quit`
 直接从子程序中退出SAC。
 
 在对多个信号进行叠加时，每个信号都有各自的属性，比如静延迟、震中距、权重因子、

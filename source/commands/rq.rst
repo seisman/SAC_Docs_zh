@@ -39,7 +39,7 @@ rq q 1. r 0. c 1.
 
 .. math:: AMP_{corrected}(f) = AMP_{uncorrected}(f) * e^{\frac{\pi R f}{Q C}}
 
- 其中\ :math:`f`\ 为频率，单位为 ，\ :math:`R`\ 为距离，单位 ，
+其中\ :math:`f`\ 为频率，单位为 ，\ :math:`R`\ 为距离，单位 ，
 :math:`C`\ 是群速度，单位为 。Q是一个无量纲衰减因子。
 
 头段变量

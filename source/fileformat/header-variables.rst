@@ -18,15 +18,13 @@ SAC头段版本号。\ ``nvhdr``\  [1]_ 是SAC中很重要但是不太常用的�
 分别表示“年”、“一年的第几天” [2]_ [3]_、 “时”、“分”、“秒”、“毫秒” [4]_。
 这六个头段变量构成了SAC中唯一的绝对时刻，SAC中的其它时刻都被转换为相对
 于该时刻的相对时间（单位为秒）。关于SAC中的绝对时间和相对时间的概念，
-参考“nameref-sec-sac-time”一节。
+参考 :doc:`sac-time` 一节。
 
 根据这六个头段变量还可以推导出其它一些辅助型头段变量：
 
--  ``kzdate``\ ：字符数字格式的参考日期，由 ``nzyear`` 和 ``nzjday``
-   导出
-
--  ``kztime``\ ：字符数字格式的参考时间，由 ``nzhour``\ 、
-   ``nzmin``\ 、\ ``nzsec``\ 、\ ``nzmsec`` 导出
+-  ``kzdate``\ ：字符数字格式的参考日期，由 ``nzyear`` 和 ``nzjday`` 导出
+-  ``kztime``\ ：字符数字格式的参考时间，由 ``nzhour``\ 、 ``nzmin``\ 、\ ``nzsec``\ 、
+   \ ``nzmsec`` 导出
 
 如下例所示:
 
@@ -53,15 +51,10 @@ SAC头段版本号。\ ``nvhdr``\  [1]_ 是SAC中很重要但是不太常用的�
 （比如文件起始时刻、发震时刻等等）作为参考时刻。其可以取如下枚举值 [5]_：
 
 -  ``IUNKN``\ ：未知
-
 -  ``IB``\ ：以文件开始时刻为参考时间
-
 -  ``IDAY``\ ：以参考日期当天的午夜作为参考时间
-
 -  ``IO``\ ：以事件发生时间为参考时间
-
 -  ``IA``\ ：以初动到时为参考时间
-
 -  ``ITn``\ ：以用户自定义的时间 ``Tn`` 为参考时间（n可取0–9）
 
 若 ``iztype=IO``\ ，则表示数据以发震时刻作为参考时刻，此时头段变量 ``o``
@@ -73,13 +66,9 @@ SAC头段版本号。\ ``nvhdr``\  [1]_ 是SAC中很重要但是不太常用的�
 SAC文件类型，其决定了头段区之后有几个子数据区。可以取如下枚举值：
 
 -  ``ITIME``\ ：时间序列文件（即Y数据，一般的地震波形数据）
-
 -  ``IRLIM``\ ：频谱文件（实部-虚部格式）
-
 -  ``IAMPH``\ ：频谱文件（振幅-相位格式）
-
 -  ``IXY``\ ：一般的X-Y数据
-
 -  ``IXYZ``\ ：一般的XYZ（3D）文件
 
 ``idep``
@@ -88,13 +77,9 @@ SAC文件类型，其决定了头段区之后有几个子数据区。可以取�
 因变量（Y）类型，该头段变量可以不定义，其可以取如下枚举值：
 
 -  ``IUNKN``\ ：未知类型
-
 -  ``IDISP``\ ：位移量，单位为
-
 -  ``IVEL``\ ：速度量，单位为
-
--  ``IVOLTS``\ ：速度量，单位为  [6]_
-
+-  ``IVOLTS``\ ：速度量，单位为 [6]_
 -  ``IACC``\ ：加速度量：单位为
 
 数据相关变量
@@ -161,10 +146,9 @@ SAC文件类型，其决定了头段区之后有几个子数据区。可以取�
 不太方便。此时可以将数据乘以\ :math:`10^{20}`\ 变成合适的量级，并修改
 ``scale=1.0e20``\ ，这样就可以知道自己对数据人为放大了多少倍。
 
-101.5之前的版本中，在使用 `transfer </commands/transfer.html>`__
-命令去仪器响应时， 若 ``scale``
-的值有定义，则输出的数据会根据该值进行放大并修改
-``scale``\ 。在101.5及其之后的版本中，\ ``scale`` 被忽略。
+101.5之前的版本中，在使用 :doc:`/commands/transfer` 命令去仪器响应时， 若 ``scale``
+的值有定义，则输出的数据会根据该值进行放大并修改 ``scale``\ 。在101.5及其之后的
+版本中，\ ``scale`` 被忽略。
 
 ``xminimum, xmaximum, yminimum, ymaximum``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,13 +166,9 @@ SAC文件类型，其决定了头段区之后有几个子数据区。可以取�
 iqual [7]_ 标识数据质量，可取如下值：
 
 -  ``IGOOD``\ ：高质量数据
-
 -  ``IGLCH``\ ：数据中有毛刺（glitches）
-
 -  ``IDROP``\ ：数据有丢失（dropouts）
-
 -  ``ILOWSN``\ ：低信噪比数据
-
 -  ``IOTHER``\ ：其它
 
 ``isynth``
@@ -209,8 +189,8 @@ iqual [7]_ 标识数据质量，可取如下值：
 ``evla, evlo, evel, evdp``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-分别代表事件的纬度（-90到90）、经度（-180到180）、高程（单位为 ）
-和深度（单位为 ，以前为 ）。
+分别代表事件的纬度（-90到90）、经度（-180到180）、高程（单位为 m）
+和深度（单位为 km，以前为 m）。
 
 ``ievreg``
 ~~~~~~~~~~
@@ -223,11 +203,8 @@ iqual [7]_ 标识数据质量，可取如下值：
 事件类型，这里仅列出部分常见的枚举值：
 
 -  ``IUNKN``\ ：未知事件
-
 -  ``INUCL``\ ：核事件
-
 -  ``IEQ``\ ：地震
-
 -  ``IOTHER``\ ：其它
 
 ``mag``
@@ -240,25 +217,17 @@ iqual [7]_ 标识数据质量，可取如下值：
 
 震级信息来源，可以取如下枚举值：
 
--  ``INEIC``\ ：\ http://earthquake.usgs.gov/earthquakes/search/
-
--  ``IPDE``\ ：\ http://earthquake.usgs.gov/data/pde.php
-
--  ``IISC``\ ：\ http://www.isc.ac.uk/iscbulletin/search/catalogue/
-
+-  ``INEIC``\ ： http://earthquake.usgs.gov/earthquakes/search/
+-  ``IPDE``\ ： http://earthquake.usgs.gov/data/pde.php
+-  ``IISC``\ ： http://www.isc.ac.uk/iscbulletin/search/catalogue/
 -  ``IREB``\ ：人工检查过的事件目录
-   nameref-http-//earthquake.usgs.govUSGS
-   nameref-http-//seismo.berkeley.edu/UC Berkeley
-   nameref-http-//www.seismolab.caltech.eduCalifornia Institute of
-   Technology nameref-https-//www.llnl.gov/Lawrence Livermore National
-   Laboratory
-
+-  ``IUSGS`` ： `USGS <http://earthquake.usgs.gov>`_
+-  ``IBRK`` ： `UC Berkeley <http://seismo.berkeley.edu/>`_
+-  ``ICALTECH`` ： `California Institute of Technology <http://www.seismolab.caltech.edu>`_
+-  ``ILLNL`` ： `Lawrence Livermore National Laboratory <http://www.llnl.gov/>`_
 -  ``IEVLOC``\ ：Event Location
-
 -  ``IJSOP``\ ：Joint Seismic Observation Program
-
 -  ``IUSER``\ ：The individual using SAC2000
-
 -  ``IUNKNOWN``\ ：未知
 
 ``imagtyp``
@@ -267,36 +236,24 @@ iqual [7]_ 标识数据质量，可取如下值：
 震级类型，取如下枚举值：
 
 -  ``IMB``\ ：体波震级
-
 -  ``IMS``\ ：面波震级
-
 -  ``IML``\ ：区域震级
-
 -  ``IMW``\ ：矩震级
-
 -  ``IMD``\ ：持续时间震级
-
 -  ``IMX``\ ：用户自定义震级
 
 ``gcarc, dist, az, baz``
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``gcarc``\ ：全称Great Circle Arc，即震中到台站的大圆弧的长度，
-   单位为度；
-
--  ``dist``\ ：震中到台站的距离，单位为 ；
-
+-  ``gcarc``\ ：全称Great Circle Arc，即震中到台站的大圆弧的长度，单位为度；
+-  ``dist``\ ：震中到台站的距离，单位为 km；
 -  ``az``\ ：方位角，震中到台站的连线与地理北向的夹角；
-
 -  ``baz``\ ：反方位角，台站到震中的连线与地理北向的夹角。
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: /figures/az-baz
+.. figure:: /images/az-baz.*
    :alt: 震中距、方位角、反方位角示意图。
    :width: 8cm
+   :align: center
 
    震中距、方位角、反方位角示意图。
 
@@ -304,12 +261,9 @@ iqual [7]_ 标识数据质量，可取如下值：
 可以参考相关代码及书籍。此处列出部分仅供参考：
 
 -  http://www.eas.slu.edu/People/RBHerrmann/Courses/EASA462/
-
 -  http://www.seis.sc.edu/software/distaz/
-
 -  SAC源码 ``src/ucf/distaz.c``
-   nameref-http-//www.eas.slu.edu/eqc/eqccps.htmlCPS330 源码
-   ``VOLI/src/udelaz.c``
+-  `CPS330 <http://www.eas.slu.edu/eqc/eqccps.html>`_ 源码 ``VOLI/src/udelaz.c``
 
 ``o, ko``
 ~~~~~~~~~
@@ -345,8 +299,8 @@ iqual [7]_ 标识数据质量，可取如下值：
 ``stla, stlo, stel, stdp``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-台站纬度（-90到90度）、经度（-180到180度）、高程（单位 ）、
-相对地表的深度（单位 ）。
+台站纬度（-90到90度）、经度（-180到180度）、高程（单位 m）、
+相对地表的深度（单位 m）。
 
 ``cmpaz, cmpinc, kcmpnm, kstcmp``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -354,15 +308,11 @@ iqual [7]_ 标识数据质量，可取如下值：
 一个台站至少需要三个正交的通道/分量才能完整地记录地面运动物理量。
 ``cmpaz`` 和 ``cmpinc`` 指定了单个通道记录的方向矢量。
 
-图 nameref-fig-cmpaz-cmpinc 给出了SAC所使用的NEU坐标系，需要注意的是这是
+下图给出了SAC所使用的NEU坐标系，需要注意的是这是
 一个左手坐标系。图中蓝色箭头为通道所记录的方向矢量，若地面运动与该方向
 一致，则为正，否则为负。其中，头段变量 ``cmpaz`` 表征通道的方位角，
 其定义为从N向开始顺时针旋转的角度，即图中的角度\ :math:`\phi`\ ；\ ``cmpinc``
 表征通道的入射角，定义为相对于U方向向下旋转的度数，即图中的角度\ :math:`\theta`\ 。
-
-.. raw:: latex
-
-   \centering
 
 .. raw:: latex
 
@@ -382,10 +332,6 @@ iqual [7]_ 标识数据质量，可取如下值：
 
 根据定义，地震仪标准通道的 ``cmpinc`` 和 ``cmpaz`` 值如下表：
 
-.. raw:: latex
-
-   \centering
-
 .. table:: 标准地震通道的 ``cmpaz`` 和 ``cpminc``
 
    +------+-----------+------------+
@@ -399,7 +345,7 @@ iqual [7]_ 标识数据质量，可取如下值：
    +------+-----------+------------+
 
 对于非标准方向的地震通道来说，很容易根据 ``cmpinc`` 和 ``cmpaz``
-的值，将其旋转到NEU坐标系或者RTZ坐标系，这些将在“nameref-sec-traces-rotating”
+的值，将其旋转到NEU坐标系或者RTZ坐标系，这些将在 :doc:`/data-process/rotate`
 一节中说到。
 
 ``kcmpnm`` 用于存储分量名称。SEED格式规定通道名的三个字符中的最后
@@ -407,8 +353,7 @@ iqual [7]_ 标识数据质量，可取如下值：
 ``kcmpnm`` 可以取为E、N、Z。由于很多台站的水平分量并不严格是
 东西、南北方向，因而现在更倾向于用1和2代替N和E。
 
-``kstcmp`` 为辅助型变量，表示台站分量，由 ``kstnm``\ 、
-``cmpaz``\ 、\ ``cmpinc`` 推导得到。
+``kstcmp`` 为辅助型变量，表示台站分量，由 ``kstnm``\ 、\ ``cmpaz``\ 、\ ``cmpinc`` 推导得到。
 
 ``lpspol``
 ~~~~~~~~~~
@@ -449,7 +394,7 @@ iqual [7]_ 标识数据质量，可取如下值：
 ``ko`` 可以构成 ``omarker``\ ，\ ``tn`` 和 ``ktn`` 可以构成
 ``tnmarker``\ （n=0–9）。
 
-这些辅助型变量可以在 `listhdr </commands/listhdr.html>`__ 中使用。
+这些辅助型变量可以在 :doc:`/commands/listhdr` 中使用。
 
 仪器相关变量
 ------------

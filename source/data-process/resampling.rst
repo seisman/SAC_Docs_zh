@@ -1,7 +1,7 @@
 数据重采样
 ==========
 
-相关命令：\ `decimate </commands/decimate.html>`__\ 、\ `interpolate </commands/interpolate.html>`__
+相关命令：\ :doc:`/commands/decimate`\ 、\ :doc:`/commands/interpolate`
 
 如下情形，需要对数据进行重采样：
 
@@ -18,7 +18,7 @@
 decimate
 --------
 
-`decimate </commands/decimate.html>`__
+:doc:`/commands/decimate`
 专门用于解决上面所说的第二种情形，即等间隔数据的
 减采样。在减采样过程中，根据Nyquist采样定理，可能会出现混叠现象，而
 ``decimate`` 对数据自动做了低通滤波，以避免混叠现象的产生。
@@ -41,8 +41,8 @@ decimate
 interpolate
 -----------
 
-与 `decimate </commands/decimate.html>`__
-相比，\ `interpolate </commands/interpolate.html>`__ 命令功能
+与 :doc:`/commands/decimate`
+相比，\ :doc:`/commands/interpolate` 命令功能
 更加强大，其可以对等间隔或不等间隔数据进行增采样或减采样。
 
 比如增采样，即插值：

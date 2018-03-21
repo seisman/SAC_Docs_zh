@@ -29,4 +29,5 @@ saveimg SAC_logo.ps
 quit
 END
 ps2raster -A -Tf SAC_logo.ps
+ps2raster -A -Tg SAC_logo.ps
 rm SAC_logo.ps

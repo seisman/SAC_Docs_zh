@@ -54,7 +54,7 @@ bandrej butter corner 0.1 0.4 npoles 2 passes 1 tranbw 0.3 atten 30
 说明
 ----
 
-参见命令 `bandpass </commands/bandpass.html>`__ 的说明
+参见命令 :doc:`/commands/bandpass` 的说明
 
 示例
 ----

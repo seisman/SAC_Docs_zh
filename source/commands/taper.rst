@@ -48,11 +48,8 @@ taper命令的通用形式为
 表 nameref-table-taper-functions 定义了不同的衰减函数的参数，其中N为
 衰减窗的宽度，即\ :math:`npts*v`\ 。
 
-.. raw:: latex
-
-   \centering
-
 .. table:: taper衰减函数参数一览
+   :align: center
 
    +---------+------------------------+-------------+-------------+
    | 类型    | :math:`\omega`         | :math:`F_0` | :math:`F_1` |
@@ -71,7 +68,7 @@ taper命令的通用形式为
 
    \centering
 
-.. figure:: taper-functions
+.. figure:: /images/taper-functions.*
    :alt: taper衰减函数曲线
    :width: 80.0%
 

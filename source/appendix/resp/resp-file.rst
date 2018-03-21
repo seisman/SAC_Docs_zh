@@ -177,7 +177,7 @@ RESP仪器响应文件可以通过如下几种方式获得：
 
 -  用evalresp程序从SEED数据中提取；
 
--  从IRIS DMC resp Web Service [1]_下载；
+-  从IRIS DMC resp Web Service [1]_ 下载；
 
 -  手写RESP文件；
 
@@ -206,7 +206,7 @@ RESP文件中包含了仪器响应的完整信息，同时也包含了不少冗�
 仪器响应时更方便。
 
 SAC PZ文件可以用rdseed程序从SEED文件中提取，也可以从IRIS DMC SAC PZ Web
-Service  [2]_获取，当然也可以 手写SAC PZ文件。
+Service  [2]_ 获取，当然也可以 手写SAC PZ文件。
 
 下面是某个台站的SAC PZ文件：
 

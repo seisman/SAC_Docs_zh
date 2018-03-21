@@ -44,7 +44,9 @@ POLARITY ON|OFF
     打开/关闭极性选项
 
 CURSOR ON|OFF
-REDUCED ON|OFF|VELOCITY vel|PHASE phase
+    是否显示光标
+
+REDUCED ON|OFF|VELOCITY vel|PHASE phase_name
     reduced走时曲线。可以指定reduce速度或者一个参考震相
 
 ORIENT PORTRAIT|LANDSCAPE

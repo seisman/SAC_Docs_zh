@@ -1,9 +1,7 @@
-.. _sec:traces-rotating:
-
 分量旋转
 ========
 
-相关命令：\ `rotate </commands/rotate.html>`__
+相关命令：\ :doc:`/commands/rotate`
 
 相关头段：\ ``cmpinc``\ 、\ ``cmpaz``
 
@@ -16,7 +14,7 @@
 由于SH波与P-SV波的解偶，更常处理的是R、T、Z向的三分量数据。因而地震
 信号的旋转是有必要的。
 
-SAC提供了 `rotate </commands/rotate.html>`__
+SAC提供了 :doc:`/commands/rotate`
 命令，用于旋转任意两个相互正交的分量。 旋转前，SAC会检查两个分量的
 ``cmpinc`` 和 ``cmpaz``\ ，以确 定两个分量是正交的。
 
@@ -53,12 +51,9 @@ SAC提供了 `rotate </commands/rotate.html>`__
 读入两个水平分量时，读入的顺序不重要，不管是先读N分量还是先读E分量，
 旋转后始终是R分量在前，T分量在后。
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: rotate
+.. figure:: /images/rotate.*
    :alt: 将N、E分量旋转到R、T分量。
    :width: 95.0%
+   :align: center
 
    将N、E分量旋转到R、T分量。

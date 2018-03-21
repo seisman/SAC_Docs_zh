@@ -11,4 +11,5 @@ saveimg linefill.ps
 q
 EOF
 ps2raster -A -P -Tf linefill.ps
+ps2raster -A -P -Tg linefill.ps
 rm linefill.ps

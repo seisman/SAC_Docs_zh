@@ -32,4 +32,4 @@ yvport 0.1 0.9
 说明
 ----
 
-参考 `xvport </commands/xvport.html>`__ 命令的说明。
+参考 :doc:`/commands/xvport` 命令的说明。

@@ -32,7 +32,7 @@ rms noise off to user0
 说明
 ----
 
-该命令用于计算当前测量时间窗（由 `mtw </commands/mtw.html>`__
+该命令用于计算当前测量时间窗（由 :doc:`/commands/mtw`
 定义）内数据的 均方根，并将计算结果保存到头段变量 ``USERn`` 中。
 
 均方根的定义为：

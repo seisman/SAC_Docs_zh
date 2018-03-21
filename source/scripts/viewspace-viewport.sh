@@ -12,4 +12,5 @@ psbasemap -R0/1/0/1 -JX16c/5c -Glightskyblue3 -K -O -X-8c -Y5.5c >> $PS
 echo 0.1 0.1 20 0 0 CM viewport | pstext -R -J -K -O >> $PS
 psxy -R -J -T -O >> $PS
 ps2raster -A -P -Tf $PS
+ps2raster -A -P -Tg $PS
 rm .gmt* $PS

@@ -36,10 +36,10 @@ image color full
 该命令允许用户用SAC三维数据绘制彩图或灰度图。
 
 三维数据可以用
-`spectrogram </commands/spectrogram.html>`__\ 、\ `sonogram </commands/sonogram.html>`__
-或 `bbfk </commands/bbfk.html>`__
+:doc:`/commands/spectrogram`\ 、\ :doc:`/commands/sonogram`
+或 :doc:`/commands/bbfk`
 命令产生，也可以自己生成SAC格式的三维数据。可以使用
-`xlim </commands/xlim.html>`__ 和 `ylim </commands/ylim.html>`__
+:doc:`/commands/xlim` 和 :doc:`/commands/ylim`
 以控制要显示的绘图效果，也可以 使用其他命令对数据做振幅上的操作。
 
 示例
@@ -52,13 +52,10 @@ image color full
     SAC> r contourdata
     SAC> image
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: image
+.. figure:: /images/image.*
    :alt: image示意图
    :width: 90.0%
+   :align: center
 
    image示意图
 

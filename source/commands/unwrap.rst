@@ -42,18 +42,15 @@ unwrap fill off intthr 1.5 pvthr 0.5
 该命令仅对有相位光滑变化的数据起作用。在数据转换之前先对数据补零使得
 数据点数为\ :math:`2^n`\ ，也可以使用 ``FILL`` 选项指定补其他的值。
 
-用 `fft </commands/fft.html>`__
+用 :doc:`/commands/fft`
 计算出的相位谱，相位限制在\ :math:`-\pi`\ 与\ :math:`\pi`\ 之间，因而相位谱
 看上去比较杂乱。\ ``unwrap`` 将相位谱做展开，使得相位谱更加连续变化。
 下图中分别展示了原始相位谱（上）和展开后的相位谱（下）。
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: unwrap
+.. figure:: /images/unwrap.*
    :alt: 展开相位
    :width: 90.0%
+   :align: center
 
    展开相位
 

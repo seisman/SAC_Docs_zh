@@ -23,12 +23,12 @@ beginframe
 多次绘图命令绘制的图像不会重叠在一起。
 
 ``beginframe`` 命令会关闭绘图设备的自动刷新功能，直到
-`endframe </commands/endframe.html>`__
+:doc:`/commands/endframe`
 命令恢复自动刷新功能为止。在这两个命令中间执行的
 所有绘图命令所产生的图像将会叠加在一起，形成组合图。
 
-通过这两个命令，并结合 `xvport </commands/xvport.html>`__ 和
-`yvport </commands/yvport.html>`__ 定义
+通过这两个命令，并结合 :doc:`/commands/xvport` 和
+:doc:`/commands/yvport` 定义
 每次绘图的viewport，可以很容易地绘制出复杂的组合图。
 
 关于如何绘制组合图以及这几个命令的使用，可以参考

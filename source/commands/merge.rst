@@ -44,7 +44,7 @@ filelist
 不同。
 
 在v101.6之前的版本中，\ ``merge`` 命令的用法与
-`addf </commands/addf.html>`__ 命令的
+:doc:`/commands/addf` 命令的
 用法相似。该命令会将内存中的文件依次分别与filelist中的文件进行合并，且内存中的文件的
 开始时刻必须早于filelist中的文件的开始时刻。因而在将多个数据文件合并成一个文件时，只能
 先读取第一段数据，然后 ``merge`` 第二段数据，再 ``merge`` 第三段数据，

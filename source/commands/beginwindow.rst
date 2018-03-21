@@ -32,7 +32,7 @@ beginwindow 1
 现在的图形终端或工作站大多支持多窗口，即启动多个窗口，并在每个窗口中
 显示相同或不同的图像。
 
-`window </commands/window.html>`__
+:doc:`/commands/window`
 命令可以控制每个X绘图窗口的位置和形状，而 ``beginwindow``
 则用于启用该绘图窗口，使得接下来所有的绘图命令的
 绘图效果都显示在该绘图窗口中，直到再次使用 ``beginwindow`` 命令

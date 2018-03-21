@@ -44,7 +44,7 @@
 
    \centering
 
-.. figure:: ground-motion
+.. figure:: /images/ground-motion.*
    :alt: COLA台站处的原始地面运动
    :width: 98.0%
 
@@ -58,7 +58,7 @@
 
    \centering
 
-.. figure:: transfer-function
+.. figure:: /images/transfer-function.*
    :alt: 仪器响应频谱图
    :width: 98.0%
 
@@ -68,7 +68,7 @@
 
    \centering
 
-.. figure:: raw-data
+.. figure:: /images/raw-data.*
    :alt: COLA台站的地震记录
    :width: 90.0%
 

@@ -18,4 +18,4 @@ endframe
 说明
 ----
 
-参见 `beginframe </commands/beginframe.html>`__ 命令的相关说明。
+参见 :doc:`/commands/beginframe` 命令的相关说明。

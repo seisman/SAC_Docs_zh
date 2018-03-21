@@ -32,5 +32,6 @@ saveimg rglitches.ps
 q
 EOF
 ps2raster -A -Tf rglitches.ps
+ps2raster -A -Tg rglitches.ps
 rm rglitches.ps
 rm seis impulse glitches.SAC deglitches.SAC

@@ -29,12 +29,12 @@ nameref-subsec-pdw
 说明
 ----
 
-`cut </commands/cut.html>`__
+:doc:`/commands/cut`
 命令设置截窗选项，仅对即将读取的文件进行截窗，而对内存
 中的数据没有效果。\ ``cutim``\ 则在这个命令给出的时候对内存中的数据
 进行截窗操作。
 
-用户可以用 `read </commands/read.html>`__ 读入文件，然后用 ``cutim`` 对
+用户可以用 :doc:`/commands/read` 读入文件，然后用 ``cutim`` 对
 内存中的文件直接进行截窗。\ ``cutim`` 也允许使用多个截取区间，用户
 可以读三个文件到内存，然后使用有4个截取区间的 ``cutim`` 命令，
 最终内存中将得到12个文件。

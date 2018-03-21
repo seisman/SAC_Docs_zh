@@ -60,18 +60,6 @@ SAC支持的操作符是包括：“``+  -  *  /  **``”。
 SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 arg2 ...)``”。
 具体函数如表 nameref-table-regular-arithmetic-functions 所示。
 
-.. raw:: latex
-
-   \centering
-
-.. raw:: latex
-
-   \ttfamily
-
-.. raw:: latex
-
-   \small
-
 .. table:: 常规算数运算函数
 
    +------------+---------------------------+---------------------+
@@ -178,18 +166,6 @@ SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 ar
 
 SAC提供了若干个函数用于字符串的处理，如表
 nameref-table-string-operation-functions 所示：
-
-.. raw:: latex
-
-   \centering
-
-.. raw:: latex
-
-   \ttfamily
-
-.. raw:: latex
-
-   \small
 
 .. table:: 字符串操作函数
 

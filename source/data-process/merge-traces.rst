@@ -1,7 +1,7 @@
 合并数据
 ========
 
-相关命令：\ `merge </commands/merge.html>`__
+相关命令：\ :doc:`/commands/merge`
 
 相关脚本：、
 
@@ -28,7 +28,7 @@
 数据段的合并，需要执行多次合并命令，且合并时文件的顺序必须按照绝对时间
 的先后顺序。
 
-SAC从v101.6开始重写了 `merge </commands/merge.html>`__
+SAC从v101.6开始重写了 :doc:`/commands/merge`
 命令，可以使用如下更简洁的形式：
 
 .. code:: bash

@@ -1,9 +1,7 @@
-.. _sec:stack-traces:
-
 信号叠加
 ========
 
-相关命令：nameref-sss-liststack、 nameref-sss-zerostack
+相关命令： :doc:`/sss/liststack` 、:doc:`/sss/zerostack`
 
 信号叠加是消除噪声、增强有效信号的常用手段。 SAC 通过提供一个子程序
 Signal Stack Subprocess（简称 sss）来实现。
@@ -12,8 +10,8 @@ sss 的进入和退出
 ----------------
 
 在SAC中键入“``sss``”即可进入该子程序；在子程序中键入
-`quitsub </commands/quitsub.html>`__ 即可
-退出子程序并回到主程序；也可键入 `quit </commands/quit.html>`__
+:doc:`/commands/quitsub` 即可
+退出子程序并回到主程序；也可键入 :doc:`/commands/quit`
 直接从子程序中退出SAC。
 
 添加文件
@@ -75,13 +73,10 @@ sss 的进入和退出
     SAC/SSS> timewindows 0 19    // 确定时窗，必选设定
     SAC/SSS> sumstack    // 叠加波形
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: stack-without-delay
+.. figure:: /images/stack-without-delay.*
    :alt: 不做动校正的叠加
    :width: 80.0%
+   :align: center
 
    不做动校正的叠加
 
@@ -106,7 +101,7 @@ sss 的进入和退出
 
    \centering
 
-.. figure:: stack-with-delay
+.. figure:: /images/stack-with-delay.*
    :alt: 做动校正的叠加
    :width: 80.0%
 

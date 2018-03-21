@@ -58,4 +58,4 @@ xlabel off location bottom size small
 
 若打开X轴标签选项，则绘图时会在图上显示X轴标签。标签的尺寸和位置以及
 文本均可以改变。文本质量以及字体可以使用
-`gtext </commands/gtext.html>`__ 命令设置。
+:doc:`/commands/gtext` 命令设置。

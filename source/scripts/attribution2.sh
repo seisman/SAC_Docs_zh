@@ -12,4 +12,5 @@ q
 EOF
 
 ps2raster -A -P -Tf attribution2.ps
+ps2raster -A -P -Tg attribution2.ps
 rm attribution2.ps

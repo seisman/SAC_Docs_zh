@@ -32,7 +32,7 @@ RL|IM|AM|PH
 
 LINLIN|LINLOG|LOGLIN|LOGLOG
     设置x-y轴为线型还是对数型，与单独的
-    `linlin </commands/linlin.html>`__ 等命令区分开
+    :doc:`/commands/linlin` 等命令区分开
 
 缺省值
 ------

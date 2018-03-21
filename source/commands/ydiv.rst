@@ -18,4 +18,4 @@ ydiv
 说明
 ----
 
-该命令的选项、默认值和说明，与 `xdiv </commands/xdiv.html>`__ 相同。
+该命令的选项、默认值和说明，与 :doc:`/commands/xdiv` 相同。

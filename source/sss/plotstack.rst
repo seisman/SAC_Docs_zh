@@ -44,5 +44,5 @@ plotstack sum on perplot off weight on polarity on
 该命令绘制叠加文件列表中的文件，所有的文件首先根据静/动延迟进行时移，
 该命令可以控制绘制文件时是否考虑权重因子和极性。
 
-该命令的用法与 `plot1 </commands/plot1.html>`__
+该命令的用法与 :doc:`/commands/plot1`
 类似，在每个子图的左上角会显示文件名 以及其他非默认的属性值。

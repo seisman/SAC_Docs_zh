@@ -39,10 +39,10 @@ markptp length 5.0 to t0
 ``TO marker`` 中所指定的时间标记头段中，最大值（波峰）所对应的时刻
 会写到相应的下一个时间标记头段中。最大峰峰值保存到 ``user0`` 中，
 ``kuser0`` 中的值为 ``PTPAMP``\ 。如果使用
-`oapf </commands/oapf.html>`__
+:doc:`/commands/oapf`
 打开了字符数字型震相拾取文件，则该命令的结果也会写入到文件中。
 
-默认情况下，测量时间窗为整个信号，可以使用 `mtw </commands/mtw.html>`__
+默认情况下，测量时间窗为整个信号，可以使用 :doc:`/commands/mtw`
 命令设置 新的测量时间窗。同时，在测量时还需要设置滑动时间窗（sliding
 time window） 的长度。滑动窗的工作原理是，首先将长度为 ``v``
 的滑动窗置于测量时间

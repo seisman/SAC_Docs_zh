@@ -54,9 +54,9 @@ POSITION x y a
 ----
 
 该命令允许你为接下来的绘图命令定义通用的绘图标签。你可以定义每个标签的
-位置及文本尺寸。文本质量以及字体可以用 `gtext </commands/gtext.html>`__
+位置及文本尺寸。文本质量以及字体可以用 :doc:`/commands/gtext`
 命令设定， 也可以使用
-`title </commands/title.html>`__\ 、\ `xlabel </commands/xlabel.html>`__\ 、\ `ylabel </commands/ylabel.html>`__
+:doc:`/commands/title`\ 、\ :doc:`/commands/xlabel`\ 、\ :doc:`/commands/ylabel`
 生成图形的标题以及轴标签。
 
 示例

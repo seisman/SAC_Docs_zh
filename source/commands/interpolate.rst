@@ -37,13 +37,13 @@ BEGIN v
 该命令使用Wiggins的weighted average-sloped插值方法将不等间隔数据转换为
 等间隔数据，以及对等间隔数据插值得到新的采样率。不像三次样条插值，在输入
 样本数据点间不会存在极值。如果要降低采样率，即减采样，由于该命令没有
-抗混叠滤波器，所以最好使用 `decimate </commands/decimate.html>`__ 命令。
+抗混叠滤波器，所以最好使用 :doc:`/commands/decimate` 命令。
 
 ``DELTA`` 选项和 ``NPTS`` 选项只能同时使用一个，若二者同时使用，
 则命令中的后者起作用。
 
 ``BEGIN`` 选项用于控制输入数据的插值起点，也可以通过
-`cut </commands/cut.html>`__ 命令设置 ``b`` 和 ``e`` 再进行插值操作。
+:doc:`/commands/cut` 命令设置 ``b`` 和 ``e`` 再进行插值操作。
 
 示例
 ----

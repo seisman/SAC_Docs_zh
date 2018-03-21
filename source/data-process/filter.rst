@@ -1,8 +1,8 @@
 滤波
 ====
 
-相关命令：\ `bandpass </commands/bandpass.html>`__\ 、\ `lowpass </commands/lowpass.html>`__\ 、
-`highpass </commands/highpass.html>`__\ 、\ `bandrej </commands/bandrej.html>`__
+相关命令：\ :doc:`/commands/bandpass`\ 、\ :doc:`/commands/lowpass`\ 、
+:doc:`/commands/highpass`\ 、\ :doc:`/commands/bandrej`
 
 几乎所有的数据分析都需要将数据限制在一定的频率范围内，这就需要对数据做
 各种不同方式的滤波。关于滤波的细节，可以参考滤波命令的相关说明，以及
@@ -37,26 +37,20 @@
 
 上面的代码涉及到了一些尚未介绍的命令，在后面会具体介绍。生成的效果图如下：
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: filter-response
+.. figure:: /images/filter-response.*
    :alt: 滤波器的时间响应和频率响应
    :width: 70.0%
+   :align: center
 
    滤波器的时间响应和频率响应
 
 对脉冲波形做 0.5 到 5 的带通滤波，下图中给出了不同的
 阶数和通道数对波形的影响：
 
-.. raw:: latex
-
-   \centering
-
-.. figure:: filter-waveform
+.. figure:: /images/filter-waveform.*
    :alt: 不同参数的带通滤波效果
    :width: 80.0%
+   :align: center
 
    不同参数的带通滤波效果
 

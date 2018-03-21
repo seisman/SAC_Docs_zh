@@ -72,7 +72,7 @@ width off skeleton 1 increment off list standard
 
 你可以使用 ``LIST`` 选项改变这个表的次序或内容。这个命令常用于
 重叠绘图（参见
-`plot2 </commands/plot2.html>`__\ ），此时你可能需要每张图上的数据宽度
+:doc:`/commands/plot2`\ ），此时你可能需要每张图上的数据宽度
 都按相同的顺序排列。
 
 示例

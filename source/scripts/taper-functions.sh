@@ -29,4 +29,5 @@ q
 EOF
 rm COSINE HANNING HAMMING
 ps2raster -A -Tf taper-functions.ps
+ps2raster -A -Tg taper-functions.ps
 rm taper-functions.ps

@@ -54,9 +54,9 @@ ALLT v
 
 该命令允许你修改指定的一个或多个文件的头段变量值。在未指定文件号的情况下，
 则对内存中的所有文件进行操作。要将内存中修改后的头段覆盖磁盘文件的头段，
-需要使用 `write </commands/write.html>`__ 或
-`writehdr </commands/writehdr.html>`__ 命令，SAC会对新值
-做有效性检查，不过你可以使用 `listhdr </commands/listhdr.html>`__
+需要使用 :doc:`/commands/write` 或
+:doc:`/commands/writehdr` 命令，SAC会对新值
+做有效性检查，不过你可以使用 :doc:`/commands/listhdr`
 自己检查。
 
 头段中用6个变量定义了参考时刻，这是SAC中唯一的绝对时刻，其它时刻都被转换
@@ -99,7 +99,7 @@ ALLT v
 
     SAC> ch o GMT 1982 123 13 37 10 103
 
-现在使用 `listhdr </commands/listhdr.html>`__ 检查发震时刻 ``o``
+现在使用 :doc:`/commands/listhdr` 检查发震时刻 ``o``
 相对于当前参考时间 的秒数：
 
 .. code:: bash

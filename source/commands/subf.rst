@@ -29,7 +29,7 @@ filelist
 说明
 ----
 
-参见 `addf </commands/addf.html>`__ 命令的相关说明。
+参见 :doc:`/commands/addf` 命令的相关说明。
 
 头段变量
 --------

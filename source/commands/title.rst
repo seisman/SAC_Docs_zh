@@ -45,4 +45,4 @@ title off location top size small
 ----
 
 若打开该选项，则在每个图形上都显示标题，标题的尺寸、位置及内容均可改变，
-文本质量和字体可以通过 `gtext </commands/gtext.html>`__ 命令设置。
+文本质量和字体可以通过 :doc:`/commands/gtext` 命令设置。
