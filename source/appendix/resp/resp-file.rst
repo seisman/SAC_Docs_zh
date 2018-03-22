@@ -9,25 +9,14 @@
 内置仪器响应
 ------------
 
-SAC内置了很多标准地震仪器的仪器响应，如表
-`[table:instrument-type] <#table:instrument-type>`__
-所示。部分仪器类型还拥有子类型，如表
-`[table:instrument-subtype] <#table:instrument-subtype>`__ 所示。
+SAC内置了很多标准地震仪器的仪器响应，如 :numref:`table:instrument-type` 所示。
+部分仪器类型还拥有子类型，如 :numref:`table:instrument-subtype` 所示。
 在SAC命令中，可以直接使用这些仪器类型。
 
-.. raw:: latex
-
-   \centering
-
-.. raw:: latex
-
-   \ttfamily
-
-.. raw:: latex
-
-   \small
+.. _table:instrument-type:
 
 .. table:: SAC内置仪器类型列表
+   :align: center
 
    +----------+---------------------------------------------------+
    | type     | 说明                                              |
@@ -113,19 +102,10 @@ SAC内置了很多标准地震仪器的仪器响应，如表
    | YKASP    | Blacknest specification of YKA short period       |
    +----------+---------------------------------------------------+
 
-.. raw:: latex
-
-   \centering
-
-.. raw:: latex
-
-   \ttfamily
-
-.. raw:: latex
-
-   \small
+.. _table:instrument-subtype:
 
 .. table:: 部分仪器子类型
+   :align: center
 
    +-----------------+------------------------------------------------+
    | 主类型          | 子类型                                         |
@@ -157,7 +137,7 @@ SAC内置了很多标准地震仪器的仪器响应，如表
    | HIGHPASS v      | REFTEK                                         |
    +-----------------+------------------------------------------------+
 
-除了表 `[table:instrument-type] <#table:instrument-type>`__
+除了 :numref:`table:instrument-type` 
 中列出的众多仪器类型之外，还有几个 特别的仪器类型：
 
 -  ``none``\ ：即位移，也是SAC的默认值
@@ -208,9 +188,7 @@ RESP文件中包含了仪器响应的完整信息，同时也包含了不少冗�
 SAC PZ文件可以用rdseed程序从SEED文件中提取，也可以从IRIS DMC SAC PZ Web
 Service  [2]_ 获取，当然也可以 手写SAC PZ文件。
 
-下面是某个台站的SAC PZ文件：
-
-::
+下面是某个台站的SAC PZ文件::
 
     * **********************************
     * NETWORK   (KNETWK): IU
@@ -278,7 +256,7 @@ FAP文件
 -------
 
 FAP文件是响应函数的另一种表现形式，其包含了很多记录行，每行三个字段，
-分别是频率（）、振幅及相位。
+分别是频率、振幅及相位。
 
 频率不需要等间隔分段。在执行 ``transfer`` 时，低于第一行频率的
 频段将使用第一行的振幅和相位；同理大于最后一行频率的频段将使用最后

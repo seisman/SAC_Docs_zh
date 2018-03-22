@@ -1,5 +1,3 @@
-.. _cmd:sonogram:
-
 sonogram
 ========
 

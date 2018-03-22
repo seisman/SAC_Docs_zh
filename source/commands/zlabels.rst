@@ -1,5 +1,3 @@
-.. _cmd:zlabels:
-
 zlabels
 =======
 
@@ -69,4 +67,4 @@ zlabels off spacing 0.1 0.2 0.3 size 0.0075 angle 45.0 list on
 示例
 ----
 
-参考“nameref-sec-contour”中的相关示例。
+参考 :doc:`/graphics/plot-contour` 中的相关示例。

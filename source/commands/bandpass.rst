@@ -1,5 +1,3 @@
-.. _cmd:bandpass:
-
 bandpass
 ========
 
@@ -11,10 +9,10 @@ bandpass
 语法
 ----
 
-.. code:: bash
+::
 
-    B\verb|AND|P\verb|ASS| [BU\verb|TTER||BE\verb|SSEL||C1|C2] [C\verb|ORNERS| v1 v2] [N\verb|POLES| n] [P\verb|ASSES| n]
-        [T\verb|RANBW| v] [A\verb|TTEN| v]
+    B!AND!P!ASS! [BU!TTER!|BE!SSEL!|C1|C2] [C!ORNERS! v1 v2] [N!POLES! n] [P!ASSES! n]
+        [T!RANBW! v] [A!TTEN! v]
 
 输入
 ----

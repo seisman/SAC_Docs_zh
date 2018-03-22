@@ -1,5 +1,3 @@
-.. _cmd:rms:
-
 rms
 ===
 
@@ -19,7 +17,10 @@ rms
 ----
 
 NOISE ON/OFF
-    打开/关闭噪声校正选项 nameref-subsec-pdw
+    打开/关闭噪声校正选项
+
+NOISE pdw
+    打开噪声校正选项并设置噪声的测量时间窗，见 :ref:`subsec:pdw`
 
 TO USERn
     将计算结果保存到头段变量 ``USERn`` 中（n取0到9）

@@ -13,8 +13,10 @@
     SAC> fg seis
     SAC> rmean; rtr; taper
 
-图 nameref-fig-rmean-rtrend-taper
-中，波形从上到下依次为原始波形、去均值、 去线性趋势、和尖灭之后的波形。
+在 :numref:`figure:rmean-rtrend-taper` 中，波形从上到下依次为原始波形、去均值、
+去线性趋势、和尖灭之后的波形。
+
+.. _figure:rmean-rtrend-taper:
 
 .. figure:: /images/rmean-rtrend-taper.*
    :alt: 去均值、去线性趋势和波形尖灭

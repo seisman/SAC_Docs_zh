@@ -1,5 +1,3 @@
-.. _cmd:taper:
-
 taper
 =====
 
@@ -45,8 +43,10 @@ taper命令的通用形式为
 
  此公式应用于数据的首端，另一个完全对称的数据用于数据的尾端。
 
-表 nameref-table-taper-functions 定义了不同的衰减函数的参数，其中N为
+表 :ref:`table:taper-functions` 定义了不同的衰减函数的参数，其中N为
 衰减窗的宽度，即\ :math:`npts*v`\ 。
+
+.. _table:taper-functions:
 
 .. table:: taper衰减函数参数一览
    :align: center
@@ -61,16 +61,15 @@ taper命令的通用形式为
    | COSINE  | :math:`\frac{\pi}{2N}` | 1.00        | 1.00        |
    +---------+------------------------+-------------+-------------+
 
-图 nameref-fig-taper-functions 给出了不同taper衰减函数的曲线图，图中可以
+图 :ref:`figure:taper-functions` 给出了不同taper衰减函数的曲线图，图中可以
 看出，hamming窗实际上并没有完全实现尖灭。
 
-.. raw:: latex
-
-   \centering
+.. _figure:taper-functions:
 
 .. figure:: /images/taper-functions.*
    :alt: taper衰减函数曲线
    :width: 80.0%
+   :align: center
 
    taper衰减函数曲线
 

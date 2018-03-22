@@ -1,12 +1,10 @@
-.. _cmd:readsp:
-
 readsp
 ======
 
 概要
 ----
 
-读取 nameref-spe-writespe 写的谱文件
+读取 :doc:`/spe/writespe` 写的谱文件
 
 语法
 ----
@@ -42,6 +40,6 @@ READSP AMPH
 命令将每个谱数据分量作为一个单独的文件写入磁盘，
 你可以分别处理每个分量。这个命令让你能从两个分量重建谱数据，参见
 :doc:`/commands/writesp`\ 。 SPE选项允许你读取并转换由
-nameref-spe-writespe 写出的谱文件格式。 这也使你可以使用
+:doc:`/spe/writespe` 写出的谱文件格式。 这也使你可以使用
 :doc:`/commands/mulomega` 和
 :doc:`/commands/divomega` 命令。

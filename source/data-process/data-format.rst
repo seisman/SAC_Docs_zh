@@ -23,7 +23,7 @@ miniSEED和dataless SEED，是因为若每个SEED文件中都包含台站元数�
 格式转换
 --------
 
-IRIS提供了 nameref-http-//ds.iris.edu/ds/nodes/dmc/forms/rdseed/rdseed
+IRIS提供了 `rdseed <http://ds.iris.edu/ds/nodes/dmc/forms/rdseed/>`_
 软件，用于提取SEED数据中的连续波形数据以及台站元数据，并可将连续波形数据
 保存为多种地震数据格式。
 
@@ -39,10 +39,6 @@ IRIS提供了 nameref-http-//ds.iris.edu/ds/nodes/dmc/forms/rdseed/rdseed
 
     $ rdseed -pdf file.seed
 
-.. [1]
-   SEED格式的详细
-   说明参考官方文档：\ \ `www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf <www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf>`__\ \ 。
-
-.. [2]
-   台站元数据（Metadata）中包含了台站相关
-   的全部信息，比如台站位置、分量信息、仪器响应等。
+.. [1] SEED格式的详细说明参考官方文档： http://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf
+.. [2] 台站元数据（Metadata）中包含了台站相关的全部信息，比如台站位置、分量信息、
+   仪器响应等。

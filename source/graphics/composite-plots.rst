@@ -1,5 +1,3 @@
-.. _sec:composite-plots:
-
 组合图
 ======
 
@@ -18,12 +16,13 @@ SAC提供了绘制组合图的功能，这其中牵涉到一些新的概念，�
 打开frame时，首先会擦除整个窗口，进入“组合图模式”；当组合图绘制完成时，
 需要使用 :doc:`/commands/endframe` 命令关闭frame。
 
-除了frame之外，在绘制组合图时还需要了解与窗口有关的几个概念，如图
-nameref-fig-window-viewspace-viewport：
+除了frame之外，在绘制组合图时还需要了解与窗口有关的几个概念，如
+:numref:`figure:viewspace-viewport` ：
 
 -  viewspace：window内可以用于绘图的部分；
-
 -  viewport：执行单个绘图命令时，图像的显示区域；
+
+.. _figure:viewspace-viewport:
 
 .. figure:: /images/viewspace-viewport.*
    :alt: window、viewspace和viewport
@@ -32,7 +31,7 @@ nameref-fig-window-viewspace-viewport：
 
    window、viewspace和viewport
 
-图 nameref-fig-window-viewspace-viewport 中给出了window、viewspace、
+:numref:`figure:viewspace-viewport` 中给出了window、viewspace、
 viewport的相互关系。可以使用 :doc:`/commands/window`
 命令设定窗口相对于
 整个屏幕的位置以及X、Y方向的范围；\ :doc:`/commands/vspace`

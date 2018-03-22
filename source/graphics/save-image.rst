@@ -36,7 +36,7 @@ SGF图形设备会将图像信息保存到SGF文件中。其使用方式为：�
     f001.sgf            // 生成sgf文件
 
 生成的sgf文件可以通过 ``sgftops`` 等命令转换为其它图像格式，
-在“nameref-sec-sgftops”中会介绍，也可以使用 ``sgftox`` 直接
+在 :doc:`/tools/sgftops` 中会介绍，也可以使用 ``sgftox`` 直接
 将sgf文件显示在绘图窗口中。
 
 PS和PDF
@@ -60,7 +60,7 @@ pssac
 
 pssac是Prof. Lupei Zhu写的用于绘制SAC文件的C程序。该程序利用了GMT的PS
 绘图库，直接读取SAC文件并绘制到PS文件中。得益于GMT的PS库的灵活性，利用
-pssac可以绘制出超高质量的复杂图像。具体参见“nameref-sec-pssac”一节。
+pssac可以绘制出超高质量的复杂图像。具体参见 :doc:`/tools/pssac` 一节。
 
 小结
 ----

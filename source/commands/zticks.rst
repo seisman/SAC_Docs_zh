@@ -1,5 +1,3 @@
-.. _cmd:zticks:
-
 zticks
 ======
 
@@ -44,4 +42,4 @@ zticks off spacing 0.1 length 0.005 direction down list on
 示例
 ----
 
-参考“nameref-sec-contour”中的相关示例。
+参考 :doc:`/graphics/plot-contour` 中的相关示例。

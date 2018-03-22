@@ -1,5 +1,3 @@
-.. _cmd:addf:
-
 addf
 ====
 
@@ -13,7 +11,7 @@ addf
 
 .. code:: bash
 
-    ADDF [N\verb|EWHDR| [ON|OFF]] filelist
+    ADDF [N!EWHDR!|[ON|OFF]] filelist
 
 输入
 ----

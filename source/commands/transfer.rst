@@ -1,5 +1,3 @@
-.. _cmd:transfer:
-
 transfer
 ========
 
@@ -48,7 +46,7 @@ FROM and TO
 二者分别通过谱域的除法和乘法完成。
 
 ``type`` 为仪器类型，可以是SAC预定义的标准仪器类型（见附录中表
-nameref-table-instrument-type），还可以是如下几种特殊的“仪器类型”：
+:numref:`table:instrument-type` ），还可以是如下几种特殊的“仪器类型”：
 
 none
     表示“位移”

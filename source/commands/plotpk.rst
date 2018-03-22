@@ -1,5 +1,3 @@
-.. _cmd:plotpk:
-
 plotpk
 ======
 
@@ -44,8 +42,11 @@ MARKALL ON
     一次标记一张图上所有文件的到时
 
 MARKALL OFF
-    只标记光标位置所对应的震相到时 nameref-table-plotpk-commands）
-    拾取的位置保存到黑板变量中
+    只标记光标位置所对应的震相到时
+
+SAVELOCS ON|OFF
+    是否将 ``L`` 命令（表 :numref:`table:plotpk-commands` ）拾取的位置保存
+    到黑板变量中
 
 缺省值
 ------
@@ -56,9 +57,8 @@ plotpk perplot off absolute reference off markall off savelocs off
 ----
 
 执行该命令后，即进入 ``ppk`` 模式，可用于手动拾取震相。在 ``ppk``
-模式下，键盘的输入将被解释为ppk命令（表
-nameref-table-plotpk-commands）。 详情请参考 nameref-sec-phase-picking
-一节。
+模式下，键盘的输入将被解释为ppk命令（表 :numref:`table:plotpk-commands` ）。
+详情请参考 :doc:`/data-process/picking-phase` 一节。
 
 ``PERPLOT`` 选项用于控制每张图上显示的文件数目，在标记三分量数据时
 通常设置为“``p 3``”，使得一次显示一个台站的三分量数据。

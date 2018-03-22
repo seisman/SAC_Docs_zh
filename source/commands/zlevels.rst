@@ -1,5 +1,3 @@
-.. _cmd:zlevels:
-
 zlevels
 =======
 
@@ -44,7 +42,7 @@ zlevels scale number 20
 示例
 ----
 
-参考“nameref-sec-contour”中的相关示例。
+参考 :doc:`/graphics/plot-contour` 中的相关示例。
 
 限制
 ----

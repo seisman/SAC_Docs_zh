@@ -47,6 +47,8 @@
 对脉冲波形做 0.5 到 5 的带通滤波，下图中给出了不同的
 阶数和通道数对波形的影响：
 
+.. _figure:filter-waveform:
+
 .. figure:: /images/filter-waveform.*
    :alt: 不同参数的带通滤波效果
    :width: 80.0%
@@ -54,8 +56,8 @@
 
    不同参数的带通滤波效果
 
-图 nameref-fig-filter-waveform
-中Impulse为原始脉冲波形，下面四条波形是分别 取不同的n值和p值的结果。
+在 :numref:`figure:filter-waveform` 中Impulse为原始脉冲波形，下面四条波形是
+分别取不同的n值和p值的结果。
 
 p取1时，对波形做一次带通滤波，由于滤波器存在相位延迟，因而导致波形的峰值
 出现了时间延迟，因而会影响到震相的最大峰值的拾取，但对震相的初至却没有影响。

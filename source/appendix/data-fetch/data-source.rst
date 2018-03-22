@@ -56,16 +56,16 @@ Natural Resources Canada
 加拿大政府的网站 `Natural Resources
 Canada <http://www.nrcan.gc.ca/home>`__ 提供了 `Canadian National
 Seismic
-Network <http://www.earthquakescanada.nrcan.gc.ca/stndon/CNSN-RNSC/index-eng.php>`__\ 、
+Network <http://www.earthquakescanada.nrcan.gc.ca/stndon/CNSN-RNSC/index-en.php>`__\ 、
 `Yellowknife Seismic
 Array <http://can-ndc.nrcan.gc.ca/yka/index-en.php>`__\ 、 POLARIS
 Network等台网/台阵的连续波形数据以及这些台网/台阵1975年至今的事件
 波形数据。
 
 事件波形数据可以直接
-`点击下载 <http://www.earthquakescanada.nrcan.gc.ca/stndon/NWFA-ANFO/eve/index-eng.php>`__\ ；
+`点击下载 <http://www.earthquakescanada.nrcan.gc.ca/stndon/NWFA-ANFO/eve/index-en.php>`__\ ；
 连续波形数据则可以通过工具
-`AutoDRM <http://www.earthquakescanada.nrcan.gc.ca/stndon/AutoDRM/index-eng.php>`__
+`AutoDRM <http://www.earthquakescanada.nrcan.gc.ca/stndon/AutoDRM/index-en.php>`__
 下载。
 
 其他

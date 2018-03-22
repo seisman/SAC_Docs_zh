@@ -1,5 +1,3 @@
-.. _cmd:zcolors:
-
 zcolors
 =======
 
@@ -39,4 +37,4 @@ zcolors off list red green blue
 示例
 ----
 
-参考“nameref-sec-contour”中的相关示例。
+参考 :doc:`/graphics/plot-contour` 中的相关示例。

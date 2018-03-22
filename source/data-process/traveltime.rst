@@ -62,7 +62,7 @@ traveltime命令
 ``taup_setsac``\ 命令
 ---------------------
 
-nameref-http-//www.seis.sc.edu/taup/taup
+`taup <http://www.seis.sc.edu/taup/>`_
 软件提供的用于计算震相理论到时的独立于SAC的外部命令。
 
 .. code:: console

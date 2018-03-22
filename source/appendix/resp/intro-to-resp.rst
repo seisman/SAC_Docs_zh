@@ -23,12 +23,11 @@
 因而理解仪器响应\ :math:`i(t)`\ 的基本原理并准确地去除仪器响应是研究的关键一步。
 
 真实世界里，有很多因素会引起地面的运动，比如地震波、长周期潮汐波以及
-人类活动等等，因而真实的地面运动是极其复杂的。图
-`[fig:ground-motion] <#fig:ground-motion>`__
+人类活动等等，因而真实的地面运动是极其复杂的。 :numref:`figure:ground-motion`
 给出了COLA台站记录到的持续时间为 22000 左右的地面运动情况，
 即\ :math:`s(t)*g(t)`\ 所对应的波形：
 
-从图 `[fig:ground-motion] <#fig:ground-motion>`__
+从 :numref:`figure:ground-motion`
 可以看到，整个地面运动中最明显的地方是
 弯弯曲曲类似正弦的波形，其周期大概在 6000，也就是两个小时，
 这很可能是潮汐波引起的长周期地面运动。波形的最大振幅大概是 。 在 1000
@@ -40,13 +39,12 @@
 说是没有太大用处的，所以就需要设计合适的仪器尽量去除其它类型地面运动的
 干扰，也就是地震仪。
 
-.. raw:: latex
-
-   \centering
+.. _figure:ground-motion:
 
 .. figure:: /images/ground-motion.*
    :alt: COLA台站处的原始地面运动
    :width: 98.0%
+   :align: center
 
    COLA台站处的原始地面运动
 
@@ -54,36 +52,32 @@
 超高频和超低频的信号进行压制，只保留感兴趣的周期段。下图给出了该台站的
 仪器响应，即\ :math:`i(t)`\ ：
 
-.. raw:: latex
-
-   \centering
+.. _figure:transfer-function:
 
 .. figure:: /images/transfer-function.*
    :alt: 仪器响应频谱图
    :width: 98.0%
+   :align: center
 
    仪器响应频谱图
-
-.. raw:: latex
-
-   \centering
 
 .. figure:: /images/raw-data.*
    :alt: COLA台站的地震记录
    :width: 90.0%
+   :align: center
 
    COLA台站的地震记录
 
-从图 `[fig:transfer-function] <#fig:transfer-function>`__
+从 :numref:`figure:transfer-function`
 中振幅谱可以看出，频率在 0.02 到 8
 内的信号具有相同的振幅增益（被增强），而小于 0.02 或大于 8
-的信号则被压制。图 `[fig:ground-motion] <#fig:ground-motion>`__
+的信号则被压制。 :numref:`figure:ground-motion`
 中的周期为 1000 量级的信号被压制到了原来的千分之一。
 
 原始的地面运动\ :math:`s(t)*g(t)`\ 在经过仪器\ :math:`i(t)`\ 之后，即得到地震仪的数字记录，如下图。
 超低频和超高频的信号被压制，留下地震学感兴趣的频段，也就是前面说的\ :math:`u(t)`\ ：
 
-与图 `[fig:ground-motion] <#fig:ground-motion>`__
+与 :numref:`figure:ground-motion`
 相比，长周期的类正弦信号没了。在 0 到 300 内，“地面”很安静，300
 左右，强烈的地震信号 开始出现，最大振幅约为
 ，持续了很长一段时间后，又恢复了“平静”。

@@ -14,6 +14,8 @@ xwindows即X Window System，也称为X11或X，是一种以位图方式显示�
 窗口系统。几乎所有的现代操作系统都能支持与使用X，Linux下知名的桌面
 环境GNOME和KDE也都是以X窗口系统为基础建构成的。
 
+.. _figure:window:
+
 .. figure:: /images/window.*
    :alt: SAC绘图窗口
    :width: 90.0%
@@ -21,7 +23,7 @@ xwindows即X Window System，也称为X11或X，是一种以位图方式显示�
 
    SAC绘图窗口
 
-图 nameref-fig-plot 展示了SAC中的xwindows图形设备的外观，它是SAC默认的
+在 :numref:`figure:window` 展示了SAC中的xwindows图形设备的外观，它是SAC默认的
 图形设备。同很多其它软件界面类似，xwindows窗口在左上角显示图标，右上角
 显示“最小化”、“最大化”、“还原”和“关闭”按钮。窗口的中间部分为
 真正的绘图区，本文档的其余插图将只给出绘图区的图像而不再包含窗口部分。
@@ -36,7 +38,7 @@ sgf
 ---
 
 SGF，全称SAC Graphic File，即SAC图形文件，是SAC自定义的一种文件格式，
-其包含了绘制一个图件所需要的全部信息，可以通过 nameref-sec-sgftops
+其包含了绘制一个图件所需要的全部信息，可以通过 :doc:`/tools/sgftops`
 等工具转换到其它图形设备或图形文件格式。
 
 若启用了SGF图形设备，每次绘制的图件将分别保存到单独的sgf文件中。默认

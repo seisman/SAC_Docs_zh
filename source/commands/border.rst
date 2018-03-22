@@ -1,5 +1,3 @@
-.. _cmd:border:
-
 border
 ======
 
@@ -29,4 +27,4 @@ border off
 说明
 ----
 
-参考 “nameref-sec-plot-appearance” 一节。
+参考 :doc:`/graphics/plot-appearance` 一节。

@@ -1,5 +1,3 @@
-.. _cmd:hilbert:
-
 hilbert
 =======
 
@@ -47,7 +45,7 @@ hilbert
 延迟相位。
 
 SAC提供了Hilbert变换的函数库，可以直接在C或Fortran程序中调用，详情参考
-“nameref-sec-libsac”一节。
+:doc:`/libs/call-libsac` 一节。
 
 头段变量
 --------

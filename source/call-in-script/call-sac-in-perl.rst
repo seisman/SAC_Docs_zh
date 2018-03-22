@@ -10,7 +10,8 @@ Perl中调用SAC
 
 下载地址：
 `0.simple-script.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/0.simple-script.pl>`__
-Perl中调用SAC本质上是使用 ``open(SAC, "`` sac")\| 语句定义了一个名为
+
+Perl中调用SAC本质上是使用 ``open(SAC, "| sac ")`` 语句定义了一个名为
 ``SAC`` 指向 ``sac`` 的句柄，然后通过 ``print SAC`` 语句
 将要执行的SAC命令传递给SAC。
 

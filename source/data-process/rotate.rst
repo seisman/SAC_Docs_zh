@@ -45,11 +45,13 @@ SAC提供了 :doc:`/commands/rotate`
           cmpaz = 1.144047e+02
     SAC> w ntkl.r ntkl.t            // 保存为R分量和T分量
 
-图 nameref-fig-rotate 中，左图中从上至下为N、E、Z分量，右图中从上至下
+在 :numref:`figure:rotate` 中，左图从上至下为N、E、Z分量，右图从上至下
 为R、T、Z分量。旋转到R、T分量后，可以很容易地识别出Rayleigh和Love波。
 
 读入两个水平分量时，读入的顺序不重要，不管是先读N分量还是先读E分量，
 旋转后始终是R分量在前，T分量在后。
+
+.. _figure:rotate:
 
 .. figure:: /images/rotate.*
    :alt: 将N、E分量旋转到R、T分量。

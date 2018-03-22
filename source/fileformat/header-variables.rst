@@ -314,21 +314,14 @@ iqual [7]_ 标识数据质量，可取如下值：
 其定义为从N向开始顺时针旋转的角度，即图中的角度\ :math:`\phi`\ ；\ ``cmpinc``
 表征通道的入射角，定义为相对于U方向向下旋转的度数，即图中的角度\ :math:`\theta`\ 。
 
-.. raw:: latex
+.. _figure:cmpaz-cmpinc:
 
-   \tdplotsetmaincoords{55}{50}
+.. figure:: /images/cmpaz-cmpinc.*
+   :align: center
+   :width: 30%
+   :alt: cmpaz 和 cpminc 示意图
 
-.. raw:: latex
-
-   \pgfmathsetmacro{\rvec}{.8}
-
-.. raw:: latex
-
-   \pgfmathsetmacro{\thetavec}{30}
-
-.. raw:: latex
-
-   \pgfmathsetmacro{\phivec}{30}
+   cmpaz 和 cpminc 示意图
 
 根据定义，地震仪标准通道的 ``cmpinc`` 和 ``cmpaz`` 值如下表：
 
@@ -358,7 +351,7 @@ iqual [7]_ 标识数据质量，可取如下值：
 ``lpspol``
 ~~~~~~~~~~
 
-如图 nameref-fig-cmpaz-cmpinc 所示，在左手坐标系下，若三通道都是正极性
+如图 :ref:`figure:cmpaz-cmpinc` 所示，在左手坐标系下，若三通道都是正极性
 则为真，否则为假。
 
 震相相关变量
@@ -448,7 +441,7 @@ iqual [7]_ 标识数据质量，可取如下值：
    1月1日对应的 ``nzjday`` 是1而不是0。
 
 .. [4]
-   1 = 1000
+   1s = 1000ms
 
 .. [5]
    枚举型在C源码中使用 ``#define`` 宏来定义的，比如

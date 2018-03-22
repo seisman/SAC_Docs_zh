@@ -1,11 +1,11 @@
 SAC库简介
 =========
 
-SAC提供了两个函数库：\ ``libsacio.a`` 和 ``libsac.a``\ ，用户
+SAC提供了两个函数库： ``libsacio.a`` 和 ``libsac.a`` ，用户
 可以在自己的C或Fortran程序中直接使用函数库中的子函数。这些库文件位于
 ``${SACHOME}/lib`` 中。
 
-``libsacio``\ 库
+``libsacio`` 库
 ----------------
 
 此库文件包含的子函数可用于读写SAC数据文件、SAC头段变量、黑板变量文件。
@@ -13,7 +13,7 @@ SAC提供了两个函数库：\ ``libsacio.a`` 和 ``libsac.a``\ ，用户
 
 ``libsacio.a`` 中可用的子函数包括：
 
-.. table:: ``libsacio``\ 子函数
+.. table:: ``libsacio`` 子函数
 
    +----------+------------------------------------------------+
    | 子函数   | 说明                                           |
@@ -73,7 +73,7 @@ SAC提供了两个函数库：\ ``libsacio.a`` 和 ``libsac.a``\ ，用户
     $ gfortran -c source.f
     $ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsacio
 
-``libsac``\ 库
+``libsac`` 库
 --------------
 
 这个库是从101.2版本才引入的，包含了几个数据处理常用的子函数。

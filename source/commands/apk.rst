@@ -1,5 +1,3 @@
-.. _cmd:apk:
-
 apk
 ===
 
@@ -13,7 +11,7 @@ apk
 
 .. code:: bash
 
-    APK [param v [param v] ... ] [V\verb|ALIDATION| ON|OFF]
+    APK [param v [param v] ... ] [V!ALIDATION!|ON|OFF]
 
 输入
 ----

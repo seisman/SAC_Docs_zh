@@ -1,5 +1,3 @@
-.. _cmd:arraymap:
-
 arraymap
 ========
 
@@ -13,7 +11,7 @@ arraymap
 
 .. code:: bash
 
-    ARRAY\verb|MAP| [A\verb|RRAY||C\verb|OARRAY|]
+    ARRAY!MAP! [A!RRAY!|C!OARRAY!]
 
 输入
 ----

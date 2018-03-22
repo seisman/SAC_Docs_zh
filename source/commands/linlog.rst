@@ -1,5 +1,3 @@
-.. _cmd:linlog:
-
 linlog
 ======
 

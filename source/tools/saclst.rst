@@ -1,6 +1,6 @@
 .. _sec:saclst:
 
-``saclst``
+saclst
 ==========
 
 ``saclst`` 是很常用的一个SAC工具，用于列出头段变量的值，其语法很简单：

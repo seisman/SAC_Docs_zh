@@ -1,5 +1,3 @@
-.. _cmd:contour:
-
 contour
 =======
 
@@ -56,7 +54,7 @@ contour aspect off
 示例
 ----
 
-参见“nameref-sec-contour”一节。
+参考 :doc:`/graphics/plot-contour` 中的相关示例。
 
 头段变量改变
 ------------

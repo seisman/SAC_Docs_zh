@@ -1,5 +1,3 @@
-.. _cmd:xvport:
-
 xvport
 ======
 
@@ -48,4 +46,4 @@ xvport 0.1 0.9
 示例
 ----
 
-参见 nameref-sec-composite-plots 一节。
+参见 :doc:`/graphics/composite-plots` 一节。

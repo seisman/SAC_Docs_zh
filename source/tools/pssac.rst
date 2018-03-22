@@ -8,6 +8,5 @@ pssac
 可以制作出精致的图像，以满足出版的要求。
 
 ``pssac`` 需要单独安装，安装过程参考
-nameref-http-//blog.seisman.info/pssac-install/安装pssac 一文，
-具体用法参考
-nameref-http-//blog.seisman.info/pssac-notes/pssac用法教程。
+`安装pssac <http://blog.seisman.info/pssac-install>`_  一文，
+具体用法参考 `pssac用法教程 <http://blog.seisman.info/pssac-notes>`_ 。

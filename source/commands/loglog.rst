@@ -1,5 +1,3 @@
-.. _cmd:loglog:
-
 loglog
 ======
 

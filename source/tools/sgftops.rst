@@ -3,8 +3,6 @@
 sgftops
 =======
 
-[sec:sgftoeps] [sec:sgftox]
-
 SGF格式是SAC自定义的图像文件格式，转换到常见的其他图像格式，需要使用
 转换工具 ``sgftops``\ 。
 

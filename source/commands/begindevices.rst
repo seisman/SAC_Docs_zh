@@ -1,5 +1,3 @@
-.. _cmd:begindevices:
-
 begindevices
 ============
 
@@ -31,4 +29,4 @@ XWINDOWS
 再次执行 ``begindevices`` 启动其它图像设备或
 :doc:`/commands/enddevices` 结束该图像设备为止。
 
-SAC默认使用 nameref-sec-save-image” 一节的示例。
+SAC默认使用 :doc:`/graphics/save-image` 一节的示例。

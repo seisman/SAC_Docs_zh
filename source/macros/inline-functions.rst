@@ -58,7 +58,9 @@ SAC支持的操作符是包括：“``+  -  *  /  **``”。
 ----------------
 
 SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 arg2 ...)``”。
-具体函数如表 nameref-table-regular-arithmetic-functions 所示。
+具体函数如 :numref:`table:regular-arithmetic-functions` 所示。
+
+.. _table:regular-arithmetic-functions:
 
 .. table:: 常规算数运算函数
 
@@ -164,8 +166,10 @@ SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 ar
 字符串操作函数
 --------------
 
-SAC提供了若干个函数用于字符串的处理，如表
-nameref-table-string-operation-functions 所示：
+SAC提供了若干个函数用于字符串的处理，如 :numref:`table:string-operation-functions`
+所示：
+
+.. _table:string-operation-functions:
 
 .. table:: 字符串操作函数
 

@@ -9,8 +9,8 @@ plot
 
 :doc:`/commands/plot`
 命令会绘制内存块中的所有波形数据，但每次只显示一个
-波形，然后等待用户输入再决定是否显示下一个波形。该命令的具体用法在第
-nameref-sec-display 节已经详细介绍。
+波形，然后等待用户输入再决定是否显示下一个波形。该命令的具体用法在
+:doc:`/basic/display` 已经详细介绍。
 
 plot1
 -----
@@ -25,7 +25,9 @@ plot1
     cdv.e cdv.n cdv.z
     SAC> p1
 
-执行 nameref-fig-plot1。
+执行 ``plot1`` 命令后，焦点位于图形窗口，显示如 :numref:`figure:plot1` 。
+
+.. _figure:plot1:
 
 .. figure:: /images/plot1.*
    :alt: plot1绘图效果
@@ -80,9 +82,11 @@ plot2
     SAC> color red inc list red blue // 对两个数据分别设置红色和蓝色
     SAC> p2                          // 绘图
 
-图 nameref-fig-plot2
+在 :numref:`figure:plot2`
 中红线为滤波前波形，蓝线为滤波后波形，二者共用X轴和Y轴，
 从这样的波形对比图中，可以很明显得看到滤波对于波形的影响。
+
+.. _figure:plot2:
 
 .. figure:: /images/plot2.*
    :alt: plot2绘图效果。红色为滤波前波形，蓝色为滤波后波形。
@@ -97,7 +101,7 @@ plotpk
 :doc:`/commands/plotpk`
 是SAC中最常用的命令之一。其可以在窗口中显示指定
 个数的波形，所有波形共用X轴，但拥有单独的Y轴。该命令主要用于震相拾取，
-在“nameref-sec-phase-picking”一节有详细介绍。
+在 :doc:`/data-process/picking-phase` 一节有详细介绍。
 
 plotpm
 ------

@@ -1,5 +1,3 @@
-.. _cmd:beginframe:
-
 beginframe
 ==========
 
@@ -32,4 +30,4 @@ beginframe
 每次绘图的viewport，可以很容易地绘制出复杂的组合图。
 
 关于如何绘制组合图以及这几个命令的使用，可以参考
-nameref-sec-composite-plots 一节。
+:doc:`/graphics/composite-plots` 一节。

@@ -1,5 +1,3 @@
-.. _cmd:rglitches:
-
 rglitches
 =========
 
@@ -21,7 +19,7 @@ rglitches
 
 WINDOW ON|OFF|pdw
     指定需要做校正的数据段。缺省值为OFF，即校正
-    整个数据文件；nameref-subsec-pdw 指定了时间窗，表示仅对该时间窗
+    整个数据文件； :ref:`subsec:pdw` 指定了时间窗，表示仅对该时间窗
     内的数据进行检测和校正；ON表示只校正上一次 ``pdw`` 定义的时间
     窗内的数据；
 

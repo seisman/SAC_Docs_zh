@@ -1,5 +1,3 @@
-.. _cmd:xlim:
-
 xlim
 ====
 
@@ -19,8 +17,7 @@ xlim
 ----
 
 pdw
-    打开X轴范围选项并设置范围为新的“partial data window”， 参考
-    nameref-subsec-pdw
+    打开X轴范围选项并设置范围为新的“partial data window”， 参考 :ref:`subsec:pdw`
 
 SIGNAL
     等同于输入 ``A -1 F +1``\ ，即初至前1秒到事件结束的后1秒

@@ -1,5 +1,3 @@
-.. _cmd:plotalpha:
-
 plotalpha
 =========
 
@@ -50,8 +48,7 @@ plotalpha free content y. dir current
 ----
 
 参考 :doc:`/commands/readtable` 命令的相关说明。该命令与
-:doc:`/commands/`readtable`` 之后再 `plot`
-不同，因为它允许你在每个数据点上绘制标签。
+``readtable`` 后再 ``plot`` 不同，因为它允许你在每个数据点上绘制标签。
 
 示例
 ----

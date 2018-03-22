@@ -1,5 +1,3 @@
-.. _cmd:macro:
-
 macro
 =====
 
@@ -27,4 +25,4 @@ arguments
 说明
 ----
 
-参考 nameref-sec-macros 一节。
+参考 :doc:`/macros/macros` 一节。

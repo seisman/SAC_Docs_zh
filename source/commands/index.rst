@@ -1,18 +1,6 @@
 SAC命令
 #######
 
-.. \input{commands/3c}
-.. \input{commands/crr}
-.. \input{commands/depmec}
-.. \input{commands/pickauthor}
-.. \input{commands/pickphase}
-.. \input{commands/pickprefs}
-.. \input{commands/mat}
-.. \input{commands/plotctable}
-.. readgse readsdd readsuds
-.. writegse writesdd
-
-
 .. toctree::
    :maxdepth: 1
 
@@ -117,6 +105,9 @@ SAC命令
    ohpf
    pause
    picks
+   pickauthor
+   pickphase
+   pickprefs
    plabel
    plot
    plot1

@@ -97,12 +97,9 @@ sss 的进入和退出
 
 结果如图：
 
-.. raw:: latex
-
-   \centering
-
 .. figure:: /images/stack-with-delay.*
    :alt: 做动校正的叠加
    :width: 80.0%
+   :align: center
 
    做动校正的叠加

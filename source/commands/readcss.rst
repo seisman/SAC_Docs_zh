@@ -1,5 +1,3 @@
-.. _cmd:readcss:
-
 readcss
 =======
 
@@ -98,7 +96,8 @@ CHANNEL channel
 
 BANDWIDTH bandcode
     单字符编码。常见的取值为E、S、H、B、M、L、V、U、R等。
-    nameref-tbl-bandcode。 ``channel`` 字段中第一个字符与 ``bandcode``
+    bandcode 的具体含义参考附录中表 :ref:`table:bandcode` 。
+    ``channel`` 字段中第一个字符与 ``bandcode``
     匹配的行会被 选择并读取。\ ``bandcode`` 中使用通配符 ``*``
     会匹配所有 ``bandcode``\ 。
 

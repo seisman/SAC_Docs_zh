@@ -1,5 +1,3 @@
-.. _cmd:cutim:
-
 cutim
 =====
 
@@ -18,7 +16,8 @@ cutim
 输入
 ----
 
-nameref-subsec-pdw
+pdw
+    要截取的时间窗，参考 :ref:`subsec:pdw`
 
 缺省值
 ------

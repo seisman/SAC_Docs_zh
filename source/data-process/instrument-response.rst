@@ -10,7 +10,7 @@
 SAC中可以使用命令 :doc:`/commands/transfer`
 实现去仪器响应，本节只列出
 日常数据处理过程中最常用的命令。关于仪器响应的详细介绍，请参考附录
-“nameref-chap-resp”以及教科书中的相关内容。关于
+:doc:`/appendix/resp/index` 以及教科书中的相关内容。关于
 :doc:`/commands/transfer`
 命令的具体用法，参考该命令的语法说明及示例。
 

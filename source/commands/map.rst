@@ -1,5 +1,3 @@
-.. _cmd:map:
-
 map
 ===
 
@@ -112,7 +110,7 @@ map mercator topo off stan off file gmt.ps plotstations on plotevents on
     Using Default Postscript Viewer
         gs -sDEVICE=x11 -q -dNOPROMPT -dTTYPAUSE
 
-绘制出的地图如图 nameref-fig-map
+绘制出的地图如图 :numref:`figure:map`
 所示，整个地图的边界控制的还算不错，还算
 比较美观，三角形代表台站位置，圆形代表地震位置，大小也控制的不错。生成这
 个图的同时，还有一个可以用于生成该地图的shell脚本。
@@ -120,6 +118,8 @@ map mercator topo off stan off file gmt.ps plotstations on plotevents on
 默认情况下，该命令会自动使用gs预览生成的PS文件。如果想用其他PS阅读器预览，
 可以通过修改环境变量 ``SACPSVIEWER`` 来实现，比如
 ``export SACPSVIERER=evince``\ 。
+
+.. _figure:map:
 
 .. figure:: /images/map.*
    :alt: map绘制地震、台站分布图

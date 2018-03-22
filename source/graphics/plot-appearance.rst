@@ -10,16 +10,18 @@
 除此之外，SAC的绘图命令还会在图像的四个边绘制坐标轴以及刻度，为图像
 添加标题、轴标签等。
 
-图 nameref-fig-plot-appearance 展示了一个完整的SAC图像所包含的所有元素。
+在 :numref:`figure:plot-appearance` 中展示了一个完整的SAC图像所包含的所有元素。
+
+.. _figure:plot-appearance:
 
 .. figure:: /images/appearance.*
-   :alt: 绘图外观及其相关命令。图中蓝色部分为对 绘图外观的说明。
+   :alt: 绘图外观及其相关命令。图中蓝色部分为对绘图外观的说明。
    :width: 90.0%
    :align: center
 
-   绘图外观及其相关命令。图中蓝色部分为对 绘图外观的说明。
+   绘图外观及其相关命令。图中蓝色部分为对绘图外观的说明。
 
-图 nameref-fig-plot-appearance 可以用如下命令绘制得到：
+:numref:`figure:plot-appearance` 可以用如下命令绘制得到：
 
 .. code:: bash
 
@@ -100,7 +102,7 @@ QDP，全称为“quick and dirty plot”。在开发SAC的那个年代，计算
 
 SAC中，每条边都可以用四种不同的形式表示：
 
--  不绘制； nameref-fig-plot-appearance 中TOP边；
+-  不绘制； :numref:`figure:plot-appearance` 中TOP边；
 
 -  ticks：直线+刻度 [2]_，即图中RIGHT边；
 
