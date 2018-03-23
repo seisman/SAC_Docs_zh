@@ -14,10 +14,10 @@ GMT地图，也可以在命令行上指定一个事件文件。每个地震事�
 
 .. code:: bash
 
-    MAP [MER\verb|CATOR||EQ\verb|UIDISTANT||AZ\verb|IMUTHAL_EQUIDISTANT||ROB\verb|INSON|]
+    MAP [MERcator|EQuidistant|AZimuthal_equidistant|ROBinson]
         [WEST minlon] [EAST maxlon] [NORTH maxlat] [SOUTH minlat]
-        [MAG\verb|NITUDE||RE\verb|SIDUAL||RM\verb|EAN_RESIDUAL|] [EV\verb|EVNTFILE| filename]
-        [TOPO\verb|GRAPHY|] [STAN\verb|AMES|] [MAPSCALE on|off] [PLOTSTATIONS on|off]
+        [MAGnitude|REsidual|RMean_residual] [EVevntfile filename]
+        [TOPOgraphy] [STANames] [MAPSCALE on|off] [PLOTSTATIONS on|off]
         [PLOTEVENTS on|off] [PLOTLEGEND on|off] [LEGENDXY x y]
         [FILE output-file]
 
@@ -52,13 +52,13 @@ SAC中可以使用的投影方式包括：
 
 下面的选项允许用户向地图中添加位置和注释：
 
--  ``STANames on``\ off|：在地图上绘制台站名[默认为off]
+-  ``STANames on|off``\ ：在地图上绘制台站名[默认为off]
 
--  ``MAPSCALE on``\ off|：在地图上绘制地图比例尺[默认为off]
+-  ``MAPSCALE on|off``\ ：在地图上绘制地图比例尺[默认为off]
 
--  ``PLOTSTATIONS on``\ off|：绘制地震图给出的全部台站[默认为on]
+-  ``PLOTSTATIONS on|off``\ ：绘制地震图给出的全部台站[默认为on]
 
--  ``PLOTEVENTS on``\ off|：绘制eventfile和/或地震图给出的全部事件
+-  ``PLOTEVENTS on|off``\ ：绘制eventfile和/或地震图给出的全部事件
    [默认为on]
 
 下面的选项允许用户根据不同的值给出不同地震事件符号的大小。默认值是所有
@@ -72,7 +72,7 @@ SAC中可以使用的投影方式包括：
 
 -  ``RMean_residual``\ ：与residual相同，除了将所有残差去除均值之外
 
--  ``PLTLEGEND on``\ off|：绘制地震震级以及残差的图例[默认为on]
+-  ``PLTLEGEND on|off``\ ：绘制地震震级以及残差的图例[默认为on]
 
 -  ``LEGENDXY x y``\ ：绘制图例的绝对位置，默认为 ``[1,1]``\ 。
    位置是相对于页面的左下角，其单位为inch。这是一个与地震震级和残差有关
@@ -82,7 +82,7 @@ SAC中可以使用的投影方式包括：
    事件数据，文件的每一行包含单个事件的数据。每行的头两列必须包含纬度和
    经度（单位为度）。第三列可以包含符号大小信息（比如震级、深度、走时残差等）。
 
--  ``TOPOgraphy on``\ off|：设置TOPO为开允许用户向地图中添加地形和
+-  ``TOPOgraphy on|off``\ ：设置TOPO为开允许用户向地图中添加地形和
    海洋深度。该命令读取GMT中 ``grdraster.info`` 的第一个地形文件，
    当然地形文件中必须要有该区域的数据。地形彩色图使用
    ``$SACAUX/ctables/gmt.cpt``\ 。网格文件被写入当前目录
@@ -90,12 +90,15 @@ SAC中可以使用的投影方式包括：
 -  ``FILE``\ ：默认的输出文件名为 ``gmt.ps``\ ，你可以通过 ``FILE``
    选项指定文件名
 
-可以用SAC的 :doc:`/commands/title` 命令指定地图标题。
+可以用SAC的 :doc:`/commands/title`  命令指定地图标题。
 
 缺省值
 ------
 
-map mercator topo off stan off file gmt.ps plotstations on plotevents on
+.. code:: bash
+
+    map mercator topo off stan off file gmt.ps plotstations on
+        plotevents on
 
 示例
 ----
@@ -110,7 +113,7 @@ map mercator topo off stan off file gmt.ps plotstations on plotevents on
     Using Default Postscript Viewer
         gs -sDEVICE=x11 -q -dNOPROMPT -dTTYPAUSE
 
-绘制出的地图如图 :numref:`figure:map`
+绘制出的地图如 :numref:`figure:map`
 所示，整个地图的边界控制的还算不错，还算
 比较美观，三角形代表台站位置，圆形代表地震位置，大小也控制的不错。生成这
 个图的同时，还有一个可以用于生成该地图的shell脚本。

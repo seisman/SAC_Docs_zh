@@ -1,5 +1,3 @@
-.. _sss:timeaxis:
-
 timeaxis
 ========
 
@@ -13,13 +11,13 @@ timeaxis
 
 .. code:: bash
 
-    T\verb|IME|A\verb|XIS| F\verb|IXED| v | S\verb|CALED| v
+    T!IME!A!XIS! F!IXED! v | S!CALED! v
 
 输入
 ----
 
 FIXED v
-    固定时间轴的长度为v
+    固定时间轴的长度为v cm
 
 SCALED v
     设定时间轴的长度为总时间窗长的v倍，v的单位为
@@ -27,7 +25,9 @@ SCALED v
 缺省值
 ------
 
-timeaxis fixed 23.0
+.. code:: bash
+
+    timeaxis fixed 23.0
 
 示例
 ----

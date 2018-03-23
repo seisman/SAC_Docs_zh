@@ -11,7 +11,7 @@ hanning
 
 .. code:: bash
 
-    HAN\verb|NING|
+    HANning
 
 说明
 ----

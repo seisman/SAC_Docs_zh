@@ -11,7 +11,7 @@ synchronize
 
 .. code:: bash
 
-    SYNC\verb|HRONIZE| [R\verb|OUND| ON|OFF] [B\verb|EGIN| ON|OFF]
+    SYNChronize [Round ON|OFF] [Begin ON|OFF]
 
 输入
 ----
@@ -32,7 +32,9 @@ BEGIN OFF
 缺省值
 ------
 
-synchronize round off begin off
+.. code:: bash
+
+    synchronize round off begin off
 
 说明
 ----
@@ -42,8 +44,8 @@ synchronize round off begin off
 所有文件共同的参考时刻，最后再计算每个文件中所有相对时间相对于新参考时刻
 的值。
 
-当数据文件具有不同的参考时刻时，对数据使用 :doc:`/commands/cut`
-或 :doc:`/commands/xlim`
+当数据文件具有不同的参考时刻时，对数据使用 :doc:`/commands/cut`  或
+:doc:`/commands/xlim` 
 命令就会有些麻烦，因而可以使用该命令使得所有数据的参考时刻一致。
 
 如果使用了 ``BEGIN`` 选项，则会将所有文件的 ``kzdate`` 和 ``kztime``

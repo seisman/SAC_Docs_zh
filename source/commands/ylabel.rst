@@ -11,10 +11,10 @@ ylabel
 
 .. code:: bash
 
-    YLAB\verb|E|L [ON|OFF|text] [L\verb|OCATION| T\verb|OP||B\verb|OTTOM||R\verb|IGHT||L\verb|EFT|]
-        [S\verb|IZE| T\verb|INY||S\verb|MALL||M\verb|EDIUM||L\verb|ARGE|]
+    YLABeL [ON|OFF|text] [Location Top|Bottom|Right|Left]
+        [Size Tiny|Small|Medium|Large]
 
 说明
 ----
 
-该命令的输入、默认值、说明，与 :doc:`/commands/xlabel` 相同。
+该命令的输入、默认值、说明，与 :doc:`/commands/xlabel`  相同。

@@ -32,7 +32,9 @@ REGIONS v1 v2 .. vn
 缺省值
 ------
 
-zlines on list 1
+.. code:: bash
+
+    zlines on list 1
 
 示例
 ----

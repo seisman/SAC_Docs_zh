@@ -1,5 +1,3 @@
-.. _spe:pds:
-
 pds
 ===
 
@@ -13,8 +11,8 @@ pds
 
 .. code:: bash
 
-    PDS [S\verb|ECONDS| v|L\verb|AGS| n] [N\verb|UMBER| n]
-        [T\verb|YPE| HAM\verb|MING||HAN\verb|NING||C\verb|OSINE||R\verb|ECTANGLE||T\verb|RIANGLE|]
+    PDS [S!ECONDS! v|L!AGS! n] [N!UMBER! n]
+        [T!YPE! HAM!MING!|HAN!NING!|C!OSINE!|R!ECTANGLE!|T!RIANGLE!]
 
 输入
 ----
@@ -34,18 +32,21 @@ TYPE type
 缺省值
 ------
 
-pds type hamming
+.. code:: bash
+
+    pds type hamming
 
 说明
 ----
 
 该命令实现了传统的谱估计方法。样本相关函数首先进行相关窗截窗，生成的函数
-再使用FFT获得谱估计。正如在 命令文档中提到的，在估计偏差
+再使用FFT获得谱估计。正如在 :doc:`/spe/cor` 
+命令文档中提到的，在估计偏差
 (即丧失分辨率)与估计方差之间存在tradeoff。随着窗长增加，频率域分辨率
 增加，进而偏差减少；然而，样本相关函数在大延迟时值较大，谱估计的方差
 也会增加，这是由于在大延迟时用于估计的数据点数变少了。
 
-相关窗类型的选取与 文档中描述的数据窗有不同的效果。
+相关窗类型的选取与 :doc:`/spe/cor`  文档中描述的数据窗有不同的效果。
 这是两种不同类型的偏差之间的选择。
 
 该谱估计方法用相关窗的Fourier变换来逼近真实谱的卷积。窗变换由两个特性控制，

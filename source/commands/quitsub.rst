@@ -11,7 +11,7 @@ quitsub
 
 .. code:: bash
 
-    Q\verb|UIT|S\verb|UB|
+    QuitSub
 
 说明
 ----

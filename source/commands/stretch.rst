@@ -11,7 +11,7 @@ stretch
 
 .. code:: bash
 
-    STRETCH n [F\verb|ILTER| ON|OFF]
+    STRETCH n [Filter ON|OFF]
 
 输入
 ----
@@ -25,7 +25,9 @@ FILTER ON|OFF
 缺省值
 ------
 
-stretch 2 filter on
+.. code:: bash
+
+    stretch 2 filter on
 
 说明
 ----

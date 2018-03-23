@@ -1,5 +1,3 @@
-.. _sss:sumstack:
-
 sumstack
 ========
 
@@ -13,7 +11,7 @@ sumstack
 
 .. code:: bash
 
-    S\verb|UM|S\verb|TACK| [N\verb|ORMALIZATION| ON|OFF]
+    S!UM!S!TACK! [N!ORMALIZATION! ON|OFF]
 
 输入
 ----
@@ -26,7 +24,8 @@ NORMALIZATION ON|OFF
 ------
 
 该命令用于将叠加文件列表中的文件进行叠加。在该命令执行之前必须通过
+:doc:`/sss/timewindow` 
 命令设置叠加时间窗。每个数据会根据其静/动时间延迟做相应的时移。在叠加时间窗范围内文件不存在的数据直接按零值处理。每个文件可以给定权重以及极性。
 
 在叠加之后，会自动生成叠加结果的绘图。叠加结果可以通过
-命令保存到磁盘中。
+:doc:`/sss/writestack`  命令保存到磁盘中。

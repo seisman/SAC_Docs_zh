@@ -11,7 +11,7 @@ yvport
 
 .. code:: bash
 
-    YVP\verb|ORT| yvmin yvmax
+    YVPort yvmin yvmax
 
 输入
 ----
@@ -25,9 +25,11 @@ yvmax
 缺省值
 ------
 
-yvport 0.1 0.9
+.. code:: bash
+
+    yvport 0.1 0.9
 
 说明
 ----
 
-参考 :doc:`/commands/xvport` 命令的说明。
+参考 :doc:`/commands/xvport`  命令的说明。

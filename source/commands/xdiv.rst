@@ -11,7 +11,7 @@ xdiv
 
 .. code:: bash
 
-    XDIV [NI\verb|CE||I\verb|NCREMENT| v|NU\verb|MBER| n] [P\verb|OWER| ON|OFF]
+    XDIV [NIce|Increment v|NUmber n] [Power ON|OFF]
 
 输入
 ----
@@ -34,7 +34,9 @@ POWER OFF
 缺省值
 ------
 
-xdiv nice power on
+.. code:: bash
+
+    xdiv nice power on
 
 说明
 ----

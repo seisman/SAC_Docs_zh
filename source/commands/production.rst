@@ -11,7 +11,7 @@ production
 
 .. code:: bash
 
-    PROD\verb|UCTION| ON|OFF
+    PRODuction ON|OFF
 
 输入
 ----
@@ -22,7 +22,9 @@ ON|OFF
 缺省值
 ------
 
-production off
+.. code:: bash
+
+    production off
 
 说明
 ----

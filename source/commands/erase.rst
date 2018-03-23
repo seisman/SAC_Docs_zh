@@ -11,7 +11,7 @@ erase
 
 .. code:: bash
 
-    ERA\verb|SE|
+    ERAse
 
 说明
 ----

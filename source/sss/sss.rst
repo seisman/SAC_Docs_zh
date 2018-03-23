@@ -3,10 +3,9 @@
 
 Signal Stack Subprocess，是SAC提供的一个用于信号叠加的子程序。
 
-在SAC中键入“``sss``”即可进入该子程序；在子程序中键入
-:doc:`/commands/quitsub` 即可
-退出子程序并回到主程序；也可键入 :doc:`/commands/quit`
-直接从子程序中退出SAC。
+在SAC中键入“!sss!”即可进入该子程序；在子程序中键入
+:doc:`/commands/quitsub`  即可 退出子程序并回到主程序；也可键入
+:doc:`/commands/quit`  直接从子程序中退出SAC。
 
 在对多个信号进行叠加时，每个信号都有各自的属性，比如静延迟、震中距、权重因子、
 数据极性，也可以根据normal moveout或折射波速度模型计算动延迟。
@@ -29,40 +28,40 @@ Signal Stack Subprocess，是SAC提供的一个用于信号叠加的子程序。
 
 在SSS子程序中，你可以执行一系列SSS专属的命令，以及部分SAC主程序中的命令。下面仅列出SSS专属的命令：
 
--  向叠加文件列表中加入新文件
+-  :doc:`/sss/addstack`  向叠加文件列表中加入新文件
 
--  修改当前叠加文件列表中的文件属性
+-  :doc:`/sss/changestack`  修改当前叠加文件列表中的文件属性
 
--  从叠加文件列表中删除一个或多个文件
+-  :doc:`/sss/deletestack`  从叠加文件列表中删除一个或多个文件
 
--  修改采样率检测选项
+-  :doc:`/sss/deltacheck`  修改采样率检测选项
 
--  定义剖面图中距离轴的参数
+-  :doc:`/sss/distanceaxis`  定义剖面图中距离轴的参数
 
--  控制接下来的剖面图的距离窗属性
+-  :doc:`/sss/distancewindow`  控制接下来的剖面图的距离窗属性
 
--  设置全局叠加属性
+-  :doc:`/sss/globalstack`  设置全局叠加属性
 
--  叠加文件列表中文件的增量属性
+-  :doc:`/sss/incrementstack`  叠加文件列表中文件的增量属性
 
--  列出当前叠加文件列表中文件的属性
+-  :doc:`/sss/liststack`  列出当前叠加文件列表中文件的属性
 
--  用叠加文件列表中的文件绘制剖面图
+-  :doc:`/sss/plotrecordsection`  用叠加文件列表中的文件绘制剖面图
 
--  绘制叠加文件列表中的文件
+-  :doc:`/sss/plotstack`  绘制叠加文件列表中的文件
 
--  对叠加文件列表中的文件进行叠加
+-  :doc:`/sss/sumstack`  对叠加文件列表中的文件进行叠加
 
--  控制接下来剖面图的时间轴属性
+-  :doc:`/sss/timeaxis`  控制接下来剖面图的时间轴属性
 
--  设置叠加的时间窗
+-  :doc:`/sss/timewindow`  设置叠加的时间窗
 
--  根据预定义的模型计算走时
+-  :doc:`/sss/traveltime`  根据预定义的模型计算走时
 
--  用于计算动延迟的叠加速度模型参数
+-  :doc:`/sss/velocitymodel`  用于计算动延迟的叠加速度模型参数
 
--  控制剖面图中速度roset的放置
+-  :doc:`/sss/velocityroset`  控制剖面图中速度roset的放置
 
--  将叠加结果写入磁盘
+-  :doc:`/sss/writestack`  将叠加结果写入磁盘
 
--  重新初始化信号叠加
+-  :doc:`/sss/zerostack`  重新初始化信号叠加

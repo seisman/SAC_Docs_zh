@@ -11,7 +11,7 @@ smooth
 
 .. code:: bash
 
-    SMOOTH [MEAN|MEDIAN] [H\verb|ALFWIDTH| n]
+    SMOOTH [MEAN|MEDIAN] [Halfwidth n]
 
 输入
 ----
@@ -25,7 +25,9 @@ HALFWIDTH n
 缺省值
 ------
 
-smooth mean halfwidth 1
+.. code:: bash
+
+    smooth mean halfwidth 1
 
 说明
 ----

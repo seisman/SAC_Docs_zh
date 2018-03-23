@@ -11,7 +11,7 @@ loadctable
 
 .. code:: bash
 
-    L\verb|OAD|CT\verb|ABLE| n|[DIR CURRENT|name] [filelist]
+    LoadCTable n|[DIR CURRENT|name] [filelist]
 
 输入
 ----

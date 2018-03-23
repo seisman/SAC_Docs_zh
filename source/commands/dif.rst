@@ -11,7 +11,7 @@ dif
 
 .. code:: bash
 
-    DIF [TW\verb|O||TH\verb|REE||F\verb|IVE|]
+    DIF [TWo|THree|Five]
 
 输入
 ----
@@ -28,7 +28,9 @@ FIVE
 缺省值
 ------
 
-dif two
+.. code:: bash
+
+    dif two
 
 说明
 ----

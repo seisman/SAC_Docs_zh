@@ -11,14 +11,14 @@ plotalpha
 
 .. code:: bash
 
-    P\verb|LOT|A\verb|LPHA| [MORE] [DIR CURRENT|name] [FREE|FORMAT text] [CONTENT text] [filelist]
+    PlotAlpha [MORE] [DIR CURRENT|name] [FREE|FORMAT text] [CONTENT text] [filelist]
 
 输入
 ----
 
 MORE
     将新读入的文件加到内存中老文件之后。如果没有这个选项，新文件
-    将代替内存中的老文件。参见 :doc:`/commands/read` 命令
+    将代替内存中的老文件。参见 :doc:`/commands/read`  命令
 
 DIR CURRENT
     从当前目录读取并绘制所有文件
@@ -34,7 +34,7 @@ FORMAT text
 
 CONTENT text
     定义filelist中数据每个字段的含义。\ ``text`` 的 含义参见
-    :doc:`/commands/readtable` 命令中的
+    :doc:`/commands/readtable`  命令中的
 
 filelist
     字符数字型文件列表，其可以包含简单文件名、绝对/相对路径、 通配符。
@@ -42,13 +42,16 @@ filelist
 缺省值
 ------
 
-plotalpha free content y. dir current
+.. code:: bash
+
+    plotalpha free content y. dir current
 
 说明
 ----
 
-参考 :doc:`/commands/readtable` 命令的相关说明。该命令与
-``readtable`` 后再 ``plot`` 不同，因为它允许你在每个数据点上绘制标签。
+参考 :doc:`/commands/readtable`  命令的相关说明。该命令与
+``readtable`` 之后再 :doc:`/commands/plot` 
+不同，因为它允许你在每个数据点上绘制标签。
 
 示例
 ----

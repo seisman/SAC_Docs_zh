@@ -1,5 +1,3 @@
-.. _spe:plotpe:
-
 plotpe
 ======
 
@@ -13,7 +11,7 @@ plotpe
 
 .. code:: bash
 
-    P\verb|LOT|PE
+    P!LOT!PE
 
 说明
 ----

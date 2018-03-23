@@ -11,7 +11,7 @@ keepam
 
 .. code:: bash
 
-    \verb|KEEP|AM
+    keepAM
 
 说明
 ----

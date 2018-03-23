@@ -1,5 +1,3 @@
-.. _sss:velocitymodel:
-
 velocitymodel
 =============
 
@@ -13,7 +11,7 @@ velocitymodel
 
 .. code:: bash
 
-    V\verb|ELOCITY|M\verb|ODEL| n [ON|OFF] [REFRACTEDWAVE|NORMALMOVEOUT] [FLIP] [VAPP v|CALCULATE]
+    V!ELOCITY!M!ODEL! n [ON|OFF] [REFRACTEDWAVE|NORMALMOVEOUT] [FLIP] [VAPP v|CALCULATE]
         [T0VM v|CALCULATE] [DVM v1 [v2]] [TVM v1 [v2]] [VAPPI v] [T0VMI v]
 
 输入
@@ -53,20 +51,25 @@ TVM v1 v2
     定义一/二个参考时间
 
 VAPPI v
-    设置视速度增量为v。每次 命令执行时视速度增加v
+    设置视速度增量为v。每次 :doc:`/sss/incrementstack` 
+    命令执行时视速度增加v
 
 TOVMI v
-    设置时间轴截距的增量为v。每次 命令执行时视速度增加v
+    设置时间轴截距的增量为v。每次 :doc:`/sss/incrementstack` 
+    命令执行时视速度增加v
 
 缺省值
 ------
 
-velocitymodel 1 off velocitymodel 2 off
+.. code:: bash
+
+    velocitymodel 1 off
+    velocitymodel 2 off
 
 说明
 ----
 
-第一个速度模型用于计算某个特定震相的动态台站延迟。在信号叠加()、绘图叠加图()、绘制剖面图()时会使用该模型。第二个速度模型用于在绘图剖面图时显示相对于第二震相的延迟。这两个模型的参数可以很容易的进行交换。
+第一个速度模型用于计算某个特定震相的动态台站延迟。在信号叠加(:doc:`/sss/sumstack` )、绘图叠加图(:doc:`/sss/plotstack` )、绘制剖面图(:doc:`/sss/plotrecordsection` )时会使用该模型。第二个速度模型用于在绘图剖面图时显示相对于第二震相的延迟。这两个模型的参数可以很容易的进行交换。
 
 可以使用两种速度模型，即折射波速度模型：
 
@@ -88,7 +91,7 @@ velocitymodel 1 off velocitymodel 2 off
 ----
 
 设置第一个叠加速度模型为折射波模型，视速度为 6.5，让SAC
-自动计算TOVM以使得 200处的时间延迟为零：
+自动计算TOVM以使得 200km处的时间延迟为零：
 
 .. code:: bash
 

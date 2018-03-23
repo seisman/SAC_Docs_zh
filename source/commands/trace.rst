@@ -27,7 +27,9 @@ name
 缺省值
 ------
 
-trace on
+.. code:: bash
+
+    trace on
 
 说明
 ----

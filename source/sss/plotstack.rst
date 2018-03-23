@@ -1,5 +1,3 @@
-.. _sss:plotstack:
-
 plotstack
 =========
 
@@ -13,7 +11,7 @@ plotstack
 
 .. code:: bash
 
-    P\verb|LOT|S\verb|TACK| [S\verb|UM| ON|OFF] [P\verb|ERPLOT| ON|OFF|n] [W\verb|EIGHT| ON|OFF] [P\verb|OLARITY| ON|OFF]
+    P!LOT!S!TACK! [S!UM! ON|OFF] [P!ERPLOT! ON|OFF|n] [W!EIGHT! ON|OFF] [P!OLARITY! ON|OFF]
 
 输入
 ----
@@ -36,7 +34,9 @@ POLARITY ON|OFF
 缺省值
 ------
 
-plotstack sum on perplot off weight on polarity on
+.. code:: bash
+
+    plotstack sum on perplot off weight on polarity on
 
 说明
 ----
@@ -44,5 +44,5 @@ plotstack sum on perplot off weight on polarity on
 该命令绘制叠加文件列表中的文件，所有的文件首先根据静/动延迟进行时移，
 该命令可以控制绘制文件时是否考虑权重因子和极性。
 
-该命令的用法与 :doc:`/commands/plot1`
+该命令的用法与 :doc:`/commands/plot1` 
 类似，在每个子图的左上角会显示文件名 以及其他非默认的属性值。

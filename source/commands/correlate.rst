@@ -11,8 +11,8 @@ correlate
 
 .. code:: bash
 
-    COR\verb|RELATE| [M\verb|ASTER| name|n] [N\verb|UMBER| n] [L\verb|ENGTH| ON|OFF|v] [NO\verb|RMALIZED|]
-        [T\verb|YPE| R\verb|ECTANGLE||HAM\verb|MING||HAN\verb|NING||C\verb|OSINE||T\verb|RIANGLE|]
+    CORrelate [Master name|n] [Number n] [Length ON|OFF|v] [NOrmalized]
+        [Type Rectangle|HAMming|HANning|Cosine|Triangle]
 
 输入
 ----
@@ -47,7 +47,9 @@ TYPE TRIANGLE
 缺省值
 ------
 
-correlate master 1 number 1 length off type rectangle
+.. code:: bash
+
+    correlate master 1 number 1 length off type rectangle
 
 说明
 ----

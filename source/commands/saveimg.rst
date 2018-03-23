@@ -11,7 +11,7 @@ saveimg
 
 .. code:: bash
 
-    SAVE\verb|IMG| filename.format
+    SAVEimg filename.format
 
 输入
 ----
@@ -41,14 +41,13 @@ sgf文件，脚本 ``sgftoeps.csh`` 可以生成一个有BoundingBox的eps文件
 ``saveimg`` 生成的PS文件，目前还没有相应的脚本。
 
 为了使用 ``saveimg`` 保存一个绘图，图像必须是可见的，即通过
-:doc:`/commands/plot`\ 、\ :doc:`/commands/plot1`
+:doc:`/commands/plot` 、:doc:`/commands/plot1` 
 等命令绘制出来。\ ``saveimg`` 在子程序SSS中无法工作，但如果输入
-:doc:`/commands/quitsub` 退出子程序，
+:doc:`/commands/quitsub`  退出子程序，
 此时图像窗口未关闭，\ ``saveimg`` 此时可用于保存该图像。另外如果使用了
-:doc:`/commands/beginframe`
-命令在一个窗口中绘制多张图，必须等到执行
-:doc:`/commands/endframe` 命令之后方可使用 ``saveimg``
-命令。
+:doc:`/commands/beginframe` 
+命令在一个窗口中绘制多张图，必须等到执行 :doc:`/commands/endframe` 
+命令之后方可使用 ``saveimg`` 命令。
 
 示例
 ----

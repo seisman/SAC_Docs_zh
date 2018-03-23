@@ -32,7 +32,9 @@ cn
 缺省值
 ------
 
-zcolors off list red green blue
+.. code:: bash
+
+    zcolors off list red green blue
 
 示例
 ----

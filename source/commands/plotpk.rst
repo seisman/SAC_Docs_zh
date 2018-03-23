@@ -11,8 +11,8 @@ plotpk
 
 .. code:: bash
 
-    P\verb|LOT|PK [P\verb|ERPLOT| ON|OFF|n] [B\verb|ELL| ON|OFF] [A\verb|BSOLUTE||R\verb|ELATIVE|]
-        [REF\verb|ERENCE| ON|OFF|v] [M\verb|ARKALL| ON|OFF] [S\verb|AVELOC| ON|OFF]
+    PlotPK [Perplot ON|OFF|n] [Bell ON|OFF] [Absolute|Relative]
+        [REFerence ON|OFF|v] [Markall ON|OFF] [Saveloc ON|OFF]
 
 输入
 ----
@@ -45,19 +45,21 @@ MARKALL OFF
     只标记光标位置所对应的震相到时
 
 SAVELOCS ON|OFF
-    是否将 ``L`` 命令（表 :numref:`table:plotpk-commands` ）拾取的位置保存
+    是否将 ``L`` 命令（ :numref:`table:plotpk-commands` ）拾取的位置保存
     到黑板变量中
 
 缺省值
 ------
 
-plotpk perplot off absolute reference off markall off savelocs off
+.. code:: bash
+
+    plotpk perplot off absolute reference off markall off savelocs off
 
 说明
 ----
 
 执行该命令后，即进入 ``ppk`` 模式，可用于手动拾取震相。在 ``ppk``
-模式下，键盘的输入将被解释为ppk命令（表 :numref:`table:plotpk-commands` ）。
+模式下，键盘的输入将被解释为ppk命令（ :numref:`table:plotpk-commands` ）。
 详情请参考 :doc:`/data-process/picking-phase` 一节。
 
 ``PERPLOT`` 选项用于控制每张图上显示的文件数目，在标记三分量数据时

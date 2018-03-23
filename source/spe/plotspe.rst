@@ -1,5 +1,3 @@
-.. _spe:plotspe:
-
 plotspe
 =======
 
@@ -13,7 +11,7 @@ plotspe
 
 .. code:: bash
 
-    P\verb|LOT|SPE [P\verb|OWER||L\verb|OG||A\verb|MPLITUDE|] [C\verb|ONFIDENCE| [ON|OFF]]
+    P!LOT!SPE [P!OWER!|L!OG!|A!MPLITUDE!] [C!ONFIDENCE! [ON|OFF]]
 
 输入
 ----
@@ -36,7 +34,9 @@ CONFIDENCE OFF
 缺省值
 ------
 
-plotsp power confidence off
+.. code:: bash
+
+    plotsp power confidence off
 
 说明
 ----

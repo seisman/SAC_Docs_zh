@@ -11,10 +11,13 @@ wiener
 
 .. code:: bash
 
-    W\verb|IE|N\verb|E|R [W\verb|INDOW| pdw] [N\verb|COEFF| n] [MU OFF|ON|v] [EPS\verb|ILON| OFF|ON|e]
+    WieNeR [Window pdw] [Ncoeff n] [MU OFF|ON|v] [EPSilon OFF|ON|e]
 
 输入
 ----
+
+WINDOW pdw
+    设置滤波器设计窗口为 pdw，详情见 :ref:`subsec:pdw`
 
 NCOEFF n
     设置滤波器系数为 ``n`` 个
@@ -41,7 +44,9 @@ EPSILON ON|OFF|e
 缺省值
 ------
 
-wiener window b 0 10 ncoeff 30 mu off epsilon off
+.. code:: bash
+
+    wiener window b 0 10 ncoeff 30 mu off epsilon off
 
 说明
 ----

@@ -11,8 +11,8 @@ xlabel
 
 .. code:: bash
 
-    XLAB\verb|E|L [ON|OFF|text] [L\verb|OCATION| T\verb|OP||B\verb|OTTOM||R\verb|IGHT||L\verb|EFT|]
-        [S\verb|IZE| T\verb|INY||S\verb|MALL||M\verb|EDIUM||L\verb|ARGE|]
+    XLABeL [ON|OFF|text] [Location Top|Bottom|Right|Left]
+        [Size Tiny|Small|Medium|Large]
 
 输入
 ----
@@ -49,11 +49,13 @@ LARGE
 缺省值
 ------
 
-xlabel off location bottom size small
+.. code:: bash
+
+    xlabel off location bottom size small
 
 说明
 ----
 
 若打开X轴标签选项，则绘图时会在图上显示X轴标签。标签的尺寸和位置以及
-文本均可以改变。文本质量以及字体可以使用
-:doc:`/commands/gtext` 命令设置。
+文本均可以改变。文本质量以及字体可以使用 :doc:`/commands/gtext` 
+命令设置。

@@ -22,7 +22,9 @@ ON|OFF
 缺省值
 ------
 
-border off
+.. code:: bash
+
+    border off
 
 说明
 ----

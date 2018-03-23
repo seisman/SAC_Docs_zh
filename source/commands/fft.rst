@@ -11,7 +11,7 @@ fft
 
 .. code:: bash
 
-    FFT [WO\verb|MEAN||W\verb|MEAN|] [R\verb|LIM||A\verb|MPH|]
+    FFT [WOmean|Wmean] [Rlim|Amph]
 
 输入
 ----
@@ -31,7 +31,9 @@ AMPH
 缺省值
 ------
 
-fft wmean amph
+.. code:: bash
+
+    fft wmean amph
 
 说明
 ----
@@ -50,7 +52,7 @@ fft wmean amph
 ``iftype`` 会告诉你谱文件是哪种格式。
 
 由于实序列的离散傅立叶变换的结果具有“共轭对称性”，因而在使用
-:doc:`/commands/plotsp` 绘制谱文件时只显示一半的数据点数。
+:doc:`/commands/plotsp`  绘制谱文件时只显示一半的数据点数。
 
 示例
 ----

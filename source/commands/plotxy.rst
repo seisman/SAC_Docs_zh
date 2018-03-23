@@ -11,7 +11,7 @@ plotxy
 
 .. code:: bash
 
-    P\verb|LOT|XY name|number name|number [name|number ...]
+    PlotXY name|number name|number [name|number ...]
 
 输入
 ----
@@ -27,9 +27,9 @@ number
 
 你选择的第一个文件（通过文件名或文件号）为自变量，沿着X轴绘制。余下的数据
 为因变量，沿着Y轴绘制。所有的图形环境命令比如
-:doc:`/commands/title`\ 、 :doc:`/commands/line` 和
-:doc:`/commands/symbol` 都可以使用以控制绘图的属性。
-这个命令用于绘制由 :doc:`/commands/readtable`
+:doc:`/commands/title` 、 :doc:`/commands/line`  和
+:doc:`/commands/symbol`  都可以使用以控制绘图的属性。
+这个命令用于绘制由 :doc:`/commands/readtable` 
 命令读入的多列数据。在多情况 下，其可以看作像用绘图命令一样作出的图表。
 
 示例

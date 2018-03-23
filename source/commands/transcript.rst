@@ -12,7 +12,7 @@ transcript
 .. code:: bash
 
     TRANSCRIPT [OPEN|CREATE|CLOSE|CHANGE|WRITE|HISTORY] [FILE filename]
-        [CONTENTS ALL|E\verb|RRORS||W\verb|ARNINGS||O\verb|UTPUT||C\verb|OMMANDS||M\verb|ACROS||P\verb|ROCESSED|]
+        [CONTENTS ALL|Errors|Warnings|Output|Commands|Macros|Processed]
         [MESSAGE text]
 
 输入
@@ -68,7 +68,9 @@ CONTENTS PROCESSED
 缺省值
 ------
 
-transcript open file transcript contents all
+.. code:: bash
+
+    transcript open file transcript contents all
 
 说明
 ----

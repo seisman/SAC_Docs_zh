@@ -11,12 +11,14 @@ filenumber
 
 .. code:: bash
 
-    F\verb|ILE|N\verb|UMBER| [ON|OFF]
+    FileNumber [ON|OFF]
 
 缺省值
 ------
 
-filenumber off
+.. code:: bash
+
+    filenumber off
 
 说明
 ----

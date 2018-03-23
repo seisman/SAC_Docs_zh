@@ -37,7 +37,7 @@ LIST c1 c2 . cn
     用于相应的等值线，如果等值线数目大于这个表的长度，则重复使用整个等值线表
 
 cn
-    可以取 ``ON``\ OFF|INT|FLOATn|EXPn|text\|
+    可以取 ``ON|OFF|INT|FLOATn|EXPn|text``
 
 ON
     在相应的等值线上放置标签，使用Fortran自由格式，用等值线值形成标签名
@@ -62,7 +62,9 @@ text
 缺省值
 ------
 
-zlabels off spacing 0.1 0.2 0.3 size 0.0075 angle 45.0 list on
+.. code:: bash
+
+    zlabels off spacing 0.1 0.2 0.3 size 0.0075 angle 45.0 list on
 
 示例
 ----

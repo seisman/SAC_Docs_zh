@@ -11,7 +11,7 @@ taper
 
 .. code:: bash
 
-    TAPER [T\verb|YPE| HAN\verb|NING||HAM\verb|MING||C\verb|OSINE|] [W\verb|IDTH| v]
+    TAPER [Type HANning|HAMming|Cosine] [Width v]
 
 输入
 ----
@@ -25,7 +25,9 @@ WIDTH v
 缺省值
 ------
 
-taper type hanning width 0.05
+.. code:: bash
+
+    taper type hanning width 0.05
 
 说明
 ----
@@ -43,8 +45,8 @@ taper命令的通用形式为
 
  此公式应用于数据的首端，另一个完全对称的数据用于数据的尾端。
 
-表 :ref:`table:taper-functions` 定义了不同的衰减函数的参数，其中N为
-衰减窗的宽度，即\ :math:`npts*v`\ 。
+:numref:`table:taper-functions`
+定义了不同的衰减函数的参数，其中N为 衰减窗的宽度，即\ :math:`npts*v`\ 。
 
 .. _table:taper-functions:
 
@@ -61,7 +63,8 @@ taper命令的通用形式为
    | COSINE  | :math:`\frac{\pi}{2N}` | 1.00        | 1.00        |
    +---------+------------------------+-------------+-------------+
 
-图 :ref:`figure:taper-functions` 给出了不同taper衰减函数的曲线图，图中可以
+:numref:`figure:taper-functions`
+给出了不同taper衰减函数的曲线图，图中可以
 看出，hamming窗实际上并没有完全实现尖灭。
 
 .. _figure:taper-functions:

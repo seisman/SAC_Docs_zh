@@ -34,7 +34,9 @@ OFF
 缺省值
 ------
 
-ylim off
+.. code:: bash
+
+    ylim off
 
 说明
 ----

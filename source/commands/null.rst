@@ -28,7 +28,9 @@ OFF
 缺省值
 ------
 
-null off
+.. code:: bash
+
+    null off
 
 说明
 ----

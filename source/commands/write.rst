@@ -11,7 +11,7 @@ write
 
 .. code:: bash
 
-    W\verb|RITE| [SAC|ALPHA|XDR] [DIR OFF|CURRENT|name] [KSTCMP]
+    Write [SAC|ALPHA|XDR] [DIR OFF|CURRENT|name] [KSTCMP]
         [OVER|APPEND text|PREPEND text|DELETE text|CHANGE text1 text2] filelist
 
 输入
@@ -68,7 +68,9 @@ filelist
 缺省值
 ------
 
-write sac
+.. code:: bash
+
+    write sac
 
 说明
 ----

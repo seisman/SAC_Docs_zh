@@ -1,5 +1,3 @@
-.. _sss:velocityroset:
-
 velocityroset
 =============
 
@@ -13,7 +11,7 @@ velocityroset
 
 .. code:: bash
 
-    V\verb|ELOCITY|R\verb|OSET| [ON|OFF] [L\verb|OCATION| UL|UR|LL|LR]
+    V!ELOCITY!R!OSET! [ON|OFF] [L!OCATION! UL|UR|LL|LR]
 
 输入
 ----
@@ -27,4 +25,6 @@ LOCATION UL|UR|LL|LR
 缺省值
 ------
 
-velocityroset off location ll
+.. code:: bash
+
+    velocityroset off location ll

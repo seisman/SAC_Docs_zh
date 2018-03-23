@@ -28,12 +28,14 @@ vn
 缺省值
 ------
 
-mul 1.0
+.. code:: bash
+
+    mul 1.0
 
 说明
 ----
 
-参见 :doc:`/commands/add` 的相关说明。
+参见 :doc:`/commands/add`  的相关说明。
 
 头段变量改变
 ------------

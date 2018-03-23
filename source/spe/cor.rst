@@ -1,5 +1,3 @@
-.. _spe:cor:
-
 cor
 ===
 
@@ -13,8 +11,8 @@ cor
 
 .. code:: bash
 
-    COR [N\verb|UMBER| n|ON|OFF] [L\verb|ENGTH| v] [P\verb|REWHITEN| ON|OFF|n] [S\verb|TOCASTIC||TR\verb|ANSIENT|]
-        [T\verb|YPE| HAM\verb|MING||HAN\verb|NING||C\verb|OSINE||R\verb|ECTANGLE||T\verb|RIANGLE|]
+    COR [N!UMBER! n|ON|OFF] [L!ENGTH! v] [P!REWHITEN! ON|OFF|n] [S!TOCASTIC!|TR!ANSIENT!]
+        [T!YPE! HAM!MING!|HAN!NING!|C!OSINE!|R!ECTANGLE!|T!RIANGLE!]
 
 输入
 ----
@@ -49,7 +47,9 @@ TRANSIENT
 缺省值
 ------
 
-cor number off type hamming prewhiten off
+.. code:: bash
+
+    cor number off type hamming prewhiten off
 
 说明
 ----
@@ -83,8 +83,11 @@ PDS估计的时候这一点尤为明显。经由相关窗口的FFT的旁瓣功�
 数据进行预白化改变了原始信号，如果用户使用了预白化，退出子程序并且想要
 在别的操作中再次使用原始的信号，则必须重新读入原始信号到SAC。
 
-这种相关函数用于频谱的计算， 必须在执行 、 、 之前执行，用户可以执行
-命令绘制相关函数并且可以使用 命令将其作为SAC文件进行 保存。
+这种相关函数用于频谱的计算，:doc:`/spe/cor`  必须在执行
+:doc:`/spe/pds` 、 :doc:`/spe/mlm` 、:doc:`/spe/mem` 
+之前执行，用户可以执行 :doc:`/spe/plotcor` 
+命令绘制相关函数并且可以使用 :doc:`/spe/writecor` 
+命令将其作为SAC文件进行 保存。
 
 头段变量改变
 ------------

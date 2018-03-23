@@ -11,7 +11,7 @@ ticks
 
 .. code:: bash
 
-    TICKS [ON|OFF|ONLY] [A\verb|LL|] [T\verb|OP|] [B\verb|OTTOM|] [R\verb|IGHT|] [L\verb|EFT|]
+    TICKS [ON|OFF|ONLY] [All] [Top] [Bottom] [Right] [Left]
 
 输入
 ----
@@ -43,13 +43,15 @@ LEFT
 缺省值
 ------
 
-ticks on all
+.. code:: bash
+
+    ticks on all
 
 说明
 ----
 
 刻度轴可以画图形四边的一边或几边上，刻度间隔由
-:doc:`/commands/xdiv` 命令控制。
+:doc:`/commands/xdiv`  命令控制。
 
 示例
 ----

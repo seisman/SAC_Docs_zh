@@ -11,7 +11,7 @@ message
 
 .. code:: bash
 
-    MES\verb|SAGE| text
+    MESsage text
 
 输入
 ----

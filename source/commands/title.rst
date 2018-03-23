@@ -11,8 +11,8 @@ title
 
 .. code:: bash
 
-    TITLE [ON|OFF|text] [L\verb|OCATION| T\verb|OP||B\verb|OTTOM||R\verb|IGHT||L\verb|EFT|]
-        [S\verb|IZE| T\verb|INY||S\verb|MALL||M\verb|EDIUM||L\verb|ARGE|]
+    TITLE [ON|OFF|text] [Location Top|Bottom|Right|Left]
+        [Size Tiny|Small|Medium|Large]
 
 输入
 ----
@@ -37,10 +37,12 @@ SIZE
 缺省值
 ------
 
-title off location top size small
+.. code:: bash
+
+    title off location top size small
 
 说明
 ----
 
 若打开该选项，则在每个图形上都显示标题，标题的尺寸、位置及内容均可改变，
-文本质量和字体可以通过 :doc:`/commands/gtext` 命令设置。
+文本质量和字体可以通过 :doc:`/commands/gtext`  命令设置。

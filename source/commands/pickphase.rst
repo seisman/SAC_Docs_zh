@@ -12,9 +12,9 @@ pickphase
 
 .. code:: bash
 
-    PICKPH\verb|ASE| header phase author [header phase author ...]
-    PICKPH\verb|ASE| FILE [filename]
-    PICKPH\verb|ASE| AUTHOR [filename]
+    PICKPHase header phase author [header phase author ...]
+    PICKPHase FILE [filename]
+    PICKPHase AUTHOR [filename]
 
 输入
 ----
@@ -40,20 +40,21 @@ AUTHOR
 缺省值
 ------
 
-pickphase file
+.. code:: bash
+
+    pickphase file
 
 说明
 ----
 
 ``pickphase`` 用于在命令行上覆盖参考文件。其可以用于在命令行提供指定
 的头段/震相/作者信息，或者将SAC从一个参考文件重定向到另一个。更多关于参考
-文件的信息，参见 :doc:`/commands/pickprefs` 以及
-:doc:`/commands/readcss`\ 。
+文件的信息，参见 :doc:`/commands/pickprefs`  以及
+:doc:`/commands/readcss` 。
 
 注意：如果当数据在数据缓冲区内而用户修改了参考文件，那么在SAC缓冲区中的
 震相拾取将可能被修改。（缓冲区的信息可以通过
-:doc:`/commands/listhdr` 和
-:doc:`/commands/chnhdr` 查看）。
+:doc:`/commands/listhdr`  和 :doc:`/commands/chnhdr`  查看）。
 
 例：如果当一些含有某些 ``pP`` 或 ``PKiKP`` 震相的SAC文件通过
 命令读入时，被允许的震相包括 ``pP`` 以及 ``PKiKP``\ ，

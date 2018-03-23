@@ -11,7 +11,7 @@ macro
 
 .. code:: bash
 
-    M\verb|ACRO| name [arguments]
+    Macro name [arguments]
 
 输入
 ----

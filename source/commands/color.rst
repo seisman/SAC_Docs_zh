@@ -11,14 +11,14 @@ color
 
 .. code:: bash
 
-    COL\verb|OR| [ON|OFF|color] [I\verb|NCREMENT| [ON|OFF]] [S\verb|KELETON| color] [B\verb|ACKGROUND| color]
-        [L\verb|IST| S\verb|TANDARD||colorlist]
+    COLor [ON|OFF|color] [Increment [ON|OFF]] [Skeleton color] [Background color]
+        [List Standard|colorlist]
 
 color是下面中的一个：
 
 .. code:: bash
 
-    W\verb|HITE||R\verb|ED||G\verb|REEN||Y\verb|ELLOW||BLU\verb|E||M\verb|AGENTA||C\verb|YAN||BLA\verb|CK|
+    White|Red|Green|Yellow|BLUe|Magenta|Cyan|BLAck
 
 这里有些参数在缩写的情况下可能会有歧义，请谨慎使用，且\ ``LIST``
 选项必须放在命令的最后。
@@ -56,7 +56,9 @@ LIST STANDARD
 缺省值
 ------
 
-color black increment off skeleton black background white list standard
+.. code:: bash
+
+    color black increment off skeleton black background white list standard
 
 说明
 ----

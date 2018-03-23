@@ -11,7 +11,7 @@ unwrap
 
 .. code:: bash
 
-    UNWRAP [F\verb|ILL| ON|OFF|n] [I\verb|NTTHR| v] [P\verb|VTHR| v]
+    UNWRAP [Fill ON|OFF|n] [Intthr v] [Pvthr v]
 
 输入
 ----
@@ -31,7 +31,9 @@ PVTHR v
 缺省值
 ------
 
-unwrap fill off intthr 1.5 pvthr 0.5
+.. code:: bash
+
+    unwrap fill off intthr 1.5 pvthr 0.5
 
 说明
 ----

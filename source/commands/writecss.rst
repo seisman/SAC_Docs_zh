@@ -11,7 +11,7 @@ writecss
 
 .. code:: bash
 
-    W\verb|RITE|CSS [B\verb|INARY||A\verb|SCII|] [DIR ON|OFF|CURRENT|name] name
+    WriteCSS [Binary|Ascii] [DIR ON|OFF|CURRENT|name] name
 
 输入
 ----
@@ -45,7 +45,9 @@ name
 缺省值
 ------
 
-wirtecss ascii dir off
+.. code:: bash
+
+    wirtecss ascii dir off
 
 说明
 ----

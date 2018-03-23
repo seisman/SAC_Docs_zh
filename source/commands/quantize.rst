@@ -28,7 +28,9 @@ MANTISSA n
 缺省值
 ------
 
-quantize gains 128 32 8 1 level 0.00001 mantissa 14
+.. code:: bash
+
+    quantize gains 128 32 8 1 level 0.00001 mantissa 14
 
 说明
 ----
@@ -47,7 +49,7 @@ quantize gains 128 32 8 1 level 0.00001 mantissa 14
 
 .. math:: Err = \frac{1}{12}(Delta*Level^2)
 
-其中Delta是采样周期。量化噪声的单位是 ，相当于
+其中Delta是采样周期。量化噪声的单位是 counts*counts，相当于
 功率谱密度。量化噪声的均方根为\ :math:`\frac{1}{6}Level^2`\ 。然而，仅当信号的均方根
 水平远大于量化噪声的均方根值时，才是量化噪声的一个精确的近似。
 

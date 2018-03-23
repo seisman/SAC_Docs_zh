@@ -11,7 +11,7 @@ rotate
 
 .. code:: bash
 
-    ROT\verb|ATE| [TO G\verb|CP||TO v|TH\verb|ROUGH| v] [N\verb|ORMAL||R\verb|EVERSED|]
+    ROTate [TO Gcp|TO v|THrough v] [Normal|Reversed]
 
 输入
 ----
@@ -33,7 +33,9 @@ NORMAL|REVERSED
 缺省值
 ------
 
-rotate to gcp normal
+.. code:: bash
+
+    rotate to gcp normal
 
 说明
 ----

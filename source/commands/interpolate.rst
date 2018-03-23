@@ -11,7 +11,7 @@ interpolate
 
 .. code:: bash
 
-    INTERP\verb|OLATE| [D\verb|ELTA| v|N\verb|PTS| v] [B\verb|EGIN| v]
+    INTERPolate [Delta v|Npts v] [Begin v]
 
 输入
 ----
@@ -35,18 +35,18 @@ BEGIN v
 该命令使用Wiggins的weighted average-sloped插值方法将不等间隔数据转换为
 等间隔数据，以及对等间隔数据插值得到新的采样率。不像三次样条插值，在输入
 样本数据点间不会存在极值。如果要降低采样率，即减采样，由于该命令没有
-抗混叠滤波器，所以最好使用 :doc:`/commands/decimate` 命令。
+抗混叠滤波器，所以最好使用 :doc:`/commands/decimate`  命令。
 
 ``DELTA`` 选项和 ``NPTS`` 选项只能同时使用一个，若二者同时使用，
 则命令中的后者起作用。
 
 ``BEGIN`` 选项用于控制输入数据的插值起点，也可以通过
-:doc:`/commands/cut` 命令设置 ``b`` 和 ``e`` 再进行插值操作。
+:doc:`/commands/cut`  命令设置 ``b`` 和 ``e`` 再进行插值操作。
 
 示例
 ----
 
-假定filea是等间隔数据，采样间隔为 0.025，为了将转换到采样间隔为 0.02：
+假定filea是等间隔数据，采样间隔为 0.025s，为了将转换到采样间隔为 0.02s：
 
 .. code:: bash
 
@@ -63,7 +63,7 @@ BEGIN v
     SAC> r fileb
     SAC> interp npts 4096
 
-假设filec是不等间隔数据，为了将其转换为采样率为 0.01 的等间隔数据：
+假设filec是不等间隔数据，为了将其转换为采样率为 0.01s 的等间隔数据：
 
 .. code:: bash
 

@@ -11,7 +11,7 @@ width
 
 .. code:: bash
 
-    WIDTH [ON|OFF|width] [SK\verb|ELETON| width] [I\verb|NCREMENT| ON|OFF] [L\verb|IST| S\verb|TANDARD||widthlist]
+    WIDTH [ON|OFF|width] [SKeleton width] [Increment ON|OFF] [List Standard|widthlist]
 
 其中 ``width`` 只能取整数
 
@@ -47,7 +47,9 @@ INCREMENT OFF
 缺省值
 ------
 
-width off skeleton 1 increment off list standard
+.. code:: bash
+
+    width off skeleton 1 increment off list standard
 
 说明
 ----
@@ -70,7 +72,7 @@ width off skeleton 1 increment off list standard
 
 你可以使用 ``LIST`` 选项改变这个表的次序或内容。这个命令常用于
 重叠绘图（参见
-:doc:`/commands/plot2`\ ），此时你可能需要每张图上的数据宽度
+:doc:`/commands/plot2` ），此时你可能需要每张图上的数据宽度
 都按相同的顺序排列。
 
 示例

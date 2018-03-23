@@ -4,15 +4,15 @@ readerr
 概要
 ----
 
-控制在执行 :doc:`/commands/read` 命令过程中的错误的处理方式
+控制在执行 :doc:`/commands/read`  命令过程中的错误的处理方式
 
 语法
 ----
 
 .. code:: bash
 
-    R\verb|EAD|ERR [B\verb|ADFILE| F\verb|ATAL||W\verb|ARNING||I\verb|GNORE|] [N\verb|OFILES| F\verb|ATAL||W\verb|ARNING||I\verb|GNORE|]
-              [M\verb|EMORY| S\verb|AVE||D\verb|ELETE|]
+    ReadERR [Badfile Fatal|Warning|Ignore] [Nofiles Fatal|Warning|Ignore]
+              [Memory Save|Delete]
 
 输入
 ----
@@ -44,12 +44,14 @@ SAVE
 缺省值
 ------
 
-readerr badfile warning nofiles fatal memory delete
+.. code:: bash
+
+    readerr badfile warning nofiles fatal memory delete
 
 说明
 ----
 
-当你试着使用 :doc:`/commands/read`
+当你试着使用 :doc:`/commands/read` 
 命令将数据文件读入内存时可能会发生错误。
 文件可能不存在或虽然存在但不可读。当SAC遇到这些badfiles时，一般会发送
 警告消息，然后试着读取文件列表中的其余文件。如果你想要SAC在遇到坏文件时

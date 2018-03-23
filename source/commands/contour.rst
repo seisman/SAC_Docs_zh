@@ -11,7 +11,7 @@ contour
 
 .. code:: bash
 
-    CONT\verb|OUR| [A\verb|SPECT| ON|OFF]
+    CONTour [Aspect ON|OFF]
 
 输入
 ----
@@ -26,25 +26,27 @@ ASPECT OFF
 缺省值
 ------
 
-contour aspect off
+.. code:: bash
+
+    contour aspect off
 
 说明
 ----
 
 这个命令用于绘制二维数组数据的等值线图，包括
-:doc:`/commands/spectrogram`
+:doc:`/commands/spectrogram` 
 命令的输出。这个文件操作的SAC文件必须“XYZ”类型的（SAC头段中 ``IFTYPE``
 为 ``IXYZ``\ ）。有些命令可以控制数据显示的方式：
 
--  :doc:`/commands/zlevels` 控制等值线的数目以及间隔
+-  :doc:`/commands/zlevels`  控制等值线的数目以及间隔
 
--  :doc:`/commands/zlines` 控制等值线的线型
+-  :doc:`/commands/zlines`  控制等值线的线型
 
--  :doc:`/commands/zlabels` 控制等值线标签
+-  :doc:`/commands/zlabels`  控制等值线标签
 
--  :doc:`/commands/zticks` 控制方向标记
+-  :doc:`/commands/zticks`  控制方向标记
 
--  :doc:`/commands/zcolors` 控制等值线颜色
+-  :doc:`/commands/zcolors`  控制等值线颜色
 
 根据 ``contour`` 选项的不同，有两种不同的绘制等值线算法。一种快速
 扫描方法用于既不选择实线型也没有时标和标识的情况。另一种慢一点的方法，

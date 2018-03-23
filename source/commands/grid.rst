@@ -11,7 +11,7 @@ grid
 
 .. code:: bash
 
-    GRID [ON|OFF|S\verb|OLID||D\verb|OTTED|]
+    GRID [ON|OFF|Solid|Dotted]
 
 输入
 ----
@@ -31,11 +31,12 @@ OFF
 缺省值
 ------
 
-grid off
+.. code:: bash
+
+    grid off
 
 说明
 ----
 
-该命令控制X和Y轴的网格线的绘制。可以使用
-:doc:`/commands/xgrid` 和 :doc:`/commands/ygrid`
-分别控制单个坐标轴的网格类型。
+该命令控制X和Y轴的网格线的绘制。可以使用 :doc:`/commands/xgrid`  和
+:doc:`/commands/ygrid`  分别控制单个坐标轴的网格类型。

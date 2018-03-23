@@ -11,7 +11,7 @@ picks
 
 .. code:: bash
 
-    PICKS [ON|OFF] [pick V\verb|ERTICAL||H\verb|ORIZONTAL||C\verb|ROSS|] [W\verb|IDTH| v] [H\verb|EIGHT| v]
+    PICKS [ON|OFF] [pick Vertical|Horizontal|Cross] [Width v] [Height v]
 
 输入
 ----
@@ -41,7 +41,9 @@ HEIGHT v
 缺省值
 ------
 
-picks on width 0.1 height 0.1
+.. code:: bash
+
+    picks on width 0.1 height 0.1
 
 所有时间标记的类型都是 ``VERTICAL``
 

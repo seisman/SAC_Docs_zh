@@ -1,5 +1,3 @@
-.. _spe:mlm:
-
 mlm
 ===
 
@@ -13,7 +11,7 @@ mlm
 
 .. code:: bash
 
-    MLM [O\verb|RDER| n] [N\verb|UMBER| n]
+    MLM [O!RDER! n] [N!UMBER! n]
 
 输入
 ----
@@ -27,7 +25,9 @@ NUMBER n
 缺省值
 ------
 
-mlm order 25
+.. code:: bash
+
+    mlm order 25
 
 说明
 ----

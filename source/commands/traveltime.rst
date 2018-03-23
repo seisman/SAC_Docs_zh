@@ -11,7 +11,7 @@ traveltime
 
 .. code:: bash
 
-    TRAVELTIME [M\verb|ODEL| model] [PICKS n] [PHASE phaselist] [VERBOSE|QUIET] [M|KM]
+    TRAVELTIME [Model model] [PICKS n] [PHASE phaselist] [VERBOSE|QUIET] [M|KM]
 
 输入
 ----
@@ -34,20 +34,23 @@ VERBOSE|QUIET
     文件参考时刻的秒数；若使用 ``QUIET``\ ，则不在屏幕上显示震相走时信息
 
 M|KM
-    头段变量 ``evdp`` 的单位为 或者
+    头段变量 ``evdp`` 的单位为 或者 km
 
 缺省值
 ------
 
-traveltime MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
+.. code:: bash
+
+    traveltime MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
 
 说明
 ----
 
-该命令使用 `iaspei-tau <https://seiscode.iris.washington.edu/projects/iaspei-tau>`_
+该命令使用
+`iaspei-tau <https://seiscode.iris.washington.edu/projects/iaspei-tau>`__
 程序计算标准速度模型下的震相理论走时，要求内存中的SAC数据文件中必须包含
 事件位置、台站位置以及发震时刻。震相名区分大小写，可使用的震相名参考
-`iaspei-tau <https://seiscode.iris.washington.edu/projects/iaspei-tau>`_
+`iaspei-tau <https://seiscode.iris.washington.edu/projects/iaspei-tau>`__
 的相关文档。
 
 若使用了 ``PICKS n`` 选项，则会将震相列表中第一个震相的到时存储在
@@ -55,8 +58,8 @@ traveltime MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
 对于每个震相，终端会输出两个时间，前者时震相到时相对于参考时刻的秒数，
 后者是震相相对于发震时刻的走时。
 
-由于历史原因，事件深度 ``evdp`` 的单位可以是 或 。SAC 从 v101.5 开始，
-``evdp`` 的默认单位是 ，但由于某些程序输出的 SAC 波形依然以 作为
+由于历史原因，事件深度 ``evdp`` 的单位可以是 或 km。SAC 从 v101.5 开始，
+``evdp`` 的默认单位是 km，但由于某些程序输出的 SAC 波形依然以 作为
 ``evdp`` 的单位，为了能够兼容这些以
 为事件深度单位的波形数据，新版的SAC中 引入了 ``km`` 和 ``m``
 选项以指定深度单位。
@@ -79,8 +82,8 @@ traveltime MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
     traveltime: setting phase Sg       at 66.414337 s [ t = 107.844337 s ]
 
 由于震中距比较小，没有P和S震相，所以会出现 ``error finding phase P``
-的错误，该错误可忽略。以Pn震相为例，震相走时为 51.89，相对于参考
-时刻的秒数为 10.46。
+的错误，该错误可忽略。以Pn震相为例，震相走时为 51.89s，相对于参考
+时刻的秒数为 10.46s。
 
 上面的示例，只是计算了震相走时，不会写入到头段变量中。要将震相走时存储到
 头段变量中，需要使用 ``PICKS n``\ 选项：

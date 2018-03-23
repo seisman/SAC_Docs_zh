@@ -1,5 +1,3 @@
-.. _sss:incrementstack:
-
 incrementstack
 ==============
 
@@ -13,7 +11,7 @@ incrementstack
 
 .. code:: bash
 
-    I\verb|NCREMENT|S\verb|TACK|
+    I!NCREMENT!S!TACK!
 
 缺省值
 ------
@@ -49,4 +47,4 @@ incrementstack
 
 上面的命令会产生三个叠加文件，即stack1、stack2、stack3。叠加时使用折射波
 速度模型，视速度VAPP分别为7.9、8.0、8.1。速度模型截距时间TOVM自动计算以
-保证在 320、45 处具有零时间延迟。
+保证在 320km、45s 处具有零时间延迟。

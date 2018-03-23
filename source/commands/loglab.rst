@@ -22,7 +22,9 @@ ON|OFF
 缺省值
 ------
 
-loglab on
+.. code:: bash
+
+    loglab on
 
 说明
 ----

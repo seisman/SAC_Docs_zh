@@ -11,7 +11,7 @@ rtrend
 
 .. code:: bash
 
-    RTR\verb|END| [Q\verb|UIET||V\verb|ERBOSE|]
+    RTRend [Quiet|Verbose]
 
 输入
 ----
@@ -25,7 +25,9 @@ VERBOSE
 缺省值
 ------
 
-rtrend quiet
+.. code:: bash
+
+    rtrend quiet
 
 说明
 ----

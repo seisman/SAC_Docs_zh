@@ -28,7 +28,9 @@ OFF
 缺省值
 ------
 
-xfudge 0.03
+.. code:: bash
+
+    xfudge 0.03
 
 说明
 ----

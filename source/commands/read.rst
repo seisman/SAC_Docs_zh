@@ -11,7 +11,7 @@ read
 
 .. code:: bash
 
-    R\verb|EAD| [MORE] [DIR CURRENT|name] [XDR|ALPHA|SEGY] [SCALE ON|OFF] [filelist]
+    Read [MORE] [DIR CURRENT|name] [XDR|ALPHA|SEGY] [SCALE ON|OFF] [filelist]
 
 所有的选项必须位于filelist之前。
 
@@ -51,7 +51,9 @@ filelist
 缺省值
 ------
 
-read dir current
+.. code:: bash
+
+    read dir current
 
 说明
 ----
@@ -59,7 +61,7 @@ read dir current
 该命令将SAC文件从磁盘读入到内存中，默认状态下会读取每个磁盘文件中的全部
 数据点。
 
-:doc:`/commands/cut`
+:doc:`/commands/cut` 
 命令可以用于指定读取文件的一部分数据。在2000年之后产生
 的SAC文件会被假定年份为四位数字。年份为两个数字的文件被假定为20世纪，
 会被加上1900。
@@ -122,4 +124,4 @@ read dir current
 e、depmin、depmax、depmen、b
 
 .. [1]
-   关于dir选项，有一个很大的陷阱，详见。
+   关于dir选项，有一个很大的陷阱，详见 :doc:`/tricks-and-traps/read-dir` 。

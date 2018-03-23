@@ -37,7 +37,9 @@ SGF n
 缺省值
 ------
 
-qdp term 5000 sgf 5000
+.. code:: bash
+
+    qdp term 5000 sgf 5000
 
 说明
 ----

@@ -11,7 +11,7 @@ listhdr
 
 .. code:: bash
 
-    L\verb|IST|H\verb|DR| [D\verb|EFAULT||P\verb|ICKS||SP\verb|ECIAL|] [FILES ALL|NONE|list] [COLUMNS 1|2]
+    ListHdr [Default|Picks|SPecial] [FILES ALL|NONE|list] [COLUMNS 1|2]
         [INCLUSIVE ON|OFF] [hdrlist]
 
 输入
@@ -47,7 +47,9 @@ hdrlist
 缺省值
 ------
 
-listhdr default files all columns 1 inclusive off
+.. code:: bash
+
+    listhdr default files all columns 1 inclusive off
 
 说明
 ----

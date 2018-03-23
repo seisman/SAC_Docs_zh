@@ -11,7 +11,7 @@ help
 
 .. code:: bash
 
-    H\verb|ELP| [item ... ]
+    Help [item ... ]
 
 输入
 ----

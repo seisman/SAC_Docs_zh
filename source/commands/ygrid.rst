@@ -11,7 +11,7 @@ ygrid
 
 .. code:: bash
 
-    YGRID ON|OFF|S\verb|OLID||D\verb|OTTED|
+    YGRID ON|OFF|Solid|Dotted
 
 输入
 ----
@@ -31,4 +31,6 @@ OFF
 缺省值
 ------
 
-ygrid off
+.. code:: bash
+
+    ygrid off

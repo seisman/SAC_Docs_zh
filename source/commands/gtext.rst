@@ -11,7 +11,7 @@ gtext
 
 .. code:: bash
 
-    GT\verb|EXT| [S\verb|OFTWARE||H\verb|ARDWARE|] [F\verb|ONT| n] [SIZE size] [SYS\verb|TEM| system] [N\verb|AME| name]
+    GText [Software|Hardware] [Font n] [SIZE size] [SYStem system] [Name name]
 
 输入
 ----
@@ -28,7 +28,7 @@ FONT n
 SIZE size
     改变缺省文本大小，可以取 ``TINY``\ 、\ ``SMALL``\ 、
     ``MEDIUM``\ 、\ ``LARGE``\ ，这些缺省文本尺寸的具体大小可以 参考
-    :doc:`/commands/tsize` 命令
+    :doc:`/commands/tsize`  命令
 
 SYSTEM system
     修改字体子系统，可以取值为 ``SOFTWARE``\ 、 ``CORE``\ 、\ ``XFT``
@@ -40,7 +40,9 @@ NAME name
 缺省值
 ------
 
-gtext software font 1 size small
+.. code:: bash
+
+    gtext software font 1 size small
 
 说明
 ----

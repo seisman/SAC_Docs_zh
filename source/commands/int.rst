@@ -11,12 +11,14 @@ int
 
 .. code:: bash
 
-    INT [T\verb|RAPEZEIDAL||R\verb|ECTANGULAR|]
+    INT [Trapezeidal|Rectangular]
 
 缺省值
 ------
 
-int trapezoidal
+.. code:: bash
+
+    int trapezoidal
 
 说明
 ----

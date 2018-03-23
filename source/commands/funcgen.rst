@@ -11,15 +11,15 @@ funcgen
 
 .. code:: bash
 
-    F\verb|UNC|G\verb|EN| [type] [D\verb|ELTA| v] [N\verb|PTS| n] [BE\verb|GIN| v]
+    FuncGen [type] [Delta v] [Npts n] [BEgin v]
 
 其中 ``type`` 是下面中的一个：
 
 .. code:: bash
 
-    IMP\verb|ULSE| | ST\verb|EP| | B\verb|OXCAR| | T\verb|RIANGLE| | SINE [v1 v2] | L\verb|INE| [v1 v2] |
-    Q\verb|UADRATIC| [v1 v2 v3] | CUBIC [v1 v2 v3 v4] | SEIS\verb|MOGRAM| |
-    R\verb|ANDOM| [v1 v2] | IMPSTRIN  [n1 n2 ... nN]
+    IMPulse | STep | Boxcar | Triangle | SINE [v1 v2] | Line [v1 v2] |
+    Quadratic [v1 v2 v3] | CUBIC [v1 v2 v3 v4] | SEISmogram |
+    Random [v1 v2] | IMPSTRIN  [n1 n2 ... nN]
 
 输入
 ----
@@ -41,9 +41,9 @@ TRIANGLE
     值从0线性增加到1，第三个四分之一的值从1线性减少到0，最后四分之一值为0
 
 SINE v1 v2
-    正弦函数。\ ``v1`` 表示频率，单位为 ； ``v2``
+    正弦函数。\ ``v1`` 表示频率，单位为 Hz； ``v2``
     是以度为单位的相位角。正弦函数的振幅为1，
-    注意在相位参数中有一个\ :math:`2\pi`\ 因子：\ :math:`F = 1.0 \sin (2\pi (v_1t+v_2))`
+    注意在相位参数中有一个\ :math:`2\pi`\ 因子：\ :math:`F = 1.0 n (2\pi (v_1t+v_2))`
 
 LINE v1 v2
     线性函数。斜率为 ``v1``\ ，截距为 ``v2``\ ， 即\ :math:`v_1 t + v_2`
@@ -76,7 +76,9 @@ BEGIN v
 缺省值
 ------
 
-funcgen impulse npts 100 delta 1.0 begin 0.
+.. code:: bash
+
+    funcgen impulse npts 100 delta 1.0 begin 0.
 
 对于正弦函数频率和相位缺省值分别为0.05和0。
 一次、二次、三次函数的系数都是1。 随机序列数为1，种子是12357。

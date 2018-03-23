@@ -11,13 +11,13 @@ deletechannel
 
 .. code:: bash
 
-    D\verb|ELETE|C\verb|HANNEL| ALL
+    DeleteChannel ALL
 
 或
 
 .. code:: bash
 
-    D\verb|ELETE|C\verb|HANNEL| fname|fno|range [fname|fno|range ...]
+    DeleteChannel fname|fno|range [fname|fno|range ...]
 
 输入
 ----

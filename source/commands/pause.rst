@@ -33,7 +33,9 @@ PERIOD OFF
 缺省值
 ------
 
-pause message ’Pausing’ period off
+.. code:: bash
+
+    pause message 'Pausing' period off
 
 说明
 ----

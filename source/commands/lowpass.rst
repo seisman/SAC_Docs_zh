@@ -11,8 +11,8 @@ lowpass
 
 .. code:: bash
 
-    L\verb|OW|P\verb|ASS| [BU\verb|TTER||BE\verb|SSEL||C1|C2] [C\verb|ORNERS| v1 v2] [N\verb|POLES| n] [P\verb|ASSES| n]
-        [T\verb|RANBW| v] [A\verb|TTEN| v]
+    LowPass [BUtter|BEssel|C1|C2] [Corners v1 v2] [Npoles n] [Passes n]
+        [Tranbw v] [Atten v]
 
 输入
 ----
@@ -47,17 +47,19 @@ ATTEN v
 缺省值
 ------
 
-lowpass butter corner 0.2 npoles 2 passes 1 tranbw 0.3 atten 30
+.. code:: bash
+
+    lowpass butter corner 0.2 npoles 2 passes 1 tranbw 0.3 atten 30
 
 说明
 ----
 
-参见 :doc:`/commands/bandpass` 命令的相关说明。
+参见 :doc:`/commands/bandpass`  命令的相关说明。
 
 示例
 ----
 
-应用一个四极Butterworth，拐角频率为 2：
+应用一个四极Butterworth，拐角频率为 2Hz：
 
 .. code:: bash
 

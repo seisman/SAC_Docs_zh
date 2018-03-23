@@ -11,7 +11,7 @@ wait
 
 .. code:: bash
 
-    WAIT [T\verb|EXT| ON|OFF] [P\verb|LOTS| ON|OFF|E\verb|VERY|]
+    WAIT [Text ON|OFF] [Plots ON|OFF|Every]
 
 输入
 ----
@@ -28,7 +28,9 @@ PLOTS EVERY
 缺省值
 ------
 
-wait text on plots on
+.. code:: bash
+
+    wait text on plots on
 
 说明
 ----

@@ -11,9 +11,9 @@ beam
 
 .. code:: bash
 
-    BEAM [B\verb|EARING| v] [V\verb|ELOCITY| v] [REF\verb|ERENCE| ON|OFF| lat lon [el]]
-        [OFFSET REF|USER|STATION|EVENT|CASCADE] [E\verb|C| anginc survel]
-        [C\verb|ENTER| x y z] [WR\verb|ITE| fname]
+    BEAM [Bearing v] [Velocity v] [REFerence ON|OFF| lat lon [el]]
+        [OFFSET REF|USER|STATION|EVENT|CASCADE] [Ec anginc survel]
+        [Center x y z] [WRite fname]
 
 输入
 ----
@@ -68,7 +68,9 @@ WRITE fname
 缺省值
 ------
 
-beam b 90 v 9.0 ec 33 6.0 c 0. 0. 0. w BEAM
+.. code:: bash
+
+    beam  b 90  v 9.0 ec 33  6.0 c  0. 0. 0. w BEAM
 
 说明
 ----
@@ -81,7 +83,7 @@ beam b 90 v 9.0 ec 33 6.0 c 0. 0. 0. w BEAM
 头段数据
 --------
 
-参见 :doc:`/commands/bbfk` 命令。
+参见 :doc:`/commands/bbfk`  命令。
 
 错误消息
 --------

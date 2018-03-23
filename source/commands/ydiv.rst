@@ -11,9 +11,9 @@ ydiv
 
 .. code:: bash
 
-    YDIV [NI\verb|CE||I\verb|NCREMENT| v|NU\verb|MBER| n] [P\verb|OWER| ON|OFF]
+    YDIV [NIce|Increment v|NUmber n] [Power ON|OFF]
 
 说明
 ----
 
-该命令的选项、默认值和说明，与 :doc:`/commands/xdiv` 相同。
+该命令的选项、默认值和说明，与 :doc:`/commands/xdiv`  相同。

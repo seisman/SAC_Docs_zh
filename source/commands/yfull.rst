@@ -22,7 +22,9 @@ ON|OFF
 缺省值
 ------
 
-yfull on
+.. code:: bash
+
+    yfull on
 
 说明
 ----

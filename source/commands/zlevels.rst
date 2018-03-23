@@ -37,7 +37,9 @@ LIST v1 v2 .. vn
 缺省值
 ------
 
-zlevels scale number 20
+.. code:: bash
+
+    zlevels scale number 20
 
 示例
 ----

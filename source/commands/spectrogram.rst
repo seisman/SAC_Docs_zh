@@ -11,7 +11,7 @@ spectrogram
 
 .. code:: bash
 
-    SP\verb|ECTRO|G\verb|RAM| [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF]
+    SPectroGram [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF]
         [SQRT|NLOG|LOG10|NOSCALING] [YMIN v] [YMAX v] [METHOD PDS|MEM|MLM]
         [COLOR|GRAY]
 
@@ -49,8 +49,10 @@ COLOR|GRAY
 缺省值
 ------
 
-spectrogram window 2 slice 1 method mem order 100 noscaling ymin 0 ymax
-fnyquist color
+.. code:: bash
+
+    spectrogram window 2 slice 1 method mem order 100 noscaling
+        ymin 0 ymax fnyquist color
 
 此处 ``fnyquist`` 代表Nyquist采样频率。
 

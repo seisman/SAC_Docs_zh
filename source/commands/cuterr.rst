@@ -11,7 +11,7 @@ cuterr
 
 .. code:: bash
 
-    CUTERR FA\verb|TAL||U\verb|SEBE||FI\verb|LLZ|
+    CUTERR FAtal|Usebe|FIllz
 
 输入
 ----
@@ -43,13 +43,13 @@ FILLZ
 示例
 ----
 
-假设文件FILE1起始时间为B=25 s，初动到时A=40 s，采样率为 0.01 s。
+假设文件FILE1起始时间为B=25s，初动到时A=40s，采样率为 0.01s。
 
 .. code:: bash
 
     SAC> cut a 20 e
     SAC> read file1
 
-截窗起始值为 20 s，产生了一个错误条件。在 ``USEBE`` 模式下，
-截窗起始值将替换为 25 s(即B)。在 ``FILLZ`` 模式下，在数据之前
-将插入500个零值（5秒钟，每秒100个点），截窗起始值保持为 20 s。
+截窗起始值为 20s，产生了一个错误条件。在 ``USEBE`` 模式下，
+截窗起始值将替换为 25s(即B)。在 ``FILLZ`` 模式下，在数据之前
+将插入500个零值（5秒钟，每秒100个点），截窗起始值保持为 20s。

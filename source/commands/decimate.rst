@@ -11,7 +11,7 @@ decimate
 
 .. code:: bash
 
-    DEC\verb|IMATE| [n] [F\verb|ILTER| ON|OFF]
+    DECimate [n] [Filter ON|OFF]
 
 输入
 ----
@@ -25,7 +25,9 @@ FILTER ON|OFF
 缺省值
 ------
 
-decimate 2 filter on
+.. code:: bash
+
+    decimate 2 filter on
 
 说明
 ----

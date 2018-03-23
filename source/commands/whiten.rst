@@ -11,7 +11,7 @@ whiten
 
 .. code:: bash
 
-    W\verb|H|IT\verb|EN| n
+    WhITen n
 
 输入
 ----
@@ -24,7 +24,9 @@ n
 缺省值
 ------
 
-whiten 6
+.. code:: bash
+
+    whiten 6
 
 说明
 ----

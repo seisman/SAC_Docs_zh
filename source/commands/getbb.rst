@@ -11,7 +11,7 @@ getbb
 
 .. code:: bash
 
-    GETBB [TO TERM\verb|INAL||filename] [NAMES ON|OFF] [NEWLINE ON|OFF]
+    GETBB [TO TERMinal|filename] [NAMES ON|OFF] [NEWLINE ON|OFF]
         ALL|variable [variable ...]
 
 输入
@@ -44,7 +44,9 @@ variable
 缺省值
 ------
 
-getbb to terminal names on newline on all
+.. code:: bash
+
+    getbb to terminal names on newline on all
 
 说明
 ----
@@ -52,7 +54,7 @@ getbb to terminal names on newline on all
 该命令用于获取或打印黑板变量的值。可以控制打印哪些黑板变量以及具体的
 打印格式。可以将黑板变量打印到终端或者文本文件中。可以使用这些选项对
 一系列数据文件进行测量，将结果保存到文本文件中，然后用
-:doc:`/commands/readtable`
+:doc:`/commands/readtable` 
 命令将这个文件读回SAC，绘图或者进行更多的分析。
 
 示例

@@ -11,7 +11,7 @@ axes
 
 .. code:: bash
 
-    AXES [ON|OFF|ONL\verb|Y|] [A\verb|LL|] [T\verb|OP|] [B\verb|OTTOM|] [R\verb|IGHT|] [L\verb|EFT|]
+    AXES [ON|OFF|ONLy] [All] [Top] [Bottom] [Right] [Left]
 
 输入
 ----
@@ -43,7 +43,9 @@ LEFT
 缺省值
 ------
 
-axes only bottom left
+.. code:: bash
+
+    axes only bottom left
 
 即只有下边和左边使用注释轴
 
@@ -51,9 +53,9 @@ axes only bottom left
 ----
 
 坐标轴可以绘制在一张图四边的任意一或多个边，有很多命令可以控制坐标轴
-长什么样。坐标轴的注释间隔用 :doc:`/commands/xdiv`
+长什么样。坐标轴的注释间隔用 :doc:`/commands/xdiv` 
 命令设定（即隔多长显示 一个数字），刻度标记的间距可以用
-:doc:`/commands/ticks` 命令单独控制。
+:doc:`/commands/ticks`  命令单独控制。
 
 ``only`` 表示仅在后面列表中指定的边上使用注释轴，而 ``on`` 和 ``off``
 则表示仅对列表中的边打开或关闭注释轴，对其他不在列表中的边 不起作用。

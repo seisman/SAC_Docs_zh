@@ -1,5 +1,3 @@
-.. _sss:deltacheck:
-
 deltacheck
 ==========
 
@@ -13,7 +11,7 @@ deltacheck
 
 .. code:: bash
 
-    DELTACHECK ON|OFF|R\verb|OUNDOFF||v
+    DELTACHECK ON|OFF|R!OUNDOFF!|v
 
 输入
 ----
@@ -33,7 +31,9 @@ v
 缺省值
 ------
 
-deltacheck roundoff
+.. code:: bash
+
+    deltacheck roundoff
 
 说明
 ----

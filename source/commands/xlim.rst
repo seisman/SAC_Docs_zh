@@ -31,7 +31,9 @@ OFF
 缺省值
 ------
 
-xlim off
+.. code:: bash
+
+    xlim off
 
 说明
 ----

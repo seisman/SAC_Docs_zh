@@ -11,7 +11,7 @@ enddevices
 
 .. code:: bash
 
-    E\verb|ND|D\verb|EVICES| [ALL|S\verb|GF||X\verb|WINDOWS|]
+    EndDevices [ALL|Sgf|Xwindows]
 
 输入
 ----
@@ -28,4 +28,4 @@ XWINDOWS
 说明
 ----
 
-参见命令 :doc:`/commands/begindevices` 的说明。
+参见命令 :doc:`/commands/begindevices`  的说明。

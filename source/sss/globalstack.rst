@@ -1,5 +1,3 @@
-.. _sss:globalstack:
-
 globalstack
 ===========
 
@@ -13,8 +11,8 @@ globalstack
 
 .. code:: bash
 
-    G\verb|LOBAL|S\verb|TACK| [W\verb|EIGHT| v] [DI\verb|STANCE| v] [DE\verb|LAY| v [S\verb|ECONDS||P\verb|OINTS|]]
-        [I\verb|NCREMENT| v [S\verb|ECONDS||P\verb|OINTS|] [N\verb|ORMAL||R\verb|EVERSED|]
+    G!LOBAL!S!TACK! [W!EIGHT! v] [DI!STANCE! v] [DE!LAY! v [S!ECONDS!|P!OINTS!]]
+        [I!NCREMENT! v [S!ECONDS!|P!OINTS!] [N!ORMAL!|R!EVERSED!]
 
 输入
 ----
@@ -23,13 +21,13 @@ WEIGHT v
     全局权重因子，取值为0至1；
 
 DISTANCE v
-    全局震中距，单位为 ；
+    全局震中距，单位为 km；
 
 DELAY v SECONDS|POINTS
-    全局静时间延迟，单位为 或数据点数；
+    全局静时间延迟，单位为 s 或数据点数；
 
 INCREMENT v SECONDS|POINTS
-    全局静时间延迟的增量，单位为 或数据点数；
+    全局静时间延迟的增量，单位为 s 或数据点数；
 
 NORMAL|REVERSED
     正/负极性；
@@ -38,4 +36,4 @@ NORMAL|REVERSED
 ----
 
 该命令用于定义全局叠加属性，这些全局叠加属性用于叠加文件列表中的每个文件。可以使用
-命令为某个文件单独设定叠加属性。
+:doc:`/sss/addstack` 命令为某个文件单独设定叠加属性。

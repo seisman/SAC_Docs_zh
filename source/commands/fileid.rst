@@ -11,8 +11,8 @@ fileid
 
 .. code:: bash
 
-    FILEID [ON|OFF] [T\verb|YPE| D\verb|EFAULT||N\verb|AME||L\verb|IST| hdrlist] [L\verb|OCATION| UR|UL|LR|LL]
-        [F\verb|ORMAT| E\verb|QUALS||C\verb|OLONS||N\verb|ONAMES|]
+    FILEID [ON|OFF] [Type Default|Name|List hdrlist] [Location UR|UL|LR|LL]
+        [Format Equals|Colons|Nonames]
 
 输入
 ----
@@ -47,7 +47,9 @@ FORMAT NONAMES
 缺省值
 ------
 
-fileid on type default location ur format nonames
+.. code:: bash
+
+    fileid on type default location ur format nonames
 
 说明
 ----
@@ -84,9 +86,3 @@ fileid on type default location ur format nonames
 
     SAC> fileid type list knetwk kstnm
     SAC> fileid location ul format colons
-
-如果想要显示很多头段变量，可以适当调整文字大小以免文字超出图片尺寸::
-
-    SAC> tsize tiny 0.01
-    SAC> gtext size tiny
-    SAC> fileid type list kzdate kztime kstnm kcmpnm dist az

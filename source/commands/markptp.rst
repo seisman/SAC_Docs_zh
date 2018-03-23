@@ -11,7 +11,7 @@ markptp
 
 .. code:: bash
 
-    MARKP\verb|TP| [L\verb|ENGTH| v] [T\verb|O| marker]
+    MARKPtp [Length v] [To marker]
 
 输入
 ----
@@ -27,7 +27,9 @@ TO marker
 缺省值
 ------
 
-markptp length 5.0 to t0
+.. code:: bash
+
+    markptp length 5.0 to t0
 
 说明
 ----
@@ -36,11 +38,10 @@ markptp length 5.0 to t0
 与最小振幅的振幅差。测量结果中，最小值（波谷）所对应的时刻会写到
 ``TO marker`` 中所指定的时间标记头段中，最大值（波峰）所对应的时刻
 会写到相应的下一个时间标记头段中。最大峰峰值保存到 ``user0`` 中，
-``kuser0`` 中的值为 ``PTPAMP``\ 。如果使用
-:doc:`/commands/oapf`
+``kuser0`` 中的值为 ``PTPAMP``\ 。如果使用 :doc:`/commands/oapf` 
 打开了字符数字型震相拾取文件，则该命令的结果也会写入到文件中。
 
-默认情况下，测量时间窗为整个信号，可以使用 :doc:`/commands/mtw`
+默认情况下，测量时间窗为整个信号，可以使用 :doc:`/commands/mtw` 
 命令设置 新的测量时间窗。同时，在测量时还需要设置滑动时间窗（sliding
 time window） 的长度。滑动窗的工作原理是，首先将长度为 ``v``
 的滑动窗置于测量时间
@@ -64,7 +65,7 @@ time window） 的长度。滑动窗的工作原理是，首先将长度为 ``v`
     SAC> markptp
     SAC> lh t0 t1 user0 kuser0
 
-设置测量时间窗为初动之后的 30 s，滑动时间窗为 3 s，起始时间 标记为
+设置测量时间窗为初动之后的 30s，滑动时间窗为 3s，起始时间 标记为
 ``T7``\ ：
 
 .. code:: bash

@@ -11,7 +11,7 @@ xgrid
 
 .. code:: bash
 
-    XGRID ON|OFF|S\verb|OLID||D\verb|OTTED|
+    XGRID ON|OFF|Solid|Dotted
 
 输入
 ----
@@ -31,4 +31,6 @@ OFF
 缺省值
 ------
 
-xgrid off
+.. code:: bash
+
+    xgrid off

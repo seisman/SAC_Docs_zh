@@ -1,5 +1,3 @@
-.. _sss:distancewindow:
-
 distancewindow
 ==============
 
@@ -13,7 +11,7 @@ distancewindow
 
 .. code:: bash
 
-    D\verb|ISTANCE|W\verb|INDOW| [U\verb|SEDATE||W\verb|IDTH| v|F\verb|IXED| v1 v2] [UN\verb|ITS| K\verb|ILOMETERS||D\verb|EGREES|]
+    D!ISTANCE!W!INDOW! [U!SEDATE!|W!IDTH! v|F!IXED! v1 v2] [UN!ITS! K!ILOMETERS!|D!EGREES!]
 
 输入
 ----
@@ -28,7 +26,7 @@ FIXED v1 v2
     固定距离的最小、最大值分别为v1和v2
 
 UNITS KILOMETERS
-    设置距离窗的单位为  [1]_
+    设置距离窗的单位为 km  [1]_
 
 UNITS DEGREES
     设置距离窗的单位为度
@@ -36,7 +34,9 @@ UNITS DEGREES
 缺省值
 ------
 
-distancewindow usedata units kilometers
+.. code:: bash
+
+    distancewindow usedata units kilometers
 
 .. [1]
    该选项尚未实现

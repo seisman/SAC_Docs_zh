@@ -11,8 +11,8 @@ sgf
 
 .. code:: bash
 
-    SGF [P\verb|REFIX| text] [N\verb|UMBER| n] [D\verb|IRECTORY| CURRENT|pathname]
-        [S\verb|IZE| N\verb|ORMAL||F\verb|IXED| v|S\verb|CALED| v] [O\verb|VERWRITE| ON|OFF]
+    SGF [Prefix text] [Number n] [Directory CURRENT|pathname]
+        [Size Normal|Fixed v|Scaled v] [Overwrite ON|OFF]
 
 输入
 ----
@@ -47,7 +47,9 @@ OVERWRITE ON|OFF
 缺省值
 ------
 
-sgf prefix f number 1 directory current size normal
+.. code:: bash
+
+    sgf prefix f number 1 directory current size normal
 
 说明
 ----

@@ -30,7 +30,7 @@ envelope
 
 .. math:: A(t) = \sqrt{s(t)^2+H(t)^2}
 
-和 :doc:`/commands/hilbert`
+和 :doc:`/commands/hilbert` 
 一样，数据点数不得少于201，且超长周期的数据需要 在处理之前进行减采样。
 
 头段变量

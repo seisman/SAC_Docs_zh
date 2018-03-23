@@ -11,7 +11,7 @@ writebbf
 
 .. code:: bash
 
-    W\verb|RITE|BBF [file]
+    WriteBBF [file]
 
 输入
 ----
@@ -22,13 +22,15 @@ file
 缺省值
 ------
 
-writebbf bbf
+.. code:: bash
+
+    writebbf bbf
 
 说明
 ----
 
 该命令让你能够将当前会话的所有黑板变量写入到磁盘文件中，稍后可以使用
-:doc:`/commands/readbbf`
+:doc:`/commands/readbbf` 
 命令将黑板变量文件重新读入SAC，该特性允许你保存
 某次SAC会话的信息，并用于另一次SAC会话中。你也可以在自己的程序中调用
 SAC函数库以访问黑板变量文件中的信息。

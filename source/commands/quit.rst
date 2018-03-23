@@ -11,7 +11,7 @@ quit
 
 .. code:: bash
 
-    Q\verb|UIT|
+    Quit
 
 说明
 ----

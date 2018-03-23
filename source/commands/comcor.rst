@@ -16,7 +16,9 @@ comcor
 缺省值
 ------
 
-comcor off
+.. code:: bash
+
+    comcor off
 
 输入
 ----
@@ -29,7 +31,9 @@ ON|OFF
 缺省值
 ------
 
-comcor off
+.. code:: bash
+
+    comcor off
 
 说明
 ----

@@ -1,5 +1,3 @@
-.. _sss:deletestack:
-
 deletestack
 ===========
 
@@ -13,7 +11,7 @@ deletestack
 
 .. code:: bash
 
-    D\verb|ELETE|S\verb|TACK| filename|filenumber
+    D!ELETE!S!TACK! filename|filenumber
 
 输入
 ----

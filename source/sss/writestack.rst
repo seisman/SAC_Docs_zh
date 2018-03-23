@@ -1,5 +1,3 @@
-.. _sss:writestack:
-
 writestack
 ==========
 
@@ -13,7 +11,7 @@ writestack
 
 .. code:: bash
 
-    W\verb|RITE|S\verb|TACK| [filename]
+    W!RITE!S!TACK! [filename]
 
 输入
 ----
@@ -24,4 +22,6 @@ filename
 缺省值
 ------
 
-writestack sum
+.. code:: bash
+
+    writestack sum

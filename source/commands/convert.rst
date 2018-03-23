@@ -11,7 +11,7 @@ convert
 
 .. code:: bash
 
-    CONV\verb|ERT| [FROM] [format] infile [TO [format] outfile]|[OVER [format]]
+    CONVert [FROM] [format] infile [TO [format] outfile]|[OVER [format]]
 
 输入
 ----
@@ -32,12 +32,14 @@ format
 缺省值
 ------
 
-convert from sac infile over sac
+.. code:: bash
+
+    convert from sac infile over sac
 
 说明
 ----
 
 该命令将单个文件从一种格式转换为另一种格式。该命令已经逐渐被
-:doc:`/commands/read` 和 :doc:`/commands/write`
+:doc:`/commands/read`  和 :doc:`/commands/write` 
 命令所取代，\ ``convert`` 命令已经不再需要，
 保留该命令只是为了兼容性考虑。

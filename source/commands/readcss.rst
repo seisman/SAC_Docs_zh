@@ -11,8 +11,8 @@ readcss
 
 .. code:: bash
 
-    R\verb|EAD|CSS [BINARY|ASCII] [MAX\verb|MEM| v] [MORE] [TRUST ON|OFF] [VER\verb|BOSE| ON|OFF]
-        [SHIFT ON|OFF] [SCALE ON|OFF] [MAG\verb|NITUDE| MB|MS|ML|DEF] [DIR name] wfdisclist
+    ReadCSS [BINARY|ASCII] [MAXmem v] [MORE] [TRUST ON|OFF] [VERbose ON|OFF]
+        [SHIFT ON|OFF] [SCALE ON|OFF] [MAGnitude MB|MS|ML|DEF] [DIR name] wfdisclist
         [filelist] [cssoptions]
 
 其中 ``cssoptions`` 用于进一步从 ``wfdisc`` 文件中筛选满足
@@ -20,8 +20,8 @@ readcss
 
 .. code:: bash
 
-        [STA\verb|TION| station] [CHAN\verb|NEL| channel] [BAND\verb|WIDTH| bandcode]
-        [ORIENT\verb|ATION| orientation-code]
+        [STAtion station] [CHANnel channel] [BANDwidth bandcode]
+        [ORIENTation orientation-code]
 
 输入
 ----
@@ -40,7 +40,7 @@ MAXMEM
 MORE
     将读入的波形数据放在内存中的原有波形之后，若不使用该选项，
     则新读入的波形数据会覆盖内存中的原有波形数据，详情参考
-    :doc:`/commands/read` 命令。
+    :doc:`/commands/read`  命令。
 
 VERBOSE ON|OFF
     如果 ``VERBOSE`` 是ON，SAC会显示正在读取的
@@ -62,9 +62,9 @@ SCALE ON|OFF
     ``SCALE`` 的值为1.0。设置 ``SCALE ON``\ ， 将数据乘以 ``CALIB``
     值，在某种程度上可以认为是对数据去除了仪器
     响应，但该方法很粗糙，完整地去除仪器响应应使用
-    :doc:`/commands/transfer` 命令。仅当
-    :doc:`/commands/transfer`
-    命令所需的仪器响应信息无法获取时， 才建议使用 ``SCALE ON``\ 。
+    :doc:`/commands/transfer`  命令。仅当
+    :doc:`/commands/transfer`  命令所需的仪器响应信息无法获取时，
+    才建议使用 ``SCALE ON``\ 。
 
 MAGNITUDE
     指定要将哪一种震级放在SAC的头段变量 ``mag`` 中。
@@ -95,11 +95,11 @@ CHANNEL channel
     中可以包含通配符 ``*`` 和 ``?`` 。
 
 BANDWIDTH bandcode
-    单字符编码。常见的取值为E、S、H、B、M、L、V、U、R等。
-    bandcode 的具体含义参考附录中表 :ref:`table:bandcode` 。
-    ``channel`` 字段中第一个字符与 ``bandcode``
-    匹配的行会被 选择并读取。\ ``bandcode`` 中使用通配符 ``*``
-    会匹配所有 ``bandcode``\ 。
+    单字符编码。常见的取值为E、S、H、B、M、L、V、U、R等。 ``bandcode``
+    的具体含义参考附录中表 :ref:`table:bandcode` 。
+    ``channel`` 字段中第一个字符与 ``bandcode`` 匹配的行会被
+    选择并读取。\ ``bandcode`` 中使用通配符 ``*`` 会匹配所有
+    ``bandcode``\ 。
 
 ORIENTATION orientation-code
     ``orientation-code``\ 通常可以取 “Z N E”（表示竖直、北和东）、“1 2

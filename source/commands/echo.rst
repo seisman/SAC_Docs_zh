@@ -11,7 +11,7 @@ echo
 
 .. code:: bash
 
-    ECHO ON|OFF E\verb|RRORS||W\verb|ARNINGS||O\verb|UTPUT||C\verb|OMMANDS||M\verb|ACROS||P\verb|ROCESS|
+    ECHO ON|OFF Errors|Warnings|Output|Commands|Macros|Process
 
 输入
 ----
@@ -41,7 +41,9 @@ PROCESSED
 缺省值
 ------
 
-echo on errors warnings output off commands macros processed
+.. code:: bash
+
+    echo on errors warnings output off commands macros processed
 
 说明
 ----

@@ -16,4 +16,4 @@ yfudge
 说明
 ----
 
-该命令的选项、默认值及说明，与 :doc:`/commands/xfudge` 类似。
+该命令的选项、默认值及说明，与 :doc:`/commands/xfudge`  类似。

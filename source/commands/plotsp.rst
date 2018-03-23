@@ -11,7 +11,7 @@ plotsp
 
 .. code:: bash
 
-    P\verb|LOT|SP [ASIS|RLIM|AMPH|RL|IM|AM|PH] [LINLIN|LINLOG|LOGLIN|LOGLOG]
+    PlotSP [ASIS|RLIM|AMPH|RL|IM|AM|PH] [LINLIN|LINLOG|LOGLIN|LOGLOG]
 
 输入
 ----
@@ -29,13 +29,15 @@ RL|IM|AM|PH
     只绘制实部/虚部/振幅/相位分量
 
 LINLIN|LINLOG|LOGLIN|LOGLOG
-    设置x-y轴为线型还是对数型，与单独的
-    :doc:`/commands/linlin` 等命令区分开
+    设置x-y轴为线型还是对数型，与单独的 :doc:`/commands/linlin` 
+    等命令区分开
 
 缺省值
 ------
 
-plotsp asis loglog
+.. code:: bash
+
+    plotsp asis loglog
 
 说明
 ----

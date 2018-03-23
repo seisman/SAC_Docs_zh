@@ -20,7 +20,7 @@ Q v
     设置质量因子为 ``v``
 
 R v
-    设置距离为 ``v``\ ，单位为
+    设置距离为 ``v``\ ，单位为 km
 
 C v
     设置群速度为 ``v``\ ，单位
@@ -28,7 +28,9 @@ C v
 缺省值
 ------
 
-rq q 1. r 0. c 1.
+.. code:: bash
+
+    rq q 1. r 0. c 1.
 
 说明
 ----
@@ -37,7 +39,7 @@ rq q 1. r 0. c 1.
 
 .. math:: AMP_{corrected}(f) = AMP_{uncorrected}(f) * e^{\frac{\pi R f}{Q C}}
 
-其中\ :math:`f`\ 为频率，单位为 ，\ :math:`R`\ 为距离，单位 ，
+其中\ :math:`f`\ 为频率，单位为 Hz，\ :math:`R`\ 为距离，单位 km，
 :math:`C`\ 是群速度，单位为 。Q是一个无量纲衰减因子。
 
 头段变量

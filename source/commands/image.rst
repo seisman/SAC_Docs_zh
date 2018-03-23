@@ -26,7 +26,9 @@ BINARY|FULL
 缺省值
 ------
 
-image color full
+.. code:: bash
+
+    image color full
 
 说明
 ----
@@ -34,10 +36,10 @@ image color full
 该命令允许用户用SAC三维数据绘制彩图或灰度图。
 
 三维数据可以用
-:doc:`/commands/spectrogram`\ 、\ :doc:`/commands/sonogram`
-或 :doc:`/commands/bbfk`
+:doc:`/commands/spectrogram` 、:doc:`/commands/sonogram`  或
+:doc:`/commands/bbfk`
 命令产生，也可以自己生成SAC格式的三维数据。可以使用
-:doc:`/commands/xlim` 和 :doc:`/commands/ylim`
+:doc:`/commands/xlim`  和 :doc:`/commands/ylim`
 以控制要显示的绘图效果，也可以 使用其他命令对数据做振幅上的操作。
 
 示例

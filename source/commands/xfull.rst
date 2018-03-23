@@ -22,7 +22,9 @@ ON|OFF
 缺省值
 ------
 
-xfull on
+.. code:: bash
+
+    xfull on
 
 说明
 ----

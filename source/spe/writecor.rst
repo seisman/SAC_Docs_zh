@@ -1,5 +1,3 @@
-.. _spe:writecor:
-
 writecor
 ========
 
@@ -13,7 +11,7 @@ writecor
 
 .. code:: bash
 
-    W\verb|RITE|COR [file]
+    W!RITE!COR [file]
 
 输入
 ----
@@ -24,7 +22,9 @@ file
 缺省值
 ------
 
-writecor cor
+.. code:: bash
+
+    writecor cor
 
 说明
 ----

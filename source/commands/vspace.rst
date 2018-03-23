@@ -11,7 +11,7 @@ vspace
 
 .. code:: bash
 
-    VSP\verb|ACE| [FULL|v]
+    VSPace [FULL|v]
 
 输入
 ----
@@ -25,7 +25,9 @@ v
 缺省值
 ------
 
-vspace full
+.. code:: bash
+
+    vspace full
 
 说明
 ----
@@ -43,7 +45,7 @@ viewspace是屏幕上可以用于绘图的部分。viewspace的形状和尺寸�
 从而使你能够控制图形的形状。如果确定了一个纵横比，则viewspace就是设备上
 具有这个纵横比的最大区域。
 
-当你使用 :doc:`/commands/plotc`
+当你使用 :doc:`/commands/plotc` 
 命令在交互设备上建立一张图，并且最终要
 将它发送到SGF设备上，这个命令特别有用。在绘制任何图形之前，必须设置
 纵横比为0.75。这将保证图形在SGF文件上与在交互设备上相同。如果你要建立

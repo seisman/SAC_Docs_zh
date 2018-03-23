@@ -1,5 +1,3 @@
-.. _sss:liststack:
-
 liststack
 =========
 
@@ -13,7 +11,7 @@ liststack
 
 .. code:: bash
 
-    L\verb|IST|S\verb|TACK| [N\verb|ARROW| | W\verb|IDE|]
+    L!IST!S!TACK! [N!ARROW! | W!IDE!]
 
 输入
 ----

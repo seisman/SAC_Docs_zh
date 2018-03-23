@@ -11,7 +11,7 @@ readtable
 
 .. code:: bash
 
-    R\verb|EAD|TAB\verb|LE| [MORE] [DIR CURRENT|name] [FREE|FORMAT tex] [CONTENT text]
+    ReadTABle [MORE] [DIR CURRENT|name] [FREE|FORMAT tex] [CONTENT text]
         [HEADER number] [filelist]
 
 所有的选项必须位于filelist之前。最后两个选项可以放在每个文件的第一行。
@@ -47,7 +47,9 @@ filelist
 缺省值
 ------
 
-readtable free content y. dir current
+.. code:: bash
+
+    readtable free content y. dir current
 
 说明
 ----

@@ -11,9 +11,9 @@ endframe
 
 .. code:: bash
 
-    E\verb|ND|F\verb|RAME|
+    EndFrame
 
 说明
 ----
 
-参见 :doc:`/commands/beginframe` 命令的相关说明。
+参见 :doc:`/commands/beginframe`  命令的相关说明。

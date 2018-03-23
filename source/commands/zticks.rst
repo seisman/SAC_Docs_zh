@@ -11,7 +11,7 @@ zticks
 
 .. code:: bash
 
-    ZTICKS [ON|OFF] [Spacing v] [LE\verb|NGTH| v] [D\verb|IRECTION| DOWN|UP] [L\verb|IST| c1 c2 ... cn]
+    ZTICKS [ON|OFF] [Spacing v] [LEngth v] [Direction DOWN|UP] [List c1 c2 ... cn]
 
 输入
 ----
@@ -37,7 +37,9 @@ LIST c1 c2 . cn
 缺省值
 ------
 
-zticks off spacing 0.1 length 0.005 direction down list on
+.. code:: bash
+
+    zticks off spacing 0.1 length 0.005 direction down list on
 
 示例
 ----

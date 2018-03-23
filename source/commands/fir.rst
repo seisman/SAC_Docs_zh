@@ -28,7 +28,9 @@ file
 缺省值
 ------
 
-fir fft fir
+.. code:: bash
+
+    fir fft fir
 
 说明
 ----

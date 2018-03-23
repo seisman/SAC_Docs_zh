@@ -1,5 +1,3 @@
-.. _spe:plotcor:
-
 plotcor
 =======
 
@@ -13,7 +11,7 @@ plotcor
 
 .. code:: bash
 
-    P\verb|LOT|COR [X\verb|LIM| v|ON|OFF]
+    P!LOT!COR [X!LIM! v|ON|OFF]
 
 输入
 ----
@@ -30,4 +28,6 @@ XLIM OFF
 缺省值
 ------
 
-plotcor xlim off
+.. code:: bash
+
+    plotcor xlim off

@@ -11,7 +11,7 @@ filterdesign
 
 .. code:: bash
 
-    F\verb|ILTER|D\verb|ESIGN| [FILE [prefix]] [filteroptions] [delta]
+    FilterDesign [FILE [prefix]] [filteroptions] [delta]
 
 输入
 ----
@@ -28,7 +28,7 @@ delta
 缺省值
 ------
 
-``delta`` 缺省值为 0.025，其他参数无缺省值
+``delta`` 缺省值为 0.025s，其他参数无缺省值
 
 说明
 ----
@@ -46,7 +46,7 @@ delta
 为振幅-相位格式谱文件。\ ``prefix.grd`` 为该命令产生的群延迟信息，
 是时间序列文件。需要注意的是，尽管这个文件是时间序列文件，但是实际上群
 延迟是频率的函数。用户要记住，虽然绘图时横轴单位是秒，实际的单位却是
-。\ ``prefix.imp`` 是时间序列文件，包含脉冲响应信息。
+Hz。\ ``prefix.imp`` 是时间序列文件，包含脉冲响应信息。
 
 在这三个SAC文件中，用户自定义头段变量 ``USERn``\ 、\ ``KUSERn``
 设置如下：
@@ -77,7 +77,7 @@ delta
 ----
 
 下面的例子展示了如何使用 ``filterdesign`` 命令产生一个高通，拐角 频率为
-2，六极、双通滤波器的数字和模拟响应曲线，数据采样间隔为 0.025：
+2Hz，六极、双通滤波器的数字和模拟响应曲线，数据采样间隔为 0.025s：
 
 .. code:: bash
 

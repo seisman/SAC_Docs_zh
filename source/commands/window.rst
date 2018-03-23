@@ -11,7 +11,7 @@ window
 
 .. code:: bash
 
-    WIN\verb|DOW| n [X\verb|SIZE| xwmin xwmax] [Y\verb|SIZE| ywmin ywmax] [ASPECT [value|ON|OFF]]
+    WINdow n [Xsize xwmin xwmax] [Ysize ywmin ywmax] [ASPECT [value|ON|OFF]]
 
 输入
 ----

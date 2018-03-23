@@ -11,7 +11,7 @@ beginwindow
 
 .. code:: bash
 
-    B\verb|EGIN|W\verb|INDOW| n
+    BeginWindow n
 
 输入
 ----
@@ -22,7 +22,9 @@ n
 缺省值
 ------
 
-beginwindow 1
+.. code:: bash
+
+    beginwindow 1
 
 说明
 ----
@@ -30,9 +32,8 @@ beginwindow 1
 现在的图形终端或工作站大多支持多窗口，即启动多个窗口，并在每个窗口中
 显示相同或不同的图像。
 
-:doc:`/commands/window`
-命令可以控制每个X绘图窗口的位置和形状，而 ``beginwindow``
-则用于启用该绘图窗口，使得接下来所有的绘图命令的
+:doc:`/commands/window`  命令可以控制每个X绘图窗口的位置和形状，而
+``beginwindow`` 则用于启用该绘图窗口，使得接下来所有的绘图命令的
 绘图效果都显示在该绘图窗口中，直到再次使用 ``beginwindow`` 命令
 切换到另一窗口。若你所选择的绘图窗口没有打开，则 ``beginwindow``
 会首先创建这个窗口。

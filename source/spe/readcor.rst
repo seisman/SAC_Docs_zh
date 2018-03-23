@@ -1,5 +1,3 @@
-.. _spe:readcor:
-
 readcor
 =======
 
@@ -24,7 +22,7 @@ file
 说明
 ----
 
-该命令与SAC主程序中的 :doc:`/commands/read`
+该命令与SAC主程序中的 :doc:`/commands/read` 
 命令相同，存在如下两个例外。
 
 首先，在SPE中只能读取一个文件；其次，执行该命令会删除内存中已经计算的任何相关

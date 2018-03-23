@@ -11,8 +11,8 @@ transfer
 
 .. code:: bash
 
-    TRANS\verb|FER| [FROM type [options]] [TO type [options]] [FREQ\verb|LIMITS| f1 f2 f3 f4]
-        [PREWH\verb|ITENING| ON|OFF|n]
+    TRANSfer [FROM type [options]] [TO type [options]] [FREQlimits f1 f2 f3 f4]
+        [PREWHitening ON|OFF|n]
 
 输入
 ----
@@ -32,7 +32,9 @@ PREWHITENING ON|OFF|n
 缺省值
 ------
 
-trans from none to none
+.. code:: bash
+
+    trans from none to none
 
 说明
 ----
@@ -46,7 +48,7 @@ FROM and TO
 二者分别通过谱域的除法和乘法完成。
 
 ``type`` 为仪器类型，可以是SAC预定义的标准仪器类型（见附录中表
-:numref:`table:instrument-type` ），还可以是如下几种特殊的“仪器类型”：
+:ref:`table:instrument-type` ），还可以是如下几种特殊的“仪器类型”：
 
 none
     表示“位移”
@@ -71,7 +73,7 @@ fap
 ``TO type`` 时，SAC会假定仪器类型为 ``NONE``\ 。
 
 -  若输出的仪器类型为 ``NONE``\ ，即表示从波形中去除仪器响应得到
-   位移，此时SAC头段中的IDEP设置为 ``IDISP``\ ，单位为 ， 若输出类型为
+   位移，此时SAC头段中的IDEP设置为 ``IDISP``\ ，单位为 nm， 若输出类型为
    ``VEL`` 或 ``ACC``\ ，同理；
 
 -  若输出的仪器类型不是 ``NONE``\ 、\ ``VEL`` 或 ``ACC``\ ，
@@ -106,8 +108,8 @@ freqlimits
 
 四个频率参数除了要满足 ``f1<f2<f3<f4`` 外，还应注意如下几条原则：
 
--  ``f4`` 应小于Nyquist采样率。比如若数据的采样周期为 0.01，
-   则Nyquist采样率为 50，因而 ``f4`` 应小于50
+-  ``f4`` 应小于Nyquist采样率。比如若数据的采样周期为 0.01s，
+   则Nyquist采样率为 50Hz，因而 ``f4`` 应小于50Hz
 
 -  ``f3`` 不能与 ``f4`` 太接近
 
@@ -124,7 +126,7 @@ freqlimits
 
 需要注意，该滤波器是零相位、非因果滤波器，因而，若数据点数不为2的指数幂次，
 会导致在频段 ``(f1,f4)`` 之外振幅不完全为0。若想要数据点数为2的幂次方，
-可以参考SAC中的 :doc:`/commands/cut` 命令。
+可以参考SAC中的 :doc:`/commands/cut`  命令。
 
 prewhitening
 ~~~~~~~~~~~~
@@ -308,21 +310,21 @@ PZ文件合并得到总的PZ文件。下面的例子中读入全部波形数据�
     SAC> r *.SAC          // 读入全部数据
     SAC> rmean; rtr; taper
     SAC> trans from polezero s event.pz to none freq 0.05 0.1 10.0 15.0
-    SAC> mul 1.0e9        // 需要乘以1.0e9 \verb||\verb||!
+    SAC> mul 1.0e9        // 需要乘以1.0e9 !!!
     SAC> w over
 
 需要格外注意，在用PZ文件去仪器响应得到位移物理量时，得到的数据的单位是
-，而SAC中默认的单位是 ，因而需要将数据乘以 ``1.0e9`` 将数据的单位转换成
-。对于转换得到速度或加速度，同理。
+m，而SAC中默认的单位是 nm，因而需要将数据乘以 ``1.0e9``
+将数据的单位转换成 nm。对于转换得到速度或加速度，同理。
 
 fap选项
 ~~~~~~~
 
 fap选项表明使用FAP文件作为响应函数。
 
-假设有fapfile文件 ``fap.n11a.lhz_0.006-0.2``\ ，其名字表示频率段为 0.006
-到 0.2， 要从波形 ``2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC``
-中移除该仪器响应：
+假设有fapfile文件 ``fap.n11a.lhz_0.006-0.2``\ ，其名字表示频率段为
+0.006Hz 到 0.2Hz， 要从波形
+``2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC`` 中移除该仪器响应：
 
 .. code:: bash
 

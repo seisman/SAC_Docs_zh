@@ -24,5 +24,5 @@ IC n m
 ----
 
 “指令卡”用于分开在HYPO文件中的不同事件，参见HYPO71手册。关闭一个已经
-打开的HYPO震相拾取文件（\ :doc:`/commands/chpf`\ ）或者退出SAC时，将自动添加
+打开的HYPO震相拾取文件（:doc:`/commands/chpf` ）或者退出SAC时，将自动添加
 “10”指令卡到震相读取文件中。

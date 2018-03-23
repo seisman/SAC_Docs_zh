@@ -1,5 +1,3 @@
-.. _sss:distanceaxis:
-
 distanceaxis
 ============
 
@@ -13,7 +11,7 @@ distanceaxis
 
 .. code:: bash
 
-    D\verb|ISTANCE|A\verb|XIS| F\verb|IXED| v | S\verb|CALED| v
+    D!ISTANCE!A!XIS! F!IXED! v | S!CALED! v
 
 输入
 ----
@@ -27,12 +25,14 @@ SCALED v
 缺省值
 ------
 
-distanceaxis fixed 35
+.. code:: bash
+
+    distanceaxis fixed 35
 
 示例
 ----
 
-若剖面图的距离范围为 150 到 300，则如下命令设置 距离轴长度为 75：
+若剖面图的距离范围为 150km 到 300km，则如下命令设置 距离轴长度为 75cm：
 
 .. code:: bash
 

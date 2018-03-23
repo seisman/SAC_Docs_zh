@@ -11,7 +11,7 @@ markvalue
 
 .. code:: bash
 
-    MARKV\verb|ALUE| [GE|LE v] [TO marker]
+    MARKValue [GE|LE v] [TO marker]
 
 输入
 ----
@@ -29,14 +29,16 @@ TO marker
 缺省值
 ------
 
-markvalue ge 1 to t0
+.. code:: bash
+
+    markvalue ge 1 to t0
 
 说明
 ----
 
 该命令会在信号的测量时间窗内搜索第一个满足条件（大于或等于/小于或等于）的
 数据点，并将该数据点所对应的时刻记录下来。默认情况下，测量时间窗为整个信号，
-可以使用 :doc:`/commands/mtw` 命令设置新的测量时间窗。
+可以使用 :doc:`/commands/mtw`  命令设置新的测量时间窗。
 
 示例
 ----

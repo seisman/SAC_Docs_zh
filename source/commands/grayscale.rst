@@ -11,7 +11,7 @@ grayscale
 
 .. code:: bash
 
-    G\verb|RAY|S\verb|CALE| [VIDEOTYPE NORMAL|REVERSED] [SCALE v] [ZOOM n]
+    GrayScale [VIDEOTYPE NORMAL|REVERSED] [SCALE v] [ZOOM n]
         [XCROP n1 n2|ON|OFF] [YCROP n1 n2|ON|OFF]
 
 输入
@@ -59,12 +59,14 @@ YCROP OFF
 缺省值
 ------
 
-grayscale videotype normal scale 1.0 zoom 1 xcrop off ycrop off
+.. code:: bash
+
+    grayscale videotype normal scale 1.0 zoom 1 xcrop off ycrop off
 
 说明
 ----
 
-这个命令可以用于绘制 :doc:`/commands/spectrogram`
+这个命令可以用于绘制 :doc:`/commands/spectrogram` 
 命令输出的灰度图，用这个 命令显示的SAC数据须是“xyz”文件。
 
 注意：SAC启动了一个脚本来运行图像操作和显示程序，然后再显示SAC的提示符。

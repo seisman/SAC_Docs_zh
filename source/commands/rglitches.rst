@@ -11,8 +11,8 @@ rglitches
 
 .. code:: bash
 
-    RGL\verb|ITCHES| [TH\verb|RESHOLD| v] [TY\verb|PE| L\verb|INEAR||Z\verb|ERO|] [W\verb|INDOW| ON|OF\verb|F||pdw]
-        [METHOD A\verb|BSOLUTE||P\verb|OWER||R\verb|UNAVG|]
+    RGLitches [THreshold v] [TYpe Linear|Zero] [Window ON|OFf|pdw]
+        [METHOD Absolute|Power|Runavg]
 
 输入
 ----
@@ -54,8 +54,10 @@ MINAMP v
 缺省值
 ------
 
-rglitches threshold 1.0e+10 type linear window off method absolute
-swinlen 0.5 thresh2 5.0 minamp 50
+.. code:: bash
+
+    rglitches threshold 1.0e+10 type linear window off method absolute
+        swinlen 0.5 thresh2 5.0 minamp 50
 
 说明
 ----

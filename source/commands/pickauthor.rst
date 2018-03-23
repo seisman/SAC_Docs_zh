@@ -12,9 +12,9 @@ pickauthor
 
 .. code:: bash
 
-    PICKA\verb|UTHOR| author1 [author2 author3 ...]
-    PICKA\verb|UTHOR| FILE [filename]
-    PICKA\verb|UTHOR| PHASE [filename]
+    PICKAuthor author1 [author2 author3 ...]
+    PICKAuthor FILE [filename]
+    PICKAuthor PHASE [filename]
 
 输入
 ----
@@ -25,7 +25,7 @@ authorlist
 FILE
     如果使用了 ``FILE`` 选项，SAC将从参考文件中读取作者列表。
     如果参考文件的文件名在命令行上给出，则SAC将读取这个指定的文件，否则
-    SAC将根据上一次执行 :doc:`/commands/pickauthor`
+    SAC将根据上一次执行 :doc:`/commands/pickauthor` 
     读取最近输入的文件名。 如果未给出文件名，则SAC使用
     ``$SACAUX/csspickprefs``
 
@@ -35,23 +35,24 @@ PHASE
 缺省值
 ------
 
-pickauthor file
+.. code:: bash
+
+    pickauthor file
 
 说明
 ----
 
 ``pickauthor`` 提供了一种在命令行上覆盖参考文件的方法。其可以用于
 在命令行提供作者的优先列表信息，或者将SAC从一个参考文件重定向到另一个。
-更多关于参考文件的信息，参考 :doc:`/commands/pickprefs`
-以及 :doc:`/commands/readcss`\ 。
+更多关于参考文件的信息，参考 :doc:`/commands/pickprefs`  以及
+:doc:`/commands/readcss` 。
 
 注意：如果当数据在数据缓冲区内而用户修改了参考文件，那么在SAC缓冲区中的
 震相拾取将可能被修改。（缓冲区的信息可以通过
-:doc:`/commands/listhdr` 和
-:doc:`/commands/chnhdr` 查看）。
+:doc:`/commands/listhdr`  和 :doc:`/commands/chnhdr`  查看）。
 
 例：如果作者列表是“john rachel michael”，并且一些文件被用
-:doc:`/commands/readcss` 命令读入，一些到时可能以
+:doc:`/commands/readcss`  命令读入，一些到时可能以
 ``author=michael`` 读入。（用户可能不会
 注意到对于某个给出的震相拾取其作者是谁，因为在CSS中的作者字段在SAC格式中
 并不会出现）。如果用户稍后使用了 ``pickauthor`` 命令并修改作者列表为

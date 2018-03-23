@@ -11,7 +11,7 @@ symbol
 
 .. code:: bash
 
-    SYM\verb|BOL| [ON|OFF|n] [SIZE v] [SPACING v] [INCRE\verb|MENT| ON|OFF] [LIST STANDARD|nlist]
+    SYMbol [ON|OFF|n] [SIZE v] [SPACING v] [INCREment ON|OFF] [LIST STANDARD|nlist]
 
 输入
 ----
@@ -47,12 +47,14 @@ LIST STANDARD
 缺省值
 ------
 
-symbol off size 0.01 spacing 0. increment off list standard
+.. code:: bash
+
+    symbol off size 0.01 spacing 0. increment off list standard
 
 说明
 ----
 
-这些符号属性独立于由 :doc:`/commands/line`
+这些符号属性独立于由 :doc:`/commands/line` 
 命令定义的画线属性。打开画线选项，
 它们也可以用于注释在相同图形上的不同的线。关闭画线选项，则可以绘制散点图。
 如果你要将几个数据文件画在同一张图上，也许需要使用不同的符号。这是可以使用
@@ -76,7 +78,7 @@ symbol off size 0.01 spacing 0. increment off list standard
     SAC> plot
 
 为了用符号7、4、6、8注释四条实线，间隔用0.3，用
-:doc:`/commands/plot2` 绘图：
+:doc:`/commands/plot2`  绘图：
 
 .. code:: bash
 
@@ -85,7 +87,7 @@ symbol off size 0.01 spacing 0. increment off list standard
     SAC> r file1 file2 file3 file4
     SAC> plot2
 
-使用 :doc:`/commands/plot2`
+使用 :doc:`/commands/plot2` 
 在相同图形上绘制三个文件，第一个文件图形使用
 实线无符号；第二个没有线，为三角符号；第三个没有线，带有交叉符号：
 

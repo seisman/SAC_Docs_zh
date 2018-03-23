@@ -1,5 +1,3 @@
-.. _sss:addstack:
-
 addstack
 ========
 
@@ -13,9 +11,9 @@ addstack
 
 .. code:: bash
 
-    A\verb|DD|S\verb|TACK| filename [W\verb|EIGHT| v] [DI\verb|STANCE| v] [BE\verb|GINTIME| v] [END\verb|TIME| v]
-        [DE\verb|LAY| v [S\verb|ECONDS||P\verb|OINTS|]] [I\verb|NCREMENT| v [S\verb|ECONDS||P\verb|OINTS|]]
-        [N\verb|ORMAL||R\verb|EVERSE|]
+    A!DD!S!TACK! filename [W!EIGHT! v] [DI!STANCE! v] [BE!GINTIME! v] [END!TIME! v]
+        [DE!LAY! v [S!ECONDS!|P!OINTS!]] [I!NCREMENT! v [S!ECONDS!|P!OINTS!]]
+        [N!ORMAL!|R!EVERSE!]
 
 输入
 ----
@@ -27,7 +25,7 @@ WEIGHT v
     当前文件的权重因子。v的取值范围为0到1，在叠加之前会首先对文件的每个值乘以该权重因子再做叠加。
 
 DISTANCE v
-    该文件所对应的震中距，单位为 。用于计算动态时间延迟
+    该文件所对应的震中距，单位为 km。用于计算动态时间延迟
 
 BEGINTIME v
     事件开始的时间
@@ -68,8 +66,10 @@ DELAY和INCREMENT选型的缺省单位为SECONDS
 
 #. 数据极性；
 
-可以用 命令为这些叠加属性设置全局值。当一个文件通过
+可以用 :doc:`/sss/globalstack` 
+命令为这些叠加属性设置全局值。当一个文件通过 :doc:`/sss/addstack` 
 命令加入到叠加文件列表中时，若未指定属性值则使用全局属性值。
+:doc:`/sss/changestack` 
 可以用于在文件已经加入叠加文件列表后修改叠加属性值。
 
 示例

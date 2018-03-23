@@ -11,8 +11,8 @@ convolve
 
 .. code:: bash
 
-    CONVO\verb|LVE| [M\verb|ASTER| name|n] [N\verb|UMBER| n] [L\verb|ENGTH| ON|OFF|v]
-        [T\verb|YPE| R\verb|ECTANGLE||HAM\verb|MING||HAN\verb|NING||C\verb|OSINE||T\verb|RIANGLE|]
+    CONVOlve [Master name|n] [Number n] [Length ON|OFF|v]
+        [Type Rectangle|HAMming|HANning|Cosine|Triangle]
 
 输入
 ----
@@ -39,7 +39,9 @@ TYPE HAMMING|HANNING|COSINE|TRIANGlE
 缺省值
 ------
 
-convolve master 1 number 1 length off type rectangle
+.. code:: bash
+
+    convolve master 1 number 1 length off type rectangle
 
 说明
 ----

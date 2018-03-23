@@ -11,8 +11,8 @@ marktimes
 
 .. code:: bash
 
-    MARKT\verb|IMES| [T\verb|O| marker] [D\verb|ISTANCE| H\verb|EADER||v] [O\verb|RIGIN| H\verb|EADER||v|GMT time]
-        [V\verb|ELOCITIES| v ... ]
+    MARKTimes [To marker] [Distance Header|v] [Origin Header|v|GMT time]
+        [Velocities v ... ]
 
 输入
 ----
@@ -22,7 +22,7 @@ TO marker
     使用下一个时间
 
 marker
-    ``T0``\ T1|T2|T3|T4|T5|T6|T7|T8|T9\|
+    ``T0|T1|T2|T3|T4|T5|T6|T7|T8|T9``
 
 DISTANCE HEADER
     使用头段中的 ``dist`` 代表距离用于走时计算
@@ -48,7 +48,9 @@ VELOCITIES v ...
 缺省值
 ------
 
-marktimes velocities 2. 3. 4. 5. 6. distance header origin header to t0
+.. code:: bash
+
+    marktimes velocities 2. 3. 4. 5. 6. distance header origin header to t0
 
 说明
 ----
@@ -63,7 +65,7 @@ marktimes velocities 2. 3. 4. 5. 6. distance header origin header to t0
 示例
 ----
 
-使用默认的速度集，强制距离为 340，第一个时间标记为 ``T4``\ ：
+使用默认的速度集，强制距离为 340km，第一个时间标记为 ``T4``\ ：
 
 .. code:: bash
 

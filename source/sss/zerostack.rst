@@ -1,5 +1,3 @@
-.. _sss:zerostack:
-
 zerostack
 =========
 
@@ -13,7 +11,7 @@ zerostack
 
 .. code:: bash
 
-    Z\verb|ERO|S\verb|TACK|
+    Z!ERO!S!TACK!
 
 说明
 ----

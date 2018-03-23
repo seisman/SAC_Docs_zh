@@ -11,15 +11,14 @@ bbfk
 
 .. code:: bash
 
-    BBFK [F\verb|ILTER|] [NO\verb|RMALIZE|] [EPS v] [MLM|PDS] [E\verb|XP| n] [WA\verb|WVENUMBER| v]
-        [S\verb|IZE| m n] [L\verb|EVELS| n] [D\verb|B|] [T\verb|ITLE| text] [WR\verb|ITE| [ON|OFF fname] [S\verb|SQ| n]]
+    BBFK [Filter] [NOrmalize] [EPS v] [MLM|PDS] [Exp n] [WAwvenumber v]
+        [Size m n] [Levels n] [Db] [Title text] [WRite [ON|OFF fname] [Ssq n]]
 
 输入
 ----
 
 FILTER
-    使用最近一次
-    :doc:`/commands/filterdesign`\ 命令设计的带通滤波器
+    使用最近一次 :doc:`/commands/filterdesign` 命令设计的带通滤波器
 
 NORMALIZE
     用Capo方法归一化协方差矩阵，如果各信号道的振幅差别
@@ -64,8 +63,10 @@ SSQ n
 缺省值
 ------
 
-bbfk eps .01 pds exp 1 wvenumber 1.0 size 90 32 levels 11 write off ssq
-100
+.. code:: bash
+
+    bbfk eps .01 pds exp 1 wvenumber 1.0 size 90 32 levels 11
+        write off ssq 100
 
 头段数据
 --------

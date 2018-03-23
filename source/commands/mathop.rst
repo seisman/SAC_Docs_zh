@@ -25,7 +25,9 @@ NONE|OLD
 缺省值
 ------
 
-mathop NORMAL
+.. code:: bash
+
+    mathop NORMAL
 
 说明
 ----

@@ -11,8 +11,8 @@ bandrej
 
 .. code:: bash
 
-    B\verb|AND|R\verb|EJ| [BU\verb|TTER||BE\verb|SSEL||C1|C2] [C\verb|ORNERS| v1 v2] [N\verb|POLES| n] [P\verb|ASSES| n]
-        [T\verb|RANBW| v] [A\verb|TTEN| v]
+    BandRej [BUtter|BEssel|C1|C2] [Corners v1 v2] [Npoles n] [Passes n]
+        [Tranbw v] [Atten v]
 
 输入
 ----
@@ -47,17 +47,19 @@ ATTEN v
 缺省值
 ------
 
-bandrej butter corner 0.1 0.4 npoles 2 passes 1 tranbw 0.3 atten 30
+.. code:: bash
+
+    bandrej butter corner 0.1 0.4 npoles 2 passes 1 tranbw 0.3 atten 30
 
 说明
 ----
 
-参见命令 :doc:`/commands/bandpass` 的说明
+参见命令 :doc:`/commands/bandpass`  的说明
 
 示例
 ----
 
-应用一个四极Butterworth滤波器，拐角频率为 2 和 5：
+应用一个四极Butterworth滤波器，拐角频率为 2Hz 和 5Hz：
 
 .. code:: bash
 

@@ -28,7 +28,9 @@ hdrlist
 缺省值
 ------
 
-copyhdr from 1
+.. code:: bash
+
+    copyhdr from 1
 
 说明
 ----

@@ -1,5 +1,3 @@
-.. _sss:changestack:
-
 changestack
 ===========
 
@@ -13,9 +11,9 @@ changestack
 
 .. code:: bash
 
-    C\verb|HANGE|S\verb|TACK| filename|filenumber [W\verb|EIGHT| v] [DI\verb|STANCE| v] [BE\verb|GINTIME| v]
-        [END\verb|TIME| v] [DE\verb|LAY| v S\verb|ECONDS||P\verb|OINTS|] [I\verb|NCREMENT| v S\verb|ECONDS||P\verb|OINTS|]
-        [N\verb|ORMAL||R\verb|EVERSED|]
+    C!HANGE!S!TACK! filename|filenumber [W!EIGHT! v] [DI!STANCE! v] [BE!GINTIME! v]
+        [END!TIME! v] [DE!LAY! v S!ECONDS!|P!OINTS!] [I!NCREMENT! v S!ECONDS!|P!OINTS!]
+        [N!ORMAL!|R!EVERSED!]
 
 输入
 ----
@@ -30,7 +28,7 @@ WEIGHT v
     当前文件的权重因子。v的取值范围为0到1，在叠加之前会首先对文件的每个值乘以该权重因子再做叠加。
 
 DISTANCE v
-    该文件所对应的震中距，单位为 。用于计算动态时间延迟
+    该文件所对应的震中距，单位为 km。用于计算动态时间延迟
 
 BEGINTIME v
     事件开始的时间
@@ -50,4 +48,5 @@ NORMAL|REVERSED
 说明
 ----
 
-该命令允许你修改修改叠加文件列表中任意文件的任意属性。详情参考 命令。
+该命令允许你修改修改叠加文件列表中任意文件的任意属性。详情参考
+:doc:`/sss/addstack`  命令。

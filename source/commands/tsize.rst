@@ -11,7 +11,7 @@ tsize
 
 .. code:: bash
 
-    TSIZE [T\verb|INY||S\verb|MALL||M\verb|EDIUM||L\verb|ARGE| v ] [R\verb|ATIO| v] [OLD|NEW]
+    TSIZE [Tiny|Small|Medium|Large v ] [Ratio v] [OLD|NEW]
 
 输入
 ----
@@ -31,13 +31,15 @@ NEW
 缺省值
 ------
 
-tsize ratio 1.0 new
+.. code:: bash
+
+    tsize ratio 1.0 new
 
 说明
 ----
 
-大多数的文本注释命令（\ :doc:`/commands/title`\ 、\ :doc:`/commands/xlabel`\ 、
-:doc:`/commands/fileid`\ 等）允许你改变要显示的文本的尺寸。
+大多数的文本注释命令（:doc:`/commands/title` 、:doc:`/commands/xlabel` 、
+:doc:`/commands/fileid` 等）允许你改变要显示的文本的尺寸。
 
 SAC提供了四个标准尺寸：\ ``TINY``\ 、\ ``SMALL``\ 、\ ``MEDIUM`` 和
 ``LARGE``\ 。每一个标准尺寸都有一个初始值，如下表所示：
