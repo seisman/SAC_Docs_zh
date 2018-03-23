@@ -27,6 +27,6 @@ saveimg rotate.ps
 q
 EOF
 rm $sta.[nezrt]
-ps2raster -A -Tf rotate.ps
-ps2raster -A -Tg rotate.ps
+gmt psconvert -A -Tf rotate.ps
+gmt psconvert -A -Tg rotate.ps
 rm rotate.ps

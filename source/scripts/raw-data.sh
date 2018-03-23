@@ -9,6 +9,6 @@ p
 saveimg raw-data.ps
 q
 EOF
-ps2raster -A -P -Tf raw-data.ps
-ps2raster -A -P -Tg raw-data.ps
+gmt psconvert -A -P -Tf raw-data.ps
+gmt psconvert -A -P -Tg raw-data.ps
 rm raw-data.ps

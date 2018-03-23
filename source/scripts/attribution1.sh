@@ -11,6 +11,6 @@ saveimg attribution1.ps
 q
 EOF
 
-ps2raster -A -P -Tf attribution1.ps
-ps2raster -A -P -Tg attribution1.ps
+gmt psconvert -A -P -Tf attribution1.ps
+gmt psconvert -A -P -Tg attribution1.ps
 rm attribution1.ps

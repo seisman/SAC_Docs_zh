@@ -21,6 +21,6 @@ endframe
 saveimg benioff.ps
 quit
 EOF
-ps2raster -A -Tf benioff.ps
-ps2raster -A -Tg benioff.ps
+gmt psconvert -A -Tf benioff.ps
+gmt psconvert -A -Tg benioff.ps
 rm benioff.ps

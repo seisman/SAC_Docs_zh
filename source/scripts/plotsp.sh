@@ -8,6 +8,6 @@ psp am loglog
 saveimg plotsp.ps
 q
 EOF
-ps2raster -A -Tf plotsp.ps
-ps2raster -A -Tg plotsp.ps
+gmt psconvert -A -Tf plotsp.ps
+gmt psconvert -A -Tg plotsp.ps
 rm plotsp.ps

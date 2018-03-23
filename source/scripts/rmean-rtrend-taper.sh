@@ -21,6 +21,6 @@ endframe
 saveimg rmean-rtrend-taper.ps
 q
 EOF
-ps2raster -A -Tf rmean-rtrend-taper.ps
-ps2raster -A -Tg rmean-rtrend-taper.ps
+gmt psconvert -A -Tf rmean-rtrend-taper.ps
+gmt psconvert -A -Tg rmean-rtrend-taper.ps
 rm rmean-rtrend-taper.ps

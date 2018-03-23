@@ -10,6 +10,6 @@ contour
 saveimg contour1.ps
 q
 END
-ps2raster -A -Tf contour1.ps
-ps2raster -A -Tg contour1.ps
+gmt psconvert -A -Tf contour1.ps
+gmt psconvert -A -Tg contour1.ps
 rm contour1.ps

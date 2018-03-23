@@ -6,5 +6,5 @@ m filter-response.m
 saveimg filter-response.ps
 quit
 EOF
-ps2raster -A -Tg filter-response.ps
+gmt psconvert -A -Tg filter-response.ps
 rm filter-response.ps

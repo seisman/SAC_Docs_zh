@@ -17,6 +17,6 @@ saveimg plot2.ps
 quit
 EOF
 rm seis.0 seis.1
-ps2raster -A -Tf plot2.ps
-ps2raster -A -Tg plot2.ps
+gmt psconvert -A -Tf plot2.ps
+gmt psconvert -A -Tg plot2.ps
 rm plot2.ps

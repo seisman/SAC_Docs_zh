@@ -29,6 +29,6 @@ ylim off
 saveimg beginframe.ps
 quit
 EOF
-ps2raster -A -Tf beginframe.ps
-ps2raster -A -Tg beginframe.ps
+gmt psconvert -A -Tf beginframe.ps
+gmt psconvert -A -Tg beginframe.ps
 rm beginframe.ps

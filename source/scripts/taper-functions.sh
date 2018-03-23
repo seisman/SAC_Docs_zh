@@ -28,6 +28,6 @@ saveimg taper-functions.ps
 q
 EOF
 rm COSINE HANNING HAMMING
-ps2raster -A -Tf taper-functions.ps
-ps2raster -A -Tg taper-functions.ps
+gmt psconvert -A -Tf taper-functions.ps
+gmt psconvert -A -Tg taper-functions.ps
 rm taper-functions.ps

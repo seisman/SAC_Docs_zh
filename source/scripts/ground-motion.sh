@@ -10,6 +10,6 @@ p
 saveimg ground-motion.ps
 q
 EOF
-ps2raster -A -P -Tf ground-motion.ps
-ps2raster -A -P -Tg ground-motion.ps
+gmt psconvert -A -P -Tf ground-motion.ps
+gmt psconvert -A -P -Tg ground-motion.ps
 rm ground-motion.ps
