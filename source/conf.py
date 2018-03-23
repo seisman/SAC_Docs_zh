@@ -49,6 +49,13 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_static_path = ['_static']
 # html_theme_options = {}
+html_context = {
+    'display_github': True,
+    'github_user': 'seisman',
+    'github_repo': 'SAC_Docs_zh',
+    'github_version': 'sphinx',
+    'conf_py_path': '/source/',
+}
 
 
 # -- Options for LaTeX output ---------------------------------------------
