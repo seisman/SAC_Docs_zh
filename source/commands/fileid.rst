@@ -84,3 +84,9 @@ fileid on type default location ur format nonames
 
     SAC> fileid type list knetwk kstnm
     SAC> fileid location ul format colons
+
+如果想要显示很多头段变量，可以适当调整文字大小以免文字超出图片尺寸::
+
+    SAC> tsize tiny 0.01
+    SAC> gtext size tiny
+    SAC> fileid type list kzdate kztime kstnm kcmpnm dist az
