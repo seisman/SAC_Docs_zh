@@ -1,7 +1,3 @@
-.. raw:: latex
-
-   \pdfbookmark[1]{E1xxx}{E1xxx}
-
 1028 External command does not exist
 ------------------------------------
 

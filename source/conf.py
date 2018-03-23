@@ -61,21 +61,35 @@ html_context = {
 # -- Options for LaTeX output ---------------------------------------------
 latex_engine = "xelatex"
 latex_documents = [
-    (master_doc, 'SAC_Docs.tex', project, author, 'SAC_style'),
+    (master_doc, 'SAC_Docs.tex', project, author, 'ctexbook'),
 ]
-latex_additional_files = ['SAC_style.cls']
+latex_additional_files = ['SAC_style.sty', 'images/SAC_logo.pdf']
 latex_elements = {
-    'papersize'     : 'a4paper',
-    'utf8extra'     : '',
-    'inputenc'      : '',
-    'cmappkg'       : '',
-    'fontenc'       : '',
-    'releasename'   : '',
-    'babel'         : '',
-    'figure_align'  : 'htb',
-    'fontpkg'       : '',
-    'fncychap'      : '',
-    'preamble'      : '',
+    'papersize' : 'a4paper',
+    'pointsize' : '11pt',
+    'extraclassoptions' : 'UTF8,twoside,punct=CCT',
+    'preamble'  : r'\input{SAC_style.sty}',
+    'figure_align' : 'H',
+    'geometry'  : r'\usepackage[top=3.0cm, bottom=2.0cm, left=3.5cm, right=2.5cm]{geometry}',
+    # customized tableofcontents
+    'tableofcontents' : r'''\pdfbookmark[0]{\contentsname}{contents}
+                            \tableofcontents
+                            \cleardoublepage
+                            \pdfbookmark[0]{\listfigurename}{lof}
+                            \listoffigures
+                            \cleardoublepage
+                            \pdfbookmark[0]{\listtablename}{lot}
+                            \listoftables''',
+    'passoptionstopackages': r'\PassOptionsToPackage{dvipsnames, svgnames}{xcolor}',
+    'sphinxsetup': r'''VerbatimColor={named}{Lavender},
+                       VerbatimBorderColor={named}{Silver},
+                       ''',
+    'fncychap'  : '',   # use default chapter style from ctex
+    'babel'     : '',
+    'polyglossia': '',
+    'fontpkg'   : '',
+    'cmappkg'   : '',
+    'fontenc'   : '',
 }
 
 

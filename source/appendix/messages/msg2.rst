@@ -1,7 +1,3 @@
-.. raw:: latex
-
-   \pdfbookmark[1]{E2xxx}{E2xxx}
-
 2001 Command requires an even number of data files
 --------------------------------------------------
 

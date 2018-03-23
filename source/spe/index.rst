@@ -15,3 +15,9 @@ SPE
    readcor
    writecor
    writespe
+
+.. revert subsuction back to its original format
+
+.. raw:: latex
+
+   \titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}{}

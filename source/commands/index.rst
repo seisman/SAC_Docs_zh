@@ -1,6 +1,12 @@
 SAC命令
 #######
 
+.. not numbering subsections for commands
+
+.. raw:: latex
+
+   \titleformat{\subsection}{\large\bfseries}{}{0em}{}{}
+
 .. toctree::
    :maxdepth: 1
 

@@ -1,9 +1,11 @@
 SAC参考手册
 ===========
 
-.. figure:: /images/SAC_logo.*
-   :align: center
-   :width: 80%
+.. only:: html
+
+    .. figure:: /images/SAC_logo.*
+       :align: center
+       :width: 80%
 
 .. toctree::
    :maxdepth: 2

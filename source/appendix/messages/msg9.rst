@@ -1,7 +1,3 @@
-.. raw:: latex
-
-   \pdfbookmark[1]{E9xxx}{E9xxx}
-
 9005 Amplitude mismatch
 -----------------------
 

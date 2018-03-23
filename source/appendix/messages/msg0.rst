@@ -1,7 +1,3 @@
-.. raw:: latex
-
-   \pdfbookmark[1]{E0xxx}{E0xxx}
-
 0131 sac/datagen data directory not found
 -----------------------------------------
 

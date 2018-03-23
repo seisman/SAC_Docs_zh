@@ -1,7 +1,3 @@
-.. raw:: latex
-
-   \pdfbookmark[1]{Enxxx}{Enxxx}
-
 Environmental variable SACAUX not defined.
 ------------------------------------------
 
