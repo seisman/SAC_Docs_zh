@@ -14,20 +14,20 @@
    * - SeisMan
      - seisman.info@gmail.com
      - 2012-01-08
-     - -
+     - /
    * - 王亮
      - wangliang0222@foxmail.com
      - 2015-05-12
-     - -
+     - /
    * - Wenxuan
      - gwx2013@mail.ustc.edu.cn
      - 2016-04-14
-     - -
+     - /
    * - kmo
      - kmophy@gmail.com
      - 2016-07-21
-     - -
+     - /
    * - 赵志远
      - shetu2008@163.com
      - 2018-03-21
-     - -
+     - /

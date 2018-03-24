@@ -1,21 +1,19 @@
 # SAC参考手册
 
-[![Language](https://img.shields.io/badge/Powered%20by-LaTeX-red.svg)](https://www.latex-project.org/)
 [![Build Status](https://travis-ci.org/seisman/SAC_Docs_zh.svg?branch=master)](https://travis-ci.org/seisman/SAC_Docs_zh)
 [![GitHub release](https://img.shields.io/github/release/seisman/SAC_Docs_zh.svg)]()
-[![GitHub commits](https://img.shields.io/github/commits-since/seisman/SAC_Docs_zh/v3.5.svg)]()
 
-
-《SAC参考手册》是介绍地震学常用软件[SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)用法的中文手册。
+《SAC参考手册》是介绍地震学常用软件[SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)
+用法的中文手册。
 
 - 项目主页：https://github.com/seisman/SAC_Docs_zh
 - 正式版文档发布地址：http://blog.seisman.info/sac-manual/
-- 开发版文档发布地址：https://github.com/seisman/SAC_Docs_zh/raw/pdf/SAC_Docs.pdf
+- 网页版： https://seisman.github.io/SAC_Docs_zh/
+- PDF版： https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf
 
 ## 参与维护
 
-本项目由 [seisman](https://github.com/seisman) 发起，目前由 [seisman](https://github.com/seisman)
-和 [王亮](https://github.com/PeterPanwl) 负责维护。
+本项目由 [seisman](https://github.com/seisman) 发起，目前由志愿者负责维护。
 
 欢迎更多SAC用户参与到本项目的维护中。具体的维护工作包括：
 
