@@ -1,5 +1,3 @@
-.. _sec:libsacio:
-
 调用libsacio库
 ==============
 
@@ -174,11 +172,15 @@ distaz
             int      *nerr      // 错误码
     )
 
-示例代码如下： 本例中，台站数目 ``nsta=1``
+示例代码如下：
+
+.. literalinclude:: distaz.c
+   :language: C
+
+本例中，台站数目 ``nsta=1``
 。实际上该函数可以计算任意数目的台站
 到事件的震中距、方位角信息，若台站数目 ``nsta`` 不为1，则
 ``stla``\ 、\ ``stlo``\ 、\ ``dist``\ 、\ ``az``\ 、\ ``baz``\ 、
 ``deg`` 均可用数组或指针表示。
 
-.. [1]
-   代码位于 ``sac/doc/examples``\ \ ， 下同。
+.. [1] 代码位于 ``sac/doc/examples``\ ， 下同。

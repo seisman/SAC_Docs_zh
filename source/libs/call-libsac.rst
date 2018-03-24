@@ -60,6 +60,9 @@ firtrn
 
 下面的示例展示了如何计算数据的Hilbert变换:
 
+.. literalinclude:: firtrn.c
+   :language: C
+
 envelope
 --------
 
@@ -119,3 +122,6 @@ rms
               )
 
 示例代码：
+
+.. literalinclude:: rms.c
+   :language: C

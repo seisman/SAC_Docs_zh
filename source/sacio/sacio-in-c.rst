@@ -30,12 +30,12 @@ sacio函数接口
 
 ``sac.h`` 中SAC格式的头段区被定义为 ``SACHEAD`` 类型的结构体，
 每一个头段变量都是结构体的成员。\ ``sacio.c`` 定义了一系列用于读写
-SAC文件的函数， :numref:`table:sacio-function` 
+SAC文件的函数， :numref:`table:sacio-function`
 中列出了 ``sacio`` 提供的函数接口。
 
 .. _table:sacio-function:
 
-.. table:: ``sacio``\ 函数列表
+.. table:: ``sacio`` 函数列表
 
    +------------------+-------------------------+
    | 函数名           | 功能                    |
@@ -75,7 +75,12 @@ SAC文件的函数， :numref:`table:sacio-function`
 -----------
 
 下面的示例展示了如何在C程序中读取一个SAC二进制文件，经过简单的数据处理后，
-最后写回到原文件中： ``read_sac`` 函数将SAC文件的头段区保存到结构体
+最后写回到原文件中：
+
+.. literalinclude:: readsac.c
+   :language: C
+
+``read_sac`` 函数将SAC文件的头段区保存到结构体
 ``SACHEAD hd`` 中， 可以通过 ``hd.npts``\ 、\ ``hd.delta``
 这样的方式引用SAC头段变量的值。 SAC文件的数据区保存到指针/数组
 ``float *data`` 中，\ ``read_sac`` 会根据头段中的数据点数为指针 ``data``
@@ -88,6 +93,9 @@ SAC文件的函数， :numref:`table:sacio-function`
 有时候只需要SAC文件头段区的一些信息，若读取整个文件就有些浪费了，
 ``read_sachead`` 仅读取SAC头段区而不读取数据区。
 
+.. literalinclude:: readsachead.c
+   :language: C
+
 读SAC数据的一段
 ---------------
 
@@ -96,8 +104,12 @@ SAC文件的函数， :numref:`table:sacio-function`
 命令可以 实现数据的截取，\ ``read_sac2``
 则是实现了类似的功能。下面的例子截取了 数据中以
 ``T0``\ 为参考的\ :math:`-0.5`\ 到\ :math:`2.5`\ 秒，即相当于
-``cut t0 -0.5 2.5``\ 。 ``read_sac2`` 与 ``read_sac``
-相比，多了三个用于定义时间窗的参数， 其中\ ``tmark``
+``cut t0 -0.5 2.5``\ 。
+
+.. literalinclude:: readsac2.c
+   :language: C
+
+``read_sac2`` 与 ``read_sac`` 相比，多了三个用于定义时间窗的参数， 其中 ``tmark``
 表示参考时间标记，可以取值为：
 
 -5
@@ -136,5 +148,7 @@ B是T0前的第5个变量，O是T0前的第3个变量。
 构建一个基本的头段区。下面的例子展示了如何用 ``sachdr`` 构建一个
 最基本的头段区，并填充其他一些头段，最后将创建的头段及数据写入到文件中。
 
-.. [1]
-   http://www.eas.slu.edu/People/LZhu/downloads/fk3.2.tar
+.. literalinclude:: writesac.c
+   :language: C
+
+.. [1] http://www.eas.slu.edu/People/LZhu/downloads/fk3.2.tar

@@ -11,6 +11,9 @@ Python中调用SAC
 下载地址：
 `0.simple-script.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/0.simple-script.py>`__
 
+.. literalinclude:: 0.simple-script.py
+   :language: python
+
 Python中使用 ``subprocess`` 模块的 ``Popen`` 方法调用SAC， 通过
 ``p.communicate()`` 将命令 ``s.encode()`` 传递给SAC。
 
@@ -28,7 +31,8 @@ Python中使用 ``subprocess`` 模块的 ``Popen`` 方法调用SAC， 通过
 下载地址：
 `1.rdseed.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/1.rdseed.py>`__
 
-.. _subsec:merge-in-python:
+.. literalinclude:: 1.rdseed.py
+   :language: python
 
 文件合并
 --------
@@ -50,7 +54,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `2.merge.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/2.merge.py>`__
 
-.. _subsec:rename-in-python:
+.. literalinclude:: 2.merge.py
+   :language: python
 
 文件重命名
 ----------
@@ -65,7 +70,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `3.rename.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/3.rename.py>`__
 
-.. _subsec:event-info-python:
+.. literalinclude:: 3.rename.py
+   :language: python
 
 添加事件信息
 ------------
@@ -81,6 +87,9 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `4.eventinfo.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/4.eventinfo.py>`__
 
+.. literalinclude:: 4.eventinfo.py
+   :language: python
+
 .. _subsec:transfer-python:
 
 去仪器响应
@@ -93,7 +102,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `5.transfer.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/5.transfer.py>`__
 
-.. _subsec:rotate-python:
+.. literalinclude:: 5.transfer.py
+   :language: python
 
 分量旋转
 --------
@@ -114,7 +124,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `6.rotate.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/6.rotate.py>`__
 
-.. _subsec:resample-python:
+.. literalinclude:: 6.rotate.py
+   :language: python
 
 数据重采样
 ----------
@@ -134,3 +145,6 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 
 下载地址：
 `7.resample.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/7.resample.py>`__
+
+.. literalinclude:: 7.resample.py
+   :language: python

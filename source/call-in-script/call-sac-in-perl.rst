@@ -11,6 +11,9 @@ Perl中调用SAC
 下载地址：
 `0.simple-script.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/0.simple-script.pl>`__
 
+.. literalinclude:: 0.simple-script.pl
+   :language: perl
+
 Perl中调用SAC本质上是使用 ``open(SAC, "| sac ")`` 语句定义了一个名为
 ``SAC`` 指向 ``sac`` 的句柄，然后通过 ``print SAC`` 语句
 将要执行的SAC命令传递给SAC。
@@ -29,7 +32,8 @@ Perl中调用SAC本质上是使用 ``open(SAC, "| sac ")`` 语句定义了一个
 下载地址：
 `1.rdseed.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/1.rdseed.pl>`__
 
-.. _subsec:merge-in-perl:
+.. literalinclude:: 1.rdseed.pl
+   :language: perl
 
 文件合并
 --------
@@ -51,7 +55,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `2.merge.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/2.merge.pl>`__
 
-.. _subsec:rename-in-perl:
+.. literalinclude:: 2.merge.pl
+   :language: perl
 
 文件重命名
 ----------
@@ -66,7 +71,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `3.rename.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/3.rename.pl>`__
 
-.. _subsec:event-info-perl:
+.. literalinclude:: 3.rename.pl
+   :language: perl
 
 添加事件信息
 ------------
@@ -82,7 +88,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `4.eventinfo.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/4.eventinfo.pl>`__
 
-.. _subsec:transfer-perl:
+.. literalinclude:: 4.eventinfo.pl
+   :language: perl
 
 去仪器响应
 ----------
@@ -94,7 +101,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `5.transfer.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/5.transfer.pl>`__
 
-.. _subsec:rotate-perl:
+.. literalinclude:: 5.transfer.pl
+   :language: perl
 
 分量旋转
 --------
@@ -115,7 +123,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 下载地址：
 `6.rotate.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/6.rotate.pl>`__
 
-.. _subsec:resample-perl:
+.. literalinclude:: 6.rotate.pl
+   :language: perl
 
 数据重采样
 ----------
@@ -135,3 +144,6 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 
 下载地址：
 `7.resample.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/7.resample.pl>`__
+
+.. literalinclude:: 7.resample.pl
+   :language: perl
