@@ -11,7 +11,7 @@ timeaxis
 
 .. code:: bash
 
-    T!IME!A!XIS! F!IXED! v | S!CALED! v
+    TimeAxis Fixed v | Scaled v
 
 输入
 ----

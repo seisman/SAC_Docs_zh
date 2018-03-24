@@ -11,7 +11,7 @@ plotspe
 
 .. code:: bash
 
-    P!LOT!SPE [P!OWER!|L!OG!|A!MPLITUDE!] [C!ONFIDENCE! [ON|OFF]]
+    PlotSPE [Power|Log|Amplitude] [Confidence [ON|OFF]]
 
 输入
 ----

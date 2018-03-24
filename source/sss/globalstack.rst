@@ -11,8 +11,8 @@ globalstack
 
 .. code:: bash
 
-    G!LOBAL!S!TACK! [W!EIGHT! v] [DI!STANCE! v] [DE!LAY! v [S!ECONDS!|P!OINTS!]]
-        [I!NCREMENT! v [S!ECONDS!|P!OINTS!] [N!ORMAL!|R!EVERSED!]
+    GlobalStack [Weight v] [DIstance v] [DElay v [Seconds|Points]]
+        [Increment v [Seconds|Points] [Normal|Reversed]
 
 输入
 ----

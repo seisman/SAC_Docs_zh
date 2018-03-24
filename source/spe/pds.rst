@@ -11,8 +11,8 @@ pds
 
 .. code:: bash
 
-    PDS [S!ECONDS! v|L!AGS! n] [N!UMBER! n]
-        [T!YPE! HAM!MING!|HAN!NING!|C!OSINE!|R!ECTANGLE!|T!RIANGLE!]
+    PDS [Seconds v|Lags n] [Number n]
+        [Type HAMming|HANning|Cosine|Rectangle|Triangle]
 
 输入
 ----

@@ -11,7 +11,7 @@ liststack
 
 .. code:: bash
 
-    L!IST!S!TACK! [N!ARROW! | W!IDE!]
+    ListStack [Narrow | Wide]
 
 输入
 ----

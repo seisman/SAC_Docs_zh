@@ -11,7 +11,7 @@ writestack
 
 .. code:: bash
 
-    W!RITE!S!TACK! [filename]
+    WriteStack [filename]
 
 输入
 ----

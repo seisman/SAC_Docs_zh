@@ -11,7 +11,7 @@ plotstack
 
 .. code:: bash
 
-    P!LOT!S!TACK! [S!UM! ON|OFF] [P!ERPLOT! ON|OFF|n] [W!EIGHT! ON|OFF] [P!OLARITY! ON|OFF]
+    PlotStack [Sum ON|OFF] [Perplot ON|OFF|n] [Weight ON|OFF] [Polarity ON|OFF]
 
 输入
 ----

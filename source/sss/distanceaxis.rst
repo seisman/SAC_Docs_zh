@@ -11,7 +11,7 @@ distanceaxis
 
 .. code:: bash
 
-    D!ISTANCE!A!XIS! F!IXED! v | S!CALED! v
+    DistanceAxis Fixed v | Scaled v
 
 输入
 ----

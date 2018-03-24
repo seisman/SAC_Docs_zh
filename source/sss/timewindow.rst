@@ -11,7 +11,7 @@ timewindow
 
 .. code:: bash
 
-    T!IME!W!INDOW! v1 v2
+    TimeWindow v1 v2
 
 输入
 ----

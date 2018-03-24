@@ -11,9 +11,9 @@ addstack
 
 .. code:: bash
 
-    A!DD!S!TACK! filename [W!EIGHT! v] [DI!STANCE! v] [BE!GINTIME! v] [END!TIME! v]
-        [DE!LAY! v [S!ECONDS!|P!OINTS!]] [I!NCREMENT! v [S!ECONDS!|P!OINTS!]]
-        [N!ORMAL!|R!EVERSE!]
+    AddStack filename [Weight v] [DIstance v] [BEgintime v] [ENDtime v]
+        [DElay v [Seconds|Points]] [Increment v [Seconds|Points]]
+        [Normal|Reverse]
 
 输入
 ----

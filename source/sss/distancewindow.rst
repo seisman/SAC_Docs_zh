@@ -11,7 +11,7 @@ distancewindow
 
 .. code:: bash
 
-    D!ISTANCE!W!INDOW! [U!SEDATE!|W!IDTH! v|F!IXED! v1 v2] [UN!ITS! K!ILOMETERS!|D!EGREES!]
+    DistanceWindow [Usedate|Width v|Fixed v1 v2] [UNits Kilometers|Degrees]
 
 输入
 ----

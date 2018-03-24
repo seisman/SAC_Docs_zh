@@ -11,7 +11,7 @@ writespe
 
 .. code:: bash
 
-    W!RITE!SPE [file]
+    WriteSPE [file]
 
 输入
 ----

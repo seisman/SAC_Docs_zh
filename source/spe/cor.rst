@@ -11,8 +11,8 @@ cor
 
 .. code:: bash
 
-    COR [N!UMBER! n|ON|OFF] [L!ENGTH! v] [P!REWHITEN! ON|OFF|n] [S!TOCASTIC!|TR!ANSIENT!]
-        [T!YPE! HAM!MING!|HAN!NING!|C!OSINE!|R!ECTANGLE!|T!RIANGLE!]
+    COR [Number n|ON|OFF] [Length v] [Prewhiten ON|OFF|n] [Stocastic|TRansient]
+        [Type HAMming|HANning|Cosine|Rectangle|Triangle]
 
 输入
 ----

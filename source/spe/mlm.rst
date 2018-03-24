@@ -11,7 +11,7 @@ mlm
 
 .. code:: bash
 
-    MLM [O!RDER! n] [N!UMBER! n]
+    MLM [Order n] [Number n]
 
 输入
 ----

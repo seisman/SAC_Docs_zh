@@ -11,7 +11,7 @@ deletestack
 
 .. code:: bash
 
-    D!ELETE!S!TACK! filename|filenumber
+    DeleteStack filename|filenumber
 
 输入
 ----

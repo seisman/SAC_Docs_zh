@@ -11,9 +11,9 @@ changestack
 
 .. code:: bash
 
-    C!HANGE!S!TACK! filename|filenumber [W!EIGHT! v] [DI!STANCE! v] [BE!GINTIME! v]
-        [END!TIME! v] [DE!LAY! v S!ECONDS!|P!OINTS!] [I!NCREMENT! v S!ECONDS!|P!OINTS!]
-        [N!ORMAL!|R!EVERSED!]
+    ChangeStack filename|filenumber [Weight v] [DIstance v] [BEgintime v]
+        [ENDtime v] [DElay v Seconds|Points] [Increment v Seconds|Points]
+        [Normal|Reversed]
 
 输入
 ----

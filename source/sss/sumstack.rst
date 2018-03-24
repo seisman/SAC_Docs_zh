@@ -11,7 +11,7 @@ sumstack
 
 .. code:: bash
 
-    S!UM!S!TACK! [N!ORMALIZATION! ON|OFF]
+    SumStack [Normalization ON|OFF]
 
 输入
 ----

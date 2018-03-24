@@ -11,7 +11,7 @@ plotcor
 
 .. code:: bash
 
-    P!LOT!COR [X!LIM! v|ON|OFF]
+    PlotCOR [Xlim v|ON|OFF]
 
 输入
 ----

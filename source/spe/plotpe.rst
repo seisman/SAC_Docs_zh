@@ -11,7 +11,7 @@ plotpe
 
 .. code:: bash
 
-    P!LOT!PE
+    PlotPE
 
 说明
 ----

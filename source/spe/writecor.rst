@@ -11,7 +11,7 @@ writecor
 
 .. code:: bash
 
-    W!RITE!COR [file]
+    WriteCOR [file]
 
 输入
 ----

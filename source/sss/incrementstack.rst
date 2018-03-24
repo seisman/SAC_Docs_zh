@@ -11,7 +11,7 @@ incrementstack
 
 .. code:: bash
 
-    I!NCREMENT!S!TACK!
+    IncrementStack
 
 缺省值
 ------

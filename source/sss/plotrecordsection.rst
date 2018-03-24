@@ -11,11 +11,11 @@ plotrecordsection
 
 .. code:: bash
 
-    P!LOT!R!ECORD!S!ECTION! [L!ABLES! ON|OFF|headerfield] [O!RIGIN! D!EFAULT!|R!EVERSED!]
-        [R!EFERENCELINE! ON|OFF] [S!IZE! v] [W!EIGHT! ON|OFF] [P!OLARITY! ON|OFF]
-        [C!URSOR! ON|OFF] [RED!UCED! ON|OFF|P!HASE! phasename|V!ELOCITY! velocity]
-        [A!SPECT! ON|OFF] [ORIE!NT! P!ORTRAIT!|L!ANDSCAPE!] [T!TIME! ON|OFF|D!EFAULT!|TEXT]
-        [X!LABEL! ON|OFF|D!EFAULT!|TEXT] [Y!LABEL! ON|OFF|D!EFAULT!|TEXT]
+    PlotRecordSection [Lables ON|OFF|headerfield] [Origin Default|Reversed]
+        [Referenceline ON|OFF] [Size v] [Weight ON|OFF] [Polarity ON|OFF]
+        [Cursor ON|OFF] [REDuced ON|OFF|Phase phasename|Velocity velocity]
+        [Aspect ON|OFF] [ORIEnt Portrait|Landscape] [Ttime ON|OFF|Default|TEXT]
+        [Xlabel ON|OFF|Default|TEXT] [Ylabel ON|OFF|Default|TEXT]
 
 输入
 ----
@@ -90,15 +90,14 @@ YLABEL ON|OFF|DEFAULT|TEXT
 
 在光标模式下，有两个额外的功能：缩放和决定视速度。
 
-缩放功能需要用户指定要显示的区域。用户首先将光标放在当前图形区域的一个角落，键入!c1!，
-再将光标移动到对角的另一个角落，键入 !c2!。两次键入
+缩放功能需要用户指定要显示的区域。用户首先将光标放在当前图形区域的一个角落，键入
+``c1`` ，再将光标移动到对角的另一个角落，键入 ``c2`` 。两次键入
 确定了唯一的矩形区域，也确定了要绘制的区域的时间范围和距离范围，此时，会自动重新
-绘制缩放后的剖面图，用户可以键入 !o! 命令重新绘制原始图形。缩放功能最多
+绘制缩放后的剖面图，用户可以键入 ``o`` 命令重新绘制原始图形。缩放功能最多
 可以递归5次。
 
-视速度确定功能需要用于移动光标，并分别键入 !v1! 和 !v2! 以标记点，
+视速度确定功能需要用于移动光标，并分别键入 ``v1`` 和 ``v2`` 以标记点，
 SAC会自动计算视速度，显示在输出设备上并保持到黑板变量vapp中。可以多次设置v2，但
 只有最后一次的值会保存到黑板变量中。
 
-除了c1、c2、v1、v2之外，光标模式下还有一个命令，即
-!q!，用于退出光标模式。
+除了c1、c2、v1、v2之外，光标模式下还有一个命令，即 ``q`` ，用于退出光标模式。

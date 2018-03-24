@@ -11,7 +11,7 @@ zerostack
 
 .. code:: bash
 
-    Z!ERO!S!TACK!
+    ZeroStack
 
 说明
 ----

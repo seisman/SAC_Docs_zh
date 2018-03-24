@@ -11,7 +11,7 @@ deltacheck
 
 .. code:: bash
 
-    DELTACHECK ON|OFF|R!OUNDOFF!|v
+    DELTACHECK ON|OFF|Roundoff|v
 
 输入
 ----

@@ -11,7 +11,7 @@ mem
 
 .. code:: bash
 
-    MEM [O!RDER! n] [N!UMBER! n]
+    MEM [Order n] [Number n]
 
 输入
 ----

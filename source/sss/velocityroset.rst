@@ -11,7 +11,7 @@ velocityroset
 
 .. code:: bash
 
-    V!ELOCITY!R!OSET! [ON|OFF] [L!OCATION! UL|UR|LL|LR]
+    VelocityRoset [ON|OFF] [Location UL|UR|LL|LR]
 
 输入
 ----
