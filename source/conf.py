@@ -53,7 +53,7 @@ html_context = {
     'display_github': True,
     'github_user': 'seisman',
     'github_repo': 'SAC_Docs_zh',
-    'github_version': 'sphinx',
+    'github_version': 'master',
     'conf_py_path': '/source/',
 }
 
