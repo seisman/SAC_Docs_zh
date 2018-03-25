@@ -1,0 +1,95 @@
+Matlab脚本中的SAC I/O
+=====================
+
+SAC官方自带了几个可以读写SAC文件的Matlab脚本，位于 ``${SACHOME}/utils``
+目录下。
+
+readsac
+-------
+
+``readsac.m`` 中定义了函数 ``readsac``\ ，可以用于读取SAC文件，其参数
+为要读取的SAC文件名。文件名可以是：
+
+#. 单个文件名
+
+#. 多个文件名组成的字符串数组
+
+#. 含通配符的字符串或字符串数组
+
+#. 空字符串，表示读取当前目录下的全部SAC文件
+
+``readsac`` 函数有三种用法。第一种用法：
+
+.. code:: matlab
+
+    % 读取SAC文件，并保存到结构体S中
+    >> S = readsac('seis.SAC');
+    % 通过S.varname形式引用结构体成员的值
+    >> S.NPTS
+    ans = 1000
+    >> S.DELTA
+    ans = 0.0100
+    % 数据保存到 S.DATA1 数组中
+    >> S.DATA1(10)
+    ans = -0.0934
+
+第二种用法：
+
+.. code:: matlab
+
+    % 读取SAC文件，时间和波形振幅分别保存到数组X和Y中
+    >> [X, Y] = readsac('seis.SAC');
+    % 若发震时刻O未定义，则X数组中保存相对于B值的时间
+    % 若发震时刻O有定义，则X数组中保存相对于O值的时间
+    >> X(1)
+    ans = 50.8900
+
+第三种用法，有三个返回值：
+
+.. code:: matlab
+
+    % 用于读取不等间隔数据或SAC谱数据
+    >> [X, Y1, Y2] = readsac('seis.SAC');
+    % 用于读取XYZ类型的SAC文件
+    >> [X, Y, Z] = readsac("seis.SAC.xyz");
+
+getsacdata
+----------
+
+在用 ``readsac`` 读取SAC文件时，可以直接读入到结构体S中，也可以读入到
+多个数组中。读入到数组中便于matlab处理，但是却丢失了SAC头段中的很多信息；
+读入到结构体S中，有时却需要用数组做处理，这就可以使用 ``getsacdata``
+函数，可以从结构体S中提取出自变量和因变量数组：
+
+.. code:: matlab
+
+    % 从文件中读入结构体S
+    >> S = readsac('seis.SAC');
+    % 从结构体S中提取自变量和因变量
+    >> [X, Y] = getsacdata(S);
+
+writesac
+--------
+
+``writesac.m`` 中定义了函数 ``writesac``\ ，用于写SAC格式的文件，其
+输入是结构体S，返回值是状态码：
+
+.. code:: matlab
+
+    % 读入SAC数据
+    >> S = readsac('seis.SAC');
+    % 做一些数据处理
+    % ...
+    % 修改结构体S中的文件名
+    >> S.FILENAME = 'new.SAC';
+    % 写入到新文件中
+    >> status = writesac(S);
+
+其他
+----
+
+除了SAC官方提供的几个Matlab脚本之外，还有其他人也提供了一些Matlab脚本：
+
+-  http://geophysics.eas.gatech.edu/people/zpeng/Teaching/MatSAC.tar.gz
+
+-  http://home.chpc.utah.edu/~thorne/software.html

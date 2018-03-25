@@ -1,19 +1,22 @@
+# Minimal makefile for Sphinx documentation
 #
-# Makefile for LaTeX project SAC_Docs_zh
-#
-# Reference:
-# 	1. http://tex.stackexchange.com/questions/40738/
-# 	2. Manual of latexmk
-#
-DOC = SAC_Docs
 
-.PHONY: $(DOC).pdf all clean
+# You can set these variables from the command line.
+SPHINXOPTS    =
+SPHINXBUILD   = sphinx-build
+SOURCEDIR     = source
+BUILDDIR      = build
 
-all: $(DOC).pdf
+# Put it first so that "make" without argument is like "make help".
+help:
+	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-$(DOC).pdf: $(DOC).tex
-	latexmk -xelatex -shell-escape $^
+.PHONY: help Makefile
 
-clean:
-	latexmk -c
-	-rm -r _minted-$(DOC) *.minted* *.pyg *.xdv
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+build: html latexpdf
+	cp $(BUILDDIR)/latex/SAC_Docs.pdf $(BUILDDIR)/html
