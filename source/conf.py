@@ -26,8 +26,8 @@ master_doc = 'index'
 project = 'SAC参考手册'
 copyright = '2012-2018, SeisMan'
 author = 'SeisMan'
-version = '4.0'
-release = '4.0'
+version = '4.0-dev'
+release = '4.0-dev'
 language = 'zh_CN'
 
 # List of patterns, relative to source directory, that match files and
