@@ -2,6 +2,7 @@ language: python
 sudo: required
 python: 3.6
 
+# cache not working now.
 cache:
   directories:
     - /usr/local/texlive
@@ -14,3 +15,11 @@ install:
 
 script:
   - make build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: ${GH_TOKEN}
+  local_dir: build/html
+  on:
+    branch: master
