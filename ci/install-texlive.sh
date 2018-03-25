@@ -2,6 +2,8 @@
 
 REMOTE="http://mirror.ctan.org/systems/texlive/tlnet"
 
+[ -d /usr/local/texlive ] && exit 0
+
 mkdir -p /tmp/install-texlive
 cd /tmp/install-texlive/
 
@@ -29,6 +31,5 @@ echo PATH=$PATH:$TEXBIN
 echo 'export PATH=$PATH':$TEXBIN >> ~/.bash_profile
 $TEXBIN/tlmgr install tabulary latexmk ulem environ trimspaces titlesec \
                       varwidth framed threeparttable wrapfig upquote capt-of \
-                      multirow eqparbox needspace fncychap datetime2 minted \
-                      fvextra ifplatform xstring enumitem tikz-3dplot footmisc \
-                      manfnt
+                      multirow eqparbox needspace fncychap enumitem datetime2 \
+                      tracklang \

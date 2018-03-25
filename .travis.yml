@@ -1,8 +1,16 @@
 language: python
+sudo: required
 python: 3.6
+
+cache:
+  directories:
+    - /usr/local/texlive
 
 install:
   - pip install -r requirements.txt
+  - sudo bash ci/install-fonts.sh
+  - sudo bash ci/install-texlive.sh
+  - source ~/.bash_profile
 
 script:
-  - make html
+  - make build

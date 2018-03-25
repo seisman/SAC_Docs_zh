@@ -19,3 +19,4 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 build: html latexpdf
+	cp $(BUILDDIR)/latex/SAC_Docs.pdf $(BUILDDIR)/html
