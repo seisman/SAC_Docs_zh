@@ -72,14 +72,17 @@ latex_elements = {
     'figure_align' : 'H',
     'geometry'  : r'\usepackage[top=3.0cm, bottom=2.0cm, left=3.5cm, right=2.5cm]{geometry}',
     # customized tableofcontents
-    'tableofcontents' : r'''\pdfbookmark[0]{\contentsname}{contents}
+    'tableofcontents' : r'''\frontmatter
+                            \pdfbookmark[0]{\contentsname}{contents}
                             \tableofcontents
                             \cleardoublepage
                             \pdfbookmark[0]{\listfigurename}{lof}
                             \listoffigures
                             \cleardoublepage
                             \pdfbookmark[0]{\listtablename}{lot}
-                            \listoftables''',
+                            \listoftables
+                            \mainmatter
+                            \pagestyle{normal}''',
     'passoptionstopackages': r'\PassOptionsToPackage{dvipsnames, svgnames}{xcolor}',
     'sphinxsetup': r'''VerbatimColor={named}{Lavender},
                        VerbatimBorderColor={named}{Silver},
