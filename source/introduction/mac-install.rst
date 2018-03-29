@@ -77,9 +77,9 @@ Homebrew 用户，可以使用
 -  ``SAC_DISPLAY_COPYRIGHT`` 用于控制是否在启动SAC时显示版本和版权
    信息，一般设置为1。在脚本中多次调用SAC时会重复显示版本和版权信息，
    干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法
-   可以参考“:doc:`/call-in-script/index` ” 中的相关内容
--  ``SAC_PPK_LARGE_CROSSHAIRS`` 用于控制震相拾取过程中光标的大小， 在
-    “:doc:`/data-process/picking-phase` ”时会用到
+   可以参考 “:doc:`/call-in-script/index`\ ” 中的相关内容
+-  ``SAC_PPK_LARGE_CROSSHAIRS`` 用于控制震相拾取过程中光标的大小，
+   在 “:doc:`/data-process/picking-phase`\ ” 时会用到
 -  ``SAC_USE_DATABASE`` 用于控制是否允许将SAC格式转换为GSE2.0格式，
    一般用不到该特性，故而设置其值为0
 
