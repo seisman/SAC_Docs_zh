@@ -1,3 +1,3 @@
 sphinx>=1.5.0
 sphinx_rtd_theme
-sphinx-cjkspace
+sphinx-cjkspace>=0.1.1
