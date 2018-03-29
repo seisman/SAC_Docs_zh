@@ -1,5 +1,3 @@
-.. _sec:time-zone-correction:
-
 时区校正
 ========
 

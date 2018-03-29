@@ -23,17 +23,17 @@ miniSEED和dataless SEED，是因为若每个SEED文件中都包含台站元数�
 格式转换
 --------
 
-IRIS提供了 `rdseed <http://ds.iris.edu/ds/nodes/dmc/forms/rdseed/>`_
+IRIS 提供了 `rdseed <http://ds.iris.edu/ds/nodes/dmc/forms/rdseed/>`_
 软件，用于提取SEED数据中的连续波形数据以及台站元数据，并可将连续波形数据
 保存为多种地震数据格式。
 
-下面的命令可以从SEED数据中提取SAC格式的波形数据，以及台站的RESP仪器响应文件：
+下面的命令可以从 SEED 数据中提取 SAC 格式的波形数据，以及台站的 RESP 仪器响应文件：
 
 .. code:: console
 
     $ rdseed -Rdf file.seed
 
-下面的命令可以从SEED数据中提取SAC格式的波形数据，以及台站的PZ仪器响应文件：
+下面的命令可以从 SEED 数据中提取SAC格式的波形数据，以及台站的 PZ 仪器响应文件：
 
 .. code:: console
 

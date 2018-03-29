@@ -65,7 +65,7 @@ latex_additional_files = ['SAC_style.sty', 'images/SAC_logo.pdf']
 latex_elements = {
     'papersize' : 'a4paper',
     'pointsize' : '11pt',
-    'extraclassoptions' : 'UTF8,twoside,punct=CCT',
+    'extraclassoptions' : 'UTF8,twoside',
     'preamble'  : r'\input{SAC_style.sty}',
     'figure_align' : 'H',
     'geometry'  : r'\usepackage[top=3.0cm, bottom=2.0cm, left=3.5cm, right=2.5cm]{geometry}',

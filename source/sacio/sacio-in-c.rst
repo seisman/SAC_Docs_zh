@@ -2,27 +2,23 @@ C程序中的SAC I/O
 ================
 
 SAC自带的函数库中提供了一系列用于读写SAC文件的子函数，具体细节可以参考
-一节，这些子函数可以直接在C程序中调用。
-但这些子函数用起来不太方便，比如：
+一节，这些子函数可以直接在C程序中调用。但这些子函数用起来不太方便，比如：
 
 -  函数参数太多太复杂，有些参数基本不会用到，但还是需要定义；
-
 -  读文件时无法只读取部分文件，即没有截窗的功能；
-
 -  要获取某个头段变量的值，必须单独调用相应的子函数；
 
 在了解了SAC文件的具体格式后，可以很容易的写一套函数来实现SAC文件的读写。
 
-Prof. Lupei Zhu实现了一套相对比较易用的SAC I/O函数库，可以在C或Fortran
+Prof. Lupei Zhu 实现了一套相对比较易用的SAC I/O函数库，可以在C或Fortran
 程序中直接调用，姑且称之为 ``sacio``\ 。
 
-``sacio`` 函数库与Prof. Lupei Zhu的其他程序一起发布。你可以从 Prof.
-Lupei Zhu的主页下载 ``fk``  [1]_ 软件包， 并从中提取出源文件 ``sac.h`` 和
-``sacio.c``\ 。
+``sacio`` 函数库与Prof. Lupei Zhu的其他程序一起发布。你可以从 Prof. Lupei Zhu
+的主页下载 ``fk`` [1]_ 软件包， 并从中提取出源文件 ``sac.h`` 和 ``sacio.c``\ 。
 
-``sacio`` 简单易用，但也存在一些潜在的Bug及缺陷。seisman在 ``sacio``
-的基础上重写了SAC I/O函数库以及SAC相关工具，项目地址为
-https://github.com/seisman/sac_tools\ 。该项目目前属于玩具性质，
+``sacio`` 简单易用，但也存在一些潜在的Bug及缺陷。seisman在 ``sacio`` 的基础上
+重写了SAC I/O函数库以及SAC相关工具，项目地址为
+https://github.com/seisman/SACTools\ 。该项目目前属于玩具性质，
 仅供有兴趣的读者参考。
 
 sacio函数接口
@@ -81,7 +77,7 @@ SAC文件的函数， :numref:`table:sacio-function`
    :language: C
 
 ``read_sac`` 函数将SAC文件的头段区保存到结构体
-``SACHEAD hd`` 中， 可以通过 ``hd.npts``\ 、\ ``hd.delta``
+``SACHEAD hd`` 中， 可以通过 ``hd.npts`` 、 ``hd.delta``
 这样的方式引用SAC头段变量的值。 SAC文件的数据区保存到指针/数组
 ``float *data`` 中，\ ``read_sac`` 会根据头段中的数据点数为指针 ``data``
 分配内存空间并读入数据，在用完 之后要记得用 ``free(data)``
@@ -103,7 +99,7 @@ SAC文件的函数， :numref:`table:sacio-function`
 而把整个文件都读入进去实在太浪费了。SAC中的 :doc:`/commands/cut`
 命令可以 实现数据的截取，\ ``read_sac2``
 则是实现了类似的功能。下面的例子截取了 数据中以
-``T0``\ 为参考的\ :math:`-0.5`\ 到\ :math:`2.5`\ 秒，即相当于
+``T0`` 为参考的 :math:`-0.5` 到 :math:`2.5` 秒，即相当于
 ``cut t0 -0.5 2.5``\ 。
 
 .. literalinclude:: readsac2.c
