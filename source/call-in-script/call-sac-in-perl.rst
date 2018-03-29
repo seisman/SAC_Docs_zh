@@ -1,5 +1,3 @@
-.. _sec:sac-perl:
-
 Perl中调用SAC
 =============
 
@@ -35,6 +33,8 @@ Perl中调用SAC本质上是使用 ``open(SAC, "| sac ")`` 语句定义了一个
 .. literalinclude:: 1.rdseed.pl
    :language: perl
 
+.. _subsec:merge.pl:
+
 文件合并
 --------
 
@@ -58,6 +58,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 .. literalinclude:: 2.merge.pl
    :language: perl
 
+.. _subsec:rename.pl:
+
 文件重命名
 ----------
 
@@ -73,6 +75,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 
 .. literalinclude:: 3.rename.pl
    :language: perl
+
+.. _subsec:eventinfo.pl:
 
 添加事件信息
 ------------
@@ -91,6 +95,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 .. literalinclude:: 4.eventinfo.pl
    :language: perl
 
+.. _subsec:transfer.pl:
+
 去仪器响应
 ----------
 
@@ -103,6 +109,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 
 .. literalinclude:: 5.transfer.pl
    :language: perl
+
+.. _subsec:rotate.pl:
 
 分量旋转
 --------

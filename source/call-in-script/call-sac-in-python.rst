@@ -34,6 +34,8 @@ Python中使用 ``subprocess`` 模块的 ``Popen`` 方法调用SAC， 通过
 .. literalinclude:: 1.rdseed.py
    :language: python
 
+.. _subsec:merge.py:
+
 文件合并
 --------
 
@@ -57,6 +59,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 .. literalinclude:: 2.merge.py
    :language: python
 
+.. _subsec:rename.py:
+
 文件重命名
 ----------
 
@@ -72,6 +76,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 
 .. literalinclude:: 3.rename.py
    :language: python
+
+.. _subsec:eventinfo.py:
 
 添加事件信息
 ------------
@@ -90,7 +96,7 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 .. literalinclude:: 4.eventinfo.py
    :language: python
 
-.. _subsec:transfer-python:
+.. _subsec:transfer.py:
 
 去仪器响应
 ----------
@@ -104,6 +110,8 @@ SEED文件的波形数据可能会因为多种原因而出现间断，导致同�
 
 .. literalinclude:: 5.transfer.py
    :language: python
+
+.. _subsec:rotate.py:
 
 分量旋转
 --------

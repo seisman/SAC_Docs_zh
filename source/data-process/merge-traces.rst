@@ -3,7 +3,7 @@
 
 相关命令：\ :doc:`/commands/merge`
 
-相关脚本：、
+相关脚本： :ref:`Perl 脚本 <subsec:merge.pl>` 、 :ref:`Python 脚本 <subsec:merge.py>`
 
 有些时候，从SEED数据中解压出来的同一台站同一分量的连续波形数据，会被
 分割成多个等长或不等长的文件，数据断开的可能原因是仪器在某些时刻存在

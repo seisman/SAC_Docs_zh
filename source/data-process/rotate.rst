@@ -5,7 +5,7 @@
 
 相关头段：\ ``cmpinc``\ 、\ ``cmpaz``
 
-相关脚本：、
+相关脚本： :ref:`Perl 脚本 <subsec:rotate.pl>` 、 :ref:`Python 脚本 <subsec:rotate.py>`
 
 三个正交的地震传感器即可完全记录地面运动矢量。因此可以将三个正交的
 分量任意旋转到其它三个正交的方向上。

@@ -1,11 +1,9 @@
-.. _sec:instrument-response:
-
 去仪器响应
 ==========
 
 相关命令：\ :doc:`/commands/transfer`
 
-相关脚本：、
+相关脚本： :ref:`Perl 脚本 <subsec:transfer.pl>` 、 :ref:`Python 脚本 <subsec:transfer.py>`
 
 SAC中可以使用命令 :doc:`/commands/transfer`
 实现去仪器响应，本节只列出

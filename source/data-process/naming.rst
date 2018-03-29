@@ -1,7 +1,7 @@
 数据重命名
 ==========
 
-相关脚本：、
+相关脚本： :ref:`Perl 脚本 <subsec:rename.pl>` 、 :ref:`Python 脚本 <subsec:rename.py>`
 
 用rdseed软件从SEED格式中解压得到的SAC数据，一般都具有固定格式的文件名。
 示例如下：
