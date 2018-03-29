@@ -1,7 +1,7 @@
 滤波
 ====
 
-相关命令：\ :doc:`/commands/bandpass`\ 、\ :doc:`/commands/lowpass`\ 、
+**相关命令**\ ：\ :doc:`/commands/bandpass`\ 、\ :doc:`/commands/lowpass`\ 、
 :doc:`/commands/highpass`\ 、\ :doc:`/commands/bandrej`
 
 几乎所有的数据分析都需要将数据限制在一定的频率范围内，这就需要对数据做

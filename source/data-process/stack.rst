@@ -1,7 +1,7 @@
 信号叠加
 ========
 
-相关命令： :doc:`/sss/liststack` 、:doc:`/sss/zerostack`
+**相关命令**\ ：\ :doc:`/sss/liststack`\ 、\ :doc:`/sss/zerostack`
 
 信号叠加是消除噪声、增强有效信号的常用手段。 SAC 通过提供一个子程序
 Signal Stack Subprocess（简称 sss）来实现。

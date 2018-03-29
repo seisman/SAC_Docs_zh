@@ -1,7 +1,7 @@
 去均值、去线性趋势和波形尖灭
 ============================
 
-相关命令：\ :doc:`/commands/rmean`\ 、\ :doc:`/commands/rtrend`\ 、\ :doc:`/commands/taper`
+**相关命令**\ ：\ :doc:`/commands/rmean`\ 、\ :doc:`/commands/rtrend`\ 、\ :doc:`/commands/taper`
 
 通常，波形数据总会存在一个非零的均值或者存在一个长周期的线性趋势，
 这会影响到数据的分析，必须在数据分析前去除。另一方面，在对数据进行

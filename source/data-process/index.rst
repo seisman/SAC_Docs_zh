@@ -16,7 +16,7 @@ SAC数据处理
    data-request
    data-format
    merge-traces
-   naming
+   rename
    time-zone-correction
    event-info
    station-info

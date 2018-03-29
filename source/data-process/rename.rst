@@ -1,7 +1,7 @@
 数据重命名
 ==========
 
-相关脚本： :ref:`Perl 脚本 <subsec:rename.pl>` 、 :ref:`Python 脚本 <subsec:rename.py>`
+**相关脚本**\ ：\ :ref:`Perl 脚本 <subsec:rename.pl>`\ 、\ :ref:`Python 脚本 <subsec:rename.py>`
 
 用rdseed软件从SEED格式中解压得到的SAC数据，一般都具有固定格式的文件名。
 示例如下：
@@ -13,7 +13,7 @@
         2012.055.12.34.54.5555.YW.MAIO.01.BHZ.Q.SAC
 
 这三个文件是YW台网MAIO台站的宽频地震仪记录的宽频带三分量（BHE、BHN、BHZ）
-波形数据。文件名中每一项的具体含义在 :doc:`/appendix/naming-convections`
+波形数据。文件名中每一项的具体含义在\ :doc:`/appendix/naming-convections`
 中有介绍，这里不再重复。
 
 默认的文件名比较长，在数据处理时可能会显得比较麻烦，一般都会根据实际

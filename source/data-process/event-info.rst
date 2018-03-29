@@ -1,11 +1,11 @@
 事件信息
 ========
 
-相关头段：\ ``evla``\ 、\ ``evlo``\ 、\ ``evdp``\ 、\ ``mag``\ 、
+**相关头段**\ ：\ ``evla``\ 、\ ``evlo``\ 、\ ``evdp``\ 、\ ``mag``\ 、
 ``o``\ 、\ ``nzyear``\ 、\ ``nzjday``\ 、\ ``nzhour``\ 、
 ``nzmin``\ 、\ ``nzsec``\ 、\ ``nzmsec``
 
-相关脚本： :ref:`Perl 脚本 <subsec:eventinfo.pl>` 、 :ref:`Python 脚本 <subsec:eventinfo.py>`
+**相关脚本**\ ：\ :ref:`Perl 脚本 <subsec:eventinfo.pl>`\ 、\ :ref:`Python 脚本 <subsec:eventinfo.py>`
 
 一般来说，从SEED连续波形中解压得到的SAC数据中是没有事件信息的。这就需要
 用户从地震目录中获取事件的发震时刻、经度、纬度、深度和震级信息，并将这些

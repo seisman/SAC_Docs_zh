@@ -1,7 +1,7 @@
 数据重采样
 ==========
 
-相关命令：\ :doc:`/commands/decimate`\ 、\ :doc:`/commands/interpolate`
+**相关命令**\ ：\ :doc:`/commands/decimate`\ 、\ :doc:`/commands/interpolate`
 
 如下情形，需要对数据进行重采样：
 
