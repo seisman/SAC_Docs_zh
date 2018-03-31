@@ -49,8 +49,8 @@ vn
 
 .. code:: bash
 
-    SAC> r f1 f2 f3         // 三个文件
-    SAC> add 5.1 6.2        // 两个常数
+    SAC> r f1 f2 f3         # 三个文件
+    SAC> add 5.1 6.2        # 两个常数
 
 头段变量
 --------

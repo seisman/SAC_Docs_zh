@@ -19,12 +19,12 @@
     SAC> echo on processed
     SAC> fg seis
     SAC> p
-    SAC> setbb low 2.45         // 黑板变量low=2.45
-    SAC> setbb high 4.94        // 黑板变量high=4.94
-    SAC> bp c %low% %high%      // 引用黑板变量low和high的值作为滤波的频带
-     ==>  bp c 2.45 4.94        // echo on processed 显示代入值后的命令
+    SAC> setbb low 2.45         # 黑板变量low=2.45
+    SAC> setbb high 4.94        # 黑板变量high=4.94
+    SAC> bp c %low% %high%      # 引用黑板变量low和high的值作为滤波的频带
+     ==>  bp c 2.45 4.94        # echo on processed 显示代入值后的命令
     SAC> p
-    SAC> getbb low high         // 查看黑板变量的值
+    SAC> getbb low high         # 查看黑板变量的值
      low = 2.45
      high = 4.94
 
@@ -33,10 +33,10 @@
 .. code:: bash
 
     $ sac
-    SAC> setbb var1 10          // 整型
-    SAC> setbb var2 "text"      // 字符串
-    SAC> setbb var3 0.2         // 浮点型
-    SAC> wbbf bbf.file          // 写入到文件
+    SAC> setbb var1 10          # 整型
+    SAC> setbb var2 "text"      # 字符串
+    SAC> setbb var3 0.2         # 浮点型
+    SAC> wbbf bbf.file          # 写入到文件
     SAC> q
     $ ls
     bbf.file

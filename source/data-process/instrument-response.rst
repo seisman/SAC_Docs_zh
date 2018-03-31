@@ -75,9 +75,9 @@ PZ方法1
     SAC> rmea; rtr; taper
     SAC> trans from polezero subtype SAC_PZs_XC_OR075_LHZ to none \
                             freq 0.008 0.016 0.2 0.4
-    SAC> mul 1.0e9      // 用PZ文件transfer to none得到的位移数据的单位为m
-                        // 而SAC默认的单位为nm，因而必须乘以1.0e9
-    SAC> w OR075.z      // 此时位移数据的单位为nm
+    SAC> mul 1.0e9      # 用PZ文件transfer to none得到的位移数据的单位为m
+                        # 而SAC默认的单位为nm，因而必须乘以1.0e9
+    SAC> w OR075.z      # 此时位移数据的单位为nm
 
 该方法的缺点是，一次只能处理一个波形数据，且需要用户编程指定PZ文件名。
 

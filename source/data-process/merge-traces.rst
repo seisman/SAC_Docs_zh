@@ -33,9 +33,9 @@ SAC从v101.6开始重写了 :doc:`/commands/merge`
 
 .. code:: bash
 
-    SAC> r *.NET.STA.00.BHZ        // 读入所有需要合并的文件
-    SAC> merge                     // 内存中的所有文件被合并为一个文件
-    SAC> w NET.STA.00.BHZ          // 写回到磁盘中
+    SAC> r *.NET.STA.00.BHZ        # 读入所有需要合并的文件
+    SAC> merge                     # 内存中的所有文件被合并为一个文件
+    SAC> w NET.STA.00.BHZ          # 写回到磁盘中
 
 对于所有要合并的数据文件，SAC会检测 ``knetwk``\ 、\ ``kstnm``\ 、
 ``kcmpnm`` 和 ``delta`` 是否完全匹配，并智能判断每个文件的 合并顺序。

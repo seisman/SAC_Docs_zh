@@ -176,14 +176,14 @@ SAC中内置了一堆预定义的仪器类型，可以在命令中直接使用�
     SAC> read xyz.z
     SAC> rmean; rtr; taper
     SAC> trans from WWSP to none freq 0.05 0.01 5 10
-                    // 也可使用to vel或to acc得到速度或加速度
+                    # 也可使用to vel或to acc得到速度或加速度
 
 向合成的位移地震图中加入WWSP仪器响应：
 
 .. code:: bash
 
     SAC> r syn.z
-    SAC> trans from none to WWSP    // 简写为trans to WWSP
+    SAC> trans from none to WWSP    # 简写为trans to WWSP
 
 evalresp类型
 ~~~~~~~~~~~~
@@ -307,10 +307,10 @@ PZ文件合并得到总的PZ文件。下面的例子中读入全部波形数据�
 
 .. code:: bash
 
-    SAC> r *.SAC          // 读入全部数据
+    SAC> r *.SAC          # 读入全部数据
     SAC> rmean; rtr; taper
     SAC> trans from polezero s event.pz to none freq 0.05 0.1 10.0 15.0
-    SAC> mul 1.0e9        // 需要乘以1.0e9 !!!
+    SAC> mul 1.0e9        # 需要乘以1.0e9 !!!
     SAC> w over
 
 需要格外注意，在用PZ文件去仪器响应得到位移物理量时，得到的数据的单位是

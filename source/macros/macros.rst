@@ -150,7 +150,7 @@ SAC宏参数的格式为：“``$n$``”，其中n从1开始。
 .. code:: bash
 
     SAC> macro mystuff
-    files? ABC DEF XYZ          // 用户输入ABC DEF XYZ
+    files? ABC DEF XYZ          # 用户输入ABC DEF XYZ
 
 注意到SAC并不会提示输入参数 ``values`` 的值，因为它们已经有了
 缺省值。SAC并非在一开始就提示输入参数，其等到需要计算参数值却发现没有

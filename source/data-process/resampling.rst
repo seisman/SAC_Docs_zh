@@ -27,12 +27,12 @@ decimate
     SAC> fg seis
     SAC> lh delta npts
 
-         delta = 1.000000e-02       //采样间隔delta=0.01
+         delta = 1.000000e-02       # 采样间隔delta=0.01
           npts = 1000
-    SAC> decimate 5; decimate 2     // 减采样10倍
+    SAC> decimate 5; decimate 2     # 减采样10倍
     SAC> lh delta npts
 
-         delta = 9.999999e-02       //采样间隔delta=0.1，忽略浮点数误差
+         delta = 9.999999e-02       # 采样间隔delta=0.1，忽略浮点数误差
           npts = 100
 
 interpolate
@@ -51,7 +51,7 @@ interpolate
 
          delta = 1.000000e-02
          npts = 1000
-    SAC> interp delta 0.005         // 增采样2倍
+    SAC> interp delta 0.005         # 增采样2倍
     SAC> lh
 
          delta = 5.000000e-03
@@ -75,4 +75,4 @@ interpolate
     SAC> lp c 10
     SAC> interpolate delta 0.05
     WARNING potential for aliasing. new delta: 0.0500 data delta: 0.0100
-        //  在做了lowpass之后，此处的警告可忽略
+        #  在做了lowpass之后，此处的警告可忽略

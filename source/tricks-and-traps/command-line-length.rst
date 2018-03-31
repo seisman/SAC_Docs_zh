@@ -24,7 +24,7 @@
 
 .. code:: bash
 
-    SAC> r XX.001.BHZ XX.002.BHZ ... XX.120.BHZ // 此处省略了一堆文件名
+    SAC> r XX.001.BHZ XX.002.BHZ ... XX.120.BHZ # 此处省略了一堆文件名
 
 这两种读入SAC文件的方式，看上去很相似，结果却是完全不同的。
 

@@ -120,6 +120,6 @@ M|KM
     t1marker = 76.413           (Pg)
     t2marker = 109.66           (Sn)
     t3marker = 132.11           (Sg)
-    SAC> ch evdp (0.001 * &1,evdp&) // 将evdp的单位改成km
+    SAC> ch evdp (0.001 * &1,evdp&) # 将evdp的单位改成km
     SAC> setbb station &1,KSTNM&
     SAC> write %station%.z

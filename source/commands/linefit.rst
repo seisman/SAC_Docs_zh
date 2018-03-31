@@ -38,12 +38,12 @@ linefit
 .. code:: bash
 
     SAC> fg seis
-    SAC> linefit            // 线性拟合
+    SAC> linefit            # 线性拟合
      Slope and standard deviation are: 0.00023042 0.0035114
      Intercept and standard deviation are: -0.10165 0.048355
      Data standard deviation is: 0.32054
      Data correlation coefficient is: 0.0020772
-    SAC> getbb             // 查看黑板变量
+    SAC> getbb             # 查看黑板变量
      CORRCOEF     = 0.00207718
      NUMERROR = 0
      SACERROR = 'FALSE'
@@ -53,5 +53,5 @@ linefit
      SDYINT     = 0.0483548
      SLOPE     = 0.000230417
      YINT     = -0.10165
-    SAC> getbb SLOPE       // 查看单个头段变量时出错，猜测是bug
+    SAC> getbb SLOPE       # 查看单个头段变量时出错，猜测是bug
      ERROR 1201: Could not find VARS variable SLOPE

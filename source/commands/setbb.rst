@@ -48,8 +48,8 @@ APPEND
 
 .. code:: bash
 
-                                // 含空格的值需要用引号括起来
+                                # 含空格的值需要用引号括起来
     SAC> setbb mytitle 'sample filter response'
-    SAC> getbb mytitle          // 检查变量值是否正确
+    SAC> getbb mytitle          # 检查变量值是否正确
      MYTITLE = Sample filter response
-    SAC> title '%MYTITLE%'      // 引用时需要再次用引用括起来
+    SAC> title '%MYTITLE%'      # 引用时需要再次用引用括起来

@@ -25,17 +25,17 @@
 
 .. code:: bash
 
-    SAC> fg seis                // 生成数据
-    SAC> qdp on                 // 打开QDP选项（默认值即为开）
-    SAC> grid on                // 显示网格
-    SAC> title 'Seismic Trace'  // 设置标题
-    SAC> xlabel "Time(s)"       // 设置x轴标签
-    SAC> ylabel "Amplitude"     // 设置y轴标签
-    SAC> filenumber on          // 显示文件号
-    SAC> axes only left bottom  // left和bottom显示axes
-    SAC> ticks only right       // right显示ticks
-    SAC> border on              // top显示border
-    SAC> p                      // 绘图
+    SAC> fg seis                # 生成数据
+    SAC> qdp on                 # 打开QDP选项（默认值即为开）
+    SAC> grid on                # 显示网格
+    SAC> title 'Seismic Trace'  # 设置标题
+    SAC> xlabel "Time(s)"       # 设置x轴标签
+    SAC> ylabel "Amplitude"     # 设置y轴标签
+    SAC> filenumber on          # 显示文件号
+    SAC> axes only left bottom  # left和bottom显示axes
+    SAC> ticks only right       # right显示ticks
+    SAC> border on              # top显示border
+    SAC> p                      # 绘图
 
 图像中显示的元素包括：
 
@@ -171,9 +171,9 @@ xfudge
 .. code:: bash
 
     SAC> fg seis
-    SAC> line 3         // 线型为3
-    SAC> width 2        // 线宽为2
-    SAC> color red      // 红色
+    SAC> line 3         # 线型为3
+    SAC> width 2        # 线宽为2
+    SAC> color red      # 红色
     SAC> p
 
 .. figure:: /images/attribution1.*

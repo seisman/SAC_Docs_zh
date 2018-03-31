@@ -10,7 +10,7 @@ funcgen
 :doc:`/commands/funcgen`\ （简写为 ``fg``\ ）表示“function generator”，即该
 命令可以生成一些特定的函数，比如脉冲、阶跃、正弦等等，还可以生成一个地震波形样本::
 
-    SAC> fg impulse         // 生成脉冲函数
+    SAC> fg impulse         # 生成脉冲函数
 
 上面的命令生成了一个脉冲函数并存储在SAC的内存中，可以用命令 :doc:`/commands/plot`
 （简写为 ``p``\ ）在图形界面上查看这个函数的样子::
@@ -19,7 +19,7 @@ funcgen
 
 在学习SAC的过程中，\ ``funcgen`` 可以生成地震波形样本::
 
-    SAC> fg seismogram      // 生成地震波形样本，简写为fg seis
+    SAC> fg seismogram      # 生成地震波形样本，简写为fg seis
 
 这个命令在SAC内存中产生了一个地震波形样本，同时删除了内存中刚才生成的
 脉冲信号，可以使用 ``plot`` 命令查看地震波形。这个地震波形样本在

@@ -44,6 +44,6 @@ options
 
 .. code:: bash
 
-    SAC> rm junks           // 无法直接调用rm命令
+    SAC> rm junks           # 无法直接调用rm命令
      ERROR 1106: Not a valid SAC command.
-    SAC> sc rm junks        // 通过sc间接调用rm命令
+    SAC> sc rm junks        # 通过sc间接调用rm命令

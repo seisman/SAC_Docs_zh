@@ -18,21 +18,21 @@
 
 .. code:: bash
 
-    SAC> fg impulse delta 0.01 npts 1000   // 生成脉冲函数, delta和npts可调
-    SAC> bp c 0.2 2 n 2 p 1                // 要查看的滤波参数
+    SAC> fg impulse delta 0.01 npts 1000   # 生成脉冲函数, delta和npts可调
+    SAC> bp c 0.2 2 n 2 p 1                # 要查看的滤波参数
     SAC> beginframe
     SAC> xvport 0.1 0.9; yvport 0.7 0.9
     SAC> fileid off
     SAC> qdp off
     SAC> title 'Time Domain Response'
-    SAC> p                                // 绘制时间域响应
+    SAC> p                                # 绘制时间域响应
     SAC> fft
     SAC> xvport .1 .45; yvport .15 .55
     SAC> title 'Amplitude Response'
-    SAC> psp am loglog                    // 振幅响应
+    SAC> psp am loglog                    # 振幅响应
     SAC> xvport .55 .9
     SAC> title 'Phase Response'
-    SAC> psp ph linlin                    // 相位响应
+    SAC> psp ph linlin                    # 相位响应
     SAC> endframe
 
 上面的代码涉及到了一些尚未介绍的命令，在后面会具体介绍。生成的效果图如下：

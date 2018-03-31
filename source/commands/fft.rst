@@ -71,12 +71,12 @@ AMPH
      DC level after DFT is -0.98547
     SAC> lh b e delta npts iftype
 
-              b = 0.000000e+00              // b值为0
+              b = 0.000000e+00              # b值为0
               e = 5.000000e+01
-          delta = 9.765625e-02              // delta=1/(1024*0.01)
-           npts = 1024                      // 1000 -> 1024
+          delta = 9.765625e-02              # delta=1/(1024*0.01)
+           npts = 1024                      # 1000 -> 1024
          iftype = SPECTRAL FILE-AMPL/PHASE
-    SAC> lh sb sdelta nsnpts                // 保留原值
+    SAC> lh sb sdelta nsnpts                # 保留原值
 
              sb = 9.459999e+00
          sdelta = 1.000000e-02

@@ -21,9 +21,9 @@
 .. code:: bash
 
     SAC> r cdv.?
-    SAC> ch evla 37.52 evlo -121.68 evdp 5.95   // 修改三个头段变量
-    SAC> ch mag 5.0                             // 修改一个头段变量
-    SAC> wh                                     // 将修改后的头段写入文件
+    SAC> ch evla 37.52 evlo -121.68 evdp 5.95   # 修改三个头段变量
+    SAC> ch mag 5.0                             # 修改一个头段变量
+    SAC> wh                                     # 将修改后的头段写入文件
 
 .. _subsec:origin-time:
 
@@ -40,19 +40,19 @@
 .. code:: bash
 
     SAC> r ./cdv.z
-    SAC> ch o gmt 1987 173 11 10 10 363   // 06月22日是第173天
+    SAC> ch o gmt 1987 173 11 10 10 363   # 06月22日是第173天
     SAC> lh kzdate kztime o
 
          kzdate = JUN 22 (173), 1987
          kztime = 11:09:56.363
-              o = 1.400000e+01       // 发震时刻相对于参考时刻的时间为14秒
-    SAC> ch allt -14 iztype IO       // 参考时间加14秒，其他时间减14秒
+              o = 1.400000e+01       # 发震时刻相对于参考时刻的时间为14秒
+    SAC> ch allt -14 iztype IO       # 参考时间加14秒，其他时间减14秒
     SAC> lh kzdate kztime o
 
          kzdate = JUN 22 (173), 1987
          kztime = 11:10:10.363
               o = 0.000000e+00
-    SAC> wh                          // 写回磁盘
+    SAC> wh                          # 写回磁盘
 
 上面的例子中，首先从地震目录中获取了地震的发震时刻，然后计算发震日期
 是一年中的第几天，本例中为第173天，再利用“``ch o gmt yyyy ddd hh mm sss xxx``”
@@ -112,7 +112,7 @@ SAC数据添加同样的发震时刻，最直观的想法是：
 .. code:: bash
 
     SAC> r *.SAC
-    SAC> synchronize            // 同步所有数据的参考时间
+    SAC> synchronize            # 同步所有数据的参考时间
     SAC> ch o gmt 1987 173 11 10 10 363
     SAC> ch allt (0 - &1,o&) iztype IO
     SAC> wh

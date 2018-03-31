@@ -82,8 +82,8 @@ file2合并成文件file2，此时内存中有两个文件file1和file2。而在
 
 .. code:: bash
 
-    SAC> r file1                        // 读取一个文件
-    SAC> merge file2 file3 file4        // merge其余文件
+    SAC> r file1                        # 读取一个文件
+    SAC> merge file2 file3 file4        # merge其余文件
     SAC> w over
 
 另一种合并办法：
@@ -91,16 +91,16 @@ file2合并成文件file2，此时内存中有两个文件file1和file2。而在
 .. code:: bash
 
     SAC> r file1 file2 file3 file4
-    SAC> merge                      // 合并内存中的所有文件
-    SAC> w over                     // 合并后的文件写入到file1中
+    SAC> merge                      # 合并内存中的所有文件
+    SAC> w over                     # 合并后的文件写入到file1中
 
 再一种合并方法：
 
 .. code:: bash
 
-                                        // 内存中无数据
-    SAC> merge file1 file2 file3 file4  // 合并filelist中的全部文件
-    SAC> w over                         // 保存到file1中
+                                        # 内存中无数据
+    SAC> merge file1 file2 file3 file4  # 合并filelist中的全部文件
+    SAC> w over                         # 保存到file1中
 
 头段变量改变
 ------------

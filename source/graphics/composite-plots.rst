@@ -43,25 +43,25 @@ viewport的相互关系。可以使用 :doc:`/commands/window`
 
 .. code:: bash
 
-    SAC> fg seis                        // 生成数据
-    SAC> beginframe                     // 打开frame，开始绘制组合图
-    SAC> xvport 0.1 0.9                 // 设定第一个绘图命令的viewport
+    SAC> fg seis                        # 生成数据
+    SAC> beginframe                     # 打开frame，开始绘制组合图
+    SAC> xvport 0.1 0.9                 # 设定第一个绘图命令的viewport
     SAC> yvport 0.7 0.9
-    SAC> title 'Seismic Trace'          // 设定标题
-    SAC> fileid off                     // 不显示文件id
+    SAC> title 'Seismic Trace'          # 设定标题
+    SAC> fileid off                     # 不显示文件id
     SAC> qdp off
     SAC> p
-    SAC> fft wmean                      // FFT
-    SAC> xvport .1 .45                  // 设定第二个绘图命令的viewport
+    SAC> fft wmean                      # FFT
+    SAC> xvport .1 .45                  # 设定第二个绘图命令的viewport
     SAC> yvport .15 .55
     SAC> title 'Amplitude Response (linlog)'
-    SAC> ylim 1e-5 1                    // Y轴范围
-    SAC> psp am linlog                  // 绘制振幅谱
-    SAC> xvport .55 .9                  // 设定第三个绘图命令的viewport
+    SAC> ylim 1e-5 1                    # Y轴范围
+    SAC> psp am linlog                  # 绘制振幅谱
+    SAC> xvport .55 .9                  # 设定第三个绘图命令的viewport
     SAC> title 'Amplitude Response (loglog)'
     SAC> xlim 1 60
-    SAC> psp am loglog                  // 绘制振幅谱
-    SAC> endframe                       // 关闭frame
+    SAC> psp am loglog                  # 绘制振幅谱
+    SAC> endframe                       # 关闭frame
 
 .. figure:: /images/composite-plot.*
    :alt: 绘制组合图

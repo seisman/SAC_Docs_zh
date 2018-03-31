@@ -22,21 +22,21 @@ SAC自带的命令可以实现两种形式的转换 [3]_。
 .. code:: bash
 
     SAC> fg seis
-    SAC> w seis             // 先生成一个二进制型SAC数据，以做测试
+    SAC> w seis             # 先生成一个二进制型SAC数据，以做测试
 
 将二进制型转换成字符型：
 
 .. code:: bash
 
-    SAC> r seis             // 读二进制型文件
-    SAC> w alpha seis.a     // 以字符型写入
+    SAC> r seis             # 读二进制型文件
+    SAC> w alpha seis.a     # 以字符型写入
 
 将字符型转换成二进制型：
 
 .. code:: bash
 
-    SAC> r alpha seis.a     // 读字符型文件
-    SAC> w sac seis.b       // 以二进制型写入，可以省略sac，写成w seis.b
+    SAC> r alpha seis.a     # 读字符型文件
+    SAC> w sac seis.b       # 以二进制型写入，可以省略sac，写成w seis.b
 
 试试用你最喜欢的文本编辑器打开字符型的 ``seis.a`` 吧，其内容如下：
 

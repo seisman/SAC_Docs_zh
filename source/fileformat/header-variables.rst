@@ -121,19 +121,19 @@ SAC文件类型，其决定了头段区之后有几个子数据区。可以取�
     $ sac
     SAC> fg seis
     SAC> lh depmax
-         depmax = 1.520640e+00      // 最大值
-    SAC> ch depmax 1000             // 强行修改数据最大值
-                                    // 这是错误的示范，不要这样做
-    SAC> lh depmax 1000             // 查看depmax，修改成功
+         depmax = 1.520640e+00      # 最大值
+    SAC> ch depmax 1000             # 强行修改数据最大值
+                                    # 这是错误的示范，不要这样做
+    SAC> lh depmax 1000             # 查看depmax，修改成功
          depmax = 1.000000e+03
-    SAC> w seis.SAC                 // 写到磁盘中
+    SAC> w seis.SAC                 # 写到磁盘中
     SAC> q
-    $ saclst depmax f seis.SAC      // 调用saclst查看磁盘文件中的depmax
-    seis.SAC         1000           // 可以看到磁盘中的文件depmax=1000
+    $ saclst depmax f seis.SAC      # 调用saclst查看磁盘文件中的depmax
+    seis.SAC         1000           # 可以看到磁盘中的文件depmax=1000
     $ sac
-    SAC> r ./seis.SAC               // 读入SAC
+    SAC> r ./seis.SAC               # 读入SAC
     SAC> lh depmax
-         depmax = 1.520640e+00      // 此时depmax被自动计算并更新
+         depmax = 1.520640e+00      # 此时depmax被自动计算并更新
 
 ``scale``
 ~~~~~~~~~

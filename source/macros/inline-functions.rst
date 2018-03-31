@@ -39,18 +39,18 @@ SAC支持的操作符是包括：“``+  -  *  /  **``”。
 .. code:: bash
 
     SAC> echo on
-    SAC> setbb var1 4+7             // 忘记加括号了！"4+7"被当成了字符串
+    SAC> setbb var1 4+7             # 忘记加括号了！"4+7"被当成了字符串
      setbb var1 4+7
     SAC> setbb var2 (4+7)
      setbb var2 (4+7)
-     ==>  setbb var2 11             // 4+7=11
-    SAC> setbb var3 (4+7/3)         // 优先级正确
+     ==>  setbb var2 11             # 4+7=11
+    SAC> setbb var3 (4+7/3)         # 优先级正确
      setbb var3 (4+7/3)
      ==>  setbb var3 6.33333
-    SAC> setbb var4 ((4+7)/3)       // 括号改变优先级
-     setbb var4 ((4+7)/3)           // 可以看作是内联函数的嵌套
+    SAC> setbb var4 ((4+7)/3)       # 括号改变优先级
+     setbb var4 ((4+7)/3)           # 可以看作是内联函数的嵌套
      ==>  setbb var4 3.66667
-    SAC> setbb var1 ( ( 4 + 7 ) / 3 )   // 支持空格
+    SAC> setbb var1 ( ( 4 + 7 ) / 3 )   # 支持空格
      setbb var1 ( ( 4 + 7 ) / 3 )
      ==>  setbb var1 3.66667
 
@@ -115,37 +115,37 @@ SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 ar
 .. code:: bash
 
     SAC> echo on processed
-    SAC> setbb var1 (add 1 3 4)         // 1+3+4
+    SAC> setbb var1 (add 1 3 4)         # 1+3+4
      ==>  setbb var1 8
-    SAC> setbb var2 (subtract 1 3 4)    // 1-3-4
+    SAC> setbb var2 (subtract 1 3 4)    # 1-3-4
      ==>  setbb var2 -6
-    SAC> setbb var3 (multiply 1 3 4)    // 1*3*4
+    SAC> setbb var3 (multiply 1 3 4)    # 1*3*4
      ==>  setbb var3 12
-    SAC> setbb var4 (divide 1 3 4)      // 1/3/4
+    SAC> setbb var4 (divide 1 3 4)      # 1/3/4
      ==>  setbb var4 0.0833333
-    SAC> setbb var5 (absolute -5.1)     // abs(-5.1)
+    SAC> setbb var5 (absolute -5.1)     # abs(-5.1)
      ==>  setbb var5 5.1
-    SAC> setbb var6 (power 5)           // 10^5
+    SAC> setbb var6 (power 5)           # 10^5
      ==>  setbb var6 100000
-    SAC> setbb var7 (alog10 10000)      // log10(10000)
+    SAC> setbb var7 (alog10 10000)      # log10(10000)
      ==>  setbb var7 4
-    SAC> setbb var8 (alog 10000)        // ln(10000)
+    SAC> setbb var8 (alog 10000)        # ln(10000)
      ==>  setbb var8 9.21034
-    SAC> setbb var9 (exp 5)             // e^5
+    SAC> setbb var9 (exp 5)             # e^5
      ==>  setbb var9 148.413
-    SAC> setbb var10 (sqrt 9)           // sqrt(9)
+    SAC> setbb var10 (sqrt 9)           # sqrt(9)
      ==>  setbb var10 3
-    SAC> setbb var11 (pi)               // PI
+    SAC> setbb var11 (pi)               # PI
      ==>  setbb var11 3.14159
-     SAC> setbb var12 (sine (pi/6))     // sin(30)
+     SAC> setbb var12 (sine (pi/6))     # sin(30)
      ==>  setbb var12 0.5
     SAC> setbb var13 ((arcsine 0.5)*180/(pi))
      ==>  setbb var13 30
     SAC> setbb var14 (integer 3.11)
      ==>  setbb var14 3
-    SAC> setbb var15 (max 3.11 -1.5 5)  // maximum简写为max
+    SAC> setbb var15 (max 3.11 -1.5 5)  # maximum简写为max
      ==>  setbb var15 5
-    SAC> setbb var16 (min 3.11 -1.5 5)  // minimum简写为min
+    SAC> setbb var16 (min 3.11 -1.5 5)  # minimum简写为min
      ==>  setbb var16 -1.5
 
 为了对一组数据做归一化，首先要找到所有数据中的绝对最大值，如下：
@@ -158,7 +158,7 @@ SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 ar
      ==> setbb vmax 1.87324
     SAC> setbb vmin (min &1,depmin& &2,depmin& &3,depmin& &4,depmin&)
      ==> setbb vmin -2.123371
-    SAC> div ( max (abs %vmax%) (abs %vmin%) )      // 嵌套
+    SAC> div ( max (abs %vmax%) (abs %vmin%) )      # 嵌套
      ==>  div 2.123371
 
 此例可以通过多重嵌套的方式在单个命令中完成，但上面的写法可读性更强。
@@ -219,17 +219,17 @@ SAC提供了若干个函数用于字符串的处理，如 :numref:`table:string-
     SAC> fg seis
     SAC> echo on processed
     SAC> setbb var (conc Seismogram of &1,kevnm& &1,kstnm&)
-     ==>  setbb var SeismogramofK8108838CDV                 // 没有空格
+     ==>  setbb var SeismogramofK8108838CDV                 # 没有空格
     SAC> setbb var (conc "Seismogram of " &1,kevnm& " " &1,kstnm&)
-     ==>  setbb var Seismogram of K8108838 CDV              // 含空格
+     ==>  setbb var Seismogram of K8108838 CDV              # 含空格
     SAC> getbb var
      var = 'Seismogram of K8108838 CDV'
     SAC> title (conc "Seismogram of " &1,kevnm& " " &1,kstnm&)
-     ==>  title Seismogram of K8108838 CDV                  // 错误标题！
+     ==>  title Seismogram of K8108838 CDV                  # 错误标题！
     SAC> title '(conc "Seismogram of " &1,kevnm& " " &1,kstnm&)'
-     ==>  title "(conc "Seismogram of " K8108838 " " CDV)"  // 错误标题！
+     ==>  title "(conc "Seismogram of " K8108838 " " CDV)"  # 错误标题！
     SAC> title "Seismogram of &1,kevnm& &1,kstnm&"
-     ==>  title "Seismogram of K8108838 CDV"                // 正确标题！
+     ==>  title "Seismogram of K8108838 CDV"                # 正确标题！
 
 下面的例子使用 ``reply`` 函数实现了交互：
 
@@ -239,10 +239,10 @@ SAC提供了若干个函数用于字符串的处理，如 :numref:`table:string-
     SAC> echo on processed
     SAC> rmean; rtr; taper
     SAC> setbb low (reply "Enter low freqency limit for bandpass: ")
-    Enter low freqency limit for bandpass: 2.1          // 用户输入2.1
+    Enter low freqency limit for bandpass: 2.1          # 用户输入2.1
      ==>  setbb low 2.1
     SAC> setbb high (reply "Enter low freqency limit for bandpass: ")
-    Enter low freqency limit for bandpass: 6.5          // 用户输入6.5
+    Enter low freqency limit for bandpass: 6.5          # 用户输入6.5
      ==>  setbb high 6.5
     SAC> bp c %low% %high%
      ==>  bp c 2.1 6.5
@@ -252,11 +252,11 @@ SAC提供了若干个函数用于字符串的处理，如 :numref:`table:string-
 .. code:: bash
 
     SAC> setbb bbday (reply "Enter the day of the week: [Monday]")
-    Enter the day of the week: [Monday]Tuesday      // 用户输入Tuesday
+    Enter the day of the week: [Monday]Tuesday      # 用户输入Tuesday
     SAC> getbb bbday
      bbday = 'Tuesday'
     SAC> setbb bbday (reply "Enter the day of the week: [Monday]")
-    Enter the day of the week: [Monday]             // 用户无输入
+    Enter the day of the week: [Monday]             # 用户无输入
     SAC> getbb bbday
      bbday = 'Monday'
 

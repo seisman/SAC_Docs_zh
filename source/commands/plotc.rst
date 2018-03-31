@@ -82,19 +82,19 @@ BORDER ON|OFF
 
 .. code:: bash
 
-    SAC> fg impulse npts 1024                      //生成文件
-    SAC> lp c2 n 7 c 0.2 t 0.25 a 10               //低通滤波
+    SAC> fg impulse npts 1024                     # 生成文件
+    SAC> lp c2 n 7 c 0.2 t 0.25 a 10              # 低通滤波
     SAC> fft
      DC level after DFT is 1
-    SAC> axes only l b                             //左和下坐标轴设置
+    SAC> axes only l b                            # 左和下坐标轴设置
     SAC> ticks only l b
     SAC> border off
     SAC> fileid off
     SAC> qdp off
-    SAC> vspace 0.75                              //修改图形尺寸
-    SAC> beginframe                               //开始绘图
-    SAC> psp am linlin                            //绘图
-    SAC> plotc create file bandpass               //开始在图上做注释
+    SAC> vspace 0.75                              # 修改图形尺寸
+    SAC> beginframe                               # 开始绘图
+    SAC> psp am linlin                            # 绘图
+    SAC> plotc create file bandpass               # 开始在图上做注释
     ...用光标和键盘进行各种操作...
     SAC> endframe
 
@@ -110,10 +110,10 @@ BORDER ON|OFF
 
 .. code:: bash
 
-    SAC> begindevices sgf                  // 打开sgf设备
+    SAC> begindevices sgf                  # 打开sgf设备
     SAC> beginframe
     SAC> plotsp
-    SAC> plotc replay                      // 重新绘制上一注释图
+    SAC> plotc replay                      # 重新绘制上一注释图
     SAC> endframe
 
 这样一个包含注释绘图的SGF文件就建立了。

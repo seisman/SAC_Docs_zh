@@ -52,9 +52,9 @@ Fourier变换，用此命令在频率域积分可以去除时间域微分的效�
 .. code:: bash
 
     SAC> read file1
-    SAC> dif                // 微分预白化
-    SAC> fft amph           // FFT
-    SAC> divomega           // 积分
+    SAC> dif                # 微分预白化
+    SAC> fft amph           # FFT
+    SAC> divomega           # 积分
 
 头段变量
 --------

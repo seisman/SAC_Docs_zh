@@ -64,12 +64,12 @@ POSITION x y a
 
 .. code:: bash
 
-    // 三行标签
+    # 三行标签
     SAC> dg sub local cdv.z
     SAC> plabel 'Sample seismogram' p .12 .5
     SAC> plabel 'from earthquake'
     SAC> plabel 'in Livermore Valley, CA'
-    // 放在左下角的标签
+    # 放在左下角的标签
     SAC> plabel 5 'LLNL station: CDV' S T P .12 .12
     SAC> p
 

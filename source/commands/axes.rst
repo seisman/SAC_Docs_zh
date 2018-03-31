@@ -70,11 +70,11 @@ LEFT
 .. code:: bash
 
     SAC> fg seis
-    SAC> p           // 看看SAC的默认设置，左边和底部有注释
-    SAC> axes on t   // 打开顶部注释，左边和底部注释依然保留
-    SAC> p           // 看到的结果是只有顶部注释，没有左边和底部注释，
-                     // 这里和说明中强调的不一样，应该是程序的bug，
-                     // 将on认为是only的简写了
-    SAC> axes on a   // 打开所有注释轴
-    SAC> axes off b  // 仅关闭底部注释轴(off选项和说明是一致的)
-    SAC> axes only b // 仅显示底部注释轴
+    SAC> p           # 看看SAC的默认设置，左边和底部有注释
+    SAC> axes on t   # 打开顶部注释，左边和底部注释依然保留
+    SAC> p           # 看到的结果是只有顶部注释，没有左边和底部注释，
+                     # 这里和说明中强调的不一样，应该是程序的bug，
+                     # 将on认为是only的简写了
+    SAC> axes on a   # 打开所有注释轴
+    SAC> axes off b  # 仅关闭底部注释轴(off选项和说明是一致的)
+    SAC> axes only b # 仅显示底部注释轴

@@ -33,5 +33,5 @@ SAC的官方帮助文档位于 ``$SACHOME/aux/help`` 目录中，该命令实际
 
 .. code:: bash
 
-    SAC> h                  // 获得帮助文档包的介绍
-    SAC> h r cut bd p       // 一次显示多个命令的文档
+    SAC> h                  # 获得帮助文档包的介绍
+    SAC> h r cut bd p       # 一次显示多个命令的文档

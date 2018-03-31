@@ -45,9 +45,9 @@ plot1
 
 .. code:: bash
 
-    SAC> dg sub local cdv.[enz] cvl.[enz] cvy.[enz]  // 生成9个地震波形
+    SAC> dg sub local cdv.[enz] cvl.[enz] cvy.[enz]  # 生成9个地震波形
     cdv.e cdv.n cdv.z cvl.e cvl.n cvl.z cvy.e cvy.n cvy.z
-    SAC> p1 p 3         // p是选项perplot的简写，3代表每次显示3个波形
+    SAC> p1 p 3         # p是选项perplot的简写，3代表每次显示3个波形
     Waiting
     Waiting
     SAC>
@@ -72,15 +72,15 @@ plot2
 
 .. code:: bash
 
-    SAC> fg seis                     // 生成数据
-    SAC> rmean; rtrend; taper        // 预处理
-    SAC> w seis.0                    // 写入滤波前文件
-    SAC> bp c 0.05 10 n 4 p 2        // 滤波
-    SAC> w seis.1                    // 写入滤波后文件
-    SAC> r ./seis.[01]               // 读入两个文件
+    SAC> fg seis                     # 生成数据
+    SAC> rmean; rtrend; taper        # 预处理
+    SAC> w seis.0                    # 写入滤波前文件
+    SAC> bp c 0.05 10 n 4 p 2        # 滤波
+    SAC> w seis.1                    # 写入滤波后文件
+    SAC> r ./seis.[01]               # 读入两个文件
     ./seis.0 ...seis.1
-    SAC> color red inc list red blue // 对两个数据分别设置红色和蓝色
-    SAC> p2                          // 绘图
+    SAC> color red inc list red blue # 对两个数据分别设置红色和蓝色
+    SAC> p2                          # 绘图
 
 在 :numref:`figure:plot2`
 中红线为滤波前波形，蓝线为滤波后波形，二者共用X轴和Y轴，
@@ -116,17 +116,17 @@ plotpm
 
 .. code:: bash
 
-    SAC> dg sub tele nykl.z             // Z分量
+    SAC> dg sub tele nykl.z             # Z分量
     SAC> w nykl.z
-    SAC> dg sub tele nykl.e nykl.n      // E、N分量
-    SAC> rotate to gcp                  // 旋转至大圆路径
-    SAC> w nykl.r nykl.t                // R、T分量
-    SAC> r nykl.z nykl.r                // 读入Z和R分量
+    SAC> dg sub tele nykl.e nykl.n      # E、N分量
+    SAC> rotate to gcp                  # 旋转至大圆路径
+    SAC> w nykl.r nykl.t                # R、T分量
+    SAC> r nykl.z nykl.r                # 读入Z和R分量
     SAC> xlabel 'Radial component'
     SAC> ylabel 'Vertical component'
     SAC> title 'Particle-motion plot for partial Rayleigh wave'
-    SAC> xlim 1300 1340                 // 仅绘制Rayleigh面波的部分时间窗
-    SAC> ppm                            // 绘制质点运动图
+    SAC> xlim 1300 1340                 # 仅绘制Rayleigh面波的部分时间窗
+    SAC> ppm                            # 绘制质点运动图
 
 鉴于 :doc:`/commands/plotpm`
 命令绘图的效果很糟糕，就不再贴效果图了，读者

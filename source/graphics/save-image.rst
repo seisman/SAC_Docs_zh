@@ -11,9 +11,9 @@ xwindows是SAC中最常用绘图设备，对于震相拾取等交互式操作更
 .. code:: bash
 
     SAC> fg seis
-    SAC> bd x       // begindevice xwinows，可省略
-    SAC> p          // 绘图
-    SAC> ed x       // enddevice xwindows，可省略
+    SAC> bd x       # begindevice xwinows，可省略
+    SAC> p          # 绘图
+    SAC> ed x       # enddevice xwindows，可省略
     SAC> q
 
 对于xwindows，最简单的保存图像的方式是截图，常用的工具包括gnome下的
@@ -28,12 +28,12 @@ SGF图形设备会将图像信息保存到SGF文件中。其使用方式为：�
 .. code:: bash
 
     SAC> fg seis
-    SAC> bd sgf         // 启动sgf设备，不可省略
+    SAC> bd sgf         # 启动sgf设备，不可省略
     SAC> p
-    SAC> ed sgf         // 关闭sgf设备，可省略
+    SAC> ed sgf         # 关闭sgf设备，可省略
     SAC> q
     $ ls
-    f001.sgf            // 生成sgf文件
+    f001.sgf            # 生成sgf文件
 
 生成的sgf文件可以通过 ``sgftops`` 等命令转换为其它图像格式，
 在 :doc:`/tools/sgftops` 中会介绍，也可以使用 ``sgftox`` 直接
@@ -50,8 +50,8 @@ PS和PDF
 .. code:: bash
 
     SAC> fg seis
-    SAC> p                      // 首先在xwindows上绘图
-    SAC> saveimg foo.ps         // 将xwindows上的图像保存到foo.ps中
+    SAC> p                      # 首先在xwindows上绘图
+    SAC> saveimg foo.ps         # 将xwindows上的图像保存到foo.ps中
     save file foo.ps [PS]
     SAC> q
 

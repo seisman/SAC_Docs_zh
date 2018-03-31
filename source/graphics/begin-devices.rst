@@ -7,11 +7,11 @@ SAC绘图流程
 .. code:: bash
 
     SAC> r cdv.[nez]
-    SAC> begindevices xwindows      // 启动图像设备xwindows，简写为bd x
-    SAC> p                          // 绘图
+    SAC> begindevices xwindows      # 启动图像设备xwindows，简写为bd x
+    SAC> p                          # 绘图
     Waiting
     Waiting
-    SAC> enddevices xwindows        // 关闭图像设备xwindows，简写为ed x
+    SAC> enddevices xwindows        # 关闭图像设备xwindows，简写为ed x
     SAC> q
 
 上面的步骤稍显繁琐，SAC将这一流程进行了简化。在第一次执行绘图命令前，

@@ -79,7 +79,7 @@ NORMAL|REVERSED
 
 .. code:: bash
 
-    SAC> dg sub tele ntkl.[ne]          // 内存中的顺序是E分量先于N分量
+    SAC> dg sub tele ntkl.[ne]          # 内存中的顺序是E分量先于N分量
     SAC> lh cmpinc cmpaz
 
       FILE: /opt/sac/aux/datagen/teleseis/ntkl.e - 1
@@ -93,7 +93,7 @@ NORMAL|REVERSED
 
          cmpinc = 9.000000e+01
           cmpaz = 0.000000e+00
-    SAC> rot through 30                 // 顺时针旋转30度
+    SAC> rot through 30                 # 顺时针旋转30度
     SAC> lh
 
       FILE: /opt/sac/aux/datagen/teleseis/ntkl.e - 1

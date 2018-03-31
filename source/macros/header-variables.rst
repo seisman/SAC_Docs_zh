@@ -24,18 +24,18 @@
 
     SAC> fg seis
     SAC> w seis.SAC
-    SAC> r ./seis.SAC               // 注意"./"
-    SAC> lh kevnm o stla            // 查看三个头段变量的值
+    SAC> r ./seis.SAC               # 注意"./"
+    SAC> lh kevnm o stla            # 查看三个头段变量的值
 
          kevnm = K8108838
              o = -4.143000e+01
           stla = 4.800000e+01
-    SAC> echo on processed          // 打开回显，显示处理信息
-    SAC> ch kuser0 &1,kevnm&        // 通过文件号引用头段变量kevnm
-     ==>  ch kuser0 K8108838        // 实际执行的效果
-    SAC> ch user0 &./seis.SAC,o&    // 利用文件名，引用头段变量o
+    SAC> echo on processed          # 打开回显，显示处理信息
+    SAC> ch kuser0 &1,kevnm&        # 通过文件号引用头段变量kevnm
+     ==>  ch kuser0 K8108838        # 实际执行的效果
+    SAC> ch user0 &./seis.SAC,o&    # 利用文件名，引用头段变量o
      ==>  ch user0 -41.43
-    SAC> ch user1 &seis.SAC,stla&   // 文件名少了"./"
+    SAC> ch user1 &seis.SAC,stla&   # 文件名少了"./"
      ERROR 1363: Illegal data file list name: seis.SAC
     SAC> lh kuser0 user0 user1
 

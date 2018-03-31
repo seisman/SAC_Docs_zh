@@ -21,7 +21,7 @@ sss 的进入和退出
 
 .. code:: bash
 
-    SAC> sss   // 进入 sss 子程序
+    SAC> sss   # 进入 sss 子程序
     Signal Stacking Subprocess.
     SAC/SSS> addstack a.SAC weight 1 delay 20 seconds
 
@@ -33,12 +33,12 @@ sss 的进入和退出
 
 .. code:: bash
 
-    SAC> r a.SAC    // 读取了文件 a.SAC
-    SAC> sss   // 进入 sss 子程序
+    SAC> r a.SAC    # 读取了文件 a.SAC
+    SAC> sss   # 进入 sss 子程序
     Signal Stacking Subprocess.
-    SAC/SSS> addstack a.SAC delay 10 s    // 添加文件 a.SAC，并延迟 10s
-    SAC/SSS> addstack b.SAC               // 添加文件 b.SAC
-    SAC/SSS> liststack    // 列出叠加文件列表中的文件属性
+    SAC/SSS> addstack a.SAC delay 10 s    # 添加文件 a.SAC，并延迟 10s
+    SAC/SSS> addstack b.SAC               # 添加文件 b.SAC
+    SAC/SSS> liststack    # 列出叠加文件列表中的文件属性
 
      filename  weight      delayt      delayn     delayvm   polarity   distance
                                delayti     delayni      begin       end
@@ -60,18 +60,18 @@ sss 的进入和退出
 .. code:: bash
 
     SAC> funcgen impulse npts 10 delta 1 begin 0
-    // 生成一个脉冲函数，数据点数 10 个，采样间隔 1s， 头段 b 为 0
+    # 生成一个脉冲函数，数据点数 10 个，采样间隔 1s， 头段 b 为 0
     SAC> w a.SAC
     SAC> funcgen impulse npts 10 delta 1 begin 10
-    // 生成一个脉冲函数，数据点数 10 个，采样间隔 1s， 头段 b 为 10
+    # 生成一个脉冲函数，数据点数 10 个，采样间隔 1s， 头段 b 为 10
     SAC> w b.SAC
     SAC> sss
      Signal Stacking Subprocess.
-    SAC/SSS> zerostack         // 清除之前添加的文件及各种设置
+    SAC/SSS> zerostack         # 清除之前添加的文件及各种设置
     SAC/SSS> addstack a.SAC
     SAC/SSS> addstack b.SAC
-    SAC/SSS> timewindows 0 19    // 确定时窗，必选设定
-    SAC/SSS> sumstack    // 叠加波形
+    SAC/SSS> timewindows 0 19    # 确定时窗，必选设定
+    SAC/SSS> sumstack    # 叠加波形
 
 .. figure:: /images/stack-without-delay.*
    :alt: 不做动校正的叠加

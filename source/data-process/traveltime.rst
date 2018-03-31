@@ -21,12 +21,12 @@
 
 .. code:: bash
 
-    SAC> dg sub teleseis nykl.z     // 以nykl.z为例
-    SAC> lh evdp gcarc              // 查看震源深度和震中距
+    SAC> dg sub teleseis nykl.z     # 以nykl.z为例
+    SAC> lh evdp gcarc              # 查看震源深度和震中距
          evdp = 0.000000e+00
         gcarc = 3.841450e+01
-    // 利用某程序计算得到ak135模型下，P波走时为443.14秒，S波走时为799.05秒
-    // 若SAC文件的参考时间为发震时刻，则
+    # 利用某程序计算得到ak135模型下，P波走时为443.14秒，S波走时为799.05秒
+    # 若SAC文件的参考时间为发震时刻，则
     SAC> ch t0 443.14 t1 799.05 kt0 P kt1 S
     SAC> lh t0 kt0 t1 kt1
          t0 = 4.431400e+02

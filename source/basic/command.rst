@@ -11,7 +11,7 @@ SAC命令长什么样？
 .. code:: bash
 
     SAC> funcgen random delta 0.1 npts 1000
-    SAC> rmean; rtrend; taper                 // 一行内多个命令用分号隔开
+    SAC> rmean; rtrend; taper                 # 一行内多个命令用分号隔开
     SAC> write rand.SAC
 
 其中，\ ``funcgen``\ 、\ ``write``\ 、\ ``rmean``\ 、\ ``rtrend`` 和
@@ -67,7 +67,7 @@ SAC自带了英文的帮助文档，详细解释了每个命令的语法，可�
 
 .. code:: bash
 
-    SAC> help funcgen write   // 命令的简写是h fg w
+    SAC> help funcgen write   # 命令的简写是h fg w
 
 也可以直接查看 ``$SACHOME/aux/help`` 下的文档，或者查看本文档的
 命令部分。

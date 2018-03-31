@@ -11,9 +11,9 @@
 
 .. code:: bash
 
-    SAC> r *.SAC        // 读入全部的SAC数据
-    SAC> ppk p 5        // plotpk，每次绘制5个波形
-    // 若波形质量很差，则用t9标记
+    SAC> r *.SAC        # 读入全部的SAC数据
+    SAC> ppk p 5        # plotpk，每次绘制5个波形
+    # 若波形质量很差，则用t9标记
     SAC> wh
     SAC> q
 

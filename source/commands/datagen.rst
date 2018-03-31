@@ -98,9 +98,9 @@ Test Network (RSTN)的5个台站的中等周期和长周期数据（其中cpk台
 
 .. code:: bash
 
-    SAC> dg sub l cal.z    // 单个近震Z分量数据
-    SAC> dg sub r *.z      // 区域地震多台Z分量数据
-    SAC> dg sub t sdkl.?   // 远震的单台三分量数据
+    SAC> dg sub l cal.z    # 单个近震Z分量数据
+    SAC> dg sub r *.z      # 区域地震多台Z分量数据
+    SAC> dg sub t sdkl.?   # 远震的单台三分量数据
 
 生成一堆波形数据，并保存数据到磁盘中：
 

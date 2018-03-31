@@ -110,6 +110,6 @@ BUGS
        SAC> ch nzsec 50
        SAC> w 2.SAC
        SAC> r *.SAC
-       SAC> ppk            // 第一次绘图为relative模式
-       SAC> lh kztime      // 查看头段变量的值
-       SAC> ppk            // 第二次绘图为absolute模式
+       SAC> ppk            # 第一次绘图为relative模式
+       SAC> lh kztime      # 查看头段变量的值
+       SAC> ppk            # 第二次绘图为absolute模式

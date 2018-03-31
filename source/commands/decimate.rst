@@ -60,7 +60,7 @@ FILTER ON|OFF
 .. code:: bash
 
     SAC> r file1
-    SAC> decimate 7     // 减采样因子为7时FIR滤波器偶尔不稳定，慎用！
+    SAC> decimate 7     # 减采样因子为7时FIR滤波器偶尔不稳定，慎用！
     SAC> decimate 6
 
 头段变量

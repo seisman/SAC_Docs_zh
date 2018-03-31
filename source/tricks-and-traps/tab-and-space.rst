@@ -15,9 +15,9 @@ Tab与空格
 .. code:: bash
 
     sac << EOF
-        fg seis     // 此行行首有Tab，只是你看不见
-        w seis.sac  // 此行行首有Tab，只是你看不见
-        q           // 此行行首有Tab，只是你看不见
+        fg seis     # 此行行首有Tab，只是你看不见
+        w seis.sac  # 此行行首有Tab，只是你看不见
+        q           # 此行行首有Tab，只是你看不见
     EOF
 
 由于SAC命令前有Tab键，导致执行该脚本的结果如下：

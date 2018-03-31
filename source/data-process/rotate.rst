@@ -33,7 +33,7 @@ SAC提供了 :doc:`/commands/rotate`
      --------------
          cmpinc = 9.000000e+01
           cmpaz = 9.000000e+01
-    SAC> rotate to gcp              // 旋转到大圆路径
+    SAC> rotate to gcp              # 旋转到大圆路径
     SAC> lh cmpinc cmpaz
       FILE: ./ntkl.n - 1
      --------------
@@ -43,7 +43,7 @@ SAC提供了 :doc:`/commands/rotate`
      --------------
          cmpinc = 9.000000e+01
           cmpaz = 1.144047e+02
-    SAC> w ntkl.r ntkl.t            // 保存为R分量和T分量
+    SAC> w ntkl.r ntkl.t            # 保存为R分量和T分量
 
 在 :numref:`figure:rotate` 中，左图从上至下为N、E、Z分量，右图从上至下
 为R、T、Z分量。旋转到R、T分量后，可以很容易地识别出Rayleigh和Love波。

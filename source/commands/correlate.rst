@@ -109,9 +109,9 @@ TYPE TRIANGLE
 .. code:: bash
 
     SAC> r file1 file2
-    SAC> cor norm                                   // 归一化互相关
-    SAC> setbb cc (max &2,depmax (abs &2,depmin))   // 取互相关函数的极值
-                                                    // 作为互相关系数
+    SAC> cor norm                                   # 归一化互相关
+    SAC> setbb cc (max &2,depmax (abs &2,depmin))   # 取互相关函数的极值
+                                                    # 作为互相关系数
 
 头段变量
 --------

@@ -100,7 +100,7 @@ OVERWRITE ON|OFF
 
 .. code:: bash
 
-    SAC> sgf size scaled 0.1  // 10s的数据长度为1英寸
+    SAC> sgf size scaled 0.1  # 10s的数据长度为1英寸
 
 本例中，持续60秒的数据图形将有6英寸长，而持续600秒的数据将有60英寸长，
 过长的图形需要特殊的后期处理。
