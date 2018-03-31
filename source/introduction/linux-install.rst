@@ -1,9 +1,9 @@
 Linux 下安装 SAC
 ================
 
-Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包。
+Linux 下安装 SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包。
 对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法，要求
-读者了解Linux的一些基本概念和操作。
+读者了解 Linux 的一些基本概念和操作。
 
 安装二进制包
 ------------
@@ -12,10 +12,10 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
 ~~~~~~~~~~
 
 官方提供的二进制包中的可执行文件可以直接使用，在运行时需要用到几个动态
-链接库。大部分Linux发行版下，都默认安装了这几个动态链接库。若不幸没有
+链接库。大部分 Linux 发行版下，都默认安装了这几个动态链接库。若不幸没有
 安装或不确定有没有安装，可以通过如下命令安装所需的软件包。
 
-对于Ubuntu/Debian：
+对于 Ubuntu/Debian：
 
 .. code:: console
 
@@ -23,7 +23,7 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
     $ sudo apt-get install libc6 libsm6 libice6 libxpm4 libx11-6
     $ sudo apt-get install zlib1g libncurses5
 
-对于CentOS/Fedora/RHEL：
+对于 CentOS/Fedora/RHEL：
 
 .. code:: console
 
@@ -48,7 +48,7 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
 
 编译源码时需要安装若干软件包。
 
-对于Ubuntu/Debian系：
+对于 Ubuntu/Debian：
 
 .. code:: console
 
@@ -57,7 +57,7 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
     $ sudo apt-get install libncurses5-dev libsm-dev libice-dev
     $ sudo apt-get install libxpm-dev libx11-dev zlib1g-dev
 
-对于CentOS/Fedora/RHEL系：
+对于 CentOS/Fedora/RHEL：
 
 .. code:: console
 
@@ -83,7 +83,7 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
 配置变量
 --------
 
-向 ``~/.bashrc``  [1]_ 中加入如下语句以配置环境变量和SAC全局变量：
+向 ``~/.bashrc`` [1]_ 中加入如下语句以配置环境变量和 SAC 全局变量：
 
 .. code:: bash
 
@@ -97,16 +97,16 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
 
 其中，
 
--  ``SACHOME`` 为SAC的安装目录
--  ``SACAUX`` 目录中包含了SAC运行所需的辅助文件
--  ``PATH`` 为Linux系统环境变量
--  ``SAC_DISPLAY_COPYRIGHT`` 用于控制是否在启动SAC时显示版本和版权
-   信息，一般设置为1。在脚本中多次调用SAC时会重复显示版本和版权信息，
+-  ``SACHOME`` 为 SAC 的安装目录
+-  ``SACAUX`` 目录中包含了 SAC 运行所需的辅助文件
+-  ``PATH`` 为 Linux 系统环境变量
+-  ``SAC_DISPLAY_COPYRIGHT`` 用于控制是否在启动 SAC 时显示版本和版权
+   信息，一般设置为1。在脚本中多次调用 SAC 时会重复显示版本和版权信息，
    干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法
    可以参考 “:doc:`/call-in-script/index`\ ” 中的相关内容
 -  ``SAC_PPK_LARGE_CROSSHAIRS`` 用于控制震相拾取过程中光标的大小，
    在 “:doc:`/data-process/picking-phase`\ ” 时会用到
--  ``SAC_USE_DATABASE`` 用于控制是否允许将SAC格式转换为GSE2.0格式，
+-  ``SAC_USE_DATABASE`` 用于控制是否允许将 SAC 格式转换为 GSE2.0 格式，
    一般用不到该特性，故而设置其值为0
 
 修改完 ``~/.bashrc`` 后，执行以下命令使配置的环境变量生效：
@@ -118,7 +118,7 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
 启动SAC
 -------
 
-终端键入小写的sac [2]_ ，显示如下则表示SAC安装成功：
+终端键入小写的 sac [2]_\ ，显示如下则表示 SAC 安装成功：
 
 .. code:: console
 
@@ -129,7 +129,6 @@ Linux下安装SAC，可以直接使用官方提供的二进制包，也可以手
     SAC>
 
 .. [1] 某些发行版需要修改 ``~/.bash_profile``
-
-.. [2] Ubuntu的源里有一个名叫sac的软件，是用来显示登录账户的一些信息；CentOS的
-   源里也有一个名叫sac的软件，是CSS语法分析器的Java接口。所以一定不要试图用
-   发行版自带的软件包管理器安装sac！
+.. [2] Ubuntu 的源里有一个名叫 sac 的软件，是用来显示登录账户的一些信息；
+   CentOS 的源里也有一个名叫 sac 的软件，是 CSS 语法分析器的 Java 接口。
+   所以一定不要试图用发行版自带的软件包管理器安装 sac！

@@ -21,7 +21,7 @@ SAC/BRIS
     脚本方便用户自行在其他 Linux 系统下编译使用。该变种的功能是 SAC/IRIS 的
     超集，相对于 SAC/IRIS 的最主要扩展在于增强了宏语言的功能以及处理台阵数据的
     能力，以及支持直接读取 miniSEED 格式的数据文件。 其作者为
-    `George Helffrich`_ 。
+    `George Helffrich`_\ 。
 
 .. [1] 目前的 SAC/IRIS 中还可以看到一些与数据库特性相关的命令和选项，比如很多
    命令中的 commit、rollback、recalltrace 选项，这些选项的存在属于历史遗留问题，

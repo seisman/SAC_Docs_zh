@@ -9,5 +9,5 @@ SAC 简介
    variants
    request
    linux-install
-   mac-install
+   macOS-install
    maillist

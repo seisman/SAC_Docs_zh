@@ -4,7 +4,7 @@
 在 :doc:`history` 中已经说到，SAC 协议仅允许 IRIS 将 SAC 源码包及二进制包
 分发给地震学相关人员。所以想要从官方渠道获取 SAC 软件包，必须在 IRIS 网站上申请。
 
-SAC软件包申请地址： http://ds.iris.edu/ds/nodes/dmc/forms/sac/
+SAC软件包申请地址：http://ds.iris.edu/ds/nodes/dmc/forms/sac/
 
 申请的过程中需要注意如下几点：
 

@@ -122,8 +122,8 @@
 \captionsetup[table]{aboveskip=6pt, belowskip=-6pt}
 
 % 首行缩进
-\usepackage{indentfirst}
-\setlength{\parindent}{2em}
+%\usepackage{indentfirst}
+%\setlength{\parindent}{2em}
 
 % 页眉页脚
 % sphinx在每章首页使用plain
@@ -141,3 +141,7 @@
     \fancyhead[RE]{\rightmark}
     \fancyhead[LO]{\leftmark}
 }
+
+% sphinx default value:
+% \protected\def\sphinxcrossref#1{\emph{#1}}
+\protected\def\sphinxcrossref#1{#1}
