@@ -21,5 +21,5 @@ help:
 build: dirhtml latexpdf
 	cp $(BUILDDIR)/latex/SAC_Docs.pdf $(BUILDDIR)/dirhtml
 
-serve:
+serve: dirhtml
 	cd $(BUILDDIR)/dirhtml && python -m http.server
