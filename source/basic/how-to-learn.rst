@@ -31,7 +31,7 @@ SAC 初阶
 
 #. 理解地震数据处理流程，参见 :doc:`/data-process/index` 一章；
 #. 了解 :doc:`/fileformat/index`\ ，掌握常见的 :doc:`/fileformat/header-variables`\ ，
-   理解 :doc:`/fileformat/sac-time`\ ；
+   理解 :doc:`/fileformat/times`\ ；
 #. SAC 相关工具：:doc:`/tools/saclst`\ 、\ :doc:`/tools/pssac`\ ；
 
 SAC 进阶

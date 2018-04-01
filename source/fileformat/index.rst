@@ -7,4 +7,4 @@ SAC 文件格式
    binary-and-alphanumeric
    header-structure
    header-variables
-   sac-time
+   times
