@@ -18,5 +18,8 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-build: html latexpdf
-	cp $(BUILDDIR)/latex/SAC_Docs.pdf $(BUILDDIR)/html
+build: dirhtml latexpdf
+	cp $(BUILDDIR)/latex/SAC_Docs.pdf $(BUILDDIR)/dirhtml
+
+serve:
+	cd $(BUILDDIR)/dirhtml && python -m http.server
