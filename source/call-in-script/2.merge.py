@@ -9,46 +9,45 @@ import subprocess
 os.putenv("SAC_DISPLAY_COPYRIGHT", '0')
 
 if len(sys.argv) != 2:
-    sys.exit("python %s dirname" % sys.argv[0])
+    sys.exit("python {} dirname".format(sys.argv[0]))
 
 dir = sys.argv[1]
 
 os.chdir(dir)
 
-# 利用dict的key的不可重复性构建集合:
-#     dict的key定义为 NET.STA.LOC.CHN
-#     dict的value是文件名与key匹配的SAC文件数目
+# 利用 dict 的 key 的不可重复性构建集合:
+#     dict 的 key 定义为 NET.STA.LOC.CHN
+#     dict 的 value 是文件名与 key 匹配的 SAC 文件数目
 sets = {}
 for fname in glob.glob("*.SAC"):
-    net, sta, loc, chn = fname.split('.')[6:10]
-    key = '.'.join([net, sta, loc, chn])
+    key = '.'.join(fname.split('.')[6:10])
     if key not in sets:
         sets[key] = 1
     else:
         sets[key] += 1
 
-p = subprocess.Popen(['sac'], stdin=subprocess.PIPE)
+# prepare sac commands
 s = "wild echo off \n"
 to_del = []
 for key, value in sets.items():
-    # 仅当value大于1时才需要merge
+    # 仅当 value 大于1时才需要 merge
     if value == 1:
         continue
 
-    print("merge %s: %d traces" % (key, value))
-    # Python的glob返回值是乱序的，因而必须sort
+    print("merge {}: {} traces".format(key, value))
+    # Python 的 glob 返回值是乱序的，因而必须 sort
     traces = sorted(glob.glob('.'.join(['*', key, '?', 'SAC'])))
 
-    # 在SAC中使用通配符而不是使用@traces以避免命令行过长的问题
-    # merge不支持通配符
-    s += "r *.%s.?.SAC \n" % key    # SAC v101.6 or later
+    # 在 SAC 中使用通配符而不是使用 @traces 以避免命令行过长的问题
+    # merge 不支持通配符
+    s += "r *.{}.?.SAC \n".format(key)    # SAC v101.6 or later
     s += "merge \n"
-    s += "w %s \n" % traces[0]      # 以最早数据段的文件名保存
+    s += "w {} \n".format(traces[0])      # 以最早数据段的文件名保存
 
     to_del.extend(traces[1:])
 
 s += "q \n"
-p.communicate(s.encode())
+subprocess.Popen(['sac'], stdin=subprocess.PIPE).communicate(s.encode())
 
 # 删除多余的数据段
 for file in to_del:

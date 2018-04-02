@@ -1,5 +1,5 @@
 #!/bin/bash
-SAC_DISPLAY_COPYRIGHT=0
+export SAC_DISPLAY_COPYRIGHT=0
 
 sac << EOF
 fg seis

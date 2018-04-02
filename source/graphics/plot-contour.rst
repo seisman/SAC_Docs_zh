@@ -1,18 +1,15 @@
-.. _sec:contour:
-
 等值线图
 ========
 
-SAC中 :doc:`/commands/spectrogram`
-等命令可以生成IXYZ数据（即3D数据），
-这种数据需要用等值线图来展示。\ :doc:`/commands/contour`
-命令用于等值线，
+SAC 中 :doc:`/commands/spectrogram` 等命令可以生成 IXYZ 数据（即 3D 数据），
+这种数据需要用等值线图来展示。
+:doc:`/commands/contour` 命令用于等值线，
 :doc:`/commands/zcolors`\ 、\ :doc:`/commands/zlabels`\ 、\ :doc:`/commands/zlevels`\ 、
 :doc:`/commands/zlines`\ 、\ :doc:`/commands/zticks`
 分别用于控制等值线的颜色、 标签、间距、线型以及刻度。
 
-下面的例子中，读入了XYZ文件contourdata，从头段中找出Z数据的范围。
-选择等值线范围为 700 到 1150，增量为 25。
+下面的例子中，读入了 XYZ 文件 contourdata，从头段中找出Z数据的范围。
+选择等值线范围为 700 km 到 1150 km，增量为 25 km。
 
 选择包括四种线型的线型表，其中第一个为实线。这个列表将每四条等值线重复
 一次。然后给等值线图起了个名字，最后绘制出来:

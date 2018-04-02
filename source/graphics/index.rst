@@ -3,7 +3,7 @@ SAC 图像
 
 .. toctree::
 
-   intro-to-gui
+   gui
    begin-devices
    plot-commands
    plot-appearance

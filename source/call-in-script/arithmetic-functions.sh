@@ -1,11 +1,10 @@
 #!/bin/bash
-SAC_DISPLAY_COPYRIGHT=0
+export SAC_DISPLAY_COPYRIGHT=0
 
-declare -i var1 var2 var3 var4
+declare -i var1 var2
 var1=(1+2)*3
 var2=10/4
-var3=10/4
-echo $var1 $var2 $var3
+echo $var1 $var2
 
 sac << EOF
 echo on

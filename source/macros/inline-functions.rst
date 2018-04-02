@@ -1,17 +1,14 @@
 内联函数
 ========
 
-内联函数是SAC实现的一些函数，其可以在SAC命令中使用。在执行命令时，
+内联函数是 SAC 实现的一些函数，其可以在 SAC 命令中使用。在执行命令时，
 内联函数会首先被调用，内联函数的结果将替代命令中的内联函数的位置。
 
-SAC提供了如下几类内联函数：
+SAC 提供了如下几类内联函数：
 
 -  算术运算符；
-
 -  常规算术运算函数；
-
 -  字符串操作函数；
-
 -  其他函数；
 
 所有的内联函数的共同形式是：“``(func)``”，其中 ``func`` 为
@@ -39,7 +36,7 @@ SAC支持的操作符是包括：“``+  -  *  /  **``”。
 .. code:: bash
 
     SAC> echo on
-    SAC> setbb var1 4+7             # 忘记加括号了！"4+7"被当成了字符串
+    SAC> setbb var1 4+7             # 忘记加括号了！“4+7”被当成了字符串
      setbb var1 4+7
     SAC> setbb var2 (4+7)
      setbb var2 (4+7)
@@ -57,7 +54,7 @@ SAC支持的操作符是包括：“``+  -  *  /  **``”。
 常规算术运算函数
 ----------------
 
-SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 arg2 ...)``”。
+SAC 提供了20个常规算术运算函数，其基本形式为“``(func arg1 arg2 ...)``”。
 具体函数如 :numref:`table:regular-arithmetic-functions` 所示。
 
 .. _table:regular-arithmetic-functions:
@@ -143,9 +140,9 @@ SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 ar
      ==>  setbb var13 30
     SAC> setbb var14 (integer 3.11)
      ==>  setbb var14 3
-    SAC> setbb var15 (max 3.11 -1.5 5)  # maximum简写为max
+    SAC> setbb var15 (max 3.11 -1.5 5)  # maximum 简写为 max
      ==>  setbb var15 5
-    SAC> setbb var16 (min 3.11 -1.5 5)  # minimum简写为min
+    SAC> setbb var16 (min 3.11 -1.5 5)  # minimum 简写为 min
      ==>  setbb var16 -1.5
 
 为了对一组数据做归一化，首先要找到所有数据中的绝对最大值，如下：
@@ -166,7 +163,7 @@ SAC提供了20个常规算术运算函数，其基本形式为“``(func arg1 ar
 字符串操作函数
 --------------
 
-SAC提供了若干个函数用于字符串的处理，如 :numref:`table:string-operation-functions`
+SAC 提供了若干个函数用于字符串的处理，如 :numref:`table:string-operation-functions`
 所示：
 
 .. _table:string-operation-functions:
@@ -261,8 +258,8 @@ SAC提供了若干个函数用于字符串的处理，如 :numref:`table:string-
      bbday = 'Monday'
 
 当 ``reply`` 函数执行时，引号中的字符串将出现在屏幕上，提示用户
-输入。如果用户输入，SAC会将输入的字符串作为返回值，如果用户只是敲击
-回车键，SAC则会使用该默认值“MONDAY”。
+输入。如果用户输入，SAC 会将输入的字符串作为返回值，如果用户只是敲击
+回车键，SAC 则会使用该默认值“MONDAY”。
 
 其他函数
 --------
@@ -270,8 +267,8 @@ SAC提供了若干个函数用于字符串的处理，如 :numref:`table:string-
 这类函数目前只有一个：\ ``gettime``\ ，其语法为 “``(gettime max``\ min
 [value])\|”。
 
-``gettime`` 函数用于返回数据中首先出现大于或小于value的时间相对于
-文件参考时刻的相对时间；若没有指定value，\ ``max`` 会返回文件中第一
+``gettime`` 函数用于返回数据中首先出现大于或小于 value 的时间相对于
+文件参考时刻的相对时间；若没有指定 value，\ ``max`` 会返回文件中第一
 个最大值的相对时间，\ ``min`` 会返回文件中第一个最小值的相对时间。
 
 对于所有的文件有一个最大振幅，要找到这些文件中第一个文件中第一次大于

@@ -1,27 +1,24 @@
 黑板变量
 ========
 
-既然是SAC编程，就必然少不了变量，SAC中的变量称之为黑板变量。
+既然是 SAC 编程，就必然少不了变量，SAC 中的变量称之为黑板变量。
 
-黑板变量是SAC中用于临时储存和取回信息而设计的。黑板变量不需要声明即可
-直接使用，可以用 :doc:`/commands/setbb` 和
-:doc:`/commands/evaluate` 命令给 黑板变量赋值，用
-:doc:`/commands/getbb` 获取黑板变量的值。也可以用
-:doc:`/commands/writebbf`
-将黑板变量保存在磁盘文件中，然后使用
-:doc:`/commands/readbbf` 命令重新将这些变量读入SAC中。
+黑板变量是 SAC 中用于临时储存和取回信息而设计的。黑板变量不需要声明即可
+直接使用，可以用 :doc:`/commands/setbb` 和 :doc:`/commands/evaluate` 命令
+给黑板变量赋值，用 :doc:`/commands/getbb` 获取黑板变量的值。
+也可以用 :doc:`/commands/writebbf` 将黑板变量保存在磁盘文件中，
+然后使用 :doc:`/commands/readbbf` 命令重新将这些变量读入SAC中。
 
-引用黑板变量的值的方式为：“``%bbvname%``”，其中 ``bbvname``
-为黑板变量的变量名。
+引用黑板变量的值的方式为：“``%bbvname%``”，其中 ``bbvname`` 为黑板变量的变量名。
 
 .. code:: bash
 
     SAC> echo on processed
     SAC> fg seis
     SAC> p
-    SAC> setbb low 2.45         # 黑板变量low=2.45
-    SAC> setbb high 4.94        # 黑板变量high=4.94
-    SAC> bp c %low% %high%      # 引用黑板变量low和high的值作为滤波的频带
+    SAC> setbb low 2.45         # 黑板变量 low=2.45
+    SAC> setbb high 4.94        # 黑板变量 high=4.94
+    SAC> bp c %low% %high%      # 引用黑板变量 low 和 high 的值作为滤波的频带
      ==>  bp c 2.45 4.94        # echo on processed 显示代入值后的命令
     SAC> p
     SAC> getbb low high         # 查看黑板变量的值

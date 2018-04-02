@@ -10,7 +10,7 @@ r $sta.n $sta.e
 rotate to gcp
 w $sta.r $sta.t
 r $sta.n $sta.e $sta.z
-qdp 300
+qdp 900
 fileid type name location ul
 ylim -8 8
 ydiv inc 5
