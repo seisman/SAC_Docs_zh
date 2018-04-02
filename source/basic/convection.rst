@@ -13,8 +13,7 @@
 
 示例如下::
 
-    BandPas BUtter|BEssel|C1|C2 Corners v1 v2 Npoles n Passes n
-        Tranbw v Atten v
+    BandPas BUtter|BEssel|C1|C2 Corners v1 v2 Npoles n Passes n Tranbw v Atten v
 
 需要特别说明的是，命令语法中选项的简写形式是在保证不产生歧义下的前提下
 所允许的\ **最简形式**\ 。本例中，\ ``CORNERS`` 的最简形式为首字符 ``C``\ ，
