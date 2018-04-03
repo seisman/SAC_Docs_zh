@@ -46,7 +46,8 @@ foreach my $key (keys %sets) {
     my (undef, $cmpaz_E) = split m/\s+/, `saclst cmpaz f $E`;
     my (undef, $cmpaz_N) = split m/\s+/, `saclst cmpaz f $N`;
     my $cmpaz_delta = abs($cmpaz_E - $cmpaz_N);
-    unless ((abs($cmpaz_delta - 90) <= 0.01) or (abs($cmpaz_delta - 270) <= 0.01)) {
+    unless ((abs($cmpaz_delta - 90) <= 0.01) or
+        (abs($cmpaz_delta - 270) <= 0.01)) {
         warn "$key: $E $N are not orthogonal!\n";
         next;
     }

@@ -10,9 +10,9 @@ os.putenv("SAC_DISPLAY_COPYRIGHT", '0')
 if len(sys.argv) != 2:
     sys.exit("Usage: python {} dirname\n".format(sys.argv[0]))
 
-dir = sys.argv[1]
+dirname = sys.argv[1]
 
-os.chdir(dir)
+os.chdir(dirname)
 for fname in glob.glob("*.SAC"):
     net, sta, loc, chn = fname.split('.')[6:10]
     os.rename(fname, "{}.{}.{}.{}.SAC".format(net, sta, loc, chn))

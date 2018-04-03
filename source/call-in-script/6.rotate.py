@@ -42,17 +42,23 @@ for key in sets:
         continue
 
     # 检查水平分量是否正交
-    Ecmpaz = subprocess.check_output(['saclst', 'cmpaz', 'f', E]).decode().split()[1]
-    Ncmpaz = subprocess.check_output(['saclst', 'cmpaz', 'f', N]).decode().split()[1]
+    cmd = 'saclst cmpaz f {}'.format(E).split()
+    Ecmpaz = subprocess.check_output(cmd).decode().split()[1]
+    cmd = 'saclst cmpaz f {}'.format(N).split()
+    Ncmpaz = subprocess.check_output(cmd).decode().split()[1]
     cmpaz_delta = abs(float(Ecmpaz) - float(Ncmpaz))
-    if not (abs(cmpaz_delta-90)<=0.01 or abs(cmpaz_delta-270)<=0.01):
-        print("%s: cmpaz1=%s, cmpaz2=%s are not orthogonal!" % (key, Ecmpaz, Ncmpaz))
+    if not (abs(cmpaz_delta-90) <= 0.01 or abs(cmpaz_delta-270) <= 0.01):
+        print("{}: cmpaz1={}, cmpaz2={} "
+              "are not orthogonal!".format(key, Ecmpaz, Ncmpaz))
         continue
 
     # 检查B, E, DELTA
-    Zb, Ze, Zdelta = subprocess.check_output(['saclst', 'b', 'e', 'delta', 'f', Z]).decode().split()[1:]
-    Eb, Ee, Edelta = subprocess.check_output(['saclst', 'b', 'e', 'delta', 'f', E]).decode().split()[1:]
-    Nb, Ne, Ndelta = subprocess.check_output(['saclst', 'b', 'e', 'delta', 'f', N]).decode().split()[1:]
+    cmd = 'saclst b e delta f {}'.format(Z).split()
+    Zb, Ze, Zdelta = subprocess.check_output(cmd).decode().split()[1:]
+    cmd = 'saclst b e delta f {}'.format(E).split()
+    Eb, Ee, Edelta = subprocess.check_output(cmd).decode().split()[1:]
+    cmd = 'saclst b e delta f {}'.format(N).split()
+    Nb, Ne, Ndelta = subprocess.check_output(cmd).decode().split()[1:]
 
     if not (float(Zdelta) == float(Edelta) and float(Zdelta) == float(Ndelta)):
         print("%s: delta not equal!" % key)

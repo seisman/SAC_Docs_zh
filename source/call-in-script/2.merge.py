@@ -11,9 +11,9 @@ os.putenv("SAC_DISPLAY_COPYRIGHT", '0')
 if len(sys.argv) != 2:
     sys.exit("python {} dirname".format(sys.argv[0]))
 
-dir = sys.argv[1]
+dirname = sys.argv[1]
 
-os.chdir(dir)
+os.chdir(dirname)
 
 # 利用 dict 的 key 的不可重复性构建集合:
 #     dict 的 key 定义为 NET.STA.LOC.CHN
