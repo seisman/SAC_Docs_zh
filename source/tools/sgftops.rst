@@ -1,19 +1,17 @@
-.. _sec:sgftops:
-
 sgftops
 =======
 
-SGF格式是SAC自定义的图像文件格式，转换到常见的其他图像格式，需要使用
+SGF 格式是 SAC 自定义的图像文件格式，转换到常见的其他图像格式，需要使用
 转换工具 ``sgftops``\ 。
 
-``sgftops`` 可以将SGF格式的文件转换为PS格式。其用法如下：
+``sgftops`` 可以将 SGF 格式的文件转换为 PS 格式。其用法如下：
 
 .. code:: console
 
     $ sgftops
     Usage: sgftops sgf_file ps_file [line_width scale_id]
-        sgf_file   :  SGF文件名
-        ps_file    :  PS文件名
+        sgf_file   :  SGF 文件名
+        ps_file    :  PS 文件名
         line_width :  图像线宽，可以取1,1.5,2等等
         scale_id   :    - i : landscape模式加上文件id
                         - s : 对图像进行平移、旋转、缩放
@@ -33,6 +31,5 @@ SGF格式是SAC自定义的图像文件格式，转换到常见的其他图像�
     rotation angle: 0
     scale........ : 0.75
 
-``sgftoeps`` 和 ``sgftox`` 通过调用 ``sgftops``\ ，将sgf
-文件转换为eps文件或直接显示在图形窗口中，这二者均依赖于
-``ghostscript``\ ， 不再多说。
+``sgftoeps`` 和 ``sgftox`` 通过调用 ``sgftops``\ ，将 sgf 文件转换为 eps 文件
+或直接显示在图形窗口中，这二者均依赖于 ``ghostscript``\ ， 不再多说。

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void distaz(double, double, float*, float*, int,
-        float*, float*, float*, float*, int*);
+            float*, float*, float*, float*, int*);
 
 int main() {
     float evla, evlo, stla, stlo;

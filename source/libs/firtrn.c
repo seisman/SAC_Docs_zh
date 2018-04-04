@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define NPTS 1000
+
 float *hilbert(float *in, int npts);
+
 int main(){
     float data[NPTS];
     float *hdata;
