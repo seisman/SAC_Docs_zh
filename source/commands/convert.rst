@@ -26,8 +26,7 @@ OVER
     覆盖输入文件
 
 format
-    可以取 ``SAC`` 或 ``ALPHA`` ，分别表示二进制格式
-    和字母数字格式的SAC文件
+    可以取 ``SAC`` 或 ``ALPHA``\ ，分别表示二进制格式和字母数字格式的SAC文件
 
 缺省值
 ------
@@ -40,6 +39,5 @@ format
 ----
 
 该命令将单个文件从一种格式转换为另一种格式。该命令已经逐渐被
-:doc:`/commands/read`  和 :doc:`/commands/write` 
-命令所取代，\ ``convert`` 命令已经不再需要，
-保留该命令只是为了兼容性考虑。
+:doc:`/commands/read`  和 :doc:`/commands/write` 命令所取代，
+``convert`` 命令已经不再需要，保留该命令只是为了兼容性考虑。

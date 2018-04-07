@@ -4,7 +4,7 @@ macro
 概要
 ----
 
-执行SAC宏文件
+执行 SAC 宏文件
 
 语法
 ----
@@ -17,7 +17,7 @@ macro
 ----
 
 name
-    要执行的SAC宏文件名
+    要执行的 SAC 宏文件名
 
 arguments
     宏文件参数

@@ -4,7 +4,7 @@ report
 概要
 ----
 
-报告SAC中的各参数的当前状态
+报告 SAC 中的各参数的当前状态
 
 语法
 ----
@@ -30,13 +30,13 @@ DEVICES
     当前系统上可用的图形设备
 
 FILEID
-    当前文件ID显示属性
+    当前文件 ID 显示属性
 
 GTEXT
     当前图形文本属性
 
 HPF
-    HYPO震相拾取文件名
+    HYPO 震相拾取文件名
 
 LINE
     当前线型属性
@@ -57,21 +57,21 @@ TITLE
     当前绘制标题属性
 
 XLABEL
-    当前x轴标签属性
+    当前 X 轴标签属性
 
 XLIM
-    当前x轴范围
+    当前 X 轴范围
 
 YLABEL
-    当前y轴标签属性
+    当前 Y 轴标签属性
 
 YLIM
-    当前y轴范围
+    当前 Y 轴范围
 
 说明
 ----
 
-该命令会报告SAC的某些选项的当前值，并将其值打印到终端。
+该命令会报告 SAC 的某些选项的当前值，并将其值打印到终端。
 
 示例
 ----
@@ -80,7 +80,6 @@ YLIM
 
 .. code:: bash
 
-    是
     SAC> report color
      COLOR option is ON
      DATA color is YELLOW
@@ -88,7 +87,7 @@ YLIM
      SKELETON color is BLUE
      BACKGROUND color is NORMAL
 
-为了获取HYPO文件名：
+为了获取 HYPO 文件名：
 
 .. code:: bash
 

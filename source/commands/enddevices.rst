@@ -20,7 +20,7 @@ ALL
     关闭所有图像设备
 
 SGF
-    SAC图形文件设备
+    SAC 图形文件设备
 
 XWINDOWS
     X Window 图像窗口系统

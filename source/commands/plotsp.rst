@@ -29,7 +29,7 @@ RL|IM|AM|PH
     只绘制实部/虚部/振幅/相位分量
 
 LINLIN|LINLOG|LOGLIN|LOGLOG
-    设置x-y轴为线型还是对数型，与单独的 :doc:`/commands/linlin` 
+    设置 x-y 轴为线型还是对数型，与单独的 :doc:`/commands/linlin`
     等命令区分开
 
 缺省值
@@ -42,7 +42,7 @@ LINLIN|LINLOG|LOGLIN|LOGLOG
 说明
 ----
 
-SAC数据文件可能包含时间序列文件或谱文件，\ ``IFTYPE`` 决定文件所有
+SAC 数据文件可能包含时间序列文件或谱文件，\ ``IFTYPE`` 决定文件所有
 哪种类型。多数绘图命令只能对时间序列文件起作用，这个命令则可以绘制谱文件。
 
 你可以使用这个命令绘制一或两个分量。每一个分量绘制在一张图上。你也可以设

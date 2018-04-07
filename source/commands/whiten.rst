@@ -32,12 +32,12 @@ n
 ----
 
 该命令对数据中加入白噪声，以平滑输入时间序列的频谱。在谱相关命令（比如
-子程序SPE中的命令、\ ``transfer``\ 、\ ``spectrogram``\ ）之前执行，
+子程序 SPE 中的命令、\ ``transfer``\ 、\ ``spectrogram``\ ）之前执行，
 可以减少频谱值的动态范围，提高了对地震数据高频操作的精度。
 
-``whiten`` 可以在SPE子程序内部调用，也可以在SAC主程序中调用。 SPE中的
-``whiten`` 和主程序中的 ``whiten`` ，阶数是相互独立的， 即在主程序中修改
-``whiten`` 的阶数，不会影响SPE中 ``whiten`` 的
-阶数。与此同时，主程序中的 ``whiten`` 命令与 ``transfer`` 命令的
-``prewhiten`` 选项共用一个阶数；SPE中 ``whiten`` 命令与SPE中的 ``cor``
+``whiten`` 可以在 SPE 子程序内部调用，也可以在 SAC 主程序中调用。SPE 中的
+``whiten`` 和主程序中的 ``whiten``\ ，阶数是相互独立的，即在主程序中修改
+``whiten`` 的阶数，不会影响 SPE 中 ``whiten`` 的阶数。
+与此同时，主程序中的 ``whiten`` 命令与 ``transfer`` 命令的
+``prewhiten`` 选项共用一个阶数；SPE 中 ``whiten`` 命令与 SPE 中的 ``cor``
 命令的 ``prewhiten`` 选项共用一个阶数。

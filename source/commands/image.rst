@@ -20,8 +20,7 @@ COLOR|GREY
     绘制彩图或者灰度图
 
 BINARY|FULL
-    绘图时所有正值是一个颜色，所有负值是另一种颜色，
-    或者根据数据值不同变换颜色
+    绘图时所有正值是一个颜色，所有负值是另一种颜色，或者根据数据值不同变换颜色
 
 缺省值
 ------
@@ -35,17 +34,15 @@ BINARY|FULL
 
 该命令允许用户用SAC三维数据绘制彩图或灰度图。
 
-三维数据可以用
-:doc:`/commands/spectrogram` 、:doc:`/commands/sonogram`  或
-:doc:`/commands/bbfk`
-命令产生，也可以自己生成SAC格式的三维数据。可以使用
-:doc:`/commands/xlim`  和 :doc:`/commands/ylim`
-以控制要显示的绘图效果，也可以 使用其他命令对数据做振幅上的操作。
+三维数据可以用 :doc:`/commands/spectrogram`\ 、\ :doc:`/commands/sonogram` 或
+:doc:`/commands/bbfk` 命令产生，也可以自己生成 SAC 格式的三维数据。可以使用
+:doc:`/commands/xlim` 和 :doc:`/commands/ylim` 以控制要显示的绘图效果，也可以
+使用其他命令对数据做振幅上的操作。
 
 示例
 ----
 
-以SAC v101.5c自带的contourdata为例：
+以 SAC v101.5c 自带的 contourdata 为例：
 
 .. code:: bash
 
@@ -53,11 +50,11 @@ BINARY|FULL
     SAC> image
 
 .. figure:: /images/image.*
-   :alt: image示意图
+   :alt: image 示意图
    :width: 90.0%
    :align: center
 
-   image示意图
+   image 示意图
 
 头段变量
 --------

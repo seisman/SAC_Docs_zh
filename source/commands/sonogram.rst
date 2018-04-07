@@ -18,7 +18,7 @@ sonogram
 ----
 
 WINDOW v
-    设置滑动数据窗的长度为 ``v`` 秒，窗长决定了FFT的尺寸
+    设置滑动数据窗的长度为 ``v`` 秒，窗长决定了 FFT 的尺寸
 
 SLICE v
     设置数据滑动间隔为 ``v`` 秒，对每个滑动间隔将产生一个频谱图线
@@ -59,7 +59,7 @@ COLOR|GRAY
     sonogram window 2 slice 1 method mem order 100 ymin 0 ymax fnyquist
         fmin 2.0 fmax 6.0 full color
 
-此处 ``fnyquist`` 代表Nyquist采样频率。
+此处 ``fnyquist`` 代表 Nyquist 采样频率。
 
 说明
 ----

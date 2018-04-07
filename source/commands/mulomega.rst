@@ -20,8 +20,7 @@ mulomega
 
 .. math:: \mathcal{F}[f'(x)]= i \omega \mathcal{F}[f(x)]
 
-
-其中\ :math:`\omega = 2 \pi f`\ ，即函数微分在频率域可以用简单的乘法来表示。
+其中 :math:`\omega = 2 \pi f` ，即函数微分在频率域可以用简单的乘法来表示。
 
 该命令仅可对谱文件进行操作，谱文件可以是振幅-相位型或实部-虚部型。
 

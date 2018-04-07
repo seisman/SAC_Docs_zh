@@ -4,7 +4,7 @@ yvport
 概要
 ----
 
-定义Y轴的视口
+定义 Y 轴的视口
 
 语法
 ----
@@ -32,4 +32,4 @@ yvmax
 说明
 ----
 
-参考 :doc:`/commands/xvport`  命令的说明。
+参考 :doc:`/commands/xvport` 命令的说明。

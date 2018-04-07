@@ -51,12 +51,10 @@ TVM v1 v2
     定义一/二个参考时间
 
 VAPPI v
-    设置视速度增量为v。每次 :doc:`/sss/incrementstack` 
-    命令执行时视速度增加v
+    设置视速度增量为v。每次 :doc:`/sss/incrementstack` 命令执行时视速度增加v
 
 TOVMI v
-    设置时间轴截距的增量为v。每次 :doc:`/sss/incrementstack` 
-    命令执行时视速度增加v
+    设置时间轴截距的增量为v。每次 :doc:`/sss/incrementstack` 命令执行时视速度增加v
 
 缺省值
 ------
@@ -69,7 +67,10 @@ TOVMI v
 说明
 ----
 
-第一个速度模型用于计算某个特定震相的动态台站延迟。在信号叠加(:doc:`/sss/sumstack` )、绘图叠加图(:doc:`/sss/plotstack` )、绘制剖面图(:doc:`/sss/plotrecordsection` )时会使用该模型。第二个速度模型用于在绘图剖面图时显示相对于第二震相的延迟。这两个模型的参数可以很容易的进行交换。
+第一个速度模型用于计算某个特定震相的动态台站延迟。
+在信号叠加（\ :doc:`/sss/sumstack`\ )、绘图叠加图（\ :doc:`/sss/plotstack`\ ）、
+绘制剖面图（\ :doc:`/sss/plotrecordsection`\ ）时会使用该模型。第二个速度
+模型用于在绘图剖面图时显示相对于第二震相的延迟。这两个模型的参数可以很容易的进行交换。
 
 可以使用两种速度模型，即折射波速度模型：
 
@@ -82,16 +83,14 @@ TOVMI v
 这些速度模型延迟可以通过多种方式得到：
 
 -  直接输入VAPP、TOVM、TVM(1)
-
 -  输入DVM(1)、TVM(1)以及VAPP或TOVM，SAC自动计算所需的变量以保证在距离DVM(1)处时间延迟为零
-
 -  输入DVM(1)、TVM(1)、DVM(2)和TVM(2)。SAC将计算VAPP和TOVM，以保证在距离DVM(1)处的时间延迟为零
 
 示例
 ----
 
-设置第一个叠加速度模型为折射波模型，视速度为 6.5，让SAC
-自动计算TOVM以使得 200km处的时间延迟为零：
+设置第一个叠加速度模型为折射波模型，视速度为 6.5 km/s，让SAC 自动计算 TOVM
+以使得 200 km 处的时间延迟为零：
 
 .. code:: bash
 

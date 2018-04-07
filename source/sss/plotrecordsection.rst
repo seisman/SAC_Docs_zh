@@ -27,7 +27,8 @@ LABELS headerfield
     打开标签选项，病设置头段变量名
 
 ORIGIN DEFAULT|REVERSED
-    在Portrait模式中，距离沿着Y轴，默认情况下距离原点位于左上角。在landscape模式下，距离沿着X轴，默认情况下原点位于左下角。
+    在 Portrait 模式中，距离沿着 Y 轴，默认情况下距离原点位于左上角。
+    在 landscape 模式下，距离沿着 X 轴，默认情况下原点位于左下角。
 
 REFERENCELINE ON|OFF
     开启/关闭参考线选项。若打开，则每个文件在距离属性值对应的地方绘制一条垂直虚线
@@ -48,11 +49,11 @@ REDUCED ON|OFF|VELOCITY vel|PHASE phase
     reduced走时曲线。可以指定reduce速度或者一个参考震相
 
 ORIENT PORTRAIT|LANDSCAPE
-    portrait模式中，水平轴为时间，纵轴为震中距；landscape模式下，水平轴为震中距，垂直轴为时间
+    portrait 模式中，水平轴为时间，纵轴为震中距；
+    landscape 模式下，水平轴为震中距，垂直轴为时间
 
 TTIME ON|OFF|DEFAULT|TEXT
-    绘制走时曲线。需要首先用 :doc:`/sss/traveltime`
-    命令计算走时曲线
+    绘制走时曲线。需要首先用 :doc:`/sss/traveltime` 命令计算走时曲线
 
 XLABEL ON|OFF|DEFAULT|TEXT
     打开/关闭/设置X轴标签
@@ -71,19 +72,17 @@ YLABEL ON|OFF|DEFAULT|TEXT
 说明
 ----
 
-该命令将利用叠加文件列表中绘制剖面图。在portrait模式下，X轴为时间，Y轴为震中距，
-在landscape模式下则交换XY轴。每个文件的零振幅将会画在距离轴上对应的震中距处。
+该命令将利用叠加文件列表中绘制剖面图。在 portrait 模式下，X 轴为时间，Y 轴为震中距，
+在 landscape 模式下则交换 XY 轴。每个文件的零振幅将会画在距离轴上对应的震中距处。
 
 为了能够正确绘图，叠加列表中的所有文件必须定义震中距属性，该属性可以来自于文件
-头段，也可以在
-:doc:`/sss/globalstack` 、:doc:`/sss/addstack` 、:doc:`/sss/changestack`
-等命令的DISTANCE选项中定义。
+头段，也可以在 :doc:`/sss/globalstack`\ 、\ :doc:`/sss/addstack`\ 、\
+:doc:`/sss/changestack` 等命令的 DISTANCE 选项中定义。
 
-:doc:`/sss/distancewindow`  和 :doc:`/sss/timewindow`
-命令可以控制要显示的数据窗。 :doc:`/sss/distanceaxis`  和
-:doc:`/sss/timeaxis`  命令控制横纵轴的尺寸。
-:doc:`/sss/velocitymodel`  定义了速度模型，用于计算动态延迟。
-:doc:`/sss/velocityroset`  命令用于控制速度rosette的显示效果。
+:doc:`/sss/distancewindow` 和 :doc:`/sss/timewindow` 命令可以控制要显示的数据窗。
+:doc:`/sss/distanceaxis` 和 :doc:`/sss/timeaxis` 命令控制横纵轴的尺寸。
+:doc:`/sss/velocitymodel` 定义了速度模型，用于计算动态延迟。
+:doc:`/sss/velocityroset` 命令用于控制速度rosette的显示效果。
 
 光标模式
 --------
@@ -100,4 +99,4 @@ YLABEL ON|OFF|DEFAULT|TEXT
 SAC会自动计算视速度，显示在输出设备上并保持到黑板变量vapp中。可以多次设置v2，但
 只有最后一次的值会保存到黑板变量中。
 
-除了c1、c2、v1、v2之外，光标模式下还有一个命令，即 ``q`` ，用于退出光标模式。
+除了c1、c2、v1、v2之外，光标模式下还有一个命令，即 ``q``\ ，用于退出光标模式。

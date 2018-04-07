@@ -20,7 +20,7 @@ evaluate
     ADD|SUBTRACT|MULTIPLY|DIVIDE|POWER|SQRT|EXP|ALOG|ALOG10|
     SIN|ASIN|COS|ACOS|TAN|ATAN|EQ|NE|LE|GE|LT|GT
 
-其中， ``ADD|SUBTRACT|MULTIPLY|DIVIDE|POWER`` 可以分别用
+其中，\ ``ADD|SUBTRACT|MULTIPLY|DIVIDE|POWER`` 可以分别用
 ``+``\ 、\ ``-``\ 、\ ``*``\ 、\ ``/``\ 、\ ``**`` 替代。
 
 输入
@@ -30,10 +30,10 @@ TO TERM
     结果写入终端
 
 TO name
-    结果写入黑板变量name
+    结果写入黑板变量 name
 
 v
-    浮点数或整数。SAC中所有的运算都是浮点运算，整数会首先转换为浮点型
+    浮点数或整数。SAC 中所有的运算都是浮点运算，整数会首先转换为浮点型
 
 op
     算术或逻辑操作符
@@ -51,7 +51,7 @@ op
 这个命令允许你对算术或逻辑表达式求值。算术表达式可以是包含多个操作符的
 复合表达式，在这种情况下表达式由左向右计算，不支持嵌套功能。逻辑表达式
 只能包含一个操作符。计算结果可以写入用户终端或者指定的黑板变量。你可以
-通过 :doc:`/commands/getbb`  命令使用该黑板变量的值。
+通过 :doc:`/commands/getbb` 命令使用该黑板变量的值。
 
 示例
 ----

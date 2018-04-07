@@ -45,7 +45,7 @@ MARKALL OFF
     只标记光标位置所对应的震相到时
 
 SAVELOCS ON|OFF
-    是否将 ``L`` 命令（ :numref:`table:plotpk-commands` ）拾取的位置保存
+    是否将 ``L`` 命令（\ :numref:`table:plotpk-commands`\ ）拾取的位置保存
     到黑板变量中
 
 缺省值
@@ -59,16 +59,15 @@ SAVELOCS ON|OFF
 ----
 
 执行该命令后，即进入 ``ppk`` 模式，可用于手动拾取震相。在 ``ppk``
-模式下，键盘的输入将被解释为ppk命令（ :numref:`table:plotpk-commands` ）。
+模式下，键盘的输入将被解释为 ppk 命令（\ :numref:`table:plotpk-commands`\ ）。
 详情请参考 :doc:`/data-process/picking-phase` 一节。
 
 ``PERPLOT`` 选项用于控制每张图上显示的文件数目，在标记三分量数据时
 通常设置为“``p 3``”，使得一次显示一个台站的三分量数据。
 
-在一张图上绘制多个波形时，所有波形共用X轴，此时存在 ``absolute`` 和
+在一张图上绘制多个波形时，所有波形共用 X 轴，此时存在 ``absolute`` 和
 ``relative`` 两种绘图模式。在 ``absolute`` 模式下，所有波形将
-按照其绝对时刻对齐，即X轴表示对于\ **某个固定参考时刻**\ 的秒数；在
-``relative``
+按照其绝对时刻对齐，即X轴表示对于\ **某个固定参考时刻**\ 的秒数；在 ``relative``
 模式下，所有波形将按照自己的参考时刻对齐，即X轴表示相对于\ **各自参考时刻**\ 的
 秒数。
 
@@ -83,20 +82,16 @@ SAVELOCS ON|OFF
 
 -  ``NLOCS``\ ：每次执行 ``ppk`` 命令时，该变量初始化为0， 每使用 ``L``
    命令拾取一次光标位置，其值加1
-
--  ``XLOCn``\ ：保存第 ``n`` 次光标拾取的位置的X值；若参考 时刻
+-  ``XLOCn``\ ：保存第 ``n`` 次光标拾取的位置的X值；若参考时刻
    ``kzdate`` 和 ``kztime`` 有定义，则 ``XLOCn``
    保存绝对时刻的值，否则保存时间偏移的秒数
-
 -  ``YLOCn``\ ：保存第 ``n`` 次光标拾取的位置的Y值
 
 BUGS
 ----
 
 -  ``BELL`` 选项在某些平台上不可用（v101.6a）
-
 -  ``REFERENCE`` 选项无效（v101.6a）
-
 -  按照说明文档，绘图时默认使用 ``absolute`` 模式，但似乎代码存在
    Bug。某些情况下默认使用 ``relative`` 模式，但在查看若干头段变量
    之后再绘图，则会使用 ``absolute`` 模式（v101.6a）
@@ -110,6 +105,6 @@ BUGS
        SAC> ch nzsec 50
        SAC> w 2.SAC
        SAC> r *.SAC
-       SAC> ppk            # 第一次绘图为relative模式
+       SAC> ppk            # 第一次绘图为 relative 模式
        SAC> lh kztime      # 查看头段变量的值
-       SAC> ppk            # 第二次绘图为absolute模式
+       SAC> ppk            # 第二次绘图为 absolute 模式

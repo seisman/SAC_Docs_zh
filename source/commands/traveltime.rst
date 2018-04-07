@@ -17,8 +17,7 @@ traveltime
 ----
 
 MODEL
-    预定义的速度模型，可以取 ``iasp91`` 或 ``ak135``\ ， 缺省值为
-    ``为iasp91``
+    预定义的速度模型，可以取 ``iasp91`` 或 ``ak135``\ ，缺省值为 ``iasp91``
 
 PICKS
     ``number``\ 的取值为0到9，表明将第一个震相的到时存储到对应的头段
@@ -30,11 +29,11 @@ PHASE
     信息将被写入头段 ``Tn`` 和 ``KTn`` 中
 
 VERBOSE|QUIET
-    若使用 ``VERBOSE``\ ，则会在终端输出震相走时及其相对于
-    文件参考时刻的秒数；若使用 ``QUIET``\ ，则不在屏幕上显示震相走时信息
+    若使用 ``VERBOSE``\ ，则会在终端输出震相走时及其相对于文件参考时刻的秒数；
+    若使用 ``QUIET``\ ，则不在屏幕上显示震相走时信息
 
 M|KM
-    头段变量 ``evdp`` 的单位为 或者 km
+    头段变量 ``evdp`` 的单位为 m 或者 km
 
 缺省值
 ------
@@ -46,11 +45,10 @@ M|KM
 说明
 ----
 
-该命令使用
-`iaspei-tau <https://seiscode.iris.washington.edu/projects/iaspei-tau>`__
-程序计算标准速度模型下的震相理论走时，要求内存中的SAC数据文件中必须包含
+该命令使用 `iaspei-tau <https://seiscode.iris.washington.edu/projects/iaspei-tau>`_
+程序计算标准速度模型下的震相理论走时，要求内存中的 SAC 数据文件中必须包含
 事件位置、台站位置以及发震时刻。震相名区分大小写，可使用的震相名参考
-`iaspei-tau <https://seiscode.iris.washington.edu/projects/iaspei-tau>`__
+`iaspei-tau <https://seiscode.iris.washington.edu/projects/iaspei-tau>`_
 的相关文档。
 
 若使用了 ``PICKS n`` 选项，则会将震相列表中第一个震相的到时存储在
@@ -58,11 +56,10 @@ M|KM
 对于每个震相，终端会输出两个时间，前者时震相到时相对于参考时刻的秒数，
 后者是震相相对于发震时刻的走时。
 
-由于历史原因，事件深度 ``evdp`` 的单位可以是 或 km。SAC 从 v101.5 开始，
-``evdp`` 的默认单位是 km，但由于某些程序输出的 SAC 波形依然以 作为
-``evdp`` 的单位，为了能够兼容这些以
-为事件深度单位的波形数据，新版的SAC中 引入了 ``km`` 和 ``m``
-选项以指定深度单位。
+由于历史原因，事件深度 ``evdp`` 的单位可以是 m 或 km。SAC 从 v101.5 开始，
+``evdp`` 的默认单位是 km，但由于某些程序输出的 SAC 波形依然以 m 作为
+``evdp`` 的单位，为了能够兼容这些以 m 为事件深度单位的波形数据，新版的 SAC 中
+引入了 ``km`` 和 ``m`` 选项以指定深度单位。
 
 示例
 ----
@@ -81,9 +78,9 @@ M|KM
     traveltime: setting phase Sn       at 50.047722 s [ t = 91.477722 s ]
     traveltime: setting phase Sg       at 66.414337 s [ t = 107.844337 s ]
 
-由于震中距比较小，没有P和S震相，所以会出现 ``error finding phase P``
-的错误，该错误可忽略。以Pn震相为例，震相走时为 51.89s，相对于参考
-时刻的秒数为 10.46s。
+由于震中距比较小，没有 P 和 S 震相，所以会出现 ``error finding phase P``
+的错误，该错误可忽略。以 Pn 震相为例，震相走时为 51.89 s，相对于参考
+时刻的秒数为 10.46 s。
 
 上面的示例，只是计算了震相走时，不会写入到头段变量中。要将震相走时存储到
 头段变量中，需要使用 ``PICKS n``\ 选项：
@@ -100,13 +97,13 @@ M|KM
     T3MARKER = 66.414           (Sg)
     SAC> write seismo-picks.z
 
-可以看到，\ ``T0`` 到 ``T3`` 分别保存了震相Pn、Pg、Sn、Sg震相的
+可以看到，\ ``T0`` 到 ``T3`` 分别保存了震相 Pn、Pg、Sn、Sg 震相的
 到时相对于文件参考时刻的秒数。\ ``KT0`` 到 ``KT3`` 中则分别存储了
 相应的震相名。此处，尽管没有使用 ``VERBOSE`` 选项，深度信息还是会被
 打印出来，这是为了提醒用户注意 ``evdp`` 的单位，可以通过 ``QUIET``
 选项设置不显示深度信息。
 
-``rdseed v5.0`` 生成的波形数据，震源深度 ``evdp`` 的单位为 ：
+``rdseed v5.0`` 生成的波形数据，震源深度 ``evdp`` 的单位为 m：
 
 .. code:: bash
 

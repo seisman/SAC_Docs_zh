@@ -22,7 +22,7 @@ BEARING v
     方位，由北算起的度数
 
 VELOCITY v
-    速度，单位为公里每秒
+    速度，单位为 km/s
 
 REFERENCE lat lon el
     参考点，打开 ``REFERENCE`` 选项并定义参考点，这样其他文件的偏移量以此而定。
@@ -32,7 +32,7 @@ REFERENCE ON|OFF
     开或关 ``REFERENCE`` 选项
 
 OFFSET REF
-    偏移量是相对于 ``REFERENCE`` 选项设置的参考点的。 这要求开启 ``REFERENCE`` 选项
+    偏移量是相对于 ``REFERENCE`` 选项设置的参考点的。要求开启 ``REFERENCE`` 选项
 
 OFFSET USER
     偏移量直接从 ``USER7``\ 、\ ``USER8`` 以及 ``USER9`` 中获取，
@@ -49,11 +49,11 @@ OFFSET EVENT
     ``EVLA``\ 、\ ``EVLO`` 必须定义
 
 OFFSET CASCADE
-    SAC将会按照前面给出的顺序考虑决定偏移量的方法，
+    SAC 将会按照前面给出的顺序考虑决定偏移量的方法，
     并检查必要的数据是否具备。它将使用第一个满足要求的方法
 
 EC
-    高程校正。\ ``anginc``\ ：入射角，从z轴算起，单位为度（震源
+    高程校正。\ ``anginc``\ ：入射角，从 Z 轴算起，单位为度（震源
     距离越远，入射角越小）；\ ``survel``\ ：表面介质速度（km/s）。
 
 CENTER

@@ -35,7 +35,6 @@ pdw
 说明
 ----
 
-SAC中与测量有关的命令有 :doc:`/commands/markptp`  和
-:doc:`/commands/markvalue` 。
-当不设置mtw时，测量命令会对整个文件进行操作；当设置了mtw时，测量命令仅mtw
+SAC 中与测量有关的命令有 :doc:`/commands/markptp` 和 :doc:`/commands/markvalue`\ 。
+当不设置 mtw 时，测量命令会对整个文件进行操作；当设置了 mtw 时，测量命令仅 mtw
 时间窗内的数据执行测量命令。

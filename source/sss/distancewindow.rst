@@ -26,7 +26,7 @@ FIXED v1 v2
     固定距离的最小、最大值分别为v1和v2
 
 UNITS KILOMETERS
-    设置距离窗的单位为 km  [1]_
+    设置距离窗的单位为 km\ [1]_
 
 UNITS DEGREES
     设置距离窗的单位为度
@@ -38,5 +38,4 @@ UNITS DEGREES
 
     distancewindow usedata units kilometers
 
-.. [1]
-   该选项尚未实现
+.. [1] 该选项尚未实现

@@ -25,7 +25,7 @@ beginframe
 叠加在一起，形成组合图。
 
 通过这两个命令，并结合 :doc:`/commands/xvport` 和 :doc:`/commands/yvport` 定义
-每次绘图的viewport，可以很容易地绘制出复杂的组合图。
+每次绘图的 viewport，可以很容易地绘制出复杂的组合图。
 
 关于如何绘制组合图以及这几个命令的使用，可以参考
 :doc:`/graphics/composite-plots` 一节。
