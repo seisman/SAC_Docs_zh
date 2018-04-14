@@ -14,7 +14,7 @@ zerostack
 addstack a.SAC
 addstack b.SAC
 timewindow 0 19
-sumstack n off
+sumstack
 quitsub
 saveimg stack-without-delay.pdf
 q

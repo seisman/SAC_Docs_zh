@@ -69,7 +69,7 @@ sss 的进入和退出
     SAC/SSS> addstack a.SAC
     SAC/SSS> addstack b.SAC
     SAC/SSS> timewindow 0 19    # 确定时窗，必选设定
-    SAC/SSS> sumstack n off    # 叠加波形
+    SAC/SSS> sumstack    # 叠加波形
 
 .. figure:: /images/stack-without-delay.*
    :alt: 不做动校正的叠加
