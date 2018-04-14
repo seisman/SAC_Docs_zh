@@ -19,5 +19,6 @@
    :width: 95.0%
    :align: center
 
-   地震波形去毛刺。上图为包含 glitches 的地震信号，
-   下图为去除 glitches 后的地震信号。
+   地震波形去毛刺
+
+   上图为包含 glitches 的地震信号，下图为去除 glitches 后的地震信号。
