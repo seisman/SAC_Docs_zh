@@ -2,7 +2,6 @@ SAC 命令
 ########
 
 .. not numbering subsections for commands
-
 .. raw:: latex
 
    \titleformat{\subsection}{\large\bfseries}{}{0em}{}{}
@@ -210,3 +209,9 @@ SAC 命令
    zlevels
    zlines
    zticks
+
+.. revert subsuction back to its original format
+.. raw:: latex
+
+   \titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}{}
+

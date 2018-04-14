@@ -1,6 +1,11 @@
 SPE 谱估计子程序
 ################
 
+.. not numbering subsections for commands
+.. raw:: latex
+
+   \titleformat{\subsection}{\large\bfseries}{}{0em}{}{}
+
 .. toctree::
    :maxdepth: 1
 
@@ -17,7 +22,6 @@ SPE 谱估计子程序
    writespe
 
 .. revert subsuction back to its original format
-
 .. raw:: latex
 
    \titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}{}
