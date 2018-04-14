@@ -16,6 +16,10 @@ SAC参考手册
     .. include:: version.rst
     .. include:: contributor.rst
 
+.. raw:: latex
+
+   \part{基础部分}
+
 .. toctree::
    :maxdepth: 2
    :hidden:
@@ -31,9 +35,28 @@ SAC参考手册
    sacio/index
    tools/index
    tricks-and-traps/index
+
+.. raw:: latex
+
+   \part{命令部分}
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
    commands/index
    sss/index
    spe/index
+
+.. raw:: latex
+
+   \part{附录}
+   \appendix
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
    appendix/messages/index
    appendix/resp/index
    appendix/data-fetch/index
