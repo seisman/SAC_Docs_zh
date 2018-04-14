@@ -1,6 +1,11 @@
 文档更新历史
 ############
 
+.. not numbering sections
+.. raw:: latex
+
+   \titleformat{\section}{\Large\bfseries}{}{0em}{}{}
+
 v3.6 (2018-03-21)
 =================
 
@@ -145,3 +150,8 @@ v1.0 (2012-01-08)
 -  参考《数字地震波形分析》一书，翻译了大部分官方文档中的内容
 -  结合 SAC v101.4 版本，增加、删除和修改了一些命令
 -  增加了书签，方便定位，支持全文搜索
+
+.. revert back to its origianl settings
+.. raw:: latex
+
+   \titleformat{\section}{\Large\bfseries}{\thesection}{0.5em}{}{}

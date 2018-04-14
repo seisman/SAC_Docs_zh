@@ -2,9 +2,11 @@
 ##########
 
 .. only show chapter in tableofcontents
+.. not numerbing sections
 .. raw:: latex
 
    \addtocontents{toc}{\setcounter{tocdepth}{0}}
+   \titleformat{\section}{\Large\bfseries}{}{0em}{}{}
 
 .. toctree::
    :maxdepth: 1
@@ -20,3 +22,4 @@
 .. raw:: latex
 
    \addtocontents{toc}{\setcounter{tocdepth}{1}}
+   \titleformat{\section}{\Large\bfseries}{\thesection}{0.5em}{}{}
