@@ -53,6 +53,7 @@ html_context = {
     'github_repo': 'SAC_Docs_zh',
     'github_version': 'master',
     'conf_py_path': '/source/',
+    'theme_vcs_pageview_mode': 'blob',
 }
 
 
