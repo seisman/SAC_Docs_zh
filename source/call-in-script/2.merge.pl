@@ -34,7 +34,8 @@ while (my ($key, $value) = each %sets) {
     # 在 SAC 中使用通配符而不是使用 @traces 以避免命令行过长的问题
     # merge 不支持通配符
     print SAC "r *.$key.?.SAC \n";  # SAC v101.6 or later only
-    print SAC "merge \n";
+    # 缺数据则补0，重叠则做平均
+    print SAC "merge gap zero overlap average \n";
     print SAC "w $traces[0] \n";  # 以最早数据段的文件名保存
 
     # 将要删除的数据段文件名保存到数组中，待退出 SAC 后再删除

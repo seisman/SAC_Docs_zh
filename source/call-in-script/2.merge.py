@@ -41,7 +41,8 @@ for key, value in sets.items():
     # 在 SAC 中使用通配符而不是使用 @traces 以避免命令行过长的问题
     # merge 不支持通配符
     s += "r *.{}.?.SAC \n".format(key)    # SAC v101.6 or later
-    s += "merge \n"
+    # 缺数据则补0，重叠则做平均
+    s += "merge gap zero overlap average \n"
     s += "w {} \n".format(traces[0])      # 以最早数据段的文件名保存
 
     to_del.extend(traces[1:])
