@@ -7,7 +7,7 @@ Perl 中调用 SAC
 下面的脚本展示了如何在 Perl 中调用 SAC。
 
 下载地址：
-`0.simple-script.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/0.simple-script.pl>`_
+`0.simple-script.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/0.simple-script.pl>`_
 
 .. literalinclude:: 0.simple-script.pl
    :language: perl
@@ -24,7 +24,7 @@ Perl 中调用 SAC 本质上是使用 ``open(SAC, "| sac ")`` 语句定义了一
 -  ``rdseed`` 的 ``-pdf`` 选项会提取出 SAC 波形数据和 PZ 格式的仪器响应文件
 
 下载地址：
-`1.rdseed.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/1.rdseed.pl>`_
+`1.rdseed.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/1.rdseed.pl>`_
 
 .. literalinclude:: 1.rdseed.pl
    :language: perl
@@ -44,7 +44,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 -  由于脚本运行速度比 SAC 运行速度快，因而应先退出 SAC 再删除多余的数据段
 
 下载地址：
-`2.merge.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/2.merge.pl>`_
+`2.merge.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/2.merge.pl>`_
 
 .. literalinclude:: 2.merge.pl
    :language: perl
@@ -60,7 +60,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 -  重命名后的文件名为 ``NET.STA.LOC.CHN.SAC``
 
 下载地址：
-`3.rename.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/3.rename.pl>`_
+`3.rename.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/3.rename.pl>`_
 
 .. literalinclude:: 3.rename.pl
    :language: perl
@@ -77,7 +77,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 -  发震时刻的格式为 ``yyyy-mm-ddThh:mm:ss.xxx``\ ，其中 ``T`` 用于分隔日期和时间
 
 下载地址：
-`4.eventinfo.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/4.eventinfo.pl>`_
+`4.eventinfo.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/4.eventinfo.pl>`_
 
 .. literalinclude:: 4.eventinfo.pl
    :language: perl
@@ -92,7 +92,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 时会自动退出。
 
 下载地址：
-`5.transfer.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/5.transfer.pl>`_
+`5.transfer.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/5.transfer.pl>`_
 
 .. literalinclude:: 5.transfer.pl
    :language: perl
@@ -112,7 +112,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 -  检查两个水平分量是否正交，若不正交，则无法旋转
 
 下载地址：
-`6.rotate.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/6.rotate.pl>`_
+`6.rotate.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/6.rotate.pl>`_
 
 .. literalinclude:: 6.rotate.pl
    :language: perl
@@ -132,7 +132,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 中的采样周期指定为0，则以大多数数据所使用的采样周期作为重采样后的采样周期。
 
 下载地址：
-`7.resample.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/7.resample.pl>`_
+`7.resample.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/7.resample.pl>`_
 
 .. literalinclude:: 7.resample.pl
    :language: perl
