@@ -7,7 +7,7 @@ Python中调用SAC
 下面的脚本展示了如何在 Python 中调用 SAC。
 
 下载地址：
-`0.simple-script.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/0.simple-script.py>`_
+`0.simple-script.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/0.simple-script.py>`_
 
 .. literalinclude:: 0.simple-script.py
    :language: python
@@ -24,7 +24,7 @@ Python 中使用 ``subprocess`` 模块的 ``Popen`` 方法调用 SAC，通过
 -  ``rdseed`` 的 ``-pdf`` 选项会提取出 SAC 波形数据和 PZ 格式的仪器响应文件
 
 下载地址：
-`1.rdseed.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/1.rdseed.py>`_
+`1.rdseed.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/1.rdseed.py>`_
 
 .. literalinclude:: 1.rdseed.py
    :language: python
@@ -44,7 +44,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 -  由于脚本运行速度比 SAC 运行速度快，因而应先退出 SAC 再删除多余的数据段
 
 下载地址：
-`2.merge.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/2.merge.py>`_
+`2.merge.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/2.merge.py>`_
 
 .. literalinclude:: 2.merge.py
    :language: python
@@ -60,7 +60,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 -  重命名后的文件名为 ``NET.STA.LOC.CHN.SAC``
 
 下载地址：
-`3.rename.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/3.rename.py>`__
+`3.rename.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/3.rename.py>`__
 
 .. literalinclude:: 3.rename.py
    :language: python
@@ -77,7 +77,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 -  发震时刻的格式为 ``yyyy-mm-ddThh:mm:ss.xxx``\ ，其中 ``T`` 用于分隔日期和时间
 
 下载地址：
-`4.eventinfo.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/4.eventinfo.py>`_
+`4.eventinfo.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/4.eventinfo.py>`_
 
 .. literalinclude:: 4.eventinfo.py
    :language: python
@@ -92,7 +92,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 时会自动退出。
 
 下载地址：
-`5.transfer.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/5.transfer.py>`_
+`5.transfer.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/5.transfer.py>`_
 
 .. literalinclude:: 5.transfer.py
    :language: python
@@ -112,7 +112,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 -  检查两个水平分量是否正交，若不正交，则无法旋转
 
 下载地址：
-`6.rotate.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/6.rotate.py>`_
+`6.rotate.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/6.rotate.py>`_
 
 .. literalinclude:: 6.rotate.py
    :language: python
@@ -132,7 +132,7 @@ SEED 文件的波形数据可能会因为多种原因而出现间断，导致同
 中的采样周期指定为0，则以大多数数据所使用的采样周期作为重采样后的采样周期。
 
 下载地址：
-`7.resample.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/call-in-script/7.resample.py>`_
+`7.resample.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/7.resample.py>`_
 
 .. literalinclude:: 7.resample.py
    :language: python
