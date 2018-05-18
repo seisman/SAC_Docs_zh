@@ -64,4 +64,3 @@ Network等台网/台阵的连续波形数据以及这些台网/台阵1975年至�
 -  `Pacific Northwest Seismic Network <https://pnsn.org/>`_
 -  `Southern California Seismic Network <http://www.scsn.org/>`_
 -  `Southern California Seismic Network at Caltech <http://scedc.caltech.edu/>`_
--  `中国地震科学探测台阵数据中心 <http://www.chinarraydmc.org/>`_
