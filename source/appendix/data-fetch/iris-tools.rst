@@ -10,7 +10,7 @@ Wilber III
 
 主页：\ http://ds.iris.edu/wilber3/find_event
 
-教程：\ http://blog.seisman.info/wilber3/
+教程：\ https://blog.seisman.info/wilber3/
 
 -  适用范围：仅用于申请基于事件的事件波形数据
 -  特色及优点：
@@ -36,7 +36,7 @@ BREQ_FAST
 
 主页：\ https://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/
 
-教程：\ http://blog.seisman.info/breq-fast/
+教程：\ https://blog.seisman.info/breq-fast/
 
 -  适用范围：连续波形数据
 -  特色及优点：
