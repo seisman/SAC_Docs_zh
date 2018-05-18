@@ -28,8 +28,8 @@
 位置码
 ======
 
-关于位置码的详细介绍，见 `IRIS: DS Newsletter: Vol. 1, No.
-1 <http://ds.iris.edu/ds/newsletter/vol1/no1/specification-of-seismograms-the-location-identifier/>`_\ 。
+关于位置码的详细介绍，见
+`IRIS: DS Newsletter: Vol. 1, No.1 <http://ds.iris.edu/ds/newsletter/vol1/no1/1/specification-of-seismograms-the-location-identifier>`_\ 。
 
 位置码用于区分同一个台站下多个传感器的不同数据，或者同一个传感器传来的多个数据流。
 通常来说，同一个台站不同位置码的两个地震数据具有极为相似但有略有不同的波形。
