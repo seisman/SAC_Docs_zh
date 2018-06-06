@@ -6,8 +6,6 @@ import sys
 import glob
 import subprocess
 
-os.putenv("SAC_DISPLAY_COPYRIGHT", '0')
-
 if len(sys.argv) != 2:
     sys.exit("Usage: python {} dirname".format(sys.argv[0]))
 
