@@ -9,7 +9,7 @@ import subprocess
 os.putenv("SAC_DISPLAY_COPYRIGHT", '0')
 
 if len(sys.argv) != 7:
-    sys.exit("Usage: python {} dirname yyyy-mm-ddThh:mm:ss.xxx"
+    sys.exit("Usage: python {} dirname yyyy-mm-ddThh:mm:ss.xxx "
              "evlo evla evdp mag".format(sys.argv[0]))
 
 dirname, origin, evlo, evla, evdp, mag = sys.argv[1:]
