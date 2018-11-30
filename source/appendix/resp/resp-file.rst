@@ -307,4 +307,3 @@ PZ 文件的零点部分和极点部分由地震计的 resp 文件决定，而�
 
 .. [1] http://service.iris.edu/irisws/resp/1/
 .. [2] http://service.iris.edu/irisws/sacpz/1/
-.. [3] http://ds.iris.edu/NRL/
