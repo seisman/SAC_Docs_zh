@@ -293,30 +293,26 @@ RESP 转换为 PZ
    - 零点信息。其中，“零”零点可以省略不写
    - 极点数目
    - 极点信息
-   - CONSTANT值，为 RESP文件中 A0 与 Sensitivity的乘积
+   - CONSTANT值，为 RESP文件中 A0 与 Sensitivity 的乘积
 
 读者可尝试将 IU.COLA.00.BHZ 通道的 `RESP <http://service.iris.edu/irisws/resp/1/query?net=IU&sta=COLA&loc=00&cha=BHZ>`_
 转换为 PZ 格式，并与 IRIS 提供的 `PZ <http://service.iris.edu/irisws/sacpz/1/query?net=IU&sta=COLA&loc=00&cha=BHZ>`_
 进行对比以确认自己的理解正确。
 
-需要注意的是，通常一个PZ文件中仅包含一个通道，此种情况下PZ文件中无需包含注释部分。
-若一个PZ文件中包含多个通道的仪器响应，则需要包含注释部分以保证SAC可以区分不同通道。
+需要注意的是，通常一个 PZ 文件中仅包含一个通道，此种情况下 PZ 文件中无需包含注释部分。
+若一个 PZ 文件中包含多个通道的仪器响应，则需要包含注释部分以保证SAC可以区分不同通道。
 
 两个 resp 文件转换为 PZ 文件
 --------------------------------------
 
-野外布置的地震仪包含了地震计（Sensor）和数采（Datalogger）两个部分。
+地震仪包含了地震计（Sensor）和数采（Datalogger）两个部分。
 事实上，地震计和数采分别有一个 resp 文件。
-没错，这和平时直接用 seed 转换为 SAC 文件和仪器响应文件的情形是不同的。
-seed 转换出来的情况是一个 SAC 文件对应一个仪器响应文件，
-而这里是地震计和数采各一个 resp 文件。
+没错，这和平时直接用 seed 转换出来一个 SAC 文件对应一个仪器响应文件的情况不同，
 这就是两个 resp 文件转换为 PZ 文件的需求来源。
+和单个 resp 文件转换为 PZ 文件的情形基本一样，不同点为：
 
-首先，PZ 文件的注释部分，和前面单个 resp 文件的情况相同。
-PZ 文件的零点部分和极点部分由地震计的 resp 文件决定，而与数采的无关。
-具体如何得到，和前面单个resp文件的情形相同。
-最后, PZ 文件中的 CONSTANT 是地震计的 A0、地震计 STAGE0 的 Sensitivity 和
-数采的 STAGE0 的 Sensitivity 三者的乘积。
+#. PZ 文件的零点、极点部分由地震计的 resp 文件的零点、极点决定，而与数采无关。具体如何得到，和前面单个 resp 文件的情形相同。
+#. PZ 文件中的 CONSTANT 是地震计的 A0、地震计的仪器灵敏度 Sensitivity 和数采的仪器灵敏度 Sensitivity 三者的乘积。
 
 .. [1] http://service.iris.edu/irisws/resp/1/
 .. [2] http://service.iris.edu/irisws/sacpz/1/
