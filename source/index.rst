@@ -14,7 +14,6 @@ SAC参考手册
     - **PDF下载**: https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf
 
     .. include:: version.rst
-    .. include:: contributor.rst
 
 .. raw:: latex
 
