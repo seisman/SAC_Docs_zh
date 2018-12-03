@@ -6,6 +6,13 @@
 
    \titleformat{\section}{\Large\bfseries}{}{0em}{}{}
 
+v4.0 (xxxx-xx-xx)
+=================
+
+- 文档不再使用 LaTeX 源码，改而采用 reStructuredText 语言，并使用 sphinx 制作文档
+- 新增内容：将RESP文件转换为PZ文件
+- 修正 bugs 和 typos
+
 v3.6 (2018-03-21)
 =================
 
@@ -39,7 +46,7 @@ v3.4 (2015-09-15)
 
 -  新增内容：
 
-   -  在 Mac OS X 10.10中安装 SAC
+   -  在 macOS 中安装 SAC
    -  在 C 程序中调用 SAC 提供的 ``distaz`` 函数
    -  数据处理中使用 ``decimate`` 和 ``interpolate`` 进行数据重采样
    -  Python 中修改发震时刻

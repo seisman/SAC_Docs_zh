@@ -24,8 +24,8 @@ master_doc = 'index'
 project = 'SAC参考手册'
 copyright = '2012-2018, SeisMan'
 author = 'SeisMan'
-version = '4.0-dev'
-release = '4.0-dev'
+version = '4.0'
+release = '4.0'
 language = 'zh_CN'
 
 # List of patterns, relative to source directory, that match files and
@@ -45,7 +45,7 @@ numfig = True
 import sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_static_path = ['_static']
+html_static_path = []
 # html_theme_options = {}
 html_context = {
     'display_github': True,

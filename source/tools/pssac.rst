@@ -6,8 +6,8 @@ pssac
 图像，以满足出版的要求。
 
 对于 GMT4 用户， ``pssac`` 需要单独安装，安装过程参考
-`安装pssac <http://blog.seisman.info/pssac-install>`_  一文，
-具体用法参考 `pssac用法教程 <http://blog.seisman.info/pssac-notes>`_ 。
+`安装pssac <https://blog.seisman.info/pssac-install>`_  一文，
+具体用法参考 `pssac用法教程 <https://blog.seisman.info/pssac-notes>`_ 。
 
 对于 GMT5 用户，GMT 自 v5.3.0 后自带 ``pssac`` ，可直接使用 ``gmt pssac`` 命令
 调用。

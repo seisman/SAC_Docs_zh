@@ -269,4 +269,4 @@ SAC 的 :doc:`/commands/plotpk` 命令在实际使用中有两大痛点：
 #. 直接使用数字键即可标记震相到时
 #. 使用 ``@`` 可删除标记到时
 
-详情请参考 http://blog.seisman.info/faster-ppk/\ 。
+详情请参考 https://blog.seisman.info/faster-ppk/\ 。

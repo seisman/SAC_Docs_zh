@@ -1,7 +1,8 @@
 维护者列表
 ==========
 
-本文档的源码开源托管在 GitHub 上，欢迎更多的 SAC 用户参与到文档维护中，
+本文档的源码开源托管在 `GitHub <https://github.com/seisman/SAC_Docs_zh>`_ 上，
+欢迎更多的 SAC 用户参与到文档维护中，
 详情见 `项目Wiki <https://github.com/seisman/SAC_Docs_zh/wiki>`_\ 。
 
 .. list-table::
