@@ -3,11 +3,11 @@
 [![Build Status](https://travis-ci.org/seisman/SAC_Docs_zh.svg?branch=master)](https://travis-ci.org/seisman/SAC_Docs_zh)
 [![GitHub release](https://img.shields.io/github/release/seisman/SAC_Docs_zh.svg)](https://github.com/seisman/SAC_Docs_zh/releases)
 
-《SAC参考手册》是介绍地震学常用软件[SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)
+《SAC参考手册》是介绍地震学常用软件 [SAC](http://ds.iris.edu/ds/nodes/dmc/forms/sac/)
 用法的中文手册。
 
 - 项目主页：https://github.com/seisman/SAC_Docs_zh
-- 正式版文档发布地址：http://blog.seisman.info/sac-manual/
+- 正式版文档发布地址：https://blog.seisman.info/sac-manual/
 - 网页版： https://seisman.github.io/SAC_Docs_zh/
 - PDF版： https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf
 
