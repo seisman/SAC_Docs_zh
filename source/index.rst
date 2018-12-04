@@ -22,6 +22,7 @@ SAC参考手册
 .. toctree::
    :maxdepth: 2
    :hidden:
+   :caption: 基础部分
 
    introduction/index
    basic/index
@@ -42,6 +43,7 @@ SAC参考手册
 .. toctree::
    :maxdepth: 2
    :hidden:
+   :caption: 命令部分
 
    commands/index
    sss/index
@@ -55,6 +57,7 @@ SAC参考手册
 .. toctree::
    :maxdepth: 2
    :hidden:
+   :caption: 附录
 
    appendix/messages/index
    appendix/resp/index
