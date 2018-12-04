@@ -19,9 +19,9 @@ Linux 下安装 SAC，可以直接使用官方提供的二进制包，也可以�
 
 .. code:: console
 
-    $ sudo apt-get update
-    $ sudo apt-get install libc6 libsm6 libice6 libxpm4 libx11-6
-    $ sudo apt-get install zlib1g libncurses5
+    $ sudo apt update
+    $ sudo apt install libc6 libsm6 libice6 libxpm4 libx11-6
+    $ sudo apt install zlib1g libncurses5
 
 对于 CentOS/Fedora/RHEL：
 
@@ -52,10 +52,10 @@ Linux 下安装 SAC，可以直接使用官方提供的二进制包，也可以�
 
 .. code:: console
 
-    $ sudo apt-get update
-    $ sudo apt-get install build-essential
-    $ sudo apt-get install libncurses5-dev libsm-dev libice-dev
-    $ sudo apt-get install libxpm-dev libx11-dev zlib1g-dev
+    $ sudo apt update
+    $ sudo apt install build-essential
+    $ sudo apt install libncurses5-dev libsm-dev libice-dev
+    $ sudo apt install libxpm-dev libx11-dev zlib1g-dev
 
 对于 CentOS/Fedora/RHEL：
 
