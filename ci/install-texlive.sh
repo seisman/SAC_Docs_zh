@@ -32,4 +32,4 @@ echo 'export PATH=$PATH':$TEXBIN >> ~/.bash_profile
 $TEXBIN/tlmgr install tabulary latexmk ulem environ trimspaces titlesec \
                       varwidth framed threeparttable wrapfig upquote capt-of \
                       multirow eqparbox needspace fncychap enumitem datetime2 \
-                      tracklang \
+                      tracklang manfnt \
