@@ -143,3 +143,14 @@
 
 % 代码部分
 \fvset{fontsize=\footnotesize} % 设置全局代码字体为footnotesize
+
+% fancy note
+% https://github.com/ElegantLaTeX/elegant/blob/master/elegantnote.cls
+\usepackage{manfnt}
+\renewenvironment{sphinxadmonition}[2]{
+    \par\ttfamily\itshape\noindent{
+        \makebox[0pt][r]{
+            \scriptsize\color{red!90}\textdbend\quad
+        }\textbf{#2}
+    }
+}{\par\vspace{.5\baselineskip}}
