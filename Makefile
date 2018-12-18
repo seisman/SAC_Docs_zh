@@ -23,3 +23,8 @@ build: dirhtml latexpdf
 
 serve: dirhtml
 	cd $(BUILDDIR)/dirhtml && python -m http.server
+
+# Watch a Sphinx directory and rebuild the documentation when a change is detected.
+# See https://github.com/GaretJax/sphinx-autobuild for details
+watch:
+	sphinx-autobuild --open-browser --delay 1 -b dirhtml $(SOURCEDIR) $(BUILDDIR)/dirhtml
