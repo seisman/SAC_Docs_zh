@@ -154,3 +154,19 @@
 %        }\textbf{#2}
 %    }
 %}{\par\vspace{.5\baselineskip}}
+
+% 自定义quote环境
+% http://tex.stackexchange.com/questions/16964/
+% \usepackage{framed}
+% \newcommand*\openquote{\makebox(25,-22){\scalebox{5}{``}}}
+% \newcommand*\closequote{\makebox(25,-22){\scalebox{5}{''}}}
+% \colorlet{shadecolor}{Azure}
+% \makeatletter
+% \newif\if@right
+% \def\shadequote{\@righttrue\shadequote@i}
+% \def\shadequote@i{\begin{snugshade}\begin{quote}\openquote}
+%     \def\endshadequote{%
+% \if@right\hfill\fi\closequote\end{quote}\end{snugshade}}
+% \@namedef{shadequote*}{\@rightfalse\shadequote@i}
+% \@namedef{endshadequote*}{\endshadequote}
+% \makeatother
