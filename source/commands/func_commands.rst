@@ -203,7 +203,7 @@
 -  :doc:`/commands/writesp` ：将谱文件作为一般文件写入磁盘
 -  :doc:`/commands/bandpass` ：对数据文件使用无限脉冲带通滤波器
 -  :doc:`/commands/highpass` ：对数据文件应用一个无限脉冲高通滤波器
--  :doc:`/commands/lowpass` ：对数据文件应用一个无限脉冲高通滤波器
+-  :doc:`/commands/lowpass` ：对数据文件应用一个无限脉冲低通滤波器
 -  :doc:`/commands/bandrej` ：应用一个无限脉冲带阻滤波器
 -  :doc:`/commands/fir` ：应用一个有限脉冲响应滤波器
 
