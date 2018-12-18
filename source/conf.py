@@ -3,6 +3,7 @@
 
 import os
 import sys
+import datetime
 sys.path.insert(0, os.path.abspath('_extensions'))
 
 # -- General configuration ------------------------------------------------
@@ -22,7 +23,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'SAC参考手册'
-copyright = '2012-2018, SeisMan'
+copyright = '2012 - {}, SeisMan'.format(datetime.date.today().year)
 author = 'SeisMan'
 version = '4.0'
 release = '4.0'
