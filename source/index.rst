@@ -29,7 +29,7 @@ SAC参考手册
    :caption: 基础部分
 
    introduction/index
-   basic/index
+   basis/index
    fileformat/index
    data-process/index
    graphics/index
