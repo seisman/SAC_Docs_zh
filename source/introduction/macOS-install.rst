@@ -69,15 +69,15 @@ Homebrew 用户可以使用如下命令安装：
 
 其中，
 
--  ``SACHOME`` 为 SAC 的安装目录
--  ``SACAUX`` 目录中包含了 SAC 运行所需的辅助文件
--  ``PATH`` 为 Linux 系统环境变量
+-  ``SACHOME`` 定义了 SAC 的安装目录
+-  ``SACAUX`` 定义了 SAC 运行所需的辅助文件所在的目录
+-  ``PATH`` 为 Linux 系统环境变量，使得系统可以正确找到SAC的可执行文件
 -  ``SAC_DISPLAY_COPYRIGHT`` 用于控制是否在启动 SAC 时显示版本和版权
    信息，一般设置为1。在脚本中多次调用 SAC 时会重复显示版本和版权信息，
    干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法
    可以参考 “:doc:`/call-in-script/index`\ ” 中的相关内容
 -  ``SAC_PPK_LARGE_CROSSHAIRS`` 用于控制震相拾取过程中光标的大小，
-   在 “:doc:`/data-process/picking-phase`\ ” 时会用到
+   在 :doc:`/data-process/picking-phase` 时会用到
 -  ``SAC_USE_DATABASE`` 用于控制是否允许将 SAC 格式转换为 GSE2.0 格式，
    一般用不到该特性，故而设置其值为0
 
