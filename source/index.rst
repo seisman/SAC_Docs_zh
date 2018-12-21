@@ -9,9 +9,13 @@ SAC参考手册
 
     《SAC参考手册》是介绍地震学常用软件 SAC 用法的中文手册。
 
-    - **项目主页**: https://github.com/seisman/SAC_Docs_zh
-    - **在线阅读**: https://seisman.github.io/SAC_Docs_zh/
-    - **PDF下载**: https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf
+    .. raw:: html
+
+        <div style="text-align: center;">
+        <a class="reference external" href="https://github.com/seisman/SAC_Docs_zh">项目主页</a> |
+        <a class="reference external" href="https://seisman.github.io/SAC_Docs_zh/">在线阅读</a> |
+        <a class="reference external" href="https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf">PDF下载</a>
+        </div>
 
     .. include:: version.rst
 
