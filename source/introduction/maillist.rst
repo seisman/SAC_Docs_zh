@@ -1,16 +1,12 @@
 邮件组
 ======
 
-邮件组是个好东西，有点我们熟悉的 QQ 群的味道。在加入了邮件组之后，如果你在
+邮件组类似于 QQ 群。在加入了邮件组之后，如果你在
 使用 SAC 的过程中遇到问题，可以向这个邮件组的邮箱发送邮件，该组内的
 所有成员都会收到你的邮件。如果某人知道答案，他或许就会给你回复。发现了
 SAC 的 bug 也可以向这里报告，开发者会尽快给你回复的。当然问问题之前要思考，
-可阅读《提问的智慧》\ [1]_，提交 bug 的时候要详细指出 bug 是如何出现的，也可以
+提交 bug 的时候要详细指出 bug 是如何出现的，也可以
 给出代码或文件以使得开发者能够重现该 bug。
 
-邮件组邮箱： sac-help@iris.washington.edu
-
-订阅地址： http://www.iris.washington.edu/mailman/listinfo/sac-help
-
-.. [1] 参考译文： http://doc.zengrong.net/smart-questions/cn.html\ ；
-   有SAC方面的问题，请勿向《提问的智慧》的译者提问！
+- 订阅地址： http://ds.iris.edu/message-center/topic/sac-help/
+- 邮件组邮箱： sac-help@lists.ds.iris.edu
