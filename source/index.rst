@@ -26,7 +26,7 @@ SAC参考手册
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: 基础部分
+   :caption: 教程部分
 
    introduction/index
    basis/index
