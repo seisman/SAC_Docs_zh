@@ -21,7 +21,7 @@ SAC参考手册
 
 .. raw:: latex
 
-   \part{基础部分}
+   \part{教程部分}
 
 .. toctree::
    :maxdepth: 2
