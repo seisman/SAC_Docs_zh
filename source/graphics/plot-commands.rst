@@ -9,7 +9,7 @@ plot
 
 :doc:`/commands/plot` 命令会绘制内存块中的所有波形数据，但每次只显示一个
 波形，然后等待用户输入再决定是否显示下一个波形。该命令的具体用法在
-:doc:`/basic/display` 已经详细介绍。
+:doc:`/basis/display` 已经详细介绍。
 
 plot1
 -----

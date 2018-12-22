@@ -3,5 +3,5 @@
 
 .. toctree::
 
-   data-source
-   iris-tools
+   data-center
+   fetch-tools

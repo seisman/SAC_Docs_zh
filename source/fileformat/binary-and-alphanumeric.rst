@@ -29,16 +29,16 @@ SAC 自带的命令可以实现两种形式的转换\ [3]_。
 .. code:: bash
 
     SAC> r seis             # 读二进制型文件
-    SAC> w alpha seis.a     # 以文本型写入
+    SAC> w alpha seis.asc   # 以文本型写入
 
 将文本型转换成二进制型：
 
 .. code:: bash
 
-    SAC> r alpha seis.a     # 读文本型文件
-    SAC> w sac seis.b       # 以二进制型写入，可以省略sac，写成w seis.b
+    SAC> r alpha seis.asc     # 读文本型文件
+    SAC> w sac seis.sac       # 以二进制型写入，可以省略sac，写成w seis.sac
 
-试试用你最喜欢的文本编辑器打开文本型的 ``seis.a`` 吧，其内容如下：
+试试用你最喜欢的文本编辑器打开文本型的 ``seis.asc`` 吧，其内容如下：
 
 .. code:: bash
 

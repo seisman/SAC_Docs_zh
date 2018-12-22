@@ -1,14 +1,13 @@
 Python 中的 SAC I/O
 ===================
 
-ObsPy\ [1]_\ 是用 Python 写的一个专用用于地震学数据处理的模块，这一节介绍如何
+`ObsPy <http://www.obspy.org>`_ 是用 Python 写的一个专用用于地震学数据处理的模块，这一节介绍如何
 利用 ObsPy 模块读写 SAC 文件。
 
 安装 obspy
 ----------
 
-obspy 可以通过 Python 自带的模块管理工具 pip 来安装，目前 obspy 的最新版本为
-1.1.0：
+obspy 可以通过 Python 自带的模块管理工具 pip 来安装：
 
 .. code:: console
 
@@ -36,5 +35,3 @@ ObsPy 在读写 SAC 文件时还存在如下几个问题：
 
 #. https://github.com/eost/sacpy
 #. https://github.com/emolch/pysacio
-
-.. [1] http://www.obspy.org

@@ -59,9 +59,10 @@ PS 和 PDF
 pssac
 -----
 
-pssac 是 Prof. Lupei Zhu 写的用于绘制 SAC 文件的 C 程序。该程序利用了 GMT 的
-PS 绘图库，直接读取 SAC 文件并绘制到 PS 文件中。得益于 GMT 的 PS 库的灵活性，利用
-pssac 可以绘制出超高质量的复杂图像。具体参见 :doc:`/tools/pssac` 一节。
+pssac 原是 Prof. Lupei Zhu 基于 GMT4 写的用于绘制SAC波形文件的独立程序。
+从GMT 5.3.0版本开始，GMT 内置了 pssac 程序。
+得益于 GMT 绘图的灵活性和，pssac 可以绘制出超高质量的复杂图像。
+具体参见 :doc:`/tools/pssac` 一节。
 
 小结
 ----

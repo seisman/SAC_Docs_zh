@@ -75,7 +75,7 @@ filelist
 示例
 ----
 
-``read`` 命令的简单示例位于 :doc:`/basic/read-and-write` 一节。
+``read`` 命令的简单示例位于 :doc:`/basis/read-and-write` 一节。
 
 如果你想要对一个数据进行高通滤波，并与原始数据进行对比：
 

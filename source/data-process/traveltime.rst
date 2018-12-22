@@ -60,8 +60,8 @@ traveltime命令
 ``taup_setsac`` 命令
 --------------------
 
-`taup <http://www.seis.sc.edu/taup/>`_ 软件提供的用于计算震相理论到时的独立于
-SAC 的外部命令。
+`TauP <http://www.seis.sc.edu/taup/>`_ 软件提供的 ``taup_setsac`` 命令可用于
+计算震相理论到时并保存到SAC文件中。
 
 .. code:: console
 

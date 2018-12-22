@@ -92,7 +92,7 @@ filelist
 示例
 ----
 
-该命令的简单示例可以参考 :doc:`/basic/read-and-write` 一节。
+该命令的简单示例可以参考 :doc:`/basis/read-and-write` 一节。
 
 对一组数据文件进行滤波，然后将结果存入一组新数据文件：
 

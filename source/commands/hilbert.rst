@@ -46,7 +46,7 @@ hilbert
 延迟相位。
 
 SAC 提供了 Hilbert 变换的函数库，可以直接在 C 或 Fortran 程序中调用，详情参考
-:doc:`/libs/call-libsac` 一节。
+:doc:`/libs/libsac` 一节。
 
 头段变量
 --------
