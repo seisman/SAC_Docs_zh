@@ -1,26 +1,61 @@
 数据来源
 ========
 
-地震波形数据的来源有很多，下面列举并简单介绍常见的数据来源。
+地震波形数据主要来自于全球各地震数据中心。各地震数据中心的数据下载方式略有不同，
+但目前大部分数据中心已支持 `FDSN web service <https://www.fdsn.org/webservices/>`__\ ，
+这些支持 FDSN web service 的数据中心均可使用 SOD、ObsPy等工具统一下载数据。
 
-IRIS DMC
---------
+IRIS数据中心
+------------
 
-`IRIS DMC <http://ds.iris.edu/ds/nodes/dmc/>`_ 是世界上最大的地震
-波形数据中心。
-
+`IRIS DMC <http://ds.iris.edu/ds/nodes/dmc/>`_ 是全球最大的地震波形数据中心，
+其提供了全球大多数地震台网的波形数据。
 IRIS DMC的大部分数据是完全公开的，无需注册即可直接申请下载波形数据。
-从IRIS DMC申请数据的工具有很多： `ObsPy <http://docs.obspy.org/>`_\ 、
-`BREQ_FAST <https://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/>`_\ 、
-`Wilber III <http://ds.iris.edu/wilber3/find_event>`_\ 、
-`Web Service <http://service.iris.edu/>`_\ 、
-`irisfetch.m <http://ds.iris.edu/ds/nodes/dmc/software/downloads/irisfetch.m/>`_\ 、
-`Web Service Fetch scripts <https://seiscode.iris.washington.edu/projects/ws-fetch-scripts>`_\ 、
-`SOD <http://www.seis.sc.edu/sod/>`_ 和
-`JWEED <https://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/>`_\ 。
 
-国家测震台网数据备份中心
-------------------------
+IRIS DMC web service: http://service.iris.edu
+
+美国
+----
+
+- 北加州地震数据中心：
+  `主页 <http://www.ncedc.org/>`__ |
+  `web service <http://service.ncedc.org>`__
+- 南加州地震数据中心：
+  `主页 <http://www.scsn.org/>`__ |
+  `web service <http://scedc.caltech.edu/>`__
+- Texas地震数据中心：
+  `主页 <http://www.beg.utexas.edu/texnet>`__ |
+  `web service <http://rtserve.beg.utexas.edu/>`__
+
+加拿大
+------
+
+`加拿大地震数据中心 <http://www.earthquakescanada.nrcan.gc.ca/index-en.php>`_\
+提供了 `加拿大国家台网 <http://www.earthquakescanada.nrcan.gc.ca/stndon/CNSN-RNSC/index-en.php>`_\ 、
+\ `Yellowknife Seismic Array <http://can-ndc.nrcan.gc.ca/yka/index-en.php>`_\ 、
+POLARIS Network等台网/台阵的连续波形数据。连续波形数据则可以通过工具
+`AutoDRM <http://www.earthquakescanada.nrcan.gc.ca/stndon/AutoDRM/index-en.php>`_ 下载。
+
+欧洲
+----
+
+欧洲的地震数据中心相对比较多，但均支持web service。
+
+- BGR Hannover, Germany: http://eida.bgr.de/
+- Boğaziçi University, Kandilli Observatory: http://www.koeri.boun.edu.tr/2/tr/
+- ETHZ: http://eida.ethz.ch/fdsnws/
+- GEOFON Program, GFZ: http://geofon.gfz-potsdam.de/
+- ICGC: http://www.icgc.cat/en/xarxasismica
+- IPGP Data Center: http://centrededonnees.ipgp.fr
+- INGV: http://webservices.ingv.it/
+- LMU Munich, Germany: http://www.geophysik.uni-muenchen.de/observatory/seismology
+- NIEP, Romania: http://www.orfeus-eu.org/eida/eida_niep.html
+- NOA, Greece: http://bbnet.gein.noa.gr/
+- ORFEUS Data Center: http://www.orfeus-eu.org/
+- RESIF: http://seismology.resif.fr/
+
+中国
+----
 
 `国家测震台网数据备份中心 <http://www.seisdmc.ac.cn/>`_\ ，隶属于
 中国地震局地球物理研究所。到2014年底，国家测震台网已建成由170个台站
@@ -33,34 +68,23 @@ IRIS DMC的大部分数据是完全公开的，无需注册即可直接申请下
 要升级账户属性，需要按程序进行申请，并且签署和遵守
 `相关协议 <http://www.seisdmc.ac.cn/class/view?id=8>`_\ 。
 
-NIED
+日本
 ----
 
 `NIED <http://www.bosai.go.jp/>`_\ 是日本的国家防灾科学技术研究所。其
-下包含若干台网：高感度地震观测网
-`Hi-net <http://www.hinet.bosai.go.jp/>`_\ 、 宽频带地震台网
-`F-net <http://www.fnet.bosai.go.jp/>`_\ 、强地面运动地震台网
-`K-net和KiK-net <http://www.kyoshin.bosai.go.jp/>`_ 和火山观测网
-`V-net <http://www.vnet.bosai.go.jp/>`_\ 。
+下包含若干台网：
 
-Natural Resources Canada
-------------------------
+- 高感度地震观测网 `Hi-net <http://www.hinet.bosai.go.jp/>`_
+- 宽频带地震台网 `F-net <http://www.fnet.bosai.go.jp/>`_
+- 强地面运动地震台网 `K-net和KiK-net <http://www.kyoshin.bosai.go.jp/>`_
+- 火山观测网 `V-net <http://www.vnet.bosai.go.jp/>`_
 
-加拿大政府的网站 `Natural Resources Canada <http://www.nrcan.gc.ca/home>`_ 提供了
-`Canadian National Seismic Network <http://www.earthquakescanada.nrcan.gc.ca/stndon/CNSN-RNSC/index-en.php>`_\ 、
-`Yellowknife Seismic Array <http://can-ndc.nrcan.gc.ca/yka/index-en.php>`_\ 、POLARIS
-Network等台网/台阵的连续波形数据以及这些台网/台阵1975年至今的事件波形数据。
-
-事件波形数据可以直接
-`点击下载 <http://www.earthquakescanada.nrcan.gc.ca/stndon/NWFA-ANFO/eve/index-en.php>`_\ ；
-连续波形数据则可以通过工具 `AutoDRM`_ 下载。
-
-.. _AutoDRM: http://www.earthquakescanada.nrcan.gc.ca/stndon/AutoDRM/index-en.php
-
-其他
+南美
 ----
 
--  `Northern California Earthquake Data Center <http://www.ncedc.org/>`_
--  `Pacific Northwest Seismic Network <https://pnsn.org/>`_
--  `Southern California Seismic Network <http://www.scsn.org/>`_
--  `Southern California Seismic Network at Caltech <http://scedc.caltech.edu/>`_
+- USP Seismological Center, Brazil: http://www.moho.iag.usp.br/
+
+澳大利亚
+--------
+
+- AusPass, Australia: http://auspass.edu.au/
