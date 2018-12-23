@@ -5,7 +5,7 @@ SAC 与脚本的运行速度
 新文件中，并删除原文件。实际情况下，当然可以直接覆盖旧文件，此处这样
 写完全是出于演示目的。
 
-.. code:: perl
+.. code-block:: perl
 
     #/usr/bin/env perl
     open(SAC, "|sac");

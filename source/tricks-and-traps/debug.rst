@@ -11,7 +11,7 @@ SAC 其实自带了一个 debug 工具，即命令 :doc:`/commands/echo`\ 。该
 
 以在 Perl 中调用 SAC 为例：
 
-.. code:: perl
+.. code-block:: perl
 
     #!/usr/bin/env perl
     use strict;
@@ -42,7 +42,7 @@ SAC 其实自带了一个 debug 工具，即命令 :doc:`/commands/echo`\ 。该
 
 如果加上“``echo on``”，脚本如下：
 
-.. code:: perl
+.. code-block:: perl
 
     #!/usr/bin/env perl
     use strict;

@@ -45,7 +45,7 @@ Tab 与空格
 导致 SAC 对命令的解析出现了问题，所有的命令都被当做外部命令来解释了。
 在任意脚本语言中调用 SAC，都有可能会出现类似的问题：
 
-.. code:: perl
+.. code-block:: perl
 
     #!/usr/bin/env perl
     use strict;

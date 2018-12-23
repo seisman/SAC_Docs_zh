@@ -41,7 +41,7 @@ SAC 真正接收并处理，这将导致仅有不到100个 SAC 文件会被读�
 在脚本中使用通配符，有一点需要注意。以 Perl 脚本为例，下面的 Perl 脚本
 调用了 SAC，并读取全部文件，然后做了简单的数据处理，最后保存退出。
 
-.. code:: perl
+.. code-block:: perl
 
     #!/usr/bin/env perl
     use strict;
@@ -57,7 +57,7 @@ SAC 真正接收并处理，这将导致仅有不到100个 SAC 文件会被读�
 
 上面的脚本是可以正常工作的，但是如果改成如下看上去很像的脚本，则会出问题。
 
-.. code:: perl
+.. code-block:: perl
 
     #!/usr/bin/env perl
     use strict;
@@ -85,7 +85,7 @@ SAC 真正接收并处理，这将导致仅有不到100个 SAC 文件会被读�
 
 错误的写法如下：
 
-.. code:: perl
+.. code-block:: perl
 
     #!/usr/bin/env perl
     use strict;
@@ -111,7 +111,7 @@ SAC 真正接收并处理，这将导致仅有不到100个 SAC 文件会被读�
 
 调用 SAC 进行数据处理的正确写法：
 
-.. code:: perl
+.. code-block:: perl
 
     open(SAC, "| sac") or die "Error in opening sac\n";
     foreach (@files) {
@@ -125,7 +125,7 @@ SAC 真正接收并处理，这将导致仅有不到100个 SAC 文件会被读�
 
 效率稍低的正确写法：
 
-.. code:: perl
+.. code-block:: perl
 
     open(SAC, "| sac") or die "Error in opening sac\n";
     foreach (@files) {

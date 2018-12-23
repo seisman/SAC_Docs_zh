@@ -33,7 +33,7 @@ saclst
 
 在 Bash 脚本中将头段变量的值赋值给变量：
 
-.. code:: bash
+.. code-block:: bash
 
     #!/bin/bash
     stla=`saclst stla f seis | awk '{print $2}'`
@@ -42,7 +42,7 @@ saclst
 
 在 Perl 脚本中将头段变量的值赋值给变量：
 
-.. code:: perl
+.. code-block:: perl
 
     #!/usr/bin/env perl
     use strict;
