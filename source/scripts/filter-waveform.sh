@@ -1,5 +1,5 @@
 #!/bin/bash
-SAC_DISPLAY_COPYRIGHT=0
+export SAC_DISPLAY_COPYRIGHT=0
 
 sac << EOF
 fg impulse delta 0.01 npts 1000 begin -4.985
