@@ -9,7 +9,7 @@ zlevels
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     ZLEVELS [SCALE] [RANGE v1 v2] [INCREMENT v] [NUMBER n] [LIST v1 v2 ... vn]
 
@@ -35,7 +35,7 @@ LIST v1 v2 .. vn
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     zlevels scale number 20
 

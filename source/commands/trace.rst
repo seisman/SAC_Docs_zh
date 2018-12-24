@@ -9,7 +9,7 @@ trace
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     TRACE [ON|OFF] name [name ...]
 
@@ -27,7 +27,7 @@ name
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     trace on
 
@@ -45,7 +45,7 @@ name
 
 追踪黑板变量 TEMP1 和文件 MYFILE 的头段变量 ``T0``\ ：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> trace on temp1 myfile,t0
       TRACE  (on) TEMP1 = 1.45623
@@ -55,20 +55,20 @@ name
 假设在完成一些计算之后改变了 TEMP1，并定义了 ``T0`` 的值，则 SAC 将
 显示如下信息：
 
-.. code:: bash
+.. code-block:: bash
 
       TRACE (mod) TEMP1 = 2.34293
       TRACE (mod) MYFILE,T0 = 10.3451
 
 稍后的处理中 TEMP1 可能再次改变：
 
-.. code:: bash
+.. code-block:: bash
 
       TRACE (mod) TEMP1 = 1.93242
 
 当跟踪选项被关闭时，SAC 最后一次显示变量当前值：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> trace off temp1 myfile,t0
       TRACE (off) TEMP1 = 1.93242

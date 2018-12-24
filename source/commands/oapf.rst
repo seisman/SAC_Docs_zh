@@ -9,7 +9,7 @@ oapf
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     OAPF [STANDARD|NAME] [file]
 
@@ -30,7 +30,7 @@ file
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     oapf standard apf
 

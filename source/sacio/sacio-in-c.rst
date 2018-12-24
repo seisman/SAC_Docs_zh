@@ -44,7 +44,7 @@ SAC 文件的函数，\ :numref:`table:sacio-function` 中列出了 ``sacio``
 
 调用 SAC I/O 接口的程序，可以通过如下方式编译：
 
-.. code:: console
+.. code-block:: console
 
     $ gcc -c sacio.c
     $ gcc -c prog.c
@@ -52,7 +52,7 @@ SAC 文件的函数，\ :numref:`table:sacio-function` 中列出了 ``sacio``
 
 写成 Makfile 会更简单一些：
 
-.. code:: make
+.. code-block:: make
 
     all: prog clean
 

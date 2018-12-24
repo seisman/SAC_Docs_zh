@@ -9,7 +9,7 @@ mul
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     MUL [v1 [v2 ... vn]]
 
@@ -28,7 +28,7 @@ vn
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     mul 1.0
 

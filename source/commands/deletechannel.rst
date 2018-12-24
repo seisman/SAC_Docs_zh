@@ -9,13 +9,13 @@ deletechannel
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     DeleteChannel ALL
 
 或
 
-.. code:: bash
+.. code-block:: bash
 
     DeleteChannel fname|fno|range [fname|fno|range ...]
 
@@ -37,7 +37,7 @@ range
 示例
 ----
 
-.. code:: bash
+.. code-block:: bash
 
       dc 3 5                         # 删除第3、5个文件
       dc SO01.sz SO02.sz             # 删除这些名字的文件

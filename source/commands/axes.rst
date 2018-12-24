@@ -9,7 +9,7 @@ axes
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     AXES [ON|OFF|ONLy] [All] [Top] [Bottom] [Right] [Left]
 
@@ -43,7 +43,7 @@ LEFT
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     axes only bottom left
 
@@ -67,7 +67,7 @@ LEFT
 示例
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> p           # 看看 SAC 的默认设置，左边和底部有注释

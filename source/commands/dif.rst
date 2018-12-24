@@ -9,7 +9,7 @@ dif
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     DIF [TWo|THree|Five]
 
@@ -28,7 +28,7 @@ FIVE
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     dif two
 

@@ -10,7 +10,7 @@ pickphase
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     PICKPHase header phase author [header phase author ...]
     PICKPHase FILE [filename]
@@ -40,7 +40,7 @@ AUTHOR
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     pickphase file
 

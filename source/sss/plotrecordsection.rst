@@ -9,7 +9,7 @@ plotrecordsection
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     PlotRecordSection [Lables ON|OFF|headerfield] [Origin Default|Reversed]
         [Referenceline ON|OFF] [Size v] [Weight ON|OFF] [Polarity ON|OFF]
@@ -64,7 +64,7 @@ YLABEL ON|OFF|DEFAULT|TEXT
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     plotrecordsection labels filename origin default referenceline on size 0.1
         weight on polarity on orient portrait reduced off cursor off ttime off

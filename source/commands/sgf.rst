@@ -9,7 +9,7 @@ sgf
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SGF [Prefix text] [Number n] [Directory CURRENT|pathname]
         [Size Normal|Fixed v|Scaled v] [Overwrite ON|OFF]
@@ -46,7 +46,7 @@ OVERWRITE ON|OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     sgf prefix f number 1 directory current size normal
 
@@ -76,25 +76,25 @@ OVERWRITE ON|OFF
 
 设置 SGF 文件的保存目录为非当前目录，并重置 frame 编号：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> sgf dir /mydir/sgfstore frame 0
 
 设置 viewport 的 X 方向长度为3英寸：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> sgf size fixed 3.0
 
 创建一个大小相当于海报的图形：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> sgf size fixed 30.0
 
 设置 vierport 的 X 方向的尺寸与地震数据的时间长度成比例：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> sgf size scaled 0.1  # 10s的数据长度为1英寸
 

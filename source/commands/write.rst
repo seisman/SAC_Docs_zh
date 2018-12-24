@@ -9,7 +9,7 @@ write
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     Write [SAC|ALPHA|XDR] [DIR OFF|CURRENT|name] [KSTCMP]
         [OVER|APPEND text|PREPEND text|DELETE text|CHANGE text1 text2] filelist
@@ -67,7 +67,7 @@ filelist
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     write sac
 
@@ -96,7 +96,7 @@ filelist
 
 对一组数据文件进行滤波，然后将结果存入一组新数据文件：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read d1 d2 d3
     SAC> lowpass butter npoles 4
@@ -104,7 +104,7 @@ filelist
 
 也可以使用 ``CHANGE`` 选项完成这一操作：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read d1 d2 d3
     SAC> lowpass butter npoles 4
@@ -112,7 +112,7 @@ filelist
 
 若想要用滤波后的数据替换磁盘中的原始数据，则上例的第三行要变成：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> write over
 

@@ -9,7 +9,7 @@ ticks
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     TICKS [ON|OFF|ONLY] [All] [Top] [Bottom] [Right] [Left]
 
@@ -43,7 +43,7 @@ LEFT
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     ticks on all
 
@@ -57,18 +57,18 @@ LEFT
 
 显示上部刻度轴，其他不变：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> ticks on top
 
 关闭所有刻度轴：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> ticks off all
 
 只显示底部刻度轴：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> ticks only bottom

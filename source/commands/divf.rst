@@ -9,7 +9,7 @@ divf
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     DIVF [NEWHDR [ON|OFF]] filelist
 

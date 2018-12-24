@@ -16,7 +16,7 @@
 滤波后的波形，然后对波形做 FFT，得到波形的振幅谱和相位谱。根据定义可知，
 得到的波形为滤波器的时间响应，得到的振幅谱和相位谱为滤波的频率响应：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg impulse delta 0.01 npts 1000   # 生成脉冲函数, delta和npts可调
     SAC> bp c 0.2 2 n 2 p 1                # 要查看的滤波参数

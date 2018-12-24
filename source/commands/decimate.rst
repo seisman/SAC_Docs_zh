@@ -9,7 +9,7 @@ decimate
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     DECimate [n] [Filter ON|OFF]
 
@@ -25,7 +25,7 @@ FILTER ON|OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     decimate 2 filter on
 
@@ -56,7 +56,7 @@ FILTER ON|OFF
 
 对数据减采样42倍：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1
     SAC> decimate 7     # 减采样因子为7时 FIR 滤波器偶尔不稳定，慎用！

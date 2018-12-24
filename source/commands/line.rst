@@ -9,7 +9,7 @@ line
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     LINE [ON|OFF|Solid|Dotted|n] [FILL ON|OFF|pos_color/neg_color]
         [Increment [ON|OFF]] [List STANDARD|nlist]
@@ -53,7 +53,7 @@ LIST STANDARD
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     line solid increment off list standard
 
@@ -77,20 +77,20 @@ n也可能是不同的。
 
 选择依次变化的线型，从线型1开始：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> line 1 increment
 
 改变线型表使之包含线型3、5和1：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> line list 3 5 1
 
 使用 :doc:`/commands/plot2` 在同一个图形上绘制三个文件，第一个使用实线无符号，
 第二个没有线条，用三角符号，第三个无线条，用十字符号：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read file1 file2 file3
     SAC> line list 1 0 0 increment
@@ -100,7 +100,7 @@ n也可能是不同的。
 将地震图的正值部分涂上红色，负值部分涂上蓝色，如果线型为0，则涂色区域用
 黑色描边：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> line 0 fill red/blue

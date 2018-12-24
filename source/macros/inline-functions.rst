@@ -23,7 +23,7 @@ SAC 提供了如下几类内联函数：
 
 算术运算符即常规的加减乘除运算符，但又有不同，其一般形式如下：
 
-.. code:: bash
+.. code-block:: bash
 
         ( number operator number )
 
@@ -33,7 +33,7 @@ SAC支持的操作符是包括：“``+  -  *  /  **``”。
 
 看几个简单的例子:
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> echo on
     SAC> setbb var1 4+7             # 忘记加括号了！“4+7”被当成了字符串
@@ -109,7 +109,7 @@ SAC 提供了20个常规算术运算函数，其基本形式为“``(func arg1 a
 
 演示如下：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> echo on processed
     SAC> setbb var1 (add 1 3 4)         # 1+3+4
@@ -147,7 +147,7 @@ SAC 提供了20个常规算术运算函数，其基本形式为“``(func arg1 a
 
 为了对一组数据做归一化，首先要找到所有数据中的绝对最大值，如下：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1 file2 file3 file4
     SAC> echo on processed
@@ -190,7 +190,7 @@ SAC 提供了若干个函数用于字符串的处理，如 :numref:`table:string
 
 下面的例子展示了部分函数的用法：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> echo on processed
     SAC> setbb var1 (cha short long "this is short")
@@ -211,7 +211,7 @@ SAC 提供了若干个函数用于字符串的处理，如 :numref:`table:string
 
 下面的例子展示 ``concatenate`` 函数的用法以及如何灵活定义标题：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> echo on processed
@@ -230,7 +230,7 @@ SAC 提供了若干个函数用于字符串的处理，如 :numref:`table:string
 
 下面的例子使用 ``reply`` 函数实现了交互：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> echo on processed
@@ -246,7 +246,7 @@ SAC 提供了若干个函数用于字符串的处理，如 :numref:`table:string
 
 下面的例子中 ``reply`` 函数包含了一个默认值值：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> setbb bbday (reply "Enter the day of the week: [Monday]")
     Enter the day of the week: [Monday]Tuesday      # 用户输入Tuesday
@@ -274,7 +274,7 @@ SAC 提供了若干个函数用于字符串的处理，如 :numref:`table:string
 对于所有的文件有一个最大振幅，要找到这些文件中第一个文件中第一次大于
 该值所对应的时间偏移量：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> echo on processed
@@ -285,7 +285,7 @@ SAC 提供了若干个函数用于字符串的处理，如 :numref:`table:string
 
 为了找到第一个大于或等于1.0的数据点的时间偏移，可以使用如下命令：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> echo on processed

@@ -9,7 +9,7 @@ spectrogram
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SPectroGram [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF]
         [SQRT|NLOG|LOG10|NOSCALING] [YMIN v] [YMAX v] [METHOD PDS|MEM|MLM]
@@ -49,7 +49,7 @@ COLOR|GRAY
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     spectrogram window 2 slice 1 method mem order 100 noscaling
         ymin 0 ymax fnyquist color
@@ -70,7 +70,7 @@ COLOR|GRAY
 参数决定。沿着频谱图时间轴的谱之间的间隔由 ``slice``
 参数决定。这两个参数的不同决定了临近时间窗的重叠量，如下图所示:
 
-.. code:: bash
+.. code-block:: bash
 
     Time ->
     0  1  2  3  4  5  6  7  8  9 10 11

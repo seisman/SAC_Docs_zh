@@ -6,7 +6,7 @@ SAC 函数库时所需要的一些信息。
 
 下面给出一些示例：
 
-.. code:: console
+.. code-block:: console
 
     $ sac-config --version
     101.6a

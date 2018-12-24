@@ -9,7 +9,7 @@ convolve
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     CONVOlve [Master name|n] [Number n] [Length ON|OFF|v]
         [Type Rectangle|HAMming|HANning|Cosine|Triangle]
@@ -38,7 +38,7 @@ TYPE HAMMING|HANNING|COSINE|TRIANGlE
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     convolve master 1 number 1 length off type rectangle
 

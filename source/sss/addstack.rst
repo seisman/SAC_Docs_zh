@@ -9,7 +9,7 @@ addstack
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     AddStack filename [Weight v] [DIstance v] [BEgintime v] [ENDtime v]
         [DElay v [Seconds|Points]] [Increment v [Seconds|Points]]
@@ -69,7 +69,7 @@ DELAY 和 INCREMENT 选型的缺省单位为 SECONDS
 示例
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SAC/SSS> gs delay 1.0 inc 0.03
     SAC/SSS> as filea delay 2.0
@@ -86,7 +86,7 @@ DELAY 和 INCREMENT 选型的缺省单位为 SECONDS
 
 接下来对信号进行叠加：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC/SSS> sumstack
 
@@ -94,7 +94,7 @@ DELAY 和 INCREMENT 选型的缺省单位为 SECONDS
 时间延迟分别为2.0、3.0、1.0和1.0。文件 filec 的极性反转。文件 filed 在叠加时的
 权重是其他文件权重的一半。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC/SSS> incrementstack
     SAC/SSS> changestack filec normal
@@ -102,7 +102,7 @@ DELAY 和 INCREMENT 选型的缺省单位为 SECONDS
 
 此次叠加，各个文件使用2.03、3.01、1.03和1.03的延迟。文件 filec 现在为正极性。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC/SSS> deletestack filed
     SAC/SSS> incrementstack

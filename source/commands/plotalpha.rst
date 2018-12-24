@@ -9,7 +9,7 @@ plotalpha
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     PlotAlpha [MORE] [DIR CURRENT|name] [FREE|FORMAT text] [CONTENT text] [filelist]
 
@@ -42,7 +42,7 @@ filelist
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     plotalpha free content y. dir current
 
@@ -57,6 +57,6 @@ filelist
 
 读取并绘制一个自由格式的X-Y数据，且其第一个字段是标签：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> plotalpha content lp filea

@@ -9,7 +9,7 @@ xfudge
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     XFUDGE [ON|OFF|v]
 
@@ -28,7 +28,7 @@ OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     xfudge 0.03
 

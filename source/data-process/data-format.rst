@@ -31,13 +31,13 @@ IRIS 提供了 `rdseed <http://ds.iris.edu/ds/nodes/dmc/forms/rdseed/>`_
 
 下面的命令可以从 SEED 数据中提取 SAC 格式的波形数据，以及台站的 RESP 仪器响应文件：
 
-.. code:: console
+.. code-block:: console
 
     $ rdseed -Rdf file.seed
 
 下面的命令可以从 SEED 数据中提取SAC格式的波形数据，以及台站的 PZ 仪器响应文件：
 
-.. code:: console
+.. code-block:: console
 
     $ rdseed -pdf file.seed
 

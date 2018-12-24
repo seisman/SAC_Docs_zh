@@ -9,7 +9,7 @@ ylabel
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     YLABeL [ON|OFF|text] [Location Top|Bottom|Right|Left]
         [Size Tiny|Small|Medium|Large]

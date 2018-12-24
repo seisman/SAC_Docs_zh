@@ -9,7 +9,7 @@ setbb
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SETBB variable [APPEND] value [variable [APPEND] value ...]
 
@@ -38,14 +38,14 @@ APPEND
 
 同时设置多个黑板变量，并在稍后使用使用这些黑板变量：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> setbb c1 2.45 c2 4.94
     SAC> bandpass corners %c1% %c2%
 
 黑板变量的值中包含空格：
 
-.. code:: bash
+.. code-block:: bash
 
                                 # 含空格的值需要用引号括起来
     SAC> setbb mytitle 'sample filter response'

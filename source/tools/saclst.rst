@@ -3,7 +3,7 @@ saclst
 
 ``saclst`` 是很常用的一个 SAC 工具，用于列出头段变量的值，其语法很简单：
 
-.. code:: console
+.. code-block:: console
 
     $ saclst header_lists f file_lists
 
@@ -14,14 +14,14 @@ saclst
 
 查看单个文件的单个头段：
 
-.. code:: console
+.. code-block:: console
 
     $ saclst npts f seis.SAC
     seis.SAC            1000
 
 查看多个文件的多个头段：
 
-.. code:: console
+.. code-block:: console
 
     $ saclst stla stlo evla evlo gcar f N.*.U
     N.AAKH.U      36.3726      137.92      -5.514     151.161     43.4752

@@ -9,7 +9,7 @@ taper
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     TAPER [Type HANning|HAMming|Cosine] [Width v]
 
@@ -25,7 +25,7 @@ WIDTH v
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     taper type hanning width 0.05
 

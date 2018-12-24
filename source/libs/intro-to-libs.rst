@@ -42,14 +42,14 @@ SAC 提供了两个函数库：\ ``libsacio.a`` 和 ``libsac.a``\ ，用户
 
 对于 C 源码，用如下命令编译
 
-.. code:: console
+.. code-block:: console
 
     $ gcc -c source.c -I/usr/local/sac/include
     $ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsacio
 
 对于 Fortran77 源码，用如下命令编译
 
-.. code:: console
+.. code-block:: console
 
     $ gfortran -c source.f
     $ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsacio
@@ -76,14 +76,14 @@ SAC 提供了两个函数库：\ ``libsacio.a`` 和 ``libsac.a``\ ，用户
 
 对于 C 源码，用如下命令编译：
 
-.. code:: console
+.. code-block:: console
 
     $ gcc -c source.c -I/usr/local/sac/include
     $ gcc -o prog source.o -lm -L/usr/local/sac/lib -lsac -lsacio
 
 对于 Fortran77 源码，用如下命令编译
 
-.. code:: console
+.. code-block:: console
 
     $ gfortran -c source.f
     $ gfortran -o prog source.o -L/usr/local/sac/lib/ -lsac -lsacio

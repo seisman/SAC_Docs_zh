@@ -9,7 +9,7 @@ distancewindow
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     DistanceWindow [Usedate|Width v|Fixed v1 v2] [UNits Kilometers|Degrees]
 
@@ -34,7 +34,7 @@ UNITS DEGREES
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     distancewindow usedata units kilometers
 

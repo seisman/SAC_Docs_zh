@@ -10,14 +10,14 @@ SAC 会将该文件当做 SAC 宏文件，并依次执行该宏文件中的 SAC 
 
 首先新建一个名为 ``init.m`` 的宏文件，其内容可以如下：
 
-.. code:: console
+.. code-block:: console
 
     qdp off
 
 然后，将该文件放在 ``${SACAUX}`` 目录中。在 ``~/.bashrc`` 中加入
 如下别名语句：
 
-.. code:: console
+.. code-block:: console
 
     alias sac="${SACHOME}/bin/sac ${SACAUX}/init.m"
 

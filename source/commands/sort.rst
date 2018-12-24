@@ -9,7 +9,7 @@ sort
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SORT header [ASCEND|DESCEND] [header [ASCEND|DESCEND]...]
 

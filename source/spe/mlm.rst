@@ -9,7 +9,7 @@ mlm
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     MLM [Order n] [Number n]
 
@@ -25,7 +25,7 @@ NUMBER n
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     mlm order 25
 

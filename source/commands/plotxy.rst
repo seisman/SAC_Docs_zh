@@ -9,7 +9,7 @@ plotxy
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     PlotXY name|number name|number [name|number ...]
 
@@ -39,7 +39,7 @@ number
 读入这个文件，将其储存为 SAC 内部4个分开的文件，打开线型增量开关，然后以
 第二列为自变量，其他列为因变量绘图：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> readalpha content ynnn myfile
     SAC> line increment on

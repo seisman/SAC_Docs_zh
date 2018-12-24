@@ -9,7 +9,7 @@ zlines
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     ZLINES  [ON|OFF] [LIST n1 n2 ... nn] [REGIONS v1 v2 ... vn]
 
@@ -32,7 +32,7 @@ REGIONS v1 v2 .. vn
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     zlines on list 1
 
@@ -41,12 +41,12 @@ REGIONS v1 v2 .. vn
 
 循环四种不同线型，建立等值线：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> zlines list 1 2 3 4
 
 设置虚线表示低于0.0等值线，实线表示高于0.0的等值线：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> zlines list 2 1 regions 0.0

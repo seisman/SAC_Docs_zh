@@ -9,7 +9,7 @@ load
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     LOAD comname [ABBREV abbrevname]
 
@@ -39,7 +39,7 @@ ABBREV abbrevname
 设置你的环境变量使得 SAC 在当前目录从库文件 ``libbar.so`` 中查找一个称为
 ``foo`` 的命令，并为 foo 设置别名为 myfft：
 
-.. code:: bash
+.. code-block:: bash
 
     % export SACSOLIST = "libcom.so libbar.so"
     #  Add the current directory to the search path.
@@ -53,7 +53,7 @@ ABBREV abbrevname
 
 如何创建一个包含你的命令的共享目标库：
 
-.. code:: bash
+.. code-block:: bash
 
     Solaris::
     cc -o libxxx.so -G extern.c foo.c bar.c

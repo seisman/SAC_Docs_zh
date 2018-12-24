@@ -9,7 +9,7 @@ div
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     DIV [v1 [v2 ... vn] ]
 
@@ -28,7 +28,7 @@ vn
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     div 1.0
 

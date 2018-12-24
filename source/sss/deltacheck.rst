@@ -9,7 +9,7 @@ deltacheck
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     DELTACHECK ON|OFF|Roundoff|v
 
@@ -31,7 +31,7 @@ v
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     deltacheck roundoff
 

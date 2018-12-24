@@ -12,7 +12,7 @@ Tab 与空格
 
 以在 Bash 中调用 SAC 为例:
 
-.. code:: bash
+.. code-block:: bash
 
     sac << EOF
         fg seis     # 此行行首有 Tab，只是你看不见
@@ -22,7 +22,7 @@ Tab 与空格
 
 由于 SAC 命令前有 Tab 键，导致执行该脚本的结果如下：
 
-.. code:: console
+.. code-block:: console
 
     sh: line 0: fg: no job control
     22:24:49 up 12 days, 12:24,

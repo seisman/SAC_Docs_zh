@@ -9,7 +9,7 @@ tsize
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     TSIZE [Tiny|Small|Medium|Large v ] [Ratio v] [OLD|NEW]
 
@@ -31,7 +31,7 @@ NEW
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     tsize ratio 1.0 new
 
@@ -75,7 +75,7 @@ SAC提供了四个标准尺寸：\ ``TINY``\ 、\ ``SMALL``\ 、\ ``MEDIUM`` 和
 
 为了改变 ``MEDIUM`` 的定义，并使用它创建一个特别尺寸的标题：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> tsize medium 0.35
     SAC> title 'rayleigh wave spectra' size medium
@@ -83,6 +83,6 @@ SAC提供了四个标准尺寸：\ ``TINY``\ 、\ ``SMALL``\ 、\ ``MEDIUM`` 和
 
 为了重置文本尺寸到其默认值：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> tsize new

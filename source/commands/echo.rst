@@ -9,7 +9,7 @@ echo
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     ECHO ON|OFF Errors|Warnings|Output|Commands|Macros|Process
 
@@ -41,7 +41,7 @@ PROCESSED
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     echo on errors warnings output off commands macros processed
 

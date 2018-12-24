@@ -9,7 +9,7 @@ ygrid
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     YGRID ON|OFF|Solid|Dotted
 
@@ -31,6 +31,6 @@ OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     ygrid off

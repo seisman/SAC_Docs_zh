@@ -20,7 +20,7 @@ decimate
 
 下面的示例中，将一个等间隔数据减采样10倍：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> lh delta npts
@@ -41,7 +41,7 @@ interpolate
 
 比如增采样，即插值：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> lh delta npts
@@ -62,7 +62,7 @@ interpolate
 下面的示例将数据减采样到 20 Hz。根据 Nyquist 采样定理，为了保证
 不产生混叠现象，应首先对数据做 10 Hz 的低通滤波。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> lh npts delta

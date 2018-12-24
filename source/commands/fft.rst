@@ -9,7 +9,7 @@ fft
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     FFT [WOmean|Wmean] [Rlim|Amph]
 
@@ -31,7 +31,7 @@ AMPH
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     fft wmean amph
 
@@ -57,7 +57,7 @@ AMPH
 示例
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis
     SAC> lh b e delta npts iftype

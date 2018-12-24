@@ -9,7 +9,7 @@ SAC在做 FFT 时要保证数据点数为 :math:`2^n` 个，对于不足 :math:`
 
 ``next2`` 函数定义为：
 
-.. code:: c
+.. code-block:: c
 
     int next2(int num)  // 输入为 num，返回值为大于 num 的最小2次幂
 
@@ -19,7 +19,7 @@ xapiir
 ``xapiir`` 用于设计IIR滤波器，并对数据进行滤波。这个子函数底层调用了
 ``design`` 和 ``apply`` 两个子函数。
 
-.. code:: c
+.. code-block:: c
 
     void xapiir(float  *data,      // 待滤波的数据，滤波后的数据保存在该数组中
                 int     nsamps,    // 数据点数
@@ -44,7 +44,7 @@ firtrn
 
 ``firtrn`` 用于做数据应用 FIR 滤波器或对数据做 Hilbert 变换：
 
-.. code:: c
+.. code-block:: c
 
     void firtrn(char  *ftype,     // 类型，取'HILBERT'或'DERIVATIVE'
                 float *x,         // 输入数据
@@ -62,7 +62,7 @@ envelope
 
 该子函数用于计算数据的包络函数，其底层调用了 ``firtrn`` 函数。
 
-.. code:: c
+.. code-block:: c
 
     void envelope(int    n,     // 数据点数
                   float *in,    // 输入数据
@@ -76,7 +76,7 @@ crscor
 该子函数用于计算两个数据的互相关，此互相关在频率域中完成，相对时间域
 互相关而言效率更高。
 
-.. code:: c
+.. code-block:: c
 
     void crscor(float *data1,     // 数据1
                 float *data2,     // 数据2
@@ -104,7 +104,7 @@ rms
 
 函数原型为：
 
-.. code:: c
+.. code-block:: c
 
     double rms(float *x,            // 输入数据
                int nsamps)          // 数据点数

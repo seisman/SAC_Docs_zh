@@ -9,7 +9,7 @@ globalstack
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     GlobalStack [Weight v] [DIstance v] [DElay v [Seconds|Points]]
         [Increment v [Seconds|Points] [Normal|Reversed]

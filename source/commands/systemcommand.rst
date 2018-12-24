@@ -9,7 +9,7 @@ systemcommand
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SystemCommand command [options]
 
@@ -42,7 +42,7 @@ options
 
 调用系统命令 ``rm`` 删除某些 SAC 文件：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> rm junks           # 无法直接调用 rm 命令
      ERROR 1106: Not a valid SAC command.

@@ -9,7 +9,7 @@ fileid
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     FILEID [ON|OFF] [Type Default|Name|List hdrlist] [Location UR|UL|LR|LL]
         [Format Equals|Colons|Nonames]
@@ -47,7 +47,7 @@ FORMAT NONAMES
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     fileid on type default location ur format nonames
 
@@ -64,26 +64,26 @@ FORMAT NONAMES
 
 将文件名放在左上角：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fileid location ul type name
 
 定义一个特殊的文件 id，包含台站分量、经纬度：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fileid type list kstcmp stla stlo
 
 文件 id 为头段名后加一个冒号：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fileid format colons
 
 需要强调的是 fileid 命令有 bug，type 不能和 location、format 同时设置，
 必须分开设置，一个设置 type，另一个设置 location 和 format：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fileid type list knetwk kstnm
     SAC> fileid location ul format colons

@@ -17,7 +17,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 对于 Ubuntu/Debian：
 
-.. code:: console
+.. code-block:: console
 
     $ sudo apt update
     $ sudo apt install libc6 libsm6 libice6 libxpm4 libx11-6
@@ -25,7 +25,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 对于 CentOS/Fedora/RHEL：
 
-.. code:: console
+.. code-block:: console
 
     $ sudo yum install glibc libSM libICE libXpm libX11
     $ sudo yum install zlib ncurses
@@ -35,7 +35,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 直接将官方提供的二进制包解压并移动到安装目录即可：
 
-.. code:: console
+.. code-block:: console
 
     $ tar -xvf sac-101.6a-linux_x86_64.tar.gz   # 解压
     $ sudo mv sac /usr/local                    # 安装
@@ -50,7 +50,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 对于 Ubuntu/Debian：
 
-.. code:: console
+.. code-block:: console
 
     $ sudo apt update
     $ sudo apt install build-essential
@@ -59,7 +59,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 对于 CentOS/Fedora/RHEL：
 
-.. code:: console
+.. code-block:: console
 
     $ sudo yum install gcc gcc-c++ make
     $ sudo yum install glibc ncurses-devel libSM-devel libICE-devel
@@ -70,7 +70,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 将源码按如下命令解压、配置、编译、安装：
 
-.. code:: console
+.. code-block:: console
 
     $ tar -xvf sac-101.6a_source.tar.gz
     $ cd sac-101.6a
@@ -85,7 +85,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 向 ``~/.bashrc``\ [1]_\ 中加入如下语句以配置环境变量和 SAC 全局变量：
 
-.. code:: bash
+.. code-block:: bash
 
     export SACHOME=/usr/local/sac
     export SACAUX=${SACHOME}/aux
@@ -111,7 +111,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 修改完 ``~/.bashrc`` 后，执行以下命令使配置的环境变量生效：
 
-.. code:: console
+.. code-block:: console
 
     $ source ~/.bashrc
 
@@ -120,7 +120,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 终端键入小写的 sac\ [2]_\ ，显示如下则表示 SAC 安装成功：
 
-.. code:: console
+.. code-block:: console
 
     $ sac
      SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)]

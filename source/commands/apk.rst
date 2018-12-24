@@ -9,7 +9,7 @@ apk
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     APK [param v [param v] ... ] [Validation ON|OFF]
 
@@ -25,7 +25,7 @@ VALIDATION ON/OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     apk c1 0.985 c2 3.0 c3 0.6 c4 0.03 c5 5.0 c6 0.0039 c7 100. c8 -0.1
         d5 2. d8 3. d9 1. i3 3 i4 40 i6 3 validation on
@@ -72,7 +72,7 @@ VALIDATION ON/OFF
 示例
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis                # 利用这个数据做个例子
     SAC> lh a                   # 这个数据本身是标有 A 的，即初动到时

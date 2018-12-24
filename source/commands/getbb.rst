@@ -9,7 +9,7 @@ getbb
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     GETBB [TO TERMinal|filename] [NAMES ON|OFF] [NEWLINE ON|OFF]
         ALL|variable [variable ...]
@@ -44,7 +44,7 @@ variable
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     getbb to terminal names on newline on all
 
@@ -61,13 +61,13 @@ variable
 
 假设你已经设置了一些黑板变量：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> setbb c1 2.45 c2 4.94
 
 稍后可以这样打印他们的值：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> getbb c1 c2
      c1 = 2.45
@@ -75,7 +75,7 @@ variable
 
 想要在一行内只打印其值：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> getbb names off newline off c1 c2
      2.45 4.94
@@ -85,7 +85,7 @@ variable
 保存每对X和Y的值，然后绘图。下面的宏文件的第一个参数是用于储存这些结果的
 文本文件：
 
-.. code:: bash
+.. code-block:: bash
 
     DO FILE WILD *Z
       READ FILE

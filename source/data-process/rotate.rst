@@ -17,7 +17,7 @@
 SAC 提供了 :doc:`/commands/rotate` 命令，用于旋转任意两个相互正交的分量。
 旋转前，SAC 会检查两个分量的 ``cmpinc`` 和 ``cmpaz``\ ，以确定两个分量是正交的。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> dg sub teleseis ntkl.[enz]
     /opt/sac/aux/datagen/teleseis/ntkl.e ...ntkl.n ...ntkl.z

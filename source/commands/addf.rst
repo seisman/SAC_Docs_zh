@@ -9,7 +9,7 @@ addf
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     ADDF [Newhdr [ON|OFF]] filelist
 
@@ -57,14 +57,14 @@ A 的文件，C 是两个文件相加的结果。该命令会将磁盘中的一�
 
 将一个文件加到其他三个文件中：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1 file2 file3
     SAC> addf file4
 
 将两个文件分别加到另两个文件中：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1 file2
     SAC> addf file3 file4

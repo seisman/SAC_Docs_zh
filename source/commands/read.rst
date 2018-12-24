@@ -9,7 +9,7 @@ read
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     Read [MORE] [DIR CURRENT|name] [XDR|ALPHA|SEGY] [SCALE ON|OFF] [filelist]
 
@@ -50,7 +50,7 @@ filelist
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     read dir current
 
@@ -79,7 +79,7 @@ filelist
 
 如果你想要对一个数据进行高通滤波，并与原始数据进行对比：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r f01
     SAC> hp c 1.3 n 6
@@ -89,25 +89,25 @@ filelist
 假设SAC的启动目录位于 ``/me/data``\ ，你想要处理其子目录 ``event1`` 和
 ``event2`` 下的文件。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read dir event1 f01 f02
 
 读取了目录 ``/me/data/event1`` 下的文件。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read f03 g03
 
 相同目录下的文件被读入。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read dir event2 *
 
 ``/me/data/event2`` 下的全部文件被读入。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read dir current f03 g03
 

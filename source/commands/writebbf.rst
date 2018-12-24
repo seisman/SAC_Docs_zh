@@ -9,7 +9,7 @@ writebbf
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     WriteBBF [file]
 
@@ -22,7 +22,7 @@ file
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     writebbf bbf
 

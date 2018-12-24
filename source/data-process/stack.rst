@@ -17,7 +17,7 @@ sss 的进入和退出
 
 首先，需要让 SAC 读入要叠加的 SAC 文件。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> sss   # 进入 sss 子程序
     Signal Stacking Subprocess.
@@ -29,7 +29,7 @@ sss 的进入和退出
 
 在 SAC 主程序中读入的文件，在进入子程序时会保留。如下面的例子所示：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r a.SAC    # 读取了文件 a.SAC
     SAC> sss   # 进入 sss 子程序
@@ -55,7 +55,7 @@ sss 的进入和退出
 
 本小节首先生成两个脉冲函数文件，然后尝试用多种方式把它们叠加起来。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> funcgen impulse npts 10 delta 1 begin 0
     # 生成一个脉冲函数，数据点数 10 个，采样间隔 1s， 头段 b 为 0
@@ -85,7 +85,7 @@ sss 的进入和退出
 下面尝试把 ``a.SAC`` 和 ``b.SAC`` 叠加起来，并做动校正让脉冲信号重合，并且
 振幅就是简单的求和使其等于 2。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC/SSS> zero stack
     SAC/SSS> addstack a.SAC delay 10 s

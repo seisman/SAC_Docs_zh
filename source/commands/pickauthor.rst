@@ -10,7 +10,7 @@ pickauthor
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     PICKAuthor author1 [author2 author3 ...]
     PICKAuthor FILE [filename]
@@ -34,7 +34,7 @@ PHASE
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     pickauthor file
 

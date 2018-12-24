@@ -9,7 +9,7 @@ readhdr
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     ReadHdr [MORE] [DIR CURRENT|name] [filelist]
 

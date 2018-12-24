@@ -9,7 +9,7 @@ null
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     NULL [ON|OFF|value]
 
@@ -28,7 +28,7 @@ OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     null off
 
@@ -44,6 +44,6 @@ OFF
 
 设置空值为-1.0并打开空值选项：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> null on -1.0

@@ -109,7 +109,7 @@ SAC 头段中的 ``cmpaz`` 和 ``cmpinc`` 是用于描述仪器敏感轴正方�
 
 从 SEED 文件中提取波形数据和 RESP 仪器响应文件：
 
-.. code:: console
+.. code-block:: console
 
     rdseed -R -d -f infile.seed
 
@@ -117,13 +117,13 @@ SAC 头段中的 ``cmpaz`` 和 ``cmpinc`` 是用于描述仪器敏感轴正方�
 
 从 SEED 文件中提取波形数据和 SAC PZ 仪器响应文件：
 
-.. code:: console
+.. code-block:: console
 
     rdseed -pdf infile.seed
 
 从 miniSEED 文件中提取波形数据，并指定 dataless SEED 文件作为仪器响应文件：
 
-.. code:: console
+.. code-block:: console
 
     rdseed -Rdf infile.miniseed -g infile.dataless
 

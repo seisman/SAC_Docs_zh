@@ -9,7 +9,7 @@ readcss
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     ReadCSS [BINARY|ASCII] [MAXmem v] [MORE] [TRUST ON|OFF] [VERbose ON|OFF]
         [SHIFT ON|OFF] [SCALE ON|OFF] [MAGnitude MB|MS|ML|DEF] [DIR name] wfdisclist
@@ -18,7 +18,7 @@ readcss
 其中 ``cssoptions`` 用于进一步从 ``wfdisc`` 文件中筛选满足条件的数据文件，
 ``cssoptions`` 可以取：
 
-.. code:: bash
+.. code-block:: bash
 
         [STAtion station] [CHANnel channel] [BANDwidth bandcode]
         [ORIENTation orientation-code]
@@ -104,7 +104,7 @@ ORIENTATION orientation-code
 默认值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     readcss ascii maxmem 0.3 verbose off station * band * chan * orient
 

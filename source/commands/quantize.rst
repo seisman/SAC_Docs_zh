@@ -9,7 +9,7 @@ quantize
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     QUANTIZE [GAINS n ...] [LEVEL v] [MANTISSA n]
 
@@ -28,7 +28,7 @@ MANTISSA n
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     quantize gains 128 32 8 1 level 0.00001 mantissa 14
 

@@ -8,7 +8,7 @@ rsac1
 
 函数定义如下：
 
-.. code:: c
+.. code-block:: c
 
     void rsac1(char  *kname,     // 要读入的文件名
                float *yarray,    // 数据被保存到 yarray 数组中
@@ -26,7 +26,7 @@ rsac2
 
 子函数 ``rsac2`` 用于读取非等间隔采样的 SAC 数据。
 
-.. code:: c
+.. code-block:: c
 
     void rsac2(char  *kname,     // 要读入的文件名
                float *yarray,    // 因变量数组
@@ -43,7 +43,7 @@ wsac1
 
 子函数 ``wsac1`` 用于写等间隔 SAC 文件。
 
-.. code:: c
+.. code-block:: c
 
     void wsac1(char *kname,        // 要写入的文件名
                float *yarray,      // 要写入文件的数组
@@ -60,7 +60,7 @@ wsac2
 
 写非等间隔 SAC 文件。
 
-.. code:: c
+.. code-block:: c
 
     void wsac2(char  *kname,       // 文件名
                float *yarray,      // 因变量数组
@@ -77,7 +77,7 @@ wsac0
 子函数 ``wsac0`` 相对来说更加通用也更复杂，利用该函数可以创建
 包含更多头段的 SAC 文件。
 
-.. code:: c
+.. code-block:: c
 
     void wsac0(char  *kname,       // 文件名
                float *xarray,      // 自变量数组
@@ -97,7 +97,7 @@ getfhv
 
 获取浮点型头段变量的值。
 
-.. code:: c
+.. code-block:: c
 
     void getfhv(char  *kname,       // 头段变量名
                 float *fvalue,      // 浮点型头段变量的值
@@ -113,7 +113,7 @@ readbbf
 
 读取一个黑板变量文件。
 
-.. code:: c
+.. code-block:: c
 
     void readbbf(char *kname,     // 要读取的文件
                  int  *nerr,      // 错误码
@@ -126,7 +126,7 @@ getbbv
 
 获取一个黑板变量的值。
 
-.. code:: c
+.. code-block:: c
 
     void getbbv(char *kname,     // 黑板变量名
                 char *kvalue,    // 黑板变量的值
@@ -141,7 +141,7 @@ distaz
 
 计算地球上任意两点之间的震中距、方位角和反方位角。
 
-.. code:: c
+.. code-block:: c
 
     void distaz(double  evla,     // 事件纬度
                 double  evlo,     // 事件经度

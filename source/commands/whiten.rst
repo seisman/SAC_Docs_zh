@@ -9,7 +9,7 @@ whiten
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     WhITen n
 
@@ -24,7 +24,7 @@ n
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     whiten 6
 

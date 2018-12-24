@@ -9,7 +9,7 @@ correlate
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     CORrelate [Master name|n] [Number n] [Length ON|OFF|v] [NOrmalized]
         [Type Rectangle|HAMming|HANning|Cosine|Triangle]
@@ -47,7 +47,7 @@ TYPE TRIANGLE
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     correlate master 1 number 1 length off type rectangle
 
@@ -81,7 +81,7 @@ TYPE TRIANGLE
 
 以内存中第三个文件为主文件计算互相关函数：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1 file2 file3
     SAC> cor master 3
@@ -91,7 +91,7 @@ TYPE TRIANGLE
 假设有两个数据文件，每个包含1000个噪声数据。将数据划分为无重叠的10个窗，
 每个窗包含100个数据点，且对窗应用 hanning 函数，并计算10个窗的平均相关函数：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1 file2
     SAC> cor type hanning number 10
@@ -99,14 +99,14 @@ TYPE TRIANGLE
 为了使窗之间有20%的混叠，可以设置窗长度为120个数据点。假设数据采样周期
 为0.025（即每秒40个采样点），则窗长为3秒：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1 file2
     SAC> cor type hanning number 10 length 3.0
 
 下面的例子计算了两个数据之间的归一化互相关函数，并从中提取出了互相关系数：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1 file2
     SAC> cor norm                                   # 归一化互相关

@@ -9,7 +9,7 @@
 
 一种常规的做法如下：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r *.SAC        # 读入全部的 SAC 数据
     SAC> ppk p 5        # plotpk，每次绘制5个波形
@@ -29,7 +29,7 @@
 
 鉴于此，可以通过如下命令删除“坏”波形：
 
-.. code:: console
+.. code-block:: console
 
     $ saclst t9 f *.SAC | awk '$2>0 {print "rm",$1}' | sh
 
@@ -39,7 +39,7 @@
 
 当然，也可以用如下命令将“坏”数据移动到专门的目录中：
 
-.. code:: console
+.. code-block:: console
 
     $ mkdir BAD
     $ saclst t9 f *.SAC | awk '$2>0 {print "mv", $1, "BAD/"}' | sh

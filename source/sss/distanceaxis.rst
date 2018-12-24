@@ -9,7 +9,7 @@ distanceaxis
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     DistanceAxis Fixed v | Scaled v
 
@@ -25,7 +25,7 @@ SCALED v
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     distanceaxis fixed 35
 
@@ -34,6 +34,6 @@ SCALED v
 
 若剖面图的距离范围为 150 km 到 300 km，则如下命令设置距离轴长度为 75 cm：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> distanceaxis scaled 2.0

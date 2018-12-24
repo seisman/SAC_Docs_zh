@@ -9,7 +9,7 @@ traveltime
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     TRAVELTIME [Model model] [PICKS n] [PHASE phaselist] [VERBOSE|QUIET] [M|KM]
 
@@ -38,7 +38,7 @@ M|KM
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     traveltime MODEL iasp91 KM PHASE P S Pn Pg Sn Sg
 
@@ -66,7 +66,7 @@ M|KM
 
 区域事件，使用默认震相列表：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seismo
     SAC> traveltime
@@ -85,7 +85,7 @@ M|KM
 上面的示例，只是计算了震相走时，不会写入到头段变量中。要将震相走时存储到
 头段变量中，需要使用 ``PICKS n``\ 选项：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seismo
     SAC> traveltime picks 0 phase Pn Pg Sn Sg
@@ -105,7 +105,7 @@ M|KM
 
 ``rdseed v5.0`` 生成的波形数据，震源深度 ``evdp`` 的单位为 m：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r 2008.052.14.16.03.0000.XC.OR075.00.LHZ.M.SAC
     SAC> lh evdp

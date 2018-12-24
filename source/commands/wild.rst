@@ -9,7 +9,7 @@ wild
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     WILD [ECHO ON|OFF] [SINGLE char] [MULTIPLE char] [CONCATENATION chars]
 
@@ -88,14 +88,14 @@ SAC 使用通配符完成文件名的扩展，通常有几个步骤：
 
 假定当前目录中包含如下次序的文件：
 
-.. code:: bash
+.. code-block:: bash
 
     ABC DEF STA01E STA01N STA01Z STA02E STA02N STA02Z STA03Z
 
 同样假定扩展文件设置回显，下面显示怎样使用各种通配符去将上面文件表的
 一部分读入内存：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> READ S*
      STA01E STA01N STA01Z STA02E STA02N STA02Z STA03Z

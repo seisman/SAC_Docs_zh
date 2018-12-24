@@ -9,7 +9,7 @@ cor
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     COR [Number n|ON|OFF] [Length v] [Prewhiten ON|OFF|n] [Stocastic|TRansient]
         [Type HAMming|HANning|Cosine|Rectangle|Triangle]
@@ -47,7 +47,7 @@ TRANSIENT
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     cor number off type hamming prewhiten off
 

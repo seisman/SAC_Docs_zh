@@ -9,7 +9,7 @@ xfull
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     XFULL [ON|OFF]
 
@@ -22,7 +22,7 @@ ON|OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     xfull on
 

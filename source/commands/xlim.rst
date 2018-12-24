@@ -9,7 +9,7 @@ xlim
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     XLIM [ON|OFF|pdw|SIGNAL]
 
@@ -31,7 +31,7 @@ OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     xlim off
 

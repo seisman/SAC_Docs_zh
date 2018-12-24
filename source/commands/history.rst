@@ -9,7 +9,7 @@ history
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     HISTORY
 
@@ -28,30 +28,30 @@ history
 
 打印命令历史列表：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> history
 
 重复命令1：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> !1
 
 重复最后一条命令：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> !!
 
 重复倒数第二个命令：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> !-2
 
 重复以 ``ps`` 开头的命令：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> !ps

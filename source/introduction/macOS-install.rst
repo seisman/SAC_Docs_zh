@@ -13,7 +13,7 @@ macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以�
 
 首先要安装 macOS 下的命令行工具。在终端执行如下命令即可安装：
 
-.. code:: console
+.. code-block:: console
 
     $ xcode-select --install
 
@@ -21,7 +21,7 @@ macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以�
 `Apple的官方支持 <https://support.apple.com/zh-cn/HT201341>`_ 来解决。
 Homebrew 用户可以使用如下命令安装：
 
-.. code:: console
+.. code-block:: console
 
     $ brew cask install xquartz
 
@@ -30,7 +30,7 @@ Homebrew 用户可以使用如下命令安装：
 
 直接将官方的二进制包解压并移动到安装目录即可：
 
-.. code:: console
+.. code-block:: console
 
     $ tar -xvf sac-101.6a-mac_x86_64.tar.gz
     $ sudo mv sac /usr/local
@@ -42,7 +42,7 @@ Homebrew 用户可以使用如下命令安装：
 在 macOS 下无法正常编译，因而执行 ``configure`` 时使用了 ``--enable-readline``
 选项使得 SAC 使用 readline 库而不是 editline 库。
 
-.. code:: console
+.. code-block:: console
 
     $ tar -xvf sac-101.6a_source.tar.gz
     $ cd sac-101.6a
@@ -57,7 +57,7 @@ Homebrew 用户可以使用如下命令安装：
 
 向 ``~/.bash_profile`` 中加入如下语句以配置环境变量和 SAC 全局变量：
 
-.. code:: bash
+.. code-block:: bash
 
     export SACHOME=/usr/local/sac
     export SACAUX=${SACHOME}/aux
@@ -83,7 +83,7 @@ Homebrew 用户可以使用如下命令安装：
 
 修改完 ``~/.bash_profile`` 后，执行以下命令使配置的环境变量生效：
 
-.. code:: console
+.. code-block:: console
 
     $ source ~/.bash_profile
 
@@ -92,7 +92,7 @@ Homebrew 用户可以使用如下命令安装：
 
 终端键入小写的 sac，显示如下则表示 SAC 安装成功：
 
-.. code:: console
+.. code-block:: console
 
     $ sac
      SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)]

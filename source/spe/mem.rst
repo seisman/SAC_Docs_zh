@@ -9,7 +9,7 @@ mem
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     MEM [Order n] [Number n]
 
@@ -25,7 +25,7 @@ NUMBER n
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     mem order 25
 

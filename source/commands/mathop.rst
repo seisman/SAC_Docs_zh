@@ -9,7 +9,7 @@ mathop
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     MATHOP NORMAL|MATH|FORTRAN|NONE|OLD
 
@@ -25,7 +25,7 @@ NONE|OLD
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     mathop NORMAL
 
@@ -47,7 +47,7 @@ SAC在101.6之后的版本中，默认使用正常的操作符优先级。对于
 
 正常的操作符优先级：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> mathop normal
     SAC> eval 1+2*3
@@ -57,7 +57,7 @@ SAC在101.6之后的版本中，默认使用正常的操作符优先级。对于
 
 旧的操作符优先级：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> mathop old
     SAC> eval 1+2*3

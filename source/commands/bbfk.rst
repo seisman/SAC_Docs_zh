@@ -9,7 +9,7 @@ bbfk
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     BBFK [Filter] [NOrmalize] [EPS v] [MLM|PDS] [Exp n] [WAwvenumber v]
         [Size m n] [Levels n] [Db] [Title text] [WRite [ON|OFF fname] [Ssq n]]
@@ -63,7 +63,7 @@ SSQ n
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     bbfk eps .01 pds exp 1 wvenumber 1.0 size 90 32 levels 11
         write off ssq 100

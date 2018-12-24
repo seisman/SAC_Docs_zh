@@ -9,7 +9,7 @@ writesp
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     WriteSP [ASIS|RLIM|AMPH|RL|IM|AM|PH] [OVER|filelist]
 
@@ -34,7 +34,7 @@ filelist
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     writesp asis
 
@@ -65,7 +65,7 @@ SAC 数据文件可以为时间序列文件或谱文件。头段中的 ``IFTYPE`
 
 假设你想要对 FILE1 的谱文件振幅进行一些操作：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read file1
     SAC> fft amph
@@ -73,7 +73,7 @@ SAC 数据文件可以为时间序列文件或谱文件。头段中的 ``IFTYPE`
 
 SAC 将输出两个文件 FILE1.AM 和 FILE1.PH，现在可以对振幅文件进行操作：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read file1.am
     SAC> ...perform operations.
@@ -81,7 +81,7 @@ SAC 将输出两个文件 FILE1.AM 和 FILE1.PH，现在可以对振幅文件进
 
 现在磁盘中的文件为修改后的谱文件，如果你想要重建 SAC 谱数据并进行反变换：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> readsp file1
     SAC> ifft

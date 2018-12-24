@@ -9,7 +9,7 @@ symbol
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     SYMbol [ON|OFF|n] [SIZE v] [SPACING v] [INCREment ON|OFF] [LIST STANDARD|nlist]
 
@@ -47,7 +47,7 @@ LIST STANDARD
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     symbol off size 0.01 spacing 0. increment off list standard
 
@@ -69,7 +69,7 @@ LIST STANDARD
 
 为了创建一个散点分布图，关闭画线选项，选择适当的符号，然后绘图：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> line off
     SAC> symbol 5
@@ -78,7 +78,7 @@ LIST STANDARD
 为了用符号7、4、6、8注释四条实线，间隔用0.3，用
 :doc:`/commands/plot2`  绘图：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> line solid
     SAC> sym spacing .3 increment list 7 4 6 8
@@ -88,7 +88,7 @@ LIST STANDARD
 使用 :doc:`/commands/plot2` 在相同图形上绘制三个文件，第一个文件图形使用
 实线无符号；第二个没有线，为三角符号；第三个没有线，带有交叉符号：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read file1 file2 file3
     SAC> line list 1 0 0 increment

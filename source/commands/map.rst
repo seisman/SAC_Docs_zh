@@ -12,7 +12,7 @@ GMT 地图，也可以在命令行上指定一个事件文件。每个地震事�
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     MAP [MERcator|EQuidistant|AZimuthal_equidistant|ROBinson]
         [WEST minlon] [EAST maxlon] [NORTH maxlat] [SOUTH minlat]
@@ -75,7 +75,7 @@ SAC中可以使用的投影方式包括：
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     map mercator topo off stan off file gmt.ps plotstations on
         plotevents on
@@ -85,7 +85,7 @@ SAC中可以使用的投影方式包括：
 
 利用SAC提供的一些数据作为例子：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> dg sub regional *.z
     SAC> title "Station Location Map"

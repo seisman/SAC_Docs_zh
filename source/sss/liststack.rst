@@ -9,7 +9,7 @@ liststack
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     ListStack [Narrow | Wide]
 

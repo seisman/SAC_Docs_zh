@@ -9,7 +9,7 @@ border
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     BORDER [ON|OFF]
 
@@ -22,7 +22,7 @@ ON|OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     border off
 

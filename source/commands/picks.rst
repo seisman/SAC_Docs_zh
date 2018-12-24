@@ -9,7 +9,7 @@ picks
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     PICKS [ON|OFF] [pick Vertical|Horizontal|Cross] [Width v] [Height v]
 
@@ -41,7 +41,7 @@ HEIGHT v
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     picks on width 0.1 height 0.1
 
@@ -63,7 +63,7 @@ HEIGHT v
 
 以交叉线显示时间标记 ``T4``\ 、\ ``T5`` 和 ``T6``\ ，并改变交叉线的高度和宽度：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> picks t4 c t5 c t6 c w 0.3 h 0.1
 

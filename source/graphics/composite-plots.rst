@@ -39,7 +39,7 @@ SAC 提供了绘制组合图的功能，这其中牵涉到一些新的概念，�
 
 一个典型的组合图的绘制如下所示：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg seis                        # 生成数据
     SAC> beginframe                     # 打开 frame，开始绘制组合图

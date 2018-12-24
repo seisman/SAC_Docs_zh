@@ -37,7 +37,7 @@
 
 示例如下：
 
-.. code:: bash
+.. code-block:: bash
 
     $ sac                           # 该行省略
     SAC> fg seis                    # 这是注释

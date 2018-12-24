@@ -9,13 +9,13 @@ funcgen
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     FuncGen [type] [Delta v] [Npts n] [BEgin v]
 
 其中 ``type`` 是下面中的一个：
 
-.. code:: bash
+.. code-block:: bash
 
     IMPulse | STep | Boxcar | Triangle | SINE [v1 v2] | Line [v1 v2] |
     Quadratic [v1 v2 v3] | CUBIC [v1 v2 v3 v4] | SEISmogram |
@@ -76,7 +76,7 @@ BEGIN v
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     funcgen impulse npts 100 delta 1.0 begin 0.
 
@@ -94,6 +94,6 @@ BEGIN v
 
 下面的命令可以用于生成一个随机白噪声：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> fg random 1 1 npts 10000 delta 0.01

@@ -6,7 +6,7 @@ SGF 格式是 SAC 自定义的图像文件格式，转换到常见的其他图�
 
 ``sgftops`` 可以将 SGF 格式的文件转换为 PS 格式。其用法如下：
 
-.. code:: console
+.. code-block:: console
 
     $ sgftops
     Usage: sgftops sgf_file ps_file [line_width scale_id]
@@ -19,7 +19,7 @@ SGF 格式是 SAC 自定义的图像文件格式，转换到常见的其他图�
 
 示例如下：
 
-.. code:: console
+.. code-block:: console
 
     $ sgftops f001.sgf f001.ps 2 si
     First translates (x and y), then rotates, then scales:

@@ -9,7 +9,7 @@ wait
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     WAIT [Text ON|OFF] [Plots ON|OFF|Every]
 
@@ -28,7 +28,7 @@ PLOTS EVERY
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     wait text on plots on
 

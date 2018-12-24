@@ -17,7 +17,7 @@ readsac
 
 ``readsac`` 函数有三种用法。第一种用法：
 
-.. code:: matlab
+.. code-block:: matlab
 
     % 读取 SAC 文件，并保存到结构体S中
     >> S = readsac('seis.SAC');
@@ -32,7 +32,7 @@ readsac
 
 第二种用法：
 
-.. code:: matlab
+.. code-block:: matlab
 
     % 读取 SAC 文件，时间和波形振幅分别保存到数组 X 和 Y 中
     >> [X, Y] = readsac('seis.SAC');
@@ -43,7 +43,7 @@ readsac
 
 第三种用法，有三个返回值：
 
-.. code:: matlab
+.. code-block:: matlab
 
     % 用于读取不等间隔数据或 SAC 谱数据
     >> [X, Y1, Y2] = readsac('seis.SAC');
@@ -58,7 +58,7 @@ getsacdata
 读入到结构体 S 中，有时却需要用数组做处理，这就可以使用 ``getsacdata``
 函数，可以从结构体S中提取出自变量和因变量数组：
 
-.. code:: matlab
+.. code-block:: matlab
 
     % 从文件中读入结构体 S
     >> S = readsac('seis.SAC');
@@ -71,7 +71,7 @@ writesac
 ``writesac.m`` 中定义了函数 ``writesac``\ ，用于写 SAC 格式的文件，其
 输入是结构体 S，返回值是状态码：
 
-.. code:: matlab
+.. code-block:: matlab
 
     % 读入 SAC 数据
     >> S = readsac('seis.SAC');

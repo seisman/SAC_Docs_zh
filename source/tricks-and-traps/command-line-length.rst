@@ -16,13 +16,13 @@
 文件名长度为10字符。如果要将全部 SAC 文件读入到内存中，最简单的办法是
 使用通配符：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r *.BHZ
 
 当然如果不觉得麻烦，完全可以把120个文件名一个一个敲到命令行里：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r XX.001.BHZ XX.002.BHZ ... XX.120.BHZ # 此处省略了一堆文件名
 

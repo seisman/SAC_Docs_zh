@@ -9,7 +9,7 @@ pds
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     PDS [Seconds v|Lags n] [Number n]
         [Type HAMming|HANning|Cosine|Rectangle|Triangle]
@@ -32,7 +32,7 @@ TYPE type
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     pds type hamming
 

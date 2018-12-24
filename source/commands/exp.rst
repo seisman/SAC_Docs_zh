@@ -9,7 +9,7 @@ exp
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     EXP
 

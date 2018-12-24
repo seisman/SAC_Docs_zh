@@ -9,7 +9,7 @@ unsetbb
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     UNSETBB ALL|variable ...
 
@@ -27,12 +27,12 @@ variable
 
 一次删除多个黑板变量：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> unsetbb c1 c2 x
 
 删除所有黑板变量：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> unsetbb all

@@ -9,7 +9,7 @@ interpolate
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     INTERPolate [Delta v|Npts v] [Begin v]
 
@@ -48,7 +48,7 @@ BEGIN v
 
 假定 filea 是等间隔数据，采样间隔为 0.025 s，为了将转换到采样间隔为 0.02 s：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r filea
     SAC> interp delta 0.02
@@ -57,14 +57,14 @@ BEGIN v
 
 假定 fileb 数据点数为3101，想要保持其时间跨度，并采样至4096个点：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r fileb
     SAC> interp npts 4096
 
 假设 filec 是不等间隔数据，为了将其转换为采样率为 0.01 s 的等间隔数据：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read filec
     SAC> interpolate delta 0.01

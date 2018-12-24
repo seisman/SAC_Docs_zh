@@ -9,7 +9,7 @@ image
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     IMAGE [COLOR|GREY] [BINARY|FULL]
 
@@ -25,7 +25,7 @@ BINARY|FULL
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     image color full
 
@@ -44,7 +44,7 @@ BINARY|FULL
 
 以 SAC v101.5c 自带的 contourdata 为例：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r contourdata
     SAC> image

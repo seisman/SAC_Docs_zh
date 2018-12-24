@@ -9,14 +9,14 @@ int
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     INT [Trapezeidal|Rectangular]
 
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     int trapezoidal
 

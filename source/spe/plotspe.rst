@@ -9,7 +9,7 @@ plotspe
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     PlotSPE [Power|Log|Amplitude] [Confidence [ON|OFF]]
 
@@ -34,7 +34,7 @@ CONFIDENCE OFF
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     plotsp power confidence off
 

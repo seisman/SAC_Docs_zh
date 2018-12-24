@@ -9,7 +9,7 @@ Python 中的 SAC I/O
 
 obspy 可以通过 Python 自带的模块管理工具 pip 来安装：
 
-.. code:: console
+.. code-block:: console
 
     $ pip install obspy
 

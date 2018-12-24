@@ -9,7 +9,7 @@ yfudge
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     YFUDGE [ON|OFF|v]
 

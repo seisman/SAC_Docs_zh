@@ -16,6 +16,6 @@ SAC 中的图像可以保存为 SGF、PS 和 PDF 格式，有些时候会需要�
 
 下面给出一个简单的例子：
 
-.. code:: console
+.. code-block:: console
 
         convert -trim -density 300x300 -rotate 90 image.ps image.png

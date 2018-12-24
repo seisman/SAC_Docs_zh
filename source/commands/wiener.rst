@@ -9,7 +9,7 @@ wiener
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     WieNeR [Window pdw] [Ncoeff n] [MU OFF|ON|v] [EPSilon OFF|ON|e]
 
@@ -44,7 +44,7 @@ EPSILON ON|OFF|e
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     wiener window b 0 10 ncoeff 30 mu off epsilon off
 
@@ -64,13 +64,13 @@ EPSILON ON|OFF|e
 
 下面的命令将应用一个非自适应滤波器，将第一个十秒指定为数据窗：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> wiener window b 0 10 mu 0.
 
 下面命令将应用带40个系数的滤波器，指定设计窗为从文件开始到第一个到时前1秒：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> wiener ncoeff 40 window b a -1
 

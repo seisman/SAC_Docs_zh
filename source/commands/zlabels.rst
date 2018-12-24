@@ -9,7 +9,7 @@ zlabels
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     ZLABELS [ON|OFF] [SPACING v1 [v2 [v3]]] [SIZE v] [ANGLE v] [LIST c1 c2 ... cn]
 
@@ -61,7 +61,7 @@ text
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     zlabels off spacing 0.1 0.2 0.3 size 0.0075 angle 45.0 list on
 

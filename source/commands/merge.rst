@@ -9,7 +9,7 @@ merge
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     MERGE [Verbose] [Gap Zero|Interp] [Overlap Compare|Average] [filelist]
 
@@ -63,7 +63,7 @@ v101.6之后的新版 ``merge`` 命令，会将内存中的全部数据文件以
 
 下面看一个数据合并的示例：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> read file1 file2
     SAC> merge file3 file4
@@ -78,7 +78,7 @@ file4 与 file2 合并成文件 file2，此时内存中有两个文件 file1 和
 
 多个文件合并成单个文件的一种方法：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1                        # 读取一个文件
     SAC> merge file2 file3 file4        # merge 其余文件
@@ -86,7 +86,7 @@ file4 与 file2 合并成文件 file2，此时内存中有两个文件 file1 和
 
 另一种合并办法：
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r file1 file2 file3 file4
     SAC> merge                      # 合并内存中的所有文件
@@ -94,7 +94,7 @@ file4 与 file2 合并成文件 file2，此时内存中有两个文件 file1 和
 
 再一种合并方法：
 
-.. code:: bash
+.. code-block:: bash
 
                                         # 内存中无数据
     SAC> merge file1 file2 file3 file4  # 合并 filelist 中的全部文件

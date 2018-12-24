@@ -9,7 +9,7 @@ velocitymodel
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     VelocityModel n [ON|OFF] [REFRACTEDWAVE|NORMALMOVEOUT] [FLIP] [VAPP v|CALCULATE]
         [T0VM v|CALCULATE] [DVM v1 [v2]] [TVM v1 [v2]] [VAPPI v] [T0VMI v]
@@ -59,7 +59,7 @@ TOVMI v
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     velocitymodel 1 off
     velocitymodel 2 off
@@ -92,6 +92,6 @@ TOVMI v
 设置第一个叠加速度模型为折射波模型，视速度为 6.5 km/s，让SAC 自动计算 TOVM
 以使得 200 km 处的时间延迟为零：
 
-.. code:: bash
+.. code-block:: bash
 
     velocitymodel 1 refractedwave vapp 6.5 tovm calculate dvm 200 tvm 35

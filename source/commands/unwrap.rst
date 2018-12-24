@@ -9,7 +9,7 @@ unwrap
 语法
 ----
 
-.. code:: bash
+.. code-block:: bash
 
     UNWRAP [Fill ON|OFF|n] [Intthr v] [Pvthr v]
 
@@ -31,7 +31,7 @@ PVTHR v
 缺省值
 ------
 
-.. code:: bash
+.. code-block:: bash
 
     unwrap fill off intthr 1.5 pvthr 0.5
 

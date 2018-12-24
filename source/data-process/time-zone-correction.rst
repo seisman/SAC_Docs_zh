@@ -5,7 +5,7 @@
 修改至国际标准时间，即要对数据做时区校正，将数据的绝对时间整体减少8个
 小时。前面说过，时区校正可以通过修改头段变量 ``b`` 的值来实现。
 
-.. code:: bash
+.. code-block:: bash
 
     SAC> r nykl.z                          # 读入数据
     SAC> lh b e kzdate kztime              # 查看头段信息
