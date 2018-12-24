@@ -6,7 +6,7 @@
 
    \titleformat{\section}{\Large\bfseries}{}{0em}{}{}
 
-v4.0 (xxxx-xx-xx)
+v4.0 (2018-12-23)
 =================
 
 - 文档不再使用 LaTeX 源码，改而采用 reStructuredText 语言，并使用 sphinx 制作文档

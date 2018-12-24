@@ -26,7 +26,7 @@ project = 'SAC参考手册'
 copyright = '2012 - {}, SeisMan'.format(datetime.date.today().year)
 author = 'SeisMan'
 version = '4.0'
-release = '4.0'
+release = version
 language = 'zh_CN'
 
 # List of patterns, relative to source directory, that match files and
