@@ -9,7 +9,7 @@ SAC 提供的命令可以帮助用户实现地震数据的预处理，但无法�
 通常的做法是先读入头段区，然后从中提取出数据点数等信息，然后再据此读入
 数据区，由此即可实现 SAC 数据的读写。
 
-这一章将介绍如何在 C、Fortran、Matlab、Python 中读写 SAC 文件。
+这一章将介绍如何在 C、Fortran、Matlab、Python、Julia 中读写 SAC 文件。
 
 .. toctree::
 
@@ -17,3 +17,4 @@ SAC 提供的命令可以帮助用户实现地震数据的预处理，但无法�
    sacio-in-fortran
    sacio-in-matlab
    sacio-in-python
+   sacio-in-julia
