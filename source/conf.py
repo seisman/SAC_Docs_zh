@@ -93,6 +93,7 @@ latex_elements = {
     'fontpkg'   : '',
     'cmappkg'   : '',
     'fontenc'   : '',
+    'maketitle' : '\\maketitle',
 }
 
 
