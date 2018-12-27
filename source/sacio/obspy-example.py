@@ -1,25 +1,22 @@
 #!/usr/bin/env python
-# -*- coding: uft8 -*-
-from obspy import read
-import numpy as np
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
 
-st = read("*.z")
+from obspy.clients.fdsn import Client
+from obspy import UTCDateTime
 
-for tr in st:
-    tr_filt = tr.copy()
-    tr_filt.filter('lowpass', freq=0.05, corners=2, zerophase=True)
+client = Client("IRIS")
 
-    # Now let's plot the raw and filtered data...
-    t = np.arange(0, tr.stats.npts / tr.stats.sampling_rate, tr.stats.delta)
-    plt.subplot(211)
-    plt.plot(t, tr.data, 'k')
-    plt.ylabel('Raw Data')
-    plt.subplot(212)
-    plt.plot(t, tr_filt.data, 'k')
-    plt.ylabel('Lowpassed Data')
-    plt.xlabel('Time [s]')
-    plt.suptitle(tr.stats.starttime)
-    plt.show()
+t = UTCDateTime("2010-02-27T06:45:00.000")
 
-    tr_filt.write(filename=tr_filt.id, format='SAC')
+inventory = client.get_stations(network="IC", station="BJT", location="00",
+                                channel="BH*", level="response", starttime=t)
+st = client.get_waveforms("IC", "BJT", "00", "BH*", t, t + 60 * 60)
+st.detrend(type="demean")  # rmean
+st.detrend(type="linear")  # rtrend
+st.taper(max_percentage=0.05)  # taper
+# transfer to vel freq 0.005 0.01 10 25
+st.remove_response(inventory=inventory, output="VEL",
+                   pre_filt=[0.005, 0.01, 10, 25])
+# bandpass c 1 10 n 2 p 2
+st.filter('bandpass', freqmin=0.01, freqmax=0.1, corners=2, zerophase=True)
+st.plot()
