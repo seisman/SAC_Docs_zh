@@ -68,6 +68,8 @@ envelope
                   float *in,    // 输入数据
                   float *out)   // 输出数据
 
+需要注意，\ ``in`` 和 ``out`` 不能是同一个数组。
+
 相关示例代码为 ``envelopec.c`` 和 ``envelopef.f`` 。
 
 crscor
