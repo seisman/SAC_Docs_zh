@@ -80,6 +80,48 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
     $ make
     $ sudo make install
 
+使用套件包管理器安装 SAC (仅适用 Debian/Ubuntu)
+----------
+
+编译源码时需要安装若干软件包。
+
+对于 Ubuntu/Debian：
+
+.. code-block:: console
+
+    $ sudo apt update
+    $ sudo apt install build-essential libx11-dev libncurses-dev libreadline-dev libpng-dev
+
+利用 ``git`` 下载套件包建置脚本：
+
+.. code-block:: console
+
+    $ sudo apt update
+    $ sudo apt install git
+    $ git clone https://github.com/sean0921/sac_debian_packager.git sac_debian_packager
+
+将下载下来的源码复制到 ``sac_debian_packager`` 底下：
+
+.. code-block:: console
+
+    $ cd sac_debian_packager
+    $ cp $LOCATION_OF_DOWNLOADED_TARBALL ./
+    ## 例如: `cp ~/Download/sac-101.6a-source.tar.gz ./`
+
+执行套件建置脚本：
+
+.. code-block:: console
+
+    $ ./build.sh
+    
+安装建置好的二进位套件包
+
+.. code-block:: console
+
+    $ sudo apt install ./sac-iris-*.deb
+
+若使用此方法安装成功，则不需再配置变量，重新登入 Linux 环境即可
+
 配置变量
 --------
 
