@@ -15,7 +15,7 @@ install:
   # Install extra tex packages
   - tlmgr install ctex ms xecjk ulem zhnumber fancyhdr titlesec tabulary varwidth
                   float wrapfig parskip capt-of needspace xcolor enumitem datetime2
-                  tracklang fandol
+                  tracklang fandol upquote
 
 script:
   - make build
