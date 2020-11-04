@@ -319,13 +319,13 @@ iqual\ [7]_\ 标识数据质量，可取如下值：
 .. figure:: /images/cmpaz-cmpinc.*
    :align: center
    :width: 30%
-   :alt: cmpaz 和 cpminc 示意图
+   :alt: cmpaz 和 cmpinc 示意图
 
-   cmpaz 和 cpminc 示意图
+   cmpaz 和 cmpinc 示意图
 
 根据定义，地震仪标准通道的 ``cmpinc`` 和 ``cmpaz`` 值如下表：
 
-.. table:: 标准地震通道的 ``cmpaz`` 和 ``cpminc``
+.. table:: 标准地震通道的 ``cmpaz`` 和 ``cmpinc``
    :align: center
 
    ===== =========  ===========
