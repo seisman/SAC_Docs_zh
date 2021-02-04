@@ -23,7 +23,7 @@ Homebrew 用户可以使用如下命令安装：
 
 .. code-block:: console
 
-    $ brew cask install xquartz
+    $ brew install --cask xquartz
 
 安装二进制包
 ------------
