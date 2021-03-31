@@ -4,6 +4,11 @@ macOS 下安装 SAC
 macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包。
 对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法。
 
+.. attention::
+
+   ARM 架构的 Mac 可以用 SAC 二进制文件直接安装使用，但源码无法直接编译通过。
+   另外，xquartz 需要到官网手动下载，Homebrew安装的不能使用。
+
 .. caution::
 
    似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法。
@@ -26,11 +31,6 @@ Homebrew 用户可以使用如下命令安装：
 .. code-block:: console
 
     $ brew install --cask xquartz
-
-.. attention::
-
-   ARM 架构的 Mac 可以用 SAC 二进制文件直接安装使用，但源码无法直接编译通过。
-   另外，xquartz 需要到官网手动下载，Homebrew安装的不能使用。
 
 安装二进制包
 ------------
