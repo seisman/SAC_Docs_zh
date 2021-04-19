@@ -88,7 +88,7 @@ macOS 下安装 SAC
      SEISMIC ANALYSIS CODE [04/19/2021 (Version 102.0)]
      Copyright 1995 Regents of the University of California
 
-    SAC> 
+    SAC>
 
 现在，新版本的 Mac 系统在启动 sac 时，因为安全限制会拒绝启动 sac。
 可以在系统偏好设置的安全性与隐私中，通过输入密码或 Touch ID 选择仍然启动 sac。
