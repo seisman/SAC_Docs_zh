@@ -5,7 +5,7 @@
 | 贡献者  | 电子邮件                  | GitHub ID        |
 | ------- | ------------------------- | ---------------- |
 | SeisMan | seisman.info@gmail.com    | @seisman         |
-| 王亮    | wangliang0222@foxmail.com | @wangliang1989   |
+| 王亮    | wangliang.seis@gmail.com | @wangliang1989   |
 | Wenxuan | gwx2013@mail.ustc.edu.cn  |                  |
 | kmo     | kmophy@gmail.com          | @likueimo        |
 | 赵志远  | shetu2008@163.com         | @zhaozhiyuan1989 |
