@@ -12,9 +12,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -l {0}
     steps:
       # Cancel previous runs that are not completed
       - name: Cancel Previous Runs
@@ -30,15 +27,11 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      # - name: Build HTML documentaiton
-      #   run: make build_html
+      - name: Build HTML documentaiton
+        run: make build_html
 
       - name: Install TinyTeX
         uses: r-lib/actions/setup-tinytex@v1
-      # - name: Install TinyTeX
-      #   run: |
-      #     curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
-      #     echo "${HOME}/bin" >> $GITHUB_PATH
 
       - name: Install LaTeX packages
         run: |
@@ -46,9 +39,9 @@ jobs:
                         fandol float ms needspace oberdiek parskip sourcecodepro tabulary \
                         titlesec tracklang ulem upquote varwidth wrapfig \
                         xcolor xecjk zhnumber
-          sudo cp -r ~/.TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/ /usr/share/fonts/opentype
-          ls /usr/share/fonts/opentype
+          sudo cp -r ~/.TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro /usr/share/fonts/opentype
           fc-cache -f -v
+          ls /usr/share/fonts/opentype
 
       - name: Build PDF documentaiton
         run: make build_pdf
