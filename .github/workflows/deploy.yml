@@ -41,9 +41,10 @@ jobs:
 
       - name: Install LaTeX packages
         run: |
-          tlmgr install ctex ms xecjk ulem zhnumber fancyhdr titlesec tabulary \
-                        varwidth float wrapfig parskip capt-of needspace xcolor \
-                        enumitem datetime2 tracklang fandol upquote everysel oberdiek
+          tlmgr install capt-of ctex datetime2 enumitem everysel fancyhdr \
+                        fandol float ms needspace oberdiek parskip tabulary \
+                        titlesec tracklang ulem upquote varwidth wrapfig \
+                        xcolor xecjk zhnumber
 
       - name: Build PDF documentaiton
         run: make build_pdf
