@@ -32,6 +32,10 @@ macOS 下安装 SAC
 编译源码
 --------
 
+.. caution::
+
+   如果已经安装了Anaconda，需要注释掉Anaconda，编译后再自行恢复。
+
 .. code-block:: console
 
     $ tar -xvf sac-102.0.tar.gz
