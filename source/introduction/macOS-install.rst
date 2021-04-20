@@ -26,7 +26,7 @@ macOS 下安装 SAC
 
 .. code-block:: console
 
-    $ tar -xvf sac-101.6a-mac_x86_64.tar.gz
+    $ tar -xvf sac-102.0-mac.tar.gz
     $ sudo mv sac /usr/local
 
 编译源码
