@@ -46,7 +46,7 @@ jobs:
                         fandol float ms needspace oberdiek parskip sourcecodepro tabulary \
                         titlesec tracklang ulem upquote varwidth wrapfig \
                         xcolor xecjk zhnumber
-          ls ~/.TinyTeX/texmf-dist/fonts/opentype/adobe/sourcesanspro/
+          ls ~/.TinyTeX/texmf-dist/fonts/opentype/adobe/sourcecodepro/
           ls ~/.TinyTeX/texmf-var/
           ls ~/.TinyTeX/texmf-var/fonts/
 
