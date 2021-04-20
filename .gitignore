@@ -1,2 +1,12 @@
-build
+# Documentation
+build/
+_build/
+
+# Python
 *.pyc
+
+# Visual Studio Code
+.vscode
+
+# macOS
+.DS_Store
