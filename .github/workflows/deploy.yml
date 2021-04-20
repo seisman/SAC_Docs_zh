@@ -47,7 +47,7 @@ jobs:
         run: |
           tlmgr install ctex ms xecjk ulem zhnumber fancyhdr titlesec tabulary \
                         varwidth float wrapfig parskip capt-of needspace xcolor \
-                        enumitem datetime2 tracklang fandol upquote everysel hypcap
+                        enumitem datetime2 tracklang fandol upquote everysel
 
       - name: Build PDF documentaiton
         run: make build_pdf
