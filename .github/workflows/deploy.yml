@@ -33,17 +33,19 @@ jobs:
       - name: Build HTML documentaiton
         run: make build_html
 
+      # - name: Install TinyTeX
+        # uses: r-lib/actions/setup-tinytex@v1
       - name: Install TinyTeX
-        uses: r-lib/actions/setup-tinytex@v1
+        run: |
+          curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+          echo "${HOME}/bin" >> $GITHUB_PATH
 
       - name: Install LaTeX packages
         run: |
           tlmgr install capt-of ctex datetime2 enumitem everysel fancyhdr \
                         fandol float ms needspace oberdiek parskip sourcecodepro tabulary \
-                                                                   sourcecodepro
                         titlesec tracklang ulem upquote varwidth wrapfig \
                         xcolor xecjk zhnumber
-          fc-cache -f -v
 
       - name: Build PDF documentaiton
         run: make build_pdf
