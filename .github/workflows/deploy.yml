@@ -36,12 +36,8 @@ jobs:
       - name: Build HTML documentaiton
         run: make build_html
 
-      # - name: Install TinyTeX
-      #   uses: r-lib/actions/setup-tinytex@v1
       - name: Install TinyTeX
-        run: |
-          curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
-          echo "${HOME}/bin" >> $GITHUB_PATH
+        uses: r-lib/actions/setup-tinytex@v1
 
       - name: Install LaTeX packages
         run: |
