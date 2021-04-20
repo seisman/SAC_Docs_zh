@@ -41,7 +41,6 @@ jobs:
                         xcolor xecjk zhnumber
           sudo cp -r ~/.TinyTeX/texmf-dist/fonts/opentype/adobe/ /usr/share/fonts/opentype
           fc-cache -f -v
-          ls /usr/share/fonts/opentype
 
       - name: Build PDF documentaiton
         run: make build_pdf
