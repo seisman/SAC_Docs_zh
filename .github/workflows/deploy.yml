@@ -38,7 +38,6 @@ jobs:
                         fandol float ms needspace oberdiek parskip sourcecodepro tabulary \
                         titlesec tracklang ulem upquote varwidth wrapfig \
                         xcolor xecjk zhnumber
-          # Update the fonts
           sudo cp -r ~/.TinyTeX/texmf-dist/fonts/opentype/adobe/ /usr/share/fonts/opentype
           fc-cache -f -v
 
