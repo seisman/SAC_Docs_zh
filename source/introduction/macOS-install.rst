@@ -1,14 +1,10 @@
 macOS 下安装 SAC
 ================
 
-安装工作大致可以分为三步，即准备工作、安装二进制包或源码编译安装和修改环境变量。
-准备工作和修改环境变量是必须要进行的。
-安装二进制包和源码编译安装二者是必选其一，即不能两个都选择，也不能一个都不选。
-安装二进制包较为简单，但是这种情况下sac的静态库可能不可用。
-在完成这三个步骤以后需要打开sac，测试安装。
+安装工作大致可以分为三步，即安装必要的工具和依赖、安装sac本身和修改环境变量。
 
-准备工作
---------
+安装必要的工具和依赖
+-----------------
 
 首先要安装 macOS 下的命令行工具。在终端执行如下命令即可安装：
 
@@ -16,21 +12,23 @@ macOS 下安装 SAC
 
     $ xcode-select --install
 
-此外，还需要安装 X11 图形界面相关工具，即 XQuartz。可以按照
-`Apple的官方支持 <https://support.apple.com/zh-cn/HT201341>`_ 来解决。
+然后，需要安装 X11 图形界面相关工具。
+下载 `XQuartz <https://www.xquartz.org/>` 的安装包双击安装。
 
-安装二进制包
+安装 sac 本身
 ------------
 
-直接将官方的二进制包解压并移动到安装目录即可：
+在这一步，用户有两个选择：可以用二进制包，也可以用源代码完成这一步。
+二者必选其一，即二者不能都选，也不能都不选。二者的差异请看申请sac一节。
+
+如果选择用二进制包安装，只需要对文件解压，然后移动到相应的目录即可。
 
 .. code-block:: console
 
     $ tar -xvf sac-102.0-mac.tar.gz
     $ sudo mv sac /usr/local
 
-编译源码
---------
+如果选择编译源代码来安装，则需要在解压文件后，对系统进行检查、编译和安装：
 
 .. caution::
 
@@ -46,53 +44,6 @@ macOS 下安装 SAC
     $ make
     $ sudo make install
 
-配置变量
---------
+.. caution::
 
-向 ``~/.zshrc`` 中加入如下语句以配置环境变量和 SAC 全局变量：
-
-.. code-block:: bash
-
-    export SACHOME=/usr/local/sac
-    export SACAUX=${SACHOME}/aux
-    export PATH=${SACHOME}/bin:${PATH}
-
-    export SAC_DISPLAY_COPYRIGHT=1
-    export SAC_PPK_LARGE_CROSSHAIRS=1
-    export SAC_USE_DATABASE=0
-
-其中，
-
--  ``SACHOME`` 定义了 SAC 的安装目录
--  ``SACAUX`` 定义了 SAC 运行所需的辅助文件所在的目录
--  ``PATH`` 为 Linux 系统环境变量，使得系统可以正确找到SAC的可执行文件
--  ``SAC_DISPLAY_COPYRIGHT`` 用于控制是否在启动 SAC 时显示版本和版权
-   信息，一般设置为1。在脚本中多次调用 SAC 时会重复显示版本和版权信息，
-   干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法
-   可以参考 “:doc:`/call-in-script/index`\ ” 中的相关内容
--  ``SAC_PPK_LARGE_CROSSHAIRS`` 用于控制震相拾取过程中光标的大小，
-   在 :doc:`/data-process/picking-phase` 时会用到
--  ``SAC_USE_DATABASE`` 用于控制是否允许将 SAC 格式转换为 GSE2.0 格式，
-   一般用不到该特性，故而设置其值为0
-
-修改完 ``~/.zshrc`` 后，执行以下命令使配置的环境变量生效：
-
-.. code-block:: console
-
-    $ source ~/.zshrc
-
-启动SAC
--------
-
-终端键入小写的 sac，显示如下则表示 SAC 安装成功：
-
-.. code-block:: console
-
-    $ sac
-     SEISMIC ANALYSIS CODE [04/19/2021 (Version 102.0)]
-     Copyright 1995 Regents of the University of California
-
-    SAC>
-
-现在，新版本的 Mac 系统在启动 sac 时，因为安全限制会拒绝启动 sac。
-可以在系统偏好设置的安全性与隐私中，通过输入密码或 Touch ID 选择仍然启动 sac。
+   完成安装sac这一步后，sac还不能被操作系统发现。请见修改环境变量一节，对环境变量进行设置。
