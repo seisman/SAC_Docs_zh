@@ -6,7 +6,8 @@ macOS 下安装 SAC 大致可以分为三步：安装必要的工具和依赖、
 安装必要的工具和依赖
 -----------------
 
-首先要安装 macOS 下的命令行工具。在终端执行如下命令即可安装：
+Command Line Tools for Xcode 是 macOS 下的集成开发环境 Xcode 的一部分，其包含了常用的命令行开发工具。
+执行如下命令，并在弹出的窗口中点击 “Install” 以安装 Command Line Tools for Xcode：
 
 .. code-block:: console
 
