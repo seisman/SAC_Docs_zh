@@ -32,7 +32,7 @@ macOS 下安装 SAC
 
 .. caution::
 
-   如果已经安装了Anaconda，需要注释掉Anaconda，编译后再自行恢复。
+   如果已经安装了 Anaconda，需要注释掉 Anaconda，编译后再自行恢复。
 
 .. code-block:: console
 
