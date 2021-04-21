@@ -13,8 +13,7 @@ Command Line Tools for Xcode 是 macOS 下的集成开发环境 Xcode 的一部�
 
     $ xcode-select --install
 
-然后，需要安装 X11 图形界面相关工具。
-下载 `XQuartz <https://www.xquartz.org/>` 的安装包双击安装。
+还需安装 X11 图形界面工具 `XQuartz <https://www.xquartz.org/>`__\ ，下载安装包后直接双击即可安装。
 
 安装 SAC
 ---------
