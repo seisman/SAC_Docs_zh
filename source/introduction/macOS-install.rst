@@ -29,7 +29,7 @@ Command Line Tools for Xcode 是 macOS 下的集成开发环境 Xcode 的一部�
     $ tar -xvf sac-102.0-mac.tar.gz
     $ sudo mv sac /usr/local
 
-如果选择编译源代码来安装，则需要在解压文件后，对系统进行检查、编译和安装：
+如果选择编译源代码来安装，解压源码文件后，需要配置、编译和安装 SAC：
 
 .. caution::
 
