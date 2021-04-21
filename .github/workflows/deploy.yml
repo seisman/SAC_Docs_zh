@@ -42,6 +42,12 @@ jobs:
                         fandol float ms needspace oberdiek parskip sourcecodepro tabulary \
                         titlesec tracklang ulem upquote varwidth wrapfig \
                         xcolor xecjk zhnumber
+          ls /usr/share/fonts
+          ls ~/.TinyTeX/texmf-dist
+          ls ~/.TinyTeX/
+          sudo cp -r ~/.TinyTeX/texmf-dist/fonts/opentype/adobe/ /usr/share/fonts/opentype
+          ls /usr/share/fonts/opentype
+          fc-cache -f -v
 
       - name: Build PDF documentaiton
         run: make build_pdf
