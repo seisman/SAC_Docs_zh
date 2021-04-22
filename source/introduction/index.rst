@@ -7,7 +7,4 @@ SAC 简介
    what-is-sac
    history
    variants
-   request
-   linux-install
-   macOS-install
    maillist
