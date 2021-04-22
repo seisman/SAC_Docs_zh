@@ -7,7 +7,6 @@ SAC 基础
    start-and-quit
    philosophy
    command
-   convection
    funcgen-and-datagen
    read-and-write
    display
