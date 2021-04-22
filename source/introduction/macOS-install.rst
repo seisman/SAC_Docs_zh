@@ -6,12 +6,7 @@ macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以�
 
 .. attention::
 
-   ARM 架构的 Mac 可以用 SAC 二进制文件直接安装使用，但源码无法直接编译通过。
-   另外，xquartz 需要到官网手动下载，Homebrew 安装的不能使用。
-
-.. caution::
-
-   似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法。
+   ARM 架构的 xquartz 需要到官网手动下载，Homebrew 安装的不能使用。
 
 准备工作
 --------
@@ -37,23 +32,26 @@ Homebrew 用户可以使用如下命令安装：
 
 .. code-block:: console
 
-    $ tar -xvf sac-101.6a-mac_x86_64.tar.gz
+    $ tar -xvf sac-102.0-mac.tar.gz
     $ sudo mv sac /usr/local
 
 编译源码
 --------
 
-按照如下命令即可正确编译源码。需要注意的是，由于 SAC 默认使用的 editline 库
-在 macOS 下无法正常编译，因而执行 ``configure`` 时使用了 ``--enable-readline``
-选项使得 SAC 使用 readline 库而不是 editline 库。
+按照如下命令即可正确编译源码。
+
+.. caution::
+
+   Anaconda 内有软件包和系统软件包冲突。sac 编译的时候需要系统的软件包。
+   所以，Anaconda 用户在编译时需要临时重命名 Anaconda 的路径。
 
 .. code-block:: console
 
-    $ tar -xvf sac-101.6a_source.tar.gz
-    $ cd sac-101.6a
+    $ tar -xvf sac-102.0.tar.gz
+    $ cd sac-102.0
     $ mkdir build
     $ cd build
-    $ ../configure --prefix=/usr/local/sac --enable-readline
+    $ ../configure --prefix=/usr/local/sac
     $ make
     $ sudo make install
 
@@ -100,7 +98,7 @@ Homebrew 用户可以使用如下命令安装：
 .. code-block:: console
 
     $ sac
-     SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)]
+     SEISMIC ANALYSIS CODE [04/19/2021 (Version 102.0)]
      Copyright 1995 Regents of the University of California
 
     SAC>
