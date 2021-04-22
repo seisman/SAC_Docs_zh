@@ -12,7 +12,9 @@ extensions = ['sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'sphinx_cjkspace.cjkspace']
+    'sphinx_cjkspace.cjkspace',
+    "sphinx_copybutton",
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -41,6 +43,12 @@ pygments_style = 'sphinx'
 todo_include_todos = True
 numfig = True
 
+# options for sphinx-copybutton
+# https://sphinx-copybutton.readthedocs.io
+copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: |SAC> "
+copybutton_prompt_is_regexp = True
+copybutton_only_copy_prompt_lines = True
+copybutton_remove_prompts = True
 
 # -- Options for HTML output ----------------------------------------------
 import sphinx_rtd_theme
