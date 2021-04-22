@@ -21,7 +21,7 @@ SAC参考手册
 
 .. raw:: latex
 
-   \part{教程部分}
+   \part{SAC 入门}
 
 .. toctree::
    :maxdepth: 2
@@ -33,6 +33,10 @@ SAC参考手册
    basis/index
    fileformat/index
    data-process/index
+
+.. raw:: latex
+
+   \part{SAC 进阶}
 
 .. toctree::
    :maxdepth: 2
