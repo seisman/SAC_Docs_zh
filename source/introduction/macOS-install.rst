@@ -6,7 +6,7 @@ macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以�
 
 .. attention::
 
-   ARM 架构的 xquartz 需要到官网手动下载，Homebrew 安装的不能使用。
+   ARM 架构的 Mac 安装 xquartz 需要到官网手动下载，Homebrew 安装的不能使用。
 
 准备工作
 --------
