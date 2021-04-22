@@ -1,0 +1,5 @@
+.. warning::
+
+   IRIS 自 2020 年 1 月开始不再提供 SEED 格式的数据下载支持，
+   详情可阅读 `IRIS 数据服务通讯 <http://www.iris.washington.edu/ds/newsletter/vol21/no1/509/retirement-of-full-seed-data-volumes-from-iris-dmc/>`__。
+   IRIS 也已\ `不再维护 rdseed 软件 <https://ds.iris.edu/ds/nodes/dmc/manuals/rdseed/>`__\ 。

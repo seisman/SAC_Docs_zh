@@ -29,6 +29,8 @@ IRIS 提供了 `rdseed <http://ds.iris.edu/ds/nodes/dmc/forms/rdseed/>`_
 软件，用于提取 SEED 数据中的连续波形数据以及台站元数据，并可将连续波形数据
 保存为多种地震数据格式。
 
+.. include:: /tools/rdseed-warning.rst_
+
 下面的命令可以从 SEED 数据中提取 SAC 格式的波形数据，以及台站的 RESP 仪器响应文件：
 
 .. code-block:: console

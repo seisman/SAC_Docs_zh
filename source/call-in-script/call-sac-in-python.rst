@@ -26,6 +26,8 @@ Python 中使用 ``subprocess`` 模块的 ``Popen`` 方法调用 SAC，通过
 下载地址：
 `1.rdseed.py <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/1.rdseed.py>`_
 
+.. include:: /tools/rdseed-warning.rst_
+
 .. literalinclude:: 1.rdseed.py
    :language: python
 
