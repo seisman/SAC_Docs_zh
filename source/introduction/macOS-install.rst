@@ -4,15 +4,6 @@ macOS 下安装 SAC
 macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包。
 对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法。
 
-.. attention::
-
-   ARM 架构的 Mac 可以用 SAC 二进制文件直接安装使用，但源码无法直接编译通过。
-   另外，xquartz 需要到官网手动下载，Homebrew 安装的不能使用。
-
-.. caution::
-
-   似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法。
-
 准备工作
 --------
 
@@ -24,11 +15,6 @@ macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以�
 
 此外，还需要安装 X11 图形界面相关工具，即 XQuartz。可以按照
 `Apple的官方支持 <https://support.apple.com/zh-cn/HT201341>`_ 来解决。
-Homebrew 用户可以使用如下命令安装：
-
-.. code-block:: console
-
-    $ brew install --cask xquartz
 
 安装二进制包
 ------------
@@ -37,30 +23,32 @@ Homebrew 用户可以使用如下命令安装：
 
 .. code-block:: console
 
-    $ tar -xvf sac-101.6a-mac_x86_64.tar.gz
+    $ tar -xvf sac-102.0-mac.tar.gz
     $ sudo mv sac /usr/local
 
 编译源码
 --------
 
-按照如下命令即可正确编译源码。需要注意的是，由于 SAC 默认使用的 editline 库
-在 macOS 下无法正常编译，因而执行 ``configure`` 时使用了 ``--enable-readline``
-选项使得 SAC 使用 readline 库而不是 editline 库。
+按照如下命令即可正确编译源码。
+
+.. caution::
+ 
+   如果已经安装了 Anaconda，需要注释掉 Anaconda，编译后再自行恢复。
 
 .. code-block:: console
 
-    $ tar -xvf sac-101.6a_source.tar.gz
-    $ cd sac-101.6a
+    $ tar -xvf sac-102.0.tar.gz
+    $ cd sac-102.0
     $ mkdir build
     $ cd build
-    $ ../configure --prefix=/usr/local/sac --enable-readline
+    $ ../configure --prefix=/usr/local/sac
     $ make
     $ sudo make install
 
 配置变量
 --------
 
-向 ``~/.bash_profile`` 中加入如下语句以配置环境变量和 SAC 全局变量：
+向 ``~/.zshrc`` 中加入如下语句以配置环境变量和 SAC 全局变量：
 
 .. code-block:: bash
 
@@ -86,11 +74,11 @@ Homebrew 用户可以使用如下命令安装：
 -  ``SAC_USE_DATABASE`` 用于控制是否允许将 SAC 格式转换为 GSE2.0 格式，
    一般用不到该特性，故而设置其值为0
 
-修改完 ``~/.bash_profile`` 后，执行以下命令使配置的环境变量生效：
+修改完 ``~/.zshrc`` 后，执行以下命令使配置的环境变量生效：
 
 .. code-block:: console
 
-    $ source ~/.bash_profile
+    $ source ~/.zshrc
 
 启动SAC
 -------
@@ -100,7 +88,7 @@ Homebrew 用户可以使用如下命令安装：
 .. code-block:: console
 
     $ sac
-     SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)]
+     SEISMIC ANALYSIS CODE [04/19/2021 (Version 102.0)]
      Copyright 1995 Regents of the University of California
 
     SAC>
