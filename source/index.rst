@@ -29,6 +29,7 @@ SAC参考手册
    :caption: 教程部分
 
    introduction/index
+   install/index
    basis/index
    fileformat/index
    data-process/index
