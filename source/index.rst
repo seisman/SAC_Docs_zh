@@ -26,13 +26,19 @@ SAC参考手册
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: 教程部分
+   :caption: SAC 入门
 
    introduction/index
    install/index
    basis/index
    fileformat/index
    data-process/index
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: SAC 进阶
+
    graphics/index
    macros/index
    call-in-script/index
@@ -43,12 +49,12 @@ SAC参考手册
 
 .. raw:: latex
 
-   \part{命令部分}
+   \part{SAC 命令}
 
 .. toctree::
    :maxdepth: 2
    :hidden:
-   :caption: 命令部分
+   :caption: SAC 命令
 
    commands/index
    sss/index
