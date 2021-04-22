@@ -8,3 +8,5 @@ SAC 简介
    history
    variants
    maillist
+   reading-guides
+   convection
