@@ -8,3 +8,4 @@ SAC 简介
    history
    variants
    maillist
+   how-to-read

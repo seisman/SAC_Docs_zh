@@ -4,7 +4,6 @@ SAC 基础
 .. toctree::
 
    how-to-learn
-   how-to-read
    start-and-quit
    philosophy
    command
