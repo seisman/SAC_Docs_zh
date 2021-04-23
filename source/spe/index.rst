@@ -1,5 +1,5 @@
-SPE 谱估计子程序
-################
+谱估计子程序
+############
 
 .. not numbering subsections for commands
 .. raw:: latex

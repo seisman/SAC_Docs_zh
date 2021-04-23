@@ -1,5 +1,5 @@
-SSS 信号叠加子程序
-##################
+信号叠加子程序
+##############
 
 .. not numbering subsections for commands
 .. raw:: latex
