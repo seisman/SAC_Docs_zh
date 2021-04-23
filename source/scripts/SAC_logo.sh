@@ -13,7 +13,7 @@ w $data
 q
 END
 
-gmt begin SAC_logo pdf,png
+gmt begin SAC_logo pdf,PNG
 gmt pssac onkm.e -JX10/3c -R200/1600/-1/1 -W0.75p,red
 gmt end
 rm $data

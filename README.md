@@ -1,5 +1,7 @@
 # SAC参考手册
 
+![](source/images/SAC_logo.png)
+
 [![Deploy](https://github.com/seisman/SAC_Docs_zh/actions/workflows/deploy.yml/badge.svg)](https://github.com/seisman/SAC_Docs_zh/actions/workflows/deploy.yml)
 [![GitHub release](https://img.shields.io/github/release/seisman/SAC_Docs_zh.svg)](https://github.com/seisman/SAC_Docs_zh/releases)
 
