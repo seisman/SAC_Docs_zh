@@ -1,9 +1,11 @@
 # SAC参考手册
 
-![](source/images/SAC_logo.png)
+<img src="source/images/SAC_logo.png" width=450/>
 
 [![Deploy](https://github.com/seisman/SAC_Docs_zh/actions/workflows/deploy.yml/badge.svg)](https://github.com/seisman/SAC_Docs_zh/actions/workflows/deploy.yml)
 [![GitHub release](https://img.shields.io/github/release/seisman/SAC_Docs_zh.svg)](https://github.com/seisman/SAC_Docs_zh/releases)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc/4.0/deed.zh)
+[![License (CC0 1.0)](https://img.shields.io/badge/license-CC0%201.0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 [在线阅读](https://seisman.github.io/SAC_Docs_zh/) |
 [PDF下载](https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf) |
@@ -35,15 +37,11 @@
 
 ## 许可协议
 
-[![License (CC BY-NC-SA 3.0 CN)](https://img.shields.io/badge/license-CC%20BY--NC--SA%203.0%20CN-red.svg)](http://creativecommons.org/licenses/by-nc-sa/3.0/cn/)
-[![License (CC0 1.0)](https://img.shields.io/badge/license-CC0%201.0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
-
-本项目的文档部分遵循 [**署名-非商业性使用-相同方式共享 3.0 中国大陆 (CC BY-NC-SA 3.0 CN)**](http://creativecommons.org/licenses/by-nc-sa/3.0/cn/) 许可协议。
+本项目的文档部分采用[知识共享署名-非商业性使用 4.0 国际许可协议 (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.zh)。
 任何人都可以自由地分享、修改本作品，但必须遵循如下条件：
 
 - 署名：必须提到原作者，提供指向此许可协议的链接，表明是否有做修改
 - 非商业性使用：不能对本作品进行任何形式的商业性使用
-- 相同方式共享：若对本作品进行了修改，必须以相同的许可协议共享
 
-本项目中的脚本遵循 [**CC0 1.0 通用 (CC0 1.0)**](https://creativecommons.org/publicdomain/zero/1.0/deed.zh) 许可协议。
+本项目中的脚本遵循 [CC0 1.0 通用 (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.zh) 许可协议。
 即所有脚本放弃一切权利，全归公共领域。任何人可以自由无限制地使用、修改、共享本项目中的脚本。
