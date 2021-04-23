@@ -1,5 +1,5 @@
-读写
-====
+读和写
+======
 
 SAC 的读命令是 :doc:`/commands/read`\ （简写为 ``r``\ ），
 写命令为 :doc:`/commands/write`\ （简写为 ``w``\ ）。
