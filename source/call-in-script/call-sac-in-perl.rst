@@ -26,6 +26,8 @@ Perl 中调用 SAC 本质上是使用 ``open(SAC, "| sac ")`` 语句定义了一
 下载地址：
 `1.rdseed.pl <https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/1.rdseed.pl>`_
 
+.. include:: /tools/rdseed-warning.rst_
+
 .. literalinclude:: 1.rdseed.pl
    :language: perl
 

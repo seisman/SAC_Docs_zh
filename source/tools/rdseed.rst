@@ -4,6 +4,8 @@ rdseed
 ``rdseed`` 可以读取 SEED 格式，从中提取出波形信息，并将波形数据保存
 为 SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。
 
+.. include:: rdseed-warning.rst_
+
 语法说明
 --------
 
