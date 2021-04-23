@@ -37,11 +37,11 @@
 
 ## 许可协议
 
-本项目的文档部分采用 [知识共享署名-非商业性使用 4.0 国际许可协议 (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.zh) 。
+本项目的文档部分采用[知识共享署名-非商业性使用 4.0 国际许可协议 (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.zh)。
 任何人都可以自由地分享、修改本作品，但必须遵循如下条件：
 
 - 署名：必须提到原作者，提供指向此许可协议的链接，表明是否有做修改
 - 非商业性使用：不能对本作品进行任何形式的商业性使用
 
-本项目中的脚本遵循 [**CC0 1.0 通用 (CC0 1.0)**](https://creativecommons.org/publicdomain/zero/1.0/deed.zh) 许可协议。
+本项目中的脚本遵循 [CC0 1.0 通用 (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.zh) 许可协议。
 即所有脚本放弃一切权利，全归公共领域。任何人可以自由无限制地使用、修改、共享本项目中的脚本。
