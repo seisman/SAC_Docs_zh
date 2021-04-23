@@ -1,8 +1,5 @@
-macOS 下安装 SAC
-================
-
-macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以手动编译源码包。
-对于大多数用户而言，建议安装二进制包。下面会分别介绍两种安装方法。
+macOS 源码安装
+==============
 
 .. attention::
 
@@ -12,6 +9,8 @@ macOS 下安装 SAC，可以直接使用官方提供的二进制包，也可以�
 .. caution::
 
    似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法。
+
+.. include:: request.rst_
 
 准备工作
 --------
@@ -29,16 +28,6 @@ Homebrew 用户可以使用如下命令安装：
 .. code-block:: console
 
     $ brew install --cask xquartz
-
-安装二进制包
-------------
-
-直接将官方的二进制包解压并移动到安装目录即可：
-
-.. code-block:: console
-
-    $ tar -xvf sac-101.6a-mac_x86_64.tar.gz
-    $ sudo mv sac /usr/local
 
 编译源码
 --------
