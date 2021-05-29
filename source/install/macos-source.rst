@@ -1,4 +1,4 @@
-macOS 源码安装
+macOS 编译安装
 ==============
 
 .. attention::
