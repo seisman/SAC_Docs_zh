@@ -40,7 +40,7 @@ Homebrew 用户可以使用如下命令安装：
 配置变量
 --------
 
-向 ``~/.bash_profile`` 中加入如下语句以配置环境变量和 SAC 全局变量：
+向 ``~/.zshrc`` 中加入如下语句以配置环境变量和 SAC 全局变量：
 
 .. code-block:: bash
 
@@ -66,11 +66,11 @@ Homebrew 用户可以使用如下命令安装：
 -  ``SAC_USE_DATABASE`` 用于控制是否允许将 SAC 格式转换为 GSE2.0 格式，
    一般用不到该特性，故而设置其值为0
 
-修改完 ``~/.bash_profile`` 后，执行以下命令使配置的环境变量生效：
+修改完 ``~/.zshrc`` 后，执行以下命令使配置的环境变量生效：
 
 .. code-block:: console
 
-    $ source ~/.bash_profile
+    $ source ~/.zshrc
 
 启动SAC
 -------
