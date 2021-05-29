@@ -10,8 +10,6 @@ macOS 二进制安装
 
    似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法。
 
-.. include:: request.rst_
-
 准备工作
 --------
 
