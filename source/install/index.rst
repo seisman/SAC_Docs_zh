@@ -7,7 +7,7 @@ SAC 安装
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    request
    linux-binary
