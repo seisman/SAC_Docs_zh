@@ -3,8 +3,7 @@ macOS 编译安装
 
 .. attention::
 
-   ARM 架构的 Mac 可以用 SAC 二进制文件直接安装使用，但源码无法直接编译通过。
-   另外，xquartz 需要到官网手动下载，Homebrew 安装的不能使用。
+   ARM 架构的 Mac 无法直接编译安装 SAC，暂无解决办法。
 
 .. caution::
 
