@@ -38,4 +38,4 @@ Linux 编译安装
     $ make
     $ sudo make install
 
-.. include:: linux-sac.rst_
+.. include:: linux-configurations.rst_

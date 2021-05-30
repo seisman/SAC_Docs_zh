@@ -33,4 +33,4 @@ Linux 二进制安装
     $ tar -xvf sac-101.6a-linux_x86_64.tar.gz   # 解压
     $ sudo mv sac /usr/local                    # 安装
 
-.. include:: linux-sac.rst_
+.. include:: linux-configurations.rst_
