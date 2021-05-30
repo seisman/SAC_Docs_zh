@@ -39,12 +39,15 @@ Linux 二进制安装
 向 ``~/.bashrc``\ [1]_\ 中加入如下语句以配置环境变量和 SAC 全局变量：
 
 .. code-block:: bash
+
     export SACHOME=/usr/local/sac
     export SACAUX=${SACHOME}/aux
     export PATH=${SACHOME}/bin:${PATH}
+
     export SAC_DISPLAY_COPYRIGHT=1
     export SAC_PPK_LARGE_CROSSHAIRS=1
     export SAC_USE_DATABASE=0
+
 其中，
 
 -  ``SACHOME`` 定义了 SAC 的安装目录
