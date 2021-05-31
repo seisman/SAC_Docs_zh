@@ -3,7 +3,7 @@ macOS 编译安装
 
 .. attention::
 
-   在最新版本的 macOS 下，似乎手动编译的 SAC 无法使用，暂无解决办法。
+   SAC 源代码年代久远，与现行的语法不相容。所以，实际上 macOS 上不能编译 SAC ，无解决办法。
 
 .. attention::
 
