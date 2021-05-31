@@ -1,13 +1,13 @@
 macOS 编译安装
 ==============
 
-.. attention::
-
-   ARM 架构的 Mac 无法直接编译安装 SAC，暂无解决办法。
-
 .. caution::
 
-   似乎在最新版本的 macOS 下手动编译的 SAC 无法使用，暂无解决办法。
+   在最新版本的 macOS 下，似乎手动编译的 SAC 无法使用，暂无解决办法。
+
+.. attention::
+
+   ARM 架构的 Mac 需要到官网手动下载 xquartz，Homebrew 安装的不能使用。
 
 .. include:: macos-preparation.rst_
 
