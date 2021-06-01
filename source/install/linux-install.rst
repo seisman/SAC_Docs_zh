@@ -37,8 +37,8 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 .. code-block:: console
 
-    $ tar -xvf sac-101.6a-linux_x86_64.tar.gz   # 解压
-    $ sudo mv sac /usr/local                    # 安装
+    $ tar -xvf sac-102.0-linux_x86_64.tar.gz   # 解压
+    $ sudo mv sac /usr/local                   # 安装
 
 安装源码包
 ----------
@@ -56,6 +56,8 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
     $ sudo apt install build-essential
     $ sudo apt install libncurses5-dev libsm-dev libice-dev
     $ sudo apt install libxpm-dev libx11-dev zlib1g-dev
+    $ sudo apt install libedit-dev libxml2-dev
+    $ sudo apt install libcurl4-openssl-dev
 
 对于 CentOS/Fedora/RHEL：
 
@@ -72,7 +74,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
 .. code-block:: console
 
-    $ tar -xvf sac-101.6a_source.tar.gz
+    $ tar -xvf sac-102.0.tar.gz
     $ cd sac-101.6a
     $ mkdir build
     $ cd build
