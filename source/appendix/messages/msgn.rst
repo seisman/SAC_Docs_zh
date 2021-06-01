@@ -1,8 +1,7 @@
 Environmental variable SACAUX not defined.
 ------------------------------------------
 
-出现该错误的原因是环境变量 ``$SACAUX`` 未定义，参考
-:doc:`/install/linux-install`\ 。
+出现该错误的原因是环境变量 ``$SACAUX`` 未定义，参考 :doc:`/install/index`\ 。
 
 Enviornment variable SACAUX too long: max: 128 SACAUX: xxx
 ----------------------------------------------------------
