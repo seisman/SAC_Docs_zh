@@ -65,12 +65,12 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
 
     $ sudo yum install gcc gcc-c++ make
     $ sudo yum install glibc ncurses-devel libSM-devel libICE-devel
-    $ sudo yum install libXpm-devel libX11-devel zlib-devel
+    $ sudo yum install libXpm-devel libX11-devel zlib-devel libedit-devel
 
 编译源码
 ~~~~~~~~
 
-将源码按如下命令解压、配置、编译、安装：
+将源码按如下命令解压、配置、编译、安装（编译时需要注释 ananconda 的路径）：
 
 .. code-block:: console
 
