@@ -56,8 +56,7 @@ Linux 下安装 SAC，可以直接安装二进制包，也可以从源码安装�
     $ sudo apt install build-essential
     $ sudo apt install libncurses5-dev libsm-dev libice-dev
     $ sudo apt install libxpm-dev libx11-dev zlib1g-dev
-    $ sudo apt install libedit-dev libxml2-dev
-    $ sudo apt install libcurl4-openssl-dev
+    $ sudo apt install libedit-dev libxml2-dev libcurl4-openssl-dev
 
 对于 CentOS/Fedora/RHEL：
 
