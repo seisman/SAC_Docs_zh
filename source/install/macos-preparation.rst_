@@ -1,0 +1,16 @@
+准备工作
+--------
+
+首先要安装 macOS 下的命令行工具。在终端执行如下命令即可安装：
+
+.. code-block:: console
+
+    $ xcode-select --install
+
+此外，还需要安装 X11 图形界面相关工具，即 XQuartz。可以按照
+`Apple的官方支持 <https://support.apple.com/zh-cn/HT201341>`_ 来解决。
+Homebrew 用户可以使用如下命令安装：
+
+.. code-block:: console
+
+    $ brew install --cask xquartz
