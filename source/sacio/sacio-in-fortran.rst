@@ -2,7 +2,7 @@ Fortran 程序中的 SAC I/O
 ========================
 
 王亮和 seisman 用 Fortran 90 写了一个读写 SAC 文件的模块，以开源许可 Apache 2.0
-在 github 上发布。项目地址为：\ http://wangliang.one/sacio_Fortran/\ 。
+在 github 上发布。项目地址为：\ https://github.com/wangliang1989/sacio_Fortran\ 。
 
 项目中提供了名为 ``sacio`` 的模块，该模块中包含了6个子程序，所有子
 程序的实现都写在源文件 ``sacio.f90`` 中。项目中包含了详细的使用说明

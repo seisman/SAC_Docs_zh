@@ -27,4 +27,4 @@ SAC/BRIS
    命令中的 commit、rollback、recalltrace 选项，这些选项的存在属于历史遗留问题，
    且已经基本不再维护，因而本文档中完全没有提及。
 
-.. _George Helffrich: http://www1.gly.bris.ac.uk/~george/gh.html
+.. _George Helffrich: https://members.elsi.jp/~george/gh.html
