@@ -216,7 +216,7 @@ iqual\ [7]_\ 标识数据质量，可取如下值：
 震级信息来源，可以取如下枚举值：
 
 -  ``INEIC``\ ：\ http://earthquake.usgs.gov/earthquakes/search/
--  ``IPDE``\ ：\ http://earthquake.usgs.gov/data/pde.php
+-  ``IPDE``\ ：\ https://earthquake.usgs.gov/data/comcat/catalog/us/
 -  ``IISC``\ ：\ http://www.isc.ac.uk/iscbulletin/search/catalogue/
 -  ``IREB``\ ：人工检查过的事件目录
 -  ``IUSGS`` ：\ `USGS <http://earthquake.usgs.gov>`_
