@@ -31,6 +31,13 @@ jobs:
         # 429: Too many requests
         args: >
           --accept 429
+          --exclude "https://seiscode.iris.washington.edu/"
+          --exclude "https://www.kyoshin.bosai.go.jp/"
+          --exclude "https://www.hinet.bosai.go.jp/"
+          --exclude "https://www.fdsn.org/webservices/"
+          --exclude "https://www.vnet.bosai.go.jp/"
+          --exclude "https://www.fnet.bosai.go.jp/"
+          --exclude "https://members.elsi.jp/~george/gh.html"
           --verbose
           "repository/README.md"
           "website/**/*.html"
