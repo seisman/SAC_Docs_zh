@@ -31,6 +31,14 @@ jobs:
         # 429: Too many requests
         args: >
           --accept 429
+          --exclude "https://seiscode.iris.washington.edu/"
+          --exclude "https://www.kyoshin.bosai.go.jp/"
+          --exclude "https://www.hinet.bosai.go.jp/"
+          --exclude "https://www.fdsn.org/webservices/"
+          --exclude "https://www.vnet.bosai.go.jp/"
+          --exclude "https://www.fnet.bosai.go.jp/"
+          --exclude "https://members.elsi.jp/~george/gh.html"
+          --exclude "http://www.seisdmc.ac.cn/"
           --verbose
           "repository/README.md"
           "website/**/*.html"
@@ -39,6 +47,7 @@ jobs:
 
     - name: Create Issue From File
       uses: peter-evans/create-issue-from-file@v3
+      if: github.event_name != 'pull_request'
       with:
         title: Link Checker Report
         content-filepath: ./lychee/out.md
