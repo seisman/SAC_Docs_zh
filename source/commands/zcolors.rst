@@ -9,7 +9,7 @@ zcolors
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ZCOLORS [ON|OFF] LIST c1 c2 ... cn
 
@@ -32,7 +32,7 @@ cn
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     zcolors off list red green blue
 

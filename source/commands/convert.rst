@@ -9,7 +9,7 @@ convert
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     CONVert [FROM] [format] infile [TO [format] outfile]|[OVER [format]]
 
@@ -31,7 +31,7 @@ format
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     convert from sac infile over sac
 

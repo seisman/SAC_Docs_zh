@@ -9,7 +9,7 @@ plotc
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PlotC [Replay|Create] [File|Macro filename] [Border ON|OFF]
 
@@ -34,7 +34,7 @@ BORDER ON|OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     plotc create file out border on
 
@@ -80,7 +80,7 @@ BORDER ON|OFF
 
 下面的例子展示了如何使用 ``plotc`` 命令给一个 SAC 标准绘图添加注释：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg impulse npts 1024                     # 生成文件
     SAC> lp c2 n 7 c 0.2 t 0.25 a 10              # 低通滤波
@@ -106,7 +106,7 @@ BORDER ON|OFF
 
 为了将注释写入SGF文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> begindevices sgf                  # 打开 sgf 设备
     SAC> beginframe

@@ -9,7 +9,7 @@ cut
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     CUT [ON|OFF|pdw|SIGNAL]
 
@@ -32,7 +32,7 @@ SIGNAL
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     cut off
 
@@ -62,14 +62,14 @@ SIGNAL
 下面将用一系列示例来展示 ``cut`` 命令的常见用法。首先，先生成测试用
 的示例数据：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> w seismo.sac
 
 直接读取文件，不做任何截窗操作：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r seismo.sac
     SAC> lh b e a kztime npts
@@ -81,7 +81,7 @@ SIGNAL
 
 截取 b 到 e 之间的波形，等效于不做任何截窗操作：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut b e
     SAC> r seismo.sac
@@ -94,7 +94,7 @@ SIGNAL
 
 截取文件的前3秒：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut b 0 3
     SAC> r seismo.sac
@@ -107,7 +107,7 @@ SIGNAL
 
 截取文件开始的100个数据点：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut b n 100
     SAC> r
@@ -120,7 +120,7 @@ SIGNAL
 
 截取初动前0.5秒到初动后3秒的数据：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut a -0.5 3
     SAC> r
@@ -133,7 +133,7 @@ SIGNAL
 
 截取数据的第10到15秒（相对于参考时刻）：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut 10 15
     SAC> r ./seismo.sac
@@ -146,7 +146,7 @@ SIGNAL
 
 先截取数据的最开始前3秒，再截取接下来的3秒：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut b 0 3
     SAC> r ./seismo.sac
@@ -178,7 +178,7 @@ SIGNAL
 当要截取的窗超过了文件的时间范围时，可以使用 :doc:`/commands/cuterr` 命令的
 ``FILLZ`` 选项，在文件的开始或结尾处补0，再读入内存。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r N11A.lhz
     SAC> lh npts

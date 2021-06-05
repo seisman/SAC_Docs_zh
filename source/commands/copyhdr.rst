@@ -9,7 +9,7 @@ copyhdr
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     COPYHDR [FROM name|n] hdrlist
 
@@ -28,7 +28,7 @@ hdrlist
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     copyhdr from 1
 
@@ -44,7 +44,7 @@ hdrlist
 假设你使用 ``ppk`` 命令在文件 FILE1 中标记了多个时间，并将其储存到
 头段变量 ``T3`` 和 ``T4`` 中。为了将这些时间标记复制到到 FILE2 和 FILE3 中：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r FILE1
     SAC> ppk
@@ -55,6 +55,6 @@ hdrlist
 假设你读取了很多文件，想要复制文件 ABC 中的头段变量 ``evla`` 和 ``evlo``
 到其他所有文件中去，这时使用文件名而非数字会更简单：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> copyhdr from abc stla stlo

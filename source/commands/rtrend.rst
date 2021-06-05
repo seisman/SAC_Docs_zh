@@ -9,7 +9,7 @@ rtrend
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     RTRend [Quiet|Verbose]
 
@@ -25,7 +25,7 @@ VERBOSE
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     rtrend quiet
 

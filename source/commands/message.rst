@@ -9,7 +9,7 @@ message
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     MESsage text
 
@@ -30,14 +30,14 @@ text
 
 发送无空格的信息：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> message finished
      finished
 
 发送带有空格的信息，需要加上单引号或双引号：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> message 'Job has finished.'
      Job has finished.

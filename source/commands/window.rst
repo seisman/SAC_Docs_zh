@@ -9,7 +9,7 @@ window
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     WINdow n [Xsize xwmin xwmax] [Ysize ywmin ywmax] [ASPECT [value|ON|OFF]]
 
@@ -79,14 +79,14 @@ SAC 使用的 X11 图形系统支持多窗口绘图。\ ``beginwindow``\ 命令�
 
 设定图形窗口1的水平位置，垂直位置不变：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> window 1 x 0.25 0.85
     SAC> beginwindow 1
 
 在这种情况下，显式指定了 XSIZE，因而 ASPECT 被自动设置为 OFF。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> window 1 aspect 1.33 x 0.25 0.85
     SAC> beginwindow 1
@@ -94,7 +94,7 @@ SAC 使用的 X11 图形系统支持多窗口绘图。\ ``beginwindow``\ 命令�
 该命令与上面的命令相同，虽然设置了 aspect 的值，但由于指定了 XSIZE，因而 XSIZE
 具有更高的优先级。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> window 1 x 0.25 0.85 aspect 1.33
     SAC> beginwindow 1

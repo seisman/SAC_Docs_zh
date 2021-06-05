@@ -9,7 +9,7 @@ yfull
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     YFULL [ON|OFF]
 
@@ -22,7 +22,7 @@ ON|OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     yfull on
 

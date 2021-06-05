@@ -9,14 +9,14 @@ comcor
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     COMCOR [ON|OFF]
 
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     comcor off
 
@@ -29,7 +29,7 @@ ON|OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     comcor off
 

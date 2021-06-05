@@ -9,7 +9,7 @@ rotate
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ROTate [TO Gcp|TO v|THrough v] [Normal|Reversed]
 
@@ -32,7 +32,7 @@ NORMAL|REVERSED
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     rotate to gcp normal
 
@@ -73,7 +73,7 @@ NORMAL|REVERSED
 
 将一对水平分量旋转 :math:`30^\circ`\ ：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub tele ntkl.[ne]          # 内存中的顺序是E分量先于N分量
     SAC> lh cmpinc cmpaz
@@ -106,7 +106,7 @@ NORMAL|REVERSED
 
 旋转两对水平分量到大圆弧路径：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read abc.n abc.e def.n def.e
     SAC> rotate to gcp

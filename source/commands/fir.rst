@@ -9,7 +9,7 @@ fir
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     FIR [REC|FFT] file
 
@@ -28,7 +28,7 @@ file
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     fir fft fir
 

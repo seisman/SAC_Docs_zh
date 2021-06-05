@@ -9,7 +9,7 @@ rms
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     RMS [NOISE ON|OFF|pdw] [TO USERn]
 
@@ -28,7 +28,7 @@ TO USERn
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     rms noise off to user0
 
@@ -60,14 +60,14 @@ TO USERn
 计算头段变量 ``T1`` 和 ``T2`` 之间的数据的未做噪声校正的均方根，
 并将结果保存在头段 ``USER4`` 中：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> mtw t1 t2
     SAC> rms to user4
 
 将 ``T3`` 前5秒作为噪声窗，计算校正噪声后的均方根：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> mtw t1 t2
     SAC> rms noise t3 -5.0 0.0

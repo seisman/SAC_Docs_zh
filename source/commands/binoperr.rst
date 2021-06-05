@@ -10,7 +10,7 @@ binoperr
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     BINOPERR [Npts Fatal|Warning|Ignore] [Delta Fatal|Warning|Ignore]
 
@@ -37,7 +37,7 @@ IGNORE
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     binoperr npts fatal delta fatal
 
@@ -67,7 +67,7 @@ IGNORE
 
 假定 file1 有1000个数据点，file2 有950个数据点：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> binoperr npts fatal
     SAC> read file1
@@ -76,7 +76,7 @@ IGNORE
 
 上例中由于数据点数不匹配导致文件加法未执行，假设你输入：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> binoperr npts warning
     SAC> addf file2

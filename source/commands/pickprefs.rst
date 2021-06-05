@@ -12,7 +12,7 @@ SAC 将使用 :doc:`/commands/readcss` 命令中描述的参考文件
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PICKPRefs ON|OFF
 
@@ -30,7 +30,7 @@ OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     pickprefs off
 

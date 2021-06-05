@@ -9,7 +9,7 @@ marktimes
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     MARKTimes [To marker] [Distance Header|v] [Origin Header|v|GMT time]
         [Velocities v ... ]
@@ -47,7 +47,7 @@ VELOCITIES v ...
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     marktimes velocities 2. 3. 4. 5. 6. distance header origin header to t0
 
@@ -66,19 +66,19 @@ VELOCITIES v ...
 
 使用默认的速度集，强制距离为 340 km，第一个时间标记为 ``T4``\ ：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> marktimes distance 340. to t4
 
 选择一个不同的速度集：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> markt v 3.5 4.0 4.5 5.0 5.5
 
 设置新的参考时间并将结果保存在 ``T2`` 中：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> markt origin gmt 1984 231 12 43 17 237 to t2
 

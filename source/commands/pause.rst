@@ -9,7 +9,7 @@ pause
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PAUSE [MESSAGE text] [PERIOD ON|OFF|v]
 
@@ -32,7 +32,7 @@ PERIOD OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     pause message 'Pausing' period off
 

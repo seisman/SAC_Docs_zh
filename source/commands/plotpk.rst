@@ -9,7 +9,7 @@ plotpk
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PlotPK [Perplot ON|OFF|n] [Bell ON|OFF] [Absolute|Relative]
         [REFerence ON|OFF|v] [Markall ON|OFF] [Saveloc ON|OFF]
@@ -51,7 +51,7 @@ SAVELOCS ON|OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     plotpk perplot off absolute reference off markall off savelocs off
 
@@ -98,7 +98,7 @@ BUGS
 
    示例代码如下：
 
-   .. code-block:: bash
+   .. code-block:: console
 
        SAC> dg sub local cdv.z
        SAC> w 1.SAC

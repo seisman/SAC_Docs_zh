@@ -9,7 +9,7 @@ ydiv
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     YDIV [NIce|Increment v|NUmber n] [Power ON|OFF]
 

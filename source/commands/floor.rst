@@ -9,7 +9,7 @@ floor
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     FLOOR [ON|OFF|v]
 
@@ -28,7 +28,7 @@ v
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     floor 1.0e-10
 
