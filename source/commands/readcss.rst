@@ -123,7 +123,7 @@ CSS 3.0而言，该命令支持读取如下数据库表：\ ``wfdisc``\ 、\ ``w
 
 关于 CSS 格式的详细介绍，请参考：
 
--  https://anf.ucsd.edu/pdf/css30.pdf
+-  https://l2a.ucsd.edu/local/Manuals/CSS3.0_Format_Manual.pdf
 -  http://prod.sandia.gov/techlib/access-control.cgi/2002/023055.pdf
 -  ftp://ftp.pmel.noaa.gov/newport/lau/tphase/data/css_wfdisc.pdf
 
