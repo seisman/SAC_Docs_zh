@@ -9,7 +9,7 @@ zticks
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ZTICKS [ON|OFF] [Spacing v] [LEngth v] [Direction DOWN|UP] [List c1 c2 ... cn]
 
@@ -37,7 +37,7 @@ LIST c1 c2 . cn
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     zticks off spacing 0.1 length 0.005 direction down list on
 

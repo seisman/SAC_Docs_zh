@@ -9,7 +9,7 @@ divomega
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     DIVOMEGA
 
@@ -48,7 +48,7 @@ Fourier 变换，用此命令在频率域积分可以去除时间域微分的效
 示例
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read file1
     SAC> dif                # 微分预白化

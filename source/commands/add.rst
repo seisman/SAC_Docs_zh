@@ -9,7 +9,7 @@ add
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     add [v1 [v2 ... vn]]
 
@@ -28,7 +28,7 @@ vn
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     add 0.0
 
@@ -47,7 +47,7 @@ vn
 
 为了给文件 f1 的每个数据点加上常数 5.1，f2 和 f3 的每个数据点加上常数 6.2：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r f1 f2 f3         # 三个文件
     SAC> add 5.1 6.2        # 两个常数

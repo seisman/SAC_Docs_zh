@@ -9,7 +9,7 @@ grid
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     GRID [ON|OFF|Solid|Dotted]
 
@@ -31,7 +31,7 @@ OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     grid off
 

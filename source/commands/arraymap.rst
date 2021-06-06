@@ -9,7 +9,7 @@ arraymap
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ARRAYmap [Array|Coarray]
 
@@ -25,7 +25,7 @@ COARRAY
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     arraymap array
 

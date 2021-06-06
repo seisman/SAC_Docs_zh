@@ -9,7 +9,7 @@ writecss
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     WriteCSS [Binary|Ascii] [DIR ON|OFF|CURRENT|name] name
 
@@ -44,7 +44,7 @@ name
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     wirtecss ascii dir off
 

@@ -9,7 +9,7 @@ setmacro
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SETMACRO [MORE] directory [directory ...]
 

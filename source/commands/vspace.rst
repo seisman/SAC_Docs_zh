@@ -9,7 +9,7 @@ vspace
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     VSPace [FULL|v]
 
@@ -25,7 +25,7 @@ v
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     vspace full
 

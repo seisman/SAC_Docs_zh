@@ -9,7 +9,7 @@ bandpass
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     BandPass [BUtter|BEssel|C1|C2] [Corners v1 v2] [Npoles n] [Passes n]
         [Tranbw v] [Atten v]
@@ -47,7 +47,7 @@ ATTEN v
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     bandpass butter corner 0.1 0.4 npoles 2 passes 1 tranbw 0.3 atten 30
 
@@ -104,13 +104,13 @@ Chebyshev 滤波器设计起来更复杂一点，除了截止频率和极点数�
 
 应用一个四极 Butterworth 滤波器，拐角频率为 2 Hz 和 5 Hz：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> bp n 4 c 2 5
 
 在此之后如果要应用一个二极双通具有相同频率的 Bessel：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> bp n 2 be p 2
 

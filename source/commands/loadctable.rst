@@ -9,7 +9,7 @@ loadctable
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     LoadCTable n|[DIR CURRENT|name] [filelist]
 

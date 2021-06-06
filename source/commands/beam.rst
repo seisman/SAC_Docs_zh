@@ -9,7 +9,7 @@ beam
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     BEAM [Bearing v] [Velocity v] [REFerence ON|OFF| lat lon [el]]
         [OFFSET REF|USER|STATION|EVENT|CASCADE] [Ec anginc survel]
@@ -66,7 +66,7 @@ WRITE fname
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     beam  b 90  v 9.0 ec 33  6.0 c  0. 0. 0. w BEAM
 

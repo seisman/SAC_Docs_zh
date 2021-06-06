@@ -9,7 +9,7 @@ plotdy
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PLOTDY [ASPECT ON|OFF] name|number [name|number]
 
@@ -39,7 +39,7 @@ number
 假定你有一个等间距的 ASCII 文件，其包含了两列数据。第一列是y值，第二列是
 dy 值，你可以像下面那样读入 SAC 并用数据绘制误差棒：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> readtable content yy myfile
     SAC> plotdy 1 2

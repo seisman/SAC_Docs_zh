@@ -9,7 +9,7 @@ readsp
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ReadSP [AMPH|RLIM|SPE] [filelist]
 
@@ -31,7 +31,7 @@ filelist
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     READSP AMPH
 
