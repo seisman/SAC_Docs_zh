@@ -9,7 +9,7 @@ changestack
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ChangeStack filename|filenumber [Weight v] [DIstance v] [BEgintime v]
         [ENDtime v] [DElay v Seconds|Points] [Increment v Seconds|Points]
