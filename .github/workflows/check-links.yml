@@ -32,13 +32,14 @@ jobs:
         args: >
           --accept 429
           --exclude "https://seiscode.iris.washington.edu/"
-          --exclude "https://www.kyoshin.bosai.go.jp/"
-          --exclude "https://www.hinet.bosai.go.jp/"
+          --exclude "http://www.kyoshin.bosai.go.jp/"
+          --exclude "http://www.hinet.bosai.go.jp/"
           --exclude "https://www.fdsn.org/webservices/"
-          --exclude "https://www.vnet.bosai.go.jp/"
-          --exclude "https://www.fnet.bosai.go.jp/"
+          --exclude "http://www.vnet.bosai.go.jp/"
+          --exclude "http://www.fnet.bosai.go.jp/"
           --exclude "https://members.elsi.jp/~george/gh.html"
           --exclude "http://www.seisdmc.ac.cn/"
+          --exclude "https://l2a.ucsd.edu/"
           --verbose
           "repository/README.md"
           "website/**/*.html"
