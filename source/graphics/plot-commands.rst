@@ -17,7 +17,7 @@ plot1
 :doc:`/commands/plot1` 命令会绘制内存块中的所有波形数据，在一个窗口中一次
 显示多个波形，这些波形共用一个 X 轴（时间轴），但拥有单独的 Y 轴。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub local cdv.[enz]
     cdv.e cdv.n cdv.z
@@ -40,7 +40,7 @@ plot1
 的波形则处于等待状态。在查看波形的时候，经常需要将每个台站的三分量波形记
 录放在一起看，此时设置选项 ``perplot`` 的参数值为 ``3`` 即可。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub local cdv.[enz] cvl.[enz] cvy.[enz]  # 生成9个地震波形
     cdv.e cdv.n cdv.z cvl.e cvl.n cvl.z cvy.e cvy.n cvy.z
@@ -64,7 +64,7 @@ plot2
 :doc:`/commands/plot2` 适合绘制多个波形的对比图，常用于数据处理前后波形对比
 或真实波形与合成波形间的对比。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis                     # 生成数据
     SAC> rmean; rtrend; taper        # 预处理
@@ -107,7 +107,7 @@ plotpm
 
 下面的例子利用垂直和径向分量的波形数据绘制 Rayleigh 面波的质点运动轨迹：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub tele nykl.z             # Z分量
     SAC> w nykl.z
@@ -133,7 +133,7 @@ plotsp
 下面的命令对波形数据进行FFT得到谱文件，并使用 :doc:`/commands/plotsp` 命令
 绘制其振幅谱：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> fft

@@ -28,7 +28,7 @@ SAC 中有四个常用的绘图命令，分别是
 后面的波形，可以在终端中键入 ``kill``\ （简写为 ``k``\ ），即可
 直接退出 plot，如下例：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r cdv.[nez]
     SAC> p
