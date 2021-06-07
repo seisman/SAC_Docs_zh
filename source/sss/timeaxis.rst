@@ -9,7 +9,7 @@ timeaxis
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     TimeAxis Fixed v | Scaled v
 
@@ -25,7 +25,7 @@ SCALED v
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     timeaxis fixed 23.0
 
@@ -34,6 +34,6 @@ SCALED v
 
 如果你在做多个不同时间窗长的剖面图，并希望剖面图中每秒对应0.5厘米长：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> timeaxis scaled 0.5
