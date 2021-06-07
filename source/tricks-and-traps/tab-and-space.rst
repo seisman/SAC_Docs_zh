@@ -12,7 +12,7 @@ Tab 与空格
 
 以在 Bash 中调用 SAC 为例:
 
-.. code-block:: bash
+.. code-block:: console
 
     sac << EOF
         fg seis     # 此行行首有 Tab，只是你看不见

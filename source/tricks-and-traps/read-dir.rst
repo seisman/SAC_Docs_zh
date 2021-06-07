@@ -6,7 +6,7 @@
 
 第一种，先 cd 进入该目录，再读取 SAC 文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     $ cd data/
     $ sac
@@ -17,14 +17,14 @@
 
 第二种，直接用相对路径读取 SAC 文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r data/*.SAC
     SAC> ...
 
 第三种，使用 :doc:`/commands/read`\ 命令的 ``dir`` 选项：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r dir data *.SAC
     SAC> ...
@@ -32,7 +32,7 @@
 以上算是技巧，下面来说说这其中的陷阱。假设有一堆 SAC 文件，保存在一个名为
 ``dirraw`` 的目录中，现在想要用第二种方式读取 SAC 文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r dirraw/*.SAC
      ERROR 1301: No data files read in.
@@ -51,6 +51,6 @@ SAC 会从 ``dirraw/*.SAC`` 中识别处关键字 ``dir``\ ，然后忽略了后
 那么，如果目录名真的是以 ``dir`` 开头的，怎么办呢？第一种方法可以，
 第三种方法也可以，第二种方法的修改版也可以：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r ./dirraw/*.SAC
