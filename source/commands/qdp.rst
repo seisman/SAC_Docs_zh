@@ -9,7 +9,7 @@ qdp
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     QDP [ON|OFF|n] [TERM ON|OFF|n] [SGF ON|OFF|n]
 
@@ -37,7 +37,7 @@ SGF n
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     qdp term 5000 sgf 5000
 
@@ -60,7 +60,7 @@ plot” 选项绘制数据文件的部分数据点的方式来加速绘图。
 
 假设文件 FILE1 有20000个数据点，文件 FILE2 有40000个数据点，如果你输入：
 
-.. code-block:: bash
+.. code-block:: console
 
     sac> r file1 file2
     sac> p
@@ -70,7 +70,7 @@ plot” 选项绘制数据文件的部分数据点的方式来加速绘图。
 
 如果想要绘制全部数据点，则需要关闭 QDP 选项：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> qdp off
     SAC> p

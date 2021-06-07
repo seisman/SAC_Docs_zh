@@ -9,7 +9,7 @@ smooth
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SMOOTH [MEAN|MEDIAN] [Halfwidth n]
 
@@ -25,7 +25,7 @@ HALFWIDTH n
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     smooth mean halfwidth 1
 

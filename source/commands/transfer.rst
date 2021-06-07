@@ -9,7 +9,7 @@ transfer
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     TRANSfer [FROM type [options]] [TO type [options]] [FREQlimits f1 f2 f3 f4]
         [PREWHitening ON|OFF|n]
@@ -32,7 +32,7 @@ PREWHITENING ON|OFF|n
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     trans from none to none
 
@@ -130,7 +130,7 @@ SAC中内置了一堆预定义的仪器类型，可以在命令中直接使用�
 
 从数据中去除 LLL 宽频带仪器响应。并卷积上 SRO 仪器响应，且对频带做尖灭及预白化：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read abc.z
     SAC> rmean; rtr; taper
@@ -138,7 +138,7 @@ SAC中内置了一堆预定义的仪器类型，可以在命令中直接使用�
 
 当前的仪器类型为 RSTN 的子类型 nykm.z，为了去除该仪器响应并卷积上 DSS 仪器响应：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read nykm.z
     SAC> rmean; rtr; taper
@@ -146,14 +146,14 @@ SAC中内置了一堆预定义的仪器类型，可以在命令中直接使用�
 
 将电磁仪器响应转换成位移：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r XYZ.Z
     SAC> trans from elmag freep 15. mag 750. to none
 
 从波形中去除 WWSP 的仪器响应，得到位移波形：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read xyz.z
     SAC> rmean; rtr; taper
@@ -162,7 +162,7 @@ SAC中内置了一堆预定义的仪器类型，可以在命令中直接使用�
 
 向合成的位移地震图中加入 WWSP 仪器响应：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r syn.z
     SAC> trans from none to WWSP    # 简写为 trans to WWSP
@@ -179,7 +179,7 @@ evalresp 类型
 （比如“RESP.IU.COLA..BHZ”），并检测 RESP 文件中给出的台站信息是否与数据
 中的台站信息匹配\ [1]_。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
     SAC> rtr; rtr; taper
@@ -206,7 +206,7 @@ RESP文件 ``RESP.IU.COLA..BHZ``\ 。为了给所有台站去除仪器响应，�
 并修改 RESP 文件中的台站信息。显然，这样很麻烦，利用上面的选项可以大大简化
 这一过程：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.IU.*.BHZ
     SAC> rmean; rtr; taper
@@ -217,7 +217,7 @@ RESP文件 ``RESP.IU.COLA..BHZ``\ 。为了给所有台站去除仪器响应，�
 
 下面的命令会将三分量数据去仪器响应，并卷积上 BHZ 分量的仪器响应：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.IU.COLA.00.BH?
     SAC> rmean; rtr; taper
@@ -228,7 +228,7 @@ RESP文件 ``RESP.IU.COLA..BHZ``\ 。为了给所有台站去除仪器响应，�
 
 为了显示 IU 台网 COL 台站 BHZ通道，1992年01月02日16:42:05的仪器响应：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg impulse npts 16384 delta .05 begin 0.
     SAC> trans to evalresp sta COL cha BHZ net IU \
@@ -239,7 +239,7 @@ RESP文件 ``RESP.IU.COLA..BHZ``\ 。为了给所有台站去除仪器响应，�
 如果你的 RESP 文件名与 SAC 的标准格式不同，可以使用 ``FNAME`` 选项强制
 指定要使用的 RESP 文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
     SAC> rmean; rtr; taper
@@ -254,7 +254,7 @@ RESP文件 ``RESP.IU.COLA..BHZ``\ 。为了给所有台站去除仪器响应，�
 由于一个 RESP 文件中可以包含多个响应函数，因而可以将所有仪器响应文件合并到
 一个总的 RESP 文件中：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> rmean; rtr; taper
@@ -276,7 +276,7 @@ PZ 文件，用户必须使用 ``subtype`` 来指定要使用的 PZ 文件。若
 有注释行，则注释行中的台站信息必须与波形中的台站信息匹配，才能正确执行；
 若 PZ 文件中无注释行，则不进行台站信息匹配的检测，直接执行。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *IU.COLA.BHZ
     SAC> rmean; rtr; taper
@@ -286,7 +286,7 @@ PZ 文件，用户必须使用 ``subtype`` 来指定要使用的 PZ 文件。若
 PZ 文件合并得到总的PZ文件。下面的例子中读入全部波形数据，并利用总 PZ 文件
 进行去仪器响应：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC          # 读入全部数据
     SAC> rmean; rtr; taper
@@ -307,7 +307,7 @@ fap 选项表明使用 FAP 文件作为响应函数。
 0.006 Hz 到 0.2 Hz，要从波形 ``2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC``
 中移除该仪器响应：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
     SAC> rtr

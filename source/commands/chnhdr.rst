@@ -9,7 +9,7 @@ chnhdr
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ChnHdr [FILE n1 n2 ...] field v [field v ...] [ALLT v]
 
@@ -61,21 +61,21 @@ ALLT v
 
 修改内存中所有文件的事件经纬度、事件名：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> ch evla 34.3 evlo -118.5
     SAC> ch kevnm 'LA goes under'
 
 修改第二、四个文件的事件经纬度、事件名：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> ch file 2 4 EVLA 34.3 EVLO -118.5
     SAC> ch file 2 4 KEVNM 'LA goes under'
 
 设定初动到时为无定义状态：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> ch a undef
 
@@ -85,13 +85,13 @@ ALLT v
 
 首先用 ``GMT`` 选项设置事件起始时间：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> ch o GMT 1982 123 13 37 10 103
 
 现在使用 :doc:`/commands/listhdr` 检查发震时刻 ``o`` 相对于当前参考时间的秒数：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> lh o
      o = 123.103
@@ -99,7 +99,7 @@ ALLT v
 现在使用 ``ALLT`` 选项从所有的偏移时间中减去这个值，并加到参考时间上，
 同时需要改变描述参考时间类型的字段：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> ch allt -123.103 iztype iO
 
@@ -107,7 +107,7 @@ ALLT v
 
 更方便的做法是直接引用头段变量的值：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> ch allt (0 - &1,o&) iztype IO
 

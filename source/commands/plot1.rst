@@ -9,7 +9,7 @@ plot1
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     Plot1 [Absolute|Relative] [Perplot ON|OFF|n]
 
@@ -31,7 +31,7 @@ PERPLOT OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     plot1 absolute perplot off
 
@@ -58,7 +58,7 @@ PERPLOT OFF
 下面的例子是由 LLNL DSS 的4个台站 Elko、Kanab、Landers 和 Mina 记录到的美国
 西部的一个地震。参考时间为事件发生时刻：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut -5 200
     SAC> read *v

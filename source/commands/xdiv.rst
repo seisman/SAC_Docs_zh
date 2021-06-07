@@ -9,7 +9,7 @@ xdiv
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     XDIV [NIce|Increment v|NUmber n] [Power ON|OFF]
 
@@ -34,7 +34,7 @@ POWER OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     xdiv nice power on
 

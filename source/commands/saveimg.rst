@@ -9,7 +9,7 @@ saveimg
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SAVEimg filename.format
 
@@ -52,7 +52,7 @@ png 和 xpm 将拥有当前窗口的横纵比，pdf 或 ps 文件拥有固定的
 
 将图像保存为 PDF 文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read PAS.CI.BHZ.sac
     SAC> p1
@@ -60,7 +60,7 @@ png 和 xpm 将拥有当前窗口的横纵比，pdf 或 ps 文件拥有固定的
 
 将谱图用多种格式保存：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seismo
     SAC> spectrogram

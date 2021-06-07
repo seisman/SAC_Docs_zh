@@ -9,7 +9,7 @@ writecor
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     WriteCOR [file]
 
@@ -22,7 +22,7 @@ file
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     writecor cor
 

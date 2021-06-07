@@ -9,7 +9,7 @@ mtw
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     MTW [ON|OFF|pdw]
 
@@ -28,7 +28,7 @@ pdw
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     mtw off
 

@@ -9,7 +9,7 @@ whpf
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     WHPF IC n m
 

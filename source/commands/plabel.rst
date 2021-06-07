@@ -9,7 +9,7 @@ plabel
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PLABEL [n] [ON|OFF|text] [Size Tiny|Small|Medium|Large]
         [Below|Position x y [a]]
@@ -59,7 +59,7 @@ POSITION x y a
 
 为绘图定义一系列标签：
 
-.. code-block:: bash
+.. code-block:: console
 
     # 三行标签
     SAC> dg sub local cdv.z

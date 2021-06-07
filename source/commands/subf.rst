@@ -9,7 +9,7 @@ subf
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SUBF [Newhdr [ON|OFF]] filelist
 

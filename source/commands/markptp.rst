@@ -9,7 +9,7 @@ markptp
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     MARKPtp [Length v] [To marker]
 
@@ -27,7 +27,7 @@ TO marker
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     markptp length 5.0 to t0
 
@@ -57,7 +57,7 @@ TO marker
 
 设置测量时间窗为头段 ``T4`` 和 ``T5`` 之间，并使用默认的滑动时间窗长和时间标记：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> mtw t4 t5
     SAC> markptp
@@ -65,7 +65,7 @@ TO marker
 
 设置测量时间窗为初动之后的 30 s，滑动时间窗为 3 s，起始时间标记为 ``T7``\ ：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> mtw a 0 30
     SAC> markptp l 3. to t7

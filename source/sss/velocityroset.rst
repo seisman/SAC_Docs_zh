@@ -9,7 +9,7 @@ velocityroset
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     VelocityRoset [ON|OFF] [Location UL|UR|LL|LR]
 
@@ -25,6 +25,6 @@ LOCATION UL|UR|LL|LR
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     velocityroset off location ll

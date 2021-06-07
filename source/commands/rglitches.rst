@@ -9,7 +9,7 @@ rglitches
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     RGLitches [THreshold v] [TYpe Linear|Zero] [Window ON|OFf|pdw]
         [METHOD Absolute|Power|Runavg]
@@ -52,7 +52,7 @@ MINAMP v
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     rglitches threshold 1.0e+10 type linear window off method absolute
         swinlen 0.5 thresh2 5.0 minamp 50

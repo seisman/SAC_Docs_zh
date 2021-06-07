@@ -9,7 +9,7 @@ markvalue
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     MARKValue [GE|LE v] [TO marker]
 
@@ -28,7 +28,7 @@ TO marker
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     markvalue ge 1 to t0
 
@@ -44,13 +44,13 @@ TO marker
 
 搜索文件中第一个值大于 3.4 的点并将结果保存在头段 ``T7`` 中：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> markvalue ge 3.4 to t7
 
 设定测量时间窗为 ``T4`` 后的10秒，并搜索第一个小于-3的值：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> mtw t4 0 10
     SAC> markvalue le -3 to t5

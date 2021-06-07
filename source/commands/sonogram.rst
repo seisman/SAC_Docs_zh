@@ -9,7 +9,7 @@ sonogram
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SONOgram [WINDOW v] [SLICE v] [ORDER n] [CBAR ON|OFF] [YMIN v] [YMAX v]
         [FMIN v] [FMAX v] [BINARY|FULL] [METHOD PDS|MEM|MLM] [COLOR|GRAY]
@@ -54,7 +54,7 @@ COLOR|GRAY
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     sonogram window 2 slice 1 method mem order 100 ymin 0 ymax fnyquist
         fmin 2.0 fmax 6.0 full color

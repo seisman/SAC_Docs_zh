@@ -9,7 +9,7 @@ xlabel
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     XLABeL [ON|OFF|text] [Location Top|Bottom|Right|Left]
         [Size Tiny|Small|Medium|Large]
@@ -48,7 +48,7 @@ LARGE
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     xlabel off location bottom size small
 

@@ -9,7 +9,7 @@ plotsp
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PlotSP [ASIS|RLIM|AMPH|RL|IM|AM|PH] [LINLIN|LINLOG|LOGLIN|LOGLOG]
 
@@ -35,7 +35,7 @@ LINLIN|LINLOG|LOGLIN|LOGLOG
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     plotsp asis loglog
 
@@ -53,7 +53,7 @@ SAC 数据文件可能包含时间序列文件或谱文件，\ ``IFTYPE`` 决定
 
 获得一个谱文件振幅的对数-线性的绘图：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read file1
     SAC> fft

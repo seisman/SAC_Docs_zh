@@ -9,7 +9,7 @@ printhelp
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PrintHelp [item ...]
 

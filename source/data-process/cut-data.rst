@@ -56,7 +56,7 @@ cut
 
 :doc:`/commands/cut` 命令是“参数设定类”命令，因而需要先 ``cut`` 再 ``read``\ ：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut t0 -5 5        # 截取 t0 前后各5秒，共计10秒的数据
     SAC> r *.SAC            # 先 cut 再 read

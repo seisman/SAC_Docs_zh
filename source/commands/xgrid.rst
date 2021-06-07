@@ -9,7 +9,7 @@ xgrid
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     XGRID ON|OFF|Solid|Dotted
 
@@ -31,6 +31,6 @@ OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     xgrid off

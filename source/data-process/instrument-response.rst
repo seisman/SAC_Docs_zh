@@ -27,7 +27,7 @@ RESP 方法1
 内存中的所有 SAC 数据进行循环。对于内存中的每个 SAC 数据，从头段中提取台站
 分量信息，然后在当前目录下寻找并使用对应的仪器响应文件 ``RESP.NET.STA.LOC.CHN``\ 。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> trans from evalresp to none freq 0.004 0.007 0.2 0.4
@@ -39,7 +39,7 @@ RESP 方法2
 
 可以使用 ``evalresp fname`` 选项为每个波形分别指定 RESP 文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC
     SAC> rmean; rtr; taper
@@ -56,7 +56,7 @@ RESP 方法3
 并指定该总 RESP 文件为仪器响应文件，此时命令会从总 RESP 文件中自动寻找匹配
 的仪器响应。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> trans from evalresp fname RESP.ALL to none freq 0.004 0.007 0.2 0.4
@@ -69,7 +69,7 @@ PZ 方法1
 
 手动为每个波形指定 PZ 响应文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r OR075_LHZ.SAC
     SAC> rmea; rtr; taper
@@ -88,7 +88,7 @@ PZ 方法2
 并指定该总 PZ 文件为仪器响应文件，此时命令会从总 PZ 文件中自动寻找匹配的仪器
 响应。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> trans from pol s SAC.PZs to none freq 0.008 0.016 0.2 0.4

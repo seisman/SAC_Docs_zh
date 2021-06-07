@@ -9,7 +9,7 @@ contour
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     CONTour [Aspect ON|OFF]
 
@@ -26,7 +26,7 @@ ASPECT OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     contour aspect off
 

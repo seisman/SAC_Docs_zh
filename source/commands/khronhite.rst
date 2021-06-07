@@ -9,7 +9,7 @@ khronhite
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     KHRONHITE [v]
 
@@ -22,7 +22,7 @@ v
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     khronhite 2.0
 

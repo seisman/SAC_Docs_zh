@@ -9,7 +9,7 @@ plotpm
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PlotPM
 
@@ -31,7 +31,7 @@ plotpm
 
 创建一个两个地震图的质点运动图：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read xyz.t xyz.r
     SAC> xlabel 'radial component'
@@ -42,7 +42,7 @@ plotpm
 如果你想要值绘制每个文件在初动附近的一部分，你可以使用
 :doc:`/commands/xlim` 命令：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> xlim a -0.2 2.0
     SAC> PLOTPM
@@ -50,7 +50,7 @@ plotpm
 也可以使用 :doc:`/commands/plotpk` 在之前的绘图窗口中设置新的区域，然后绘制
 命令如下：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> beginwindow 2
     SAC> plotpk

@@ -9,7 +9,7 @@ SAC 绘图流程
 
 如下所示：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r cdv.[nez]
     SAC> begindevices xwindows      # 启动图像设备 xwindows，简写为 bd x
