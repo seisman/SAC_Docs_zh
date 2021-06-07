@@ -18,7 +18,7 @@
 
 想要修改事件的经纬度、深度和震级，操作如下：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r cdv.?
     SAC> ch evla 37.52 evlo -121.68 evdp 5.95   # 修改三个头段变量
@@ -37,7 +37,7 @@
 先看看如何修改\ **一个** SAC 文件的发震时刻，假设发震时刻为1987年06月22日
 11时10分10.363秒：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r ./cdv.z
     SAC> ch o gmt 1987 173 11 10 10 363   # 06月22日是第173天
@@ -71,7 +71,7 @@
 SAC 提供的“在命令中引用头段变量的值”的功能。具体的语法以及用法在
 :doc:`/macros/index` 一章中会介绍。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r cdv.z
     SAC> ch o gmt 1987 173 11 10 10 363
@@ -92,7 +92,7 @@ v101.5c 及之前的版本中，只能使用 ``(0 - &1,o&)``\ ，注意减号
 上面的示例只适用于为一个 SAC 数据添加发震时刻的情况。如果要一次性为多个
 SAC 数据添加同样的发震时刻，最直观的想法是：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> ch o gmt 1987 173 11 10 10 363
@@ -109,7 +109,7 @@ SAC 数据添加同样的发震时刻，最直观的想法是：
 
 在上面的例子的基础上再加一个命令：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> synchronize            # 同步所有数据的参考时间

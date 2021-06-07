@@ -16,7 +16,7 @@ ppk 模式的进入与退出
 窗口以使得焦点位于绘图窗口而不是终端中。此时，SAC 就进入了“ppk模式”，
 终端中光标所在行没有 SAC 提示符“``SAC>``”。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> ppk    # 焦点位于绘图窗口中，进入 ppk 模式
@@ -45,7 +45,7 @@ ppk 模式下拾取震相
 除了可以键入 ``t`` 和 ``0`` 之外，0还可以用1到9的任意数字替换，
 分别表示将要标记的到时保存到 ``T0`` 到 ``T9`` 中。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> ppk
@@ -74,7 +74,7 @@ SAC 在默认情况下会打开快速绘图选项，即 ``qdp on``\ 。关于 ``
 识别度降低，也导致波形拾取精度降低。为了提高拾取精度，通常会在进入 ppk
 模式前关闭快速绘图选项，即使用 ``qdp off`` 命令：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub reg elk.z
     SAC> qdp on     # 打开快速绘图选项（默认值）
@@ -116,7 +116,7 @@ SAC v101.5 之后的版本有更方便的方式：在绘图窗口中某位置按
 接下来的三个波形，也可以键入“``b``”以显示前三个波形。当不断键入
 “``n``”直到所有波形数据都显示完毕的时候，会自动退出 ppk 模式。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub tele *       # 生成多个台站的三分量数据
     SAC> ppk p 3 a m
