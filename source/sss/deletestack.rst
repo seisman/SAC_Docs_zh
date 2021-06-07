@@ -9,7 +9,7 @@ deletestack
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     DeleteStack filename|filenumber
 

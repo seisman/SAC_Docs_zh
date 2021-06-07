@@ -9,7 +9,7 @@ writestack
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     WriteStack [filename]
 
@@ -22,6 +22,6 @@ filename
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     writestack sum
