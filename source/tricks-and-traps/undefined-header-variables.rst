@@ -6,7 +6,7 @@
 
 直接读入 SAC 查看头段变量 ``dist`` 的值：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r XXXX.SAC
     SAC> lh dist
@@ -29,7 +29,7 @@
 如果想要 ``saclst`` 也获取正确的值，可以先用 SAC 把数据读进去，待 SAC 把头段
 更新后，再写回到磁盘中：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> wh

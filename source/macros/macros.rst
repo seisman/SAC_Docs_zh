@@ -8,7 +8,7 @@ SAC 宏
 要经常读取三个文件 ABC、DEF 和 XYZ，每个文件分别乘以不同的值，做 Fourier 变换，
 然后将频谱的振幅部分绘制到 SGF 文件中，这样的一系列命令可以写入到 SAC 宏文件中：
 
-.. code-block:: bash
+.. code-block:: console
 
     ** This certainly is a simple little macro.
     r ABC DEF XYZ
@@ -20,7 +20,7 @@ SAC 宏
 假设上面的代码保存到文件 ``mystuff`` 中，且该文件位于当前目录中，
 可以通过下面的命令执行该宏文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> macro mystuff
 
@@ -51,7 +51,7 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 
 下面将对先前的宏文件进行修改以使其可以接收文件名作为参数：
 
-.. code-block:: bash
+.. code-block:: console
 
     r $1$ $2$ $3$
     mul 4 8 9
@@ -62,13 +62,13 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 ``$1$``\ 、\ ``$2$`` 和 ``$3$`` 分别表示宏文件接收到的第一、二、三个参数，
 用下面的命令执行这个宏文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> macro mystuff ABC DEF XYZ
 
 可以用下面的命令再次执行这个宏文件，但读取不同的文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> macro mystuff AAA BBB CCC
 
@@ -81,7 +81,7 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 当参数的数目以及宏文件的大小不断增大的时候这就变得更加重要了。
 下面将再一次修改这个例子以使其可以接受文件列表以及乘数的列表：
 
-.. code-block:: bash
+.. code-block:: console
 
     $keys$ files values
     r $files$
@@ -93,13 +93,13 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 ``$keys$`` 表明“files”和“values”是关键字。可以按照下面的输入来
 执行这个宏文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> macro mystuff files ABC DEF XYZ values 4 8 9
 
 因为参数的顺序不再重要，所以你可以像下面这样输入：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> macro mystuff values 4 8 9 files ABC DEF XYZ
 
@@ -113,7 +113,7 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 总是拥有相同的值。为这些参数提供缺省值可以减少输入那些相同值的次数同时
 又保有宏参数本身的灵活性。如下例所示：
 
-.. code-block:: bash
+.. code-block:: console
 
     $keys$ files values
     $default$ values 4 8 9
@@ -126,13 +126,13 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 ``$default$`` 指定了宏参数 ``values`` 的缺省值，若在执行宏文件时
 不输入values的参数值那么这些参数将使用缺省值：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> macro mystuff files ABC DEF XYZ
 
 如果想要使用不同的值，可以像下面这样输入：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> macro mystuff values 10 12 3 files ABC DEF XYZ
 
@@ -142,7 +142,7 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 若执行宏文件时没有输入参数而这些参数又没有缺省值，SAC 会在终端中提示你
 输入相应的参数值。在上面的例子中，如果你忘记输入参数则会出现下面的情况：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> macro mystuff
     files? ABC DEF XYZ          # 用户输入ABC DEF XYZ
@@ -156,7 +156,7 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 
 头段变量、黑板变量、宏参数以及字符串可以直接联接在一起。
 
-.. code-block:: bash
+.. code-block:: console
 
     $keys$ station
     fg seis
@@ -169,7 +169,7 @@ SAC 宏参数的格式为：“``$n$``”，其中n从1开始。
 
 执行效果如下：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> m stuff station STA
      setbb sta $station$.z
@@ -190,7 +190,7 @@ Fortran77 类似，但不完全相同，要注意区分。
 
 SAC 宏的条件判断格式如下：
 
-.. code-block:: bash
+.. code-block:: console
 
       IF expr
         commands
@@ -202,7 +202,7 @@ SAC 宏的条件判断格式如下：
 
 逻辑表达式 ``expr`` 具有如下形式：
 
-.. code-block:: bash
+.. code-block:: console
 
         token 关系运算符 token
 
@@ -216,7 +216,7 @@ SAC 宏的条件判断格式如下：
 
 下面给出一个例子：
 
-.. code-block:: bash
+.. code-block:: console
 
     r $1$
     markptp
@@ -238,31 +238,31 @@ SAC 宏的条件判断格式如下：
 列表或者设定条件来执行一系列命令，也可以随时中断一次循环。
 循环的最大嵌套次数为10次。其语法可以有多种形式：
 
-.. code-block:: bash
+.. code-block:: console
 
     DO variable = start, stop [,increment]
         commands
     ENDDO
 
-.. code-block:: bash
+.. code-block:: console
 
     DO variable FROM start TO stop [BY increment]
         commands
     ENDDO
 
-.. code-block:: bash
+.. code-block:: console
 
     DO variable LIST entrylist
         commands
     ENDDO
 
-.. code-block:: bash
+.. code-block:: console
 
     DO variable WILD [DIR name] entrylist
         commands
     ENDDO
 
-.. code-block:: bash
+.. code-block:: console
 
     WHILE expr
         commands
@@ -283,7 +283,7 @@ SAC 宏的条件判断格式如下：
 然后使用 :doc:`/commands/divomega` 命令去除预白化的影响，有时需要在做
 变换之前多次预白化，那么就可以这样写：
 
-.. code-block:: bash
+.. code-block:: console
 
     $keys$ file nprew
     $default$ nprew 1
@@ -298,7 +298,7 @@ SAC 宏的条件判断格式如下：
 
 下面这个例子，用相同的数据绘制5个不同的两秒时间窗的质点运动矢量图：
 
-.. code-block:: bash
+.. code-block:: console
 
     r abc.r abc.t
     setbb time1 0
@@ -312,7 +312,7 @@ SAC 宏的条件判断格式如下：
 在下面的例子中，一个宏文件调用另一个名为 ``preview`` 的宏文件，
 通过do循环以达到多次调用 ``preview`` 的目的：
 
-.. code-block:: bash
+.. code-block:: console
 
     do station list abc def xyz
         do component list z n e
@@ -322,7 +322,7 @@ SAC 宏的条件判断格式如下：
 
 在下面的示例展示了如何处理目录 ``mydir`` 中所有以 ``.Z`` 结束 的文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     do file wild dir mydir *.Z
         macro preview $file$
@@ -332,7 +332,7 @@ SAC 宏的条件判断格式如下：
 阀值。宏文件读取了一个数据文件，然后每个数据点乘以一个常数直到其超过某
 一阀值：
 
-.. code-block:: bash
+.. code-block:: console
 
     r $1$
     while &1,depmax& gt $3$
@@ -341,7 +341,7 @@ SAC 宏的条件判断格式如下：
 
 另一个与 break 有关的宏文件：
 
-.. code-block:: bash
+.. code-block:: console
 
     r $1$
     while 1 gt 0
@@ -376,7 +376,7 @@ SAC 宏提供嵌套功能，不支持递归，但是 SAC 并不会去检查宏�
 你可以在 SAC 宏内部执行其他程序，可以向程序传递参数。如果程序是交互式的
 你也可以将输入行发送给它，语法如下：
 
-.. code-block:: bash
+.. code-block:: console
 
     $RUN$ program message
     inputlines
