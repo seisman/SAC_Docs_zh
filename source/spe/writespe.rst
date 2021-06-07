@@ -9,7 +9,7 @@ writespe
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     WriteSPE [file]
 
@@ -22,7 +22,7 @@ file
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     writespe spe
 
