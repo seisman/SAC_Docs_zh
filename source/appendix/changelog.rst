@@ -6,6 +6,36 @@
 
    \titleformat{\section}{\Large\bfseries}{}{0em}{}{}
 
+v4.2 (2021-06-12)
+=================
+
+维护
+----
+
+- 修复 typos
+- 使用 GitHub Actions 部署
+- 使用 sphinx_copybutton 扩展
+- 使用 CC BY-NC 4.0 作为文档部分的许可协议
+- 设置 GitHub Actions 自动更新
+- 设置无效链接自动检测，并修正一些无效链接
+- sphinx 固定为 3.5
+- 所有 code-block: bash 指令替换为 code-block: console
+
+调整与修订
+-----------
+
+- 新建”SAC 安装“一章，包含“申请 SAC“和 不同系统下的 SAC 安装
+- 更新 SAC 安装
+- 移动“文档阅读指南”小节至“SAC 简介”
+- 移动“文档约定”小节至“SAC 简介”
+- 更新章节名称
+- 更新“申请 SAC”
+- 增加 rdseed 不再维护的警告
+- 修改 macOS 默认配置文件为 :file:`~/.zshrc`
+- 调整“SAC 基础”、“SAC 文件格式”各小节标题
+- 调整“SAC 安装”结构
+- Julia 中的 SAC I/O 更新为 SeisIO.jl
+
 v4.1 (2020-09-23)
 =================
 
