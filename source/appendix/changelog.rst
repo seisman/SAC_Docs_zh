@@ -12,7 +12,6 @@ v4.2 (2021-06-12)
 维护
 ----
 
-- 修复 typos
 - 使用 GitHub Actions 部署
 - 使用 sphinx_copybutton 扩展
 - 使用 CC BY-NC 4.0 作为文档部分的许可协议
