@@ -25,10 +25,10 @@ sacio 函数接口
 
 ``sac.h`` 中 SAC 格式的头段区被定义为 ``SACHEAD`` 类型的结构体，
 每一个头段变量都是结构体的成员。\ ``sacio.c`` 定义了一系列用于读写
-SAC 文件的函数，\ :numref:`table-sacio-function` 中列出了 ``sacio``
+SAC 文件的函数，\ :numref:`tbl-sacio-function` 中列出了 ``sacio``
 提供的函数接口。
 
-.. _table-sacio-function:
+.. _tbl-sacio-function:
 
 .. table:: ``sacio`` 函数列表
 
