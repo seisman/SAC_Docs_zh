@@ -13,4 +13,5 @@ assignees: ''
 - [ ] Set the release version in `source/conf.py`
 - [ ] Add the release information to `source/version.rst`
 - [ ] Upload the PDF to the release
-- [ ] Bump the version number to "x.x-dev" in `source/conf.py` and `source/SAC_style.sty`
+- [ ] Bump the version number to "X.Y-dev" in `source/conf.py` and `source/SAC_style.sty`
+- [ ] Bump the SAC version number in `source/SAC_style.sty` if necessary
