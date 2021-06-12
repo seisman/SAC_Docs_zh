@@ -27,7 +27,7 @@ master_doc = 'index'
 project = 'SAC参考手册'
 copyright = '2012 - {}, SeisMan'.format(datetime.date.today().year)
 author = 'SeisMan'
-version = '4.1'
+version = '4.2'
 release = version
 language = 'zh_CN'
 

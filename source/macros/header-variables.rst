@@ -19,7 +19,7 @@
 
 下例展示了如何通过两种方式引用头段变量的值：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> w seis.SAC

@@ -29,7 +29,7 @@ SAC 其实自带了一个 debug 工具，即命令 :doc:`/commands/echo`\ 。该
 这个脚本是有问题的，但是对于刚刚写脚本的人来说，可能看不出问题。直接
 执行会出现如下错误：
 
-.. code-block:: bash
+.. code-block:: console
 
      ERROR 1312: Bad number of files in write file list: 1 3
     SAC Error: EOF/Quit
@@ -60,7 +60,7 @@ SAC 其实自带了一个 debug 工具，即命令 :doc:`/commands/echo`\ 。该
 
 运行结果如下：
 
-.. code-block:: bash
+.. code-block:: console
 
      r STA.BHN STA.BHE STA.BHZ
      ch t0 3+5
