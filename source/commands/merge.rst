@@ -11,8 +11,7 @@ merge
 
 .. code-block:: console
 
-    MERGE [Verbose] [Gap Zero|Interp] [Overlap Compare|Average]
-        [TOLerance_delta v] [filelist]
+    MERGE [Verbose] [Gap Zero|Interp] [Overlap Compare|Average] [TOLerance_delta v] [filelist]
 
 输入
 ----
