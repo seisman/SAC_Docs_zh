@@ -9,7 +9,7 @@
 
 一种常规的做法如下：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC        # 读入全部的 SAC 数据
     SAC> ppk p 5        # plotpk，每次绘制5个波形

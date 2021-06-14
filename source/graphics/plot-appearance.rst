@@ -23,7 +23,7 @@
 
 :numref:`figure:plot-appearance` 可以用如下命令绘制得到：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis                # 生成数据
     SAC> qdp on                 # 打开QDP选项（默认值即为开）
@@ -150,7 +150,7 @@ xfudge
 
 下面的命令展示了如何修改线条的属性。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> line 3         # 线型为3
@@ -168,7 +168,7 @@ xfudge
 在绘制多个波形数据时，可以设置线条的属性按照某个列表递增。下面的命令
 一次绘制四个波形文件，使每个数据的线型和颜色都按照默认列表递增。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub teleseis ntkl.z nykl.z onkl.z sdkl.z
     SAC> line incre
@@ -184,7 +184,7 @@ xfudge
 
 :doc:`/commands/line` 命令不仅可以设置线条的线型，同时可以对波形数据进行颜色填充：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> qdp off

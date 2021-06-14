@@ -9,7 +9,7 @@ report
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     REPort APF|COLOR|CUT|DEVICES|FILEID|GTEXT|HPF|LINE|MEMORY|MTW|PICKS|
         SYMBOL|TITLE|XLABEL|XLIM|YLABEL|YLIM
@@ -78,7 +78,7 @@ YLIM
 
 为了获取当前颜色属性的列表：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> report color
      COLOR option is ON
@@ -89,7 +89,7 @@ YLIM
 
 为了获取 HYPO 文件名：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> report apf hpf
      Alphanumeric pick file is MYPICKFILE

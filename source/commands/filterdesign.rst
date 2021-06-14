@@ -9,7 +9,7 @@ filterdesign
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     FilterDesign [FILE [prefix]] [filteroptions] [delta]
 
@@ -69,6 +69,6 @@ Hz。\ ``prefix.imp`` 是时间序列文件，包含脉冲响应信息。
 下面的例子展示了如何使用 ``filterdesign`` 命令产生一个高通，拐角频率为 2 Hz，
 六极、双通滤波器的数字和模拟响应曲线，数据采样间隔为 0.025 s：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fd hp c 2 n 6 p 2 delta .025

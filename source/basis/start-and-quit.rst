@@ -3,7 +3,7 @@
 
 在终端键入 ``sac`` 即可启动 SAC，显示如下版本号以及版权信息\ [1]_：
 
-.. code-block:: bash
+.. code-block:: console
 
     $ sac
      SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)]
@@ -15,7 +15,7 @@
 
 退出 SAC：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> quit
 

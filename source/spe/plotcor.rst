@@ -9,7 +9,7 @@ plotcor
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PlotCOR [Xlim v|ON|OFF]
 
@@ -28,6 +28,6 @@ XLIM OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     plotcor xlim off

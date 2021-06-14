@@ -157,7 +157,7 @@ SAC 选择了另外一种简化模式，“起始相对时间+采样间隔+数�
 生成样例数据
 ~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> lh iztype
@@ -182,7 +182,7 @@ SAC 选择了另外一种简化模式，“起始相对时间+采样间隔+数�
 修改文件起始时间 b
 ~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r seis
     SAC> lh kzdate kztime b delta npts e o a f
@@ -227,7 +227,7 @@ SAC 选择了另外一种简化模式，“起始相对时间+采样间隔+数�
 修改文件结束时间 e
 ~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r ./seis
     SAC> lh kzdate kztime b delta npts e o a f
@@ -266,7 +266,7 @@ SAC 选择了另外一种简化模式，“起始相对时间+采样间隔+数�
 修改参考时间
 ~~~~~~~~~~~~
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r ./seis
     SAC> lh kzdate kztime b delta npts e o a f

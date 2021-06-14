@@ -9,7 +9,7 @@ ohpf
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     OHPF [file]
 
@@ -22,7 +22,7 @@ file
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     OHPF HPF
 

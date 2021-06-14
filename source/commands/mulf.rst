@@ -9,7 +9,7 @@ mulf
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     MULF [NEWHDR [ON|OFF]] filelist
 

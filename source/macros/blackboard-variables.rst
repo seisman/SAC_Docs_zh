@@ -11,7 +11,7 @@
 
 引用黑板变量的值的方式为：“``%bbvname%``”，其中 ``bbvname`` 为黑板变量的变量名。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> echo on processed
     SAC> fg seis
@@ -27,7 +27,7 @@
 
 下例展示了如何将黑板变量写入磁盘文件，等需要时再从磁盘文件中获取：
 
-.. code-block:: bash
+.. code-block:: console
 
     $ sac
     SAC> setbb var1 10          # 整型

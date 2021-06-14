@@ -9,7 +9,7 @@ rq
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     RQ [Q v] [R v] [C v]
 
@@ -28,7 +28,7 @@ C v
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     rq q 1. r 0. c 1.
 

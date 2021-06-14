@@ -9,7 +9,7 @@ beginwindow
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     BeginWindow n
 
@@ -22,7 +22,7 @@ n
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     beginwindow 1
 

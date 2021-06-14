@@ -1,4 +1,4 @@
-sphinx
+sphinx==3.5
 sphinx-cjkspace
 sphinx_copybutton
 sphinx_rtd_theme

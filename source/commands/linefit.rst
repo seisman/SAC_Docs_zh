@@ -9,7 +9,7 @@ linefit
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     LINEFIT
 
@@ -30,7 +30,7 @@ linefit
 示例
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> linefit            # 线性拟合

@@ -9,7 +9,7 @@ stretch
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     STRETCH n [Filter ON|OFF]
 
@@ -25,7 +25,7 @@ FILTER ON|OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     stretch 2 filter on
 

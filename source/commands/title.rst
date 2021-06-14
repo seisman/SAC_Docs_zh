@@ -9,7 +9,7 @@ title
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     TITLE [ON|OFF|text] [Location Top|Bottom|Right|Left]
         [Size Tiny|Small|Medium|Large]
@@ -37,7 +37,7 @@ SIZE
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     title off location top size small
 

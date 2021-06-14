@@ -17,7 +17,7 @@ SAC 在 v101.6 之前，只能先读取第一段数据，然后合并第二段�
 对于多个数据段的合并，需要执行多次合并命令，且合并时文件的顺序必须按照绝对时间
 的先后顺序。即使用如下命令进行合并：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r 2012.055.12.00.00.0000.NET.STA.00.BHZ.Q.SAC
     SAC> merge 2012.055.12.25.00.0000.NET.STA.00.BHZ.Q.SAC
@@ -28,7 +28,7 @@ SAC 在 v101.6 之前，只能先读取第一段数据，然后合并第二段�
 
 SAC 从 v101.6 开始重写了 :doc:`/commands/merge` 命令，可以使用如下更简洁的形式：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.NET.STA.00.BHZ        # 读入所有需要合并的文件
     SAC> merge                     # 内存中的所有文件被合并为一个文件

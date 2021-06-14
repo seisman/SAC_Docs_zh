@@ -9,7 +9,7 @@ plotstack
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     PlotStack [Sum ON|OFF] [Perplot ON|OFF|n] [Weight ON|OFF] [Polarity ON|OFF]
 
@@ -36,7 +36,7 @@ POLARITY ON|OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     plotstack sum on perplot off weight on polarity on
 

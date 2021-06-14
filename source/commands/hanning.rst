@@ -9,7 +9,7 @@ hanning
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     HANning
 

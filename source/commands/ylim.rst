@@ -9,7 +9,7 @@ ylim
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     YLIM [ON|OFF|ALL|min max|PM v]
 
@@ -34,7 +34,7 @@ OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     ylim off
 
@@ -56,7 +56,7 @@ file1 的 Y 轴范围为0.0到30.0，file2 的 Y 轴范围为内存中所有文�
 file3 的 Y 轴范围将限定为文件自身的最大、最小值。如果文件多于三个，则其余的
 所有文件都限定为文件自身的最大、最小值。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> ylim 0.0 30.0 all off
     SAC> r file1 file2 file3

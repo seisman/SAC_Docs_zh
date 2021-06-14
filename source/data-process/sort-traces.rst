@@ -10,7 +10,7 @@
 
 将波形数据按照方位角升序排列：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> sort az
@@ -18,7 +18,7 @@
 
 将波形数据按照震中距降序排列：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r *.SAC
     SAC> sort gcarc descend

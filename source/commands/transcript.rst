@@ -9,7 +9,7 @@ transcript
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     TRANSCRIPT [OPEN|CREATE|CLOSE|CHANGE|WRITE|HISTORY] [FILE filename]
         [CONTENTS ALL|Errors|Warnings|Output|Commands|Macros|Processed]
@@ -67,7 +67,7 @@ CONTENTS PROCESSED
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     transcript open file transcript contents all
 
@@ -84,19 +84,19 @@ CONTENTS PROCESSED
 创建一个新的副本文件，文件名为 ``mytran``\ ，包含了除已处理命令之外的其他
 全部输出内容：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> transcript create file mytran cont err warn out com macros
 
 若之后不想把宏命令送入这个副本文件中，则可以使用 ``CHANGE`` 选项：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> transcript change file mytran contents e w o c
 
 定义一个名为 ``myrecord`` 的副本文件，其记录了终端输入的命令：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> transcript create file myrecord contents commands
 
@@ -105,7 +105,7 @@ CONTENTS PROCESSED
 假设你需要彻夜处理许多事件。你可以设置每个事件一个副本文件（用不同的副本文件名）
 去记录处理的结果。另外你可以将处理所有事件得到的任何错误消息保存到一个副本文件中：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> transcript open file errortran contents errors
     SAC> transcript write message 'processing event 1'
@@ -116,7 +116,7 @@ CONTENTS PROCESSED
 
 为了保存一个命令行副本，以记录SAC当前和将来要运行的命令：
 
-.. code-block:: bash
+.. code-block:: console
 
     SCA> transcript history file .sachist
 

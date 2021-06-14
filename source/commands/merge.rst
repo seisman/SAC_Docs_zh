@@ -9,7 +9,7 @@ merge
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     MERGE [Verbose] [Gap Zero|Interp] [Overlap Compare|Average]
         [TOLerance_delta v] [filelist]
@@ -98,7 +98,7 @@ SAC 会按照文件之间存在重叠（overlap）或者间断（gap）来处理
 
 下面看一个数据合并的示例：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read file1 file2
     SAC> merge file3 file4
@@ -110,7 +110,7 @@ SAC 会按照文件之间存在重叠（overlap）或者间断（gap）来处理
 
 多个文件合并成单个文件的一种方法：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r file1                        # 读取一个文件
     SAC> merge file2 file3 file4        # merge 其余文件
@@ -118,7 +118,7 @@ SAC 会按照文件之间存在重叠（overlap）或者间断（gap）来处理
 
 另一种合并办法：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r file1 file2 file3 file4
     SAC> merge                      # 合并内存中的所有文件
@@ -126,7 +126,7 @@ SAC 会按照文件之间存在重叠（overlap）或者间断（gap）来处理
 
 再一种合并方法：
 
-.. code-block:: bash
+.. code-block:: console
 
                                         # 内存中无数据
     SAC> merge file1 file2 file3 file4  # 合并 filelist 中的全部文件

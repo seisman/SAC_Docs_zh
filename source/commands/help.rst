@@ -9,7 +9,7 @@ help
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     Help [item ... ]
 
@@ -30,7 +30,7 @@ SAC 的官方帮助文档位于 ``$SACHOME/aux/help`` 目录中，该命令实�
 示例
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> h                  # 获得帮助文档包的介绍
     SAC> h r cut bd p       # 一次显示多个命令的文档

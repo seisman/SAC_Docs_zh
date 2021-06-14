@@ -9,7 +9,7 @@ installmacro
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     INSTALLMACRO name [name ...]
 
