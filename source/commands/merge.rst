@@ -37,7 +37,7 @@ TOLERANCE_DELTA v
     TOLERANCE_DELTA 的默认值是 1e-6
 
 filelist
-    文件列表。其中的文件需是 SAC 二进制文件。
+    SAC 二进制文件列表
 
 说明
 ----
