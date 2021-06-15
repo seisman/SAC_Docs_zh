@@ -26,7 +26,7 @@ GAP ZERO|INTERP
     ``INTERP`` 表示对数据间断处进行线性插值
 
 OVERLAP COMPARE|AVERAGE
-    设置出现数据重叠的处理方式。
+    设置出现数据重叠时的处理方式。
     ``COMPARE`` 表示对重叠的时间段内的数据进行比较，若不完全相同则不合并；
     ``AVERAGE`` 表示对重叠时间段内的数据进行平均
 
