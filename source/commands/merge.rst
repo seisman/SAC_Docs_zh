@@ -22,7 +22,7 @@ VERBOSE
 
 GAP ZERO|INTERP
     设置出现数据间断时的处理方式。
-    ``ZERO`` 表示将数据间断处补零值；
+    ``ZERO`` 表示将数据间断处补零值（默认处理方式）；
     ``INTERP`` 表示对数据间断处进行线性插值
 
 OVERLAP COMPARE|AVERAGE
