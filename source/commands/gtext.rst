@@ -9,7 +9,7 @@ gtext
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     GText [Software|Hardware] [Font n] [SIZE size] [SYStem system] [Name name]
 
@@ -40,7 +40,7 @@ NAME name
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     gtext software font 1 size small
 
@@ -63,6 +63,6 @@ complex italics、triplex block、riplex italics。
 
 选择 triplex 软件字体：
 
-.. code-block:: bash
+.. code-block:: console
 
     SCA> gtext software font 6

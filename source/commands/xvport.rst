@@ -9,7 +9,7 @@ xvport
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     XVPort xvmin xvmax
 
@@ -25,7 +25,7 @@ xvmax
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     xvport 0.1 0.9
 

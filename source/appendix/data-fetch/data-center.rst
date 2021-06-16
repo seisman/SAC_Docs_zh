@@ -24,7 +24,7 @@ IRIS DMC web service: http://service.iris.edu
   `主页 <http://www.scsn.org/>`__ |
   `web service <http://scedc.caltech.edu/>`__
 - Texas地震数据中心：
-  `主页 <http://www.beg.utexas.edu/texnet>`__ |
+  `主页 <https://www.beg.utexas.edu/texnet-cisr/texnet>`__ |
   `web service <http://rtserve.beg.utexas.edu/>`__
 
 加拿大
@@ -43,13 +43,13 @@ POLARIS Network等台网/台阵的连续波形数据。连续波形数据则可�
 
 - BGR Hannover, Germany: http://eida.bgr.de/
 - Boğaziçi University, Kandilli Observatory: http://www.koeri.boun.edu.tr/2/tr/
-- ETHZ: http://eida.ethz.ch/fdsnws/
+- ETHZ: http://eida.ethz.ch
 - GEOFON Program, GFZ: http://geofon.gfz-potsdam.de/
 - ICGC: http://www.icgc.cat/en/xarxasismica
 - IPGP Data Center: http://centrededonnees.ipgp.fr
 - INGV: http://webservices.ingv.it/
 - LMU Munich, Germany: http://www.geophysik.uni-muenchen.de/observatory/seismology
-- NIEP, Romania: http://www.orfeus-eu.org/eida/eida_niep.html
+- NIEP, Romania: http://www.orfeus-eu.org/data/eida/
 - NOA, Greece: http://bbnet.gein.noa.gr/
 - ORFEUS Data Center: http://www.orfeus-eu.org/
 - RESIF: http://seismology.resif.fr/

@@ -9,7 +9,7 @@ sub
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SUB  [v1 [v2 ... vn]]
 
@@ -28,7 +28,7 @@ vn
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     sub 0.0
 

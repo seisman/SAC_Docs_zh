@@ -9,7 +9,7 @@ synchronize
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SYNChronize [Round ON|OFF] [Begin ON|OFF]
 
@@ -32,7 +32,7 @@ BEGIN OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     synchronize round off begin off
 
@@ -57,7 +57,7 @@ BEGIN OFF
 
 假定你读取两个不同参考时间的文件到内存：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read file1 file2
     SAC> listhdr b kztime kzdate
@@ -77,7 +77,7 @@ BEGIN OFF
 这些文件有相同的参考日期，不同的参考时刻以及不同的开始时间偏移量。可以
 执行 ``synchronize`` 同步参考时刻：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> synchronize
     SAC> listhdr

@@ -18,7 +18,7 @@
 最直观的办法是根据SAC文件中的震源深度和震中距信息用某些程序计算出理论
 到时，然后用 :doc:`/commands/chnhdr` 命令手动将到时信息写入到 SAC 头段中。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub teleseis nykl.z     # 以nykl.z为例
     SAC> lh evdp gcarc              # 查看震源深度和震中距
@@ -42,7 +42,7 @@ traveltime命令
 :doc:`/commands/traveltime` 是 SAC 提供的一个命令，用于计算 iasp91 或者 ak135
 地球标准模型下的震相理论走时，并自动将震相到时信息保存到 SAC 头段变量中。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> dg sub teleseis nykl.z
     SAC> traveltime model iasp91 picks 3 phase P S

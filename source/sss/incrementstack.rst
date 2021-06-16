@@ -9,7 +9,7 @@ incrementstack
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     IncrementStack
 
@@ -29,7 +29,7 @@ incrementstack
 示例
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC/SSS> addstack filea
     SAC/SSS> addstack fileb

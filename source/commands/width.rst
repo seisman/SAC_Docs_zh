@@ -9,7 +9,7 @@ width
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     WIDTH [ON|OFF|width] [SKeleton width] [Increment ON|OFF] [List Standard|widthlist]
 
@@ -46,7 +46,7 @@ INCREMENT OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     width off skeleton 1 increment off list standard
 
@@ -65,7 +65,7 @@ INCREMENT OFF
 文件后，都按照宽度表中的次序自动地变成另一个宽度。宽度值和次序在标准宽度
 表中为:
 
-.. code-block:: bash
+.. code-block:: console
 
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
@@ -78,12 +78,12 @@ INCREMENT OFF
 
 选择自动变换的数据宽度起始值为1：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> width 1 increment
 
 边框宽度起始值为2，并按1、3、5的增量变化：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> width skeleton 2 increment list 1 3 5

@@ -9,7 +9,7 @@ cutim
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     CUTIM pdw [pdw ... ]
 
@@ -42,7 +42,7 @@ pdw
 
 下面的宏文件展示了 ``cutim`` 命令的常见用法：
 
-.. code-block:: bash
+.. code-block:: console
 
     fg seismo
     echo on

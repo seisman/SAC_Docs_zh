@@ -9,7 +9,7 @@ listhdr
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ListHdr [Default|Picks|SPecial] [FILES ALL|NONE|list] [COLUMNS 1|2]
         [INCLUSIVE ON|OFF] [hdrlist]
@@ -47,7 +47,7 @@ hdrlist
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     listhdr default files all columns 1 inclusive off
 
@@ -68,36 +68,36 @@ hdrlist
 
 获取 ``picks`` 列表，输出为两列显示：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> lh picks column 2
 
 获得第三、四个文件的默认头段列表：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> lh files 3 4
 
 列出文件开始和结束时间：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> lh b e
 
 定义一个包含台站参数的特殊列表：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> lh kstnm stla stlo stel stdp
 
 稍后再次使用上面的特殊列表：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> lh special
 
 为后面的 ``lh`` 命令设置输出为两列：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> lh columns 2 files none

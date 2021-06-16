@@ -9,7 +9,7 @@ setdevice
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SETDEVICE name
 

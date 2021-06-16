@@ -8,7 +8,7 @@
 谱域操作（如FFT、滤波等）时，若数据的两端不为零，则会出现谱域假象，
 因而实际数据经常需要做尖灭处理，使得数据两端在短时间窗内逐渐变成零值。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> fg seis
     SAC> rmean; rtr; taper

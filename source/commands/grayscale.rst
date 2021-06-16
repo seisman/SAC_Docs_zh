@@ -9,7 +9,7 @@ grayscale
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     GrayScale [VIDEOTYPE NORMAL|REVERSED] [SCALE v] [ZOOM n]
         [XCROP n1 n2|ON|OFF] [YCROP n1 n2|ON|OFF]
@@ -59,7 +59,7 @@ YCROP OFF
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     grayscale videotype normal scale 1.0 zoom 1 xcrop off ycrop off
 

@@ -9,14 +9,14 @@ color
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     COLor [ON|OFF|color] [Increment [ON|OFF]] [Skeleton color] [Background color]
         [List Standard|colorlist]
 
 color 是下面中的一个：
 
-.. code-block:: bash
+.. code-block:: console
 
     White|Red|Green|Yellow|BLUe|Magenta|Cyan|BLAck
 
@@ -56,7 +56,7 @@ LIST STANDARD
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     color black increment off skeleton black background white list standard
 
@@ -85,19 +85,19 @@ LIST STANDARD
 
 为了使数据颜色从红色开始不断变换：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> color red increment
 
 为了设置数据颜色为红色，背景白色，蓝色边框：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> color red background white skeleton blue
 
 为了设置一个数据颜色不断变换，颜色列表为 red、white、blue，背景色为 aquamarine：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> color red increment backgroud 47 list red white blue
 

@@ -9,7 +9,7 @@ plot2
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     Plot2 [Absolute|Relative]
 
@@ -22,7 +22,7 @@ ABSOLUTE|RELATIVE
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     p2 absolute
 
@@ -59,7 +59,7 @@ Nqquist频率以及频率间隔 ``df``\ 。头段值 ``depmin`` 和 ``depmax``
 示例
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> read mnv.z.am knb.z.am elk.z.am
     SAC> xlim 0.04 0.16

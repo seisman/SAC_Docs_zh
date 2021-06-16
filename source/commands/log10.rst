@@ -9,7 +9,7 @@ log10
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     LOG10
 

@@ -9,7 +9,7 @@ readtable
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ReadTABle [MORE] [DIR CURRENT|name] [FREE|FORMAT tex] [CONTENT text]
         [HEADER number] [filelist]
@@ -47,7 +47,7 @@ filelist
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     readtable free content y. dir current
 
@@ -87,7 +87,7 @@ filelist
 
 为了读取一个或多个自由格式的 X-Y 数据对：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> readtable content p. filea
 
@@ -95,7 +95,7 @@ filelist
 在每行的中间有一个 X-Y 数据对。每行的其它数据都没有用。假设每行 Y 数据在 X 数据
 之前，一旦正确的格式声明给出了，就可以用下面的命令：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> readtable content r format \(24x,f12.3,14x,f10.2\) fileb
 
@@ -106,7 +106,7 @@ SAC 使用括号作为内联函数。由于没有重复计数器，因而只有�
 假设你有一个文件 FILEC，其每行包括一个 X 值和7个不同数据集的 Y 值，其为
 ``(8F10.2)`` 格式。为了在内存中创建7个不同的数据集，可以使用下面的命令：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> readtable content xn . format \(8f10.2\) filec
 
@@ -114,13 +114,13 @@ SAC 使用括号作为内联函数。由于没有重复计数器，因而只有�
 
 现在假设你不想读入第5个 Y 数据集，可以执行下面的命令：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> readtable content xn6 format \(5f10.20x,2f10.2\) filec
 
 另一个可以少敲键盘但是稍微低效一点的命令如下：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> readtable content xn4in2 format \(8f10.2\) filec
 

@@ -9,7 +9,7 @@ cuterr
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     CUTERR FAtal|Usebe|FIllz
 
@@ -44,7 +44,7 @@ FILLZ
 
 假设文件 FILE1 起始时间为B=25 s，初动到时A=40 s，采样率为 0.01 s。
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> cut a 20 e
     SAC> read file1

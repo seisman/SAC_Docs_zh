@@ -9,7 +9,7 @@ enddevices
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     EndDevices [ALL|Sgf|Xwindows]
 

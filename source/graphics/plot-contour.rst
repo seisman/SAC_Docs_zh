@@ -14,7 +14,7 @@ SAC 中 :doc:`/commands/spectrogram` 等命令可以生成 IXYZ 数据（即 3D 
 选择包括四种线型的线型表，其中第一个为实线。这个列表将每四条等值线重复
 一次。然后给等值线图起了个名字，最后绘制出来:
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r ./contourdata
     SAC> lh iftype depmin depmax
@@ -37,7 +37,7 @@ SAC 中 :doc:`/commands/spectrogram` 等命令可以生成 IXYZ 数据（即 3D 
 下面的例子中，使用同样的文件，但是显示选项不同。每四条等值线有一个整数
 标签。每条等值线之间都有一个指向向下的箭头。所有等值线为实线型：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> r ./contourdata
     SAC> zlevels range 700 1150 increment 25

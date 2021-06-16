@@ -9,7 +9,7 @@ timewindow
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     TimeWindow v1 v2
 

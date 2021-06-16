@@ -9,7 +9,7 @@ sumstack
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     SumStack [Normalization ON|OFF]
 

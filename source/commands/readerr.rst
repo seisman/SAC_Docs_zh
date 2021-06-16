@@ -9,7 +9,7 @@ readerr
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     ReadERR [Badfile Fatal|Warning|Ignore] [Nofiles Fatal|Warning|Ignore]
               [Memory Save|Delete]
@@ -44,7 +44,7 @@ SAVE
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     readerr badfile warning nofiles fatal memory delete
 

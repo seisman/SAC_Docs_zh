@@ -9,7 +9,7 @@ yvport
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     YVPort yvmin yvmax
 
@@ -25,7 +25,7 @@ yvmax
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     yvport 0.1 0.9
 

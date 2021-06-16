@@ -9,7 +9,7 @@ chpf
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     CHPF
 

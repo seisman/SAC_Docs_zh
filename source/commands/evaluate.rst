@@ -9,13 +9,13 @@ evaluate
 语法
 ----
 
-.. code-block:: bash
+.. code-block:: console
 
     EVALuate [TO TERM|name] [v] op v [op v ...]
 
 其中 ``op`` 可以取下面中的一个：
 
-.. code-block:: bash
+.. code-block:: console
 
     ADD|SUBTRACT|MULTIPLY|DIVIDE|POWER|SQRT|EXP|ALOG|ALOG10|
     SIN|ASIN|COS|ACOS|TAN|ATAN|EQ|NE|LE|GE|LT|GT
@@ -41,7 +41,7 @@ op
 缺省值
 ------
 
-.. code-block:: bash
+.. code-block:: console
 
     evaluate to term 1. * 1.
 
@@ -58,7 +58,7 @@ op
 
 一个简单的例子：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> eval 2*3
      6
@@ -67,7 +67,7 @@ op
 
 下面将一个以度为单位的角度转换为弧度并计算其正切值：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> eval 45*pi/180
      0.785398
@@ -76,7 +76,7 @@ op
 
 下面将计算的结果保存到黑板变量：
 
-.. code-block:: bash
+.. code-block:: console
 
     SAC> evaluate to temp1 45*pi/180
     SAC> evaluate tan %temp1%
