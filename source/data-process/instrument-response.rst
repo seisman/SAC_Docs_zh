@@ -72,7 +72,7 @@ PZ 方法1
 .. code-block:: console
 
     SAC> r OR075_LHZ.SAC
-    SAC> rmea; rtr; taper
+    SAC> rmean; rtr; taper
     SAC> trans from polezero subtype SAC_PZs_XC_OR075_LHZ to none \
                             freq 0.008 0.016 0.2 0.4
     SAC> mul 1.0e9      # 用PZ文件transfer to none得到的位移数据的单位为m
