@@ -11,7 +11,7 @@ read
 
 .. code-block:: console
 
-    Read [MORE] [DIR CURRENT|name] [XDR|ALPHA|SEGY] [SCALE ON|OFF] [filelist]
+    Read [MORE] [DIR CURRENT|name] [XDR|ALPHA] [SCALE ON|OFF] [filelist]
 
 所有的选项必须位于 filelist 之前。
 
@@ -34,11 +34,6 @@ XDR
 ALPHA
     输入文件是 SAC 的字符数字型文件，该选项与 XDR 选项不兼容
 
-SEGY
-    读取 IRIS/PASSCAL 定义的 SEG-Y 格式文件。
-    SEG-Y 格式的文件本身允许一个文件包含多道波形数据该格式，
-    然而，sac 只能接受只包含一个波形的 SEG-Y 文件。
-
 filelist
     文件列表。可以是简单的文件名，也可以包含相对或绝对路径，也可以使用通配符
 
@@ -53,8 +48,8 @@ filelist
 ----
 
 该命令将 SAC 文件从磁盘读入到内存中，默认状态下会读取每个磁盘文件中的全部数据点。
-sac 会自动识别文件格式。支持的格式有 SAC 二进制、SAC 文本、SEG-Y 和 miniSEED。
-如果使用了选项 ALPHA 或 SEGY，sac 会假定数据是相应格式。sac 会读取 miniSEED 内的全部数据。
+sac 会自动识别文件格式。支持的格式有 SAC 二进制、SAC 文本 和 miniSEED。
+如果使用了选项 ALPHA，sac 会假定数据是文本文件。sac 会读取 miniSEED 内的全部数据。
 
 :doc:`/commands/cut` 命令可以用于指定读取文件的一部分数据。在2000年之后产生
 的 SAC 文件会被假定年份为四位数字。年份为两个数字的文件被假定为20世纪，
