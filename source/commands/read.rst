@@ -22,15 +22,12 @@ MORE
     将读入的新文件添加到内存中老文件之后。若选项此忽略，则读入
     的新数据将替代内存中的老数据
 
-TRUST ON|OFF: This option is used to resolve an ambiguity in converting files from SAC to CSS format. 
-When converting data, matching event IDs could mean the files have identical event information, 
-or they could be an artifact of the merging of these two very different formats. 
-When TRUST is ON, SAC is more likely to accept matching event IDs as identical event information than when TRUST is OFF, 
-depending on the history of READ commands associated with the current data files in memory.
-
-此选项用于解决将文件从 SAC 转换为 CSS 格式时的歧义。
-转换数据时，匹配事件 ID 可能意味着相关文件具有完全相同的事件信息，或者它们可能是这两种截然不同的格式合并的产物。
-当 TRUST 为 ON 时，相较于 OFF 相比，SAC 更有可能接受匹配的事件 ID 作为相同的事件信息，这取决于与内存中当前数据文件关联的 READ 命令的历史记录。
+TRUST ON|OFF
+    此选项用于解决将文件从 SAC 转换为 CSS 格式时的歧义。
+    转换数据时，匹配事件 ID 可能意味着相关文件具有完全相同的事件信息，
+    或者它们可能是这两种截然不同的格式合并的产物。
+    当 TRUST 为 ON 时，相较于 OFF 相比，SAC 更有可能接受匹配的事件 ID 作为相同的事件信息，
+    这取决于与内存中当前数据文件关联的 READ 命令的历史记录。
 
 DIR CURRENT
     从“当前目录”读取文件列表中的文件。“当前目录”为启动 SAC 的目录
