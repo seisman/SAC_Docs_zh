@@ -7,7 +7,6 @@ SAC 技巧与陷阱
    init-macro
    command-line-length
    endian
-   read-dir
    tab-and-space
    undefined-header-variables
    debug
