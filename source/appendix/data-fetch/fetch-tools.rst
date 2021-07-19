@@ -32,7 +32,7 @@ ObsPy
    -  文档简单易读，易于使用
    -  数据格式：miniSEED、SAC等多种格式
 
-Bash Scripts
+Perl Scripts
 ++++++++++++
 
 -  主页： https://seiscode.iris.washington.edu/projects/ws-fetch-scripts
