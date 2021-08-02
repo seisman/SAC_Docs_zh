@@ -27,4 +27,4 @@ sacio_Fortran
 其他
 ----
 
-- `sacpack <https://github.com/tktmyd/sacpack>`
+- `sacpack <https://github.com/tktmyd/sacpack>`__
