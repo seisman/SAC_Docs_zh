@@ -11,7 +11,8 @@ read
 
 .. code-block:: console
 
-    Read [MORE] [DIR CURRENT|name] [XDR|ALPHA] [SCALE ON|OFF] [filelist]
+    Read [MORE] [COMMIT|ROLLBACK|RECALLTRACE] 
+    [DIR CURRENT|name] [XDR|ALPHA] [SCALE ON|OFF] [filelist]
 
 所有的选项必须位于 filelist 之前。
 
@@ -19,15 +20,24 @@ read
 ----
 
 MORE
-    将读入的新文件添加到内存中老文件之后。若选项此忽略，则读入
-    的新数据将替代内存中的老数据
+    在默认情况下，使用 read 命令读入文件后，如果原来内存中已经有读入的文件，
+    SAC 会将之前的文件从内存中删除。然而，如果使用了 MORE 选项，即表示是以增加的方式读入文件：
+    在读入新文件之后，SAC会保留之前已经读入内存的文件。
 
-TRUST ON|OFF
-    此选项用于解决将文件从 SAC 转换为 CSS 格式时的歧义。
-    转换数据时，匹配事件 ID 可能意味着相关文件具有完全相同的事件信息，
-    或者它们可能是这两种截然不同的格式合并的产物。
-    当 TRUST 为 ON 时，相较于 OFF 相比，SAC 更有可能接受匹配的事件 ID 作为相同的事件信息，
-    这取决于与内存中当前数据文件关联的 READ 命令的历史记录。
+COMMIT|ROLLBACK|RECALLTRACE
+    当使用 MORE 选项之后，就存在一个问题：如果一个文件在被 SAC 读取后被其它软件更改了，
+    那使用 MORE 选项再读入该文件，这样 SAC 就面临一个文件的新旧两个版本，
+    那么 SAC 应该使用哪个版本呢？
+    这时候，就需要使用 COMMIT、ROLLBACK 和 RECALLTRACE 三个选项进行设置。
+
+    使用 COMMIT 选项，SAC 会使用新版本，而将旧版本从内存中删除
+    （COMMIT 选项是在使用 MORE 选项后的默认选项）。
+
+    使用 ROLLBACK 选项，SAC 会使用旧版本。
+
+    使用 RECALLTRACE 选项，SAC 会使用旧版本的波形文件和与波形紧密相关的头段变量，
+    而与波形不是紧密相关的头段变量则会被更新。
+    具体哪些头段不会更新，而哪些又不会更新，可以用 HELP RECALLTRACE 查阅。
 
 DIR CURRENT
     从“当前目录”读取文件列表中的文件。“当前目录”为启动 SAC 的目录
@@ -68,7 +78,7 @@ sac 会自动识别文件格式。支持的格式有 SAC 二进制、SAC 文本 
 
 -  文件列表太长无法在一行中键入
 -  在长文件列表中某个文件名拼错而没有读入，可以使用 ``more`` 选项再次读入
--  一个文件被读入，作了些处理，然后与原始数据比较
+-  一个文件被读入，做了些处理，然后与原始数据比较
 
 示例
 ----
