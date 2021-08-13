@@ -271,9 +271,8 @@ polezero 类型
 ``polezero`` 类型并不代表真正意义上的仪器类型，而是表示从 SAC 零极点
 文件中读取仪器响应函数。
 
-polezero 类型会从数据波形中提取台站信息，但不会根据台站信息去寻找默认的
-PZ 文件，用户必须使用 ``subtype`` 来指定要使用的 PZ 文件。若 PZ 文件
-有注释行，则注释行中的台站信息必须与波形中的台站信息匹配，才能正确执行；
+如果使用 polezero 类型，用户可以使用 ``subtype`` 来指定要使用的 PZ 文件。
+若 PZ 文件有注释行，则注释行中的台站信息必须与波形中的台站信息匹配，才能正确执行；
 若 PZ 文件中无注释行，则不进行台站信息匹配的检测，直接执行。
 
 .. code-block:: console
@@ -282,6 +281,28 @@ PZ 文件，用户必须使用 ``subtype`` 来指定要使用的 PZ 文件。若
     SAC> rmean; rtr; taper
     SAC> trans from polezero subtype SAC_PZs.IU.COLA.BHZ to WWSP
 
+从 102 版开始，用户可以不使用 ``subtype`` 来指定要使用的 PZ 文件，而使用新增的搜索功能。
+在没有指定 ``subtype`` 的时候，SAC 会依据 SAC 文件中的 \ ``network``\、\ ``station``\、
+\ ``channel``\ 和 \ ``locid``\ 四个头段变量，
+按照文件名“``SAC_PZs_<network>_<station>_<channel>_<locid>_*``”，
+在当前路径下寻找 PZ 文件。如果 SAC 文件的头段变量不包含这些信息，也可以通过命令来指定：
+
+.. code-block:: console
+
+    SAC> trans from polezero network BK station CMB to NONE
+
+如果用户想要在当前路径以外的地方寻找 PZ 文件，
+可以用 DIR 选项指定搜索路径：
+
+.. code-block:: console
+
+    SAC> trans from polezero dir resp to NONE # 在路径resp下搜索 PZ 文件
+
+无论使用 ``subtype`` 来指定 PZ 文件，还是凭借 SAC 自己进行搜索，
+SAC 都要求 PZ 文件和 SAC 文件（或通过命令输入）的台站信息相符。如果有台站信息缺失，
+则按照是符合的进行处理。
+会使用按照要求找到的第一个文件，如果 PZ 文件中不包含相关的头段信息，
+SAC 会默认这些信息是符合要求的。
 一个 PZ 文件中可以包含多台站、多通道、多时间段的响应函数。可以将所有数据的
 PZ 文件合并得到总的PZ文件。下面的例子中读入全部波形数据，并利用总 PZ 文件
 进行去仪器响应：
