@@ -11,7 +11,7 @@ read
 
 .. code-block:: console
 
-    Read [MORE] [DIR CURRENT|name] [XDR|ALPHA|SEGY] [SCALE ON|OFF] [filelist]
+    Read [MORE] [DIR CURRENT|name] [XDR|ALPHA] [filelist]
 
 所有的选项必须位于 filelist 之前。
 
@@ -19,30 +19,21 @@ read
 ----
 
 MORE
-    将读入的新文件添加到内存中老文件之后。若选项此忽略，则读入
-    的新数据将替代内存中的老数据
+    在默认情况下，使用 read 命令读入文件后，如果原来内存中已经有读入的文件，
+    SAC 会将之前的文件从内存中删除。如果使用了 MORE 选项，之前已经读入内存的文件会被保留，
+    新读入的文件则会被追加到内存中已有文件的后面。
 
 DIR CURRENT
     从“当前目录”读取文件列表中的文件。“当前目录”为启动 SAC 的目录
 
 DIR name
-    从目录 name 中读取文件列表中的文件，可以为绝对路径或相对路径\ [1]_
+    读取目录 name 中的所有文件，可以为绝对路径或相对路径
 
 XDR
     读取 XDR 格式的文件。此格式用于实现不同构架的二进制数据的转换
 
 ALPHA
     输入文件是 SAC 的字符数字型文件，该选项与 XDR 选项不兼容
-
-SEGY
-    读取 IRIS/PASSCAL 定义的 SEGY 格式文件。该格式允许一个文件包含一个波形
-
-SCALE
-    只能和 SEGY 选项搭配使用，该选项默认是关闭的。当 ``SCALE``
-    选项为 OFF 时，SAC 直接从 SEGY 文件中读取数据值；当 ``SCALE`` 为 ON 时，
-    SAC 将每个数据值乘以以文件中给定的 ``SCALE`` 因子。
-    若 ``SCALE`` 为 OFF，则这个文件中的 ``SCALE`` 值将储存在 SAC 头段 ``SCALE`` 中；
-    若 ``SCALE`` 为ON，SAC的 ``SCALE`` 头段将被设置为1.0。
 
 filelist
     文件列表。可以是简单的文件名，也可以包含相对或绝对路径，也可以使用通配符
@@ -57,8 +48,9 @@ filelist
 说明
 ----
 
-该命令将 SAC 文件从磁盘读入到内存中，默认状态下会读取每个磁盘文件中的全部
-数据点。
+该命令将 SAC 文件从磁盘读入到内存中，默认状态下会读取每个磁盘文件中的全部数据点。
+sac 会自动识别文件格式。支持的格式有 SAC 二进制、SAC 文本 和 miniSEED。
+如果使用了选项 ALPHA，sac 会假定数据是文本文件。sac 会读取 miniSEED 内的全部数据。
 
 :doc:`/commands/cut` 命令可以用于指定读取文件的一部分数据。在2000年之后产生
 的 SAC 文件会被假定年份为四位数字。年份为两个数字的文件被假定为20世纪，
@@ -70,7 +62,7 @@ filelist
 
 -  文件列表太长无法在一行中键入
 -  在长文件列表中某个文件名拼错而没有读入，可以使用 ``more`` 选项再次读入
--  一个文件被读入，作了些处理，然后与原始数据比较
+-  一个文件被读入，做了些处理，然后与原始数据比较
 
 示例
 ----
@@ -117,5 +109,3 @@ filelist
 --------
 
 e、depmin、depmax、depmen、b
-
-.. [1] 关于dir选项，有一个很大的陷阱，详见 :doc:`/tricks-and-traps/read-dir`\ 。
