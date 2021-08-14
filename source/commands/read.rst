@@ -24,21 +24,6 @@ MORE
     SAC 会将之前的文件从内存中删除。然而，如果使用了 MORE 选项，即表示是以增加的方式读入文件：
     在读入新文件之后，SAC会保留之前已经读入内存的文件。
 
-COMMIT|ROLLBACK|RECALLTRACE
-    当使用 MORE 选项之后，就存在一个问题：如果一个文件在被 SAC 读取后被其它软件更改了，
-    那使用 MORE 选项再读入该文件，这样 SAC 就面临一个文件的新旧两个版本，
-    那么 SAC 应该使用哪个版本呢？
-    这时候，就需要使用 COMMIT、ROLLBACK 和 RECALLTRACE 三个选项进行设置。
-
-    使用 COMMIT 选项，SAC 会使用新版本，而将旧版本从内存中删除
-    （COMMIT 选项是在使用 MORE 选项后的默认选项）。
-
-    使用 ROLLBACK 选项，SAC 会使用旧版本。
-
-    使用 RECALLTRACE 选项，SAC 会使用旧版本的波形文件和与波形紧密相关的头段变量，
-    而与波形不是紧密相关的头段变量则会被更新。
-    具体哪些头段不会更新，而哪些又不会更新，可以用 HELP RECALLTRACE 查阅。
-
 DIR CURRENT
     从“当前目录”读取文件列表中的文件。“当前目录”为启动 SAC 的目录
 
