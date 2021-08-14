@@ -11,8 +11,7 @@ read
 
 .. code-block:: console
 
-    Read [MORE] [COMMIT|ROLLBACK|RECALLTRACE] 
-    [DIR CURRENT|name] [XDR|ALPHA] [SCALE ON|OFF] [filelist]
+    Read [MORE] [DIR CURRENT|name] [XDR|ALPHA] [filelist]
 
 所有的选项必须位于 filelist 之前。
 
