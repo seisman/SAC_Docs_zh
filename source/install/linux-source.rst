@@ -14,6 +14,7 @@ Linux 编译安装
     $ sudo apt install build-essential
     $ sudo apt install libncurses5-dev libsm-dev libice-dev
     $ sudo apt install libxpm-dev libx11-dev zlib1g-dev
+    $ sudo apt install libedit-dev libxml2-dev libcurl4-openssl-dev
 
 对于 CentOS/Fedora/RHEL：
 
@@ -21,17 +22,22 @@ Linux 编译安装
 
     $ sudo yum install gcc gcc-c++ make
     $ sudo yum install glibc ncurses-devel libSM-devel libICE-devel
-    $ sudo yum install libXpm-devel libX11-devel zlib-devel
+    $ sudo yum install libXpm-devel libX11-devel zlib-devel libedit-devel
 
 编译源码
 --------
+
+.. caution::
+
+    Anaconda 内有软件包和系统软件包冲突。sac 编译的时候需要系统的软件包。
+    所以，Anaconda 用户在编译时需要临时重命名 Anaconda 的路径。
 
 将源码按如下命令解压、配置、编译、安装：
 
 .. code-block:: console
 
-    $ tar -xvf sac-101.6a_source.tar.gz
-    $ cd sac-101.6a
+    $ tar -xvf sac-102.0.tar.gz
+    $ cd sac-102.0
     $ mkdir build
     $ cd build
     $ ../configure --prefix=/usr/local/sac
