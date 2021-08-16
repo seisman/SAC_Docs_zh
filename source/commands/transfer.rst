@@ -291,8 +291,7 @@ polezero 类型
 
     SAC> trans from polezero network BK station CMB to NONE
 
-如果用户想要在当前路径以外的地方寻找 PZ 文件，
-可以用 DIR 选项指定搜索路径：
+如果用户想要在当前路径以外的地方寻找 PZ 文件，可以用 ``DIR`` 选项指定搜索路径：
 
 .. code-block:: console
 
