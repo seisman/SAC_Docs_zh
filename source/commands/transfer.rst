@@ -284,7 +284,7 @@ polezero 类型
 从 102 版开始，用户可以不使用 ``subtype`` 来指定要使用的 PZ 文件，而使用新增的搜索功能。
 在没有指定 ``subtype`` 的时候，SAC 会依据 SAC 文件中的 \ ``network``\、\ ``station``\、
 \ ``channel``\ 和 \ ``locid``\ 四个头段变量，
-按照文件名“``SAC_PZs_<network>_<station>_<channel>_<locid>_*``”，
+按照文件名“**SAC_PZs_**\ *network*\_\ *station*\_\ *channel*\_\ *locid*\_\*”，
 在当前路径下寻找 PZ 文件。如果 SAC 文件的头段变量不包含这些信息，也可以通过命令来指定：
 
 .. code-block:: console
