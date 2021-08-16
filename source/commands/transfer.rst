@@ -296,7 +296,7 @@ polezero 类型
 
 .. code-block:: console
 
-    SAC> trans from polezero dir resp to NONE # 在路径resp下搜索 PZ 文件
+    SAC> trans from polezero dir resp to NONE  # 在 resp 目录下搜索 PZ 文件
 
 无论使用 ``subtype`` 来指定 PZ 文件，还是凭借 SAC 自己进行搜索，
 SAC 都要求 PZ 文件和 SAC 文件（或通过命令输入）的台站信息相符。如果有台站信息缺失，
