@@ -21,7 +21,7 @@ Linux 二进制安装
 .. code-block:: console
 
     $ sudo yum install glibc libSM libICE libXpm libX11
-    $ sudo yum install zlib ncurses
+    $ sudo yum install zlib ncurses-compat-libs
 
 安装二进制包
 ------------
