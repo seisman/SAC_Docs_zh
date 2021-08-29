@@ -34,4 +34,4 @@ SAC 的源码。IRIS 开始和 Livermore 协商，希望将 SAC 的开发分成�
 .. _Lawrence Livermore 国家实验室: http://en.wikipedia.org/wiki/Lawrence_Livermore_National_Laboratory
 .. _Los Alamos 国家实验室: http://en.wikipedia.org/wiki/Los_Alamos_National_Laboratory
 .. _f2c: http://www.netlib.org/f2c/
-.. _IRIS: http://www.iris.edu
+.. _IRIS: https://www.iris.edu/hq/
