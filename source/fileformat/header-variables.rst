@@ -340,10 +340,12 @@ iqual\ [7]_\ 标识数据质量，可取如下值：
 的值，将其旋转到 NEU 坐标系或者 RTZ 坐标系，这些将在 :doc:`/data-process/rotate`
 一节中说到。
 
-``kcmpnm`` 用于存储分量名称。SEED 格式规定通道名的三个字符中的最后
-一个代表通道的分量方位，比如通道名 ``BHE`` 表示该通道为东西向。通常
-``kcmpnm`` 可以取为 E、N、Z。由于很多台站的水平分量并不严格是
-东西、南北方向，因而现在更倾向于用 1 和 2 代替 N 和 E。
+Channel name. SEED volumes use three character names, and the third is the component/orientation. For horizontals, the current trend is to use 1 and 2 instead of N and E.
+
+``kcmpnm`` 是通道名 (component name)，用于存储分量（通道）的信息。它包含了三个英文字符，
+依次为频带码 (Band Code)、仪器码 (Instrument Code) 和方位码 (Orientation Code)。
+例如，``kcmpnm`` 为 ``BHZ`` 意味着该 SAC 文件的通道是宽频带高增益的垂向分量。
+由于很多台站的水平分量并不严格是东西、南北方向，IRIS 推荐用 1 和 2 代替 N 和 E。
 
 ``kstcmp`` 为辅助型变量，表示台站分量，由 ``kstnm``\ 、\ ``cmpaz``\ 、\ ``cmpinc`` 推导得到。
 
