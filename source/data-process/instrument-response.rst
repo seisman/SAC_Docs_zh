@@ -72,7 +72,7 @@ PZ 方法1
 .. code-block:: console
 
     SAC> r OR075_LHZ.SAC
-    SAC> rmea; rtr; taper
+    SAC> rmean; rtr; taper
     SAC> trans from polezero subtype SAC_PZs_XC_OR075_LHZ to none \
                             freq 0.008 0.016 0.2 0.4
     SAC> mul 1.0e9      # 用PZ文件transfer to none得到的位移数据的单位为m
@@ -108,7 +108,7 @@ PZ 方法1，需要用户自己从数据文件的文件名或头段中提取信�
 从执行效率来看，做了一个简单的测试，共670个波形数据，用不同的方法去
 仪器响应的执行效率如下：
 
-PZ方法1 (8秒) > RESP方法2 (43秒) > RESP方法1 (58秒) > RESP方法2 (90秒) > RESP方法3 (227秒)
+PZ方法1 (8秒) > RESP方法2 (43秒) > RESP方法1 (58秒) > PZ方法2 (90秒) > RESP方法3 (227秒)
 
 从中可以总结出执行效率的如下规律：
 
