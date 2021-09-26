@@ -31,6 +31,7 @@ jobs:
         # 429: Too many requests
         args: >
           --accept 429
+          --exclude-mail
           --exclude "https://seiscode.iris.washington.edu/"
           --exclude "http://www.kyoshin.bosai.go.jp/"
           --exclude "http://www.hinet.bosai.go.jp/"
@@ -40,7 +41,6 @@ jobs:
           --exclude "https://members.elsi.jp/~george/gh.html"
           --exclude "http://www.seisdmc.ac.cn/"
           --exclude "https://l2a.ucsd.edu/"
-          --exclude "^mailto:sac-help@lists.ds.iris.edu$"
           --verbose
           "repository/README.md"
           "website/**/*.html"
