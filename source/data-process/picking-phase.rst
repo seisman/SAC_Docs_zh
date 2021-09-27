@@ -80,7 +80,7 @@ SAC 全局变量 ``SAC_PPK_USE_CROSSHAIRS`` 可以控制 ppk 模式下鼠标在�
     SAC> qdp off    # 关闭快速绘图选项
     SAC> ppk        # 注意观察与之前的区别
 
-为了避免每回首次进入 ppk 模式前，都要手动执行 ``qdp off``的麻烦，
+为了避免手动执行 ``qdp off``的麻烦，
 可以使用 :doc:`/tricks-and-traps/init-macro` 一节中介绍的方法，
 让 SAC 启动时就自动关闭快速绘图选项。
 
