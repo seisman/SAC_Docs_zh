@@ -15,18 +15,18 @@ jobs:
 
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v2.3.5
+      uses: actions/checkout@v2.4.0
       with:
         path: repository
 
     - name: Checkout the website
-      uses: actions/checkout@v2.3.5
+      uses: actions/checkout@v2.4.0
       with:
         ref: gh-pages
         path: website
 
     - name: Link Checker
-      uses: lycheeverse/lychee-action@v1.0.9
+      uses: lycheeverse/lychee-action@v1.2.0
       with:
         # 429: Too many requests
         args: >
@@ -41,6 +41,7 @@ jobs:
           --exclude https://members.elsi.jp/~george/gh.html
           --exclude http://www.seisdmc.ac.cn/
           --exclude https://l2a.ucsd.edu/
+          --exclude sac-help@lists.ds.iris.edu
           --verbose
           repository/README.md
           website/**/*.html
