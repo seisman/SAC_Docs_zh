@@ -32,18 +32,18 @@ jobs:
         args: >
           --accept 429
           --exclude-mail
-          --exclude "https://seiscode.iris.washington.edu/"
-          --exclude "http://www.kyoshin.bosai.go.jp/"
-          --exclude "http://www.hinet.bosai.go.jp/"
-          --exclude "https://www.fdsn.org/webservices/"
-          --exclude "http://www.vnet.bosai.go.jp/"
-          --exclude "http://www.fnet.bosai.go.jp/"
-          --exclude "https://members.elsi.jp/~george/gh.html"
-          --exclude "http://www.seisdmc.ac.cn/"
-          --exclude "https://l2a.ucsd.edu/"
+          --exclude https://seiscode.iris.washington.edu/
+          --exclude http://www.kyoshin.bosai.go.jp/
+          --exclude http://www.hinet.bosai.go.jp/
+          --exclude https://www.fdsn.org/webservices/
+          --exclude http://www.vnet.bosai.go.jp/
+          --exclude http://www.fnet.bosai.go.jp/
+          --exclude https://members.elsi.jp/~george/gh.html
+          --exclude http://www.seisdmc.ac.cn/
+          --exclude https://l2a.ucsd.edu/
           --verbose
-          "repository/README.md"
-          "website/**/*.html"
+          repository/README.md
+          website/**/*.html
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
