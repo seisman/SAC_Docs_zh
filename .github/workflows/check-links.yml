@@ -42,6 +42,7 @@ jobs:
           --exclude http://www.seisdmc.ac.cn/
           --exclude https://l2a.ucsd.edu/
           --exclude sac-help@lists.ds.iris.edu
+          --exclude https://github.com/seisman/SAC_Docs_zh/blob/master/source/genindex
           --verbose
           repository/README.md
           website/**/*.html
