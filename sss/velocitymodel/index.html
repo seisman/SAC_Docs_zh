@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>velocitymodel &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="velocityroset" href="../velocityroset/" />
+    <link rel="prev" title="traveltime" href="../traveltime/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SSS 信号叠加子程序</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sss/">信号叠加子程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addstack/">addstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changestack/">changestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deletestack/">deletestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deltacheck/">deltacheck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distanceaxis/">distanceaxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distancewindow/">distancewindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../globalstack/">globalstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incrementstack/">incrementstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../liststack/">liststack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotrecordsection/">plotrecordsection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotstack/">plotstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sumstack/">sumstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timeaxis/">timeaxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timewindow/">timewindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">traveltime</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">velocitymodel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">输入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">缺省值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../velocityroset/">velocityroset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writestack/">writestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zerostack/">zerostack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SSS 信号叠加子程序</a> &raquo;</li>
+      <li>velocitymodel</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/sss/velocitymodel.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="velocitymodel">
+<h1>velocitymodel<a class="headerlink" href="#velocitymodel" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>设置计算动延迟时所使用的叠加速度模型参数</p>
+</section>
+<section id="id2">
+<h2>语法<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">VelocityModel n [ON|OFF] [REFRACTEDWAVE|NORMALMOVEOUT] [FLIP] [VAPP v|CALCULATE]</span>
+<span class="go">    [T0VM v|CALCULATE] [DVM v1 [v2]] [TVM v1 [v2]] [VAPPI v] [T0VMI v]</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>输入<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<dl class="simple">
+<dt>n</dt><dd><p>设置速度模型号，取值为1或2</p>
+</dd>
+<dt>ON|OFF</dt><dd><p>打开/关闭速度模型选项。若打开则使用速度模型，否则忽略</p>
+</dd>
+<dt>REFRACTEDWAVE</dt><dd><p>打开速度模型选项，并修改为折射波模型</p>
+</dd>
+<dt>NORMALMOVEOUT</dt><dd><p>打开速度模型选项，并修改为Normal moveout模型</p>
+</dd>
+<dt>FLIP</dt><dd><p>交换两个速度模型的属性</p>
+</dd>
+<dt>VAPP v</dt><dd><p>设置视速度为v</p>
+</dd>
+<dt>VAPP CALCULATE</dt><dd><p>SAC自动计算视速度</p>
+</dd>
+<dt>TOVM v</dt><dd><p>设置时间轴截距为v</p>
+</dd>
+<dt>TOVM CALCULATE</dt><dd><p>SAC自动计算截距</p>
+</dd>
+<dt>DVM v1 v2</dt><dd><p>定义一/二个参考距离</p>
+</dd>
+<dt>TVM v1 v2</dt><dd><p>定义一/二个参考时间</p>
+</dd>
+<dt>VAPPI v</dt><dd><p>设置视速度增量为v。每次 <a class="reference internal" href="../incrementstack/"><span class="doc">incrementstack</span></a> 命令执行时视速度增加v</p>
+</dd>
+<dt>TOVMI v</dt><dd><p>设置时间轴截距的增量为v。每次 <a class="reference internal" href="../incrementstack/"><span class="doc">incrementstack</span></a> 命令执行时视速度增加v</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>缺省值<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">velocitymodel 1 off</span>
+<span class="go">velocitymodel 2 off</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>说明<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>第一个速度模型用于计算某个特定震相的动态台站延迟。在信号叠加（<a class="reference internal" href="../sumstack/"><span class="doc">sumstack</span></a>)、绘图叠加图（<a class="reference internal" href="../plotstack/"><span class="doc">plotstack</span></a>）、绘制剖面图（<a class="reference internal" href="../plotrecordsection/"><span class="doc">plotrecordsection</span></a>）时会使用该模型。第二个速度模型用于在绘图剖面图时显示相对于第二震相的延迟。这两个模型的参数可以很容易的进行交换。</p>
+<p>可以使用两种速度模型，即折射波速度模型：</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}T_{delay} = TVM(1) - \frac{TOVM+DIST}{VAPP}\\以及normal moveout速度模型：\end{aligned}\end{align} \]</div>
+<div class="math notranslate nohighlight">
+\[T_{delay} = TVM(1) - \sqrt{TOVM^2 + (\frac{DIST}{VAPP})^2}\]</div>
+<p>这些速度模型延迟可以通过多种方式得到：</p>
+<ul class="simple">
+<li><p>直接输入VAPP、TOVM、TVM(1)</p></li>
+<li><p>输入DVM(1)、TVM(1)以及VAPP或TOVM，SAC自动计算所需的变量以保证在距离DVM(1)处时间延迟为零</p></li>
+<li><p>输入DVM(1)、TVM(1)、DVM(2)和TVM(2)。SAC将计算VAPP和TOVM，以保证在距离DVM(1)处的时间延迟为零</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>示例<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>设置第一个叠加速度模型为折射波模型，视速度为 6.5 km/s，让SAC 自动计算 TOVM
+以使得 200 km 处的时间延迟为零：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">velocitymodel 1 refractedwave vapp 6.5 tovm calculate dvm 200 tvm 35</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../traveltime/" class="btn btn-neutral float-left" title="traveltime" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../velocityroset/" class="btn btn-neutral float-right" title="velocityroset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

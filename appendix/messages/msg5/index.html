@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5003 No correlation function calculated &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex/" />
+    <link rel="search" title="搜索" href="../../../search/" />
+    <link rel="next" title="9005 Amplitude mismatch" href="../msg9/" />
+    <link rel="prev" title="2001 Command requires an even number of data files" href="../msg2/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">错误与警告</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../msg0/">0131 sac/datagen data directory not found</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/">1028 External command does not exist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#no-help-package-is-available">1103 No help package is available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#not-a-valid-sac-command">1106 Not a valid SAC command.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#no-data-files-read-in">1301 No data files read in</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#overwrite-flag-is-not-on-for-file">1303 Overwrite flag is not on for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#illegal-operation-on-data-file">1304 Illegal operation on data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#illegal-operation-on-time-series-file">1305 Illegal operation on time series file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#illegal-operation-on-unevenly-spaced-file">1306 Illegal operation on unevenly spaced file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#illegal-operation-on-spectral-file">1307 Illegal operation on spectral file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#no-list-of-filenames-to-write">1311 No list of filenames to write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#bad-number-of-files-in-write-file-list">1312 Bad number of files in write file list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#the-following-file-is-not-a-sac-data-file">1317 The following file is not a SAC data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#available-memory-too-small-to-read-file">1320 Available memory too small to read file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#undefined-starting-cut-for-file">1322 Undefined starting cut for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#undefined-stop-cut-for-file">1323 Undefined stop cut for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#start-cut-less-than-file-begin-for-file">1324 Start cut less than file begin for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#stop-cut-greater-than-file-end-for-file">1325 Stop cut greater than file end for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#start-cut-greater-than-file-end-for-file">1326 Start cut greater than file end for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#data-points-outside-allowed-range-contained-in-file">1340 data points outside allowed range contained in file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#no-sort-parameters-given">1379 No SORT parameters given</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#too-many-sort-parameters">1380 Too many SORT parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#not-a-valid-sort-parameter">1381 Not a valid SORT parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#sort-failed">1383 SORT failed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#maximum-allowable-dft-is-16777216">1606 Maximum allowable DFT is 16777216</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#corner-frequency-greater-than-nyquist-for-file">1611 Corner frequency greater than Nyquist for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#minimum-size-of-data-file-for-hilbert-transform-is-201">1613 Minimum size of data file for Hilbert transform is 201</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#can-t-divide-by-zero">1701 Can’t divide by zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#non-positive-values-found-in-file">1702 Non-positive values found in file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#header-field-mismatch">1801 Header field mismatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#time-overlap">1802 Time overlap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#no-binary-data-files-read-in">1803 No binary data files read in.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg1/#time-gap">1805 Time gap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/">2001 Command requires an even number of data files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#following-files-are-not-an-orthogonal-pair">2002 Following files are not an orthogonal pair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#following-files-are-not-both-horizontals">2003 Following files are not both horizontals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#insufficient-header-information-for-rotation">2004 Insufficient header information for rotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#requested-begin-time-is-less-than-files-begin-time-output-truncated">2008 Requested begin time is less than files begin time. Output truncated.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#taper-frequency-limits-are-invalid-no-taper-applied">2111 Taper frequency limits are invalid. No taper applied.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#cannot-print-no-sgf-files-produced">2405 Cannot PRINT: no SGF files produced</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5003 No correlation function calculated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-spectral-estimate-calculated">5004 No spectral estimate calculated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg9/">9005 Amplitude mismatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msgn/">Environmental variable SACAUX not defined.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msgn/#enviornment-variable-sacaux-too-long-max-128-sacaux-xxx">Enviornment variable SACAUX too long: max: 128 SACAUX: xxx</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">错误与警告</a> &raquo;</li>
+      <li>5003 No correlation function calculated</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/appendix/messages/msg5.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="no-correlation-function-calculated">
+<h1>5003 No correlation function calculated<a class="headerlink" href="#no-correlation-function-calculated" title="此标题的永久链接">¶</a></h1>
+<p>未计算相关函数。</p>
+</section>
+<section id="no-spectral-estimate-calculated">
+<h1>5004 No spectral estimate calculated<a class="headerlink" href="#no-spectral-estimate-calculated" title="此标题的永久链接">¶</a></h1>
+<p>未计算谱估计。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../msg2/" class="btn btn-neutral float-left" title="2001 Command requires an even number of data files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../msg9/" class="btn btn-neutral float-right" title="9005 Amplitude mismatch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

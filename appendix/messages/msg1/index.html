@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1028 External command does not exist &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex/" />
+    <link rel="search" title="搜索" href="../../../search/" />
+    <link rel="next" title="2001 Command requires an even number of data files" href="../msg2/" />
+    <link rel="prev" title="0131 sac/datagen data directory not found" href="../msg0/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">错误与警告</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../msg0/">0131 sac/datagen data directory not found</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1028 External command does not exist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-help-package-is-available">1103 No help package is available</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#not-a-valid-sac-command">1106 Not a valid SAC command.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-data-files-read-in">1301 No data files read in</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overwrite-flag-is-not-on-for-file">1303 Overwrite flag is not on for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#illegal-operation-on-data-file">1304 Illegal operation on data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#illegal-operation-on-time-series-file">1305 Illegal operation on time series file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#illegal-operation-on-unevenly-spaced-file">1306 Illegal operation on unevenly spaced file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#illegal-operation-on-spectral-file">1307 Illegal operation on spectral file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-list-of-filenames-to-write">1311 No list of filenames to write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bad-number-of-files-in-write-file-list">1312 Bad number of files in write file list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-following-file-is-not-a-sac-data-file">1317 The following file is not a SAC data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#available-memory-too-small-to-read-file">1320 Available memory too small to read file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#undefined-starting-cut-for-file">1322 Undefined starting cut for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#undefined-stop-cut-for-file">1323 Undefined stop cut for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-cut-less-than-file-begin-for-file">1324 Start cut less than file begin for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stop-cut-greater-than-file-end-for-file">1325 Stop cut greater than file end for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-cut-greater-than-file-end-for-file">1326 Start cut greater than file end for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-points-outside-allowed-range-contained-in-file">1340 data points outside allowed range contained in file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-sort-parameters-given">1379 No SORT parameters given</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#too-many-sort-parameters">1380 Too many SORT parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#not-a-valid-sort-parameter">1381 Not a valid SORT parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sort-failed">1383 SORT failed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maximum-allowable-dft-is-16777216">1606 Maximum allowable DFT is 16777216</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#corner-frequency-greater-than-nyquist-for-file">1611 Corner frequency greater than Nyquist for file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#minimum-size-of-data-file-for-hilbert-transform-is-201">1613 Minimum size of data file for Hilbert transform is 201</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-t-divide-by-zero">1701 Can’t divide by zero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#non-positive-values-found-in-file">1702 Non-positive values found in file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#header-field-mismatch">1801 Header field mismatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#time-overlap">1802 Time overlap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-binary-data-files-read-in">1803 No binary data files read in.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#time-gap">1805 Time gap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/">2001 Command requires an even number of data files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#following-files-are-not-an-orthogonal-pair">2002 Following files are not an orthogonal pair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#following-files-are-not-both-horizontals">2003 Following files are not both horizontals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#insufficient-header-information-for-rotation">2004 Insufficient header information for rotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#requested-begin-time-is-less-than-files-begin-time-output-truncated">2008 Requested begin time is less than files begin time. Output truncated.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#taper-frequency-limits-are-invalid-no-taper-applied">2111 Taper frequency limits are invalid. No taper applied.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg2/#cannot-print-no-sgf-files-produced">2405 Cannot PRINT: no SGF files produced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg5/">5003 No correlation function calculated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg5/#no-spectral-estimate-calculated">5004 No spectral estimate calculated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg9/">9005 Amplitude mismatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msgn/">Environmental variable SACAUX not defined.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msgn/#enviornment-variable-sacaux-too-long-max-128-sacaux-xxx">Enviornment variable SACAUX too long: max: 128 SACAUX: xxx</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">错误与警告</a> &raquo;</li>
+      <li>1028 External command does not exist</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/appendix/messages/msg1.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="external-command-does-not-exist">
+<h1>1028 External command does not exist<a class="headerlink" href="#external-command-does-not-exist" title="此标题的永久链接">¶</a></h1>
+<p>执行 <a class="reference internal" href="../../../commands/load/"><span class="doc">load</span></a> 命令时找不到外部命令。产生该错误的原因很多，可能是环境变量 <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> 不包含要载入的共享库的所在目录，或 <code class="docutils literal notranslate"><span class="pre">$SACSOLIST</span></code>
+中不包含要载入的共享库的名字。</p>
+</section>
+<section id="no-help-package-is-available">
+<h1>1103 No help package is available<a class="headerlink" href="#no-help-package-is-available" title="此标题的永久链接">¶</a></h1>
+<p>没有可用的帮助文档包，可能原因是没找到 <code class="docutils literal notranslate"><span class="pre">${SACAUX}/help</span></code> 目录。</p>
+</section>
+<section id="not-a-valid-sac-command">
+<h1>1106 Not a valid SAC command.<a class="headerlink" href="#not-a-valid-sac-command" title="此标题的永久链接">¶</a></h1>
+<p>对于每一行命令，SAC 首先会检查是否是 SAC 内部的命令，如果不是，则检查是否是系统自带的命令，比如 <code class="docutils literal notranslate"><span class="pre">ls</span></code>、<code class="docutils literal notranslate"><span class="pre">cp</span></code> 等。</p>
+<p>一个例外是系统命令 <code class="docutils literal notranslate"><span class="pre">rm</span></code>。在 SAC 中直接执行 <code class="docutils literal notranslate"><span class="pre">rm</span></code> 命令会出现如上所示的错误。出现该错误的原因是 SAC 禁用了系统命令 <code class="docutils literal notranslate"><span class="pre">rm</span></code>，主要目的是为了防止将 <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">*.SAC</span></code>
+误敲成 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">*.SAC</span></code> 而导致数据的误删除。可以使用 <a class="reference internal" href="../../../commands/systemcommand/"><span class="doc">systemcommand</span></a>
+命令显式调用系统命令，如下：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SAC&gt; rm BAD*.SAC
+ ERROR <span class="m">1106</span>: Not a valid SAC command.
+SAC&gt; sc rm BAD*.SAC
+</pre></div>
+</div>
+</section>
+<section id="no-data-files-read-in">
+<h1>1301 No data files read in<a class="headerlink" href="#no-data-files-read-in" title="此标题的永久链接">¶</a></h1>
+<p>内存中未读入数据。可能是未指定要读取的文件列表，或列表中的文件不可读。</p>
+</section>
+<section id="overwrite-flag-is-not-on-for-file">
+<h1>1303 Overwrite flag is not on for file<a class="headerlink" href="#overwrite-flag-is-not-on-for-file" title="此标题的永久链接">¶</a></h1>
+<p>该错误主要出现在写 SAC 文件时，出现该错误的原因是 SAC 文件的头段变量
+<code class="docutils literal notranslate"><span class="pre">lovrok</span></code> 的值为 <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>，即磁盘中的数据不允许被覆盖。解决该问题的方法有两种：</p>
+<ul class="simple">
+<li><p>以其他文件名写入磁盘，不覆盖磁盘文件；</p></li>
+<li><p>修改 <code class="docutils literal notranslate"><span class="pre">lovrok</span></code> 的值为 <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>；</p></li>
+</ul>
+</section>
+<section id="illegal-operation-on-data-file">
+<h1>1304 Illegal operation on data file<a class="headerlink" href="#illegal-operation-on-data-file" title="此标题的永久链接">¶</a></h1>
+<p>对数据文件的非法操作。</p>
+</section>
+<section id="illegal-operation-on-time-series-file">
+<h1>1305 Illegal operation on time series file<a class="headerlink" href="#illegal-operation-on-time-series-file" title="此标题的永久链接">¶</a></h1>
+<p>某些命令无法对时间序列数据进行操作。</p>
+</section>
+<section id="illegal-operation-on-unevenly-spaced-file">
+<h1>1306 Illegal operation on unevenly spaced file<a class="headerlink" href="#illegal-operation-on-unevenly-spaced-file" title="此标题的永久链接">¶</a></h1>
+<p>某些命令无法对不等间隔数据进行操作。</p>
+</section>
+<section id="illegal-operation-on-spectral-file">
+<h1>1307 Illegal operation on spectral file<a class="headerlink" href="#illegal-operation-on-spectral-file" title="此标题的永久链接">¶</a></h1>
+<p>命令不能对内存中的谱文件进行操作。</p>
+</section>
+<section id="no-list-of-filenames-to-write">
+<h1>1311 No list of filenames to write<a class="headerlink" href="#no-list-of-filenames-to-write" title="此标题的永久链接">¶</a></h1>
+<p>没有要写入的文件列表。</p>
+</section>
+<section id="bad-number-of-files-in-write-file-list">
+<h1>1312 Bad number of files in write file list<a class="headerlink" href="#bad-number-of-files-in-write-file-list" title="此标题的永久链接">¶</a></h1>
+<p>通常在使用 <a class="reference internal" href="../../../commands/write/"><span class="doc">write</span></a> 命令时会出现该问题。出现该错误的原因是内存中的波形文件的数目与 <code class="docutils literal notranslate"><span class="pre">write</span></code> 命令给出的文件名的数目不想匹配。在该错误信息的后面，紧接着会给出 <code class="docutils literal notranslate"><span class="pre">write</span></code> 命令中给出的文件数目以及内存中的波形数目。</p>
+</section>
+<section id="the-following-file-is-not-a-sac-data-file">
+<h1>1317 The following file is not a SAC data file<a class="headerlink" href="#the-following-file-is-not-a-sac-data-file" title="此标题的永久链接">¶</a></h1>
+<p>试图读入非 SAC 格式的文件所产生的错误。</p>
+</section>
+<section id="available-memory-too-small-to-read-file">
+<h1>1320 Available memory too small to read file<a class="headerlink" href="#available-memory-too-small-to-read-file" title="此标题的永久链接">¶</a></h1>
+<p>系统内存不足。</p>
+</section>
+<section id="undefined-starting-cut-for-file">
+<h1>1322 Undefined starting cut for file<a class="headerlink" href="#undefined-starting-cut-for-file" title="此标题的永久链接">¶</a></h1>
+<p><a class="reference internal" href="../../../commands/cut/"><span class="doc">cut</span></a> 命令中时间窗的起始参考头段未定义。默认情况下，会使用磁盘文件的起始时间代替，也可以使用 <a class="reference internal" href="../../../commands/cuterr/"><span class="doc">cuterr</span></a>
+命令控制该错误的处理方式。</p>
+</section>
+<section id="undefined-stop-cut-for-file">
+<h1>1323 Undefined stop cut for file<a class="headerlink" href="#undefined-stop-cut-for-file" title="此标题的永久链接">¶</a></h1>
+<p><a class="reference internal" href="../../../commands/cut/"><span class="doc">cut</span></a> 命令中时间窗的结束参考头段未定义。默认情况下，会使用磁盘文件的结束时间代替，也可以使用 <a class="reference internal" href="../../../commands/cuterr/"><span class="doc">cuterr</span></a> 命令控制该错误的处理方式。</p>
+</section>
+<section id="start-cut-less-than-file-begin-for-file">
+<h1>1324 Start cut less than file begin for file<a class="headerlink" href="#start-cut-less-than-file-begin-for-file" title="此标题的永久链接">¶</a></h1>
+<p><a class="reference internal" href="../../../commands/cut/"><span class="doc">cut</span></a> 命令中时间窗的开始时间早于磁盘文件的开始时间。默认情况下，会使用磁盘文件的开始时间代替，也可以使用 <a class="reference internal" href="../../../commands/cuterr/"><span class="doc">cuterr</span></a> 命令控制该错误的处理方式。</p>
+</section>
+<section id="stop-cut-greater-than-file-end-for-file">
+<h1>1325 Stop cut greater than file end for file<a class="headerlink" href="#stop-cut-greater-than-file-end-for-file" title="此标题的永久链接">¶</a></h1>
+<p><a class="reference internal" href="../../../commands/cut/"><span class="doc">cut</span></a> 命令中时间窗的结束时间晚于磁盘文件的结束时间。默认情况下，会使用磁盘文件的结束时间代替，也可以使用 <a class="reference internal" href="../../../commands/cuterr/"><span class="doc">cuterr</span></a> 命令控制该错误的处理方式。</p>
+</section>
+<section id="start-cut-greater-than-file-end-for-file">
+<h1>1326 Start cut greater than file end for file<a class="headerlink" href="#start-cut-greater-than-file-end-for-file" title="此标题的永久链接">¶</a></h1>
+<p><a class="reference internal" href="../../../commands/cut/"><span class="doc">cut</span></a> 命令中时间窗的开始时间晚于文件结束时间。</p>
+</section>
+<section id="data-points-outside-allowed-range-contained-in-file">
+<h1>1340 data points outside allowed range contained in file<a class="headerlink" href="#data-points-outside-allowed-range-contained-in-file" title="此标题的永久链接">¶</a></h1>
+<p>文件中数据点的值超过了所允许的范围。比如 <a class="reference internal" href="../../../commands/log/"><span class="doc">log</span></a> 中要求数据为正。</p>
+</section>
+<section id="no-sort-parameters-given">
+<h1>1379 No SORT parameters given<a class="headerlink" href="#no-sort-parameters-given" title="此标题的永久链接">¶</a></h1>
+<p>使用了 <a class="reference internal" href="../../../commands/sort/"><span class="doc">sort</span></a> 命令，但未指定按照哪个参数排序。</p>
+</section>
+<section id="too-many-sort-parameters">
+<h1>1380 Too many SORT parameters<a class="headerlink" href="#too-many-sort-parameters" title="此标题的永久链接">¶</a></h1>
+<p><a class="reference internal" href="../../../commands/sort/"><span class="doc">sort</span></a> 命令中用于排序的参数太多。</p>
+</section>
+<section id="not-a-valid-sort-parameter">
+<h1>1381 Not a valid SORT parameter<a class="headerlink" href="#not-a-valid-sort-parameter" title="此标题的永久链接">¶</a></h1>
+<p>无效的 <a class="reference internal" href="../../../commands/sort/"><span class="doc">sort</span></a> 参数。</p>
+</section>
+<section id="sort-failed">
+<h1>1383 SORT failed<a class="headerlink" href="#sort-failed" title="此标题的永久链接">¶</a></h1>
+<p>排序失败。</p>
+</section>
+<section id="maximum-allowable-dft-is-16777216">
+<h1>1606 Maximum allowable DFT is 16777216<a class="headerlink" href="#maximum-allowable-dft-is-16777216" title="此标题的永久链接">¶</a></h1>
+<p>SAC 中与 FFT 相关的命令所能允许的最大数据点数是 <span class="math notranslate nohighlight">\(2^{24}=16777216\)</span>。</p>
+</section>
+<section id="corner-frequency-greater-than-nyquist-for-file">
+<h1>1611 Corner frequency greater than Nyquist for file<a class="headerlink" href="#corner-frequency-greater-than-nyquist-for-file" title="此标题的永久链接">¶</a></h1>
+<p>对数据进行滤波时，拐角频率超过了文件的 Nyquist 采样率。</p>
+</section>
+<section id="minimum-size-of-data-file-for-hilbert-transform-is-201">
+<h1>1613 Minimum size of data file for Hilbert transform is 201<a class="headerlink" href="#minimum-size-of-data-file-for-hilbert-transform-is-201" title="此标题的永久链接">¶</a></h1>
+<p>在做 Hilbert 变换时，要求数据的最小长度是 201 个数据点。</p>
+</section>
+<section id="can-t-divide-by-zero">
+<h1>1701 Can’t divide by zero<a class="headerlink" href="#can-t-divide-by-zero" title="此标题的永久链接">¶</a></h1>
+<p>除零的非法操作。</p>
+</section>
+<section id="non-positive-values-found-in-file">
+<h1>1702 Non-positive values found in file<a class="headerlink" href="#non-positive-values-found-in-file" title="此标题的永久链接">¶</a></h1>
+<p>数据文件中存在非正值。</p>
+</section>
+<section id="header-field-mismatch">
+<h1>1801 Header field mismatch<a class="headerlink" href="#header-field-mismatch" title="此标题的永久链接">¶</a></h1>
+<p>该错误出现在 <a class="reference internal" href="../../../commands/addf/"><span class="doc">addf</span></a>、<a class="reference internal" href="../../../commands/subf/"><span class="doc">subf</span></a>、<a class="reference internal" href="../../../commands/divf/"><span class="doc">divf</span></a>、<a class="reference internal" href="../../../commands/mulf/"><span class="doc">mulf</span></a> 以及
+<a class="reference internal" href="../../../commands/merge/"><span class="doc">merge</span></a> 和
+<a class="reference internal" href="../../../commands/beam/"><span class="doc">beam</span></a> 中。</p>
+<p>出现该错误的原因是多个数据文件中的头段变量不匹配。该命令会明确给出不匹配的头段变量名，以及出现不匹配的数据文件，以供用户查错。会出现不匹配的头段变量包括 <code class="docutils literal notranslate"><span class="pre">npts</span></code>、<code class="docutils literal notranslate"><span class="pre">delta</span></code>、<code class="docutils literal notranslate"><span class="pre">kstnm</span></code>、<code class="docutils literal notranslate"><span class="pre">knetwk</span></code>、<code class="docutils literal notranslate"><span class="pre">kcmpnm</span></code>。</p>
+</section>
+<section id="time-overlap">
+<h1>1802 Time overlap<a class="headerlink" href="#time-overlap" title="此标题的永久链接">¶</a></h1>
+<p>要进行操作的两个数据的时间段不完全重合。</p>
+</section>
+<section id="no-binary-data-files-read-in">
+<h1>1803 No binary data files read in.<a class="headerlink" href="#no-binary-data-files-read-in" title="此标题的永久链接">¶</a></h1>
+<p><a class="reference internal" href="../../../commands/addf/"><span class="doc">addf</span></a>、<a class="reference internal" href="../../../commands/subf/"><span class="doc">subf</span></a>、<a class="reference internal" href="../../../commands/merge/"><span class="doc">merge</span></a>
+等命令需要先读入二进制数据，再对数据做操作。</p>
+</section>
+<section id="time-gap">
+<h1>1805 Time gap<a class="headerlink" href="#time-gap" title="此标题的永久链接">¶</a></h1>
+<p>使用 <a class="reference internal" href="../../../commands/merge/"><span class="doc">merge</span></a> 命令时，两段数据间存在时间间断。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../msg0/" class="btn btn-neutral float-left" title="0131 sac/datagen data directory not found" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../msg2/" class="btn btn-neutral float-right" title="2001 Command requires an even number of data files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

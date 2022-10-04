@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>引用头段变量值 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="黑板变量" href="../blackboard-variables/" />
+    <link rel="prev" title="SAC 宏简介" href="../intro-to-sac-programming/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 编程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-sac-programming/">SAC 宏简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">引用头段变量值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blackboard-variables/">黑板变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inline-functions/">内联函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../macros/">SAC 宏</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 编程</a> &raquo;</li>
+      <li>引用头段变量值</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/macros/header-variables.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>引用头段变量值<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>前面已经介绍了 SAC 中的很多头段变量，也知道如何使用 <a class="reference internal" href="../../commands/listhdr/"><span class="doc">listhdr</span></a>
+查看头段变量的值，<code class="docutils literal notranslate"><span class="pre">lh</span></code> 命令的输出对于人来说很直观，但是对于机器来说却很不友好。有些时候需要直接使用头段变量的值，这就需要一些特殊的技巧。</p>
+<p>最常见的情况是 <a class="reference internal" href="../../data-process/event-info/#subsec-origin-time"><span class="std std-ref">发震时刻</span></a> 中给出的例子。在使用“<code class="docutils literal notranslate"><span class="pre">ch</span> <span class="pre">o</span> <span class="pre">gmt</span></code>”指定发震时刻后，需要获取头段变量 <code class="docutils literal notranslate"><span class="pre">o</span></code> 的值，对该值取负值，并用于“<code class="docutils literal notranslate"><span class="pre">ch</span> <span class="pre">allt</span></code>”中。</p>
+<p>本例中，需要先获取头段变量 <code class="docutils literal notranslate"><span class="pre">o</span></code> 的值，再将其值用于其它命令中，准确的说这叫变量值的引用。在SAC命令中引用头段变量的值有两种方式，分别是“<code class="docutils literal notranslate"><span class="pre">&amp;fname,header&amp;</span></code>”和“<code class="docutils literal notranslate"><span class="pre">&amp;fno,header&amp;</span></code>”<a class="footnote-reference brackets" href="#id3" id="id2">1</a>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">fname</span></code> 和 <code class="docutils literal notranslate"><span class="pre">fno</span></code> 都唯一指向了内存中的某个波形数据，其中 <code class="docutils literal notranslate"><span class="pre">fname</span></code>
+表示文件名，<code class="docutils literal notranslate"><span class="pre">fno</span></code> 表示文件号（即内存中的第几个文件，索引值从1开始)，<code class="docutils literal notranslate"><span class="pre">header</span></code> 则为头段变量名。</p>
+<p>下例展示了如何通过两种方式引用头段变量的值：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; w seis.SAC</span>
+<span class="go">SAC&gt; r ./seis.SAC               # 注意&quot;./&quot;</span>
+<span class="go">SAC&gt; lh kevnm o stla            # 查看三个头段变量的值</span>
+
+<span class="go">     kevnm = K8108838</span>
+<span class="go">         o = -4.143000e+01</span>
+<span class="go">      stla = 4.800000e+01</span>
+<span class="go">SAC&gt; echo on processed          # 打开回显，显示处理信息</span>
+<span class="go">SAC&gt; ch kuser0 &amp;1,kevnm&amp;        # 通过文件号引用头段变量 kevnm</span>
+<span class="go"> ==&gt;  ch kuser0 K8108838        # 实际执行的效果</span>
+<span class="go">SAC&gt; ch user0 &amp;./seis.SAC,o&amp;    # 利用文件名，引用头段变量 o</span>
+<span class="go"> ==&gt;  ch user0 -41.43</span>
+<span class="go">SAC&gt; ch user1 &amp;seis.SAC,stla&amp;   # 文件名少了&quot;./&quot;</span>
+<span class="go"> ERROR 1363: Illegal data file list name: seis.SAC</span>
+<span class="go">SAC&gt; lh kuser0 user0 user1</span>
+
+<span class="go">     kuser0 = K8108838</span>
+<span class="go">     user0 = -4.143000e+01</span>
+</pre></div>
+</div>
+<p>在通过文件名指定波形数据时要注意：SAC 记录的是文件的全路径。一般情况下，使用文件号会更方便些。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>实际上，SAC 官方文档给出的引用方式中没有末尾的 <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> 符号，仅当一些特殊的情况下才使用，这样容易使得整个语法混乱不堪，所以这里采用了另外一种引用方式。所有示例均已通过测试。</p>
+</dd>
+</dl>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../intro-to-sac-programming/" class="btn btn-neutral float-left" title="SAC 宏简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../blackboard-variables/" class="btn btn-neutral float-right" title="黑板变量" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

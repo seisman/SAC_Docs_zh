@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>功能命令列表 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="about" href="../about/" />
+    <link rel="prev" title="SAC 命令" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 命令</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">功能命令列表</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">信息模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">执行模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">一元操作模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">二元操作模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">信号校正模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">数据文件模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">图形环境模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">图像控制模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">图像绘制模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">谱分析模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">分析工具</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">事件分析模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xyz">XYZ数据模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">仪器校正模块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fk">FK谱</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../about/">about</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../abs/">abs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../add/">add</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addf/">addf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apk/">apk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arraymap/">arraymap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../axes/">axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bandpass/">bandpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bandrej/">bandrej</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bbfk/">bbfk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beam/">beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../begindevices/">begindevices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beginframe/">beginframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beginwindow/">beginwindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benioff/">benioff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binoperr/">binoperr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../border/">border</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../capf/">capf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chnhdr/">chnhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chpf/">chpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../color/">color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../comcor/">comcor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contour/">contour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convert/">convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convolve/">convolve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../copyhdr/">copyhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../correlate/">correlate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut/">cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cuterr/">cuterr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cutim/">cutim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datagen/">datagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decimate/">decimate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deletechannel/">deletechannel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dif/">dif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../div/">div</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../divf/">divf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../divomega/">divomega</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../echo/">echo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../enddevices/">enddevices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endframe/">endframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../envelope/">envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../erase/">erase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../evaluate/">evaluate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exp/">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exp10/">exp10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fft/">fft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fileid/">fileid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filenumber/">filenumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filterdesign/">filterdesign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fir/">fir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../floor/">floor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funcgen/">funcgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getbb/">getbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grayscale/">grayscale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grid/">grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gtext/">gtext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hanning/">hanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../help/">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../highpass/">highpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hilbert/">hilbert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history/">history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ifft/">ifft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../image/">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inicm/">inicm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installmacro/">installmacro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../int/">int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interpolate/">interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keepam/">keepam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../khronhite/">khronhite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../line/">line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linefit/">linefit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linlin/">linlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linlog/">linlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../listhdr/">listhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../load/">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loadctable/">loadctable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../log/">log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../log10/">log10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglab/">loglab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglin/">loglin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglog/">loglog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lowpass/">lowpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../macro/">macro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/">map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markptp/">markptp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marktimes/">marktimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markvalue/">markvalue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathop/">mathop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge/">merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../message/">message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mtw/">mtw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mul/">mul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mulf/">mulf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mulomega/">mulomega</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/">news</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../null/">null</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oapf/">oapf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ohpf/">ohpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pause/">pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picks/">picks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickauthor/">pickauthor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickphase/">pickphase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickprefs/">pickprefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plabel/">plabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot/">plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot1/">plot1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot2/">plot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotalpha/">plotalpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotc/">plotc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotdy/">plotdy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotpk/">plotpk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotpm/">plotpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotsp/">plotsp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotxy/">plotxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../print/">print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../printhelp/">printhelp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../production/">production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qdp/">qdp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantize/">quantize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quit/">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quitsub/">quitsub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../read/">read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readbbf/">readbbf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readcss/">readcss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readerr/">readerr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readhdr/">readhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readsp/">readsp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readtable/">readtable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report/">report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reverse/">reverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">rglitches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean/">rmean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rms/">rms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">rotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rq/">rq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rtrend/">rtrend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../saveimg/">saveimg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setbb/">setbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setdevice/">setdevice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setmacro/">setmacro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sgf/">sgf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../smooth/">smooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonogram/">sonogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort/">sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spectrogram/">spectrogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqr/">sqr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqrt/">sqrt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stretch/">stretch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub/">sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subf/">subf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../symbol/">symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../synchronize/">synchronize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../systemcommand/">systemcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../taper/">taper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ticks/">ticks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../title/">title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trace/">trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transcript/">transcript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/">transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">traveltime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsize/">tsize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unsetbb/">unsetbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unwrap/">unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vspace/">vspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wait/">wait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whiten/">whiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whpf/">whpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../width/">width</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiener/">wiener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wild/">wild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window/">window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../write/">write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writebbf/">writebbf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writecss/">writecss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writehdr/">writehdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writesp/">writesp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xdiv/">xdiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xfudge/">xfudge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xfull/">xfull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xgrid/">xgrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlabel/">xlabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlim/">xlim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlin/">xlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlog/">xlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xvport/">xvport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ydiv/">ydiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yfudge/">yfudge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yfull/">yfull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ygrid/">ygrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylabel/">ylabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylim/">ylim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylin/">ylin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylog/">ylog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yvport/">yvport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zcolors/">zcolors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlabels/">zlabels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlevels/">zlevels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlines/">zlines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zticks/">zticks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 命令</a> &raquo;</li>
+      <li>功能命令列表</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/commands/func_commands.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>功能命令列表<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="id2">
+<h2>信息模块<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../comcor/"><span class="doc">comcor</span></a> ：控制 SAC 的命令校正选项</p></li>
+<li><p><a class="reference internal" href="../production/"><span class="doc">production</span></a> ：控制作业模式选项</p></li>
+<li><p><a class="reference internal" href="../report/"><span class="doc">report</span></a> ：报告 SAC 选项的当前状态</p></li>
+<li><p><a class="reference internal" href="../trace/"><span class="doc">trace</span></a> ：追踪黑板变量和头段变量</p></li>
+<li><p><a class="reference internal" href="../echo/"><span class="doc">echo</span></a> ：控制输入输出回显到终端</p></li>
+<li><p><a class="reference internal" href="../history/"><span class="doc">history</span></a> ：打印最近执行的 SAC 命令列表</p></li>
+<li><p><a class="reference internal" href="../message/"><span class="doc">message</span></a> ：发送信息到用户终端</p></li>
+<li><p><a class="reference internal" href="../quitsub/"><span class="doc">quitsub</span></a> ：退出子程序</p></li>
+<li><p><a class="reference internal" href="../about/"><span class="doc">about</span></a> ：显示版本和版权信息</p></li>
+<li><p><a class="reference internal" href="../news/"><span class="doc">news</span></a> ：终端显示关于 SAC 的一些信息</p></li>
+<li><p><a class="reference internal" href="../quit/"><span class="doc">quit</span></a> ：退出 SAC</p></li>
+<li><p><a class="reference internal" href="../help/"><span class="doc">help</span></a> ：在终端显示 SAC 命令的语法和功能信息</p></li>
+<li><p><a class="reference internal" href="../printhelp/"><span class="doc">printhelp</span></a> ：调用打印机打印帮助文档</p></li>
+<li><p><a class="reference internal" href="../inicm/"><span class="doc">inicm</span></a> ：重新初始化 SAC</p></li>
+<li><p><a class="reference internal" href="../transcript/"><span class="doc">transcript</span></a> ：控制输出到副本文件</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>执行模块<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../evaluate/"><span class="doc">evaluate</span></a> ：对简单算术表达式求值</p></li>
+<li><p><a class="reference internal" href="../setbb/"><span class="doc">setbb</span></a> ：设置黑板变量的值</p></li>
+<li><p><a class="reference internal" href="../unsetbb/"><span class="doc">unsetbb</span></a> ：删除黑板变量</p></li>
+<li><p><a class="reference internal" href="../getbb/"><span class="doc">getbb</span></a> ：获取或打印黑板变量的值</p></li>
+<li><p><a class="reference internal" href="../mathop/"><span class="doc">mathop</span></a> ：控制数学操作符的优先级</p></li>
+<li><p><a class="reference internal" href="../macro/"><span class="doc">macro</span></a> ：执行 SAC 宏文件</p></li>
+<li><p><a class="reference internal" href="../installmacro/"><span class="doc">installmacro</span></a> ：将宏文件安装到 SAC 全局宏目录中</p></li>
+<li><p><a class="reference internal" href="../setmacro/"><span class="doc">setmacro</span></a> ：定义执行 SAC 宏文件时搜索的一系列目录</p></li>
+<li><p><a class="reference internal" href="../systemcommand/"><span class="doc">systemcommand</span></a> ：从 SAC 中执行系统命令</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>一元操作模块<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../add/"><span class="doc">add</span></a> ：为每个数据点加上同一个常数</p></li>
+<li><p><a class="reference internal" href="../sub/"><span class="doc">sub</span></a> ：给每个数据点减去同一个常数</p></li>
+<li><p><a class="reference internal" href="../mul/"><span class="doc">mul</span></a> ：给每个数据点乘以同一个常数</p></li>
+<li><p><a class="reference internal" href="../div/"><span class="doc">div</span></a> ：对每个数据点除以同一个常数</p></li>
+<li><p><a class="reference internal" href="../sqr/"><span class="doc">sqr</span></a> ：对每个数据点做平方</p></li>
+<li><p><a class="reference internal" href="../sqrt/"><span class="doc">sqrt</span></a> ：对每个数据点取其平方根</p></li>
+<li><p><a class="reference internal" href="../abs/"><span class="doc">abs</span></a> ：对每一个数据点取其绝对值</p></li>
+<li><p><a class="reference internal" href="../log/"><span class="doc">log</span></a> ：对每个数据点取其自然对数（<span class="math notranslate nohighlight">\(\ln y\)</span>）</p></li>
+<li><p><a class="reference internal" href="../log10/"><span class="doc">log10</span></a> ：对每个数据点取以10为底的对数（<span class="math notranslate nohighlight">\(\log_{10} y\)</span>）</p></li>
+<li><p><a class="reference internal" href="../exp/"><span class="doc">exp</span></a> ：对每个数据点取其指数（<span class="math notranslate nohighlight">\(e^y\)</span>）</p></li>
+<li><p><a class="reference internal" href="../exp10/"><span class="doc">exp10</span></a> ：对每个数据点取以10为底的指数（<span class="math notranslate nohighlight">\(10^y\)</span>）</p></li>
+<li><p><a class="reference internal" href="../int/"><span class="doc">int</span></a> ：利用梯形法或矩形法对数据进行积分</p></li>
+<li><p><a class="reference internal" href="../dif/"><span class="doc">dif</span></a> ：对数据进行微分操作</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>二元操作模块<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../addf/"><span class="doc">addf</span></a> ：使内存中的一组数据加上另一组数据</p></li>
+<li><p><a class="reference internal" href="../subf/"><span class="doc">subf</span></a> ：使内存中的一组数据减去另一组数据</p></li>
+<li><p><a class="reference internal" href="../mulf/"><span class="doc">mulf</span></a> ：使内存中的一组数据乘以另一组数据</p></li>
+<li><p><a class="reference internal" href="../divf/"><span class="doc">divf</span></a> ：使内存中的一组数据除以另一组数据</p></li>
+<li><p><a class="reference internal" href="../binoperr/"><span class="doc">binoperr</span></a> ：控制二元操作 <code class="docutils literal notranslate"><span class="pre">addf</span></code>、<code class="docutils literal notranslate"><span class="pre">subf</span></code>、
+<code class="docutils literal notranslate"><span class="pre">mulf</span></code>、<code class="docutils literal notranslate"><span class="pre">divf</span></code> 中的错误</p></li>
+<li><p><a class="reference internal" href="../merge/"><span class="doc">merge</span></a> ：将多个数据文件合并成一个文件</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>信号校正模块<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../rq/"><span class="doc">rq</span></a> ：从谱文件中去除 Q 因子</p></li>
+<li><p><a class="reference internal" href="../rglitches/"><span class="doc">rglitches</span></a> ：去掉信号中的坏点</p></li>
+<li><p><a class="reference internal" href="../rmean/"><span class="doc">rmean</span></a> ：去除均值</p></li>
+<li><p><a class="reference internal" href="../rtrend/"><span class="doc">rtrend</span></a> ：去除线性趋势</p></li>
+<li><p><a class="reference internal" href="../taper/"><span class="doc">taper</span></a> ：对数据两端应用对称的 taper 函数，使得数据两端平滑地衰减到零</p></li>
+<li><p><a class="reference internal" href="../rotate/"><span class="doc">rotate</span></a> ：将成对的正交分量旋转一个角度</p></li>
+<li><p><a class="reference internal" href="../quantize/"><span class="doc">quantize</span></a> ：将连续数据数字化</p></li>
+<li><p><a class="reference internal" href="../interpolate/"><span class="doc">interpolate</span></a> ：对等间隔或不等间隔数据进行插值以得到新采样率</p></li>
+<li><p><a class="reference internal" href="../stretch/"><span class="doc">stretch</span></a> ：拉伸（增采样）数据，包含了一个可选的 FIR 滤波器</p></li>
+<li><p><a class="reference internal" href="../decimate/"><span class="doc">decimate</span></a> ：对数据减采样，包含了一个可选的抗混叠 FIR 滤波器</p></li>
+<li><p><a class="reference internal" href="../smooth/"><span class="doc">smooth</span></a> ：对数据应用算术平滑算法</p></li>
+<li><p><a class="reference internal" href="../reverse/"><span class="doc">reverse</span></a> ：将所有数据点逆序</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>数据文件模块<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../funcgen/"><span class="doc">funcgen</span></a> ：生成一个函数并将其存在内存中</p></li>
+<li><p><a class="reference internal" href="../datagen/"><span class="doc">datagen</span></a> ：产生样本波形数据并储存在内存中</p></li>
+<li><p><a class="reference internal" href="../read/"><span class="doc">read</span></a> ：从磁盘读取 SAC 文件到内存</p></li>
+<li><p><a class="reference internal" href="../readbbf/"><span class="doc">readbbf</span></a> ：将黑板变量文件读入内存</p></li>
+<li><p><a class="reference internal" href="../readcss/"><span class="doc">readcss</span></a> ：从磁盘读取 CSS 数据到内存</p></li>
+<li><p><a class="reference internal" href="../readerr/"><span class="doc">readerr</span></a> ：控制在执行 <code class="docutils literal notranslate"><span class="pre">read</span></code> 命令过程中的错误的处理方式</p></li>
+<li><p><a class="reference internal" href="../readhdr/"><span class="doc">readhdr</span></a> ：从SAC数据文件中读取头段到内存</p></li>
+<li><p><a class="reference internal" href="../write/"><span class="doc">write</span></a> ：将内存中的数据写入磁盘</p></li>
+<li><p><a class="reference internal" href="../writebbf/"><span class="doc">writebbf</span></a> ：将黑板变量文件写入到磁盘</p></li>
+<li><p><a class="reference internal" href="../writecss/"><span class="doc">writecss</span></a> ：将内存中的数据以 <code class="docutils literal notranslate"><span class="pre">CSS</span> <span class="pre">3.0</span></code> 格式写入磁盘</p></li>
+<li><p><a class="reference internal" href="../writehdr/"><span class="doc">writehdr</span></a> ：用内存中文件的头段区覆盖磁盘文字中的头段区</p></li>
+<li><p><a class="reference internal" href="../listhdr/"><span class="doc">listhdr</span></a> ：列出指定的头段变量的值</p></li>
+<li><p><a class="reference internal" href="../chnhdr/"><span class="doc">chnhdr</span></a> ：修改指定的头段变量的值</p></li>
+<li><p><a class="reference internal" href="../readtable/"><span class="doc">readtable</span></a> ：从磁盘读取列数据文件到内存</p></li>
+<li><p><a class="reference internal" href="../copyhdr/"><span class="doc">copyhdr</span></a> ：从内存中的一个文件复制头段变量给其他所有文件</p></li>
+<li><p><a class="reference internal" href="../convert/"><span class="doc">convert</span></a> ：实现数据文件格式的转换</p></li>
+<li><p><a class="reference internal" href="../cut/"><span class="doc">cut</span></a> ：定义要读入的数据窗</p></li>
+<li><p><a class="reference internal" href="../cuterr/"><span class="doc">cuterr</span></a> ：控制坏的截窗参数引起的错误</p></li>
+<li><p><a class="reference internal" href="../cutim/"><span class="doc">cutim</span></a> ：截取内存中的文件</p></li>
+<li><p><a class="reference internal" href="../deletechannel/"><span class="doc">deletechannel</span></a> ：从内存文件列表中删去一个或多个文件</p></li>
+<li><p><a class="reference internal" href="../synchronize/"><span class="doc">synchronize</span></a> ：同步内存中所有文件的参考时刻</p></li>
+<li><p><a class="reference internal" href="../sort/"><span class="doc">sort</span></a> ：根据头段变量的值对内存中的文件进行排序</p></li>
+<li><p><a class="reference internal" href="../wild/"><span class="doc">wild</span></a> ：设置读命令中用于扩展文件列表的通配符</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>图形环境模块<a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../saveimg/"><span class="doc">saveimg</span></a> ：将绘图窗口中的图像保存到多种格式的图像文件中</p></li>
+<li><p><a class="reference internal" href="../xlim/"><span class="doc">xlim</span></a> ：设定图形中 X 轴的范围</p></li>
+<li><p><a class="reference internal" href="../ylim/"><span class="doc">ylim</span></a> ：设定图形中 Y 轴的范围</p></li>
+<li><p><a class="reference internal" href="../linlin/"><span class="doc">linlin</span></a> ：设置 X、Y 轴均为线性坐标</p></li>
+<li><p><a class="reference internal" href="../loglog/"><span class="doc">loglog</span></a> ：设置 X、Y 轴均为对数坐标</p></li>
+<li><p><a class="reference internal" href="../linlog/"><span class="doc">linlog</span></a> ：设置 X 轴为线性坐标，Y 轴为对数坐标</p></li>
+<li><p><a class="reference internal" href="../loglin/"><span class="doc">loglin</span></a> ：设置 X 轴为对数坐标，Y 轴为线性坐标</p></li>
+<li><p><a class="reference internal" href="../xlin/"><span class="doc">xlin</span></a> ：设置 X 轴为线性坐标</p></li>
+<li><p><a class="reference internal" href="../ylin/"><span class="doc">ylin</span></a> ：设置 Y 轴为线性坐标</p></li>
+<li><p><a class="reference internal" href="../xlog/"><span class="doc">xlog</span></a> ：设置 X 轴为对数坐标</p></li>
+<li><p><a class="reference internal" href="../ylog/"><span class="doc">ylog</span></a> ：设置 Y 轴为对数坐标</p></li>
+<li><p><a class="reference internal" href="../xdiv/"><span class="doc">xdiv</span></a> ：控制 X 轴的刻度间隔</p></li>
+<li><p><a class="reference internal" href="../ydiv/"><span class="doc">ydiv</span></a> ：控制 Y 轴的刻度间隔</p></li>
+<li><p><a class="reference internal" href="../xfull/"><span class="doc">xfull</span></a> ：控制 X 轴的绘图为整对数方式</p></li>
+<li><p><a class="reference internal" href="../yfull/"><span class="doc">yfull</span></a> ：控制 Y 轴的绘图为整对数方式</p></li>
+<li><p><a class="reference internal" href="../xfudge/"><span class="doc">xfudge</span></a> ：设置 X 轴范围的附加因子</p></li>
+<li><p><a class="reference internal" href="../yfudge/"><span class="doc">yfudge</span></a> ：设置 Y 轴范围的附加因子</p></li>
+<li><p><a class="reference internal" href="../axes/"><span class="doc">axes</span></a> ：控制注释轴的位置</p></li>
+<li><p><a class="reference internal" href="../ticks/"><span class="doc">ticks</span></a> ：控制绘图上刻度轴的位置</p></li>
+<li><p><a class="reference internal" href="../border/"><span class="doc">border</span></a> ：控制图形四周边框的绘制</p></li>
+<li><p><a class="reference internal" href="../grid/"><span class="doc">grid</span></a> ：控制绘图时的网格线</p></li>
+<li><p><a class="reference internal" href="../xgrid/"><span class="doc">xgrid</span></a> ：控制绘图时的 X 方向的网格线</p></li>
+<li><p><a class="reference internal" href="../ygrid/"><span class="doc">ygrid</span></a> ：控制绘图时的 Y 方向的网格线</p></li>
+<li><p><a class="reference internal" href="../title/"><span class="doc">title</span></a> ：定义绘图的标题和属性</p></li>
+<li><p><a class="reference internal" href="../gtext/"><span class="doc">gtext</span></a> ：控制绘图中文本质量以及字体</p></li>
+<li><p><a class="reference internal" href="../tsize/"><span class="doc">tsize</span></a> ：控制文本尺寸属性</p></li>
+<li><p><a class="reference internal" href="../xlabel/"><span class="doc">xlabel</span></a> ：定义 X 轴标签及属性</p></li>
+<li><p><a class="reference internal" href="../ylabel/"><span class="doc">ylabel</span></a> ：定义 Y 轴标签及属性</p></li>
+<li><p><a class="reference internal" href="../plabel/"><span class="doc">plabel</span></a> ：定义通用标签及其属性</p></li>
+<li><p><a class="reference internal" href="../filenumber/"><span class="doc">filenumber</span></a> ：控制绘图时文件号的显示</p></li>
+<li><p><a class="reference internal" href="../fileid/"><span class="doc">fileid</span></a> ：控制绘图时文件 ID 的显示</p></li>
+<li><p><a class="reference internal" href="../picks/"><span class="doc">picks</span></a> ：控制时间标记的显示</p></li>
+<li><p><a class="reference internal" href="../qdp/"><span class="doc">qdp</span></a> ：控制低分辨率快速绘图选项</p></li>
+<li><p><a class="reference internal" href="../loglab/"><span class="doc">loglab</span></a> ：控制对数轴的标签</p></li>
+<li><p><a class="reference internal" href="../beginframe/"><span class="doc">beginframe</span></a> ：打开 frame，用于绘制组合图</p></li>
+<li><p><a class="reference internal" href="../endframe/"><span class="doc">endframe</span></a> ：关闭 frame</p></li>
+<li><p><a class="reference internal" href="../beginwindow/"><span class="doc">beginwindow</span></a> ：启动/切换至指定编号的X图形窗口</p></li>
+<li><p><a class="reference internal" href="../window/"><span class="doc">window</span></a> ：设置图形窗口位置和宽高比</p></li>
+<li><p><a class="reference internal" href="../xvport/"><span class="doc">xvport</span></a> ：定义 X 轴的视口</p></li>
+<li><p><a class="reference internal" href="../yvport/"><span class="doc">yvport</span></a> ：定义 Y 轴的视口</p></li>
+<li><p><a class="reference internal" href="../null/"><span class="doc">null</span></a> ：控制空值的绘制</p></li>
+<li><p><a class="reference internal" href="../floor/"><span class="doc">floor</span></a> ：对数数据的最小值</p></li>
+<li><p><a class="reference internal" href="../width/"><span class="doc">width</span></a> ：控制图形设备的线宽</p></li>
+<li><p><a class="reference internal" href="../color/"><span class="doc">color</span></a> ：控制彩色图形设备的颜色选项</p></li>
+<li><p><a class="reference internal" href="../line/"><span class="doc">line</span></a> ：控制绘图中的线型</p></li>
+<li><p><a class="reference internal" href="../symbol/"><span class="doc">symbol</span></a> ：控制符号绘图属性</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>图像控制模块<a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../setdevice/"><span class="doc">setdevice</span></a> ：定义后续绘图时使用的默认图形设备</p></li>
+<li><p><a class="reference internal" href="../begindevices/"><span class="doc">begindevices</span></a> ：启动某个图像设备</p></li>
+<li><p><a class="reference internal" href="../enddevices/"><span class="doc">enddevices</span></a> ：结束某个图像设备</p></li>
+<li><p><a class="reference internal" href="../vspace/"><span class="doc">vspace</span></a> ：设置图形的最大尺寸和长宽比</p></li>
+<li><p><a class="reference internal" href="../sgf/"><span class="doc">sgf</span></a> ：控制 SGF 设备选项</p></li>
+<li><p><a class="reference internal" href="../pause/"><span class="doc">pause</span></a> ：发送信息到终端并暂停</p></li>
+<li><p><a class="reference internal" href="../wait/"><span class="doc">wait</span></a> ：控制 SAC 在绘制多个图形时是否暂停</p></li>
+<li><p><a class="reference internal" href="../print/"><span class="doc">print</span></a> ：打印最近的 SGF 文件</p></li>
+</ul>
+</section>
+<section id="id10">
+<h2>图像绘制模块<a class="headerlink" href="#id10" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../plot/"><span class="doc">plot</span></a> ：绘制单波形单窗口图形</p></li>
+<li><p><a class="reference internal" href="../plot1/"><span class="doc">plot1</span></a> ：绘制多波形多窗口图形</p></li>
+<li><p><a class="reference internal" href="../plot2/"><span class="doc">plot2</span></a> ：产生一个多波形单窗口绘图</p></li>
+<li><p><a class="reference internal" href="../plotpk/"><span class="doc">plotpk</span></a> ：绘图并拾取震相到时</p></li>
+<li><p><a class="reference internal" href="../plotdy/"><span class="doc">plotdy</span></a> ：绘制一个带有误差棒的图</p></li>
+<li><p><a class="reference internal" href="../plotxy/"><span class="doc">plotxy</span></a> ：以一个文件为自变量，一个或多个文件为因变量绘图</p></li>
+<li><p><a class="reference internal" href="../plotalpha/"><span class="doc">plotalpha</span></a> ：从磁盘读入字符数据型文件到内存并将数据绘制出来</p></li>
+<li><p><a class="reference internal" href="../plotc/"><span class="doc">plotc</span></a> ：使用光标标注SAC图形和创建图件</p></li>
+<li><p><a class="reference internal" href="../plotsp/"><span class="doc">plotsp</span></a> ：用多种格式绘制谱数据</p></li>
+<li><p><a class="reference internal" href="../plotpm/"><span class="doc">plotpm</span></a> ：针对一对数据文件产生一个“质点运动”图</p></li>
+<li><p><a class="reference internal" href="../erase/"><span class="doc">erase</span></a> ：清除图形显示区域</p></li>
+</ul>
+</section>
+<section id="id11">
+<h2>谱分析模块<a class="headerlink" href="#id11" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../hanning/"><span class="doc">hanning</span></a> ：对每个数据文件应用一个“hanning”窗</p></li>
+<li><p><a class="reference internal" href="../mulomega/"><span class="doc">mulomega</span></a> ：在频率域进行微分操作</p></li>
+<li><p><a class="reference internal" href="../divomega/"><span class="doc">divomega</span></a> ：在频率域进行积分操作</p></li>
+<li><p><a class="reference internal" href="../fft/"><span class="doc">fft</span></a> ：对数据做快速离散傅立叶变换</p></li>
+<li><p><a class="reference internal" href="../ifft/"><span class="doc">ifft</span></a> ：对数据进行离散反傅立叶变换</p></li>
+<li><p><a class="reference internal" href="../keepam/"><span class="doc">keepam</span></a> ：保留内存中谱文件的振幅部分</p></li>
+<li><p><a class="reference internal" href="../khronhite/"><span class="doc">khronhite</span></a> ：对数据应用Khronhite滤波器</p></li>
+<li><p><a class="reference internal" href="../correlate/"><span class="doc">correlate</span></a> ：计算自相关和互相关函数</p></li>
+<li><p><a class="reference internal" href="../convolve/"><span class="doc">convolve</span></a> ：计算主信号与内存中所有信号的卷积</p></li>
+<li><p><a class="reference internal" href="../hilbert/"><span class="doc">hilbert</span></a> ：应用 Hilbert 变换</p></li>
+<li><p><a class="reference internal" href="../envelope/"><span class="doc">envelope</span></a> ：利用Hilbert变换计算包络函数</p></li>
+<li><p><a class="reference internal" href="../benioff/"><span class="doc">benioff</span></a> ：对数据使用 Benioff 滤波器</p></li>
+<li><p><a class="reference internal" href="../unwrap/"><span class="doc">unwrap</span></a> ：计算振幅和展开相位</p></li>
+<li><p><a class="reference internal" href="../wiener/"><span class="doc">wiener</span></a> 设计并应用一个自适应 Wiener 滤波器</p></li>
+<li><p><a class="reference internal" href="../plotsp/"><span class="doc">plotsp</span></a> ：用多种格式绘制谱数据</p></li>
+<li><p><a class="reference internal" href="../readsp/"><span class="doc">readsp</span></a> ：读取 <code class="docutils literal notranslate"><span class="pre">writesp</span></code> 和 <code class="docutils literal notranslate"><span class="pre">writespe</span></code> 写的谱文件</p></li>
+<li><p><a class="reference internal" href="../writesp/"><span class="doc">writesp</span></a> ：将谱文件作为一般文件写入磁盘</p></li>
+<li><p><a class="reference internal" href="../bandpass/"><span class="doc">bandpass</span></a> ：对数据文件使用无限脉冲带通滤波器</p></li>
+<li><p><a class="reference internal" href="../highpass/"><span class="doc">highpass</span></a> ：对数据文件应用一个无限脉冲高通滤波器</p></li>
+<li><p><a class="reference internal" href="../lowpass/"><span class="doc">lowpass</span></a> ：对数据文件应用一个无限脉冲低通滤波器</p></li>
+<li><p><a class="reference internal" href="../bandrej/"><span class="doc">bandrej</span></a> ：应用一个无限脉冲带阻滤波器</p></li>
+<li><p><a class="reference internal" href="../fir/"><span class="doc">fir</span></a> ：应用一个有限脉冲响应滤波器</p></li>
+</ul>
+</section>
+<section id="id12">
+<h2>分析工具<a class="headerlink" href="#id12" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../linefit/"><span class="doc">linefit</span></a> ：对内存中数据的进行最小二乘线性拟合</p></li>
+<li><p><a class="reference internal" href="../correlate/"><span class="doc">correlate</span></a> ：计算自相关和互相关函数</p></li>
+<li><p><a class="reference internal" href="../convolve/"><span class="doc">convolve</span></a> ：计算主信号与内存中所有信号的卷积</p></li>
+<li><p><a class="reference internal" href="../envelope/"><span class="doc">envelope</span></a> ：利用Hilbert变换计算包络函数</p></li>
+<li><p><a class="reference internal" href="../filterdesign/"><span class="doc">filterdesign</span></a> ：产生一个滤波器的数字和模拟特性的图形显示，包括：振幅，相位，脉冲响应和群延迟</p></li>
+<li><p><a class="reference internal" href="../map/"><span class="doc">map</span></a> ：利用 SAC 内存中的所有数据文件生成 GMT 地图</p></li>
+<li><p><a class="reference internal" href="../whiten/"><span class="doc">whiten</span></a> ：平滑输入的时间序列的频谱</p></li>
+<li><p><a class="reference internal" href="../arraymap/"><span class="doc">arraymap</span></a> ：利用 SAC 内存中的所有文件产生一个台阵或联合台阵的分布图</p></li>
+</ul>
+</section>
+<section id="id13">
+<h2>事件分析模块<a class="headerlink" href="#id13" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../ohpf/"><span class="doc">ohpf</span></a> ：打开一个 Hypo 格式的震相文件</p></li>
+<li><p><a class="reference internal" href="../chpf/"><span class="doc">chpf</span></a> ：关闭当前打开的 Hypo 震相拾取文件</p></li>
+<li><p><a class="reference internal" href="../whpf/"><span class="doc">whpf</span></a> ：将辅助内容写入 Hypo 格式的震相拾取文件中</p></li>
+<li><p><a class="reference internal" href="../oapf/"><span class="doc">oapf</span></a> ：打开一个字母数字型震相拾取文件</p></li>
+<li><p><a class="reference internal" href="../capf/"><span class="doc">capf</span></a> ：关闭目前打开的字符数字型震相拾取文件</p></li>
+<li><p><a class="reference internal" href="../apk/"><span class="doc">apk</span></a> ：对波形使用自动事件拾取算法（由连续信号判断是否其中是否包含地震事件）</p></li>
+<li><p><a class="reference internal" href="../plotpk/"><span class="doc">plotpk</span></a> ：产生一个用于拾取到时的图</p></li>
+<li><p><a class="reference internal" href="../mtw/"><span class="doc">mtw</span></a> ：决定接下来命令中所使用的测量时间窗</p></li>
+<li><p><a class="reference internal" href="../markptp/"><span class="doc">markptp</span></a> ：在测量时间窗内测量并标记最大峰峰值</p></li>
+<li><p><a class="reference internal" href="../marktimes/"><span class="doc">marktimes</span></a> ：根据一个速度集得到走时并对数据文件进行标记</p></li>
+<li><p><a class="reference internal" href="../markvalue/"><span class="doc">markvalue</span></a> ：在数据文件中搜索并标记某个值</p></li>
+<li><p><a class="reference internal" href="../rms/"><span class="doc">rms</span></a> ：计算测量时间窗内的信号的均方根</p></li>
+<li><p><a class="reference internal" href="../traveltime/"><span class="doc">traveltime</span></a> ：根据预定义的速度模型计算指定震相的走时</p></li>
+</ul>
+</section>
+<section id="xyz">
+<h2>XYZ数据模块<a class="headerlink" href="#xyz" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../spectrogram/"><span class="doc">spectrogram</span></a> ：使用内存中的所有数据计算频谱图</p></li>
+<li><p><a class="reference internal" href="../sonogram/"><span class="doc">sonogram</span></a> ：计算一个频谱图，其等价于同一个谱图的两个不同的平滑版本的差</p></li>
+<li><p><a class="reference internal" href="../image/"><span class="doc">image</span></a> ：利用内存中的数据文件绘制彩色图</p></li>
+<li><p><a class="reference internal" href="../loadctable/"><span class="doc">loadctable</span></a> ：允许用户在彩色绘图中选择一个新的颜色表</p></li>
+<li><p><a class="reference internal" href="../grayscale/"><span class="doc">grayscale</span></a> ：产生内存中数据的灰度图像</p></li>
+<li><p><a class="reference internal" href="../contour/"><span class="doc">contour</span></a> ：利用内存中的数据绘制等值线图</p></li>
+<li><p><a class="reference internal" href="../zlevels/"><span class="doc">zlevels</span></a> ：控制后续等值线图上的等值线间隔</p></li>
+<li><p><a class="reference internal" href="../zcolors/"><span class="doc">zcolors</span></a> ：控制等值线的颜色显示</p></li>
+<li><p><a class="reference internal" href="../zlines/"><span class="doc">zlines</span></a> ：控制后续等值线绘图上的等值线线型</p></li>
+<li><p><a class="reference internal" href="../zticks/"><span class="doc">zticks</span></a> ：用方向标记标识等值线</p></li>
+<li><p><a class="reference internal" href="../zlabels/"><span class="doc">zlabels</span></a> ：根据等值线的值控制等值线的标记</p></li>
+</ul>
+</section>
+<section id="id14">
+<h2>仪器校正模块<a class="headerlink" href="#id14" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../transfer/"><span class="doc">transfer</span></a> ：反卷积以去除仪器响应并卷积以加入其它仪器响应</p></li>
+</ul>
+</section>
+<section id="fk">
+<h2>FK谱<a class="headerlink" href="#fk" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../bbfk/"><span class="doc">bbfk</span></a> ：利用 SAC 内存中的所有文件计算宽频频率-波数谱估计</p></li>
+<li><p><a class="reference internal" href="../beam/"><span class="doc">beam</span></a> ：利用内存中的全部数据文件计算射线束</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="SAC 命令" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../about/" class="btn btn-neutral float-right" title="about" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

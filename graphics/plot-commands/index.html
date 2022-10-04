@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>绘图命令 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="图像外观" href="../plot-appearance/" />
+    <link rel="prev" title="SAC 绘图流程" href="../begin-devices/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 图像</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../gui/">图形设备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../begin-devices/">SAC 绘图流程</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">绘图命令</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#plot">plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot1">plot1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot2">plot2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotpk">plotpk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotpm">plotpm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotsp">plotsp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plot-appearance/">图像外观</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot-contour/">等值线图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composite-plots/">组合图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../save-image/">图像保存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../format-conversion/">图像格式转换</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 图像</a> &raquo;</li>
+      <li>绘图命令</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/graphics/plot-commands.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>绘图命令<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>SAC 提供了许多与绘图有关的命令，包括控制图像外观的参数控制类命令以及执行绘图功能的操作执行类命令。这一节将介绍常用的几个操作执行类命令。</p>
+<section id="plot">
+<h2>plot<a class="headerlink" href="#plot" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/plot/"><span class="doc">plot</span></a> 命令会绘制内存块中的所有波形数据，但每次只显示一个波形，然后等待用户输入再决定是否显示下一个波形。该命令的具体用法在
+<a class="reference internal" href="../../basis/display/"><span class="doc">绘图</span></a> 已经详细介绍。</p>
+</section>
+<section id="plot1">
+<h2>plot1<a class="headerlink" href="#plot1" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/plot1/"><span class="doc">plot1</span></a> 命令会绘制内存块中的所有波形数据，在一个窗口中一次显示多个波形，这些波形共用一个 X 轴（时间轴），但拥有单独的 Y 轴。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; dg sub local cdv.[enz]</span>
+<span class="go">cdv.e cdv.n cdv.z</span>
+<span class="go">SAC&gt; p1</span>
+</pre></div>
+</div>
+<p>执行 <code class="docutils literal notranslate"><span class="pre">plot1</span></code> 命令后，焦点位于图形窗口，显示如 <a class="reference internal" href="#figure-plot1"><span class="std std-numref">图 11</span></a> 。</p>
+<figure class="align-center" id="id2">
+<span id="figure-plot1"></span><a class="reference internal image-reference" href="../../_images/plot1.png"><img alt="plot1 绘图效果" src="../../_images/plot1.png" style="width: 85.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 11 </span><span class="caption-text">plot1 绘图效果</span><a class="headerlink" href="#id2" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p>当一次性读入多个波形数据时，若直接使用 <a class="reference internal" href="../../commands/plot1/"><span class="doc">plot1</span></a> 绘图，会一次性显示全部波形，导致窗口内波形太密，反而什么都看不清。<a class="reference internal" href="../../commands/plot1/"><span class="doc">plot1</span></a>
+提供了“<code class="docutils literal notranslate"><span class="pre">perplot</span> <span class="pre">n</span></code>”选项以指定窗口内一次最多显示多少个波形，余下的波形则处于等待状态。在查看波形的时候，经常需要将每个台站的三分量波形记录放在一起看，此时设置选项 <code class="docutils literal notranslate"><span class="pre">perplot</span></code> 的参数值为 <code class="docutils literal notranslate"><span class="pre">3</span></code> 即可。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; dg sub local cdv.[enz] cvl.[enz] cvy.[enz]  # 生成9个地震波形</span>
+<span class="go">cdv.e cdv.n cdv.z cvl.e cvl.n cvl.z cvy.e cvy.n cvy.z</span>
+<span class="go">SAC&gt; p1 p 3         # p 是选项 perplot 的简写，3代表每次显示3个波形</span>
+<span class="go">Waiting</span>
+<span class="go">Waiting</span>
+<span class="go">SAC&gt;</span>
+</pre></div>
+</div>
+<p>默认情况下，所有的波形数据会按照绝对时间（<code class="docutils literal notranslate"><span class="pre">absolute</span></code>）对齐，若波形数据具有不同的开始时间，则波形数据之间会出现相对错动；也可以使所有的波形数据相对于（<code class="docutils literal notranslate"><span class="pre">relative</span></code>）各自的开始时间绘图，此时X轴的起始坐标为0。</p>
+</section>
+<section id="plot2">
+<h2>plot2<a class="headerlink" href="#plot2" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/plot2/"><span class="doc">plot2</span></a> 会一次性将内存块中的所有波形绘制在一个窗口内，所有的波形共用 X 轴，因而绘图时也可以使用绝对模式或相对模式。与
+<a class="reference internal" href="../../commands/plot1/"><span class="doc">plot1</span></a> 不同的是，所有的波形还同时共用 Y 轴，因而波形会相互覆盖。</p>
+<p><a class="reference internal" href="../../commands/plot2/"><span class="doc">plot2</span></a> 适合绘制多个波形的对比图，常用于数据处理前后波形对比或真实波形与合成波形间的对比。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis                     # 生成数据</span>
+<span class="go">SAC&gt; rmean; rtrend; taper        # 预处理</span>
+<span class="go">SAC&gt; w seis.0                    # 写入滤波前文件</span>
+<span class="go">SAC&gt; bp c 0.05 10 n 4 p 2        # 滤波</span>
+<span class="go">SAC&gt; w seis.1                    # 写入滤波后文件</span>
+<span class="go">SAC&gt; r ./seis.[01]               # 读入两个文件</span>
+<span class="go">./seis.0 ...seis.1</span>
+<span class="go">SAC&gt; color red inc list red blue # 对两个数据分别设置红色和蓝色</span>
+<span class="go">SAC&gt; p2                          # 绘图</span>
+</pre></div>
+</div>
+<p>在 <a class="reference internal" href="#figure-plot2"><span class="std std-numref">图 12</span></a> 中红线为滤波前波形，蓝线为滤波后波形，二者共用 X 轴和 Y 轴，从这样的波形对比图中，可以很明显得看到滤波对于波形的影响。</p>
+<figure class="align-center" id="id3">
+<span id="figure-plot2"></span><a class="reference internal image-reference" href="../../_images/plot2.png"><img alt="plot2 绘图效果" src="../../_images/plot2.png" style="width: 85.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 12 </span><span class="caption-text">plot2 绘图效果</span><a class="headerlink" href="#id3" title="此图像的永久链接">¶</a></p>
+<div class="legend">
+<p>红色为滤波前波形，蓝色为滤波后波形。</p>
+</div>
+</figcaption>
+</figure>
+</section>
+<section id="plotpk">
+<h2>plotpk<a class="headerlink" href="#plotpk" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/plotpk/"><span class="doc">plotpk</span></a> 是 SAC 中最常用的命令之一。其可以在窗口中显示指定个数的波形，所有波形共用 X 轴，但拥有单独的 Y 轴。该命令主要用于震相拾取，在 <a class="reference internal" href="../../data-process/picking-phase/"><span class="doc">震相拾取</span></a> 一节有详细介绍。</p>
+</section>
+<section id="plotpm">
+<h2>plotpm<a class="headerlink" href="#plotpm" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/plotpm/"><span class="doc">plotpm</span></a> 可以利用成对的波形数据，提取出任一时间段内两个波形数据的振幅信息，绘制在“振幅-振幅”图中。若一对波形数据恰好是同一台站两个互相垂直的分量，则“振幅-振幅”图即为“质点运动图”。从“质点运动图”中，可以提取出震相的一些重要信息。</p>
+<p>下面的例子利用垂直和径向分量的波形数据绘制 Rayleigh 面波的质点运动轨迹：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; dg sub tele nykl.z             # Z分量</span>
+<span class="go">SAC&gt; w nykl.z</span>
+<span class="go">SAC&gt; dg sub tele nykl.e nykl.n      # E、N分量</span>
+<span class="go">SAC&gt; rotate to gcp                  # 旋转至大圆路径</span>
+<span class="go">SAC&gt; w nykl.r nykl.t                # R、T分量</span>
+<span class="go">SAC&gt; r nykl.z nykl.r                # 读入Z和R分量</span>
+<span class="go">SAC&gt; xlabel &#39;Radial component&#39;</span>
+<span class="go">SAC&gt; ylabel &#39;Vertical component&#39;</span>
+<span class="go">SAC&gt; title &#39;Particle-motion plot for partial Rayleigh wave&#39;</span>
+<span class="go">SAC&gt; xlim 1300 1340                 # 仅绘制Rayleigh面波的部分时间窗</span>
+<span class="go">SAC&gt; ppm                            # 绘制质点运动图</span>
+</pre></div>
+</div>
+<p>鉴于 <a class="reference internal" href="../../commands/plotpm/"><span class="doc">plotpm</span></a> 命令绘图的效果很糟糕，就不再贴效果图了，读者可以根据上面的命令自行绘制。</p>
+</section>
+<section id="plotsp">
+<h2>plotsp<a class="headerlink" href="#plotsp" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/plotsp/"><span class="doc">plotsp</span></a> 命令用于绘制不同格式的谱文件，可以绘制“振幅+相位”或者“实部+虚部”，同时可以任意指定 X、Y 轴为线性轴或对数轴。</p>
+<p>下面的命令对波形数据进行FFT得到谱文件，并使用 <a class="reference internal" href="../../commands/plotsp/"><span class="doc">plotsp</span></a> 命令绘制其振幅谱：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; fft</span>
+<span class="go">SAC&gt; psp am loglog</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/plotsp.png"><img alt="plotsp 绘制振幅谱" src="../../_images/plotsp.png" style="width: 95.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 13 </span><span class="caption-text">plotsp 绘制振幅谱</span><a class="headerlink" href="#id4" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../begin-devices/" class="btn btn-neutral float-left" title="SAC 绘图流程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plot-appearance/" class="btn btn-neutral float-right" title="图像外观" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

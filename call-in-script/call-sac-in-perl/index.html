@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perl 中调用 SAC &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="Python中调用SAC" href="../call-sac-in-python/" />
+    <link rel="prev" title="Bash 中调用 SAC" href="../call-sac-in-bash/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">脚本中调用 SAC</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../call-sac-in-bash/">Bash 中调用 SAC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Perl 中调用 SAC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">简单示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">数据转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-merge-pl">文件合并</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-rename-pl">文件重命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-eventinfo-pl">添加事件信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-transfer-pl">去仪器响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-rotate-pl">分量旋转</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">数据重采样</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../call-sac-in-python/">Python中调用SAC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">脚本中调用 SAC</a> &raquo;</li>
+      <li>Perl 中调用 SAC</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/call-in-script/call-sac-in-perl.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="perl-sac">
+<h1>Perl 中调用 SAC<a class="headerlink" href="#perl-sac" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>简单示例<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>下面的脚本展示了如何在 Perl 中调用 SAC。</p>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/0.simple-script.pl">0.simple-script.pl</a></p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+<span class="nv">$ENV</span><span class="p">{</span><span class="n">SAC_DISPLAY_COPYRIGHT</span><span class="p">}</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;fg seismo \n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;lh evla kstnm \n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q \n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Perl 中调用 SAC 本质上是使用 <code class="docutils literal notranslate"><span class="pre">open(SAC,</span> <span class="pre">&quot;|</span> <span class="pre">sac</span> <span class="pre">&quot;)</span></code> 语句定义了一个名为 <code class="docutils literal notranslate"><span class="pre">SAC</span></code>
+指向 <code class="docutils literal notranslate"><span class="pre">sac</span></code> 的句柄，然后通过 <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">SAC</span></code> 语句将要执行的 SAC 命令传递给 SAC。</p>
+</section>
+<section id="id2">
+<h2>数据转换<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>首先要将 SEED 格式的数据转换成 SAC 格式。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 一次只能处理一个 SEED 数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 的 <code class="docutils literal notranslate"><span class="pre">-pdf</span></code> 选项会提取出 SAC 波形数据和 PZ 格式的仪器响应文件</p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/1.rdseed.pl">1.rdseed.pl</a></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>IRIS 自 2020 年 1 月开始不再提供 SEED 格式的数据下载支持，详情可阅读 <a class="reference external" href="http://www.iris.washington.edu/ds/newsletter/vol21/no1/509/retirement-of-full-seed-data-volumes-from-iris-dmc/">IRIS 数据服务通讯</a>。IRIS 也已<a class="reference external" href="https://ds.iris.edu/ds/nodes/dmc/manuals/rdseed/">不再维护 rdseed 软件</a>。</p>
+</div>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+
+<span class="nv">@ARGV</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Usage: perl $0 dirname\n&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$dir</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="nb">chdir</span> <span class="nv">$dir</span><span class="p">;</span>  <span class="c1"># cd 进数据所在目录，以避免处理路径</span>
+
+<span class="c1"># rdseed 一次只能处理一个 SEED 文件</span>
+<span class="k">foreach</span> <span class="k">my</span> <span class="nv">$seed</span> <span class="p">(</span><span class="nb">glob</span> <span class="s">&quot;*.seed&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">system</span> <span class="s">&quot;rdseed -pdf $seed&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">chdir</span> <span class="s">&quot;..&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-merge-pl">
+<span id="id3"></span><h2>文件合并<a class="headerlink" href="#subsec-merge-pl" title="此标题的永久链接">¶</a></h2>
+<p>SEED 文件的波形数据可能会因为多种原因而出现间断，导致同一个通道会解压出来多个 SAC 文件，因而需要将属于同一个通道的 SAC 数据合并起来。</p>
+<ul class="simple">
+<li><p>此处使用了新版 <a class="reference internal" href="../../commands/merge/"><span class="doc">merge</span></a> 命令的语法，要求 SAC 版本大于 v101.6</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">merge</span></code> 命令还有更多选项可以控制数据合并的细节，见命令的语法介绍</p></li>
+<li><p>合并后的数据，以最早的数据段的文件名命名</p></li>
+<li><p>多余的数据段均被删除，以保证每个通道只有一个 SAC 文件</p></li>
+<li><p>由于脚本运行速度比 SAC 运行速度快，因而应先退出 SAC 再删除多余的数据段</p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/2.merge.pl">2.merge.pl</a></p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+<span class="nv">$ENV</span><span class="p">{</span><span class="n">SAC_DISPLAY_COPYRIGHT</span><span class="p">}</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="nv">@ARGV</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Usage: perl $0 dirname\n&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$dir</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="nb">chdir</span> <span class="nv">$dir</span><span class="p">;</span>
+
+<span class="c1"># 利用 hash 的 key 的不可重复性构建集合:</span>
+<span class="c1">#   hash 的 key 定义为 NET.STA.LOC.CHN</span>
+<span class="c1">#   hash 的 value 是文件名与 key 匹配的 SAC 文件数目</span>
+<span class="k">my</span> <span class="nv">%sets</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nb">glob</span> <span class="s">&quot;*.SAC&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># 将文件名用&#39;.&#39;分割，并取其中的第7到10个元素</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nv">$net</span><span class="p">,</span> <span class="nv">$sta</span><span class="p">,</span> <span class="nv">$loc</span><span class="p">,</span> <span class="nv">$chn</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="nb">split</span> <span class="sr">/\./</span><span class="p">)[</span><span class="mi">6</span><span class="o">..</span><span class="mi">9</span><span class="p">];</span>
+    <span class="nv">$sets</span><span class="p">{</span><span class="s">&quot;$net.$sta.$loc.$chn&quot;</span><span class="p">}</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># 在循环体外部调用 SAC，若没有数据需要 merge，则此次调用是做无用功</span>
+<span class="c1"># 若将 SAC 调用放在循环体内，则可能会多次调用 SAC，而影响运行效率</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;wild echo off \n&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="nv">@to_del</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="k">my</span> <span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="o">=</span> <span class="nb">each</span> <span class="nv">%sets</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># 检查每个 key 所对应的 value，只有 value 大于1时才需要 merge</span>
+    <span class="k">next</span> <span class="k">if</span> <span class="nv">$value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">print</span> <span class="bp">STDERR</span> <span class="s">&quot;merge $key: $value traces\n&quot;</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">@traces</span> <span class="o">=</span> <span class="nb">sort</span> <span class="nb">glob</span> <span class="s">&quot;*.$key.?.SAC&quot;</span><span class="p">;</span>
+    <span class="c1"># 对 glob 的返回值做 sort，以保证第一个元素是最早的数据段</span>
+
+    <span class="c1"># 在 SAC 中使用通配符而不是使用 @traces 以避免命令行过长的问题</span>
+    <span class="c1"># merge 不支持通配符</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r *.$key.?.SAC \n&quot;</span><span class="p">;</span>  <span class="c1"># SAC v101.6 or later only</span>
+    <span class="c1"># 缺数据则补0，重叠则做平均</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;merge gap zero overlap average \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w $traces[0] \n&quot;</span><span class="p">;</span>  <span class="c1"># 以最早数据段的文件名保存</span>
+
+    <span class="c1"># 将要删除的数据段文件名保存到数组中，待退出 SAC 后再删除</span>
+    <span class="nb">push</span> <span class="nv">@to_del</span><span class="p">,</span> <span class="nb">splice</span><span class="p">(</span><span class="nv">@traces</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q \n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+<span class="nb">unlink</span><span class="p">(</span><span class="nv">@to_del</span><span class="p">);</span>
+
+<span class="nb">chdir</span> <span class="s">&quot;..&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-rename-pl">
+<span id="id4"></span><h2>文件重命名<a class="headerlink" href="#subsec-rename-pl" title="此标题的永久链接">¶</a></h2>
+<p>从 SEED 解压出的 SAC 文件名较长，因而对其重命名以简化。</p>
+<ul class="simple">
+<li><p>SEED 解压出的默认文件名格式为 <code class="docutils literal notranslate"><span class="pre">yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC</span></code></p></li>
+<li><p>重命名后的文件名为 <code class="docutils literal notranslate"><span class="pre">NET.STA.LOC.CHN.SAC</span></code></p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/3.rename.pl">3.rename.pl</a></p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+
+<span class="nv">@ARGV</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Usage: perl $0 dirname\n&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$dir</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="nb">chdir</span> <span class="nv">$dir</span><span class="p">;</span>
+
+<span class="k">foreach</span> <span class="k">my</span> <span class="nv">$file</span> <span class="p">(</span><span class="nb">glob</span> <span class="s">&quot;*.SAC&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nv">$net</span><span class="p">,</span> <span class="nv">$sta</span><span class="p">,</span> <span class="nv">$loc</span><span class="p">,</span> <span class="nv">$chn</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="nb">split</span> <span class="sr">/\./</span><span class="p">,</span> <span class="nv">$file</span><span class="p">)[</span><span class="mi">6</span><span class="o">..</span><span class="mi">9</span><span class="p">];</span>
+    <span class="nb">rename</span> <span class="nv">$file</span><span class="p">,</span> <span class="s">&quot;$net.$sta.$loc.$chn.SAC&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">chdir</span> <span class="s">&quot;..&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-eventinfo-pl">
+<span id="id5"></span><h2>添加事件信息<a class="headerlink" href="#subsec-eventinfo-pl" title="此标题的永久链接">¶</a></h2>
+<p>若 SEED 中不包含事件信息，则解压得到的 SAC 文件中也不会包含事件信息。因而需要用户手动添加事件的发震时刻、经纬度、深度和震级信息。</p>
+<ul class="simple">
+<li><p>输入参数包括：目录名、发震时刻、经度、纬度、深度、震级</p></li>
+<li><p>发震时刻的格式为 <code class="docutils literal notranslate"><span class="pre">yyyy-mm-ddThh:mm:ss.xxx</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">T</span></code> 用于分隔日期和时间</p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/4.eventinfo.pl">4.eventinfo.pl</a></p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">POSIX</span> <span class="sx">qw(strftime)</span><span class="p">;</span>
+
+<span class="nv">@ARGV</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">or</span> <span class="nb">die</span>
+    <span class="s">&quot;Usage: perl $0 dirname yyyy-mm-ddThh:mm:ss.xxx evlo evla evdp mag\n&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$dir</span><span class="p">,</span> <span class="nv">$origin</span><span class="p">,</span> <span class="nv">$evlo</span><span class="p">,</span> <span class="nv">$evla</span><span class="p">,</span> <span class="nv">$evdp</span><span class="p">,</span> <span class="nv">$mag</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="c1"># 对发震时刻做解析</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$date</span><span class="p">,</span> <span class="nv">$time</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="s">&quot;T&quot;</span><span class="p">,</span> <span class="nv">$origin</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$year</span><span class="p">,</span> <span class="nv">$month</span><span class="p">,</span> <span class="nv">$day</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="nv">$date</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$hour</span><span class="p">,</span> <span class="nv">$minute</span><span class="p">,</span> <span class="nv">$second</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="s">&quot;:&quot;</span><span class="p">,</span> <span class="nv">$time</span><span class="p">;</span>
+<span class="c1"># 秒和毫秒均为整数</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$sec</span><span class="p">,</span> <span class="nv">$msec</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">/\./</span><span class="p">,</span> <span class="nv">$second</span><span class="p">;</span>
+<span class="nv">$msec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nv">$second</span> <span class="o">-</span> <span class="nv">$sec</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">);</span>
+
+<span class="c1"># 计算发震日期是一年中的第几天</span>
+<span class="k">my</span> <span class="nv">$jday</span> <span class="o">=</span> <span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%j&quot;</span><span class="p">,</span> <span class="nv">$second</span><span class="p">,</span> <span class="nv">$minute</span><span class="p">,</span> <span class="nv">$hour</span><span class="p">,</span> <span class="nv">$day</span><span class="p">,</span> <span class="nv">$month</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nv">$year</span><span class="o">-</span><span class="mi">1900</span><span class="p">);</span>
+
+<span class="nb">chdir</span> <span class="nv">$dir</span><span class="p">;</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening SAC\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;wild echo off \n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r *.SAC \n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;synchronize \n&quot;</span><span class="p">;</span>   <span class="c1"># 同步所有文件的参考时刻</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;ch o gmt $year $jday $hour $minute $sec $msec \n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;ch allt (0 - &amp;1,o&amp;) iztype IO \n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;ch evlo $evlo evla $evla evdp $evdp mag $mag \n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;wh \n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q \n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+
+<span class="nb">chdir</span> <span class="s">&quot;..&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-transfer-pl">
+<span id="id6"></span><h2>去仪器响应<a class="headerlink" href="#subsec-transfer-pl" title="此标题的永久链接">¶</a></h2>
+<p>使用 PZ 文件去仪器响应。若数据的时间跨度太长，在该时间跨度内可能仪器响应会发生变化，因而会存在一个通道有多个 PZ 文件的情况。目前该脚本在遇到这种情况时会自动退出。</p>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/5.transfer.pl">5.transfer.pl</a></p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+<span class="nv">$ENV</span><span class="p">{</span><span class="n">SAC_DISPLAY_COPYRIGHT</span><span class="p">}</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nv">@ARGV</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Usage: perl $0 dirname\n&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$dir</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="nb">chdir</span> <span class="nv">$dir</span><span class="p">;</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="k">my</span> <span class="nv">$sacfile</span> <span class="p">(</span><span class="nb">glob</span> <span class="s">&quot;*.SAC&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nv">$net</span><span class="p">,</span> <span class="nv">$sta</span><span class="p">,</span> <span class="nv">$loc</span><span class="p">,</span> <span class="nv">$chn</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">/\./</span><span class="p">,</span> <span class="nv">$sacfile</span><span class="p">;</span>
+
+    <span class="c1"># 找到对应的PZ文件</span>
+    <span class="c1"># PZ文件名为: SAC_PZs_NET_STA_CHN_LOC_BeginTime_EndTime</span>
+    <span class="k">my</span> <span class="nv">@pz</span> <span class="o">=</span> <span class="nb">glob</span> <span class="s">&quot;SAC_PZs_${net}_${sta}_${chn}_${loc}_*_*&quot;</span><span class="p">;</span>
+    <span class="nb">die</span> <span class="s">&quot;PZ file error for $sacfile \n&quot;</span> <span class="k">if</span> <span class="nv">@pz</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r $sacfile \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;rmean; rtr; taper \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;trans from pol s $pz[0] to none freq 0.01 0.02 5 10\n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;mul 1.0e9 \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w over\n&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q\n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+
+<span class="nb">chdir</span> <span class="s">&quot;..&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-rotate-pl">
+<span id="id7"></span><h2>分量旋转<a class="headerlink" href="#subsec-rotate-pl" title="此标题的永久链接">¶</a></h2>
+<p>将成对的水平分量旋转到大圆路径。</p>
+<ul class="simple">
+<li><p>检查三分量是否缺失</p></li>
+<li><p>检查 <code class="docutils literal notranslate"><span class="pre">delta</span></code> 是否相等</p></li>
+<li><p>取三分量中的最大 <code class="docutils literal notranslate"><span class="pre">b</span></code> 和最小 <code class="docutils literal notranslate"><span class="pre">e</span></code> 值作为数据窗口，此操作要求三分量的
+<code class="docutils literal notranslate"><span class="pre">kzdate</span></code> 和 <code class="docutils literal notranslate"><span class="pre">kztime</span></code> 必须相同，这一点 在添加事件信息时使用 <a class="reference internal" href="../../commands/synchronize/"><span class="doc">synchronize</span></a> 已经实现</p></li>
+<li><p>检查两个水平分量是否正交，若不正交，则无法旋转</p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/6.rotate.pl">6.rotate.pl</a></p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">List::Util</span> <span class="sx">qw(min max)</span><span class="p">;</span>
+
+<span class="nv">@ARGV</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Usage: perl $0 dirname\n&quot;</span><span class="p">;</span>
+<span class="k">my</span> <span class="p">(</span><span class="nv">$dir</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="nb">chdir</span> <span class="nv">$dir</span><span class="p">;</span>
+
+<span class="c1"># 利用hash的key的不可重复性构建集合:</span>
+<span class="c1">#   hash的key定义为 NET.STA.LOC.CH (分量信息不是BHZ而是BH)</span>
+<span class="c1">#   hash的value是文件名与key匹配的SAC文件数目，正常情况下是3的整数倍</span>
+<span class="k">my</span> <span class="nv">%sets</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nb">glob</span> <span class="s">&quot;*.SAC&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nv">$net</span><span class="p">,</span> <span class="nv">$sta</span><span class="p">,</span> <span class="nv">$loc</span><span class="p">,</span> <span class="nv">$chn</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">/\./</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$chn2</span> <span class="o">=</span> <span class="nb">substr</span> <span class="nv">$chn</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nv">$sets</span><span class="p">{</span><span class="s">&quot;$net.$sta.$loc.$chn2&quot;</span><span class="p">}</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;|sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="c1"># 对所有的key做循环</span>
+<span class="k">foreach</span> <span class="k">my</span> <span class="nv">$key</span> <span class="p">(</span><span class="nb">keys</span> <span class="nv">%sets</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nv">$E</span><span class="p">,</span> <span class="nv">$N</span><span class="p">,</span> <span class="nv">$Z</span><span class="p">,</span> <span class="nv">$R</span><span class="p">,</span> <span class="nv">$T</span><span class="p">,</span> <span class="nv">$Z0</span><span class="p">);</span>
+
+    <span class="c1"># 检查Z分量是否存在</span>
+    <span class="nv">$Z</span> <span class="o">=</span> <span class="s">&quot;${key}Z.SAC&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!-</span><span class="n">e</span> <span class="nv">$Z</span><span class="p">)</span> <span class="p">{</span>  <span class="c1"># 若不存在，则删除该台站的所有数据</span>
+        <span class="nb">warn</span> <span class="s">&quot;$key: Vertical component missing!\n&quot;</span><span class="p">;</span>
+        <span class="k">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># 检查水平分量是否存在</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="n">e</span> <span class="s">&quot;${key}E.SAC&quot;</span> <span class="ow">and</span> <span class="o">-</span><span class="n">e</span> <span class="s">&quot;${key}N.SAC&quot;</span><span class="p">)</span> <span class="p">{</span>   <span class="c1"># E和N分量</span>
+        <span class="nv">$E</span> <span class="o">=</span> <span class="s">&quot;${key}E.SAC&quot;</span><span class="p">;</span>
+        <span class="nv">$N</span> <span class="o">=</span> <span class="s">&quot;${key}N.SAC&quot;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">elsif</span> <span class="p">(</span><span class="o">-</span><span class="n">e</span> <span class="s">&quot;${key}1.SAC&quot;</span> <span class="ow">and</span> <span class="o">-</span><span class="n">e</span> <span class="s">&quot;${key}2.SAC&quot;</span><span class="p">)</span> <span class="p">{</span>  <span class="c1"># 1和2分量</span>
+        <span class="nv">$E</span> <span class="o">=</span> <span class="s">&quot;${key}1.SAC&quot;</span><span class="p">;</span>
+        <span class="nv">$N</span> <span class="o">=</span> <span class="s">&quot;${key}2.SAC&quot;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>   <span class="c1"># 水平分量缺失</span>
+        <span class="nb">warn</span> <span class="s">&quot;$key: Horizontal components missing!\n&quot;</span><span class="p">;</span>
+        <span class="k">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># 检查水平分量是否正交</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nb">undef</span><span class="p">,</span> <span class="nv">$cmpaz_E</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">m/\s+/</span><span class="p">,</span> <span class="sb">`saclst cmpaz f $E`</span><span class="p">;</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nb">undef</span><span class="p">,</span> <span class="nv">$cmpaz_N</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">m/\s+/</span><span class="p">,</span> <span class="sb">`saclst cmpaz f $N`</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$cmpaz_delta</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nv">$cmpaz_E</span> <span class="o">-</span> <span class="nv">$cmpaz_N</span><span class="p">);</span>
+    <span class="k">unless</span> <span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="nv">$cmpaz_delta</span> <span class="o">-</span> <span class="mi">90</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.01</span><span class="p">)</span> <span class="ow">or</span>
+        <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nv">$cmpaz_delta</span> <span class="o">-</span> <span class="mi">270</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.01</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nb">warn</span> <span class="s">&quot;$key: $E $N are not orthogonal!\n&quot;</span><span class="p">;</span>
+        <span class="k">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># 假定kzdate和kztime相同</span>
+    <span class="c1"># 检查B, E, DELTA</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nb">undef</span><span class="p">,</span> <span class="nv">$Zb</span><span class="p">,</span> <span class="nv">$Ze</span><span class="p">,</span> <span class="nv">$Zdelta</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="s">&quot; &quot;</span><span class="p">,</span> <span class="sb">`saclst b e delta f $Z`</span><span class="p">;</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nb">undef</span><span class="p">,</span> <span class="nv">$Eb</span><span class="p">,</span> <span class="nv">$Ee</span><span class="p">,</span> <span class="nv">$Edelta</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="s">&quot; &quot;</span><span class="p">,</span> <span class="sb">`saclst b e delta f $E`</span><span class="p">;</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nb">undef</span><span class="p">,</span> <span class="nv">$Nb</span><span class="p">,</span> <span class="nv">$Ne</span><span class="p">,</span> <span class="nv">$Ndelta</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="s">&quot; &quot;</span><span class="p">,</span> <span class="sb">`saclst b e delta f $N`</span><span class="p">;</span>
+    <span class="k">unless</span> <span class="p">(</span> <span class="nv">$Zdelta</span> <span class="o">==</span> <span class="nv">$Edelta</span> <span class="ow">and</span> <span class="nv">$Zdelta</span> <span class="o">==</span> <span class="nv">$Ndelta</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">warn</span> <span class="s">&quot;$key: delta not equal!\n&quot;</span><span class="p">;</span>
+        <span class="k">next</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1"># 获取三分量里的最大B和最小E值作为数据窗</span>
+    <span class="k">my</span> <span class="nv">$begin</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="nv">$Zb</span><span class="p">,</span> <span class="nv">$Eb</span><span class="p">,</span> <span class="nv">$Nb</span><span class="p">)</span> <span class="o">+</span> <span class="nv">$Zdelta</span><span class="p">;</span>
+    <span class="k">my</span> <span class="nv">$end</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="nv">$Ze</span><span class="p">,</span> <span class="nv">$Ee</span><span class="p">,</span> <span class="nv">$Ne</span><span class="p">)</span> <span class="o">-</span> <span class="nv">$Zdelta</span><span class="p">;</span>
+
+    <span class="c1"># 输出文件名为 NET.STA.LOC.[RTZ]</span>
+    <span class="k">my</span> <span class="nv">$prefix</span> <span class="o">=</span> <span class="nb">substr</span> <span class="nv">$key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="nv">$key</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nv">$R</span> <span class="o">=</span> <span class="nv">$prefix</span><span class="o">.</span><span class="s">&quot;R&quot;</span><span class="p">;</span>
+    <span class="nv">$T</span> <span class="o">=</span> <span class="nv">$prefix</span><span class="o">.</span><span class="s">&quot;T&quot;</span><span class="p">;</span>
+    <span class="nv">$Z0</span> <span class="o">=</span> <span class="nv">$prefix</span><span class="o">.</span><span class="s">&quot;Z&quot;</span><span class="p">;</span>
+
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;cut $begin $end \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r $E $N \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;rotate to gcp \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w $R $T \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r $Z \n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w $Z0 \n&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q\n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+<span class="nb">unlink</span> <span class="nb">glob</span> <span class="s">&quot;*.SAC&quot;</span><span class="p">;</span>
+
+<span class="nb">chdir</span> <span class="s">&quot;..&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>数据重采样<a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h2>
+<p>通常有两种情况下需要对数据进行重采样：</p>
+<ul class="simple">
+<li><p>原始数据的采样率过高，而实际研究中不需要如此高的采样率，此时，对数据做减采样可以大大减少数据量；</p></li>
+<li><p>原始数据中，不同台站的采样率不同，可能会影响到后期的数据处理，因而需要让所有数据使用统一的采样率；</p></li>
+</ul>
+<p>下面的Perl脚本中使用 <a class="reference internal" href="../../commands/interpolate/"><span class="doc">interpolate</span></a> 命令将所有数据重采样到相同的采样周期。用户可以在命令行中直接指定要使用的重采样后的采样周期，若命令行中的采样周期指定为0，则以大多数数据所使用的采样周期作为重采样后的采样周期。</p>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/7.resample.pl">7.resample.pl</a></p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+
+<span class="nv">@ARGV</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Usage: perl $0 dirname [delta | 0]\n&quot;</span><span class="p">;</span>
+<span class="c1">#若第二个参数为0，则取数据中出现次数最多的周期为采样周期</span>
+
+<span class="k">my</span> <span class="p">(</span><span class="nv">$dir</span><span class="p">,</span> <span class="nv">$delta</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@ARGV</span><span class="p">;</span>
+
+<span class="nb">chdir</span> <span class="nv">$dir</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$delta</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1"># 假定所有数据已旋转到RTZ坐标系，文件名格式为NET.STA.LOC.[RTZ]</span>
+    <span class="c1"># hash的键为出现了的采样周期，其值为出现的个数</span>
+    <span class="k">my</span> <span class="nv">%group</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nb">glob</span> <span class="s">&quot;*.*.*.[RTZ]&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">my</span> <span class="p">(</span><span class="nb">undef</span><span class="p">,</span> <span class="nv">$delta0</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">/\s+/</span><span class="p">,</span> <span class="sb">`saclst delta f $_`</span><span class="p">;</span>
+        <span class="nv">$group</span><span class="p">{</span><span class="nv">$delta0</span><span class="p">}</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1"># 将hash按value排序，找到最大value所对应的key</span>
+    <span class="k">my</span> <span class="nv">@keys</span> <span class="o">=</span> <span class="nb">sort</span> <span class="p">{</span><span class="nv">$group</span><span class="p">{</span><span class="nv">$b</span><span class="p">}</span> <span class="sr">&lt;=&gt;</span> <span class="nv">$group</span><span class="p">{</span><span class="nv">$a</span><span class="p">}}</span> <span class="nb">keys</span> <span class="nv">%group</span><span class="p">;</span>
+    <span class="p">(</span><span class="nv">$delta</span><span class="p">)</span> <span class="o">=</span> <span class="nv">@keys</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># 重采样</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;|sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nb">glob</span> <span class="s">&quot;*.*.*.[RTZ]&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nb">undef</span><span class="p">,</span> <span class="nv">$delta0</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="sr">/\s+/</span><span class="p">,</span> <span class="sb">`saclst delta f $_`</span><span class="p">;</span>
+    <span class="k">next</span> <span class="k">if</span> <span class="nv">$delta</span> <span class="o">==</span> <span class="nv">$delta0</span><span class="p">;</span>  <span class="c1"># 不需要重采样</span>
+
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r $_ \n&quot;</span><span class="p">;</span>
+    <span class="c1"># 用interpolate实现减采样或增采样</span>
+    <span class="c1"># 若是减采样，则需要对数据做低通滤波以防止出现混淆效应</span>
+    <span class="c1"># 低通滤波时或许需要加上p 2以避免滤波引起的相移</span>
+    <span class="nb">printf</span> <span class="n">SAC</span> <span class="s">&quot;lp c %f\n&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">/</span><span class="nv">$delta</span> <span class="k">if</span> <span class="nv">$delta</span> <span class="o">&gt;</span> <span class="nv">$delta0</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;interpolate delta $delta \n&quot;</span><span class="p">;</span>
+
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w over\n&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q\n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+
+<span class="nb">chdir</span> <span class="s">&quot;..&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../call-sac-in-bash/" class="btn btn-neutral float-left" title="Bash 中调用 SAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../call-sac-in-python/" class="btn btn-neutral float-right" title="Python中调用SAC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

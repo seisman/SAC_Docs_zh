@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>时间变量 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="SAC 数据处理" href="../../data-process/" />
+    <link rel="prev" title="头段变量" href="../header-variables/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 文件格式</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-fileformat/">格式简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binary-and-alphanumeric/">两种数据形式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../header-structure/">头段结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../header-variables/">头段变量</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">时间变量</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">基本思路</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">一些测试</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">生成样例数据</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#b">修改文件起始时间 b</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#e">修改文件结束时间 e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#oaftn">修改 o、a、f、tn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">修改参考时间</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">修改发震时刻</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">总结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 文件格式</a> &raquo;</li>
+      <li>时间变量</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/fileformat/times.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>时间变量<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="id2">
+<h2>基本思路<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>SAC 的头段区有很多与时间相关的头段变量，包括 <code class="docutils literal notranslate"><span class="pre">nzyear</span></code>、
+<code class="docutils literal notranslate"><span class="pre">nzjday</span></code>、<code class="docutils literal notranslate"><span class="pre">nzhour</span></code>、<code class="docutils literal notranslate"><span class="pre">nzmin</span></code>、<code class="docutils literal notranslate"><span class="pre">nzsec</span></code>、
+<code class="docutils literal notranslate"><span class="pre">nzmsec</span></code>、<code class="docutils literal notranslate"><span class="pre">b</span></code>、<code class="docutils literal notranslate"><span class="pre">e</span></code>、<code class="docutils literal notranslate"><span class="pre">o</span></code>、<code class="docutils literal notranslate"><span class="pre">a</span></code>、
+<code class="docutils literal notranslate"><span class="pre">f</span></code>、<code class="docutils literal notranslate"><span class="pre">tn</span></code>（n=0–9）。正确使用它们的前提是理解 SAC 中的时间概念。这一节将试着说清楚这个问题。</p>
+<p>首先，SAC 处理的是地震波形数据，SAC 格式里保存的是时间序列数据。先不管其它的一些台站经纬度、事件经纬度信息，就数据而言，至少需要一系列数据值以及每个数据值所对应的时刻。</p>
+<p>在本节接下来的内容中，将严格区分两个高中物理学过的概念：时刻和时间。简单地说，在时间轴上，时刻是一个点，时间是一个线段。</p>
+<p>一个简单的例子如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">00.000</span>     <span class="mf">0.10</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">01.000</span>     <span class="mf">0.25</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">02.000</span>     <span class="mf">0.33</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">03.000</span>     <span class="mf">0.21</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">04.000</span>     <span class="mf">0.35</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">05.000</span>     <span class="mf">0.55</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">06.000</span>     <span class="mf">0.78</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">07.000</span>     <span class="mf">0.66</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">08.000</span>     <span class="mf">0.42</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">09.000</span>     <span class="mf">0.34</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">26</span><span class="n">T20</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">10.000</span>     <span class="mf">0.25</span>
+</pre></div>
+</div>
+<p>其中第二列是数据点，每个数据点所对应的时刻放在第一列，格式为“<code class="docutils literal notranslate"><span class="pre">yyyy-mm-ddThh:mm:ss.xxx</span></code>”。数据点是以 1 秒的等间隔进行采样的。</p>
+<p>若把这堆时刻以及数据点直接写入文件中，将占据大量的磁盘空间，读写也很不方便。考虑将某一个时刻定义为参考时刻，并把其它所有的时刻都用相对于该参考时刻的秒数来表示，这样可以简化不少。</p>
+<p>比如取“<code class="docutils literal notranslate"><span class="pre">2014-02-26T20:45:00.000</span></code>”为参考时刻，即</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nzyear</span> <span class="o">=</span> <span class="mi">2014</span>
+<span class="n">nzjday</span> <span class="o">=</span> <span class="mi">57</span>
+<span class="n">nzhour</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">nzmin</span>  <span class="o">=</span> <span class="mi">45</span>
+<span class="n">nzsec</span>  <span class="o">=</span> <span class="mi">00</span>
+<span class="n">nzmsec</span> <span class="o">=</span> <span class="mi">000</span>
+</pre></div>
+</div>
+<p>则上面的数据可以简化为</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">00.000</span>     <span class="mf">0.10</span>
+<span class="mf">01.000</span>     <span class="mf">0.25</span>
+<span class="mf">02.000</span>     <span class="mf">0.33</span>
+<span class="mf">03.000</span>     <span class="mf">0.21</span>
+<span class="mf">04.000</span>     <span class="mf">0.35</span>
+<span class="mf">05.000</span>     <span class="mf">0.55</span>
+<span class="mf">06.000</span>     <span class="mf">0.78</span>
+<span class="mf">07.000</span>     <span class="mf">0.66</span>
+<span class="mf">08.000</span>     <span class="mf">0.42</span>
+<span class="mf">09.000</span>     <span class="mf">0.34</span>
+<span class="mf">10.000</span>     <span class="mf">0.25</span>
+</pre></div>
+</div>
+<p>其中第二列是数据点，第一列是每个数据点对应的时刻相对于参考时刻的相对秒数，下面简称其为相对时间。</p>
+<p>显然参考时刻的选取是任意的，若取“<code class="docutils literal notranslate"><span class="pre">2014-02-26T20:45:05.000</span></code>”为参考时刻，则上面的数据简化为</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mf">05.000</span>     <span class="mf">0.10</span>
+<span class="o">-</span><span class="mf">04.000</span>     <span class="mf">0.25</span>
+<span class="o">-</span><span class="mf">03.000</span>     <span class="mf">0.33</span>
+<span class="o">-</span><span class="mf">02.000</span>     <span class="mf">0.21</span>
+<span class="o">-</span><span class="mf">01.000</span>     <span class="mf">0.35</span>
+ <span class="mf">00.000</span>     <span class="mf">0.55</span>
+ <span class="mf">01.000</span>     <span class="mf">0.78</span>
+ <span class="mf">02.000</span>     <span class="mf">0.66</span>
+ <span class="mf">03.000</span>     <span class="mf">0.42</span>
+ <span class="mf">04.000</span>     <span class="mf">0.34</span>
+ <span class="mf">05.000</span>     <span class="mf">0.25</span>
+</pre></div>
+</div>
+<p>一般来说，会选取一个比较特殊的时刻作为参考时刻，比如第一个数据点对应的时刻，或者地震波形数据中的发震时刻。</p>
+<p>下面还是回到以“<code class="docutils literal notranslate"><span class="pre">2014-02-26T20:45:00.000</span></code>”为参考时刻简化得到的结果。因为数据是等间距的，相对时间这一列完全可以进一步简化，比如用“起始相对时间+采样间隔+数据点数”或者“起始相对时间+采样间隔+结束相对时间”就完全可以表征第一列的相对时间。</p>
+<p>SAC 选择了另外一种简化模式，“起始相对时间+采样间隔+数据点数+结束相对时间”，即头段变量中的“<code class="docutils literal notranslate"><span class="pre">b+delta+npts+e</span></code>”，这其实是存在信息冗余的，这就造就了头段变量 <code class="docutils literal notranslate"><span class="pre">e</span></code> 的一些特殊性，后面会提到。</p>
+<p>按照 SAC 的模式在对相对时间进行简化之后，整个数据可以表示为</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nzyear</span> <span class="o">=</span> <span class="mi">2014</span>
+<span class="n">nzjday</span> <span class="o">=</span> <span class="mi">57</span>
+<span class="n">nzhour</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">nzmin</span>  <span class="o">=</span> <span class="mi">45</span>
+<span class="n">nzsec</span>  <span class="o">=</span> <span class="mi">00</span>
+<span class="n">nzmsec</span> <span class="o">=</span> <span class="mi">000</span>
+<span class="n">b</span>      <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">e</span>      <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">delta</span>  <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">npts</span>   <span class="o">=</span> <span class="mi">11</span>
+
+<span class="mf">0.10</span>
+<span class="mf">0.25</span>
+<span class="mf">0.33</span>
+<span class="mf">0.21</span>
+<span class="mf">0.35</span>
+<span class="mf">0.55</span>
+<span class="mf">0.78</span>
+<span class="mf">0.66</span>
+<span class="mf">0.42</span>
+<span class="mf">0.34</span>
+<span class="mf">0.25</span>
+</pre></div>
+</div>
+<p>似乎到这里就结束了。</p>
+<p>地震学里的一个重要问题是拾取震相到时（时刻），所以还需要几个额外的头段变量来保存这些震相到时（时刻），不过显然不需要真的把“时刻”保存到这些头段变量中，不然上面的一大堆就真是废话了。SAC 将震相到时（时刻）相对于参考时刻的时间差（即相对时间）保存到头段变量 <code class="docutils literal notranslate"><span class="pre">o</span></code>、
+<code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code>、<code class="docutils literal notranslate"><span class="pre">tn</span></code> 中。</p>
+<p>综上，SAC 中跟时间有关的概念有三个：</p>
+<dl class="simple">
+<dt>参考时刻</dt><dd><p>由头段变量 <code class="docutils literal notranslate"><span class="pre">nzyear</span></code>、<code class="docutils literal notranslate"><span class="pre">nzjday</span></code>、
+<code class="docutils literal notranslate"><span class="pre">nzhour</span></code>、<code class="docutils literal notranslate"><span class="pre">nzmin</span></code>、<code class="docutils literal notranslate"><span class="pre">nzsec</span></code>、<code class="docutils literal notranslate"><span class="pre">nzmsec</span></code> 决定</p>
+</dd>
+<dt>相对时间</dt><dd><p>即某个时刻相对于参考时刻的时间差（单位为秒），保存到头段变量
+<code class="docutils literal notranslate"><span class="pre">b</span></code>、<code class="docutils literal notranslate"><span class="pre">e</span></code>、<code class="docutils literal notranslate"><span class="pre">o</span></code>、<code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code>、
+<code class="docutils literal notranslate"><span class="pre">tn</span></code>（n=0–9）</p>
+</dd>
+<dt>绝对时刻</dt><dd><p>=参考时刻+相对时间</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h2>一些测试<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>下面以一个具体的数据为例，通过修改各种与时间相关的头段来试着去进一步理解 SAC 的时间概念。</p>
+<section id="id4">
+<h3>生成样例数据<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; lh iztype</span>
+<span class="go">    iztype = BEGIN TIME</span>
+<span class="go">SAC&gt; ch iztype IUNKN</span>
+<span class="go">SAC&gt; w seis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">lh</span></code> 是命令 <code class="docutils literal notranslate"><span class="pre">listhdr</span></code> 的简写，用于列出头段变量的值。<code class="docutils literal notranslate"><span class="pre">ch</span></code> 是
+<a class="reference internal" href="../../commands/chnhdr/"><span class="doc">chnhdr</span></a> 的简写，用于修改头段变量的值。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>这里额外多做了一个操作修改 <code class="docutils literal notranslate"><span class="pre">iztype</span></code> 的操作，这是由于这个数据稍稍有一点 bug。</p>
+<p><code class="docutils literal notranslate"><span class="pre">iztype</span></code> 指定了参考时刻的类型，其显示为 <code class="docutils literal notranslate"><span class="pre">BEGIN</span> <span class="pre">TIME</span></code>，实际上其枚举值是 <code class="docutils literal notranslate"><span class="pre">IB</span></code>，也就是说这个数据选取文件第一个数据点的时刻作为参考时刻，那么 <code class="docutils literal notranslate"><span class="pre">b</span></code> 的值应该为0。而实际上这个数据的 <code class="docutils literal notranslate"><span class="pre">b</span></code>
+值并不为0，这其实是这个数据的一点小 bug。这也从另一个侧面说明
+SAC 只有在修改与时间相关的头段变量时才可能会检查到这个错误/警告，所以这里先将其修正为 <code class="docutils literal notranslate"><span class="pre">IUNKN</span></code>。</p>
+</div>
+</section>
+<section id="b">
+<h3>修改文件起始时间 b<a class="headerlink" href="#b" title="此标题的永久链接">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r seis</span>
+<span class="go">SAC&gt; lh kzdate kztime b delta npts e o a f</span>
+
+<span class="go">     kzdate = MAR 29 (088), 1981</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">      delta = 1.000000e-02</span>
+<span class="go">       npts = 1000</span>
+<span class="go">          e = 1.945000e+01</span>
+<span class="go">          o = -4.143000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">SAC&gt; ch b 10</span>
+<span class="go">SAC&gt; lh</span>
+
+<span class="go">     kzdate = MAR 29 (088), 1981</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">          b = 1.000000e+01</span>
+<span class="go">      delta = 1.000000e-02</span>
+<span class="go">       npts = 1000</span>
+<span class="go">          e = 1.999000e+01</span>
+<span class="go">          o = -4.143000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+</pre></div>
+</div>
+<p>修改 <code class="docutils literal notranslate"><span class="pre">b</span></code> 前后的变化仅在于 <code class="docutils literal notranslate"><span class="pre">b</span></code> 和 <code class="docutils literal notranslate"><span class="pre">e</span></code> 值的变化，而参考时刻以及其它相对时间并没有发生变化。</p>
+<p>这意味着整段 SAC 数据中的任意一个数据点所对应的时刻都向后延迟了 0.54 秒！这样做很危险，因为 <code class="docutils literal notranslate"><span class="pre">b</span></code> 和 <code class="docutils literal notranslate"><span class="pre">e</span></code> 的绝对时刻被修改了，而其它头段如 <code class="docutils literal notranslate"><span class="pre">o</span></code>、<code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code>、 <code class="docutils literal notranslate"><span class="pre">tn</span></code>
+的绝对时刻却没有变。</p>
+<p>使用的时候必须非常小心：</p>
+<ul class="simple">
+<li><p>如果 <code class="docutils literal notranslate"><span class="pre">o</span></code>、<code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code>、<code class="docutils literal notranslate"><span class="pre">tn</span></code> 都没有定义， 那么修改 <code class="docutils literal notranslate"><span class="pre">b</span></code>
+值可以用于校正仪器的时间零飘<a class="footnote-reference brackets" href="#id12" id="id5">1</a>以及时区差异<a class="footnote-reference brackets" href="#id13" id="id6">2</a>。关于时区的校正，参考
+<a class="reference internal" href="../../data-process/time-zone-correction/"><span class="doc">时区校正</span></a> 一节。</p></li>
+<li><p>如果 <code class="docutils literal notranslate"><span class="pre">o</span></code>、<code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code>、<code class="docutils literal notranslate"><span class="pre">tn</span></code> 已经被定义， 则修改
+<code class="docutils literal notranslate"><span class="pre">b</span></code> 值会导致与震相相关的头段变量出现错误！<a class="footnote-reference brackets" href="#id14" id="id7">3</a></p></li>
+</ul>
+</section>
+<section id="e">
+<h3>修改文件结束时间 e<a class="headerlink" href="#e" title="此标题的永久链接">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r ./seis</span>
+<span class="go">SAC&gt; lh kzdate kztime b delta npts e o a f</span>
+
+<span class="go">     kzdate = MAR 29 (088), 1981</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">      delta = 1.000000e-02</span>
+<span class="go">       npts = 1000</span>
+<span class="go">          e = 1.945000e+01</span>
+<span class="go">          o = -4.143000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">SAC&gt; ch e 0</span>
+<span class="go">SAC&gt; lh</span>
+
+<span class="go">     kzdate = MAR 29 (088), 1981</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">      delta = 1.000000e-02</span>
+<span class="go">       npts = 1000</span>
+<span class="go">          e = 1.945000e+01</span>
+<span class="go">          o = -4.143000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+</pre></div>
+</div>
+<p>可以看到，修改前后所有变量均没有发生变化，即 <code class="docutils literal notranslate"><span class="pre">e</span></code> 的值是不可以随意改变的，根据上面的结果可知，<code class="docutils literal notranslate"><span class="pre">e</span></code> 的值是通过 <code class="docutils literal notranslate"><span class="pre">b</span></code>、
+<code class="docutils literal notranslate"><span class="pre">delta</span></code>、<code class="docutils literal notranslate"><span class="pre">npts</span></code>的值动态计算的。这也与上一节说到的头段变量冗余问题相符合。不要试图修改 <code class="docutils literal notranslate"><span class="pre">delta</span></code>、<code class="docutils literal notranslate"><span class="pre">npts</span></code>，这不科学！</p>
+</section>
+<section id="oaftn">
+<h3>修改 o、a、f、tn<a class="headerlink" href="#oaftn" title="此标题的永久链接">¶</a></h3>
+<p>这几个头段变量完全是由用户自定义的，因而任何的定义、修改、取消定义都不会对数据的正确性产生影响，因而这里不再测试。</p>
+</section>
+<section id="id8">
+<h3>修改参考时间<a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r ./seis</span>
+<span class="go">SAC&gt; lh kzdate kztime b delta npts e o a f</span>
+
+<span class="go">     kzdate = MAR 29 (088), 1981</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">      delta = 1.000000e-02</span>
+<span class="go">       npts = 1000</span>
+<span class="go">          e = 1.945000e+01</span>
+<span class="go">          o = -4.143000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">SAC&gt; ch nzsec 15</span>
+<span class="go">SAC&gt; lh</span>
+
+<span class="go">     kzdate = MAR 29 (088), 1981</span>
+<span class="go">     kztime = 10:38:15.000</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">      delta = 1.000000e-02</span>
+<span class="go">       npts = 1000</span>
+<span class="go">          e = 1.945000e+01</span>
+<span class="go">          o = -4.143000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+</pre></div>
+</div>
+<p>试图修改参考时刻，整个 SAC 头段，除了参考时刻外其它时间变量都没有发生变化。根据“绝对时刻=参考时刻+相对时间”可知，这导致所有 SAC 数据点的绝对时刻发生了平移，这一点理论上可以用于校正零飘或者时区，但是由于 SAC 不支持智能判断时间（比如不知道1时80分实际上是2时20分），所以修改时区时需要获取参考时刻6个头段变量，加上时区的校正值，再写入到参考时刻6个变量中，相对较为繁琐，因而若要校正时区，建议直接修改头段变量中的 <code class="docutils literal notranslate"><span class="pre">b</span></code> 值。</p>
+</section>
+<section id="id9">
+<h3>修改发震时刻<a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h3>
+<p>数据处理中一个常见的需求是修改发震时刻，这可以通过修改头段变量 <code class="docutils literal notranslate"><span class="pre">o</span></code>
+来实现，但是经常需要将参考时刻设置为发震时刻。上面的测试表明，直接修改参考时刻是很危险的，所以 SAC 的 <code class="docutils literal notranslate"><span class="pre">ch</span></code> 命令提供了 <code class="docutils literal notranslate"><span class="pre">allt</span></code> 选项来实现这一功能，在 <a class="reference internal" href="../../data-process/event-info/"><span class="doc">事件信息</span></a> 一节中会具体解释。</p>
+</section>
+</section>
+<section id="id10">
+<h2>总结<a class="headerlink" href="#id10" title="此标题的永久链接">¶</a></h2>
+<p>将SAC中的时间变量分为三类：</p>
+<ol class="arabic simple">
+<li><p>参考时刻：即 <code class="docutils literal notranslate"><span class="pre">nzyear</span></code>、<code class="docutils literal notranslate"><span class="pre">nzjday</span></code>、<code class="docutils literal notranslate"><span class="pre">nzhour</span></code>、
+<code class="docutils literal notranslate"><span class="pre">nzmin</span></code>、<code class="docutils literal notranslate"><span class="pre">nzsec</span></code>、<code class="docutils literal notranslate"><span class="pre">nzmsec</span></code>；</p></li>
+<li><p>相对时间：即 <code class="docutils literal notranslate"><span class="pre">o</span></code>、<code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code>、<code class="docutils literal notranslate"><span class="pre">tn</span></code>；</p></li>
+<li><p>特殊的相对时间：即 <code class="docutils literal notranslate"><span class="pre">b</span></code><a class="footnote-reference brackets" href="#id15" id="id11">4</a>；</p></li>
+</ol>
+<p>第二类时间变量可以随意修改，即震相拾取。</p>
+<p>第一、三类时间变量的修改会导致数据绝对时刻发生改变。一般通过修改第三类时间变量来校正时间零漂和时区差异。在设置了发震时刻后，应使用
+<a class="reference internal" href="../../commands/chnhdr/"><span class="doc">chnhdr</span></a> 命令的 <code class="docutils literal notranslate"><span class="pre">allt</span></code> 选项修改第一、三类时间变量。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">1</a></span></dt>
+<dd><p>零飘，即仪器中的时刻与标准时刻不同。</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">2</a></span></dt>
+<dd><p>时区差异可以理解成另一种零飘。</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">3</a></span></dt>
+<dd><p>如果只定义了 <code class="docutils literal notranslate"><span class="pre">o</span></code> 值，或者 <code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code>、<code class="docutils literal notranslate"><span class="pre">tn</span></code>
+为理论震相到时而非计算机拾取或人工拾取的到时，修改 <code class="docutils literal notranslate"><span class="pre">b</span></code> 也是没有问题的。有些乱，不多说了。总之不要随便修改 <code class="docutils literal notranslate"><span class="pre">b</span></code> 的值。</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id11">4</a></span></dt>
+<dd><p>由于 e 不可独立修改，所以不再考虑</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../header-variables/" class="btn btn-neutral float-left" title="头段变量" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../data-process/" class="btn btn-neutral float-right" title="SAC 数据处理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

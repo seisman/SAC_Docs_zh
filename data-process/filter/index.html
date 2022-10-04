@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>滤波 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="震相理论到时" href="../traveltime/" />
+    <link rel="prev" title="数据重采样" href="../resampling/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 数据处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-request/">数据申请</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-format/">数据格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge-traces/">合并数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rename/">数据重命名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time-zone-correction/">时区校正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event-info/">事件信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../station-info/">台站和分量信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">去毛刺</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean-rtrend-taper/">去均值、去线性趋势和波形尖灭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-response/">去仪器响应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut-data/">数据截窗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">分量旋转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling/">数据重采样</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">滤波</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">震相理论到时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort-traces/">波形排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quality-control/">质量控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picking-phase/">震相拾取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-analysis/">数据分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/">信号叠加</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 数据处理</a> &raquo;</li>
+      <li>滤波</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/data-process/filter.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>滤波<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>相关命令</strong>：<a class="reference internal" href="../../commands/bandpass/"><span class="doc">bandpass</span></a>、<a class="reference internal" href="../../commands/lowpass/"><span class="doc">lowpass</span></a>、
+<a class="reference internal" href="../../commands/highpass/"><span class="doc">highpass</span></a>、<a class="reference internal" href="../../commands/bandrej/"><span class="doc">bandrej</span></a></p>
+<p>几乎所有的数据分析都需要将数据限制在一定的频率范围内，这就需要对数据做各种不同方式的滤波。关于滤波的细节，可以参考滤波命令的相关说明，以及信号处理相关书籍。至于滤波的范围，则依赖于具体的研究对象。</p>
+<p>滤波过程中，有几个可以调节的参数：截止频率、阶数、通道数等等。不同的参数对波形造成的变形有多大区别？不同的参数得到的滤波器的频率响应又是怎样的？其实很容易就可以知道。</p>
+<p>下面的代码生成了一个脉冲函数，然后对脉冲函数用某个参数组合做滤波，得到滤波后的波形，然后对波形做 FFT，得到波形的振幅谱和相位谱。根据定义可知，得到的波形为滤波器的时间响应，得到的振幅谱和相位谱为滤波的频率响应：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg impulse delta 0.01 npts 1000   # 生成脉冲函数, delta和npts可调</span>
+<span class="go">SAC&gt; bp c 0.2 2 n 2 p 1                # 要查看的滤波参数</span>
+<span class="go">SAC&gt; beginframe</span>
+<span class="go">SAC&gt; xvport 0.1 0.9; yvport 0.7 0.9</span>
+<span class="go">SAC&gt; fileid off</span>
+<span class="go">SAC&gt; qdp off</span>
+<span class="go">SAC&gt; title &#39;Time Domain Response&#39;</span>
+<span class="go">SAC&gt; p                                # 绘制时间域响应</span>
+<span class="go">SAC&gt; fft</span>
+<span class="go">SAC&gt; xvport .1 .45; yvport .15 .55</span>
+<span class="go">SAC&gt; title &#39;Amplitude Response&#39;</span>
+<span class="go">SAC&gt; psp am loglog                    # 振幅响应</span>
+<span class="go">SAC&gt; xvport .55 .9</span>
+<span class="go">SAC&gt; title &#39;Phase Response&#39;</span>
+<span class="go">SAC&gt; psp ph linlin                    # 相位响应</span>
+<span class="go">SAC&gt; endframe</span>
+</pre></div>
+</div>
+<p>上面的代码涉及到了一些尚未介绍的命令，在后面会具体介绍。生成的效果图如下：</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/filter-response.png"><img alt="滤波器的时间响应和频率响应" src="../../_images/filter-response.png" style="width: 70.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 6 </span><span class="caption-text">滤波器的时间响应和频率响应</span><a class="headerlink" href="#id2" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p>对脉冲波形做 0.5 Hz 到 5 Hz 的带通滤波，下图中给出了不同的阶数和通道数对波形的影响：</p>
+<figure class="align-center" id="id3">
+<span id="figure-filter-waveform"></span><a class="reference internal image-reference" href="../../_images/filter-waveform.png"><img alt="不同参数的带通滤波效果" src="../../_images/filter-waveform.png" style="width: 80.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 7 </span><span class="caption-text">不同参数的带通滤波效果</span><a class="headerlink" href="#id3" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p>在 <a class="reference internal" href="#figure-filter-waveform"><span class="std std-numref">图 7</span></a> 中 Impulse 为原始脉冲波形，下面四条波形是分别取不同的 n 值和 p 值的结果。</p>
+<p>p 取1时，对波形做一次带通滤波，由于滤波器存在相位延迟，因而导致波形的峰值出现了时间延迟，因而会影响到震相的最大峰值的拾取，但对震相的初至却没有影响。</p>
+<p>p 取2时，对波形做正反两次带通滤波，此时不存在相位延迟，因而不会影响到最大峰值的拾取，但震相的初至则存在时间上的提前。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../resampling/" class="btn btn-neutral float-left" title="数据重采样" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../traveltime/" class="btn btn-neutral float-right" title="震相理论到时" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

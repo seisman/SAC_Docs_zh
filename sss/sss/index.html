@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>信号叠加子程序 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="addstack" href="../addstack/" />
+    <link rel="prev" title="SSS 信号叠加子程序" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SSS 信号叠加子程序</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">信号叠加子程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addstack/">addstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changestack/">changestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deletestack/">deletestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deltacheck/">deltacheck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distanceaxis/">distanceaxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distancewindow/">distancewindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../globalstack/">globalstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incrementstack/">incrementstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../liststack/">liststack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotrecordsection/">plotrecordsection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotstack/">plotstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sumstack/">sumstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timeaxis/">timeaxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timewindow/">timewindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">traveltime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../velocitymodel/">velocitymodel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../velocityroset/">velocityroset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writestack/">writestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zerostack/">zerostack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SSS 信号叠加子程序</a> &raquo;</li>
+      <li>信号叠加子程序</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/sss/sss.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>信号叠加子程序<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>Signal Stack Subprocess，是 SAC 提供的一个用于信号叠加的子程序。</p>
+<p>在 SAC 中键入 <code class="docutils literal notranslate"><span class="pre">sss</span></code> 即可进入该子程序；在子程序中键入
+<a class="reference internal" href="../../commands/quitsub/"><span class="doc">quitsub</span></a> 即可退出子程序并回到主程序；也可键入
+<a class="reference internal" href="../../commands/quit/"><span class="doc">quit</span></a> 直接从子程序中退出 SAC。</p>
+<p>在对多个信号进行叠加时，每个信号都有各自的属性，比如静延迟、震中距、权重因子、数据极性，也可以根据 normal moveout 或折射波速度模型计算动延迟。</p>
+<p>该子程序具有如下特点：</p>
+<ul class="simple">
+<li><p>延迟属性可以在叠加过程中自动递增；</p></li>
+<li><p>文件可以很容易地从叠加文件列表中增添；</p></li>
+<li><p>叠加时间窗也可以很容易调整；</p></li>
+<li><p>若文件在叠加时间窗内不含数据，则将其置零值；</p></li>
+<li><p>叠加文件列表可以单独绘制，也可以绘制叠加后的结果；</p></li>
+<li><p>每次叠加结果都可以保存到磁盘上；</p></li>
+<li><p>支持绘制记录剖面图；</p></li>
+</ul>
+<p>在 SSS 子程序中，你可以执行一系列 SSS 专属的命令，以及部分 SAC 主程序中的命令。下面仅列出 SSS 专属的命令：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../addstack/"><span class="doc">addstack</span></a> 向叠加文件列表中加入新文件</p></li>
+<li><p><a class="reference internal" href="../changestack/"><span class="doc">changestack</span></a> 修改当前叠加文件列表中的文件属性</p></li>
+<li><p><a class="reference internal" href="../deletestack/"><span class="doc">deletestack</span></a> 从叠加文件列表中删除一个或多个文件</p></li>
+<li><p><a class="reference internal" href="../deltacheck/"><span class="doc">deltacheck</span></a> 修改采样率检测选项</p></li>
+<li><p><a class="reference internal" href="../distanceaxis/"><span class="doc">distanceaxis</span></a> 定义剖面图中距离轴的参数</p></li>
+<li><p><a class="reference internal" href="../distancewindow/"><span class="doc">distancewindow</span></a> 控制接下来的剖面图的距离窗属性</p></li>
+<li><p><a class="reference internal" href="../globalstack/"><span class="doc">globalstack</span></a> 设置全局叠加属性</p></li>
+<li><p><a class="reference internal" href="../incrementstack/"><span class="doc">incrementstack</span></a> 叠加文件列表中文件的增量属性</p></li>
+<li><p><a class="reference internal" href="../liststack/"><span class="doc">liststack</span></a> 列出当前叠加文件列表中文件的属性</p></li>
+<li><p><a class="reference internal" href="../plotrecordsection/"><span class="doc">plotrecordsection</span></a> 用叠加文件列表中的文件绘制剖面图</p></li>
+<li><p><a class="reference internal" href="../plotstack/"><span class="doc">plotstack</span></a> 绘制叠加文件列表中的文件</p></li>
+<li><p><a class="reference internal" href="../sumstack/"><span class="doc">sumstack</span></a> 对叠加文件列表中的文件进行叠加</p></li>
+<li><p><a class="reference internal" href="../timeaxis/"><span class="doc">timeaxis</span></a> 控制接下来剖面图的时间轴属性</p></li>
+<li><p><a class="reference internal" href="../timewindow/"><span class="doc">timewindow</span></a> 设置叠加的时间窗</p></li>
+<li><p><a class="reference internal" href="../traveltime/"><span class="doc">traveltime</span></a> 根据预定义的模型计算走时</p></li>
+<li><p><a class="reference internal" href="../velocitymodel/"><span class="doc">velocitymodel</span></a> 用于计算动延迟的叠加速度模型参数</p></li>
+<li><p><a class="reference internal" href="../velocityroset/"><span class="doc">velocityroset</span></a> 控制剖面图中速度roset的放置</p></li>
+<li><p><a class="reference internal" href="../writestack/"><span class="doc">writestack</span></a> 将叠加结果写入磁盘</p></li>
+<li><p><a class="reference internal" href="../zerostack/"><span class="doc">zerostack</span></a> 重新初始化信号叠加</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="SSS 信号叠加子程序" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../addstack/" class="btn btn-neutral float-right" title="addstack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

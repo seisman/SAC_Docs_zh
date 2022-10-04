@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>两种数据形式 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="头段结构" href="../header-structure/" />
+    <link rel="prev" title="格式简介" href="../intro-to-fileformat/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 文件格式</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-fileformat/">格式简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">两种数据形式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">两种形式的互相转换</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../header-structure/">头段结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../header-variables/">头段变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../times/">时间变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 文件格式</a> &raquo;</li>
+      <li>两种数据形式</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/fileformat/binary-and-alphanumeric.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>两种数据形式<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>SAC 文件格式有两种形式：二进制型和文本型<a class="footnote-reference brackets" href="#id6" id="id2">1</a>。文本型与二进制型是完全等价的，只是文本型是给人看的，二进制型是给机器读写的。从 C 程序的角度来看，两者的区别在于，写文件时前者使用 <code class="docutils literal notranslate"><span class="pre">fprintf</span></code> 后者使用 <code class="docutils literal notranslate"><span class="pre">fwrite</span></code>。</p>
+<p>二进制型的 SAC 数据，占用更小的磁盘空间，读写速度更快，因而是最常用的 SAC
+格式形式。当文件出现问题时，文本型数据便于查看文件内容。</p>
+<p>通常，文本型的SAC文件以 <code class="docutils literal notranslate"><span class="pre">ASC</span></code><a class="footnote-reference brackets" href="#id7" id="id3">2</a>结尾， 二进制型的 SAC 文件以后缀 <code class="docutils literal notranslate"><span class="pre">SAC</span></code>
+结尾。但是，SAC 在读取文件时是不判断文件后缀的，所以文件后缀是什么并不重要，在某些情况下，会以 <code class="docutils literal notranslate"><span class="pre">BHE</span></code>、<code class="docutils literal notranslate"><span class="pre">BHN</span></code>、<code class="docutils literal notranslate"><span class="pre">BHZ</span></code> 这样的后缀结尾。在下面的示例中，很多 SAC 文件甚至没有后缀。</p>
+<section id="id4">
+<h2>两种形式的互相转换<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>你是否想要一个文本型的 SAC 文件，用编辑器打开好好看看 SAC 数据究竟长什么样？SAC 自带的命令可以实现两种形式的转换<a class="footnote-reference brackets" href="#id8" id="id5">3</a>。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; w seis             # 先生成一个二进制型 SAC 数据，以做测试</span>
+</pre></div>
+</div>
+<p>将二进制型转换成文本型：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r seis             # 读二进制型文件</span>
+<span class="go">SAC&gt; w alpha seis.asc   # 以文本型写入</span>
+</pre></div>
+</div>
+<p>将文本型转换成二进制型：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r alpha seis.asc     # 读文本型文件</span>
+<span class="go">SAC&gt; w sac seis.sac       # 以二进制型写入，可以省略sac，写成w seis.sac</span>
+</pre></div>
+</div>
+<p>试试用你最喜欢的文本编辑器打开文本型的 <code class="docutils literal notranslate"><span class="pre">seis.asc</span></code> 吧，其内容如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">0.01000000      -1.569280       1.520640      -12345.00      -12345.00</span>
+<span class="go">  9.459999       19.45000      -41.43000       10.46400      -12345.00</span>
+<span class="go"> -12345.00      -12345.00      -12345.00      -12345.00      -12345.00</span>
+<span class="go"> -12345.00      -12345.00      -12345.00      -12345.00      -12345.00</span>
+<span class="go"> -12345.00      -12345.00      -12345.00      -12345.00      -12345.00</span>
+<span class="go"> -12345.00      -12345.00      -12345.00      -12345.00      -12345.00</span>
+<span class="go"> -12345.00       48.00000      -120.0000      -12345.00      -12345.00</span>
+<span class="go">  48.00000      -125.0000      -12345.00       15.00000      -12345.00</span>
+<span class="go"> -12345.00      -12345.00      -12345.00      -12345.00      -12345.00</span>
+<span class="go"> -12345.00      -12345.00      -12345.00      -12345.00      -12345.00</span>
+<span class="go">  373.0627       88.14721       271.8528       3.357465      -12345.00</span>
+<span class="go"> -12345.00    -0.09854718       0.000000       0.000000      -12345.00</span>
+<span class="go"> -12345.00      -12345.00      -12345.00      -12345.00      -12345.00</span>
+<span class="go"> -12345.00      -12345.00      -12345.00      -12345.00      -12345.00</span>
+<span class="go">      1981        88        10        38        14</span>
+<span class="go">         0         6         0         0      1000</span>
+<span class="go">    -12345    -12345    -12345    -12345    -12345</span>
+<span class="go">         1        50         9    -12345    -12345</span>
+<span class="go">    -12345    -12345        42    -12345    -12345</span>
+<span class="go">    -12345    -12345    -12345    -12345    -12345</span>
+<span class="go">    -12345    -12345    -12345    -12345    -12345</span>
+<span class="go">         1         1         1         1         0</span>
+<span class="go"> CDV      K8108838</span>
+<span class="go"> -12345  -12345  -12345</span>
+<span class="go"> -12345  -12345  -12345</span>
+<span class="go"> -12345  -12345  -12345</span>
+<span class="go"> -12345  -12345  -12345</span>
+<span class="go"> -12345  -12345  -12345</span>
+<span class="go"> -12345  -12345  -12345</span>
+<span class="go"> -12345  -12345  -12345</span>
+<span class="go"> -0.09728001    -0.09728001    -0.09856002    -0.09856002    -0.09728001</span>
+<span class="go"> -0.09600000    -0.09472002    -0.09344001    -0.09344001    -0.09344001</span>
+<span class="go"> -0.09344001    -0.09344001    -0.09472002    -0.09472002    -0.09344001</span>
+<span class="go"> ......</span>
+</pre></div>
+</div>
+<p>第1–30行是头段区，31之后的行是数据区。目前你可能还看不懂头段区的这些数字或者字符代表什么。没关系，在下一节会详细介绍 SAC 头段区，记得一定要一边看下一节的内容，一边对照着这个例子，好好琢磨每一个头段的含义。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>原为 alphanumeric，译为文数字。</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>ASCII 的简写。</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
+<dd><p>也可以使用 SAC 的 <code class="docutils literal notranslate"><span class="pre">convert</span></code> 命令进行转换，不过此命令即将被淘汰，因而这里不会介绍。</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../intro-to-fileformat/" class="btn btn-neutral float-left" title="格式简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../header-structure/" class="btn btn-neutral float-right" title="头段结构" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

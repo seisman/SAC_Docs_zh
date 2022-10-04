@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>震相理论到时 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="波形排序" href="../sort-traces/" />
+    <link rel="prev" title="滤波" href="../filter/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 数据处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-request/">数据申请</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-format/">数据格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge-traces/">合并数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rename/">数据重命名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time-zone-correction/">时区校正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event-info/">事件信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../station-info/">台站和分量信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">去毛刺</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean-rtrend-taper/">去均值、去线性趋势和波形尖灭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-response/">去仪器响应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut-data/">数据截窗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">分量旋转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling/">数据重采样</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filter/">滤波</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">震相理论到时</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">手动标记</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traveltime">traveltime命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#taup-setsac"><code class="docutils literal notranslate"><span class="pre">taup_setsac</span></code> 命令</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sort-traces/">波形排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quality-control/">质量控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picking-phase/">震相拾取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-analysis/">数据分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/">信号叠加</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 数据处理</a> &raquo;</li>
+      <li>震相理论到时</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/data-process/traveltime.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>震相理论到时<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>震相理论到时的计算是地震学的基础，具体的原理涉及到一大堆公式，感兴趣的读者可以阅读相关文献。</p>
+<p>日常工作中经常需要识别震相、将波形按理论到时排序或迭加、计算震相到时残差等等，这些都需要用到震相理论到时。将震相理论到时写入到 SAC 文件的头段中，可以使得后期处理更加简单。SAC 头段中可以用于保存震相到时信息的头段包括：<code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">tn</span></code>（n=0–9），
+<code class="docutils literal notranslate"><span class="pre">ka</span></code>、<code class="docutils literal notranslate"><span class="pre">kf</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ktn</span></code> 则用于保存相应的震相名信息。</p>
+<p>给 SAC 文件标记理论到时有三种方法，下面一一介绍。</p>
+<section id="id2">
+<h2>手动标记<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>最直观的办法是根据SAC文件中的震源深度和震中距信息用某些程序计算出理论到时，然后用 <a class="reference internal" href="../../commands/chnhdr/"><span class="doc">chnhdr</span></a> 命令手动将到时信息写入到 SAC 头段中。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; dg sub teleseis nykl.z     # 以nykl.z为例</span>
+<span class="go">SAC&gt; lh evdp gcarc              # 查看震源深度和震中距</span>
+<span class="go">     evdp = 0.000000e+00</span>
+<span class="go">    gcarc = 3.841450e+01</span>
+<span class="gp"># </span>利用某程序计算得到ak135模型下，P波走时为443.14秒，S波走时为799.05秒
+<span class="gp"># </span>若SAC文件的参考时间为发震时刻，则
+<span class="go">SAC&gt; ch t0 443.14 t1 799.05 kt0 P kt1 S</span>
+<span class="go">SAC&gt; lh t0 kt0 t1 kt1</span>
+<span class="go">     t0 = 4.431400e+02</span>
+<span class="go">    kt0 = P</span>
+<span class="go">     t1 = 7.990500e+02</span>
+<span class="go">    kt1 = S</span>
+</pre></div>
+</div>
+<p>该方法很直接也很基础， 其缺点也很明显，那就是麻烦。如果参考时刻不是发震时刻的话，则更复杂一些。</p>
+</section>
+<section id="traveltime">
+<h2>traveltime命令<a class="headerlink" href="#traveltime" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/traveltime/"><span class="doc">traveltime</span></a> 是 SAC 提供的一个命令，用于计算 iasp91 或者 ak135
+地球标准模型下的震相理论走时，并自动将震相到时信息保存到 SAC 头段变量中。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; dg sub teleseis nykl.z</span>
+<span class="go">SAC&gt; traveltime model iasp91 picks 3 phase P S</span>
+<span class="go">traveltime: depth: 0.000000 km</span>
+<span class="go">SAC&gt; lh t3 kt3 t4 kt4</span>
+<span class="go">         t3 = 4.430530e+02</span>
+<span class="go">        kt3 = P</span>
+<span class="go">         t4 = 7.999642e+02</span>
+<span class="go">        kt4 = S</span>
+</pre></div>
+</div>
+<p>该命令会将震相P、S的理论到时依次写入头段变量 <code class="docutils literal notranslate"><span class="pre">t3</span></code>、<code class="docutils literal notranslate"><span class="pre">t4</span></code> 中，并在相应的 K 头段中写入震相名信息。该方法的优点在于是 SAC 内置命令，使用起来也很简单，缺点在于只支持两种地球速度模型。</p>
+</section>
+<section id="taup-setsac">
+<h2><code class="docutils literal notranslate"><span class="pre">taup_setsac</span></code> 命令<a class="headerlink" href="#taup-setsac" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference external" href="http://www.seis.sc.edu/taup/">TauP</a> 软件提供的 <code class="docutils literal notranslate"><span class="pre">taup_setsac</span></code> 命令可用于计算震相理论到时并保存到SAC文件中。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>taup_setsac -mod prem -ph P-6,S-7 -evdpkm *.SAC
+</pre></div>
+</div>
+<p>该命令会根据 SAC 文件中的震中距和震源深度信息，计算震相在一维地球模型下的理论走时，将震相走时写入到头段 <code class="docutils literal notranslate"><span class="pre">Tn</span></code> 中，并向 <code class="docutils literal notranslate"><span class="pre">KTn</span></code> 中写入震相名称，向
+<code class="docutils literal notranslate"><span class="pre">USERn</span></code> 中写入震相的射线参数（单位为 s/radian ）。上面的示例中，使用了 PREM 地球模型，将 P 和 S 的走时信息写入到头段 <code class="docutils literal notranslate"><span class="pre">T6</span></code> 和
+<code class="docutils literal notranslate"><span class="pre">T7</span></code> 中。</p>
+<p>该方法的优点在于支持多种地球标准模型、自定义模型以及自定义震相。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../filter/" class="btn btn-neutral float-left" title="滤波" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sort-traces/" class="btn btn-neutral float-right" title="波形排序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

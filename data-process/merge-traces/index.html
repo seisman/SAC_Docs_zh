@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>合并数据 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="数据重命名" href="../rename/" />
+    <link rel="prev" title="数据格式转换" href="../data-format/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 数据处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-request/">数据申请</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-format/">数据格式转换</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">合并数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rename/">数据重命名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time-zone-correction/">时区校正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event-info/">事件信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../station-info/">台站和分量信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">去毛刺</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean-rtrend-taper/">去均值、去线性趋势和波形尖灭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-response/">去仪器响应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut-data/">数据截窗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">分量旋转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling/">数据重采样</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filter/">滤波</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">震相理论到时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort-traces/">波形排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quality-control/">质量控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picking-phase/">震相拾取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-analysis/">数据分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/">信号叠加</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 数据处理</a> &raquo;</li>
+      <li>合并数据</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/data-process/merge-traces.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>合并数据<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>相关命令</strong>：<a class="reference internal" href="../../commands/merge/"><span class="doc">merge</span></a></p>
+<p><strong>相关脚本</strong>：<a class="reference internal" href="../../call-in-script/call-sac-in-perl/#subsec-merge-pl"><span class="std std-ref">Perl 脚本</span></a>、<a class="reference internal" href="../../call-in-script/call-sac-in-python/#subsec-merge-py"><span class="std std-ref">Python 脚本</span></a></p>
+<p>有些时候，从SEED或miniSEED中提取出的同一台站同一分量的连续波形数据，会被分割成多个等长或不等长的文件，数据断开的可能原因是仪器在某些时刻存在问题导致连续数据出现间断，也可能是出于其它考虑将数据进行切割。此时需要首先对数据进行合并。</p>
+<p>假定解压出来的台网 <code class="docutils literal notranslate"><span class="pre">NET</span></code>、台站 <code class="docutils literal notranslate"><span class="pre">STA</span></code>、位置为 <code class="docutils literal notranslate"><span class="pre">00</span></code> 的 <code class="docutils literal notranslate"><span class="pre">BHZ</span></code>
+分量的连续波形被分割成了多个文件，需要将多个文件合并成单个文件。</p>
+<p>SAC 在 v101.6 之前，只能先读取第一段数据，然后合并第二段数据，再合并第三段数据。对于多个数据段的合并，需要执行多次合并命令，且合并时文件的顺序必须按照绝对时间的先后顺序。即使用如下命令进行合并：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r 2012.055.12.00.00.0000.NET.STA.00.BHZ.Q.SAC</span>
+<span class="go">SAC&gt; merge 2012.055.12.25.00.0000.NET.STA.00.BHZ.Q.SAC</span>
+<span class="go">SAC&gt; merge 2012.055.12.40.00.0000.NET.STA.00.BHZ.Q.SAC</span>
+<span class="go">SAC&gt; ...</span>
+<span class="go">SAC&gt; merge 2012.055.13.20.00.0000.NET.STA.00.BHZ.Q.SAC</span>
+<span class="go">SAC&gt; w NET.STA.00.BHZ</span>
+</pre></div>
+</div>
+<p>SAC 从 v101.6 开始重写了 <a class="reference internal" href="../../commands/merge/"><span class="doc">merge</span></a> 命令，可以使用如下更简洁的形式：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r *.NET.STA.00.BHZ        # 读入所有需要合并的文件</span>
+<span class="go">SAC&gt; merge                     # 内存中的所有文件被合并为一个文件</span>
+<span class="go">SAC&gt; w NET.STA.00.BHZ          # 写回到磁盘中</span>
+</pre></div>
+</div>
+<p>对于所有要合并的数据文件，SAC 会检测 <code class="docutils literal notranslate"><span class="pre">knetwk</span></code>、<code class="docutils literal notranslate"><span class="pre">kstnm</span></code>、
+<code class="docutils literal notranslate"><span class="pre">kcmpnm</span></code> 和 <code class="docutils literal notranslate"><span class="pre">delta</span></code> 是否完全匹配，并智能判断每个文件的合并顺序。</p>
+<p>实际合并的过程中，可能会出现数据间断或数据重叠的情况：</p>
+<ul class="simple">
+<li><p>若数据存在间断，可对其直接补零或线性插值；</p></li>
+<li><p>若数据存在重叠，则可以比较重叠部分数据是否相同或对重叠的波形进行平均。</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../data-format/" class="btn btn-neutral float-left" title="数据格式转换" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../rename/" class="btn btn-neutral float-right" title="数据重命名" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

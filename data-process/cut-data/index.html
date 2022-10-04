@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据截窗 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="分量旋转" href="../rotate/" />
+    <link rel="prev" title="去仪器响应" href="../instrument-response/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 数据处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-request/">数据申请</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-format/">数据格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge-traces/">合并数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rename/">数据重命名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time-zone-correction/">时区校正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event-info/">事件信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../station-info/">台站和分量信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">去毛刺</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean-rtrend-taper/">去均值、去线性趋势和波形尖灭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-response/">去仪器响应</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">数据截窗</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pdw">pdw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cut">cut</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">分量旋转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling/">数据重采样</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filter/">滤波</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">震相理论到时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort-traces/">波形排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quality-control/">质量控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picking-phase/">震相拾取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-analysis/">数据分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/">信号叠加</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 数据处理</a> &raquo;</li>
+      <li>数据截窗</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/data-process/cut-data.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>数据截窗<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>相关命令</strong>：<a class="reference internal" href="../../commands/cut/"><span class="doc">cut</span></a></p>
+<p>数据申请时一般会选择尽可能长的时间窗，而实际进行数据处理和分析时可能只需要其中的一小段数据，这就需要对数据进行时间窗截取。SAC 中的 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 命令可以实现数据截取。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p><code class="docutils literal notranslate"><span class="pre">cut</span></code> 命令是“参数设定类” 命令，即需要先执行 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 命令再执行 <code class="docutils literal notranslate"><span class="pre">read</span></code> 命令。</p>
+</div>
+<section id="pdw">
+<span id="subsec-pdw"></span><h2>pdw<a class="headerlink" href="#pdw" title="此标题的永久链接">¶</a></h2>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 命令对数据进行截取时需要定义数据时间窗。除了截取数据之外，其他一些命令也会需要定义时间窗，比如
+<a class="reference internal" href="../../commands/rms/"><span class="doc">rms</span></a>、<a class="reference internal" href="../../commands/mtw/"><span class="doc">mtw</span></a>、<a class="reference internal" href="../../commands/xlim/"><span class="doc">xlim</span></a>
+等，这些命令都使用同样的方式定义时间窗，在 SAC 中称为 pdw，即 partial data window。</p>
+<p>pdw 定义了一个开始时间和一个结束时间，其格式为
+<code class="docutils literal notranslate"><span class="pre">ref</span> <span class="pre">offset</span> <span class="pre">ref</span> <span class="pre">offset</span></code>。 其中 <code class="docutils literal notranslate"><span class="pre">ref</span></code> 为参考时刻，可以取
+<code class="docutils literal notranslate"><span class="pre">Z</span></code>、<code class="docutils literal notranslate"><span class="pre">B</span></code>、<code class="docutils literal notranslate"><span class="pre">E</span></code>、<code class="docutils literal notranslate"><span class="pre">O</span></code>、<code class="docutils literal notranslate"><span class="pre">A</span></code>、<code class="docutils literal notranslate"><span class="pre">F</span></code>、<code class="docutils literal notranslate"><span class="pre">N</span></code>
+和 <code class="docutils literal notranslate"><span class="pre">Tn</span></code>（n=0–9）， 而 <code class="docutils literal notranslate"><span class="pre">offset</span></code> 为相对于参考时刻的时间偏移量。</p>
+<p>参考时刻 <code class="docutils literal notranslate"><span class="pre">ref</span></code> 可以取如下值：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">B</span></code>：磁盘文件起始值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E</span></code>：磁盘文件结束值</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O</span></code>：事件开始时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code>：初动到时</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">F</span></code>：信号结束时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tn</span></code>：用户自定义时间标记，n=0–9</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Z</span></code>：参考时刻</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">N</span></code>：将 <code class="docutils literal notranslate"><span class="pre">offset</span></code> 解释为数据点数而非时间偏移量，其仅可以用于结束值</p></li>
+</ul>
+<p>若开始或结束的 <code class="docutils literal notranslate"><span class="pre">offset</span></code> 省略则认为其值为0。若开始 <code class="docutils literal notranslate"><span class="pre">ref</span></code>
+省略则认为其为 <code class="docutils literal notranslate"><span class="pre">Z</span></code>；若结束 <code class="docutils literal notranslate"><span class="pre">ref</span></code> 省略则认为其值与开始 <code class="docutils literal notranslate"><span class="pre">ref</span></code> 相同。</p>
+<p>下面的例子中展示了一些常见的 pdw 及其含义：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="n">E</span>            <span class="c1"># 文件开始到文件结束，即与 cut off 相同</span>
+<span class="n">B</span> <span class="mi">0</span> <span class="mi">30</span>         <span class="c1"># 文件开始的30秒</span>
+<span class="n">A</span> <span class="o">-</span><span class="mi">10</span> <span class="mi">30</span>       <span class="c1"># 初动前10秒到初动后30秒</span>
+<span class="n">B</span> <span class="n">N</span> <span class="mi">2048</span>       <span class="c1"># 文件最初的2048个点</span>
+<span class="n">T0</span> <span class="o">-</span><span class="mi">10</span> <span class="n">N</span> <span class="mi">1000</span>  <span class="c1"># 从T0前10秒起的1000个点</span>
+<span class="mf">30.2</span> <span class="mi">48</span>        <span class="c1"># 相对磁盘文件0点的30.2到48秒</span>
+</pre></div>
+</div>
+</section>
+<section id="cut">
+<h2>cut<a class="headerlink" href="#cut" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/cut/"><span class="doc">cut</span></a> 命令是“参数设定类”命令，因而需要先 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 再 <code class="docutils literal notranslate"><span class="pre">read</span></code>：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; cut t0 -5 5        # 截取 t0 前后各5秒，共计10秒的数据</span>
+<span class="go">SAC&gt; r *.SAC            # 先 cut 再 read</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../instrument-response/" class="btn btn-neutral float-left" title="去仪器响应" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../rotate/" class="btn btn-neutral float-right" title="分量旋转" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

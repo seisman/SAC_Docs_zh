@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文档约定 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="SAC 安装" href="../../install/" />
+    <link rel="prev" title="文档阅读指南" href="../reading-guides/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 简介</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../what-is-sac/">SAC 是什么？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history/">SAC 发展史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../variants/">SAC 变体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../maillist/">SAC 邮件组</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reading-guides/">文档阅读指南</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">文档约定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">语法约定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">示例约定</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 简介</a> &raquo;</li>
+      <li>文档约定</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/introduction/convection.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>文档约定<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>约定这个事情，说起来容易做起来难，遇到不符合约定的地方只能靠读者自己领悟了。</p>
+<section id="id2">
+<h2>语法约定<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic simple">
+<li><p>命令和选项使用大写字母，参数使用小写字母</p></li>
+<li><p>命令和选项均使用全称，简写形式可省略的部分用小写字母表示</p></li>
+<li><p>“<code class="docutils literal notranslate"><span class="pre">[XXX]</span></code>”表示中括号内的 <code class="docutils literal notranslate"><span class="pre">XXX</span></code> 为可选项</p></li>
+<li><p>“<code class="docutils literal notranslate"><span class="pre">A|B|C</span></code>”表示可以在A、B、C中任选一项</p></li>
+</ol>
+<p>示例如下:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BandPas</span> <span class="n">BUtter</span><span class="o">|</span><span class="n">BEssel</span><span class="o">|</span><span class="n">C1</span><span class="o">|</span><span class="n">C2</span> <span class="n">Corners</span> <span class="n">v1</span> <span class="n">v2</span> <span class="n">Npoles</span> <span class="n">n</span> <span class="n">Passes</span> <span class="n">n</span> <span class="n">Tranbw</span> <span class="n">v</span> <span class="n">Atten</span> <span class="n">v</span>
+</pre></div>
+</div>
+<p>需要特别说明的是，命令语法中选项的简写形式是在保证不产生歧义下的前提下所允许的<strong>最简形式</strong>。本例中，<code class="docutils literal notranslate"><span class="pre">CORNERS</span></code> 的最简形式为首字符 <code class="docutils literal notranslate"><span class="pre">C</span></code>，用户也可以使用 <code class="docutils literal notranslate"><span class="pre">CO</span></code>、<code class="docutils literal notranslate"><span class="pre">COR</span></code> 等来表示 <code class="docutils literal notranslate"><span class="pre">CORNERS</span></code>。</p>
+</section>
+<section id="id3">
+<h2>示例约定<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<ol class="arabic simple">
+<li><p>命令、选项、参数均使用小写字母</p></li>
+<li><p>常见的命令和选项均使用简写表示</p></li>
+<li><p>含有提示符“<code class="docutils literal notranslate"><span class="pre">SAC&gt;</span></code>”的行是用户键入的命令，无提示符的行是SAC输出行</p></li>
+<li><p>SAC 输出行中可能会删除一些不重要的信息</p></li>
+<li><p>示例中加入注释以帮助用户理解，注释使用了行注释符号 <code class="docutils literal notranslate"><span class="pre">#</span></code></p></li>
+<li><p>命令长度过长时会被拆分成多行，每一行的行尾会加上续行符 <code class="docutils literal notranslate"><span class="pre">\</span></code> ，但需要注意，SAC 中不能使用续行符</p></li>
+<li><p>示例中若出现 <code class="docutils literal notranslate"><span class="pre">...</span></code>，表示省略了一堆对数据的处理流程</p></li>
+<li><p>除非上下文说明，否则每个例子都运行在单独的 SAC 会话中，即每个命令都省略了启动 SAC 和退出 SAC 的命令</p></li>
+<li><p>除特别情况外，均省略 <a class="reference internal" href="../../commands/plot/"><span class="doc">plot</span></a> 命令，用户应该学会随时 <code class="docutils literal notranslate"><span class="pre">plot</span></code>
+以查看当前内存中的波形结果</p></li>
+</ol>
+<p>示例如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sac                           <span class="c1"># 该行省略</span>
+<span class="go">SAC&gt; fg seis                    # 这是注释</span>
+<span class="go">SAC&gt; p                          # 该行省略</span>
+<span class="go">SAC&gt; lh o</span>
+<span class="go">     o = -4.143000e+01          # SAC输出行</span>
+<span class="go">SAC&gt; q                          # 该行省略</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../reading-guides/" class="btn btn-neutral float-left" title="文档阅读指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../install/" class="btn btn-neutral float-right" title="SAC 安装" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

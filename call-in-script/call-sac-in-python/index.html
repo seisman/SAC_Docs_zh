@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python中调用SAC &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="SAC 函数库" href="../../libs/" />
+    <link rel="prev" title="Perl 中调用 SAC" href="../call-sac-in-perl/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">脚本中调用 SAC</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../call-sac-in-bash/">Bash 中调用 SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../call-sac-in-perl/">Perl 中调用 SAC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python中调用SAC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">简单示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">数据转换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-merge-py">文件合并</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-rename-py">文件重命名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-eventinfo-py">添加事件信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-transfer-py">去仪器响应</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-rotate-py">分量旋转</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">数据重采样</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">脚本中调用 SAC</a> &raquo;</li>
+      <li>Python中调用SAC</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/call-in-script/call-sac-in-python.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pythonsac">
+<h1>Python中调用SAC<a class="headerlink" href="#pythonsac" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>简单示例<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>下面的脚本展示了如何在 Python 中调用 SAC。</p>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/0.simple-script.py">0.simple-script.py</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">putenv</span><span class="p">(</span><span class="s2">&quot;SAC_DISPLAY_COPYRIGHT&quot;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;fg seismo </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;lh evla kstnm </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;q </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;sac&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Python 中使用 <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> 模块的 <code class="docutils literal notranslate"><span class="pre">Popen</span></code> 方法调用 SAC，通过
+<code class="docutils literal notranslate"><span class="pre">p.communicate()</span></code> 将命令 <code class="docutils literal notranslate"><span class="pre">s.encode()</span></code> 传递给 SAC。</p>
+</section>
+<section id="id2">
+<h2>数据转换<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>首先要将 SEED 格式的数据转换成 SAC 格式。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 一次只能处理一个 SEED 数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 的 <code class="docutils literal notranslate"><span class="pre">-pdf</span></code> 选项会提取出 SAC 波形数据和 PZ 格式的仪器响应文件</p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/1.rdseed.py">1.rdseed.py</a></p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>IRIS 自 2020 年 1 月开始不再提供 SEED 格式的数据下载支持，详情可阅读 <a class="reference external" href="http://www.iris.washington.edu/ds/newsletter/vol21/no1/509/retirement-of-full-seed-data-volumes-from-iris-dmc/">IRIS 数据服务通讯</a>。IRIS 也已<a class="reference external" href="https://ds.iris.edu/ds/nodes/dmc/manuals/rdseed/">不再维护 rdseed 软件</a>。</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Usage: python </span><span class="si">{}</span><span class="s2"> dirname&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="n">dirname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>  <span class="c1"># cd 进数据所在目录，以避免处理路径</span>
+
+<span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.seed&quot;</span><span class="p">):</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;rdseed&#39;</span><span class="p">,</span> <span class="s1">&#39;-pdf&#39;</span><span class="p">,</span> <span class="n">seed</span><span class="p">])</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-merge-py">
+<span id="id3"></span><h2>文件合并<a class="headerlink" href="#subsec-merge-py" title="此标题的永久链接">¶</a></h2>
+<p>SEED 文件的波形数据可能会因为多种原因而出现间断，导致同一个通道会解压出来多个 SAC 文件，因而需要将属于同一个通道的 SAC 数据合并起来。</p>
+<ul class="simple">
+<li><p>此处使用了新版 <a class="reference internal" href="../../commands/merge/"><span class="doc">merge</span></a> 命令的语法，要求 SAC 版本大于 v101.6</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">merge</span></code> 命令还有更多选项可以控制数据合并的细节，见命令的语法介绍</p></li>
+<li><p>合并后的数据，以最早的数据段的文件名命名</p></li>
+<li><p>多余的数据段均被删除，以保证每个通道只有一个 SAC 文件</p></li>
+<li><p>由于脚本运行速度比 SAC 运行速度快，因而应先退出 SAC 再删除多余的数据段</p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/2.merge.py">2.merge.py</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">putenv</span><span class="p">(</span><span class="s2">&quot;SAC_DISPLAY_COPYRIGHT&quot;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;python </span><span class="si">{}</span><span class="s2"> dirname&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="n">dirname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+
+<span class="c1"># 利用 dict 的 key 的不可重复性构建集合:</span>
+<span class="c1">#     dict 的 key 定义为 NET.STA.LOC.CHN</span>
+<span class="c1">#     dict 的 value 是文件名与 key 匹配的 SAC 文件数目</span>
+<span class="n">sets</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.SAC&quot;</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">6</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sets</span><span class="p">:</span>
+        <span class="n">sets</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sets</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># prepare sac commands</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;wild echo off </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">to_del</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1"># 仅当 value 大于1时才需要 merge</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;merge </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2"> traces&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+    <span class="c1"># Python 的 glob 返回值是乱序的，因而必须 sort</span>
+    <span class="n">traces</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;SAC&#39;</span><span class="p">])))</span>
+
+    <span class="c1"># 在 SAC 中使用通配符而不是使用 @traces 以避免命令行过长的问题</span>
+    <span class="c1"># merge 不支持通配符</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;r *.</span><span class="si">{}</span><span class="s2">.?.SAC </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>    <span class="c1"># SAC v101.6 or later</span>
+    <span class="c1"># 缺数据则补0，重叠则做平均</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;merge gap zero overlap average </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;w </span><span class="si">{}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">traces</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>      <span class="c1"># 以最早数据段的文件名保存</span>
+
+    <span class="n">to_del</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">traces</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;q </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;sac&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+<span class="c1"># 删除多余的数据段</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">to_del</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-rename-py">
+<span id="id4"></span><h2>文件重命名<a class="headerlink" href="#subsec-rename-py" title="此标题的永久链接">¶</a></h2>
+<p>从 SEED 解压出的 SAC 文件名较长，因而对其重命名以简化。</p>
+<ul class="simple">
+<li><p>SEED 解压出的默认文件名格式为 <code class="docutils literal notranslate"><span class="pre">yyyy.ddd.hh.mm.ss.ffff.NN.SSSSS.LL.CCC.Q.SAC</span></code></p></li>
+<li><p>重命名后的文件名为 <code class="docutils literal notranslate"><span class="pre">NET.STA.LOC.CHN.SAC</span></code></p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/3.rename.py">3.rename.py</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">putenv</span><span class="p">(</span><span class="s2">&quot;SAC_DISPLAY_COPYRIGHT&quot;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Usage: python </span><span class="si">{}</span><span class="s2"> dirname</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="n">dirname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.SAC&quot;</span><span class="p">):</span>
+    <span class="n">net</span><span class="p">,</span> <span class="n">sta</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">chn</span> <span class="o">=</span> <span class="n">fname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">6</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.SAC&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">sta</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">chn</span><span class="p">))</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-eventinfo-py">
+<span id="id5"></span><h2>添加事件信息<a class="headerlink" href="#subsec-eventinfo-py" title="此标题的永久链接">¶</a></h2>
+<p>若 SEED 中不包含事件信息，则解压得到的 SAC 文件中也不会包含事件信息。因而需要用户手动添加事件的发震时刻、经纬度、深度和震级信息。</p>
+<ul class="simple">
+<li><p>输入参数包括：目录名、发震时刻、经度、纬度、深度、震级</p></li>
+<li><p>发震时刻的格式为 <code class="docutils literal notranslate"><span class="pre">yyyy-mm-ddThh:mm:ss.xxx</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">T</span></code> 用于分隔日期和时间</p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/4.eventinfo.py">4.eventinfo.py</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">putenv</span><span class="p">(</span><span class="s2">&quot;SAC_DISPLAY_COPYRIGHT&quot;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">7</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Usage: python </span><span class="si">{}</span><span class="s2"> dirname yyyy-mm-ddThh:mm:ss.xxx &quot;</span>
+             <span class="s2">&quot;evlo evla evdp mag&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="n">dirname</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">evlo</span><span class="p">,</span> <span class="n">evla</span><span class="p">,</span> <span class="n">evdp</span><span class="p">,</span> <span class="n">mag</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="n">o</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># 计算发震日期是一年中的第几天</span>
+<span class="n">jday</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%j&quot;</span><span class="p">)</span>
+<span class="c1"># 提取毫秒值</span>
+<span class="n">msec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">microsecond</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;wild echo off </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;r *.SAC </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;synchronize </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;ch o gmt </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">jday</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span>
+                                           <span class="n">o</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">second</span><span class="p">,</span> <span class="n">msec</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;ch allt (0 - &amp;1,o&amp;) iztype IO </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;ch evlo </span><span class="si">{}</span><span class="s2"> evla </span><span class="si">{}</span><span class="s2"> evdp </span><span class="si">{}</span><span class="s2"> mag </span><span class="si">{}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">evlo</span><span class="p">,</span> <span class="n">evla</span><span class="p">,</span> <span class="n">evdp</span><span class="p">,</span> <span class="n">mag</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;wh </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;q </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;sac&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-transfer-py">
+<span id="id6"></span><h2>去仪器响应<a class="headerlink" href="#subsec-transfer-py" title="此标题的永久链接">¶</a></h2>
+<p>使用 PZ 文件去仪器响应。若数据的时间跨度太长，在该时间跨度内可能仪器响应会发生变化，因而会存在一个通道有多个 PZ 文件的情况。目前该脚本在遇到这种情况时会自动退出。</p>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/5.transfer.py">5.transfer.py</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf8 -*-</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">putenv</span><span class="p">(</span><span class="s2">&quot;SAC_DISPLAY_COPYRIGHT&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Usage: python </span><span class="si">{}</span><span class="s2"> dirname</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="n">dirname</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">sacfile</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.SAC&quot;</span><span class="p">):</span>
+    <span class="n">net</span><span class="p">,</span> <span class="n">sta</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">chn</span> <span class="o">=</span> <span class="n">sacfile</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">pz</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;SAC_PZs_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">_*_*&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">sta</span><span class="p">,</span> <span class="n">chn</span><span class="p">,</span> <span class="n">loc</span><span class="p">))</span>
+    <span class="c1"># 暂不考虑多个PZ文件的情况</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pz</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;PZ file error for </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sacfile</span><span class="p">))</span>
+
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;r </span><span class="si">{}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sacfile</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;rmean; rtr; taper </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;trans from pol s </span><span class="si">{}</span><span class="s2"> to none freq 0.01 0.02 5 10</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pz</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;mul 1.0e9 </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;w over </span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;q </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;sac&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="subsec-rotate-py">
+<span id="id7"></span><h2>分量旋转<a class="headerlink" href="#subsec-rotate-py" title="此标题的永久链接">¶</a></h2>
+<p>将成对的水平分量旋转到大圆路径。</p>
+<ul class="simple">
+<li><p>检查三分量是否缺失</p></li>
+<li><p>检查 <code class="docutils literal notranslate"><span class="pre">delta</span></code> 是否相等</p></li>
+<li><p>取三分量中的最大 <code class="docutils literal notranslate"><span class="pre">b</span></code> 和最小 <code class="docutils literal notranslate"><span class="pre">e</span></code> 值作为数据窗口，此操作要求三分量的
+<code class="docutils literal notranslate"><span class="pre">kzdate</span></code> 和 <code class="docutils literal notranslate"><span class="pre">kztime</span></code> 必须相同，这一点在添加事件信息时使用 <a class="reference internal" href="../../commands/synchronize/"><span class="doc">synchronize</span></a> 已经实现</p></li>
+<li><p>检查两个水平分量是否正交，若不正交，则无法旋转</p></li>
+</ul>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/6.rotate.py">6.rotate.py</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">putenv</span><span class="p">(</span><span class="s2">&quot;SAC_DISPLAY_COPYRIGHT&quot;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Usage: python </span><span class="si">%s</span><span class="s2"> dirname&quot;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="nb">dir</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+
+<span class="c1"># 构建 NET.STA.LOC.CH 的集合</span>
+<span class="n">sets</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.SAC&quot;</span><span class="p">):</span>
+    <span class="n">net</span><span class="p">,</span> <span class="n">sta</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">chn</span> <span class="o">=</span> <span class="n">fname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">net</span><span class="p">,</span> <span class="n">sta</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">chn</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]])</span>
+    <span class="n">sets</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;sac&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">sets</span><span class="p">:</span>
+    <span class="c1"># 检测Z分量是否存在</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;Z.SAC&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">Z</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: Vertical component missing!&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+    <span class="c1"># 检测水平分量是否存在</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;E.SAC&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;N.SAC&quot;</span><span class="p">):</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;E.SAC&quot;</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;N.SAC&quot;</span>
+    <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;1.SAC&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;2.SAC&quot;</span><span class="p">):</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;1.SAC&quot;</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;2.SAC&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: Horizontal components missings!&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+    <span class="c1"># 检查水平分量是否正交</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;saclst cmpaz f </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">Ecmpaz</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;saclst cmpaz f </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">Ncmpaz</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cmpaz_delta</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Ecmpaz</span><span class="p">)</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">Ncmpaz</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">cmpaz_delta</span><span class="o">-</span><span class="mi">90</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.01</span> <span class="ow">or</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cmpaz_delta</span><span class="o">-</span><span class="mi">270</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.01</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: cmpaz1=</span><span class="si">{}</span><span class="s2">, cmpaz2=</span><span class="si">{}</span><span class="s2"> &quot;</span>
+              <span class="s2">&quot;are not orthogonal!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Ecmpaz</span><span class="p">,</span> <span class="n">Ncmpaz</span><span class="p">))</span>
+        <span class="k">continue</span>
+
+    <span class="c1"># 检查B, E, DELTA</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;saclst b e delta f </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">Zb</span><span class="p">,</span> <span class="n">Ze</span><span class="p">,</span> <span class="n">Zdelta</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;saclst b e delta f </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">Eb</span><span class="p">,</span> <span class="n">Ee</span><span class="p">,</span> <span class="n">Edelta</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;saclst b e delta f </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">Nb</span><span class="p">,</span> <span class="n">Ne</span><span class="p">,</span> <span class="n">Ndelta</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Zdelta</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="n">Edelta</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">Zdelta</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="n">Ndelta</span><span class="p">)):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: delta not equal!&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+    <span class="c1"># 获取三分量的最大B和最小E值作为数据窗</span>
+    <span class="n">begin</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Zb</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">Eb</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">Nb</span><span class="p">))</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">Ze</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">Ee</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">Ne</span><span class="p">))</span>
+
+    <span class="c1"># 输出文件名为 NET.STA.LOC.[RTZ]</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="n">key</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">R</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Z0</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;.R&#39;</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;.T&#39;</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="s1">&#39;.Z&#39;</span>
+
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;cut </span><span class="si">%f</span><span class="s2"> </span><span class="si">%f</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;r </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;rotate to gcp </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;w </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;r </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">Z</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;w </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">Z0</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;q </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">p</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+<span class="c1"># 删除原文件</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.SAC&quot;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>数据重采样<a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h2>
+<p>通常有两种情况下需要对数据进行重采样：</p>
+<ul class="simple">
+<li><p>原始数据的采样率过高，而实际研究中不需要如此高的采样率，此时，对数据做减采样可以大大减少数据量；</p></li>
+<li><p>原始数据中，不同台站的采样率不同，可能会影响到后期的数据处理，因而需要让所有数据使用统一的采样率；</p></li>
+</ul>
+<p>下面的Python脚本中使用 <a class="reference internal" href="../../commands/interpolate/"><span class="doc">interpolate</span></a> 命令将所有数据重采样到相同的采样周期。用户可以在命令行中直接指定要使用的重采样后的采样周期，若命令行中的采样周期指定为0，则以大多数数据所使用的采样周期作为重采样后的采样周期。</p>
+<p>下载地址：
+<a class="reference external" href="https://raw.githubusercontent.com/seisman/SAC_Docs_zh/master/source/call-in-script/7.resample.py">7.resample.py</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">putenv</span><span class="p">(</span><span class="s2">&quot;SAC_DISPLAY_COPYRIGHT&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;Usage: python </span><span class="si">{}</span><span class="s2"> dirname [delta | 0]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="c1"># 若第二个参数为0，则取数据中出现次数最多的周期为采样周期</span>
+
+<span class="n">dirname</span><span class="p">,</span> <span class="n">delta</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">delta</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># 假定所有数据已旋转到RTZ坐标系，文件名格式为NET.STA.LOC.[RTZ]</span>
+    <span class="c1"># hash的键为出现了的采样周期，其值为出现的个数</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.*.*.[RTZ]&quot;</span><span class="p">):</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;saclst delta f </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">delta0</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">delta0</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+            <span class="n">groups</span><span class="p">[</span><span class="n">delta0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">groups</span><span class="p">[</span><span class="n">delta0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">groups</span><span class="o">.</span><span class="n">get</span><span class="p">))</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.*.*.[RTZ]&quot;</span><span class="p">):</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;saclst delta f </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">delta0</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">delta</span> <span class="o">==</span> <span class="n">delta0</span><span class="p">:</span>  <span class="c1"># 不需要重采样</span>
+        <span class="k">continue</span>
+
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;r </span><span class="si">{}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="c1"># 用 interpolate 实现减采样或增采样</span>
+    <span class="c1"># 若是减采样，则需要对数据做低通滤波以防止出现混淆效应</span>
+    <span class="c1"># 低通滤波时或许需要加上 p 2 以避免滤波引起的相移</span>
+    <span class="k">if</span> <span class="n">delta</span> <span class="o">&gt;</span> <span class="n">delta0</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;lp c </span><span class="si">{}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">0.5</span><span class="o">/</span><span class="n">delta</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;interpolate delta </span><span class="si">{}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;w over </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">s</span> <span class="o">+=</span> <span class="s2">&quot;q </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;sac&#39;</span><span class="p">],</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../call-sac-in-perl/" class="btn btn-neutral float-left" title="Perl 中调用 SAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../libs/" class="btn btn-neutral float-right" title="SAC 函数库" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

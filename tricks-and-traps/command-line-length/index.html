@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>命令长度 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="字节序" href="../endian/" />
+    <link rel="prev" title="SAC 初始化" href="../init-macro/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 技巧与陷阱</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../init-macro/">SAC 初始化</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">命令长度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endian/">字节序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-and-space/">Tab 与空格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../undefined-header-variables/">未定义的头段变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debug/">SAC debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wh-wover/">wh 与 w over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../max-allowed-files/">修改最大允许的文件数目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../running-speed/">SAC 与脚本的运行速度</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 技巧与陷阱</a> &raquo;</li>
+      <li>命令长度</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/tricks-and-traps/command-line-length.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>命令长度<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>大多数程序在处理命令行的输入时，都会先定义一个固定长度的字符数组，将命令行的输入读入到字符数组中，再进行进一步的解析。一般来说，这个字符数组是足够大的，很少会担心命令过长的问题。</p>
+<p>那么 SAC 所能允许的命令的最大长度是多少呢？看一下 SAC 源码可以知道答案是
+1001。考虑到 C 语言中字符串需要以 <code class="docutils literal notranslate"><span class="pre">\0</span></code> 结尾，所以实际上能够允许的最大长度是1000。</p>
+<p>1000这个长度似乎够了，因为大多数 SAC 命令的长度都不会超过20，而且用户也没有那个心情去敲一个长度超过1000的命令。一个特殊的情况是命令中包含文件名。</p>
+<p>假设在当前目录下有120个形如 <code class="docutils literal notranslate"><span class="pre">XX.XXX.BHZ</span></code> 的 SAC 文件，每个文件的文件名长度为10字符。如果要将全部 SAC 文件读入到内存中，最简单的办法是使用通配符：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r *.BHZ</span>
+</pre></div>
+</div>
+<p>当然如果不觉得麻烦，完全可以把120个文件名一个一个敲到命令行里：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r XX.001.BHZ XX.002.BHZ ... XX.120.BHZ # 此处省略了一堆文件名</span>
+</pre></div>
+</div>
+<p>这两种读入 SAC 文件的方式，看上去很相似，结果却是完全不同的。</p>
+<p>前一种方式中，SAC 获取的命令长度实际为7字符，远小于1000字符的长度上限，然后 SAC 会在程序内部将通配符展开为120个文件的文件列表。</p>
+<p>后一种方式中，SAC 获取的命令长度超过1200字符，但只有前1000字符会真正被
+SAC 真正接收并处理，这将导致仅有不到100个 SAC 文件会被读入，而 SAC 不会对此给出任何警告。这是一件非常危险的事情。</p>
+<p>这两种方式比较起来，不管是从简便性还是安全性角度来看，都应该选择通配符这种方式。</p>
+<p>在脚本中使用通配符，有一点需要注意。以 Perl 脚本为例，下面的 Perl 脚本调用了 SAC，并读取全部文件，然后做了简单的数据处理，最后保存退出。</p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r *.BHZ\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;rmean; rtr; taper\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;bp c 1 3 n 4 p 2\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w over\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q\n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>上面的脚本是可以正常工作的，但是如果改成如下看上去很像的脚本，则会出问题。</p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+
+<span class="k">my</span> <span class="nv">@files</span> <span class="o">=</span> <span class="nb">glob</span> <span class="s">&quot;*.BHZ&quot;</span><span class="p">;</span>
+
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r @files\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;rmean; rtr; taper\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;bp c 1 3 n 4 p 2\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w over\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q\n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>两种都使用了通配符或通配函数，前者直接将 <code class="docutils literal notranslate"><span class="pre">*.BHZ</span></code> 传递给 SAC，而后者却将通配（<code class="docutils literal notranslate"><span class="pre">glob</span></code>）后的文件列表传给 SAC，所以后者会出现问题。在写脚本的时候应避免后一种写法。</p>
+<p>通配符不是万金油，很多时候无法使用通配符来通配一堆没有规律的文件。</p>
+<p>例如，当前目录下有200个形如 <code class="docutils literal notranslate"><span class="pre">XX.XXX.BHZ</span></code> 的 SAC 文件，其中140个有清晰的 P波，P 波的到时被标记到 <code class="docutils literal notranslate"><span class="pre">T0</span></code> 中。现在想要读取这140个有清晰 P 波的数据，这个时候显然通配符是没法用了。</p>
+<p>错误的写法如下：</p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env perl</span>
+<span class="k">use</span> <span class="nn">strict</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">warnings</span><span class="p">;</span>
+
+<span class="c1"># 获取全部T0有定义的文件名列表</span>
+<span class="k">my</span> <span class="nv">@files</span> <span class="o">=</span> <span class="p">();</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">SACLST</span><span class="p">,</span> <span class="s">&quot;saclst t0 f *.BHZ |&quot;</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="sr">&lt;SACLST&gt;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">my</span> <span class="p">(</span><span class="nv">$fname</span><span class="p">,</span> <span class="nv">$t0</span><span class="p">)</span> <span class="o">=</span> <span class="nb">split</span> <span class="s">&#39; &#39;</span><span class="p">,</span> <span class="nv">$_</span><span class="p">;</span>
+    <span class="nb">push</span> <span class="nv">@files</span><span class="p">,</span> <span class="nv">$fname</span> <span class="k">if</span> <span class="nv">$t0</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SACLST</span><span class="p">);</span>
+
+<span class="c1"># 调用SAC进行数据处理</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r @files\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;rmean; rtr; taper\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;bp c 1 3 n 4 p 2\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w over\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q\n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>调用 SAC 进行数据处理的正确写法：</p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">@files</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r more $_\n&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;rmean; rtr; taper\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;bp c 1 3 n 4 p 2\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w over\n&quot;</span><span class="p">;</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q\n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>效率稍低的正确写法：</p>
+<div class="highlight-perl notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="n">SAC</span><span class="p">,</span> <span class="s">&quot;| sac&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">die</span> <span class="s">&quot;Error in opening sac\n&quot;</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">@files</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;r $_\n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;rmean; rtr; taper\n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;bp c 1 3 n 4 p 2\n&quot;</span><span class="p">;</span>
+    <span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;w over\n&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">print</span> <span class="n">SAC</span> <span class="s">&quot;q\n&quot;</span><span class="p">;</span>
+<span class="nb">close</span><span class="p">(</span><span class="n">SAC</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../init-macro/" class="btn btn-neutral float-left" title="SAC 初始化" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../endian/" class="btn btn-neutral float-right" title="字节序" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

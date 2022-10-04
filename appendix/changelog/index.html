@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>文档更新历史 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="prev" title="数据命名规则" href="../naming-convections/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">文档更新历史</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v4-2-2021-06-12">v4.2 (2021-06-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v4-1-2020-09-23">v4.1 (2020-09-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v4-0-2018-12-23">v4.0 (2018-12-23)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-6-2018-03-21">v3.6 (2018-03-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-5-2016-01-09">v3.5 (2016-01-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-4-2015-09-15">v3.4 (2015-09-15)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-3-2015-06-06">v3.3 (2015-06-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-2-2015-05-02">v3.2 (2015-05-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-1-2014-09-25">v3.1 (2014-09-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-0-2014-04-18">v3.0 (2014-04-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-3-2014-02-22">v2.3 (2014-02-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-2-2013-04-12">v2.2 (2013-04-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-1-2013-04-06">v2.1 (2013-04-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-2013-03-29">v2.0 (2013-03-29)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-2-2012-09-18">v1.2 (2012-09-18)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-1-2012-09-03">v1.1 (2012-09-03)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-0-2012-01-08">v1.0 (2012-01-08)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+      <li>文档更新历史</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/appendix/changelog.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>文档更新历史<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="v4-2-2021-06-12">
+<h2>v4.2 (2021-06-12)<a class="headerlink" href="#v4-2-2021-06-12" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>新建”SAC 安装“一章，包含“申请 SAC“和 不同系统下的 SAC 安装</p></li>
+<li><p>更新 SAC 安装</p></li>
+<li><p>移动“文档阅读指南”小节至“SAC 简介”</p></li>
+<li><p>移动“文档约定”小节至“SAC 简介”</p></li>
+<li><p>更新章节名称</p></li>
+<li><p>更新“申请 SAC”</p></li>
+<li><p>增加 rdseed 不再维护的警告</p></li>
+<li><p>修改 macOS 默认配置文件为 <code class="file docutils literal notranslate"><span class="pre">~/.zshrc</span></code></p></li>
+<li><p>调整“SAC 基础”、“SAC 文件格式”各小节标题</p></li>
+<li><p>调整“SAC 安装”结构</p></li>
+<li><p>Julia 中的 SAC I/O 更新为 SeisIO.jl</p></li>
+</ul>
+</section>
+<section id="v4-1-2020-09-23">
+<h2>v4.1 (2020-09-23)<a class="headerlink" href="#v4-1-2020-09-23" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>新增内容：Julia中的SAC I/O</p></li>
+<li><p>修复BUG</p></li>
+</ul>
+</section>
+<section id="v4-0-2018-12-23">
+<h2>v4.0 (2018-12-23)<a class="headerlink" href="#v4-0-2018-12-23" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>文档不再使用 LaTeX 源码，改而采用 reStructuredText 语言，并使用 sphinx 制作文档</p></li>
+<li><p>新增内容：将RESP文件转换为PZ文件</p></li>
+<li><p>修正 bugs 和 typos</p></li>
+</ul>
+</section>
+<section id="v3-6-2018-03-21">
+<h2>v3.6 (2018-03-21)<a class="headerlink" href="#v3-6-2018-03-21" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>新增内容：调用 SAC 库中的 <code class="docutils literal notranslate"><span class="pre">rms</span></code> 子函数</p></li>
+<li><p>新增示例：<code class="docutils literal notranslate"><span class="pre">cut</span></code></p></li>
+</ul>
+</section>
+<section id="v3-5-2016-01-09">
+<h2>v3.5 (2016-01-09)<a class="headerlink" href="#v3-5-2016-01-09" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>增加示例：绘制滤波器的时间响应和频率响应</p></li>
+<li><p>增加示例：一次性修改多个波形数据的发震时刻</p></li>
+<li><p>新增章节：<code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 的选项及其用法</p></li>
+<li><p>新增章节：介绍 IRIS 等地震数据中心</p></li>
+<li><p>新增章节：介绍数据申请：连续波形数据和事件波形数据</p></li>
+<li><p>新增章节：IRIS波形数据申请工具</p></li>
+<li><p>新增章节：SAC 与脚本运行速度差异导致的陷阱</p></li>
+<li><p>新增Perl脚本：数据提取、合并、重命名、修改发震时刻、去仪器响应、分量旋转、重采样</p></li>
+<li><p>新增Python脚本：数据提取、合并、重命名、修改发震时刻、去仪器响应、分量旋转、重采样</p></li>
+<li><p>更新命令说明：<code class="docutils literal notranslate"><span class="pre">plotpk</span></code>、<code class="docutils literal notranslate"><span class="pre">plot1</span></code>、<code class="docutils literal notranslate"><span class="pre">plot2</span></code>、<code class="docutils literal notranslate"><span class="pre">datagen</span></code></p></li>
+<li><p>新增命令：<code class="docutils literal notranslate"><span class="pre">writecss</span></code></p></li>
+<li><p>修正 Bugs 和 Typos</p></li>
+</ul>
+</section>
+<section id="v3-4-2015-09-15">
+<h2>v3.4 (2015-09-15)<a class="headerlink" href="#v3-4-2015-09-15" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>调整与修订：</p>
+<ul>
+<li><p>将命令的“错误消息”和“警告消息”集中整理到附录中</p></li>
+<li><p>将文件重命名脚本移动到“在脚本中调用SAC”一章</p></li>
+<li><p>重新整理了“震相拾取”一节的内容</p></li>
+</ul>
+</li>
+<li><p>新增内容：</p>
+<ul>
+<li><p>在 macOS 中安装 SAC</p></li>
+<li><p>在 C 程序中调用 SAC 提供的 <code class="docutils literal notranslate"><span class="pre">distaz</span></code> 函数</p></li>
+<li><p>数据处理中使用 <code class="docutils literal notranslate"><span class="pre">decimate</span></code> 和 <code class="docutils literal notranslate"><span class="pre">interpolate</span></code> 进行数据重采样</p></li>
+<li><p>Python 中修改发震时刻</p></li>
+<li><p>在 C 程序中读写 SAC 文件</p></li>
+<li><p>在 Fortran 程序中读写 SAC 文件</p></li>
+<li><p>在 Python 脚本中读写 SAC 文件</p></li>
+<li><p>在 matlab 中读写 SAC 文件</p></li>
+<li><p>修改 SAC 所能读取的文件数目的上限</p></li>
+<li><p>文档维护与更新并征集维护者</p></li>
+</ul>
+</li>
+<li><p>命令整理：<code class="docutils literal notranslate"><span class="pre">mtw</span></code>、<code class="docutils literal notranslate"><span class="pre">markptp</span></code>、<code class="docutils literal notranslate"><span class="pre">markvalue</span></code>、<code class="docutils literal notranslate"><span class="pre">readcss</span></code></p></li>
+<li><p>修正 Bugs 和 Typos</p></li>
+</ul>
+</section>
+<section id="v3-3-2015-06-06">
+<h2>v3.3 (2015-06-06)<a class="headerlink" href="#v3-3-2015-06-06" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>修改 bugs 和 typos</p></li>
+<li><p>命令整理：<code class="docutils literal notranslate"><span class="pre">hilbert</span></code>、<code class="docutils literal notranslate"><span class="pre">transfer</span></code></p></li>
+<li><p>新增内容：</p>
+<ul>
+<li><p>四个文件重命名脚本</p></li>
+<li><p>读取某个目录下全部文件遇到的问题</p></li>
+<li><p>使用 Tab 遇到的问题</p></li>
+<li><p>数据命名规则</p></li>
+<li><p>时区校正</p></li>
+<li><p>错误与警告消息</p></li>
+<li><p>未定义变量</p></li>
+<li><p>SAC debug</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wh</span></code> 与 <code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">over</span></code> 的区别</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="v3-2-2015-05-02">
+<h2>v3.2 (2015-05-02)<a class="headerlink" href="#v3-2-2015-05-02" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>修复 bugs 和 typos</p></li>
+<li><p>命令整理：<code class="docutils literal notranslate"><span class="pre">systemcommand</span></code>、<code class="docutils literal notranslate"><span class="pre">transfer</span></code></p></li>
+<li><p>新增章节</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>波形排序</p></li>
+<li><p>标记震相理论走时的三种方法</p></li>
+<li><p>图像格式转换</p></li>
+<li><p>SAC 初始化宏文件</p></li>
+<li><p>SAC 命令的长度上限</p></li>
+<li><p>字节序</p></li>
+<li><p>新增附录“仪器响应”，整理了“去仪器响应”一节</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>新增示例：调用 SAC 的 Hilbert 函数</p></li>
+</ul>
+</section>
+<section id="v3-1-2014-09-25">
+<h2>v3.1 (2014-09-25)<a class="headerlink" href="#v3-1-2014-09-25" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>重新整理了大部分命令的语法说明</p></li>
+<li><p>对“SAC 图像”一章进行了修订</p></li>
+<li><p>新增章节：“信号迭加子程序”、“谱估计子程序”、“在 Python 中调用 SAC”</p></li>
+<li><p>修复 bugs</p></li>
+</ul>
+</section>
+<section id="v3-0-2014-04-18">
+<h2>v3.0 (2014-04-18)<a class="headerlink" href="#v3-0-2014-04-18" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>重写了教程部分的大多数内容</p></li>
+<li><p>教程部分根据 SAC v101.6a 进行修正</p></li>
+<li><p>修复 bugs</p></li>
+</ul>
+</section>
+<section id="v2-3-2014-02-22">
+<h2>v2.3 (2014-02-22)<a class="headerlink" href="#v2-3-2014-02-22" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>使用 git 管理源码</p></li>
+<li><p>整理结构和布局的修改</p></li>
+<li><p>新增小节：“SAC IO 升级版”、“黑板变量的读写”、“SAC 保存图像”</p></li>
+<li><p>修复 bugs</p></li>
+</ul>
+</section>
+<section id="v2-2-2013-04-12">
+<h2>v2.2 (2013-04-12)<a class="headerlink" href="#v2-2-2013-04-12" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>重新排版了全部命令</p></li>
+<li><p>重新设计了封面</p></li>
+</ul>
+</section>
+<section id="v2-1-2013-04-06">
+<h2>v2.1 (2013-04-06)<a class="headerlink" href="#v2-1-2013-04-06" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>重新整理了第一章</p></li>
+<li><p>修复 bugs</p></li>
+</ul>
+</section>
+<section id="v2-0-2013-03-29">
+<h2>v2.0 (2013-03-29)<a class="headerlink" href="#v2-0-2013-03-29" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>用 LaTeX 重新排版文档</p></li>
+</ul>
+</section>
+<section id="v1-2-2012-09-18">
+<h2>v1.2 (2012-09-18)<a class="headerlink" href="#v1-2-2012-09-18" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>增加了封面配图</p></li>
+</ul>
+</section>
+<section id="v1-1-2012-09-03">
+<h2>v1.1 (2012-09-03)<a class="headerlink" href="#v1-1-2012-09-03" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>重新格式化整个文档，使得其看上去更规范，也易于以后的修改</p></li>
+<li><p>代码从 NotePad++ 中直接导出，支持语法高亮</p></li>
+<li><p>代码及正文英文字体采用 Consolas 字体</p></li>
+<li><p>增加了“在脚本中调用 SAC”一节</p></li>
+<li><p>新增命令 <code class="docutils literal notranslate"><span class="pre">transfer</span></code>、<code class="docutils literal notranslate"><span class="pre">traveltime</span></code>、<code class="docutils literal notranslate"><span class="pre">saveimg</span></code>、<code class="docutils literal notranslate"><span class="pre">datagen</span></code></p></li>
+<li><p>更新至 SAC v101.5c</p></li>
+<li><p>公式用公式编辑器编辑</p></li>
+</ul>
+</section>
+<section id="v1-0-2012-01-08">
+<h2>v1.0 (2012-01-08)<a class="headerlink" href="#v1-0-2012-01-08" title="此标题的永久链接">¶</a></h2>
+<ul class="simple">
+<li><p>第一版发布，由 DOC 转换为 PDF</p></li>
+<li><p>参考《数字地震波形分析》一书，翻译了大部分官方文档中的内容</p></li>
+<li><p>结合 SAC v101.4 版本，增加、删除和修改了一些命令</p></li>
+<li><p>增加了书签，方便定位，支持全文搜索</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../naming-convections/" class="btn btn-neutral float-left" title="数据命名规则" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

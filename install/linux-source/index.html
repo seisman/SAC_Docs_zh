@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux 编译安装 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="macOS 二进制安装" href="../macos-binary/" />
+    <link rel="prev" title="Linux 二进制安装" href="../linux-binary/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 安装</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../request/">申请 SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linux-binary/">Linux 二进制安装</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Linux 编译安装</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">安装依赖包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">编译源码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">配置变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sac">启动SAC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../macos-binary/">macOS 二进制安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../macos-source/">macOS 编译安装</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 安装</a> &raquo;</li>
+      <li>Linux 编译安装</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/install/linux-source.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linux">
+<h1>Linux 编译安装<a class="headerlink" href="#linux" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>安装依赖包<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>编译源码时需要安装若干软件包。</p>
+<p>对于 Ubuntu/Debian：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt update
+<span class="gp">$ </span>sudo apt install build-essential
+<span class="gp">$ </span>sudo apt install libncurses5-dev libsm-dev libice-dev
+<span class="gp">$ </span>sudo apt install libxpm-dev libx11-dev zlib1g-dev
+<span class="gp">$ </span>sudo apt install libedit-dev libxml2-dev libcurl4-openssl-dev
+</pre></div>
+</div>
+<p>对于 CentOS/Fedora/RHEL：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo yum install gcc gcc-c++ make
+<span class="gp">$ </span>sudo yum install glibc ncurses-devel libSM-devel libICE-devel
+<span class="gp">$ </span>sudo yum install libXpm-devel libX11-devel zlib-devel libedit-devel
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>编译源码<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<div class="admonition caution">
+<p class="admonition-title">小心</p>
+<p>Anaconda 内有软件包和系统软件包冲突。sac 编译的时候需要系统的软件包。所以，Anaconda 用户在编译时需要临时重命名 Anaconda 的路径。</p>
+</div>
+<p>将源码按如下命令解压、配置、编译、安装：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>tar -xvf sac-102.0.tar.gz
+<span class="gp">$ </span><span class="nb">cd</span> sac-102.0
+<span class="gp">$ </span>mkdir build
+<span class="gp">$ </span><span class="nb">cd</span> build
+<span class="gp">$ </span>../configure --prefix<span class="o">=</span>/usr/local/sac
+<span class="gp">$ </span>make
+<span class="gp">$ </span>sudo make install
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>配置变量<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>向 <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code><a class="footnote-reference brackets" href="#id6" id="id4">1</a>中加入如下语句以配置环境变量和 SAC 全局变量：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">SACHOME</span><span class="o">=</span>/usr/local/sac
+<span class="nb">export</span> <span class="nv">SACAUX</span><span class="o">=</span><span class="si">${</span><span class="nv">SACHOME</span><span class="si">}</span>/aux
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">SACHOME</span><span class="si">}</span>/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
+
+<span class="nb">export</span> <span class="nv">SAC_DISPLAY_COPYRIGHT</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span> <span class="nv">SAC_PPK_LARGE_CROSSHAIRS</span><span class="o">=</span><span class="m">1</span>
+<span class="nb">export</span> <span class="nv">SAC_USE_DATABASE</span><span class="o">=</span><span class="m">0</span>
+</pre></div>
+</div>
+<p>其中，</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SACHOME</span></code> 定义了 SAC 的安装目录</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SACAUX</span></code> 定义了 SAC 运行所需的辅助文件所在的目录</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PATH</span></code> 为 Linux 系统环境变量，使得系统可以正确找到SAC的可执行文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAC_DISPLAY_COPYRIGHT</span></code> 用于控制是否在启动 SAC 时显示版本和版权信息，一般设置为1。在脚本中多次调用 SAC 时会重复显示版本和版权信息，干扰脚本的正常输出，因而在脚本中一般将其值设置为0。具体的设置方法可以参考 “<a class="reference internal" href="../../call-in-script/"><span class="doc">脚本中调用 SAC</span></a>” 中的相关内容</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAC_PPK_LARGE_CROSSHAIRS</span></code> 用于控制震相拾取过程中光标的大小，在 <a class="reference internal" href="../../data-process/picking-phase/"><span class="doc">震相拾取</span></a> 时会用到</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAC_USE_DATABASE</span></code> 用于控制是否允许将 SAC 格式转换为 GSE2.0 格式，一般用不到该特性，故而设置其值为0</p></li>
+</ul>
+<p>修改完 <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> 后，执行以下命令使配置的环境变量生效：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+</section>
+<section id="sac">
+<h2>启动SAC<a class="headerlink" href="#sac" title="此标题的永久链接">¶</a></h2>
+<p>终端键入小写的 sac<a class="footnote-reference brackets" href="#id7" id="id5">2</a>，显示如下则表示 SAC 安装成功：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sac
+<span class="go"> SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)]</span>
+<span class="go"> Copyright 1995 Regents of the University of California</span>
+
+<span class="go">SAC&gt;</span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p>某些发行版需要修改 <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd><p>Ubuntu 的源里有一个名叫 sac 的软件，是用来显示登录账户的一些信息；CentOS 的源里也有一个名叫 sac 的软件，是 CSS 语法分析器的 Java 接口。所以一定不要试图用发行版自带的软件包管理器安装 sac！</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../linux-binary/" class="btn btn-neutral float-left" title="Linux 二进制安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../macos-binary/" class="btn btn-neutral float-right" title="macOS 二进制安装" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据重命名 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="时区校正" href="../time-zone-correction/" />
+    <link rel="prev" title="合并数据" href="../merge-traces/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 数据处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-request/">数据申请</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-format/">数据格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge-traces/">合并数据</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">数据重命名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time-zone-correction/">时区校正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event-info/">事件信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../station-info/">台站和分量信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">去毛刺</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean-rtrend-taper/">去均值、去线性趋势和波形尖灭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-response/">去仪器响应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut-data/">数据截窗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">分量旋转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling/">数据重采样</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filter/">滤波</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">震相理论到时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort-traces/">波形排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quality-control/">质量控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picking-phase/">震相拾取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-analysis/">数据分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/">信号叠加</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 数据处理</a> &raquo;</li>
+      <li>数据重命名</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/data-process/rename.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>数据重命名<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>相关脚本</strong>：<a class="reference internal" href="../../call-in-script/call-sac-in-perl/#subsec-rename-pl"><span class="std std-ref">Perl 脚本</span></a>、<a class="reference internal" href="../../call-in-script/call-sac-in-python/#subsec-rename-py"><span class="std std-ref">Python 脚本</span></a></p>
+<p>用 rdseed 软件从 SEED 格式中解压得到的 SAC 数据，一般都具有固定格式的文件名。示例如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2012.055.12.34.56.7777</span><span class="o">.</span><span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01</span><span class="o">.</span><span class="n">BHE</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">SAC</span>
+<span class="mf">2012.055.12.34.50.6666</span><span class="o">.</span><span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01</span><span class="o">.</span><span class="n">BHN</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">SAC</span>
+<span class="mf">2012.055.12.34.54.5555</span><span class="o">.</span><span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01</span><span class="o">.</span><span class="n">BHZ</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">SAC</span>
+</pre></div>
+</div>
+<p>这三个文件是 YW 台网 MAIO 台站的宽频地震仪记录的宽频带三分量（BHE、BHN、BHZ）波形数据。文件名中每一项的具体含义在<a class="reference internal" href="../../appendix/naming-convections/"><span class="doc">数据命名规则</span></a>
+中有介绍，这里不再重复。</p>
+<p>默认的文件名比较长，在数据处理时可能会显得比较麻烦，一般都会根据实际需求进行适当的简化。</p>
+<p>是否要对数据文件做重命名，以及按照什么格式重命名，都是没有固定的标准的。通常需要用户根据自己所做研究的实际情况来决定。</p>
+<p>在某些情况下，需要将同一事件在所有台站的波形数据放在同一个文件夹下，并将文件名以事件的发生日期/时间来命名。那么，SAC 文件名中的时间等信息就可以被省略掉。数据文件名简化为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01</span><span class="o">.</span><span class="n">BHE</span>
+<span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01</span><span class="o">.</span><span class="n">BHN</span>
+<span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01</span><span class="o">.</span><span class="n">BHZ</span>
+</pre></div>
+</div>
+<p>有时候，需要将不同事件在同一个台站的波形数据放在同一个文件夹下，并将文件名以台站名来命名，此时数据文件名中可能需要保留事件的日期信息。数据文件名可以简化为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01.20120224</span><span class="o">.</span><span class="n">BHE</span>
+<span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01.20120224</span><span class="o">.</span><span class="n">BHN</span>
+<span class="n">YW</span><span class="o">.</span><span class="n">MAIO</span><span class="mf">.01.20120224</span><span class="o">.</span><span class="n">BHZ</span>
+</pre></div>
+</div>
+<p>数据重命名这一步骤可以单独执行，也可以在执行其他操作的过程中顺便进行重命名（比如将数据合并并写入磁盘的时候）。通常需要写脚本来完成重命名的操作。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../merge-traces/" class="btn btn-neutral float-left" title="合并数据" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../time-zone-correction/" class="btn btn-neutral float-right" title="时区校正" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>字节序 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="Tab 与空格" href="../tab-and-space/" />
+    <link rel="prev" title="命令长度" href="../command-line-length/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 技巧与陷阱</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../init-macro/">SAC 初始化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command-line-length/">命令长度</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">字节序</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">麻烦</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">字节序的判断</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">字节序的转换</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tab-and-space/">Tab 与空格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../undefined-header-variables/">未定义的头段变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debug/">SAC debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wh-wover/">wh 与 w over</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../max-allowed-files/">修改最大允许的文件数目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../running-speed/">SAC 与脚本的运行速度</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 技巧与陷阱</a> &raquo;</li>
+      <li>字节序</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/tricks-and-traps/endian.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>字节序<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="id2">
+<h2>定义<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>字节序，即一个多字节的数据在内存中存储方式。计算机领域中，主要有两种字节序，即小端序（little endian）和大端序（big endian）。</p>
+<p>举例说明，假设一个整型变量占四个字节，其十六进制表示为 <code class="docutils literal notranslate"><span class="pre">0x01234567</span></code>，首地址为 <code class="docutils literal notranslate"><span class="pre">0x101</span></code>，则该整型变量的四个字节将被存储在内存 <code class="docutils literal notranslate"><span class="pre">0x101-0x104</span></code> 中。若按照大端序存储，则 <code class="docutils literal notranslate"><span class="pre">01</span></code> 位于地址 <code class="docutils literal notranslate"><span class="pre">0x100</span></code>，<code class="docutils literal notranslate"><span class="pre">23</span></code> 位于地址 <code class="docutils literal notranslate"><span class="pre">0x101</span></code>，以此类推。而小端序则是 <code class="docutils literal notranslate"><span class="pre">67</span></code> 位于地址 <code class="docutils literal notranslate"><span class="pre">0x100</span></code>，<code class="docutils literal notranslate"><span class="pre">45</span></code> 位于 <code class="docutils literal notranslate"><span class="pre">0x101</span></code>。直观的来看，大端序即数据的最高字节在地址上更靠前，小端序则是数据的最低字节在地址上更靠前。关于字节序的详细说明，请参考维基百科相关条目。</p>
+</section>
+<section id="id3">
+<h2>麻烦<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>不同的处理器可能使用不同的字节序，这在数据交换的时候会带来很多麻烦。</p>
+<p>比如用一个大端序的机器将数据 <code class="docutils literal notranslate"><span class="pre">0x01234567</span></code> 写入文件中，然后将文件复制到一个小端序的机器中，小端序机器在读取数据时会顺序读取，即将 <code class="docutils literal notranslate"><span class="pre">01</span></code>
+放入低地址位，将 <code class="docutils literal notranslate"><span class="pre">67</span></code> 放在高地址位，而在解释时会认为低地址位的是最低字节。所以，大端序的 <code class="docutils literal notranslate"><span class="pre">0x1234567</span></code> 会被小字节序当做
+<code class="docutils literal notranslate"><span class="pre">0x67452301</span></code>。通常在不同字节序的机器间传输数据时都需要先进行字节序的转换。</p>
+</section>
+<section id="id4">
+<h2>字节序的判断<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>大多数个人计算机的字节序都是小端序，可以通过下面的命令查看当前机器的字节序：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>lscpu <span class="p">|</span> grep -i byte
+</pre></div>
+</div>
+<p>对于 SAC 文件来说，由于 SAC 头段中并没有包含当前字节序的相关信息，所以 SAC
+只能通过当前文件的 SAC 版本号，即 <code class="docutils literal notranslate"><span class="pre">nvhdr</span></code> 来判断。若 <code class="docutils literal notranslate"><span class="pre">nvhdr</span></code>
+的值在0到6之间，则 SAC 文件的字节序与当前机器字节序相同，否则不同则需要做字节序转换。</p>
+<p>如果想自己确认数据与机器的字节序是否相同，可以用如下命令查看：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>od -j304 -N4 -An -td file.SAC
+</pre></div>
+</div>
+<p>该命令会输出 SAC 文件中的第305到308字节，若输出为 <code class="docutils literal notranslate"><span class="pre">6</span></code> 则表示文件字节序与当前机器字节序相同，否则不同。</p>
+</section>
+<section id="id5">
+<h2>字节序的转换<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>SAC 程序在读入数据时，会自动检测当前机器的字节序以及当前数据的字节序。若二者不相同，则会对已读入内存中的数据进行字节序的转换。</p>
+<p>但 SAC 相关的工具却不一定可以。比如，旧版本的 <code class="docutils literal notranslate"><span class="pre">saclst</span></code> 以及网上的某些 matlab 处理脚本大多是没有对 SAC 文件的字节序做判断的。这会导致一个让人困惑的问题：数据用 SAC 读取和查看一切正常，但是用其他工具读却乱七八糟，数据点数、采样间隔以及具体的数据值没有一个对的。这种问题很多情况下都是因为字节序导致的。</p>
+<p>如果 SAC 文件的字节序跟当前机器的字节序不同，最好将 SAC 文件转换到当前机器的字节序，这样不论是 SAC 还是其他工具都可以正常对数据进行处理。字节序转换的办法很简单：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r *.SAC</span>
+<span class="go">SAC&gt; w over</span>
+</pre></div>
+</div>
+<p>直接将所有 SAC 数据读入 SAC，然后再 <code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">over</span></code> 即可，SAC 会自动以当前机器的字节序覆盖磁盘中的文件。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../command-line-length/" class="btn btn-neutral float-left" title="命令长度" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../tab-and-space/" class="btn btn-neutral float-right" title="Tab 与空格" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

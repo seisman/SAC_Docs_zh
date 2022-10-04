@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>plotrecordsection &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="plotstack" href="../plotstack/" />
+    <link rel="prev" title="liststack" href="../liststack/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SSS 信号叠加子程序</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sss/">信号叠加子程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addstack/">addstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changestack/">changestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deletestack/">deletestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deltacheck/">deltacheck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distanceaxis/">distanceaxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../distancewindow/">distancewindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../globalstack/">globalstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incrementstack/">incrementstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../liststack/">liststack</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">plotrecordsection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">输入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">缺省值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">光标模式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotstack/">plotstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sumstack/">sumstack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timeaxis/">timeaxis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../timewindow/">timewindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">traveltime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../velocitymodel/">velocitymodel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../velocityroset/">velocityroset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writestack/">writestack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zerostack/">zerostack</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SSS 信号叠加子程序</a> &raquo;</li>
+      <li>plotrecordsection</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/sss/plotrecordsection.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plotrecordsection">
+<h1>plotrecordsection<a class="headerlink" href="#plotrecordsection" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>用叠加文件列表中的文件绘制剖面图</p>
+</section>
+<section id="id2">
+<h2>语法<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">PlotRecordSection [Lables ON|OFF|headerfield] [Origin Default|Reversed]</span>
+<span class="go">    [Referenceline ON|OFF] [Size v] [Weight ON|OFF] [Polarity ON|OFF]</span>
+<span class="go">    [Cursor ON|OFF] [REDuced ON|OFF|Phase phasename|Velocity velocity]</span>
+<span class="go">    [Aspect ON|OFF] [ORIEnt Portrait|Landscape] [Ttime ON|OFF|Default|TEXT]</span>
+<span class="go">    [Xlabel ON|OFF|Default|TEXT] [Ylabel ON|OFF|Default|TEXT]</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>输入<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<dl class="simple">
+<dt>LABELS ON|OFF</dt><dd><p>打开/关闭标签选项。若打开，则每个文件都用头段变量进行标签</p>
+</dd>
+<dt>LABELS headerfield</dt><dd><p>打开标签选项，病设置头段变量名</p>
+</dd>
+<dt>ORIGIN DEFAULT|REVERSED</dt><dd><p>在 Portrait 模式中，距离沿着 Y 轴，默认情况下距离原点位于左上角。在 landscape 模式下，距离沿着 X 轴，默认情况下原点位于左下角。</p>
+</dd>
+<dt>REFERENCELINE ON|OFF</dt><dd><p>开启/关闭参考线选项。若打开，则每个文件在距离属性值对应的地方绘制一条垂直虚线</p>
+</dd>
+<dt>SIZE v</dt><dd><p>?</p>
+</dd>
+<dt>WEIGHT ON|OFF</dt><dd><p>打开/关闭权重选项</p>
+</dd>
+<dt>POLARITY ON|OFF</dt><dd><p>打开/关闭极性选项</p>
+</dd>
+<dt>CURSOR ON|OFF</dt><dd><p>打开/关闭光标显示选项</p>
+</dd>
+<dt>REDUCED ON|OFF|VELOCITY vel|PHASE phase</dt><dd><p>reduced走时曲线。可以指定reduce速度或者一个参考震相</p>
+</dd>
+<dt>ORIENT PORTRAIT|LANDSCAPE</dt><dd><p>portrait 模式中，水平轴为时间，纵轴为震中距；landscape 模式下，水平轴为震中距，垂直轴为时间</p>
+</dd>
+<dt>TTIME ON|OFF|DEFAULT|TEXT</dt><dd><p>绘制走时曲线。需要首先用 <a class="reference internal" href="../traveltime/"><span class="doc">traveltime</span></a> 命令计算走时曲线</p>
+</dd>
+<dt>XLABEL ON|OFF|DEFAULT|TEXT</dt><dd><p>打开/关闭/设置X轴标签</p>
+</dd>
+<dt>YLABEL ON|OFF|DEFAULT|TEXT</dt><dd><p>打开/关闭/设置Y轴标签</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>缺省值<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">plotrecordsection labels filename origin default referenceline on size 0.1</span>
+<span class="go">    weight on polarity on orient portrait reduced off cursor off ttime off</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>说明<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>该命令将利用叠加文件列表中绘制剖面图。在 portrait 模式下，X 轴为时间，Y 轴为震中距，在 landscape 模式下则交换 XY 轴。每个文件的零振幅将会画在距离轴上对应的震中距处。</p>
+<p>为了能够正确绘图，叠加列表中的所有文件必须定义震中距属性，该属性可以来自于文件头段，也可以在 <a class="reference internal" href="../globalstack/"><span class="doc">globalstack</span></a>、<a class="reference internal" href="../addstack/"><span class="doc">addstack</span></a>、<a class="reference internal" href="../changestack/"><span class="doc">changestack</span></a> 等命令的 DISTANCE 选项中定义。</p>
+<p><a class="reference internal" href="../distancewindow/"><span class="doc">distancewindow</span></a> 和 <a class="reference internal" href="../timewindow/"><span class="doc">timewindow</span></a> 命令可以控制要显示的数据窗。
+<a class="reference internal" href="../distanceaxis/"><span class="doc">distanceaxis</span></a> 和 <a class="reference internal" href="../timeaxis/"><span class="doc">timeaxis</span></a> 命令控制横纵轴的尺寸。
+<a class="reference internal" href="../velocitymodel/"><span class="doc">velocitymodel</span></a> 定义了速度模型，用于计算动态延迟。
+<a class="reference internal" href="../velocityroset/"><span class="doc">velocityroset</span></a> 命令用于控制速度rosette的显示效果。</p>
+</section>
+<section id="id6">
+<h2>光标模式<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>在光标模式下，有两个额外的功能：缩放和决定视速度。</p>
+<p>缩放功能需要用户指定要显示的区域。用户首先将光标放在当前图形区域的一个角落，键入
+<code class="docutils literal notranslate"><span class="pre">c1</span></code> ，再将光标移动到对角的另一个角落，键入 <code class="docutils literal notranslate"><span class="pre">c2</span></code> 。两次键入确定了唯一的矩形区域，也确定了要绘制的区域的时间范围和距离范围，此时，会自动重新绘制缩放后的剖面图，用户可以键入 <code class="docutils literal notranslate"><span class="pre">o</span></code> 命令重新绘制原始图形。缩放功能最多可以递归5次。</p>
+<p>视速度确定功能需要用于移动光标，并分别键入 <code class="docutils literal notranslate"><span class="pre">v1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">v2</span></code> 以标记点，SAC会自动计算视速度，显示在输出设备上并保持到黑板变量vapp中。可以多次设置v2，但只有最后一次的值会保存到黑板变量中。</p>
+<p>除了c1、c2、v1、v2之外，光标模式下还有一个命令，即 <code class="docutils literal notranslate"><span class="pre">q</span></code>，用于退出光标模式。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../liststack/" class="btn btn-neutral float-left" title="liststack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plotstack/" class="btn btn-neutral float-right" title="plotstack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

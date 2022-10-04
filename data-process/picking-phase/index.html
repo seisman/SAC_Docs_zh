@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>震相拾取 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="数据分析" href="../data-analysis/" />
+    <link rel="prev" title="质量控制" href="../quality-control/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 数据处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-request/">数据申请</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-format/">数据格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge-traces/">合并数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rename/">数据重命名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time-zone-correction/">时区校正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event-info/">事件信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../station-info/">台站和分量信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">去毛刺</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean-rtrend-taper/">去均值、去线性趋势和波形尖灭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-response/">去仪器响应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut-data/">数据截窗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">分量旋转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling/">数据重采样</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filter/">滤波</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">震相理论到时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort-traces/">波形排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quality-control/">质量控制</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">震相拾取</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ppk">ppk 模式的进入与退出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">ppk 模式下拾取震相</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">关闭快速绘图</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">放大与缩小</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">同时标记三分量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">ppk 命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#p-s">标定 P 波和 S 波</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">ppk 修改版</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../data-analysis/">数据分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/">信号叠加</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 数据处理</a> &raquo;</li>
+      <li>震相拾取</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/data-process/picking-phase.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>震相拾取<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>相关命令</strong>：<a class="reference internal" href="../../commands/plotpk/"><span class="doc">plotpk</span></a></p>
+<p>震相拾取，或者说标定到时，是 SAC 的一种常用功能。</p>
+<section id="ppk">
+<h2>ppk 模式的进入与退出<a class="headerlink" href="#ppk" title="此标题的永久链接">¶</a></h2>
+<p>要进行震相拾取，首先要进入“ppk模式”。</p>
+<p>读取波形数据后，在终端中键入 <code class="docutils literal notranslate"><span class="pre">plotpk</span></code>（简写为 <code class="docutils literal notranslate"><span class="pre">ppk</span></code>），就会出现一个绘图窗口。若之前未曾打开过绘图窗口，则此时焦点位于 ppk
+打开的绘图窗口中；若之前曾经打开过绘图窗口，则需要鼠标点击一下绘图窗口以使得焦点位于绘图窗口而不是终端中。注意，在 SAC 进入“ppk 模式”后，终端中光标所在行不再出现 SAC 提示符“<code class="docutils literal notranslate"><span class="pre">SAC&gt;</span></code>”。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; ppk    # 焦点位于绘图窗口中，进入 ppk 模式</span>
+<span class="gp">            # </span>光标所在行没有提示符<span class="s2">&quot;SAC&gt; &quot;</span>
+</pre></div>
+</div>
+<p>学会如何进入 ppk 模式后，还要学会如何退出 ppk 模式。首先，确保焦点位于绘图窗口而不是终端，然后将光标移动到绘图窗口中，按下“<code class="docutils literal notranslate"><span class="pre">q</span></code>”键即可退出
+ppk 模式。此时，终端中光标所在行会重新出现 SAC 提示符“<code class="docutils literal notranslate"><span class="pre">SAC&gt;</span></code>”。</p>
+<p>只有当使用了 ppk 命令，焦点位于当前绘图窗口，且鼠标位于当前绘图窗口内才称为 ppk 模式。在 ppk 模式下，所有的键盘输入都会被解释为“ppk 命令”，且不会在终端中显示出来。若使用 ppk 命令后，不慎使焦点位于终端内，即脱离了
+ppk 模式，此时所有的键盘输入都会在终端中显示，但不会被 SAC 解释，当退出
+ppk 模式时，SAC 才会依次解释终端中的命令。</p>
+</section>
+<section id="id2">
+<h2>ppk 模式下拾取震相<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>下面介绍如何在 ppk 模式中拾取震相。先进入 ppk 模式，此时焦点位于绘图窗口，并保证鼠标位于绘图区（即四个边框）的内部，移动鼠标到要标记到时的地方，依次按下 <code class="docutils literal notranslate"><span class="pre">t</span></code>、<code class="docutils literal notranslate"><span class="pre">0</span></code>，在要标记的到时处会出现一条竖线，旁边有标识
+<code class="docutils literal notranslate"><span class="pre">T0</span></code>，此时已经将要标记的到时（即竖线对应的 X 轴位置）保存到头段变量
+<code class="docutils literal notranslate"><span class="pre">T0</span></code> 中。再按下 <code class="docutils literal notranslate"><span class="pre">q</span></code> 以退出 ppk 模式，最后在终端键入 <code class="docutils literal notranslate"><span class="pre">wh</span></code>
+将内存中的头段变量写回到磁盘文件中。</p>
+<p>除了可以键入 <code class="docutils literal notranslate"><span class="pre">t</span></code> 和 <code class="docutils literal notranslate"><span class="pre">0</span></code> 之外，0还可以用1到9的任意数字替换，分别表示将要标记的到时保存到 <code class="docutils literal notranslate"><span class="pre">T0</span></code> 到 <code class="docutils literal notranslate"><span class="pre">T9</span></code> 中。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; ppk</span>
+<span class="gp"># </span>键入<span class="s2">&quot;t&quot;</span>和<span class="s2">&quot;0&quot;</span>标记到时，然后按<span class="s2">&quot;q&quot;</span>退出ppk模式
+<span class="go">SAC&gt; lh t0</span>
+<span class="go">     t0 = 1.255385e+01</span>
+<span class="go">SAC&gt; wh         # 保存头段</span>
+</pre></div>
+</div>
+<p>在键入 <code class="docutils literal notranslate"><span class="pre">t</span></code> 时，鼠标不仅要在绘图窗口内，还要在绘图区（即四个边框）的内部，否则会得到 “Bad cursor position. Please retry.” 的错误提示。</p>
+<p>SAC 全局变量 <code class="docutils literal notranslate"><span class="pre">SAC_PPK_USE_CROSSHAIRS</span></code> 可以控制 ppk 模式下鼠标在绘图窗口内的形态。若其值为 <code class="docutils literal notranslate"><span class="pre">0</span></code>，则鼠标会以十字线的形式出现，即“<span class="math notranslate nohighlight">\(+\)</span>”；当其值为 <code class="docutils literal notranslate"><span class="pre">1</span></code> 时，会在十字线的基础上加上水平线和垂直线。通常建议设置其值为 <code class="docutils literal notranslate"><span class="pre">1</span></code>，使得拾取到时时更精确。该全局变量的设置方式参考 <a class="reference internal" href="../../install/"><span class="doc">SAC 安装</span></a> 一节。</p>
+</section>
+<section id="id3">
+<h2>关闭快速绘图<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>快速绘图，是指 SAC 在显示图形时降采显示，以便快速地在电脑屏幕上展现出图形。SAC 默认开启该功能，这是为适应上世纪的计算机硬件性能所设计的。现代计算机性能强大，不再需要降采显示来快速绘图。所以通常都应该关闭快速绘图，以防止波形显示不佳，降低了到时拾取的精度。快速绘图的开启和关闭是由 <code class="docutils literal notranslate"><span class="pre">qdp</span></code> 命令控制的：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; dg sub reg elk.z</span>
+<span class="go">SAC&gt; qdp on     # 打开快速绘图选项（默认值）</span>
+<span class="go">SAC&gt; ppk</span>
+<span class="go">SAC&gt; qdp off    # 关闭快速绘图选项</span>
+<span class="go">SAC&gt; ppk        # 注意观察与之前的区别</span>
+</pre></div>
+</div>
+<p>为了避免手动执行 <a href="#id4"><span class="problematic" id="id5">``</span></a>qdp off``的麻烦，可以使用 <a class="reference internal" href="../../tricks-and-traps/init-macro/"><span class="doc">SAC 初始化</span></a> 一节中介绍的方法，让 SAC 启动时就自动关闭快速绘图选项。</p>
+<p>关于 SAC 的显示的详细信息，可以参考 <a class="reference internal" href="../../graphics/plot-appearance/"><span class="doc">图像外观</span></a> 一节以及命令 <a class="reference internal" href="../../commands/qdp/"><span class="doc">qdp</span></a> 的说明。</p>
+</section>
+<section id="id6">
+<h2>放大与缩小<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>有时数据时间较长，难以精确标定到时，此时需要将图幅放大，以显示整个波形的一小部分。</p>
+<p>首先需要将光标移动到绘图区域中的某位置，键入“<code class="docutils literal notranslate"><span class="pre">x</span></code>”，再移动至另一位置，再次键入“<code class="docutils literal notranslate"><span class="pre">x</span></code>”。这样，两次键入确定了一个时间窗。这时，绘图窗口中将只显示该时间窗内的波形，也就实现了图幅的放大。可不断重复此步骤，进行多次放大。</p>
+<p>SAC v101.5 之后的版本有更方便的方式：在绘图窗口中某位置按下鼠标左键，并拖动至另一位置再松开鼠标左键，则两个位置之间的时间窗内的波形会被放大。</p>
+<p>图幅的缩小通过键入“<code class="docutils literal notranslate"><span class="pre">o</span></code>”来实现，“<code class="docutils literal notranslate"><span class="pre">o</span></code>”最多可以回退5次绘图历史。</p>
+</section>
+<section id="id7">
+<h2>同时标记三分量<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h2>
+<p>通常，震相在同一台站的三分量数据上具有相同的到时，因而将同一台站的三分量数据画在一张图上，一方面可以综合三分量的波形信息以更准确地识别震相，另一方面，一次标定三分量的震相到时可以减少工作量并保证震相在三分量上的到时相同。使用命令“<code class="docutils literal notranslate"><span class="pre">ppk</span> <span class="pre">p</span> <span class="pre">3</span> <span class="pre">a</span> <span class="pre">m</span></code>”进入 ppk 模式即可每次只显示并同时标记三个波形数据。</p>
+<p>通常在拾取震相时会一次性读入多个台站的波形数据，而“<code class="docutils literal notranslate"><span class="pre">ppk</span> <span class="pre">p</span> <span class="pre">3</span> <span class="pre">a</span> <span class="pre">m</span></code>”一次只能显示三个波形数据，可以在ppk模式下不断键入“<code class="docutils literal notranslate"><span class="pre">n</span></code>”以依次显示接下来的三个波形，也可以键入“<code class="docutils literal notranslate"><span class="pre">b</span></code>”以显示前三个波形。当不断键入“<code class="docutils literal notranslate"><span class="pre">n</span></code>”直到所有波形数据都显示完毕的时候，会自动退出 ppk 模式。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; dg sub tele *       # 生成多个台站的三分量数据</span>
+<span class="go">SAC&gt; ppk p 3 a m</span>
+<span class="gp"># </span>键入 t0 标记 ntkl 台站的三分量到时
+<span class="gp"># </span>键入 n 以绘制接下来的三个数据
+<span class="gp"># </span>键入 t0 标记 nykl 台站的三分量到时
+<span class="gp"># </span>键入 n 以绘制接下来的三个数据
+<span class="gp"># </span>键入 b 以绘制之前的三个数据
+<span class="gp"># </span>键入 t0 重新标记 nykl 台站的三分量到时
+<span class="gp"># </span>键入 n 以绘制接下来的三个数据
+<span class="gp"># </span>键入 t0 标记 onkl 台站的三分量到时
+<span class="gp"># </span>键入 n 以绘制接下来的三个数据
+<span class="gp"># </span>键入 t0 标记 sdkl 台站的三分量到时
+<span class="gp"># </span>键入 n 自动退出 ppk 模式
+<span class="go">SAC&gt; wh</span>
+<span class="go">SAC&gt; q</span>
+</pre></div>
+</div>
+<p>在使用“<code class="docutils literal notranslate"><span class="pre">ppk</span> <span class="pre">p</span> <span class="pre">3</span> <span class="pre">a</span> <span class="pre">m</span></code>”选项同时标记三分量时需要注意：</p>
+<ul class="simple">
+<li><p>三分量数据的参考时刻必须相同；若参考时刻不相同，则标记的结果是错误的</p></li>
+<li><p>该命令每次会按照顺序显示内存中的三个波形数据，当且仅当每次显示的三个波形数据恰好是同一台站的三分量数据时，该命令才能用作同时标记同一台站的三个分量</p></li>
+</ul>
+<p>要使得每次显示的恰好是同一台站的三分量波形数据，则要求同一台站的三个分量在内存中分别位于第 n、n+1 和 n+2 位，其中 n 为正整数。通常情况下，一次性读入全部数据的时候，都可以满足这一要求。但也有一些例外：</p>
+<ul class="simple">
+<li><p>数据文件名比较奇葩，导致读入时同一台站的三分量数据不是紧挨着读入的，可以使用“<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.SAC</span></code>”命令检查文件的读入顺序；</p></li>
+<li><p>某个台站丢失了一个分量的数据，导致后面的所有台站都出现问题；</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>ppk 命令<a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h2>
+<p>除了上面介绍的若干 ppk 命令之外，还有很多其他 ppk 命令。
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">table:plotpk-commands</span></code> 列出了 ppk 模式下的所有命令，其中常用的命令包括“<code class="docutils literal notranslate"><span class="pre">b</span></code>”、“<code class="docutils literal notranslate"><span class="pre">l</span></code>”、“<code class="docutils literal notranslate"><span class="pre">n</span></code>”、“<code class="docutils literal notranslate"><span class="pre">o</span></code>”、“<code class="docutils literal notranslate"><span class="pre">q</span></code>”、“<code class="docutils literal notranslate"><span class="pre">t</span></code>”和“<code class="docutils literal notranslate"><span class="pre">x</span></code>”。 所有命令均不区分大小写。</p>
+<table class="docutils align-center" id="id10">
+<caption><span class="caption-number">表 5 </span><span class="caption-text">ppk模式命令一览表</span><a class="headerlink" href="#id10" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 66%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>含义</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a</p></td>
+<td><p>定义事件初至a</p></td>
+<td><p>1,7</p></td>
+</tr>
+<tr class="row-odd"><td><p>b</p></td>
+<td><p>如果有，则显示上一张绘图</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>c</p></td>
+<td><p>计算事件的初至和结束</p></td>
+<td><p>1,4,7</p></td>
+</tr>
+<tr class="row-odd"><td><p>d</p></td>
+<td><p>设置震相方向为DOWN</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>e</p></td>
+<td><p>设置震相onset为EMERGENT（急始）</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>f</p></td>
+<td><p>定义事件结束f</p></td>
+<td><p>1,2,3,7</p></td>
+</tr>
+<tr class="row-even"><td><p>g</p></td>
+<td><p>以HYPO格式将拾取显示到终端</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>h</p></td>
+<td><p>将拾取写成HYPO格式</p></td>
+<td><p>3,4</p></td>
+</tr>
+<tr class="row-even"><td><p>i</p></td>
+<td><p>设置震相onset为IMPULSIVE</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>j</p></td>
+<td><p>设置噪声水平</p></td>
+<td><p>2,6,8</p></td>
+</tr>
+<tr class="row-even"><td><p>k</p></td>
+<td><p>即kill，退出ppk模式</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>l</p></td>
+<td><p>显示光标当前位置</p></td>
+<td><p>2,4</p></td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>计算最大振幅波形</p></td>
+<td><p>2,3,5</p></td>
+</tr>
+<tr class="row-odd"><td><p>n</p></td>
+<td><p>显示下一绘图</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>o</p></td>
+<td><p>显示前一个绘图窗，最多可以保存5个绘图窗</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>p</p></td>
+<td><p>定义P波到时</p></td>
+<td><p>1,2,3,7</p></td>
+</tr>
+<tr class="row-even"><td><p>q</p></td>
+<td><p>即quit，退出ppk模式</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>s</p></td>
+<td><p>定义S波到时</p></td>
+<td><p>1,2,3,7</p></td>
+</tr>
+<tr class="row-even"><td><p>t</p></td>
+<td><p>用户自定义到时tn，输入t之后需要输入0到9中的任一数</p></td>
+<td><p>1,2,7</p></td>
+</tr>
+<tr class="row-odd"><td><p>u</p></td>
+<td><p>设置震相方向为UP</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>v</p></td>
+<td><p>定义一个Wood-Anderson波形</p></td>
+<td><p>2,5</p></td>
+</tr>
+<tr class="row-odd"><td><p>w</p></td>
+<td><p>定义一个通用波形</p></td>
+<td><p>2,5</p></td>
+</tr>
+<tr class="row-even"><td><p>x</p></td>
+<td><p>使用一个新的x轴时间窗，简单说就是放大</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>z</p></td>
+<td><p>设置参考水平</p></td>
+<td><p>2,6,8</p></td>
+</tr>
+<tr class="row-even"><td><p>&#64;</p></td>
+<td><p>删除已定义的拾取（包括A、F、P、S、T0）</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>+</p></td>
+<td><p>设置震相方向为略微向上</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>设置震相方向为略微向下</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>设置震相方向为未知</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>设置震相质量为n，n取0-4</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注意：ppk 模式的命令几乎都是由单个字符组成的，比如退出“<code class="docutils literal notranslate"><span class="pre">q</span></code>”，唯一的例外是命令“<code class="docutils literal notranslate"><span class="pre">t</span></code>”，由字符“<code class="docutils literal notranslate"><span class="pre">t</span></code>”和0–9的整数构成。</p>
+<p>不同的命令效果可能不同，有些会在绘图窗口显示信息，有些会将信息写入头段i
+变量，下面对 <code class="xref std std-numref docutils literal notranslate"><span class="pre">table:plotpk-commands</span></code> 中的说明进行一个说明：</p>
+<ul class="simple">
+<li><p>1: 会将信息写入头段变量</p></li>
+<li><p>2: 写入震相拾取文本文件（若已打开）</p></li>
+<li><p>3: 写入HYPO格式震相拾取文件（若已打开）</p></li>
+<li><p>4: 在绘图窗口中显示信息</p></li>
+<li><p>5: 窗口显示包含波形的矩形</p></li>
+<li><p>6: 在指定的水平处放置水平光标</p></li>
+<li><p>7: 绘图窗口显示含有到时标识的垂直线</p></li>
+<li><p>8: 绘图窗口显示含有标识的水平线</p></li>
+</ul>
+</section>
+<section id="p-s">
+<h2>标定 P 波和 S 波<a class="headerlink" href="#p-s" title="此标题的永久链接">¶</a></h2>
+<p>ppk 模式下可以键入 <code class="docutils literal notranslate"><span class="pre">p</span></code> 或 <code class="docutils literal notranslate"><span class="pre">s</span></code> 来分别标定 P 波和 S 波到时。关于 P 波和 S 波到时的标定，有如下几点说明：</p>
+<ul class="simple">
+<li><p>用 <code class="docutils literal notranslate"><span class="pre">p</span></code> 标定的P波到时信息保存到头段变量 <code class="docutils literal notranslate"><span class="pre">A</span></code> 中</p></li>
+<li><p>用 <code class="docutils literal notranslate"><span class="pre">s</span></code> 标定的S波到时信息保存到头段变量 <code class="docutils literal notranslate"><span class="pre">T0</span></code> 中</p></li>
+<li><p>震相 onset 类型、震相方向和震相质量等信息仅用于标记 P 和 S 波，这些信息会保留在头段变量 <code class="docutils literal notranslate"><span class="pre">KA</span></code> 或 <code class="docutils literal notranslate"><span class="pre">KT0</span></code> 中。</p></li>
+</ul>
+<p>以标记 P 波到时为例，在进入 ppk 模式后，依次按下 <code class="docutils literal notranslate"><span class="pre">e</span></code>、<code class="docutils literal notranslate"><span class="pre">d</span></code>、<code class="docutils literal notranslate"><span class="pre">1</span></code>、<code class="docutils literal notranslate"><span class="pre">p</span></code> 四个按键，此时会将 P 波到时信息保存在头段变量 <code class="docutils literal notranslate"><span class="pre">A</span></code> 中，头段变量 <code class="docutils literal notranslate"><span class="pre">KA</span></code>
+中的值则是 <code class="docutils literal notranslate"><span class="pre">EPD1</span></code>，这四个字符表明这是一个 EMERGENT 且极性向下的 P 波，震相质量为1，即震相比较清晰。</p>
+</section>
+<section id="id9">
+<h2>ppk 修改版<a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h2>
+<p>SAC 的 <a class="reference internal" href="../../commands/plotpk/"><span class="doc">plotpk</span></a> 命令在实际使用中有两大痛点：</p>
+<ol class="arabic simple">
+<li><p>拾取震相时需要按下 <code class="docutils literal notranslate"><span class="pre">T</span></code> 和数字键才能标记一个到时，且某些数字键与按键
+<code class="docutils literal notranslate"><span class="pre">T</span></code> 距离太远</p></li>
+<li><p>无法删除已标记的到时</p></li>
+</ol>
+<p>为了解决这两个问题，对代码做了一些修改，增加了如下两个功能：</p>
+<ol class="arabic simple">
+<li><p>直接使用数字键即可标记震相到时</p></li>
+<li><p>使用 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> 可删除标记到时</p></li>
+</ol>
+<p>详情请参考 <a class="reference external" href="https://blog.seisman.info/faster-ppk/">https://blog.seisman.info/faster-ppk/</a>。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../quality-control/" class="btn btn-neutral float-left" title="质量控制" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../data-analysis/" class="btn btn-neutral float-right" title="数据分析" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

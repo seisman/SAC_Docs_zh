@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>调用 libsac 库 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="SAC I/O" href="../../sacio/" />
+    <link rel="prev" title="调用 libsacio 库" href="../libsacio/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 函数库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-libs/">SAC 库简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libsacio/">调用 libsacio 库</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">调用 libsac 库</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#next2">next2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xapiir">xapiir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#firtrn">firtrn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#envelope">envelope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crscor">crscor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rms">rms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 函数库</a> &raquo;</li>
+      <li>调用 libsac 库</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/libs/libsac.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="libsac">
+<h1>调用 libsac 库<a class="headerlink" href="#libsac" title="此标题的永久链接">¶</a></h1>
+<section id="next2">
+<h2>next2<a class="headerlink" href="#next2" title="此标题的永久链接">¶</a></h2>
+<p>SAC在做 FFT 时要保证数据点数为 <span class="math notranslate nohighlight">\(2^n\)</span> 个，对于不足 <span class="math notranslate nohighlight">\(2^n\)</span> 个点的数据需要补零至 <span class="math notranslate nohighlight">\(2^n\)</span> 次方个点。</p>
+<p><code class="docutils literal notranslate"><span class="pre">next2</span></code> 函数定义为：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">next2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w">  </span><span class="c1">// 输入为 num，返回值为大于 num 的最小2次幂</span>
+</pre></div>
+</div>
+</section>
+<section id="xapiir">
+<h2>xapiir<a class="headerlink" href="#xapiir" title="此标题的永久链接">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">xapiir</span></code> 用于设计IIR滤波器，并对数据进行滤波。这个子函数底层调用了
+<code class="docutils literal notranslate"><span class="pre">design</span></code> 和 <code class="docutils literal notranslate"><span class="pre">apply</span></code> 两个子函数。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">xapiir</span><span class="p">(</span><span class="kt">float</span><span class="w">  </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w">      </span><span class="c1">// 待滤波的数据，滤波后的数据保存在该数组中</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">     </span><span class="n">nsamps</span><span class="p">,</span><span class="w">    </span><span class="c1">// 数据点数</span>
+<span class="w">            </span><span class="kt">char</span><span class="w">   </span><span class="o">*</span><span class="n">aproto</span><span class="p">,</span><span class="w">    </span><span class="c1">// 滤波器类型</span>
+<span class="w">                               </span><span class="c1">//  - &#39;BU&#39;: butterworth</span>
+<span class="w">                               </span><span class="c1">//  - &#39;BE&#39;: bessel</span>
+<span class="w">                               </span><span class="c1">//  - &#39;C1&#39;: chebyshev type I</span>
+<span class="w">                               </span><span class="c1">//  - &#39;C2&#39;: chebyshev type II</span>
+<span class="w">            </span><span class="kt">double</span><span class="w">  </span><span class="n">trbndw</span><span class="p">,</span><span class="w">    </span><span class="c1">// chebyshev 滤波器的过渡带宽度</span>
+<span class="w">            </span><span class="kt">double</span><span class="w">  </span><span class="n">a</span><span class="p">,</span><span class="w">         </span><span class="c1">// chebyshev 滤波器的衰减因子</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">     </span><span class="n">iord</span><span class="p">,</span><span class="w">      </span><span class="c1">// 滤波器阶数</span>
+<span class="w">            </span><span class="kt">char</span><span class="w">   </span><span class="o">*</span><span class="n">type</span><span class="p">,</span><span class="w">      </span><span class="c1">// 滤波类型: &#39;LP&#39;,&#39;HP&#39;,&#39;BP&#39;,&#39;BR&#39;</span>
+<span class="w">            </span><span class="kt">double</span><span class="w">  </span><span class="n">flo</span><span class="p">,</span><span class="w">       </span><span class="c1">// 低频截断频率</span>
+<span class="w">            </span><span class="kt">double</span><span class="w">  </span><span class="n">fhi</span><span class="p">,</span><span class="w">       </span><span class="c1">// 高频截断频率</span>
+<span class="w">            </span><span class="kt">double</span><span class="w">  </span><span class="n">ts</span><span class="p">,</span><span class="w">        </span><span class="c1">// 采样周期</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">     </span><span class="n">passes</span><span class="p">)</span><span class="w">    </span><span class="c1">// 通道数，1或2</span>
+</pre></div>
+</div>
+<p>相关示例代码为 <code class="docutils literal notranslate"><span class="pre">filterc.c</span></code> 和 <code class="docutils literal notranslate"><span class="pre">filterf.f</span></code>。</p>
+</section>
+<section id="firtrn">
+<h2>firtrn<a class="headerlink" href="#firtrn" title="此标题的永久链接">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">firtrn</span></code> 用于做数据应用 FIR 滤波器或对数据做 Hilbert 变换：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">firtrn</span><span class="p">(</span><span class="kt">char</span><span class="w">  </span><span class="o">*</span><span class="n">ftype</span><span class="p">,</span><span class="w">     </span><span class="c1">// 类型，取&#39;HILBERT&#39;或&#39;DERIVATIVE&#39;</span>
+<span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w">         </span><span class="c1">// 输入数据</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">    </span><span class="n">n</span><span class="p">,</span><span class="w">         </span><span class="c1">// 数据点数，至少含201个点</span>
+<span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">,</span><span class="w">    </span><span class="c1">// 临时数组，长度至少4297</span>
+<span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="w">         </span><span class="c1">// 输出数组</span>
+</pre></div>
+</div>
+<p>下面的示例展示了如何计算数据的Hilbert变换:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#define NPTS 1000</span>
+
+<span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="nf">hilbert</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npts</span><span class="p">);</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">NPTS</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">hdata</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 准备输入数据</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">NPTS</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w">  </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 进行Hilbert变换，hdata为Hilbert变换的结果</span>
+<span class="w">    </span><span class="n">hdata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hilbert</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">NPTS</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">NPTS</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hdata</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">hdata</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// 这里定义了hilbert函数，是对firtrn函数的一个封装</span>
+<span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="nf">hilbert</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">npts</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">buffer</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">out</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="o">*</span><span class="mi">50000</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="o">*</span><span class="n">npts</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">firtrn</span><span class="p">(</span><span class="s">&quot;HILBERT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">npts</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">buffer</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="envelope">
+<h2>envelope<a class="headerlink" href="#envelope" title="此标题的永久链接">¶</a></h2>
+<p>该子函数用于计算数据的包络函数，其底层调用了 <code class="docutils literal notranslate"><span class="pre">firtrn</span></code> 函数。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">envelope</span><span class="p">(</span><span class="kt">int</span><span class="w">    </span><span class="n">n</span><span class="p">,</span><span class="w">     </span><span class="c1">// 数据点数</span>
+<span class="w">              </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">in</span><span class="p">,</span><span class="w">    </span><span class="c1">// 输入数据</span>
+<span class="w">              </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">out</span><span class="p">)</span><span class="w">   </span><span class="c1">// 输出数据</span>
+</pre></div>
+</div>
+<p>需要注意，<code class="docutils literal notranslate"><span class="pre">in</span></code> 和 <code class="docutils literal notranslate"><span class="pre">out</span></code> 不能是同一个数组。</p>
+<p>相关示例代码为 <code class="docutils literal notranslate"><span class="pre">envelopec.c</span></code> 和 <code class="docutils literal notranslate"><span class="pre">envelopef.f</span></code> 。</p>
+</section>
+<section id="crscor">
+<h2>crscor<a class="headerlink" href="#crscor" title="此标题的永久链接">¶</a></h2>
+<p>该子函数用于计算两个数据的互相关，此互相关在频率域中完成，相对时间域互相关而言效率更高。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">crscor</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">data1</span><span class="p">,</span><span class="w">     </span><span class="c1">// 数据1</span>
+<span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">data2</span><span class="p">,</span><span class="w">     </span><span class="c1">// 数据2</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">    </span><span class="n">nsamps</span><span class="p">,</span><span class="w">    </span><span class="c1">// 数据点数</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">    </span><span class="n">nwin</span><span class="p">,</span><span class="w">      </span><span class="c1">// 相关窗数目</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">    </span><span class="n">wlen</span><span class="p">,</span><span class="w">      </span><span class="c1">// 窗内数据点数，最大值为2048</span>
+<span class="w">            </span><span class="kt">char</span><span class="w">  </span><span class="o">*</span><span class="n">type</span><span class="p">,</span><span class="w">      </span><span class="c1">// 窗类型，可以取&#39;HAM&#39;,&#39;HAN&#39;,&#39;C&#39;,&#39;R&#39;,&#39;T&#39;</span>
+<span class="w">            </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="w">         </span><span class="c1">// 输出数据，长度为2*wlen-1</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">   </span><span class="o">*</span><span class="n">nfft</span><span class="p">,</span><span class="w">      </span><span class="c1">// 相关序列的数据点数</span>
+<span class="w">            </span><span class="kt">char</span><span class="w">  </span><span class="o">*</span><span class="n">err</span><span class="p">,</span><span class="w">       </span><span class="c1">// 错误消息</span>
+<span class="w">            </span><span class="kt">int</span><span class="w">    </span><span class="n">err_s</span><span class="p">)</span><span class="w">     </span><span class="c1">// 错误消息长度</span>
+</pre></div>
+</div>
+<p>示例代码为 <code class="docutils literal notranslate"><span class="pre">convolvec.c</span></code>、<code class="docutils literal notranslate"><span class="pre">convolvef.f</span></code>、<code class="docutils literal notranslate"><span class="pre">correlatec.c</span></code> 和
+<code class="docutils literal notranslate"><span class="pre">correlatef.f</span></code>。</p>
+</section>
+<section id="rms">
+<h2>rms<a class="headerlink" href="#rms" title="此标题的永久链接">¶</a></h2>
+<p>该子函数用于计算信号的均方根，其中计算公式为：</p>
+<div class="math notranslate nohighlight">
+\[RMS = \sqrt{\sum_{i=1}^N y_i^2}\]</div>
+<p>该公式与命令 <a class="reference internal" href="../../commands/rms/"><span class="doc">rms</span></a> 中的公式略有不同，严格来说，这里的定义是有问题的，因而对于该子程序计算出的结果，要除以根号 N 才是真正的均方根。</p>
+<p>函数原型为：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="n">rms</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w">            </span><span class="c1">// 输入数据</span>
+<span class="w">           </span><span class="kt">int</span><span class="w"> </span><span class="n">nsamps</span><span class="p">)</span><span class="w">          </span><span class="c1">// 数据点数</span>
+</pre></div>
+</div>
+<p>示例代码：</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * 本例中使用 Prof. Lupei Zhu 的 sacio 库的数据读入子程序</span>
+<span class="cm"> *</span>
+<span class="cm"> * 编译方式：</span>
+<span class="cm"> *    gcc prog.c sacio.c -lm -L/usr/local/sac/lib -lsac -lsacio</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;sac.h&quot;</span><span class="cp"></span>
+
+<span class="kt">double</span><span class="w"> </span><span class="nf">rms</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nsamps</span><span class="p">);</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SACHEAD</span><span class="w"> </span><span class="n">hd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_sac</span><span class="p">(</span><span class="s">&quot;seis.SAC&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rms</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">npts</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">hd</span><span class="p">.</span><span class="n">npts</span><span class="p">);</span><span class="w">  </span><span class="c1">// 除以根号N</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;rms = %lf</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../libsacio/" class="btn btn-neutral float-left" title="调用 libsacio 库" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../sacio/" class="btn btn-neutral float-right" title="SAC I/O" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

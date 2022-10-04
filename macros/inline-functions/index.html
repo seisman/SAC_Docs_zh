@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>内联函数 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="SAC 宏" href="../macros/" />
+    <link rel="prev" title="黑板变量" href="../blackboard-variables/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 编程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-sac-programming/">SAC 宏简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../header-variables/">引用头段变量值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blackboard-variables/">黑板变量</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">内联函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">算术运算符</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">常规算术运算函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">字符串操作函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">其他函数</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../macros/">SAC 宏</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 编程</a> &raquo;</li>
+      <li>内联函数</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/macros/inline-functions.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>内联函数<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>内联函数是 SAC 实现的一些函数，其可以在 SAC 命令中使用。在执行命令时，内联函数会首先被调用，内联函数的结果将替代命令中的内联函数的位置。</p>
+<p>SAC 提供了如下几类内联函数：</p>
+<ul class="simple">
+<li><p>算术运算符；</p></li>
+<li><p>常规算术运算函数；</p></li>
+<li><p>字符串操作函数；</p></li>
+<li><p>其他函数；</p></li>
+</ul>
+<p>所有的内联函数的共同形式是：“<code class="docutils literal notranslate"><span class="pre">(func)</span></code>”，其中 <code class="docutils literal notranslate"><span class="pre">func</span></code> 为内联函数名。某种程度上，内联函数与前面说到头段变量（“<code class="docutils literal notranslate"><span class="pre">&amp;</span> <span class="pre">&amp;</span></code>”）和黑板变量（“<code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">%</span></code>”）类似，可以认为是通过“<code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code>”引用了内联函数的结果或值。</p>
+<p>内联函数支持嵌套，目前最多可以嵌套10层。</p>
+<section id="id2">
+<h2>算术运算符<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>算术运算符即常规的加减乘除运算符，但又有不同，其一般形式如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">( number operator number )</span>
+</pre></div>
+</div>
+<p>所有的操作数都被认为是实型的，所有的算术运算都按照双精度浮点型进行运算；</p>
+<p>SAC支持的操作符是包括：“<code class="docutils literal notranslate"><span class="pre">+</span>&#160; <span class="pre">-</span>&#160; <span class="pre">*</span>&#160; <span class="pre">/</span>&#160; <span class="pre">**</span></code>”。</p>
+<p>看几个简单的例子:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; echo on</span>
+<span class="go">SAC&gt; setbb var1 4+7             # 忘记加括号了！“4+7”被当成了字符串</span>
+<span class="go"> setbb var1 4+7</span>
+<span class="go">SAC&gt; setbb var2 (4+7)</span>
+<span class="go"> setbb var2 (4+7)</span>
+<span class="go"> ==&gt;  setbb var2 11             # 4+7=11</span>
+<span class="go">SAC&gt; setbb var3 (4+7/3)         # 优先级正确</span>
+<span class="go"> setbb var3 (4+7/3)</span>
+<span class="go"> ==&gt;  setbb var3 6.33333</span>
+<span class="go">SAC&gt; setbb var4 ((4+7)/3)       # 括号改变优先级</span>
+<span class="go"> setbb var4 ((4+7)/3)           # 可以看作是内联函数的嵌套</span>
+<span class="go"> ==&gt;  setbb var4 3.66667</span>
+<span class="go">SAC&gt; setbb var1 ( ( 4 + 7 ) / 3 )   # 支持空格</span>
+<span class="go"> setbb var1 ( ( 4 + 7 ) / 3 )</span>
+<span class="go"> ==&gt;  setbb var1 3.66667</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>常规算术运算函数<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>SAC 提供了20个常规算术运算函数，其基本形式为“<code class="docutils literal notranslate"><span class="pre">(func</span> <span class="pre">arg1</span> <span class="pre">arg2</span> <span class="pre">...)</span></code>”。具体函数如 <a class="reference internal" href="#table-regular-arithmetic-functions"><span class="std std-numref">表 6</span></a> 所示。</p>
+<span id="table-regular-arithmetic-functions"></span><table class="docutils align-default" id="id6">
+<caption><span class="caption-number">表 6 </span><span class="caption-text">常规算数运算函数</span><a class="headerlink" href="#id6" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 45%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>语法</p></th>
+<th class="head"><p>功能</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>add</p></td>
+<td><p>( add v1 v2 … vn )</p></td>
+<td><p>v1+v2+…+vn</p></td>
+</tr>
+<tr class="row-odd"><td><p>subtract</p></td>
+<td><p>( subtract v1 v2 … vn )</p></td>
+<td><p>v1-v2-…-vn</p></td>
+</tr>
+<tr class="row-even"><td><p>multiply</p></td>
+<td><p>( multiply v1 v2 … vn )</p></td>
+<td><p>v1*v2*…*vn</p></td>
+</tr>
+<tr class="row-odd"><td><p>divide</p></td>
+<td><p>( divide v1 v2 … vn )</p></td>
+<td><p>v1/v2/…/vn</p></td>
+</tr>
+<tr class="row-even"><td><p>absolute</p></td>
+<td><p>( absolute v )</p></td>
+<td><p>取绝对值</p></td>
+</tr>
+<tr class="row-odd"><td><p>abs</p></td>
+<td><p>( abs v )</p></td>
+<td><p>取绝对值</p></td>
+</tr>
+<tr class="row-even"><td><p>power</p></td>
+<td><p>( power v )</p></td>
+<td><p>取10的v次方</p></td>
+</tr>
+<tr class="row-odd"><td><p>alog10</p></td>
+<td><p>( alog10 v)</p></td>
+<td><p>以10为底取v的对数</p></td>
+</tr>
+<tr class="row-even"><td><p>alog</p></td>
+<td><p>( alog v)</p></td>
+<td><p>取v的自然对数</p></td>
+</tr>
+<tr class="row-odd"><td><p>exp</p></td>
+<td><p>( exp v)</p></td>
+<td><p>取e的v次方</p></td>
+</tr>
+<tr class="row-even"><td><p>sqrt</p></td>
+<td><p>( sqrt v)</p></td>
+<td><p>求v的平方根</p></td>
+</tr>
+<tr class="row-odd"><td><p>pi</p></td>
+<td><p>( pi )</p></td>
+<td><p>返回pi值</p></td>
+</tr>
+<tr class="row-even"><td><p>sine</p></td>
+<td><p>( sine v )</p></td>
+<td><p>正弦(v为弧度，下同)</p></td>
+</tr>
+<tr class="row-odd"><td><p>cosine</p></td>
+<td><p>( cosine v )</p></td>
+<td><p>余弦</p></td>
+</tr>
+<tr class="row-even"><td><p>tangent</p></td>
+<td><p>( tangent v )</p></td>
+<td><p>正切</p></td>
+</tr>
+<tr class="row-odd"><td><p>arcsine</p></td>
+<td><p>( arcsine v )</p></td>
+<td><p>反正弦</p></td>
+</tr>
+<tr class="row-even"><td><p>arccosine</p></td>
+<td><p>( arccosine v )</p></td>
+<td><p>反余弦</p></td>
+</tr>
+<tr class="row-odd"><td><p>arctangent</p></td>
+<td><p>( arctangent v )</p></td>
+<td><p>反正切</p></td>
+</tr>
+<tr class="row-even"><td><p>integer</p></td>
+<td><p>( integer v )</p></td>
+<td><p>取整</p></td>
+</tr>
+<tr class="row-odd"><td><p>maximum</p></td>
+<td><p>( maximum v1 v2 … vn )</p></td>
+<td><p>求最大值</p></td>
+</tr>
+<tr class="row-even"><td><p>minimum</p></td>
+<td><p>( minimum v1 v2 … vn )</p></td>
+<td><p>求最小值</p></td>
+</tr>
+</tbody>
+</table>
+<p>演示如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; echo on processed</span>
+<span class="go">SAC&gt; setbb var1 (add 1 3 4)         # 1+3+4</span>
+<span class="go"> ==&gt;  setbb var1 8</span>
+<span class="go">SAC&gt; setbb var2 (subtract 1 3 4)    # 1-3-4</span>
+<span class="go"> ==&gt;  setbb var2 -6</span>
+<span class="go">SAC&gt; setbb var3 (multiply 1 3 4)    # 1*3*4</span>
+<span class="go"> ==&gt;  setbb var3 12</span>
+<span class="go">SAC&gt; setbb var4 (divide 1 3 4)      # 1/3/4</span>
+<span class="go"> ==&gt;  setbb var4 0.0833333</span>
+<span class="go">SAC&gt; setbb var5 (absolute -5.1)     # abs(-5.1)</span>
+<span class="go"> ==&gt;  setbb var5 5.1</span>
+<span class="go">SAC&gt; setbb var6 (power 5)           # 10^5</span>
+<span class="go"> ==&gt;  setbb var6 100000</span>
+<span class="go">SAC&gt; setbb var7 (alog10 10000)      # log10(10000)</span>
+<span class="go"> ==&gt;  setbb var7 4</span>
+<span class="go">SAC&gt; setbb var8 (alog 10000)        # ln(10000)</span>
+<span class="go"> ==&gt;  setbb var8 9.21034</span>
+<span class="go">SAC&gt; setbb var9 (exp 5)             # e^5</span>
+<span class="go"> ==&gt;  setbb var9 148.413</span>
+<span class="go">SAC&gt; setbb var10 (sqrt 9)           # sqrt(9)</span>
+<span class="go"> ==&gt;  setbb var10 3</span>
+<span class="go">SAC&gt; setbb var11 (pi)               # PI</span>
+<span class="go"> ==&gt;  setbb var11 3.14159</span>
+<span class="go"> SAC&gt; setbb var12 (sine (pi/6))     # sin(30)</span>
+<span class="go"> ==&gt;  setbb var12 0.5</span>
+<span class="go">SAC&gt; setbb var13 ((arcsine 0.5)*180/(pi))</span>
+<span class="go"> ==&gt;  setbb var13 30</span>
+<span class="go">SAC&gt; setbb var14 (integer 3.11)</span>
+<span class="go"> ==&gt;  setbb var14 3</span>
+<span class="go">SAC&gt; setbb var15 (max 3.11 -1.5 5)  # maximum 简写为 max</span>
+<span class="go"> ==&gt;  setbb var15 5</span>
+<span class="go">SAC&gt; setbb var16 (min 3.11 -1.5 5)  # minimum 简写为 min</span>
+<span class="go"> ==&gt;  setbb var16 -1.5</span>
+</pre></div>
+</div>
+<p>为了对一组数据做归一化，首先要找到所有数据中的绝对最大值，如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r file1 file2 file3 file4</span>
+<span class="go">SAC&gt; echo on processed</span>
+<span class="go">SAC&gt; setbb vmax (max &amp;1,depmax&amp; &amp;2,depmax&amp; &amp;3,depmax&amp; &amp;4,depmax&amp;)</span>
+<span class="go"> ==&gt; setbb vmax 1.87324</span>
+<span class="go">SAC&gt; setbb vmin (min &amp;1,depmin&amp; &amp;2,depmin&amp; &amp;3,depmin&amp; &amp;4,depmin&amp;)</span>
+<span class="go"> ==&gt; setbb vmin -2.123371</span>
+<span class="go">SAC&gt; div ( max (abs %vmax%) (abs %vmin%) )      # 嵌套</span>
+<span class="go"> ==&gt;  div 2.123371</span>
+</pre></div>
+</div>
+<p>此例可以通过多重嵌套的方式在单个命令中完成，但上面的写法可读性更强。</p>
+</section>
+<section id="id4">
+<h2>字符串操作函数<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>SAC 提供了若干个函数用于字符串的处理，如 <a class="reference internal" href="#table-string-operation-functions"><span class="std std-numref">表 7</span></a>
+所示：</p>
+<span id="table-string-operation-functions"></span><table class="docutils align-default" id="id7">
+<caption><span class="caption-number">表 7 </span><span class="caption-text">字符串操作函数</span><a class="headerlink" href="#id7" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 35%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>命令</p></th>
+<th class="head"><p>语法(简写形式)</p></th>
+<th class="head"><p>功能</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>change</p></td>
+<td><p>( cha s1 s2 s3 )</p></td>
+<td><p>在s3中用s1代替s2</p></td>
+</tr>
+<tr class="row-odd"><td><p>substring</p></td>
+<td><p>( substring n1 n2 s )</p></td>
+<td><p>取s中第n1到第n2个字符</p></td>
+</tr>
+<tr class="row-even"><td><p>delete</p></td>
+<td><p>( del s1 s2 )</p></td>
+<td><p>从s2中删去s1</p></td>
+</tr>
+<tr class="row-odd"><td><p>concatenate</p></td>
+<td><p>( conc s1 s2 … sn )</p></td>
+<td><p>将多个字符串拼接起来</p></td>
+</tr>
+<tr class="row-even"><td><p>before</p></td>
+<td><p>( bef s1 s2)</p></td>
+<td><p>得到s2中位于s1前的部分字符串</p></td>
+</tr>
+<tr class="row-odd"><td><p>after</p></td>
+<td><p>( aft s1 s2 )</p></td>
+<td><p>得到s2中位于s1后的部分字符串</p></td>
+</tr>
+<tr class="row-even"><td><p>reply</p></td>
+<td><p>( rep s1 )</p></td>
+<td><p>发送信息s1到终端并得到回应</p></td>
+</tr>
+</tbody>
+</table>
+<p>下面的例子展示了部分函数的用法：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; echo on processed</span>
+<span class="go">SAC&gt; setbb var1 (cha short long &quot;this is short&quot;)</span>
+<span class="go"> ==&gt;  setbb var1 this is long</span>
+<span class="go">SAC&gt; set var2 (del def abcdefghi)</span>
+<span class="go"> ==&gt;  set var2 abcghi</span>
+<span class="go">SAC&gt; set var4 (before de abcdefg)</span>
+<span class="go"> ==&gt;  set var4 abc</span>
+<span class="go">SAC&gt; set var4 (after de abcdefg)</span>
+<span class="go"> ==&gt;  set var4 fg</span>
+<span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; setbb month (substring 1 3 &amp;1,kzdate&amp;)</span>
+<span class="go"> ==&gt;  setbb month MAR</span>
+<span class="go">SAC&gt; setbb val &quot;1234567890&quot;</span>
+<span class="go">SAC&gt; message (substring 1 5 %val%)</span>
+<span class="go"> ==&gt;  message 12345</span>
+<span class="go"> 12345</span>
+</pre></div>
+</div>
+<p>下面的例子展示 <code class="docutils literal notranslate"><span class="pre">concatenate</span></code> 函数的用法以及如何灵活定义标题：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; echo on processed</span>
+<span class="go">SAC&gt; setbb var (conc Seismogram of &amp;1,kevnm&amp; &amp;1,kstnm&amp;)</span>
+<span class="go"> ==&gt;  setbb var SeismogramofK8108838CDV                 # 没有空格</span>
+<span class="go">SAC&gt; setbb var (conc &quot;Seismogram of &quot; &amp;1,kevnm&amp; &quot; &quot; &amp;1,kstnm&amp;)</span>
+<span class="go"> ==&gt;  setbb var Seismogram of K8108838 CDV              # 含空格</span>
+<span class="go">SAC&gt; getbb var</span>
+<span class="go"> var = &#39;Seismogram of K8108838 CDV&#39;</span>
+<span class="go">SAC&gt; title (conc &quot;Seismogram of &quot; &amp;1,kevnm&amp; &quot; &quot; &amp;1,kstnm&amp;)</span>
+<span class="go"> ==&gt;  title Seismogram of K8108838 CDV                  # 错误标题！</span>
+<span class="go">SAC&gt; title &#39;(conc &quot;Seismogram of &quot; &amp;1,kevnm&amp; &quot; &quot; &amp;1,kstnm&amp;)&#39;</span>
+<span class="go"> ==&gt;  title &quot;(conc &quot;Seismogram of &quot; K8108838 &quot; &quot; CDV)&quot;  # 错误标题！</span>
+<span class="go">SAC&gt; title &quot;Seismogram of &amp;1,kevnm&amp; &amp;1,kstnm&amp;&quot;</span>
+<span class="go"> ==&gt;  title &quot;Seismogram of K8108838 CDV&quot;                # 正确标题！</span>
+</pre></div>
+</div>
+<p>下面的例子使用 <code class="docutils literal notranslate"><span class="pre">reply</span></code> 函数实现了交互：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; echo on processed</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; setbb low (reply &quot;Enter low freqency limit for bandpass: &quot;)</span>
+<span class="go">Enter low freqency limit for bandpass: 2.1          # 用户输入2.1</span>
+<span class="go"> ==&gt;  setbb low 2.1</span>
+<span class="go">SAC&gt; setbb high (reply &quot;Enter low freqency limit for bandpass: &quot;)</span>
+<span class="go">Enter low freqency limit for bandpass: 6.5          # 用户输入6.5</span>
+<span class="go"> ==&gt;  setbb high 6.5</span>
+<span class="go">SAC&gt; bp c %low% %high%</span>
+<span class="go"> ==&gt;  bp c 2.1 6.5</span>
+</pre></div>
+</div>
+<p>下面的例子中 <code class="docutils literal notranslate"><span class="pre">reply</span></code> 函数包含了一个默认值值：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; setbb bbday (reply &quot;Enter the day of the week: [Monday]&quot;)</span>
+<span class="go">Enter the day of the week: [Monday]Tuesday      # 用户输入Tuesday</span>
+<span class="go">SAC&gt; getbb bbday</span>
+<span class="go"> bbday = &#39;Tuesday&#39;</span>
+<span class="go">SAC&gt; setbb bbday (reply &quot;Enter the day of the week: [Monday]&quot;)</span>
+<span class="go">Enter the day of the week: [Monday]             # 用户无输入</span>
+<span class="go">SAC&gt; getbb bbday</span>
+<span class="go"> bbday = &#39;Monday&#39;</span>
+</pre></div>
+</div>
+<p>当 <code class="docutils literal notranslate"><span class="pre">reply</span></code> 函数执行时，引号中的字符串将出现在屏幕上，提示用户输入。如果用户输入，SAC 会将输入的字符串作为返回值，如果用户只是敲击回车键，SAC 则会使用该默认值“MONDAY”。</p>
+</section>
+<section id="id5">
+<h2>其他函数<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>这类函数目前只有一个：<code class="docutils literal notranslate"><span class="pre">gettime</span></code>，其语法为 “<code class="docutils literal notranslate"><span class="pre">(gettime</span> <span class="pre">max|min</span> <span class="pre">[value])</span></code>”。</p>
+<p><code class="docutils literal notranslate"><span class="pre">gettime</span></code> 函数用于返回数据中首先出现大于或小于 value 的时间相对于文件参考时刻的相对时间；若没有指定 value，<code class="docutils literal notranslate"><span class="pre">max</span></code> 会返回文件中第一个最大值的相对时间，<code class="docutils literal notranslate"><span class="pre">min</span></code> 会返回文件中第一个最小值的相对时间。</p>
+<p>对于所有的文件有一个最大振幅，要找到这些文件中第一个文件中第一次大于该值所对应的时间偏移量：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; echo on processed</span>
+<span class="go">SAC&gt; setbb maxtime (gettime max)</span>
+<span class="go"> ==&gt;  setbb maxtime 12.55</span>
+<span class="go">SAC&gt; setbb mintime (gettime min)</span>
+<span class="go"> ==&gt;  setbb mintime 12.67</span>
+</pre></div>
+</div>
+<p>为了找到第一个大于或等于1.0的数据点的时间偏移，可以使用如下命令：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; echo on processed</span>
+<span class="go">SAC&gt; setbb valuetime ( gettime max 1.0 )</span>
+<span class="go"> ==&gt; setbb valuatime 10.55</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../blackboard-variables/" class="btn btn-neutral float-left" title="黑板变量" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../macros/" class="btn btn-neutral float-right" title="SAC 宏" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

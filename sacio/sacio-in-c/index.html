@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C 程序中的 SAC I/O &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="Fortran 程序中的 SAC I/O" href="../sacio-in-fortran/" />
+    <link rel="prev" title="SAC I/O" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC I/O</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">C 程序中的 SAC I/O</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sacio">sacio 函数接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sac">读写 SAC 文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">仅读取 SAC 头段区</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">读 SAC 数据的一段</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">从零创建 SAC 文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-fortran/">Fortran 程序中的 SAC I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-matlab/">Matlab 中的 SAC I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-python/">Python 中的 SAC I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-julia/">Julia 中的 SAC I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC I/O</a> &raquo;</li>
+      <li>C 程序中的 SAC I/O</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/sacio/sacio-in-c.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="c-sac-i-o">
+<h1>C 程序中的 SAC I/O<a class="headerlink" href="#c-sac-i-o" title="此标题的永久链接">¶</a></h1>
+<p>SAC 自带的函数库中提供了一系列用于读写 SAC 文件的子函数，具体细节可以参考一节，这些子函数可以直接在 C 程序中调用。但这些子函数用起来不太方便，比如：</p>
+<ul class="simple">
+<li><p>函数参数太多太复杂，有些参数基本不会用到，但还是需要定义；</p></li>
+<li><p>读文件时无法只读取部分文件，即没有截窗的功能；</p></li>
+<li><p>要获取某个头段变量的值，必须单独调用相应的子函数；</p></li>
+</ul>
+<p>在了解了 SAC 文件的具体格式后，可以很容易的写一套函数来实现 SAC 文件的读写。</p>
+<p>Prof. Lupei Zhu 实现了一套相对比较易用的 SAC I/O 函数库，可以在 C 或 Fortran
+程序中直接调用，姑且称之为 <code class="docutils literal notranslate"><span class="pre">sacio</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">sacio</span></code> 函数库与 Prof. Lupei Zhu 的其他程序一起发布。你可以从 Prof. Lupei Zhu
+的主页下载 <code class="docutils literal notranslate"><span class="pre">fk</span></code><a class="footnote-reference brackets" href="#id5" id="id1">1</a>软件包，并从中提取出源文件 <code class="docutils literal notranslate"><span class="pre">sac.h</span></code> 和 <code class="docutils literal notranslate"><span class="pre">sacio.c</span></code>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">sacio</span></code> 简单易用，但也存在一些潜在的 Bug 及缺陷。seisman 在 <code class="docutils literal notranslate"><span class="pre">sacio</span></code> 的基础上重写了 SAC I/O 函数库以及 SAC 相关工具，项目地址为
+<a class="reference external" href="https://github.com/seisman/SACTools">https://github.com/seisman/SACTools</a>，仅供有兴趣的读者参考。</p>
+<section id="sacio">
+<h2>sacio 函数接口<a class="headerlink" href="#sacio" title="此标题的永久链接">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sac.h</span></code> 中 SAC 格式的头段区被定义为 <code class="docutils literal notranslate"><span class="pre">SACHEAD</span></code> 类型的结构体，每一个头段变量都是结构体的成员。<code class="docutils literal notranslate"><span class="pre">sacio.c</span></code> 定义了一系列用于读写
+SAC 文件的函数，<code class="xref std std-numref docutils literal notranslate"><span class="pre">table:sacio-function</span></code> 中列出了 <code class="docutils literal notranslate"><span class="pre">sacio</span></code>
+提供的函数接口。</p>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-number">表 10 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">sacio</span></code> 函数列表</span><a class="headerlink" href="#id6" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>函数名</p></th>
+<th class="head"><p>功能</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">read_sachead</span></code></p></td>
+<td><p>仅读取 SAC 文件的头段部分</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">read_sac</span></code></p></td>
+<td><p>读取整个 SAC 文件</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">read_sac2</span></code></p></td>
+<td><p>读取 SAC 文件中一部分</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">write_sac</span></code></p></td>
+<td><p>将数据写到 SAC 文件中</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sachdr</span></code></p></td>
+<td><p>初始化 SAC 头段</p></td>
+</tr>
+</tbody>
+</table>
+<p>调用 SAC I/O 接口的程序，可以通过如下方式编译：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gcc -c sacio.c
+<span class="gp">$ </span>gcc -c prog.c
+<span class="gp">$ </span>gcc sacio.o prog.o -o prog -lm
+</pre></div>
+</div>
+<p>写成 Makfile 会更简单一些：</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nf">all</span><span class="o">:</span> <span class="n">prog</span> <span class="n">clean</span>
+
+<span class="nf">prog</span><span class="o">:</span> <span class="n">sacio</span>.<span class="n">o</span> <span class="n">prog</span>.<span class="n">o</span>
+    <span class="k">$(</span>CC<span class="k">)</span> -o <span class="nv">$@</span> $^ -lm
+
+<span class="nf">clean</span><span class="o">:</span>
+    -rm *.o
+</pre></div>
+</div>
+</section>
+<section id="sac">
+<h2>读写 SAC 文件<a class="headerlink" href="#sac" title="此标题的永久链接">¶</a></h2>
+<p>下面的示例展示了如何在 C 程序中读取一个 SAC 二进制文件，经过简单的数据处理后，最后写回到原文件中：</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;sac.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w">    </span><span class="n">file</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">SACHEAD</span><span class="w"> </span><span class="n">hd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w">   </span><span class="o">*</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w">     </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;seis.SAC&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 读入数据</span>
+<span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_sac</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;npts=%d delta=%f </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">npts</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">delta</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 其它数据处理</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">hd</span><span class="p">.</span><span class="n">npts</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 将结果写回到原文件中</span>
+<span class="w">    </span><span class="n">write_sac</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">read_sac</span></code> 函数将 SAC 文件的头段区保存到结构体 <code class="docutils literal notranslate"><span class="pre">SACHEAD</span> <span class="pre">hd</span></code> 中，可以通过 <code class="docutils literal notranslate"><span class="pre">hd.npts</span></code>、<code class="docutils literal notranslate"><span class="pre">hd.delta</span></code> 这样的方式引用 SAC 头段变量的值。SAC 文件的数据区保存到指针/数组 <code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">*data</span></code> 中，<code class="docutils literal notranslate"><span class="pre">read_sac</span></code> 会根据头段中的数据点数为指针 <code class="docutils literal notranslate"><span class="pre">data</span></code> 分配内存空间并读入数据，在用完之后要记得用 <code class="docutils literal notranslate"><span class="pre">free(data)</span></code> 释放已分配的内存，以避免内存泄露。</p>
+</section>
+<section id="id2">
+<h2>仅读取 SAC 头段区<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>有时候只需要 SAC 文件头段区的一些信息，若读取整个文件就有些浪费了，
+<code class="docutils literal notranslate"><span class="pre">read_sachead</span></code> 仅读取 SAC 头段区而不读取数据区。</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;sac.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SACHEAD</span><span class="w"> </span><span class="n">hd</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">read_sachead</span><span class="p">(</span><span class="s">&quot;seis.SAC&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d %f %f %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">npts</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">depmax</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">depmin</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>读 SAC 数据的一段<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>有些时候，数据可能很长，但用户只需要其中的一小段。为了读取一小段数据而把整个文件都读入进去实在太浪费了。SAC 中的 <a class="reference internal" href="../../commands/cut/"><span class="doc">cut</span></a>
+命令可以实现数据的截取，<code class="docutils literal notranslate"><span class="pre">read_sac2</span></code> 则是实现了类似的功能。下面的例子截取了数据中以 <code class="docutils literal notranslate"><span class="pre">T0</span></code> 为参考的 <span class="math notranslate nohighlight">\(-0.5\)</span> 到 <span class="math notranslate nohighlight">\(2.5\)</span> 秒，即相当于
+<code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">t0</span> <span class="pre">-0.5</span> <span class="pre">2.5</span></code>。</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;sac.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">fin</span><span class="p">[</span><span class="mi">80</span><span class="p">],</span><span class="w"> </span><span class="n">fout</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">SACHEAD</span><span class="w"> </span><span class="n">hd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w">   </span><span class="o">*</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w">     </span><span class="n">tmark</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w">   </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w">     </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;seis.SAC&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">tmark</span><span class="w">   </span><span class="o">=</span><span class="w">   </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">t1</span><span class="w">      </span><span class="o">=</span><span class="w">   </span><span class="mf">-0.5</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">t2</span><span class="w">      </span><span class="o">=</span><span class="w">   </span><span class="mf">2.5</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_sac2</span><span class="p">(</span><span class="n">fin</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hd</span><span class="p">,</span><span class="w"> </span><span class="n">tmark</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;npts=%d delta=%f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">npts</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">.</span><span class="n">delta</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">hd</span><span class="p">.</span><span class="n">npts</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;seis.SAC.cut&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">write_sac</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">read_sac2</span></code> 与 <code class="docutils literal notranslate"><span class="pre">read_sac</span></code> 相比，多了三个用于定义时间窗的参数，其中 <code class="docutils literal notranslate"><span class="pre">tmark</span></code>
+表示参考时间标记，可以取值为：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-5</span></code>：以 <code class="docutils literal notranslate"><span class="pre">B</span></code> 作为时间标记</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-3</span></code>：以 <code class="docutils literal notranslate"><span class="pre">O</span></code> 作为时间标记</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-2</span></code>：以 <code class="docutils literal notranslate"><span class="pre">A</span></code> 作为时间标记</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0–9</span></code>：以 <code class="docutils literal notranslate"><span class="pre">T0-T9</span></code> 中的某个为时间标记</p></li>
+</ul>
+<p>这里只读入了数据的一小部分数据，但子程序中对头段中的 <code class="docutils literal notranslate"><span class="pre">b</span></code>、<code class="docutils literal notranslate"><span class="pre">e</span></code>、<code class="docutils literal notranslate"><span class="pre">npts</span></code>
+等做了修改，因而返回的头段与数据是相互兼容的。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>tmark 的有效取值为什么是-5、-3、-2、0-9？</p>
+<p>在头段区中，若以 T0 作为参考位，T3 是 T0 后的第 3 个变量，T7 是 T0 后的第 7 个变量，B 是 T0 前的第 5 个变量， O 是 T0 前的第 3 个变量。</p>
+<p><code class="docutils literal notranslate"><span class="pre">sacio.c</span></code> 的代码中使用了 <code class="docutils literal notranslate"><span class="pre">tref</span> <span class="pre">=</span> <span class="pre">*((float</span> <span class="pre">*)hd</span> <span class="pre">+</span> <span class="pre">10</span> <span class="pre">+</span> <span class="pre">tmark)</span></code>
+来获取某个时间头段变量的值。首先将结构体指针 <code class="docutils literal notranslate"><span class="pre">hd</span></code> 强制转换成 <code class="docutils literal notranslate"><span class="pre">float</span></code> 型，加上 <code class="docutils literal notranslate"><span class="pre">10</span></code> 使得指针指向结构体的成员 <code class="docutils literal notranslate"><span class="pre">T0</span></code> 所在的位置，然后
+<code class="docutils literal notranslate"><span class="pre">tmark</span></code> 取不同的值，则将指针相应地前移或后移相应的浮点变量，最后取指针所在位置的浮点变量值。由此即可很简单地获取某个时间标记头段中的值。这种用法在自己的程序中也会经常用到。</p>
+</div>
+</section>
+<section id="id4">
+<h2>从零创建 SAC 文件<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>在做合成数据时，经常需要从无到有完全创建一个SAC文件。这相对于一般的“读<span class="math notranslate nohighlight">\(\rightarrow\)</span>处理<span class="math notranslate nohighlight">\(\rightarrow\)</span>写”而言要更复杂一些，因为必须首先构建一个基本的头段区。下面的例子展示了如何用 <code class="docutils literal notranslate"><span class="pre">sachdr</span></code> 构建一个最基本的头段区，并填充其他一些头段，最后将创建的头段及数据写入到文件中。</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;sac.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w">    </span><span class="n">fout</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">SACHEAD</span><span class="w"> </span><span class="n">hd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w">   </span><span class="o">*</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">float</span><span class="w">   </span><span class="n">delta</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w">     </span><span class="n">npts</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">float</span><span class="w">   </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w">     </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.01</span><span class="p">;</span><span class="w">       </span><span class="c1">// 采样周期</span>
+<span class="w">    </span><span class="n">npts</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w">       </span><span class="c1">// 数据点数</span>
+<span class="w">    </span><span class="n">b</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">         </span><span class="c1">// 文件开始时间</span>
+<span class="w">    </span><span class="n">hd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sachdr</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">npts</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">    </span><span class="c1">// 构建基本头段</span>
+<span class="w">    </span><span class="n">hd</span><span class="p">.</span><span class="n">dist</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">   </span><span class="c1">// 给其它头段变量赋值</span>
+<span class="w">    </span><span class="n">hd</span><span class="p">.</span><span class="n">cmpaz</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">hd</span><span class="p">.</span><span class="n">cmpinc</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">strcpy</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;seis.syn&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 生成合成数据</span>
+<span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="o">*</span><span class="n">npts</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">npts</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 写入到文件中</span>
+<span class="w">    </span><span class="n">write_sac</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span><span class="w"> </span><span class="n">hd</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="http://www.eas.slu.edu/People/LZhu/downloads/fk3.2.tar">http://www.eas.slu.edu/People/LZhu/downloads/fk3.2.tar</a></p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="SAC I/O" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sacio-in-fortran/" class="btn btn-neutral float-right" title="Fortran 程序中的 SAC I/O" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>transfer &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="traveltime" href="../traveltime/" />
+    <link rel="prev" title="transcript" href="../transcript/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 命令</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../func_commands/">功能命令列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/">about</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../abs/">abs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../add/">add</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addf/">addf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apk/">apk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arraymap/">arraymap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../axes/">axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bandpass/">bandpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bandrej/">bandrej</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bbfk/">bbfk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beam/">beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../begindevices/">begindevices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beginframe/">beginframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beginwindow/">beginwindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benioff/">benioff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binoperr/">binoperr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../border/">border</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../capf/">capf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chnhdr/">chnhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chpf/">chpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../color/">color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../comcor/">comcor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contour/">contour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convert/">convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convolve/">convolve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../copyhdr/">copyhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../correlate/">correlate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut/">cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cuterr/">cuterr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cutim/">cutim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datagen/">datagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decimate/">decimate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deletechannel/">deletechannel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dif/">dif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../div/">div</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../divf/">divf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../divomega/">divomega</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../echo/">echo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../enddevices/">enddevices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endframe/">endframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../envelope/">envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../erase/">erase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../evaluate/">evaluate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exp/">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exp10/">exp10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fft/">fft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fileid/">fileid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filenumber/">filenumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filterdesign/">filterdesign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fir/">fir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../floor/">floor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funcgen/">funcgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getbb/">getbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grayscale/">grayscale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grid/">grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gtext/">gtext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hanning/">hanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../help/">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../highpass/">highpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hilbert/">hilbert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history/">history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ifft/">ifft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../image/">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inicm/">inicm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installmacro/">installmacro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../int/">int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interpolate/">interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keepam/">keepam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../khronhite/">khronhite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../line/">line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linefit/">linefit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linlin/">linlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linlog/">linlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../listhdr/">listhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../load/">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loadctable/">loadctable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../log/">log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../log10/">log10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglab/">loglab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglin/">loglin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglog/">loglog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lowpass/">lowpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../macro/">macro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/">map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markptp/">markptp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marktimes/">marktimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markvalue/">markvalue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathop/">mathop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge/">merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../message/">message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mtw/">mtw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mul/">mul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mulf/">mulf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mulomega/">mulomega</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/">news</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../null/">null</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oapf/">oapf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ohpf/">ohpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pause/">pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picks/">picks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickauthor/">pickauthor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickphase/">pickphase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickprefs/">pickprefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plabel/">plabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot/">plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot1/">plot1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot2/">plot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotalpha/">plotalpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotc/">plotc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotdy/">plotdy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotpk/">plotpk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotpm/">plotpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotsp/">plotsp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotxy/">plotxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../print/">print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../printhelp/">printhelp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../production/">production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qdp/">qdp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantize/">quantize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quit/">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quitsub/">quitsub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../read/">read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readbbf/">readbbf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readcss/">readcss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readerr/">readerr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readhdr/">readhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readsp/">readsp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readtable/">readtable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report/">report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reverse/">reverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">rglitches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean/">rmean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rms/">rms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">rotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rq/">rq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rtrend/">rtrend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../saveimg/">saveimg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setbb/">setbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setdevice/">setdevice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setmacro/">setmacro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sgf/">sgf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../smooth/">smooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonogram/">sonogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort/">sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spectrogram/">spectrogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqr/">sqr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqrt/">sqrt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stretch/">stretch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub/">sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subf/">subf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../symbol/">symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../synchronize/">synchronize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../systemcommand/">systemcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../taper/">taper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ticks/">ticks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../title/">title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trace/">trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transcript/">transcript</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">transfer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">输入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">缺省值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">说明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#from-and-to">FROM and TO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#freqlimits">freqlimits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#prewhitening">prewhitening</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">内置仪器类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#evalresp">evalresp 类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polezero">polezero 类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fap">fap 选项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">traveltime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsize/">tsize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unsetbb/">unsetbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unwrap/">unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vspace/">vspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wait/">wait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whiten/">whiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whpf/">whpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../width/">width</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiener/">wiener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wild/">wild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window/">window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../write/">write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writebbf/">writebbf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writecss/">writecss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writehdr/">writehdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writesp/">writesp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xdiv/">xdiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xfudge/">xfudge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xfull/">xfull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xgrid/">xgrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlabel/">xlabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlim/">xlim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlin/">xlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlog/">xlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xvport/">xvport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ydiv/">ydiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yfudge/">yfudge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yfull/">yfull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ygrid/">ygrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylabel/">ylabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylim/">ylim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylin/">ylin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylog/">ylog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yvport/">yvport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zcolors/">zcolors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlabels/">zlabels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlevels/">zlevels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlines/">zlines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zticks/">zticks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 命令</a> &raquo;</li>
+      <li>transfer</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/commands/transfer.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transfer">
+<h1>transfer<a class="headerlink" href="#transfer" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>反卷积以去除仪器响应，如果需要，还可以卷积其他仪器响应</p>
+</section>
+<section id="id2">
+<h2>语法<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">TRANSfer [FROM type [options]] [TO type [options]] [FREQlimits f1 f2 f3 f4]</span>
+<span class="go">    [PREWHitening ON|OFF|n]</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>输入<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<dl class="simple">
+<dt>FROM type</dt><dd><p>要去除的仪器响应类型</p>
+</dd>
+<dt>TO type</dt><dd><p>要加入的仪器响应类型</p>
+</dd>
+<dt>FREQLIMITS f1 f2 f3 f4</dt><dd><p>压制大于 <code class="docutils literal notranslate"><span class="pre">f4</span></code> 以及低于 <code class="docutils literal notranslate"><span class="pre">f1</span></code>的频段</p>
+</dd>
+<dt>PREWHITENING ON|OFF|n</dt><dd><p>预白化处理</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>缺省值<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">trans from none to none</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>说明<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<section id="from-and-to">
+<h3>FROM and TO<a class="headerlink" href="#from-and-to" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">transfer</span></code> 命令的作用是将波形数据从一种仪器响应转换成另一种仪器响应。<code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">type</span></code> 指定要从波形数据中去除的仪器响应，<code class="docutils literal notranslate"><span class="pre">TO</span> <span class="pre">type</span></code>
+指定了要加入到波形数据中的仪器响应。去仪器响应即反卷积，加仪器响应即卷积，二者分别通过谱域的除法和乘法完成。</p>
+<p><code class="docutils literal notranslate"><span class="pre">type</span></code> 为仪器类型，可以是 SAC 预定义的标准仪器类型（见附录中表
+<a class="reference internal" href="../../appendix/resp/resp-file/#table-instrument-type"><span class="std std-ref">SAC 内置仪器类型列表</span></a>），还可以是如下几种特殊的“仪器类型”：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">none</span></code>: 表示“位移”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vel</span></code>: 表示“速度”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">acc</span></code>: 表示“加速度”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evalresp</span></code>: 表示使用 RESP 仪器响应文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">polezero</span></code>: 表示使用 SAC PZ 仪器响应文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fap</span></code>: 表示使用 fap 仪器响应文件</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">tranfser</span></code> 命令的默认值是“<code class="docutils literal notranslate"><span class="pre">transfer</span> <span class="pre">from</span> <span class="pre">none</span> <span class="pre">to</span> <span class="pre">none</span></code>”，即默认的输入和输出“仪器类型”都是位移。因而当不指定 <code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">type</span></code> 或
+<code class="docutils literal notranslate"><span class="pre">TO</span> <span class="pre">type</span></code> 时，SAC 会假定仪器类型为 <code class="docutils literal notranslate"><span class="pre">NONE</span></code>。</p>
+<ul class="simple">
+<li><p>若输出的仪器类型为 <code class="docutils literal notranslate"><span class="pre">NONE</span></code>，即表示从波形中去除仪器响应得到位移，此时 SAC 头段中的 IDEP 设置为 <code class="docutils literal notranslate"><span class="pre">IDISP</span></code>，单位为 nm， 若输出类型为
+<code class="docutils literal notranslate"><span class="pre">VEL</span></code> 或 <code class="docutils literal notranslate"><span class="pre">ACC</span></code>，同理；</p></li>
+<li><p>若输出的仪器类型不是 <code class="docutils literal notranslate"><span class="pre">NONE</span></code>、<code class="docutils literal notranslate"><span class="pre">VEL</span></code> 或 <code class="docutils literal notranslate"><span class="pre">ACC</span></code>，则内存中的波形会卷积上 <code class="docutils literal notranslate"><span class="pre">TO</span> <span class="pre">type</span></code> 所指定的仪器响应；</p></li>
+<li><p>若不指定 <code class="docutils literal notranslate"><span class="pre">FROM</span></code> 选项，则假定原始波形数据是位移，且不会去除仪器响应；通常用于给理论地震图添加仪器响应；</p></li>
+</ul>
+</section>
+<section id="freqlimits">
+<h3>freqlimits<a class="headerlink" href="#freqlimits" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">freqlimits</span></code> 用于在去除仪器响应时对波形的低频和高频部分进行压制。当 <code class="docutils literal notranslate"><span class="pre">TO</span> <span class="pre">type</span></code> 为 <code class="docutils literal notranslate"><span class="pre">NONE</span></code>、<code class="docutils literal notranslate"><span class="pre">VEL</span></code> 或 <code class="docutils literal notranslate"><span class="pre">ACC</span></code>时，必须使用该选项，且必须认真选择合适的参数。</p>
+<p>所有地震仪在零频率处都具有零响应，在只进行反卷积时，需要在频率域做谱的除法，此时可能会除以一个很小的值进而导致低频处有很大的谱振幅；在高频处，信噪比通常很低，因而有必要对其响应进行压制。</p>
+<p><code class="docutils literal notranslate"><span class="pre">freqlimits</span></code> 会在去仪器响应时对频谱做低通和高通尖灭，以实现对高频和低频的压制。四个频率参数应满足 <code class="docutils literal notranslate"><span class="pre">f1&lt;f2&lt;f3&lt;f4</span></code>，即尖灭函数在零到
+<code class="docutils literal notranslate"><span class="pre">f1</span></code> 之间为0，<code class="docutils literal notranslate"><span class="pre">f1</span></code> 到 <code class="docutils literal notranslate"><span class="pre">f2</span></code> 之间从0渐渐变成1，在 <code class="docutils literal notranslate"><span class="pre">f2</span></code> 和 <code class="docutils literal notranslate"><span class="pre">f3</span></code>
+之间保持为1，在 <code class="docutils literal notranslate"><span class="pre">f3</span></code> 到 <code class="docutils literal notranslate"><span class="pre">f4</span></code> 之间从1渐渐变成0，大于 <code class="docutils literal notranslate"><span class="pre">f4</span></code>
+的频段值为0。过渡带内分别为余弦波的四分之一周期。如下图所示：</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../../_images/freqlimits.png"><img alt="Freqlimits 尖灭函数" src="../../_images/freqlimits.png" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 26 </span><span class="caption-text">Freqlimits 尖灭函数</span><a class="headerlink" href="#id12" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p>四个频率参数除了要满足 <code class="docutils literal notranslate"><span class="pre">f1&lt;f2&lt;f3&lt;f4</span></code> 外，还应注意如下几条原则：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f4</span></code> 应小于 Nyquist 采样率。比如若数据的采样周期为 0.01 s，则 Nyquist 采样率为 50 Hz，因而 <code class="docutils literal notranslate"><span class="pre">f4</span></code> 应小于 50 Hz</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f3</span></code> 不能与 <code class="docutils literal notranslate"><span class="pre">f4</span></code> 太接近</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f2</span></code> 与 <code class="docutils literal notranslate"><span class="pre">f3</span></code> 之间应尽可能宽，然后再根据具体需求进行滤波</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f1</span></code> 和 <code class="docutils literal notranslate"><span class="pre">f2</span></code> 不能太接近；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f1</span></code> 的选取由具体需求决定，可以尝试不同的值并查看去仪器响应之后的效果来决定</p></li>
+</ul>
+<p>若想要一个低通滤波器但在低频处不滤波，可以设置 <code class="docutils literal notranslate"><span class="pre">f1=-2</span></code> 和
+<code class="docutils literal notranslate"><span class="pre">f2=-1</span></code>； 若想要一个高通滤波器但在高频处不滤波，可以设置 <code class="docutils literal notranslate"><span class="pre">f3</span></code>
+等于Nyquist频率， <code class="docutils literal notranslate"><span class="pre">f4</span></code> 为 Nyquist 频率的两倍。</p>
+<p>需要注意，该滤波器是零相位、非因果滤波器，因而，若数据点数不为2的指数幂次，会导致在频段 <code class="docutils literal notranslate"><span class="pre">(f1,f4)</span></code> 之外振幅不完全为0。若想要数据点数为2的幂次方，可以参考 SAC 中的 <a class="reference internal" href="../cut/"><span class="doc">cut</span></a> 命令。</p>
+</section>
+<section id="prewhitening">
+<h3>prewhitening<a class="headerlink" href="#prewhitening" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">prewhitening</span></code> 用于控制数据的预白化。预白化可以将输入时间序列在变换到频率域之前，进行谱的平化。这会减小谱值的动态范围，并提高数据在高频的计算精度。参见 <a class="reference internal" href="../whiten/"><span class="doc">whiten</span></a> 命令。打开预白化选项，会在谱操作之前在频率域进行谱白化，并在谱操作后在时间域做谱白化的补偿，也可以设置预白化选项的阶数。默认情况下，预白化选项是关闭的，阶数为 <code class="docutils literal notranslate"><span class="pre">n=6</span></code>。</p>
+</section>
+</section>
+<section id="id6">
+<h2>示例<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<section id="id7">
+<h3>内置仪器类型<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h3>
+<p>SAC中内置了一堆预定义的仪器类型，可以在命令中直接使用。</p>
+<p>从数据中去除 LLL 宽频带仪器响应。并卷积上 SRO 仪器响应，且对频带做尖灭及预白化：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; read abc.z</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; trans from lll to sro freq .02 .05 1. 2. prew 2</span>
+</pre></div>
+</div>
+<p>当前的仪器类型为 RSTN 的子类型 nykm.z，为了去除该仪器响应并卷积上 DSS 仪器响应：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; read nykm.z</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; trans from rstn subtype nykm.z to dss prew off</span>
+</pre></div>
+</div>
+<p>将电磁仪器响应转换成位移：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r XYZ.Z</span>
+<span class="go">SAC&gt; trans from elmag freep 15. mag 750. to none</span>
+</pre></div>
+</div>
+<p>从波形中去除 WWSP 的仪器响应，得到位移波形：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; read xyz.z</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; trans from WWSP to none freq 0.05 0.01 5 10</span>
+<span class="gp">                # </span>也可使用 to vel 或 to acc 得到速度或加速度
+</pre></div>
+</div>
+<p>向合成的位移地震图中加入 WWSP 仪器响应：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r syn.z</span>
+<span class="go">SAC&gt; trans from none to WWSP    # 简写为 trans to WWSP</span>
+</pre></div>
+</div>
+</section>
+<section id="evalresp">
+<h3>evalresp 类型<a class="headerlink" href="#evalresp" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">evalresp</span></code> 类型并不代表真正意义上的仪器类型，而是表示从 RESP 仪器响应文件中读取仪器响应信息。在使用 <code class="docutils literal notranslate"><span class="pre">evalresp</span></code> 选项时， <a class="reference internal" href="#"><span class="doc">transfer</span></a>
+依次从当前内存中的 SAC 波形数据中提取出各自的头段信息，包括：<code class="docutils literal notranslate"><span class="pre">kstnm</span></code>、<code class="docutils literal notranslate"><span class="pre">kcmpnm</span></code>、<code class="docutils literal notranslate"><span class="pre">kzdate</span></code>、
+<code class="docutils literal notranslate"><span class="pre">kztime</span></code>、<code class="docutils literal notranslate"><span class="pre">knetwk</span></code> 和 <code class="docutils literal notranslate"><span class="pre">locid</span></code>，然后会在当前目录下寻找文件名为“<code class="docutils literal notranslate"><span class="pre">RESP.&lt;NET&gt;.&lt;STA&gt;.&lt;LOCID&gt;.&lt;CHN&gt;</span></code>”的RESP文件（比如“RESP.IU.COLA..BHZ”），并检测 RESP 文件中给出的台站信息是否与数据中的台站信息匹配<a class="footnote-reference brackets" href="#id10" id="id8">1</a>。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC</span>
+<span class="go">SAC&gt; rtr; rtr; taper</span>
+<span class="go">SAC&gt; trans from evalresp to none freq 0.004 0.007 0.2 0.4</span>
+</pre></div>
+</div>
+<p>该命令会首先从头段中提取台站信息，然后自动在当前目录下寻找文件
+<code class="docutils literal notranslate"><span class="pre">RESP.TA.N11A..LHZ</span></code>，一旦文件中的台站信息与数据中的台站信息匹配，则使用该响应函数。</p>
+<p>SAC 数据中的头段信息可以用一些选项来覆盖：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">STATION</span><span class="p">,</span> <span class="n">CHANNEL</span><span class="p">,</span> <span class="n">NETWORK</span><span class="p">,</span> <span class="n">DATE</span><span class="p">,</span> <span class="n">TIME</span><span class="p">,</span> <span class="n">LOCID</span><span class="p">,</span> <span class="n">FNAME</span>
+</pre></div>
+</div>
+<p>每个选项都必须有一个合适的值。若 <code class="docutils literal notranslate"><span class="pre">DATE</span></code> 在 SAC 头段中未设定且在选项中未指定，则使用当前系统日期，<code class="docutils literal notranslate"><span class="pre">TIME</span></code> 同理；若 <code class="docutils literal notranslate"><span class="pre">NETWORK</span></code>未指定，则默认使用任意台网名；若 <code class="docutils literal notranslate"><span class="pre">LOCID</span></code> 或 <code class="docutils literal notranslate"><span class="pre">KHOLE</span></code> 未指定，则默认使用任意 LOCID。</p>
+<p>假设台网 IU 的所有台站都具有完全相同的仪器响应函数，而此时你只有 COLA 台站的
+RESP文件 <code class="docutils literal notranslate"><span class="pre">RESP.IU.COLA..BHZ</span></code>。为了给所有台站去除仪器响应，一种办法是对 IU 台网的每一个台站复制一份 <code class="docutils literal notranslate"><span class="pre">RESP.IU.COLA..BHZ</span></code>，重命名，并修改 RESP 文件中的台站信息。显然，这样很麻烦，利用上面的选项可以大大简化这一过程：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r *.IU.*.BHZ</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; trans from evalresp STATION COLA to none freq 0.01 0.02 5 10</span>
+</pre></div>
+</div>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">STATION</span></code> 选项覆盖了波形数据中的台站名，此时，对每一个波形数据，
+<code class="docutils literal notranslate"><span class="pre">transfer</span></code> 命令都会去使用 <code class="docutils literal notranslate"><span class="pre">RESP.IU.COLA..BHZ</span></code><a class="footnote-reference brackets" href="#id11" id="id9">2</a>。</p>
+<p>下面的命令会将三分量数据去仪器响应，并卷积上 BHZ 分量的仪器响应：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r *.IU.COLA.00.BH?</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; trans from evalresp to evalresp CHANNEL BHZ</span>
+</pre></div>
+</div>
+<p>操作完成后，BHZ 分量相当于没有进行操作，BH1 和 BH2 则去除了原本的仪器响应并卷积上 BHZ 的仪器响应。</p>
+<p>为了显示 IU 台网 COL 台站 BHZ通道，1992年01月02日16:42:05的仪器响应：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg impulse npts 16384 delta .05 begin 0.</span>
+<span class="go">SAC&gt; trans to evalresp sta COL cha BHZ net IU \</span>
+<span class="go">                    date 1992/2 time 16:42:05</span>
+<span class="go">SAC&gt; fft</span>
+<span class="go">SAC&gt; psp am</span>
+</pre></div>
+</div>
+<p>如果你的 RESP 文件名与 SAC 的标准格式不同，可以使用 <code class="docutils literal notranslate"><span class="pre">FNAME</span></code> 选项强制指定要使用的 RESP 文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; trans from evalresp fname /tmp/Resp/RESP.TA.N11A..LHZ to none \</span>
+<span class="go">                        freq 0.004 0.007 0.2 0.4</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">transfer</span></code> 命令默认会使用 <code class="docutils literal notranslate"><span class="pre">RESP.TA.N11A..LHZ</span></code> 作为响应文件，此处使用 <code class="docutils literal notranslate"><span class="pre">FNAME</span></code> 选项强制指定使用 <code class="docutils literal notranslate"><span class="pre">/tmp/RESP/RESP.TA.N11A..LHZ</span></code>。需要注意的是，即便是使用 <code class="docutils literal notranslate"><span class="pre">FNAME</span></code> 强制指定了 RESP 文件，该命令还是会检测台站信息是否匹配。</p>
+<p>由于一个 RESP 文件中可以包含多个响应函数，因而可以将所有仪器响应文件合并到一个总的 RESP 文件中：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r *.SAC</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; transfer from evalresp fname RESP.ALL to none freq 0.1 0.2 5 10</span>
+</pre></div>
+</div>
+<p>这个例子中，<code class="docutils literal notranslate"><span class="pre">RESP.ALL</span></code> 包含了所有数据的响应函数，<code class="docutils literal notranslate"><span class="pre">transfer</span></code>
+命令会读取 <code class="docutils literal notranslate"><span class="pre">RESP.ALL</span></code> 文件的内容，对于每一个波形数据，会从波形数据中提取出台站信息，并与 <code class="docutils literal notranslate"><span class="pre">RESP.ALL</span></code> 中的众多响应函数进行匹配，若匹配成功，则使用该响应函数。</p>
+</section>
+<section id="polezero">
+<h3>polezero 类型<a class="headerlink" href="#polezero" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">polezero</span></code> 类型并不代表真正意义上的仪器类型，而是表示从 SAC 零极点文件中读取仪器响应函数。</p>
+<p>如果使用 polezero 类型，用户可以使用 <code class="docutils literal notranslate"><span class="pre">subtype</span></code> 来指定要使用的 PZ 文件。若 PZ 文件有注释行，则注释行中的台站信息必须与波形中的台站信息匹配，才能正确执行；若 PZ 文件中无注释行，则不进行台站信息匹配的检测，直接执行。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r *IU.COLA.BHZ</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; trans from polezero subtype SAC_PZs.IU.COLA.BHZ to WWSP</span>
+</pre></div>
+</div>
+<p>从 102 版开始，用户可以不使用 <code class="docutils literal notranslate"><span class="pre">subtype</span></code> 来指定要使用的 PZ 文件，而使用新增的搜索功能。在没有指定 <code class="docutils literal notranslate"><span class="pre">subtype</span></code> 的时候，SAC 会依据 SAC 文件中的 <code class="docutils literal notranslate"><span class="pre">network</span></code>、<code class="docutils literal notranslate"><span class="pre">station</span></code>、
+<code class="docutils literal notranslate"><span class="pre">channel</span></code> 和 <code class="docutils literal notranslate"><span class="pre">locid</span></code> 四个头段变量，按照文件名“<strong>SAC_PZs_</strong><em>network</em>_<em>station</em>_<em>channel</em>_<em>locid</em>_*”，在当前路径下寻找 PZ 文件。如果 SAC 文件的头段变量不包含这些信息，也可以通过命令来指定：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; trans from polezero network BK station CMB to NONE</span>
+</pre></div>
+</div>
+<p>如果用户想要在当前路径以外的地方寻找 PZ 文件，可以用 <code class="docutils literal notranslate"><span class="pre">DIR</span></code> 选项指定搜索路径：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; trans from polezero dir resp to NONE  # 在 resp 目录下搜索 PZ 文件</span>
+</pre></div>
+</div>
+<p>无论使用 <code class="docutils literal notranslate"><span class="pre">subtype</span></code> 来指定 PZ 文件，还是凭借 SAC 自己进行搜索，SAC 都要求 PZ 文件和 SAC 文件（或通过命令输入）的台站信息相符。如果有台站信息缺失，则按照是符合的进行处理。会使用按照要求找到的第一个文件，如果 PZ 文件中不包含相关的头段信息，SAC 会默认这些信息是符合要求的。一个 PZ 文件中可以包含多台站、多通道、多时间段的响应函数。可以将所有数据的
+PZ 文件合并得到总的PZ文件。下面的例子中读入全部波形数据，并利用总 PZ 文件进行去仪器响应：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r *.SAC          # 读入全部数据</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; trans from polezero s event.pz to none freq 0.05 0.1 10.0 15.0</span>
+<span class="go">SAC&gt; mul 1.0e9        # 需要乘以1.0e9 !!!</span>
+<span class="go">SAC&gt; w over</span>
+</pre></div>
+</div>
+<p>需要格外注意，在用 PZ 文件去仪器响应得到位移物理量时，得到的数据的单位是 m，而 SAC 中默认的单位是 nm，因而需要将数据乘以 <code class="docutils literal notranslate"><span class="pre">1.0e9</span></code> 将数据的单位转换成 nm。对于转换得到速度或加速度，同理。</p>
+</section>
+<section id="fap">
+<h3>fap 选项<a class="headerlink" href="#fap" title="此标题的永久链接">¶</a></h3>
+<p>fap 选项表明使用 FAP 文件作为响应函数。</p>
+<p>假设有 fapfile 文件 <code class="docutils literal notranslate"><span class="pre">fap.n11a.lhz_0.006-0.2</span></code>，其名字表示频率段为
+0.006 Hz 到 0.2 Hz，要从波形 <code class="docutils literal notranslate"><span class="pre">2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC</span></code>
+中移除该仪器响应：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r 2006.253.14.30.24.0000.TA.N11A..LHZ.Q.SAC</span>
+<span class="go">SAC&gt; rtr</span>
+<span class="go">SAC&gt; taper</span>
+<span class="go">SAC&gt; trans from fap s fap.n11a.lhz_0.006-0.2 to none freq 0.004 0.006 0.1 0.2</span>
+<span class="go">SAC&gt; mul 1.0e9</span>
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id8">1</a></span></dt>
+<dd><p>即，要求 RESP 文件名以及 RESP 文件中的台站信息都与数据头段中的台站信息匹配</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id9">2</a></span></dt>
+<dd><p>这里假定所有台站的 LOCID 都是未定义的</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../transcript/" class="btn btn-neutral float-left" title="transcript" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../traveltime/" class="btn btn-neutral float-right" title="traveltime" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

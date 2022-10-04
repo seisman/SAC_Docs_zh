@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matlab 中的 SAC I/O &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="Python 中的 SAC I/O" href="../sacio-in-python/" />
+    <link rel="prev" title="Fortran 程序中的 SAC I/O" href="../sacio-in-fortran/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC I/O</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-c/">C 程序中的 SAC I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-fortran/">Fortran 程序中的 SAC I/O</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matlab 中的 SAC I/O</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#readsac">readsac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getsacdata">getsacdata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writesac">writesac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">其他</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-python/">Python 中的 SAC I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sacio-in-julia/">Julia 中的 SAC I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC I/O</a> &raquo;</li>
+      <li>Matlab 中的 SAC I/O</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/sacio/sacio-in-matlab.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="matlab-sac-i-o">
+<h1>Matlab 中的 SAC I/O<a class="headerlink" href="#matlab-sac-i-o" title="此标题的永久链接">¶</a></h1>
+<p>SAC 官方自带了几个可以读写 SAC 文件的 Matlab 脚本，位于 <code class="docutils literal notranslate"><span class="pre">${SACHOME}/utils</span></code>
+目录下。</p>
+<section id="readsac">
+<h2>readsac<a class="headerlink" href="#readsac" title="此标题的永久链接">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">readsac.m</span></code> 中定义了函数 <code class="docutils literal notranslate"><span class="pre">readsac</span></code>，可以用于读取 SAC 文件，其参数为要读取的SAC文件名。文件名可以是：</p>
+<ol class="arabic simple">
+<li><p>单个文件名</p></li>
+<li><p>多个文件名组成的字符串数组</p></li>
+<li><p>含通配符的字符串或字符串数组</p></li>
+<li><p>空字符串，表示读取当前目录下的全部SAC文件</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">readsac</span></code> 函数有三种用法。第一种用法：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% 读取 SAC 文件，并保存到结构体S中</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readsac</span><span class="p">(</span><span class="s">&#39;seis.SAC&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="c">% 通过 S.varname 形式引用结构体成员的值</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">NPTS</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">DELTA</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.0100</span><span class="w"></span>
+<span class="c">% 数据保存到 S.DATA1 数组中</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">DATA1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">0.0934</span><span class="w"></span>
+</pre></div>
+</div>
+<p>第二种用法：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% 读取 SAC 文件，时间和波形振幅分别保存到数组 X 和 Y 中</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readsac</span><span class="p">(</span><span class="s">&#39;seis.SAC&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="c">% 若发震时刻 O 未定义，则X数组中保存相对于 B 值的时间</span><span class="w"></span>
+<span class="c">% 若发震时刻 O 有定义，则X数组中保存相对于 O 值的时间</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">50.8900</span><span class="w"></span>
+</pre></div>
+</div>
+<p>第三种用法，有三个返回值：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% 用于读取不等间隔数据或 SAC 谱数据</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y1</span><span class="p">,</span><span class="w"> </span><span class="n">Y2</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readsac</span><span class="p">(</span><span class="s">&#39;seis.SAC&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="c">% 用于读取 XYZ 类型的 SAC 文件</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">Z</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readsac</span><span class="p">(</span><span class="s">&quot;seis.SAC.xyz&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="getsacdata">
+<h2>getsacdata<a class="headerlink" href="#getsacdata" title="此标题的永久链接">¶</a></h2>
+<p>在用 <code class="docutils literal notranslate"><span class="pre">readsac</span></code> 读取 SAC 文件时，可以直接读入到结构体 S 中，也可以读入到多个数组中。读入到数组中便于matlab处理，但是却丢失了 SAC 头段中的很多信息；读入到结构体 S 中，有时却需要用数组做处理，这就可以使用 <code class="docutils literal notranslate"><span class="pre">getsacdata</span></code>
+函数，可以从结构体S中提取出自变量和因变量数组：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% 从文件中读入结构体 S</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readsac</span><span class="p">(</span><span class="s">&#39;seis.SAC&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="c">% 从结构体 S 中提取自变量和因变量</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">getsacdata</span><span class="p">(</span><span class="n">S</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="writesac">
+<h2>writesac<a class="headerlink" href="#writesac" title="此标题的永久链接">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">writesac.m</span></code> 中定义了函数 <code class="docutils literal notranslate"><span class="pre">writesac</span></code>，用于写 SAC 格式的文件，其输入是结构体 S，返回值是状态码：</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% 读入 SAC 数据</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readsac</span><span class="p">(</span><span class="s">&#39;seis.SAC&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="c">% 做一些数据处理</span><span class="w"></span>
+<span class="c">% ...</span><span class="w"></span>
+<span class="c">% 修改结构体 S 中的文件名</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">FILENAME</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;new.SAC&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="c">% 写入到新文件中</span><span class="w"></span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">writesac</span><span class="p">(</span><span class="n">S</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>其他<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>除了 SAC 官方提供的几个 Matlab 脚本之外，还有其他人也提供了一些 Matlab 脚本：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://geophysics.eas.gatech.edu/people/zpeng/Teaching/MatSAC.tar.gz">http://geophysics.eas.gatech.edu/people/zpeng/Teaching/MatSAC.tar.gz</a></p></li>
+<li><p><a class="reference external" href="http://home.chpc.utah.edu/~thorne/software.html">http://home.chpc.utah.edu/~thorne/software.html</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../sacio-in-fortran/" class="btn btn-neutral float-left" title="Fortran 程序中的 SAC I/O" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sacio-in-python/" class="btn btn-neutral float-right" title="Python 中的 SAC I/O" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

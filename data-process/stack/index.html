@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>信号叠加 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="SAC 图像" href="../../graphics/" />
+    <link rel="prev" title="数据分析" href="../data-analysis/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 数据处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-request/">数据申请</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-format/">数据格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge-traces/">合并数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rename/">数据重命名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time-zone-correction/">时区校正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event-info/">事件信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../station-info/">台站和分量信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">去毛刺</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean-rtrend-taper/">去均值、去线性趋势和波形尖灭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-response/">去仪器响应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut-data/">数据截窗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">分量旋转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resampling/">数据重采样</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filter/">滤波</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">震相理论到时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort-traces/">波形排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quality-control/">质量控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picking-phase/">震相拾取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-analysis/">数据分析</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">信号叠加</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sss">sss 的进入和退出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">添加文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">叠加文件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 数据处理</a> &raquo;</li>
+      <li>信号叠加</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/data-process/stack.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>信号叠加<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>相关命令</strong>：<a class="reference internal" href="../../sss/liststack/"><span class="doc">liststack</span></a>、<a class="reference internal" href="../../sss/zerostack/"><span class="doc">zerostack</span></a></p>
+<p>信号叠加是消除噪声、增强有效信号的常用手段。SAC 通过提供一个子程序
+Signal Stack Subprocess（简称 sss）来实现。</p>
+<section id="sss">
+<h2>sss 的进入和退出<a class="headerlink" href="#sss" title="此标题的永久链接">¶</a></h2>
+<p>在 SAC 中键入 <code class="docutils literal notranslate"><span class="pre">sss</span></code> 即可进入该子程序；在子程序中键入 <a class="reference internal" href="../../commands/quitsub/"><span class="doc">quitsub</span></a>
+即可退出子程序并回到主程序；也可键入 <a class="reference internal" href="../../commands/quit/"><span class="doc">quit</span></a> 直接从子程序中退出 SAC。</p>
+</section>
+<section id="id2">
+<h2>添加文件<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>首先，需要让 SAC 读入要叠加的 SAC 文件。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; sss   # 进入 sss 子程序</span>
+<span class="go">Signal Stacking Subprocess.</span>
+<span class="go">SAC/SSS&gt; addstack a.SAC weight 1 delay 20 seconds</span>
+</pre></div>
+</div>
+<p>上面的示例中读入了文件 <code class="docutils literal notranslate"><span class="pre">a.SAC</span></code>，<code class="docutils literal notranslate"><span class="pre">weight</span> <span class="pre">1</span></code> 设置了文件在叠加中的权重，即用 1 乘以 SAC 文件的每一个点的值，权重可以是 0 到 1 的数。<code class="docutils literal notranslate"><span class="pre">delay</span> <span class="pre">20</span> <span class="pre">seconds</span></code>
+表示将波形向后延迟 20 秒。</p>
+<p>在 SAC 主程序中读入的文件，在进入子程序时会保留。如下面的例子所示：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r a.SAC    # 读取了文件 a.SAC</span>
+<span class="go">SAC&gt; sss   # 进入 sss 子程序</span>
+<span class="go">Signal Stacking Subprocess.</span>
+<span class="go">SAC/SSS&gt; addstack a.SAC delay 10 s    # 添加文件 a.SAC，并延迟 10s</span>
+<span class="go">SAC/SSS&gt; addstack b.SAC               # 添加文件 b.SAC</span>
+<span class="go">SAC/SSS&gt; liststack    # 列出叠加文件列表中的文件属性</span>
+
+<span class="go"> filename  weight      delayt      delayn     delayvm   polarity   distance</span>
+<span class="go">                           delayti     delayni      begin       end</span>
+<span class="go"> a.SAC         1.000       0.000       0.000       0.000   NORMAL   -12345.000</span>
+<span class="go">                             0.000       0.000      10.000      14.000</span>
+<span class="go"> a.SAC         1.000       10.00       0.000       0.000   NORMAL   -12345.000</span>
+<span class="go">                             0.000       0.000      10.000      14.000</span>
+<span class="go"> b.SAC         1.000       0.000       0.000       0.000   NORMAL   -12345.000</span>
+<span class="go">                             0.000       0.000      20.000      24.000</span>
+<span class="go"> Time Window:       0.000       0.000</span>
+<span class="go"> Stack Velocity Model 1 OFF</span>
+<span class="go"> Stack Velocity Model 2 OFF</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>叠加文件<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>本小节首先生成两个脉冲函数文件，然后尝试用多种方式把它们叠加起来。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; funcgen impulse npts 10 delta 1 begin 0</span>
+<span class="gp"># </span>生成一个脉冲函数，数据点数 <span class="m">10</span> 个，采样间隔 1s， 头段 b 为 <span class="m">0</span>
+<span class="go">SAC&gt; w a.SAC</span>
+<span class="go">SAC&gt; funcgen impulse npts 10 delta 1 begin 10</span>
+<span class="gp"># </span>生成一个脉冲函数，数据点数 <span class="m">10</span> 个，采样间隔 1s， 头段 b 为 <span class="m">10</span>
+<span class="go">SAC&gt; w b.SAC</span>
+<span class="go">SAC&gt; sss</span>
+<span class="go"> Signal Stacking Subprocess.</span>
+<span class="go">SAC/SSS&gt; zerostack         # 清除之前添加的文件及各种设置</span>
+<span class="go">SAC/SSS&gt; addstack a.SAC</span>
+<span class="go">SAC/SSS&gt; addstack b.SAC</span>
+<span class="go">SAC/SSS&gt; timewindow 0 19    # 确定时窗，必选设定</span>
+<span class="go">SAC/SSS&gt; sumstack    # 叠加波形</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/stack-without-delay.png"><img alt="不做动校正的叠加" src="../../_images/stack-without-delay.png" style="width: 80.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 8 </span><span class="caption-text">不做动校正的叠加</span><a class="headerlink" href="#id4" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p>执行后，SAC 会自动弹出叠加后的波形图，此时可以看到两个脉冲信号。叠加的方式需要注意两点：一是波形是按相对时刻对齐的；二是叠加后会做归一化，所以最大振幅只有 0.5。</p>
+<p>下面尝试把 <code class="docutils literal notranslate"><span class="pre">a.SAC</span></code> 和 <code class="docutils literal notranslate"><span class="pre">b.SAC</span></code> 叠加起来，并做动校正让脉冲信号重合，并且振幅就是简单的求和使其等于 2。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC/SSS&gt; zero stack</span>
+<span class="go">SAC/SSS&gt; addstack a.SAC delay 10 s</span>
+<span class="go">SAC/SSS&gt; addstack b.SAC</span>
+<span class="go">SAC/SSS&gt; timewindow 0 19</span>
+<span class="go">SAC/SSS&gt; sumstack n off</span>
+</pre></div>
+</div>
+<p>结果如图：</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/stack-with-delay.png"><img alt="做动校正的叠加" src="../../_images/stack-with-delay.png" style="width: 80.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 9 </span><span class="caption-text">做动校正的叠加</span><a class="headerlink" href="#id5" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../data-analysis/" class="btn btn-neutral float-left" title="数据分析" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../graphics/" class="btn btn-neutral float-right" title="SAC 图像" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

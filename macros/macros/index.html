@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAC 宏 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="脚本中调用 SAC" href="../../call-in-script/" />
+    <link rel="prev" title="内联函数" href="../inline-functions/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 编程</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-sac-programming/">SAC 宏简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../header-variables/">引用头段变量值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blackboard-variables/">黑板变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inline-functions/">内联函数</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SAC 宏</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">简单的例子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">宏搜索路径</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">宏参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">关键字驱动参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">宏参数缺省值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">参数请求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">联接</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">条件判断</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">循环控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">嵌套与递归</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">中断宏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">调用外部程序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">转义字符</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 编程</a> &raquo;</li>
+      <li>SAC 宏</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/macros/macros.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sac">
+<h1>SAC 宏<a class="headerlink" href="#sac" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>简单的例子<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>假如你有一些重复的工作需要完成，那么 SAC 宏显然可以帮你节省不少时间。例如，要经常读取三个文件 ABC、DEF 和 XYZ，每个文件分别乘以不同的值，做 Fourier 变换，然后将频谱的振幅部分绘制到 SGF 文件中，这样的一系列命令可以写入到 SAC 宏文件中：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">** This certainly is a simple little macro.</span>
+<span class="go">r ABC DEF XYZ</span>
+<span class="go">mul 4 8 9</span>
+<span class="go">fft</span>
+<span class="go">bg sgf</span>
+<span class="go">psp am</span>
+</pre></div>
+</div>
+<p>假设上面的代码保存到文件 <code class="docutils literal notranslate"><span class="pre">mystuff</span></code> 中，且该文件位于当前目录中，可以通过下面的命令执行该宏文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; macro mystuff</span>
+</pre></div>
+</div>
+<p>终端中并不会显示正在执行的宏文件中的命令，可以使用 <code class="docutils literal notranslate"><span class="pre">echo</span></code> 命令来设置在终端显示哪些东西。另外，若某行的第一列为星号则该行为注释行，SAC 不会去执行注释行。</p>
+</section>
+<section id="id2">
+<h2>宏搜索路径<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>当你执行一个宏文件而又没有给出宏文件的绝对路径时，SAC 会按照下面的路径顺序搜索宏文件：</p>
+<ol class="arabic simple">
+<li><p>在当前目录搜索；</p></li>
+<li><p>在 <a class="reference internal" href="../../commands/setmacro/"><span class="doc">setmacro</span></a> 命令设置的搜索目录中搜索；</p></li>
+<li><p>在SAC的全局宏目录（<code class="docutils literal notranslate"><span class="pre">${SACHOME}/aux/macros</span></code>）中搜索；</p></li>
+</ol>
+<p>所有人都可以使用全局宏目录中的宏文件，可以使用 <a class="reference internal" href="../../commands/installmacro/"><span class="doc">installmacro</span></a>
+命令将自己的宏文件安装到这个目录中。你也可以通过绝对/相对路径指定搜索路径。</p>
+</section>
+<section id="id3">
+<h2>宏参数<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>如果想要每次读取不同的文件或者乘以不同的值那么必须每次都修改该文件，让宏文件在执行之前允许用户输入参数可以大大增加宏文件的灵活性。</p>
+<p>SAC 宏参数的格式为：“<code class="docutils literal notranslate"><span class="pre">$n$</span></code>”，其中n从1开始。</p>
+<p>下面将对先前的宏文件进行修改以使其可以接收文件名作为参数：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">r $1$ $2$ $3$</span>
+<span class="go">mul 4 8 9</span>
+<span class="go">fft</span>
+<span class="go">bg sgf</span>
+<span class="go">psp am</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$1$</span></code>、<code class="docutils literal notranslate"><span class="pre">$2$</span></code> 和 <code class="docutils literal notranslate"><span class="pre">$3$</span></code> 分别表示宏文件接收到的第一、二、三个参数，用下面的命令执行这个宏文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; macro mystuff ABC DEF XYZ</span>
+</pre></div>
+</div>
+<p>可以用下面的命令再次执行这个宏文件，但读取不同的文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; macro mystuff AAA BBB CCC</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>关键字驱动参数<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>关键字驱动参数允许用户按照任意顺序输入参数，这也使得宏文件的内容变得简单易懂。</p>
+<p>当参数的数目以及宏文件的大小不断增大的时候这就变得更加重要了。下面将再一次修改这个例子以使其可以接受文件列表以及乘数的列表：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>keys$ files values
+<span class="go">r $files$</span>
+<span class="go">mul $values$</span>
+<span class="go">fft</span>
+<span class="go">bg sgf</span>
+<span class="go">psp am</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$keys$</span></code> 表明“files”和“values”是关键字。可以按照下面的输入来执行这个宏文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; macro mystuff files ABC DEF XYZ values 4 8 9</span>
+</pre></div>
+</div>
+<p>因为参数的顺序不再重要，所以你可以像下面这样输入：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; macro mystuff values 4 8 9 files ABC DEF XYZ</span>
+</pre></div>
+</div>
+<p>这个宏文件并不限于读取三个文件，它对于文件的数目没有限制，只要文件数与值数目相匹配就好。</p>
+</section>
+<section id="id5">
+<h2>宏参数缺省值<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>有些时候会遇到这样的情况，宏文件的有些参数在多次执行的过程中经常但并不总是拥有相同的值。为这些参数提供缺省值可以减少输入那些相同值的次数同时又保有宏参数本身的灵活性。如下例所示：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>keys$ files values
+<span class="gp">$</span>default$ values <span class="m">4</span> <span class="m">8</span> <span class="m">9</span>
+<span class="go">r $files$</span>
+<span class="go">mul $values$</span>
+<span class="go">fft</span>
+<span class="go">bg sgf</span>
+<span class="go">psp am</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$default$</span></code> 指定了宏参数 <code class="docutils literal notranslate"><span class="pre">values</span></code> 的缺省值，若在执行宏文件时不输入values的参数值那么这些参数将使用缺省值：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; macro mystuff files ABC DEF XYZ</span>
+</pre></div>
+</div>
+<p>如果想要使用不同的值，可以像下面这样输入：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; macro mystuff values 10 12 3 files ABC DEF XYZ</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>参数请求<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>若执行宏文件时没有输入参数而这些参数又没有缺省值，SAC 会在终端中提示你输入相应的参数值。在上面的例子中，如果你忘记输入参数则会出现下面的情况：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; macro mystuff</span>
+<span class="go">files? ABC DEF XYZ          # 用户输入ABC DEF XYZ</span>
+</pre></div>
+</div>
+<p>注意到 SAC 并不会提示输入参数 <code class="docutils literal notranslate"><span class="pre">values</span></code> 的值，因为它们已经有了缺省值。SAC 并非在一开始就提示输入参数，其等到需要计算参数值却发现没有缺省值或者输入值时才会提示需要输入该参数。</p>
+</section>
+<section id="id7">
+<h2>联接<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h2>
+<p>头段变量、黑板变量、宏参数以及字符串可以直接联接在一起。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>keys$ station
+<span class="go">fg seis</span>
+<span class="go">echo on</span>
+<span class="go">setbb sta $station$.z</span>
+<span class="go">setbb tmp ABC</span>
+<span class="go">setbb tmp1 XYZ%tmp%</span>
+<span class="go">setbb tmp2 (&amp;1,o&amp;)</span>
+<span class="go">setbb fname $station$%tmp%%tmp1%%tmp2%.SAC</span>
+</pre></div>
+</div>
+<p>执行效果如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; m stuff station STA</span>
+<span class="go"> setbb sta $station$.z</span>
+<span class="go"> ==&gt;  setbb sta STA.z</span>
+<span class="go"> setbb tmp ABC</span>
+<span class="go"> setbb tmp1 XYZ%tmp%</span>
+<span class="go"> ==&gt;  setbb tmp1 XYZABC</span>
+<span class="go"> setbb tmp2 @(&amp;1,o&amp;@)</span>
+<span class="go"> ==&gt;  setbb tmp2 (-41.43)</span>
+<span class="go"> setbb fname $station$%tmp%%tmp1%%tmp2%.SAC</span>
+<span class="go"> ==&gt;  setbb fname STAABCXYZABC(-41.43).SAC</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>条件判断<a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h2>
+<p>条件判断在任何一个编程语言中都是必不可少的，SAC 宏的条件判断语句与
+Fortran77 类似，但不完全相同，要注意区分。</p>
+<p>SAC 宏的条件判断格式如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">IF expr</span>
+<span class="go">  commands</span>
+<span class="go">ELSEIF expr</span>
+<span class="go">  commands</span>
+<span class="go">ELSE</span>
+<span class="go">  commands</span>
+<span class="go">ENDIF</span>
+</pre></div>
+</div>
+<p>逻辑表达式 <code class="docutils literal notranslate"><span class="pre">expr</span></code> 具有如下形式：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">token 关系运算符 token</span>
+</pre></div>
+</div>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">token</span></code> 可以是一个常数、宏参数、黑板变量或头段变量，关系运算符则是 <code class="docutils literal notranslate"><span class="pre">GT</span></code>、<code class="docutils literal notranslate"><span class="pre">GE</span></code>、<code class="docutils literal notranslate"><span class="pre">LE</span></code>、<code class="docutils literal notranslate"><span class="pre">LT</span></code>、
+<code class="docutils literal notranslate"><span class="pre">EQ</span></code>、<code class="docutils literal notranslate"><span class="pre">NE</span></code>中的一个。上面的逻辑表达式在计算之前 <code class="docutils literal notranslate"><span class="pre">token</span></code>
+会被转换为浮点型数。</p>
+<p>条件判断语句目前最多支持10次嵌套，且 <code class="docutils literal notranslate"><span class="pre">elseif</span></code>、<code class="docutils literal notranslate"><span class="pre">else</span></code>
+是可选的，<code class="docutils literal notranslate"><span class="pre">elseif</span></code> 的次数没有限制。</p>
+<p>下面给出一个例子：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">r $1$</span>
+<span class="go">markptp</span>
+<span class="go">if &amp;1,user0&amp; ge 2.45</span>
+<span class="go">    fft</span>
+<span class="go">    psp am</span>
+<span class="go">else</span>
+<span class="go">    message &quot;Peak to peak for $1 below threshold.&quot;</span>
+<span class="go">endif</span>
+</pre></div>
+</div>
+<p>在这个例子中，一个文件被读入内存，<a class="reference internal" href="../../commands/markptp/"><span class="doc">markptp</span></a> 测出其最大峰峰值，并保存到头段变量 <code class="docutils literal notranslate"><span class="pre">user0</span></code> 中，若该值大于某一确定值，则对其做 Fourier
+变换并绘制振幅图，否则输出信息到终端。</p>
+</section>
+<section id="id9">
+<h2>循环控制<a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h2>
+<p>循环特性允许在一个宏文件中重复执行一系列命令。通过固定循环次数、遍历元素列表或者设定条件来执行一系列命令，也可以随时中断一次循环。循环的最大嵌套次数为10次。其语法可以有多种形式：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">DO variable = start, stop [,increment]</span>
+<span class="go">    commands</span>
+<span class="go">ENDDO</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">DO variable FROM start TO stop [BY increment]</span>
+<span class="go">    commands</span>
+<span class="go">ENDDO</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">DO variable LIST entrylist</span>
+<span class="go">    commands</span>
+<span class="go">ENDDO</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">DO variable WILD [DIR name] entrylist</span>
+<span class="go">    commands</span>
+<span class="go">ENDDO</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">WHILE expr</span>
+<span class="go">    commands</span>
+<span class="go">ENDDO</span>
+</pre></div>
+</div>
+<p>其中大写字符串均为关键字，不可更改：</p>
+<ul class="simple">
+<li><p>variable 是循环变量名，在变量名前后加上“<code class="docutils literal notranslate"><span class="pre">$</span></code>”即可在 do 循环中引用 该变量；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>、<code class="docutils literal notranslate"><span class="pre">stop</span></code>、<code class="docutils literal notranslate"><span class="pre">increment</span></code> 循环变量的初值、终值、增值，
+<code class="docutils literal notranslate"><span class="pre">start</span></code>、<code class="docutils literal notranslate"><span class="pre">stop</span></code> 必须为整型数，<code class="docutils literal notranslate"><span class="pre">increment</span></code> 缺省值为1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">entrylist</span></code> 是 do 循环执行时变量可以取的所有值的集合，值之间以空格分开，其可以为整型、浮点型或字符型。<code class="docutils literal notranslate"><span class="pre">DO</span> <span class="pre">WILD</span></code> 中 <code class="docutils literal notranslate"><span class="pre">entrylist</span></code>
+由字符串和通配符构成，循环执行前，这个列表将根据通配符扩展为一系列文件名。</p></li>
+</ul>
+<p>下面给出一些 DO 循环的例子：</p>
+<p>该宏文件对数据使用了 <a class="reference internal" href="../../commands/dif/"><span class="doc">dif</span></a> 以进行预白化处理，进行 Fourier 变换，然后使用 <a class="reference internal" href="../../commands/divomega/"><span class="doc">divomega</span></a> 命令去除预白化的影响，有时需要在做变换之前多次预白化，那么就可以这样写：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>keys$ file nprew
+<span class="gp">$</span>default$ nprew <span class="m">1</span>
+<span class="go">r $file</span>
+<span class="go">do j = 1 , $nprew$</span>
+<span class="go">    dif</span>
+<span class="go">enddo</span>
+<span class="go">fft amph</span>
+<span class="go">do j = 1 , $nprew$</span>
+<span class="go">    divomega</span>
+<span class="go">enddo</span>
+</pre></div>
+</div>
+<p>下面这个例子，用相同的数据绘制5个不同的两秒时间窗的质点运动矢量图：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">r abc.r abc.t</span>
+<span class="go">setbb time1 0</span>
+<span class="go">do time2 from 2 to 10 by 2</span>
+<span class="go">    xlim %time1% $time2$</span>
+<span class="go">    title &#39;Particle motion from %time1% to $time2$&#39;</span>
+<span class="go">    plotpm</span>
+<span class="go">    setbb time1 $time2$</span>
+<span class="go">enddo</span>
+</pre></div>
+</div>
+<p>在下面的例子中，一个宏文件调用另一个名为 <code class="docutils literal notranslate"><span class="pre">preview</span></code> 的宏文件，通过do循环以达到多次调用 <code class="docutils literal notranslate"><span class="pre">preview</span></code> 的目的：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">do station list abc def xyz</span>
+<span class="go">    do component list z n e</span>
+<span class="go">        macro preview $station$.$component$</span>
+<span class="go">    enddo</span>
+<span class="go">enddo</span>
+</pre></div>
+</div>
+<p>在下面的示例展示了如何处理目录 <code class="docutils literal notranslate"><span class="pre">mydir</span></code> 中所有以 <code class="docutils literal notranslate"><span class="pre">.Z</span></code> 结束 的文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">do file wild dir mydir *.Z</span>
+<span class="go">    macro preview $file$</span>
+<span class="go">enddo</span>
+</pre></div>
+</div>
+<p>最后一个例子有三个参数，第一个是文件名，第二个是一个常数，第三个是一个阀值。宏文件读取了一个数据文件，然后每个数据点乘以一个常数直到其超过某一阀值：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">r $1$</span>
+<span class="go">while &amp;1,depmax&amp; gt $3$</span>
+<span class="go">    mul $2$</span>
+<span class="go">enddo</span>
+</pre></div>
+</div>
+<p>另一个与 break 有关的宏文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">r $1$</span>
+<span class="go">while 1 gt 0</span>
+<span class="go">    div $2</span>
+<span class="go">    if &amp;1,depmax&amp; gt $3$</span>
+<span class="go">        break</span>
+<span class="go">    endif</span>
+<span class="go">enddo</span>
+</pre></div>
+</div>
+<p>这个 <code class="docutils literal notranslate"><span class="pre">while</span></code> 循环是一个无限循环，它只能通过 <code class="docutils literal notranslate"><span class="pre">break</span></code> 来中断。</p>
+</section>
+<section id="id10">
+<h2>嵌套与递归<a class="headerlink" href="#id10" title="此标题的永久链接">¶</a></h2>
+<p>SAC 宏提供嵌套功能，不支持递归，但是 SAC 并不会去检查宏的调用是否保证不是递归，因而需要用户去保证宏文件不要直接或间接调用自己。</p>
+</section>
+<section id="id11">
+<h2>中断宏<a class="headerlink" href="#id11" title="此标题的永久链接">¶</a></h2>
+<p>有些时候需要临时中断宏文件的执行，用户自己从终端输入一些命令，然后继续执行宏文件。这个可以利用SAC的 <code class="docutils literal notranslate"><span class="pre">pause</span></code> 和 <code class="docutils literal notranslate"><span class="pre">resume</span></code> 特性做到。当SAC在宏文件中遇到 <code class="docutils literal notranslate"><span class="pre">$TERMINAL$</span></code> 时会临时停止执行宏文件，更改提示符为宏名，然后提示从终端输入命令，然后当 SAC 在终端中看到 <code class="docutils literal notranslate"><span class="pre">$RESUME$</span></code>
+时则会停止从终端读取命令继续从宏文件读取。如果你不想再继续执行宏文件中的命令，可以在终端输入 <code class="docutils literal notranslate"><span class="pre">$KILL$</span></code>，SAC将关闭宏文件，回到上一层。在一个宏文件中可以有多个 <code class="docutils literal notranslate"><span class="pre">$TERMINAL$</span></code> 中断。</p>
+</section>
+<section id="id12">
+<h2>调用外部程序<a class="headerlink" href="#id12" title="此标题的永久链接">¶</a></h2>
+<p>你可以在 SAC 宏内部执行其他程序，可以向程序传递参数。如果程序是交互式的你也可以将输入行发送给它，语法如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>RUN$ program message
+<span class="go">inputlines</span>
+<span class="go">ENDRUN</span>
+</pre></div>
+</div>
+<p>宏参数、黑板变量、头段变量、内联函数均可使用，在程序执行之前它们会被计算，当程序执行结束，SAC 宏会在 <code class="docutils literal notranslate"><span class="pre">ENDRUN</span></code> 之后继续执行。</p>
+</section>
+<section id="id13">
+<h2>转义字符<a class="headerlink" href="#id13" title="此标题的永久链接">¶</a></h2>
+<p>字符“<code class="docutils literal notranslate"><span class="pre">$</span></code>”和“<code class="docutils literal notranslate"><span class="pre">%</span></code>”在SAC中具有特殊的含义，有时在字符串中需要使用这些特殊字符，但 SAC 会将其解释成一个变量，此时就需要使用转义字符，SAC中的转义符为“<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>”，可以被转义的特殊符号包括：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span></code> 宏参数标识符</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%</span></code> 黑板变量标识符</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> 头段变量标识符</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code> 转义字符本身</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">()</span></code> 内联函数起始符</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../inline-functions/" class="btn btn-neutral float-left" title="内联函数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../call-in-script/" class="btn btn-neutral float-right" title="脚本中调用 SAC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cut &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="cuterr" href="../cuterr/" />
+    <link rel="prev" title="correlate" href="../correlate/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 命令</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../func_commands/">功能命令列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/">about</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../abs/">abs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../add/">add</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addf/">addf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apk/">apk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arraymap/">arraymap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../axes/">axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bandpass/">bandpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bandrej/">bandrej</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bbfk/">bbfk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beam/">beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../begindevices/">begindevices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beginframe/">beginframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beginwindow/">beginwindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benioff/">benioff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binoperr/">binoperr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../border/">border</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../capf/">capf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chnhdr/">chnhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chpf/">chpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../color/">color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../comcor/">comcor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contour/">contour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convert/">convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convolve/">convolve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../copyhdr/">copyhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../correlate/">correlate</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">cut</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">输入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">缺省值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">限制</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cuterr/">cuterr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cutim/">cutim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datagen/">datagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decimate/">decimate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deletechannel/">deletechannel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dif/">dif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../div/">div</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../divf/">divf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../divomega/">divomega</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../echo/">echo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../enddevices/">enddevices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endframe/">endframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../envelope/">envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../erase/">erase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../evaluate/">evaluate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exp/">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exp10/">exp10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fft/">fft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fileid/">fileid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filenumber/">filenumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filterdesign/">filterdesign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fir/">fir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../floor/">floor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funcgen/">funcgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getbb/">getbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grayscale/">grayscale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grid/">grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gtext/">gtext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hanning/">hanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../help/">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../highpass/">highpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hilbert/">hilbert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history/">history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ifft/">ifft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../image/">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inicm/">inicm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installmacro/">installmacro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../int/">int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interpolate/">interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keepam/">keepam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../khronhite/">khronhite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../line/">line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linefit/">linefit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linlin/">linlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linlog/">linlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../listhdr/">listhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../load/">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loadctable/">loadctable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../log/">log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../log10/">log10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglab/">loglab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglin/">loglin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglog/">loglog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lowpass/">lowpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../macro/">macro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/">map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markptp/">markptp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marktimes/">marktimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markvalue/">markvalue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathop/">mathop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge/">merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../message/">message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mtw/">mtw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mul/">mul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mulf/">mulf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mulomega/">mulomega</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/">news</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../null/">null</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oapf/">oapf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ohpf/">ohpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pause/">pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picks/">picks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickauthor/">pickauthor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickphase/">pickphase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickprefs/">pickprefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plabel/">plabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot/">plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot1/">plot1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot2/">plot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotalpha/">plotalpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotc/">plotc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotdy/">plotdy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotpk/">plotpk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotpm/">plotpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotsp/">plotsp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotxy/">plotxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../print/">print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../printhelp/">printhelp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../production/">production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qdp/">qdp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantize/">quantize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quit/">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quitsub/">quitsub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../read/">read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readbbf/">readbbf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readcss/">readcss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readerr/">readerr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readhdr/">readhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readsp/">readsp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readtable/">readtable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report/">report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reverse/">reverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">rglitches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean/">rmean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rms/">rms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">rotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rq/">rq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rtrend/">rtrend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../saveimg/">saveimg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setbb/">setbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setdevice/">setdevice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setmacro/">setmacro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sgf/">sgf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../smooth/">smooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonogram/">sonogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort/">sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spectrogram/">spectrogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqr/">sqr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqrt/">sqrt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stretch/">stretch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub/">sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subf/">subf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../symbol/">symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../synchronize/">synchronize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../systemcommand/">systemcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../taper/">taper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ticks/">ticks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../title/">title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trace/">trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transcript/">transcript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/">transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">traveltime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsize/">tsize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unsetbb/">unsetbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unwrap/">unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vspace/">vspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wait/">wait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whiten/">whiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whpf/">whpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../width/">width</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiener/">wiener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wild/">wild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window/">window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../write/">write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writebbf/">writebbf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writecss/">writecss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writehdr/">writehdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writesp/">writesp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xdiv/">xdiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xfudge/">xfudge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xfull/">xfull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xgrid/">xgrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlabel/">xlabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlim/">xlim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlin/">xlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlog/">xlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xvport/">xvport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ydiv/">ydiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yfudge/">yfudge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yfull/">yfull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ygrid/">ygrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylabel/">ylabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylim/">ylim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylin/">ylin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylog/">ylog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yvport/">yvport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zcolors/">zcolors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlabels/">zlabels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlevels/">zlevels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlines/">zlines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zticks/">zticks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 命令</a> &raquo;</li>
+      <li>cut</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/commands/cut.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cut">
+<h1>cut<a class="headerlink" href="#cut" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>定义要读入的数据窗</p>
+</section>
+<section id="id2">
+<h2>语法<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">CUT [ON|OFF|pdw|SIGNAL]</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>输入<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<dl class="simple">
+<dt>pdw</dt><dd><p>打开截窗选项并修改 <a class="reference internal" href="../../data-process/cut-data/#subsec-pdw"><span class="std std-ref">pdw</span></a></p>
+</dd>
+<dt>ON</dt><dd><p>打开截窗选项但不改变 <code class="docutils literal notranslate"><span class="pre">pdw</span></code></p>
+</dd>
+<dt>OFF</dt><dd><p>关闭截窗选项</p>
+</dd>
+<dt>SIGNAL</dt><dd><p>等效于设置 <code class="docutils literal notranslate"><span class="pre">pdw</span></code> 为 <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">-1</span> <span class="pre">F</span> <span class="pre">1</span></code>，即 <code class="docutils literal notranslate"><span class="pre">a</span></code> 前一秒到 <code class="docutils literal notranslate"><span class="pre">f</span></code>
+后一秒的数据窗</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>缺省值<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cut off</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>说明<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cut</span></code> 命令仅设置了要读取的时间窗选项，并不对内存中的数据进行截取。因而，若要该命令起作用，需要在 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 命令设置时间窗后使用 <code class="docutils literal notranslate"><span class="pre">read</span></code>
+命令。与此相反，<a class="reference internal" href="../cutim/"><span class="doc">cutim</span></a> 命令会在命令执行时直接对内存中的数据进行截取。</p>
+<p>若截窗选项为关，则读取整个文件；若截窗选项为开，则只读取由 <code class="docutils literal notranslate"><span class="pre">pdw</span></code>
+定义的部分。</p>
+<p>如果你想对一组有不同参考时刻的文件使用同样的时间窗，必须在执行 <code class="docutils literal notranslate"><span class="pre">cut</span></code>
+前先使用 <a class="reference internal" href="../synchronize/"><span class="doc">synchronize</span></a>
+命令使所有文件具有相同的参考时刻。<code class="docutils literal notranslate"><span class="pre">synchronize</span></code>
+命令修改了文件的头段使得所有文件具有相同的参考时刻，并调整所有相对时间。因而，你需要先读取所有文件，执行 <code class="docutils literal notranslate"><span class="pre">synchronize</span></code>
+命令，使用 <a class="reference internal" href="../writehdr/"><span class="doc">writehdr</span></a>
+将修改后的头段写入到磁盘文件中，然后再执行 <code class="docutils literal notranslate"><span class="pre">cut</span></code>
+命令，并读取数据，这样才能得到正确的结果。</p>
+</section>
+<section id="id6">
+<h2>示例<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>下面将用一系列示例来展示 <code class="docutils literal notranslate"><span class="pre">cut</span></code> 命令的常见用法。首先，先生成测试用的示例数据：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; w seismo.sac</span>
+</pre></div>
+</div>
+<p>直接读取文件，不做任何截窗操作：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r seismo.sac</span>
+<span class="go">SAC&gt; lh b e a kztime npts</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">          e = 1.945000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">       npts = 1000</span>
+</pre></div>
+</div>
+<p>截取 b 到 e 之间的波形，等效于不做任何截窗操作：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; cut b e</span>
+<span class="go">SAC&gt; r seismo.sac</span>
+<span class="go">SAC&gt; lh b e a kztime npts</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">          e = 1.945000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">       npts = 1000</span>
+</pre></div>
+</div>
+<p>截取文件的前3秒：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; cut b 0 3</span>
+<span class="go">SAC&gt; r seismo.sac</span>
+<span class="go">SAC&gt; lh b e a kztime npts</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">          e = 1.246000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">       npts = 301</span>
+</pre></div>
+</div>
+<p>截取文件开始的100个数据点：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; cut b n 100</span>
+<span class="go">SAC&gt; r</span>
+<span class="go">SAC&gt; lh b e a kztime npts</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">          e = 1.045000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">       npts = 100</span>
+</pre></div>
+</div>
+<p>截取初动前0.5秒到初动后3秒的数据：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; cut a -0.5 3</span>
+<span class="go">SAC&gt; r</span>
+<span class="go">SAC&gt; lh b e a kztime npts</span>
+<span class="go">          b = 9.959999e+00</span>
+<span class="go">          e = 1.346000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">       npts = 351</span>
+</pre></div>
+</div>
+<p>截取数据的第10到15秒（相对于参考时刻）：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; cut 10 15</span>
+<span class="go">SAC&gt; r ./seismo.sac</span>
+<span class="go">SAC&gt; lh b e a kztime npts</span>
+<span class="go">          b = 9.999999e+00</span>
+<span class="go">          e = 1.500000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">       npts = 501</span>
+</pre></div>
+</div>
+<p>先截取数据的最开始前3秒，再截取接下来的3秒：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; cut b 0 3</span>
+<span class="go">SAC&gt; r ./seismo.sac</span>
+<span class="go">SAC&gt; w tmp.1</span>
+<span class="go">SAC&gt; cut b 3 6</span>
+<span class="go">SAC&gt; r</span>
+<span class="go">SAC&gt; w tmp.2</span>
+<span class="go">SAC&gt; cut off</span>
+<span class="go">SAC&gt; r ./tmp.?</span>
+<span class="go">./tmp.1 ...tmp.2</span>
+<span class="go">SAC&gt; lh b e a kztime npts</span>
+
+<span class="go">  FILE: ./tmp.1 - 1</span>
+<span class="go"> -------------</span>
+<span class="go">          b = 9.459999e+00</span>
+<span class="go">          e = 1.246000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">       npts = 301</span>
+
+<span class="go">  FILE: ./tmp.2 - 2</span>
+<span class="go"> -------------</span>
+<span class="go">          b = 1.246000e+01</span>
+<span class="go">          e = 1.546000e+01</span>
+<span class="go">          a = 1.046400e+01</span>
+<span class="go">     kztime = 10:38:14.000</span>
+<span class="go">       npts = 301</span>
+</pre></div>
+</div>
+<p>当要截取的窗超过了文件的时间范围时，可以使用 <a class="reference internal" href="../cuterr/"><span class="doc">cuterr</span></a> 命令的
+<code class="docutils literal notranslate"><span class="pre">FILLZ</span></code> 选项，在文件的开始或结尾处补0，再读入内存。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; r N11A.lhz</span>
+<span class="go">SAC&gt; lh npts</span>
+<span class="go">    npts = 3101</span>
+
+<span class="go">SAC&gt; cuterr fillz; cut b n 4096</span>
+<span class="go">SAC&gt; r</span>
+<span class="go">SAC&gt; lh npts</span>
+<span class="go">    npts = 4096</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h2>限制<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h2>
+<p>目前不支持非等间隔文件或谱文件的截断。该命令对 ASCII 格式的 SAC 文件无效。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../correlate/" class="btn btn-neutral float-left" title="correlate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../cuterr/" class="btn btn-neutral float-right" title="cuterr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

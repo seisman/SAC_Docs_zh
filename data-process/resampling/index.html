@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据重采样 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="滤波" href="../filter/" />
+    <link rel="prev" title="分量旋转" href="../rotate/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 数据处理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../data-request/">数据申请</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-format/">数据格式转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge-traces/">合并数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rename/">数据重命名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time-zone-correction/">时区校正</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../event-info/">事件信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../station-info/">台站和分量信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">去毛刺</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean-rtrend-taper/">去均值、去线性趋势和波形尖灭</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../instrument-response/">去仪器响应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut-data/">数据截窗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">分量旋转</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">数据重采样</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#decimate">decimate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interpolate">interpolate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../filter/">滤波</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">震相理论到时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort-traces/">波形排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quality-control/">质量控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picking-phase/">震相拾取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data-analysis/">数据分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stack/">信号叠加</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 数据处理</a> &raquo;</li>
+      <li>数据重采样</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/data-process/resampling.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>数据重采样<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p><strong>相关命令</strong>：<a class="reference internal" href="../../commands/decimate/"><span class="doc">decimate</span></a>、<a class="reference internal" href="../../commands/interpolate/"><span class="doc">interpolate</span></a></p>
+<p>如下情形，需要对数据进行重采样：</p>
+<ul class="simple">
+<li><p>不同仪器的采样周期可能不同，需要将所有的数据重采样到相同的采样周期；</p></li>
+<li><p>数据的采样周期很小，导致数据量很大，而实际研究中不需要如此小的采样周期，因而可以对数据做减采样以减小数据量；</p></li>
+<li><p>数据的采样周期过大，实际研究中需要更小的采样周期，此时需对数据做增采样；</p></li>
+<li><p>数据为不等间隔数据，需要插值成为等间隔数据；</p></li>
+</ul>
+<section id="decimate">
+<h2>decimate<a class="headerlink" href="#decimate" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/decimate/"><span class="doc">decimate</span></a> 专门用于解决上面所说的第二种情形，即等间隔数据的减采样。在减采样过程中，根据 Nyquist 采样定理，可能会出现混叠现象，而
+<code class="docutils literal notranslate"><span class="pre">decimate</span></code> 对数据自动做了低通滤波，以避免混叠现象的产生。</p>
+<p>下面的示例中，将一个等间隔数据减采样10倍：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; lh delta npts</span>
+
+<span class="go">     delta = 1.000000e-02       # 采样间隔delta=0.01</span>
+<span class="go">      npts = 1000</span>
+<span class="go">SAC&gt; decimate 5; decimate 2     # 减采样10倍</span>
+<span class="go">SAC&gt; lh delta npts</span>
+
+<span class="go">     delta = 9.999999e-02       # 采样间隔delta=0.1，忽略浮点数误差</span>
+<span class="go">      npts = 100</span>
+</pre></div>
+</div>
+</section>
+<section id="interpolate">
+<h2>interpolate<a class="headerlink" href="#interpolate" title="此标题的永久链接">¶</a></h2>
+<p>与 <a class="reference internal" href="../../commands/decimate/"><span class="doc">decimate</span></a> 相比，<a class="reference internal" href="../../commands/interpolate/"><span class="doc">interpolate</span></a> 命令功能更加强大，其可以对等间隔或不等间隔数据进行增采样或减采样。</p>
+<p>比如增采样，即插值：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; lh delta npts</span>
+
+<span class="go">     delta = 1.000000e-02</span>
+<span class="go">     npts = 1000</span>
+<span class="go">SAC&gt; interp delta 0.005         # 增采样2倍</span>
+<span class="go">SAC&gt; lh</span>
+
+<span class="go">     delta = 5.000000e-03</span>
+<span class="go">     npts = 1999</span>
+</pre></div>
+</div>
+<p>对于减采样，<code class="docutils literal notranslate"><span class="pre">interpolate</span></code> 与 <code class="docutils literal notranslate"><span class="pre">decimate</span></code> 的功能略有重复，但
+<code class="docutils literal notranslate"><span class="pre">interpolate</span></code> 在减采样时不会对数据进行低通滤波，因而使用
+<code class="docutils literal notranslate"><span class="pre">interpolate</span></code> 进行减采样时可能会出现混叠现象，故而需要手动进行低通滤波。</p>
+<p>下面的示例将数据减采样到 20 Hz。根据 Nyquist 采样定理，为了保证不产生混叠现象，应首先对数据做 10 Hz 的低通滤波。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; lh npts delta</span>
+
+<span class="go">     npts = 1000</span>
+<span class="go">     delta = 1.000000e-02</span>
+<span class="go">SAC&gt; lp c 10</span>
+<span class="go">SAC&gt; interpolate delta 0.05</span>
+<span class="go">WARNING potential for aliasing. new delta: 0.0500 data delta: 0.0100</span>
+<span class="gp">    #  </span>在做了lowpass之后，此处的警告可忽略
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../rotate/" class="btn btn-neutral float-left" title="分量旋转" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../filter/" class="btn btn-neutral float-right" title="滤波" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

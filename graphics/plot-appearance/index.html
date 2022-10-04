@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图像外观 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="等值线图" href="../plot-contour/" />
+    <link rel="prev" title="绘图命令" href="../plot-commands/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 图像</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../gui/">图形设备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../begin-devices/">SAC 绘图流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot-commands/">绘图命令</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">图像外观</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">图像元素</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">标签</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">标记</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">底图边框</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">图像控制</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">坐标轴</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">坐标系</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">线条属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plot-contour/">等值线图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composite-plots/">组合图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../save-image/">图像保存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../format-conversion/">图像格式转换</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 图像</a> &raquo;</li>
+      <li>图像外观</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/graphics/plot-appearance.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>图像外观<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="id2">
+<h2>图像元素<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>对于 SAC 而言，最基本的显示元素是将所有数据点用线连起来所构成的地震图。除此之外，SAC 的绘图命令还会在图像的四个边绘制坐标轴以及刻度，为图像添加标题、轴标签等。</p>
+<p>在 <a class="reference internal" href="#figure-plot-appearance"><span class="std std-numref">图 14</span></a> 中展示了一个完整的 SAC 图像所包含的所有元素。</p>
+<figure class="align-center" id="id16">
+<span id="figure-plot-appearance"></span><a class="reference internal image-reference" href="../../_images/appearance.png"><img alt="绘图外观及其相关命令" src="../../_images/appearance.png" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 14 </span><span class="caption-text">绘图外观及其相关命令</span><a class="headerlink" href="#id16" title="此图像的永久链接">¶</a></p>
+<div class="legend">
+<p>图中蓝色部分为对绘图外观的说明。</p>
+</div>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#figure-plot-appearance"><span class="std std-numref">图 14</span></a> 可以用如下命令绘制得到：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis                # 生成数据</span>
+<span class="go">SAC&gt; qdp on                 # 打开QDP选项（默认值即为开）</span>
+<span class="go">SAC&gt; grid on                # 显示网格</span>
+<span class="go">SAC&gt; title &#39;Seismic Trace&#39;  # 设置标题</span>
+<span class="go">SAC&gt; xlabel &quot;Time(s)&quot;       # 设置x轴标签</span>
+<span class="go">SAC&gt; ylabel &quot;Amplitude&quot;     # 设置y轴标签</span>
+<span class="go">SAC&gt; filenumber on          # 显示文件号</span>
+<span class="go">SAC&gt; axes only left bottom  # left和bottom显示axes</span>
+<span class="go">SAC&gt; ticks only right       # right显示ticks</span>
+<span class="go">SAC&gt; border on              # top显示border</span>
+<span class="go">SAC&gt; p                      # 绘图</span>
+</pre></div>
+</div>
+<p>图像中显示的元素包括：</p>
+<section id="id3">
+<h3>标签<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h3>
+<p>标签大致可以分为三种：标题、轴标签和通用标签。</p>
+<dl class="simple">
+<dt>TITLE</dt><dd><p>图像的标题。<a class="reference internal" href="../../commands/title/"><span class="doc">title</span></a> 命令可控制标题文本、位置和尺寸</p>
+</dd>
+<dt>XLABEL、YLABEL</dt><dd><p>轴标签。<a class="reference internal" href="../../commands/xlabel/"><span class="doc">xlabel</span></a> 和 <a class="reference internal" href="../../commands/ylabel/"><span class="doc">ylabel</span></a>
+命令可指定 X 和 Y 轴标签文本、位置和尺寸。</p>
+</dd>
+<dt>PLABEL</dt><dd><p>通用标签。<a class="reference internal" href="../../commands/plabel/"><span class="doc">plabel</span></a> 可指定通用标签的文本、位置和尺寸。</p>
+</dd>
+</dl>
+<p>标签文本需要用单引号或双引号包围，文本尺寸选项 <code class="docutils literal notranslate"><span class="pre">size</span></code> 可以选择
+<code class="docutils literal notranslate"><span class="pre">tiny</span></code>、<code class="docutils literal notranslate"><span class="pre">small</span></code>、<code class="docutils literal notranslate"><span class="pre">medium</span></code> 或 <code class="docutils literal notranslate"><span class="pre">large</span></code>， 文本位置选项
+<code class="docutils literal notranslate"><span class="pre">location</span></code> 则可以取 <code class="docutils literal notranslate"><span class="pre">top</span></code>、<code class="docutils literal notranslate"><span class="pre">bottom</span></code>、<code class="docutils literal notranslate"><span class="pre">left</span></code> 或 <code class="docutils literal notranslate"><span class="pre">right</span></code>。</p>
+<p>可以通过 <a class="reference internal" href="../../commands/plabel/"><span class="doc">plabel</span></a> 命令定义最多三个通用标签。通用标签与轴标签类似，其更通用之处在于可以任意指定其位置。每个标签可以用
+<code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">x</span> <span class="pre">y</span> <span class="pre">a</span></code> 来指定其位置，其中 <code class="docutils literal notranslate"><span class="pre">x</span></code>、<code class="docutils literal notranslate"><span class="pre">y</span></code> 为标签位置相对于窗口尺寸的比例，<code class="docutils literal notranslate"><span class="pre">a</span></code> 表示标签相对于水平方向顺时针旋转的角度；也可以用 <code class="docutils literal notranslate"><span class="pre">below</span></code>
+设置新标签位于上一标签的下方。</p>
+</section>
+<section id="id4">
+<h3>标记<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h3>
+<p>图像中包含了如下标记：</p>
+<dl class="simple">
+<dt>FILEID</dt><dd><p>文件ID。<a class="reference internal" href="../../commands/fileid/"><span class="doc">fileid</span></a> 用于控制文件 ID 的内容、位置及其格式。</p>
+</dd>
+<dt>FILENO</dt><dd><p>文件号。<a class="reference internal" href="../../commands/filenumber/"><span class="doc">filenumber</span></a> 控制文件号显示与否。</p>
+</dd>
+<dt>PICKS</dt><dd><p>到时标记。<a class="reference internal" href="../../commands/picks/"><span class="doc">picks</span></a> 用于控制是否显示到时标记以及显示效果。</p>
+</dd>
+<dt>QDP</dt><dd><p>QDP因子。<a class="reference internal" href="../../commands/qdp/"><span class="doc">qdp</span></a> 用于控制 qdp 因子的大小。</p>
+</dd>
+</dl>
+<p>QDP，全称为“quick and dirty plot”。在开发 SAC 的那个年代，计算机的性能一般，若在绘图时绘制全部数据点，则绘图过程会耗费大量时间。因而SAC采用了“qdp”的方式：每隔若干个数据点绘制一个数据点<a class="footnote-reference brackets" href="#id13" id="id5">1</a>。图中右下角的“2”即表示每两个点中绘制一个点。目前计算机的性能已经足够强大，因而一般使用 <code class="docutils literal notranslate"><span class="pre">qdp</span> <span class="pre">off</span></code>
+命令关闭该选项。</p>
+</section>
+<section id="id6">
+<h3>底图边框<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h3>
+<p>每张图都有一个底图，每个底图有 TOP、BOTTOM、LEFT 和 RIGHT 四条边。</p>
+<p>SAC 中，每条边都可以用四种不同的形式表示：</p>
+<ul class="simple">
+<li><p>不绘制；<a class="reference internal" href="#figure-plot-appearance"><span class="std std-numref">图 14</span></a> 中 TOP 边；</p></li>
+<li><p>ticks：直线+刻度<a class="footnote-reference brackets" href="#id14" id="id7">2</a>，即图中 RIGHT 边；</p></li>
+<li><p>axes：直线+刻度+标注<a class="footnote-reference brackets" href="#id15" id="id8">3</a>， 即图中 LEFT 边和 BOTTOM 边；</p></li>
+</ul>
+<p>从上面的定义可以看到，四种形式的边存在包含与被包含的关系，因而在设定边时，有如下规则：</p>
+<ol class="arabic simple">
+<li><p>用 <a class="reference internal" href="../../commands/axes/"><span class="doc">axes</span></a> 控制在哪些边使用“axes”；</p></li>
+<li><p>只有不使用“axes”的边才可以用 <a class="reference internal" href="../../commands/ticks/"><span class="doc">ticks</span></a> 命令控制是否使用“ticks”；</p></li>
+<li><p>只有不使用“axes”和“ticks”的边才可以使用 <a class="reference internal" href="../../commands/border/"><span class="doc">border</span></a> 命令控制是否使用“border”；</p></li>
+<li><p>不使用“axes”、“ticks”和“borders”的边则不绘制。</p></li>
+</ol>
+<p>除了边之外，还可以使用 <a class="reference internal" href="../../commands/grid/"><span class="doc">grid</span></a> 命令控制网格的显示以及网格的线型，或使用 <a class="reference internal" href="../../commands/xgrid/"><span class="doc">xgrid</span></a>、<a class="reference internal" href="../../commands/ygrid/"><span class="doc">ygrid</span></a> 分别控制横、纵方向网格的显示和属性。</p>
+</section>
+</section>
+<section id="id9">
+<h2>图像控制<a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h2>
+<section id="id10">
+<h3>坐标轴<a class="headerlink" href="#id10" title="此标题的永久链接">¶</a></h3>
+<p>SAC 使用了优秀的默认算法，根据要绘制的数据范围选择合适的刻度间隔和标注。若对于默认的结果不满意，可以使用 SAC 提供的命令分别对 X、Y 坐标轴进行调整，下面仅列出与 X 轴相关的命令。</p>
+<dl class="simple">
+<dt>xlim</dt><dd><p>控制绘图的 X 轴范围</p>
+</dd>
+<dt>xdiv</dt><dd><p>控制 X 轴刻度间隔</p>
+</dd>
+<dt>xfudge</dt><dd><p>设定 fudge 因子，根据数据极值扩展 X 轴范围</p>
+</dd>
+</dl>
+</section>
+<section id="id11">
+<h3>坐标系<a class="headerlink" href="#id11" title="此标题的永久链接">¶</a></h3>
+<p>绘制时间序列一般使用线性坐标系，SAC 也提供了一系列命令以指定 X、Y 轴为线性坐标轴或对数坐标轴。这些命令包括：
+<a class="reference internal" href="../../commands/linlin/"><span class="doc">linlin</span></a>、<a class="reference internal" href="../../commands/linlog/"><span class="doc">linlog</span></a>、<a class="reference internal" href="../../commands/loglin/"><span class="doc">loglin</span></a>、<a class="reference internal" href="../../commands/loglog/"><span class="doc">loglog</span></a>、<a class="reference internal" href="../../commands/xlin/"><span class="doc">xlin</span></a>、<a class="reference internal" href="../../commands/xlog/"><span class="doc">xlog</span></a>、<a class="reference internal" href="../../commands/ylin/"><span class="doc">ylin</span></a>、<a class="reference internal" href="../../commands/ylog/"><span class="doc">ylog</span></a>。</p>
+<p>对于对数坐标轴，还有一些命令可以控制其外观，比如
+<a class="reference internal" href="../../commands/xfull/"><span class="doc">xfull</span></a>、<a class="reference internal" href="../../commands/loglab/"><span class="doc">loglab</span></a>、<a class="reference internal" href="../../commands/floor/"><span class="doc">floor</span></a>。</p>
+</section>
+</section>
+<section id="id12">
+<h2>线条属性<a class="headerlink" href="#id12" title="此标题的永久链接">¶</a></h2>
+<p>线条的属性包括线型（<a class="reference internal" href="../../commands/line/"><span class="doc">line</span></a>）、线宽（<a class="reference internal" href="../../commands/width/"><span class="doc">width</span></a>）、颜色（<a class="reference internal" href="../../commands/color/"><span class="doc">color</span></a>）和符号（<a class="reference internal" href="../../commands/symbol/"><span class="doc">symbol</span></a>）。</p>
+<p>下面的命令展示了如何修改线条的属性。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; line 3         # 线型为3</span>
+<span class="go">SAC&gt; width 2        # 线宽为2</span>
+<span class="go">SAC&gt; color red      # 红色</span>
+<span class="go">SAC&gt; p</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../../_images/attribution1.png"><img alt="线条属性" src="../../_images/attribution1.png" style="width: 70.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 15 </span><span class="caption-text">线条属性</span><a class="headerlink" href="#id17" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p>在绘制多个波形数据时，可以设置线条的属性按照某个列表递增。下面的命令一次绘制四个波形文件，使每个数据的线型和颜色都按照默认列表递增。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; dg sub teleseis ntkl.z nykl.z onkl.z sdkl.z</span>
+<span class="go">SAC&gt; line incre</span>
+<span class="go">SAC&gt; color black incre</span>
+<span class="go">SAC&gt; p</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../../_images/attribution2.png"><img alt="线条属性递增" src="../../_images/attribution2.png" style="width: 70.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 16 </span><span class="caption-text">线条属性递增</span><a class="headerlink" href="#id18" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="../../commands/line/"><span class="doc">line</span></a> 命令不仅可以设置线条的线型，同时可以对波形数据进行颜色填充：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; qdp off</span>
+<span class="go">SAC&gt; rmean; rtr; taper</span>
+<span class="go">SAC&gt; line 0 fill red/blue</span>
+<span class="go">SAC&gt; p</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../../_images/linefill.png"><img alt="颜色填充图" src="../../_images/linefill.png" style="width: 70.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 17 </span><span class="caption-text">颜色填充图</span><a class="headerlink" href="#id19" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<dl class="footnote brackets">
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id5">1</a></span></dt>
+<dd><p>本质上就是绘图时的一次“减采样”，但是没有做抗混淆处理。</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id7">2</a></span></dt>
+<dd><p>刻度专指每条边上的短线。</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id8">3</a></span></dt>
+<dd><p>标注专指每条边上的数字。</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../plot-commands/" class="btn btn-neutral float-left" title="绘图命令" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plot-contour/" class="btn btn-neutral float-right" title="等值线图" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

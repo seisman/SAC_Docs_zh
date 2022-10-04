@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>readcss &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="readerr" href="../readerr/" />
+    <link rel="prev" title="readbbf" href="../readbbf/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 命令</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../func_commands/">功能命令列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/">about</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../abs/">abs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../add/">add</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../addf/">addf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apk/">apk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arraymap/">arraymap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../axes/">axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bandpass/">bandpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bandrej/">bandrej</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bbfk/">bbfk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beam/">beam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../begindevices/">begindevices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beginframe/">beginframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beginwindow/">beginwindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benioff/">benioff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binoperr/">binoperr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../border/">border</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../capf/">capf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chnhdr/">chnhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chpf/">chpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../color/">color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../comcor/">comcor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contour/">contour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convert/">convert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../convolve/">convolve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../copyhdr/">copyhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../correlate/">correlate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cut/">cut</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cuterr/">cuterr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cutim/">cutim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../datagen/">datagen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../decimate/">decimate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deletechannel/">deletechannel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dif/">dif</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../div/">div</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../divf/">divf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../divomega/">divomega</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../echo/">echo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../enddevices/">enddevices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../endframe/">endframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../envelope/">envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../erase/">erase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../evaluate/">evaluate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exp/">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exp10/">exp10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fft/">fft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fileid/">fileid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filenumber/">filenumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filterdesign/">filterdesign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fir/">fir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../floor/">floor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funcgen/">funcgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getbb/">getbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grayscale/">grayscale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grid/">grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gtext/">gtext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hanning/">hanning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../help/">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../highpass/">highpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hilbert/">hilbert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../history/">history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ifft/">ifft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../image/">image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../inicm/">inicm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installmacro/">installmacro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../int/">int</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interpolate/">interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keepam/">keepam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../khronhite/">khronhite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../line/">line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linefit/">linefit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linlin/">linlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linlog/">linlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../listhdr/">listhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../load/">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loadctable/">loadctable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../log/">log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../log10/">log10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglab/">loglab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglin/">loglin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../loglog/">loglog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lowpass/">lowpass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../macro/">macro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map/">map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markptp/">markptp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../marktimes/">marktimes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markvalue/">markvalue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathop/">mathop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../merge/">merge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../message/">message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mtw/">mtw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mul/">mul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mulf/">mulf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mulomega/">mulomega</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/">news</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../null/">null</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../oapf/">oapf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ohpf/">ohpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pause/">pause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../picks/">picks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickauthor/">pickauthor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickphase/">pickphase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pickprefs/">pickprefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plabel/">plabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot/">plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot1/">plot1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot2/">plot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotalpha/">plotalpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotc/">plotc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotdy/">plotdy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotpk/">plotpk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotpm/">plotpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotsp/">plotsp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotxy/">plotxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../print/">print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../printhelp/">printhelp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../production/">production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qdp/">qdp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quantize/">quantize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quit/">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quitsub/">quitsub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../read/">read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readbbf/">readbbf</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">readcss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">概要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">语法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">输入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">默认值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../readerr/">readerr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readhdr/">readhdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readsp/">readsp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../readtable/">readtable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report/">report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reverse/">reverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rglitches/">rglitches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rmean/">rmean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rms/">rms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rotate/">rotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rq/">rq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rtrend/">rtrend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../saveimg/">saveimg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setbb/">setbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setdevice/">setdevice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setmacro/">setmacro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sgf/">sgf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../smooth/">smooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sonogram/">sonogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sort/">sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spectrogram/">spectrogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqr/">sqr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqrt/">sqrt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stretch/">stretch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sub/">sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subf/">subf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../symbol/">symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../synchronize/">synchronize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../systemcommand/">systemcommand</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../taper/">taper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ticks/">ticks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../title/">title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trace/">trace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transcript/">transcript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../transfer/">transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../traveltime/">traveltime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tsize/">tsize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unsetbb/">unsetbb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unwrap/">unwrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vspace/">vspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wait/">wait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whiten/">whiten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whpf/">whpf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../width/">width</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiener/">wiener</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wild/">wild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../window/">window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../write/">write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writebbf/">writebbf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writecss/">writecss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writehdr/">writehdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../writesp/">writesp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xdiv/">xdiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xfudge/">xfudge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xfull/">xfull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xgrid/">xgrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlabel/">xlabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlim/">xlim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlin/">xlin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xlog/">xlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../xvport/">xvport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ydiv/">ydiv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yfudge/">yfudge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yfull/">yfull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ygrid/">ygrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylabel/">ylabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylim/">ylim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylin/">ylin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ylog/">ylog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../yvport/">yvport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zcolors/">zcolors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlabels/">zlabels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlevels/">zlevels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zlines/">zlines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zticks/">zticks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 命令</a> &raquo;</li>
+      <li>readcss</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/commands/readcss.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="readcss">
+<h1>readcss<a class="headerlink" href="#readcss" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>从磁盘读取CSS格式的文件到内存</p>
+</section>
+<section id="id2">
+<h2>语法<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ReadCSS [BINARY|ASCII] [MAXmem v] [MORE] [TRUST ON|OFF] [VERbose ON|OFF]</span>
+<span class="go">    [SHIFT ON|OFF] [SCALE ON|OFF] [MAGnitude MB|MS|ML|DEF] [DIR name] wfdisclist</span>
+<span class="go">    [filelist] [cssoptions]</span>
+</pre></div>
+</div>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">cssoptions</span></code> 用于进一步从 <code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 文件中筛选满足条件的数据文件，
+<code class="docutils literal notranslate"><span class="pre">cssoptions</span></code> 可以取：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[STAtion station] [CHANnel channel] [BANDwidth bandcode]</span>
+<span class="go">[ORIENTation orientation-code]</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>输入<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<dl class="simple">
+<dt>ASCII</dt><dd><p>读取 ASCII 形式的 CSS 文件（默认值）</p>
+</dd>
+<dt>BINARY</dt><dd><p>读取二进制 CSS 文件，阅读 <code class="docutils literal notranslate"><span class="pre">writecss</span></code> 以了解更多信息</p>
+</dd>
+<dt>MAXMEM</dt><dd><p>设定读取大量数据时所能使用的最大内存占物理内存的百分比。当使用的内存达到设定的上限时，即使已经读取了其他数据库表，也不会再读取更多的波形数据。<code class="docutils literal notranslate"><span class="pre">MAXMEN</span></code> 的默认值是0.3。</p>
+</dd>
+<dt>MORE</dt><dd><p>将读入的波形数据放在内存中的原有波形之后，若不使用该选项，则新读入的波形数据会覆盖内存中的原有波形数据，详情参考
+<a class="reference internal" href="../read/"><span class="doc">read</span></a> 命令。</p>
+</dd>
+<dt>VERBOSE ON|OFF</dt><dd><p>如果 <code class="docutils literal notranslate"><span class="pre">VERBOSE</span></code> 是 ON，SAC 会显示正在读取的波形数据的扩展信息，并打印出 CSS 数据库表的概要信息以及数据格式转换的进度信息。</p>
+</dd>
+<dt>SHIFT ON|OFF</dt><dd><p>若 <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> 是 ON，则发震时刻将被设置为0，其他相关时间头段变量也会做相应修改。与震中距相关的一些头段变量也会受影响。默认值为 <code class="docutils literal notranslate"><span class="pre">SHIFT</span> <span class="pre">ON</span></code>。</p>
+</dd>
+<dt>SCALE ON|OFF</dt><dd><p><code class="docutils literal notranslate"><span class="pre">SCALE</span></code> 选项的默认值是OFF。在 <code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 文件中，有一个字段为校准因子
+<code class="docutils literal notranslate"><span class="pre">CALIB</span></code>。当 <code class="docutils literal notranslate"><span class="pre">SCALE</span></code>选项是 OFF 时，SAC 直接从 <code class="docutils literal notranslate"><span class="pre">.w</span></code>
+文件读取数字信号数据，此时数据的单位是 counts，并将 <code class="docutils literal notranslate"><span class="pre">CALIB</span></code>
+的值保存到 SAC 头段变量 <code class="docutils literal notranslate"><span class="pre">SCALE</span></code> 中。当 <code class="docutils literal notranslate"><span class="pre">SCALE</span></code> 选项是 ON 时，SAC 会给读取的数据乘以 <code class="docutils literal notranslate"><span class="pre">CALIB</span></code> 值，并设置 SAC 的头段变量
+<code class="docutils literal notranslate"><span class="pre">SCALE</span></code> 的值为1.0。设置 <code class="docutils literal notranslate"><span class="pre">SCALE</span> <span class="pre">ON</span></code>， 将数据乘以 <code class="docutils literal notranslate"><span class="pre">CALIB</span></code> 值，在某种程度上可以认为是对数据去除了仪器响应，但该方法很粗糙，完整地去除仪器响应应使用 <a class="reference internal" href="../transfer/"><span class="doc">transfer</span></a> 命令。仅当 <a class="reference internal" href="../transfer/"><span class="doc">transfer</span></a>
+命令所需的仪器响应信息无法获取时，才建议使用 <code class="docutils literal notranslate"><span class="pre">SCALE</span> <span class="pre">ON</span></code>。</p>
+</dd>
+<dt>MAGNITUDE</dt><dd><p>指定要将哪一种震级放在 SAC 的头段变量 <code class="docutils literal notranslate"><span class="pre">mag</span></code> 中。Mb 是体波震级，Ms 是面波震级，ML 是地方震震级。默认值是
+<code class="docutils literal notranslate"><span class="pre">DEF</span></code>，其算法为：若 Ms 存在且大于或等于 6.6，则最优先用 Ms。否则，如果 Mb 存在，用 Mb。如果 Mb 不存在，而 Ms 存在，用 Ms。其他情况用 ML。</p>
+</dd>
+<dt>DIR name</dt><dd><p><code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 文件所在的路径</p>
+</dd>
+<dt>wfdiscfiles</dt><dd><p><code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 文件列表</p>
+</dd>
+<dt>filelist</dt><dd><p>若不指定 filelist，则 <code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 文件所包含的所有波形数据都会被读入内存；若指定了 filelist，则只有 filelist 中指定的波形数据才会被读取内存。需要注意，filelist 所指定的波形文件名必须位于之前指定的 <code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 文件中。</p>
+</dd>
+<dt>STATION station</dt><dd><p><code class="docutils literal notranslate"><span class="pre">station</span></code> 是一个6个或更少字符构成的字符串。
+<code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 文件中台站名 <code class="docutils literal notranslate"><span class="pre">kstnm</span></code> 与 <code class="docutils literal notranslate"><span class="pre">station</span></code> 匹配的行会被选中并读取。
+<code class="docutils literal notranslate"><span class="pre">station</span></code> 中可以包含通配符 <code class="docutils literal notranslate"><span class="pre">*</span></code> 和 <code class="docutils literal notranslate"><span class="pre">?</span></code> 。</p>
+</dd>
+<dt>CHANNEL channel</dt><dd><p><code class="docutils literal notranslate"><span class="pre">channel</span></code> 是一个8个或更少字符构成的字符串。<code class="docutils literal notranslate"><span class="pre">wfdisc</span></code>
+文件中通道名与 <code class="docutils literal notranslate"><span class="pre">channel</span></code> 匹配的行会被选中并读取。<code class="docutils literal notranslate"><span class="pre">channel</span></code>
+中可以包含通配符 <code class="docutils literal notranslate"><span class="pre">*</span></code> 和 <code class="docutils literal notranslate"><span class="pre">?</span></code>。</p>
+</dd>
+<dt>BANDWIDTH bandcode</dt><dd><p>单字符编码。常见的取值为E、S、H、B、M、L、V、U、R等。
+<code class="docutils literal notranslate"><span class="pre">bandcode</span></code> 的具体含义参考附录中表 <span class="xref std std-ref">table:bandcode</span> 。
+<code class="docutils literal notranslate"><span class="pre">channel</span></code> 字段中第一个字符与 <code class="docutils literal notranslate"><span class="pre">bandcode</span></code> 匹配的行会被选择并读取。<code class="docutils literal notranslate"><span class="pre">bandcode</span></code> 中使用通配符 <code class="docutils literal notranslate"><span class="pre">*</span></code> 会匹配所有
+<code class="docutils literal notranslate"><span class="pre">bandcode</span></code>。</p>
+</dd>
+<dt>ORIENTATION orientation-code</dt><dd><p><code class="docutils literal notranslate"><span class="pre">orientation-code</span></code>通常可以取 “Z N E”（表示竖直、北和东）、“1 2
+3”（表示正交但非标准的三个方向）。 <code class="docutils literal notranslate"><span class="pre">channel</span></code> 字段中最后一个字符与
+<code class="docutils literal notranslate"><span class="pre">orientatio-code</span></code> 相匹配的行会被选中并读取。
+<code class="docutils literal notranslate"><span class="pre">orientation-code</span></code> 使用通配符 <code class="docutils literal notranslate"><span class="pre">*</span></code> 会匹配所有 <code class="docutils literal notranslate"><span class="pre">orientation-code</span></code>。</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2>默认值<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">readcss ascii maxmem 0.3 verbose off station * band * chan * orient</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>说明<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>CSS 是一种数据库架构，该命令可以读取 CSS 3.0 或 CSS 2.8中的文件。</p>
+<p>每个 CSS 数据库包含了若干个数据库表表，每个数据库表包含若干个记录。对于
+CSS 3.0而言，该命令支持读取如下数据库表：<code class="docutils literal notranslate"><span class="pre">wfdisc</span></code>、<code class="docutils literal notranslate"><span class="pre">wftag</span></code>、
+<code class="docutils literal notranslate"><span class="pre">origin</span></code>、<code class="docutils literal notranslate"><span class="pre">arrival</span></code>、<code class="docutils literal notranslate"><span class="pre">assoc</span></code>、<code class="docutils literal notranslate"><span class="pre">sitechan</span></code>、
+<code class="docutils literal notranslate"><span class="pre">site</span></code>、<code class="docutils literal notranslate"><span class="pre">affiliation</span></code>、<code class="docutils literal notranslate"><span class="pre">origerr</span></code>、<code class="docutils literal notranslate"><span class="pre">origin</span></code>、
+<code class="docutils literal notranslate"><span class="pre">event</span></code>、<code class="docutils literal notranslate"><span class="pre">sensor</span></code>、<code class="docutils literal notranslate"><span class="pre">instrument</span></code>、<code class="docutils literal notranslate"><span class="pre">gregion</span></code>、
+<code class="docutils literal notranslate"><span class="pre">stassoc</span></code> 和 <code class="docutils literal notranslate"><span class="pre">remark</span> <span class="pre">sacdata</span></code>。对于CSS 2.8而言，该命令只 支持表
+<code class="docutils literal notranslate"><span class="pre">wfdisc</span></code>、<code class="docutils literal notranslate"><span class="pre">arrival</span></code> 和 <code class="docutils literal notranslate"><span class="pre">origin</span></code>。</p>
+<p>关于 CSS 格式的详细介绍，请参考：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://l2a.ucsd.edu/local/Manuals/CSS3.0_Format_Manual.pdf">https://l2a.ucsd.edu/local/Manuals/CSS3.0_Format_Manual.pdf</a></p></li>
+<li><p><a class="reference external" href="http://prod.sandia.gov/techlib/access-control.cgi/2002/023055.pdf">http://prod.sandia.gov/techlib/access-control.cgi/2002/023055.pdf</a></p></li>
+<li><p><a class="reference external" href="ftp://ftp.pmel.noaa.gov/newport/lau/tphase/data/css_wfdisc.pdf">ftp://ftp.pmel.noaa.gov/newport/lau/tphase/data/css_wfdisc.pdf</a></p></li>
+</ul>
+<p>在 CSS 数据库的众多表中，最常用的是与波形相关的 <code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 表以及波形数据
+<code class="docutils literal notranslate"><span class="pre">.w</span></code> 文件。<code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 表中每行代表一个波形记录，共19列，每列代表了波形记录的不同信息。详情参考上面列出的格式说明文档。</p>
+<p><code class="docutils literal notranslate"><span class="pre">readcss</span></code> 命令的 <code class="docutils literal notranslate"><span class="pre">BINARY</span></code> 选项，可以用于读取 <code class="docutils literal notranslate"><span class="pre">writecss</span></code>
+命令生成的二进制 CSS 格式。在 BINARY 模式下，<code class="docutils literal notranslate"><span class="pre">cssoptions</span></code> 选项没有作用，即 <code class="docutils literal notranslate"><span class="pre">wfdisc</span></code> 文件中包含的全部波形数据都会被读取。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../readbbf/" class="btn btn-neutral float-left" title="readbbf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../readerr/" class="btn btn-neutral float-right" title="readerr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bash 中调用 SAC &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="Perl 中调用 SAC" href="../call-sac-in-perl/" />
+    <link rel="prev" title="脚本中调用 SAC" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">脚本中调用 SAC</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bash 中调用 SAC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">头段变量和黑板变量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">内联函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">条件判断和循环控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">文件重命名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../call-sac-in-perl/">Perl 中调用 SAC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../call-sac-in-python/">Python中调用SAC</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">脚本中调用 SAC</a> &raquo;</li>
+      <li>Bash 中调用 SAC</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/call-in-script/call-sac-in-bash.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bash-sac">
+<h1>Bash 中调用 SAC<a class="headerlink" href="#bash-sac" title="此标题的永久链接">¶</a></h1>
+<section id="id1">
+<h2>简介<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>SAC 宏的功能相对比较单一，难以满足日常数据处理的需求，可以在 Bash 脚本中直接调用 SAC，这样可以利用 Bash 脚本的更多特性。</p>
+<p>下面的例子展示了如何在 Bash 脚本中调用 SAC：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">export</span> <span class="nv">SAC_DISPLAY_COPYRIGHT</span><span class="o">=</span><span class="m">0</span>
+
+sac <span class="s">&lt;&lt; EOF</span>
+<span class="s">fg seis</span>
+<span class="s">lh evla evlo</span>
+<span class="s">q               # 必须！</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>SAC 在启动时默认会显示版本信息，当用脚本多次调用 SAC 时，版本信息也会显示多次，可以通过设置 <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">SAC_DISPLAY_COPYRIGHT=0</span></code> 的方式隐藏版本信息。</p>
+<p>脚本中从“<code class="docutils literal notranslate"><span class="pre">sac</span> <span class="pre">&lt;&lt;</span> <span class="pre">EOF</span></code>”开始到“<code class="docutils literal notranslate"><span class="pre">EOF</span></code>”的全部内容，都会被
+Bash 传递给 SAC，SAC 会逐一解释并执行每行命令。</p>
+</section>
+<section id="id2">
+<h2>头段变量和黑板变量<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<p>想要在Bash脚本中引用头段变量，需要借助于 SAC 宏的语法。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">export</span> <span class="nv">SAC_DISPLAY_COPYRIGHT</span><span class="o">=</span><span class="m">0</span>
+
+sac <span class="s">&lt;&lt; EOF</span>
+<span class="s">fg seis</span>
+<span class="s">ch kuser0 &amp;1,kevnm&amp;</span>
+<span class="s">setbb tmp ABC</span>
+<span class="s">ch kuser1 %tmp%</span>
+<span class="s">lh kuser0 kuser1</span>
+<span class="s">quit</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>内联函数<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>Bash 可以完成基本的数学运算，但是所有的运算只支持整型数据，浮点型运算或者其它更高级的数学运算需要借助 <code class="docutils literal notranslate"><span class="pre">bc</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">awk</span></code> 来完成。Bash 中的变量以“<code class="docutils literal notranslate"><span class="pre">$</span></code>”作为标识符，Bash 会首先做变量替换再将替换后的命令传递给 SAC。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">export</span> <span class="nv">SAC_DISPLAY_COPYRIGHT</span><span class="o">=</span><span class="m">0</span>
+
+<span class="nb">declare</span> -i var1 var2
+<span class="nv">var1</span><span class="o">=(</span><span class="m">1</span>+2<span class="o">)</span>*3
+<span class="nv">var2</span><span class="o">=</span><span class="m">10</span>/4
+<span class="nb">echo</span> <span class="nv">$var1</span> <span class="nv">$var2</span>
+
+sac <span class="s">&lt;&lt; EOF</span>
+<span class="s">echo on</span>
+<span class="s">fg seis</span>
+<span class="s">bp c $var2 $var1</span>
+<span class="s">q</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>本例中的变量“<code class="docutils literal notranslate"><span class="pre">$var1</span></code>” 和 “<code class="docutils literal notranslate"><span class="pre">$var2</span></code>”会首先被 SAC 解释成为1和2，因而 SAC 实际接收到的命令是“<code class="docutils literal notranslate"><span class="pre">bp</span> <span class="pre">c</span> <span class="pre">1</span> <span class="pre">2</span></code>”。</p>
+<p>借助于 <code class="docutils literal notranslate"><span class="pre">awk</span></code>、<code class="docutils literal notranslate"><span class="pre">sed</span></code> 等工具，也可以实现部分字符串处理函数：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">export</span> <span class="nv">SAC_DISPLAY_COPYRIGHT</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">str1</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">&quot;this is long&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/long/short/&#39;</span><span class="sb">`</span>    <span class="c1"># 替换</span>
+<span class="nv">str2</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="s2">&quot;abcdefghi&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/def//&#39;</span><span class="sb">`</span>             <span class="c1"># 删除</span>
+
+sac <span class="s">&lt;&lt; EOF</span>
+<span class="s">fg seis</span>
+<span class="s">title &quot;$str1&quot;</span>
+<span class="s">p</span>
+<span class="s">saveimg string.ps</span>
+<span class="s">q</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>条件判断和循环控制<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>Bash 具有更灵活的条件判断和循环控制功能，但由于 Bash 自身的限制，这些特性仅能在 SAC 外部使用，因而下例中需要多次调用 SAC，在某些情况下会相当耗时。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nb">export</span> <span class="nv">SAC_DISPLAY_COPYRIGHT</span><span class="o">=</span><span class="m">0</span>
+
+<span class="k">for</span> file <span class="k">in</span> *.SAC<span class="p">;</span> <span class="k">do</span>
+   sac <span class="s">&lt;&lt;EOF</span>
+<span class="s">     read $file</span>
+<span class="s">     rmean</span>
+<span class="s">     rtrend</span>
+<span class="s">     lp co 1.0 p 2 n 4</span>
+<span class="s">     write ${file}.filtered</span>
+<span class="s">     quit</span>
+<span class="s">EOF</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h2>文件重命名<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>Bash 下可以借助于 <code class="docutils literal notranslate"><span class="pre">awk</span></code> 来实现文件重命名。下面的例子中，首先用点号对文件名做分割，<code class="docutils literal notranslate"><span class="pre">$0</span></code> 表示原始文件名，<code class="docutils literal notranslate"><span class="pre">$7</span></code> 表示用逗号分割后的第7段字符，即台网名，其他同理。最后将 <code class="docutils literal notranslate"><span class="pre">awk</span></code> 的输出传给 <code class="docutils literal notranslate"><span class="pre">sh</span></code>
+去执行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">*.</span><span class="n">SAC</span> <span class="o">|</span> <span class="n">awk</span> <span class="o">-</span><span class="n">F</span><span class="o">.</span> <span class="s1">&#39;{printf &quot;mv </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="se">\n</span><span class="s1">&quot;, $0, $7, $8, $9, $10}&#39;</span> <span class="o">|</span> <span class="n">sh</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="脚本中调用 SAC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../call-sac-in-perl/" class="btn btn-neutral float-right" title="Perl 中调用 SAC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

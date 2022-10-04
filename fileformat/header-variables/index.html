@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>头段变量 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="时间变量" href="../times/" />
+    <link rel="prev" title="头段结构" href="../header-structure/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 文件格式</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-fileformat/">格式简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binary-and-alphanumeric/">两种数据形式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../header-structure/">头段结构</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">头段变量</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">基本变量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nvhdr"><code class="docutils literal notranslate"><span class="pre">nvhdr</span></code>*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nzyear-nzjday-nzhour-nzmin-nzsec-nzmsec"><code class="docutils literal notranslate"><span class="pre">nzyear,</span> <span class="pre">nzjday,</span> <span class="pre">nzhour,</span> <span class="pre">nzmin,</span> <span class="pre">nzsec,</span> <span class="pre">nzmsec</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iztype"><code class="docutils literal notranslate"><span class="pre">iztype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iftype"><code class="docutils literal notranslate"><span class="pre">iftype</span></code>*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#idep"><code class="docutils literal notranslate"><span class="pre">idep</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">数据相关变量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#npts"><code class="docutils literal notranslate"><span class="pre">npts</span></code>*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delta"><code class="docutils literal notranslate"><span class="pre">delta</span></code>*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#odelta"><code class="docutils literal notranslate"><span class="pre">odelta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#b-e"><code class="docutils literal notranslate"><span class="pre">b,</span> <span class="pre">e</span></code>*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#leven"><code class="docutils literal notranslate"><span class="pre">leven</span></code>*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#depmin-depmax-depmen"><code class="docutils literal notranslate"><span class="pre">depmin,</span> <span class="pre">depmax,</span> <span class="pre">depmen</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scale"><code class="docutils literal notranslate"><span class="pre">scale</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xminimum-xmaximum-yminimum-ymaximum"><code class="docutils literal notranslate"><span class="pre">xminimum,</span> <span class="pre">xmaximum,</span> <span class="pre">yminimum,</span> <span class="pre">ymaximum</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nxsize-nysize"><code class="docutils literal notranslate"><span class="pre">nxsize,</span> <span class="pre">nysize</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iqual"><code class="docutils literal notranslate"><span class="pre">iqual</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isynth"><code class="docutils literal notranslate"><span class="pre">isynth</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">事件相关变量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kevnm"><code class="docutils literal notranslate"><span class="pre">kevnm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#evla-evlo-evel-evdp"><code class="docutils literal notranslate"><span class="pre">evla,</span> <span class="pre">evlo,</span> <span class="pre">evel,</span> <span class="pre">evdp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ievreg"><code class="docutils literal notranslate"><span class="pre">ievreg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ievtyp"><code class="docutils literal notranslate"><span class="pre">ievtyp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mag"><code class="docutils literal notranslate"><span class="pre">mag</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imagsrc"><code class="docutils literal notranslate"><span class="pre">imagsrc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imagtyp"><code class="docutils literal notranslate"><span class="pre">imagtyp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gcarc-dist-az-baz"><code class="docutils literal notranslate"><span class="pre">gcarc,</span> <span class="pre">dist,</span> <span class="pre">az,</span> <span class="pre">baz</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#o-ko"><code class="docutils literal notranslate"><span class="pre">o,</span> <span class="pre">ko</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#khole"><code class="docutils literal notranslate"><span class="pre">khole</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nevid-norid-nwfid"><code class="docutils literal notranslate"><span class="pre">nevid,</span> <span class="pre">norid,</span> <span class="pre">nwfid</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">台站相关变量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#knetwk-kstnm"><code class="docutils literal notranslate"><span class="pre">knetwk,</span> <span class="pre">kstnm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#istreg"><code class="docutils literal notranslate"><span class="pre">istreg</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stla-stlo-stel-stdp"><code class="docutils literal notranslate"><span class="pre">stla,</span> <span class="pre">stlo,</span> <span class="pre">stel,</span> <span class="pre">stdp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmpaz-cmpinc-kcmpnm-kstcmp"><code class="docutils literal notranslate"><span class="pre">cmpaz,</span> <span class="pre">cmpinc,</span> <span class="pre">kcmpnm,</span> <span class="pre">kstcmp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lpspol"><code class="docutils literal notranslate"><span class="pre">lpspol</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">震相相关变量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#a-f-tn"><code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">f,</span> <span class="pre">tn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ka-kf-ktn"><code class="docutils literal notranslate"><span class="pre">ka,</span> <span class="pre">kf,</span> <span class="pre">ktn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xmarker"><code class="docutils literal notranslate"><span class="pre">Xmarker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">仪器相关变量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kinst-iinst-respn"><code class="docutils literal notranslate"><span class="pre">kinst,</span> <span class="pre">iinst,</span> <span class="pre">respn</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">其它变量</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usern"><code class="docutils literal notranslate"><span class="pre">usern</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kusern"><code class="docutils literal notranslate"><span class="pre">kusern</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lovrok"><code class="docutils literal notranslate"><span class="pre">lovrok</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lcalda"><code class="docutils literal notranslate"><span class="pre">lcalda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kdatrd"><code class="docutils literal notranslate"><span class="pre">kdatrd</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../times/">时间变量</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 文件格式</a> &raquo;</li>
+      <li>头段变量</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/fileformat/header-variables.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>头段变量<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<section id="id2">
+<h2>基本变量<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<section id="nvhdr">
+<h3><code class="docutils literal notranslate"><span class="pre">nvhdr</span></code>*<a class="headerlink" href="#nvhdr" title="此标题的永久链接">¶</a></h3>
+<p>SAC 头段版本号。<code class="docutils literal notranslate"><span class="pre">nvhdr</span></code><a class="footnote-reference brackets" href="#id17" id="id3">1</a>是 SAC 中很重要但是不太常用的头段变量。目前版本号为6，旧版本的 SAC 文件（<code class="docutils literal notranslate"><span class="pre">nvhdr&lt;6</span></code>）在读入时头段区会自动更新。</p>
+</section>
+<section id="nzyear-nzjday-nzhour-nzmin-nzsec-nzmsec">
+<h3><code class="docutils literal notranslate"><span class="pre">nzyear,</span> <span class="pre">nzjday,</span> <span class="pre">nzhour,</span> <span class="pre">nzmin,</span> <span class="pre">nzsec,</span> <span class="pre">nzmsec</span></code><a class="headerlink" href="#nzyear-nzjday-nzhour-nzmin-nzsec-nzmsec" title="此标题的永久链接">¶</a></h3>
+<p>分别表示“年”、“一年的第几天”<a class="footnote-reference brackets" href="#id18" id="id4">2</a> <a class="footnote-reference brackets" href="#id19" id="id5">3</a>、“时”、“分”、“秒”、“毫秒”<a class="footnote-reference brackets" href="#id20" id="id6">4</a>。这六个头段变量构成了 SAC 中唯一的绝对时刻，SAC 中的其它时刻都被转换为相对于该时刻的相对时间（单位为秒）。关于 SAC 中的绝对时间和相对时间的概念，参考 <a class="reference internal" href="../times/"><span class="doc">时间变量</span></a> 一节。</p>
+<p>根据这六个头段变量还可以推导出其它一些辅助型头段变量：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kzdate</span></code>：字符数字格式的参考日期，由 <code class="docutils literal notranslate"><span class="pre">nzyear</span></code> 和 <code class="docutils literal notranslate"><span class="pre">nzjday</span></code> 导出</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kztime</span></code>：字符数字格式的参考时间，由 <code class="docutils literal notranslate"><span class="pre">nzhour</span></code>、<code class="docutils literal notranslate"><span class="pre">nzmin</span></code>、<code class="docutils literal notranslate"><span class="pre">nzsec</span></code>、
+<code class="docutils literal notranslate"><span class="pre">nzmsec</span></code> 导出</p></li>
+</ul>
+<p>如下例所示:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; lh nzyear nzjday nzhour nzmin nzsec nzmsec</span>
+
+<span class="go">     nzyear = 1981</span>
+<span class="go">     nzjday = 88</span>
+<span class="go">     nzhour = 10</span>
+<span class="go">      nzmin = 38</span>
+<span class="go">      nzsec = 14</span>
+<span class="go">     nzmsec = 0</span>
+<span class="go">SAC&gt; lh kzdate kztime</span>
+
+<span class="go">     kzdate = MAR 29 (088), 1981</span>
+<span class="go">     kztime = 10:38:14.000</span>
+</pre></div>
+</div>
+</section>
+<section id="iztype">
+<h3><code class="docutils literal notranslate"><span class="pre">iztype</span></code><a class="headerlink" href="#iztype" title="此标题的永久链接">¶</a></h3>
+<p>等效参考时刻。SAC 的参考时刻是可以任意指定的，但一般选取某个特定的时刻（比如文件起始时刻、发震时刻等等）作为参考时刻。其可以取如下枚举值<a class="footnote-reference brackets" href="#id21" id="id7">5</a>：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IUNKN</span></code>：未知</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IB</span></code>：以文件开始时刻为参考时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IDAY</span></code>：以参考日期当天的午夜作为参考时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IO</span></code>：以事件发生时间为参考时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IA</span></code>：以初动到时为参考时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ITn</span></code>：以用户自定义的时间 <code class="docutils literal notranslate"><span class="pre">Tn</span></code> 为参考时间（n 可取0–9）</p></li>
+</ul>
+<p>若 <code class="docutils literal notranslate"><span class="pre">iztype=IO</span></code>，则表示数据以发震时刻作为参考时刻，此时头段变量 <code class="docutils literal notranslate"><span class="pre">o</span></code>
+的值应为0。</p>
+</section>
+<section id="iftype">
+<h3><code class="docutils literal notranslate"><span class="pre">iftype</span></code>*<a class="headerlink" href="#iftype" title="此标题的永久链接">¶</a></h3>
+<p>SAC文件类型，其决定了头段区之后有几个子数据区。可以取如下枚举值：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ITIME</span></code>：时间序列文件（即 Y 数据，一般的地震波形数据）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IRLIM</span></code>：频谱文件（实部-虚部格式）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IAMPH</span></code>：频谱文件（振幅-相位格式）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IXY</span></code>：一般的 X-Y 数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IXYZ</span></code>：一般的 XYZ（3D）文件</p></li>
+</ul>
+</section>
+<section id="idep">
+<h3><code class="docutils literal notranslate"><span class="pre">idep</span></code><a class="headerlink" href="#idep" title="此标题的永久链接">¶</a></h3>
+<p>因变量（Y）类型，该头段变量可以不定义，其可以取如下枚举值：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IUNKN</span></code>：未知类型</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IDISP</span></code>：位移量，单位为 nm</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVEL</span></code>：速度量，单位为 nm/s</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IVOLTS</span></code>：速度量，单位为 V<a class="footnote-reference brackets" href="#id22" id="id8">6</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IACC</span></code>：加速度量：单位为 <span class="math notranslate nohighlight">\(nm/s^2\)</span></p></li>
+</ul>
+</section>
+</section>
+<section id="id9">
+<h2>数据相关变量<a class="headerlink" href="#id9" title="此标题的永久链接">¶</a></h2>
+<section id="npts">
+<h3><code class="docutils literal notranslate"><span class="pre">npts</span></code>*<a class="headerlink" href="#npts" title="此标题的永久链接">¶</a></h3>
+<p>数据点数，其值决定了在数据区有多少个数据点。</p>
+</section>
+<section id="delta">
+<h3><code class="docutils literal notranslate"><span class="pre">delta</span></code>*<a class="headerlink" href="#delta" title="此标题的永久链接">¶</a></h3>
+<p>等间隔数据的数据点采样周期（标称值）。</p>
+</section>
+<section id="odelta">
+<h3><code class="docutils literal notranslate"><span class="pre">odelta</span></code><a class="headerlink" href="#odelta" title="此标题的永久链接">¶</a></h3>
+<p>采样周期的实际值，若实际值与标称值不同则有值，一般来说都是未定义的。</p>
+</section>
+<section id="b-e">
+<h3><code class="docutils literal notranslate"><span class="pre">b,</span> <span class="pre">e</span></code>*<a class="headerlink" href="#b-e" title="此标题的永久链接">¶</a></h3>
+<p>文件的起始时间和结束时间（相对于参考时刻的秒数）。</p>
+</section>
+<section id="leven">
+<h3><code class="docutils literal notranslate"><span class="pre">leven</span></code>*<a class="headerlink" href="#leven" title="此标题的永久链接">¶</a></h3>
+<p>若数据为等间隔则为 <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>，否则为 <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>。</p>
+</section>
+<section id="depmin-depmax-depmen">
+<h3><code class="docutils literal notranslate"><span class="pre">depmin,</span> <span class="pre">depmax,</span> <span class="pre">depmen</span></code><a class="headerlink" href="#depmin-depmax-depmen" title="此标题的永久链接">¶</a></h3>
+<p>因变量（Y）的最小值、最大值和均值。</p>
+<p>在读入 SAC 文件以及对数据进行处理时，这三个头段变量的值会被自动计算并更新。示例如下：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sac
+<span class="go">SAC&gt; fg seis</span>
+<span class="go">SAC&gt; lh depmax</span>
+<span class="go">     depmax = 1.520640e+00      # 最大值</span>
+<span class="go">SAC&gt; ch depmax 1000             # 强行修改数据最大值</span>
+<span class="gp">                                # </span>这是错误的示范，不要这样做
+<span class="go">SAC&gt; lh depmax 1000             # 查看depmax，修改成功</span>
+<span class="go">     depmax = 1.000000e+03</span>
+<span class="go">SAC&gt; w seis.SAC                 # 写到磁盘中</span>
+<span class="go">SAC&gt; q</span>
+<span class="gp">$ </span>saclst depmax f seis.SAC      <span class="c1"># 调用saclst查看磁盘文件中的depmax</span>
+<span class="go">seis.SAC         1000           # 可以看到磁盘中的文件depmax=1000</span>
+<span class="gp">$ </span>sac
+<span class="go">SAC&gt; r ./seis.SAC               # 读入SAC</span>
+<span class="go">SAC&gt; lh depmax</span>
+<span class="go">     depmax = 1.520640e+00      # 此时depmax被自动计算并更新</span>
+</pre></div>
+</div>
+</section>
+<section id="scale">
+<h3><code class="docutils literal notranslate"><span class="pre">scale</span></code><a class="headerlink" href="#scale" title="此标题的永久链接">¶</a></h3>
+<p>因变量比例因子，即真实物理场被乘以该比例因子而得到现有数据。</p>
+<p>假设真实物理场的Y值大概在 <span class="math notranslate nohighlight">\(10^{-20}\)</span> 量级，由于数据量级太小处理起来可能不太方便。此时可以将数据乘以 <span class="math notranslate nohighlight">\(10^{20}\)</span> 变成合适的量级，并修改
+<code class="docutils literal notranslate"><span class="pre">scale=1.0e20</span></code>，这样就可以知道自己对数据人为放大了多少倍。</p>
+<p>v101.5之前的版本中，在使用 <a class="reference internal" href="../../commands/transfer/"><span class="doc">transfer</span></a> 命令去仪器响应时， 若 <code class="docutils literal notranslate"><span class="pre">scale</span></code>
+的值有定义，则输出的数据会根据该值进行放大并修改 <code class="docutils literal notranslate"><span class="pre">scale</span></code>。在 v101.5及其之后的版本中，<code class="docutils literal notranslate"><span class="pre">scale</span></code> 被忽略。</p>
+</section>
+<section id="xminimum-xmaximum-yminimum-ymaximum">
+<h3><code class="docutils literal notranslate"><span class="pre">xminimum,</span> <span class="pre">xmaximum,</span> <span class="pre">yminimum,</span> <span class="pre">ymaximum</span></code><a class="headerlink" href="#xminimum-xmaximum-yminimum-ymaximum" title="此标题的永久链接">¶</a></h3>
+<p>仅用于 3D（XYZ）文件中，记录X和Y的最小/大值。</p>
+</section>
+<section id="nxsize-nysize">
+<h3><code class="docutils literal notranslate"><span class="pre">nxsize,</span> <span class="pre">nysize</span></code><a class="headerlink" href="#nxsize-nysize" title="此标题的永久链接">¶</a></h3>
+<p>仅用于 3D（XYZ）文件中，表示X和Y方向的数据点数。</p>
+</section>
+<section id="iqual">
+<h3><code class="docutils literal notranslate"><span class="pre">iqual</span></code><a class="headerlink" href="#iqual" title="此标题的永久链接">¶</a></h3>
+<p>iqual<a class="footnote-reference brackets" href="#id23" id="id10">7</a>标识数据质量，可取如下值：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IGOOD</span></code>：高质量数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IGLCH</span></code>：数据中有毛刺（glitches）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IDROP</span></code>：数据有丢失（dropouts）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ILOWSN</span></code>：低信噪比数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IOTHER</span></code>：其它</p></li>
+</ul>
+</section>
+<section id="isynth">
+<h3><code class="docutils literal notranslate"><span class="pre">isynth</span></code><a class="headerlink" href="#isynth" title="此标题的永久链接">¶</a></h3>
+<p>合成数地震图标识。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IRLDTA</span></code>：真实数据</p></li>
+</ul>
+</section>
+</section>
+<section id="id11">
+<h2>事件相关变量<a class="headerlink" href="#id11" title="此标题的永久链接">¶</a></h2>
+<section id="kevnm">
+<h3><code class="docutils literal notranslate"><span class="pre">kevnm</span></code><a class="headerlink" href="#kevnm" title="此标题的永久链接">¶</a></h3>
+<p>事件名，长度为16个字节。</p>
+</section>
+<section id="evla-evlo-evel-evdp">
+<h3><code class="docutils literal notranslate"><span class="pre">evla,</span> <span class="pre">evlo,</span> <span class="pre">evel,</span> <span class="pre">evdp</span></code><a class="headerlink" href="#evla-evlo-evel-evdp" title="此标题的永久链接">¶</a></h3>
+<p>分别代表事件的纬度（-90到90度）、经度（-180到180度）、高程（单位为 m）和深度（单位为 km，以前为 m）。</p>
+</section>
+<section id="ievreg">
+<h3><code class="docutils literal notranslate"><span class="pre">ievreg</span></code><a class="headerlink" href="#ievreg" title="此标题的永久链接">¶</a></h3>
+<p>事件地理区域<a class="footnote-reference brackets" href="#id24" id="id12">8</a>。</p>
+</section>
+<section id="ievtyp">
+<h3><code class="docutils literal notranslate"><span class="pre">ievtyp</span></code><a class="headerlink" href="#ievtyp" title="此标题的永久链接">¶</a></h3>
+<p>事件类型，这里仅列出部分常见的枚举值：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IUNKN</span></code>：未知事件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INUCL</span></code>：核事件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IEQ</span></code>：地震</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IOTHER</span></code>：其它</p></li>
+</ul>
+</section>
+<section id="mag">
+<h3><code class="docutils literal notranslate"><span class="pre">mag</span></code><a class="headerlink" href="#mag" title="此标题的永久链接">¶</a></h3>
+<p>事件震级。</p>
+</section>
+<section id="imagsrc">
+<h3><code class="docutils literal notranslate"><span class="pre">imagsrc</span></code><a class="headerlink" href="#imagsrc" title="此标题的永久链接">¶</a></h3>
+<p>震级信息来源，可以取如下枚举值：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INEIC</span></code>：<a class="reference external" href="http://earthquake.usgs.gov/earthquakes/search/">http://earthquake.usgs.gov/earthquakes/search/</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IPDE</span></code>：<a class="reference external" href="https://earthquake.usgs.gov/data/comcat/catalog/us/">https://earthquake.usgs.gov/data/comcat/catalog/us/</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IISC</span></code>：<a class="reference external" href="http://www.isc.ac.uk/iscbulletin/search/catalogue/">http://www.isc.ac.uk/iscbulletin/search/catalogue/</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IREB</span></code>：人工检查过的事件目录</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IUSGS</span></code> ：<a class="reference external" href="http://earthquake.usgs.gov">USGS</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IBRK</span></code> ：<a class="reference external" href="http://seismo.berkeley.edu/">UC Berkeley</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ICALTECH</span></code>：<a class="reference external" href="http://www.seismolab.caltech.edu">California Institute of Technology</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ILLNL</span></code>：<a class="reference external" href="http://www.llnl.gov/">Lawrence Livermore National Laboratory</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IEVLOC</span></code>：Event Location</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IJSOP</span></code>：Joint Seismic Observation Program</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IUSER</span></code>：The individual using SAC2000</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IUNKNOWN</span></code>：未知</p></li>
+</ul>
+</section>
+<section id="imagtyp">
+<h3><code class="docutils literal notranslate"><span class="pre">imagtyp</span></code><a class="headerlink" href="#imagtyp" title="此标题的永久链接">¶</a></h3>
+<p>震级类型，取如下枚举值：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IMB</span></code>：体波震级</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMS</span></code>：面波震级</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IML</span></code>：区域震级</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMW</span></code>：矩震级</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMD</span></code>：持续时间震级</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IMX</span></code>：用户自定义震级</p></li>
+</ul>
+</section>
+<section id="gcarc-dist-az-baz">
+<h3><code class="docutils literal notranslate"><span class="pre">gcarc,</span> <span class="pre">dist,</span> <span class="pre">az,</span> <span class="pre">baz</span></code><a class="headerlink" href="#gcarc-dist-az-baz" title="此标题的永久链接">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gcarc</span></code>：全称Great Circle Arc，即震中到台站的大圆弧的长度，单位为度；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist</span></code>：震中到台站的距离，单位为 km；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">az</span></code>：方位角，震中到台站的连线与地理北向的夹角，单位为度；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">baz</span></code>：反方位角，台站到震中的连线与地理北向的夹角，单位为度。</p></li>
+</ul>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../../_images/az-baz.png"><img alt="震中距、方位角、反方位角示意图" src="../../_images/az-baz.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 1 </span><span class="caption-text">震中距、方位角、反方位角示意图</span><a class="headerlink" href="#id25" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p>震中距、方位角和反方位角的计算涉及到球面三角的知识，具体公式及其推导可以参考相关代码及书籍。此处列出部分仅供参考：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.eas.slu.edu/People/RBHerrmann/Courses/EASA462/">http://www.eas.slu.edu/People/RBHerrmann/Courses/EASA462/</a></p></li>
+<li><p><a class="reference external" href="http://www.seis.sc.edu/software/distaz/">http://www.seis.sc.edu/software/distaz/</a></p></li>
+<li><p>SAC 源码 <code class="docutils literal notranslate"><span class="pre">src/ucf/distaz.c</span></code></p></li>
+<li><p><a class="reference external" href="http://www.eas.slu.edu/eqc/eqccps.html">CPS330</a> 源码 <code class="docutils literal notranslate"><span class="pre">VOLI/src/udelaz.c</span></code></p></li>
+</ul>
+</section>
+<section id="o-ko">
+<h3><code class="docutils literal notranslate"><span class="pre">o,</span> <span class="pre">ko</span></code><a class="headerlink" href="#o-ko" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">o</span></code> 为事件的发生时刻相对于参考时刻的秒数。<code class="docutils literal notranslate"><span class="pre">ko</span></code>是绘图时时间变量
+<code class="docutils literal notranslate"><span class="pre">o</span></code> 的标识符。</p>
+</section>
+<section id="khole">
+<h3><code class="docutils literal notranslate"><span class="pre">khole</span></code><a class="headerlink" href="#khole" title="此标题的永久链接">¶</a></h3>
+<p>若为核爆事件，则其为孔眼标识；若为其它事件，则为位置标识。</p>
+</section>
+<section id="nevid-norid-nwfid">
+<h3><code class="docutils literal notranslate"><span class="pre">nevid,</span> <span class="pre">norid,</span> <span class="pre">nwfid</span></code><a class="headerlink" href="#nevid-norid-nwfid" title="此标题的永久链接">¶</a></h3>
+<p>三者分别标识事件 ID、起始时间 ID和波形 ID，仅用于 CSS 3.0 文件中。CSS 3.0
+是 SAC 可以处理的一种数据格式，应该是当初 SAC 商业化的产物，目前仍保留在 SAC 头段中。</p>
+</section>
+</section>
+<section id="id13">
+<h2>台站相关变量<a class="headerlink" href="#id13" title="此标题的永久链接">¶</a></h2>
+<section id="knetwk-kstnm">
+<h3><code class="docutils literal notranslate"><span class="pre">knetwk,</span> <span class="pre">kstnm</span></code><a class="headerlink" href="#knetwk-kstnm" title="此标题的永久链接">¶</a></h3>
+<p>地震台网名和台站名。</p>
+</section>
+<section id="istreg">
+<h3><code class="docutils literal notranslate"><span class="pre">istreg</span></code><a class="headerlink" href="#istreg" title="此标题的永久链接">¶</a></h3>
+<p>台站地理区域。</p>
+</section>
+<section id="stla-stlo-stel-stdp">
+<h3><code class="docutils literal notranslate"><span class="pre">stla,</span> <span class="pre">stlo,</span> <span class="pre">stel,</span> <span class="pre">stdp</span></code><a class="headerlink" href="#stla-stlo-stel-stdp" title="此标题的永久链接">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stla</span></code>：台站纬度（-90到90度）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stlo</span></code>：台站经度（-180到180度）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stel</span></code>：台站高程，即地震仪与海平面之间的高程差（单位为米），正值表示仪器位于海平面以上</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stdp</span></code>：地震仪相对于当地地表的深度（单位为米）</p></li>
+</ul>
+</section>
+<section id="cmpaz-cmpinc-kcmpnm-kstcmp">
+<h3><code class="docutils literal notranslate"><span class="pre">cmpaz,</span> <span class="pre">cmpinc,</span> <span class="pre">kcmpnm,</span> <span class="pre">kstcmp</span></code><a class="headerlink" href="#cmpaz-cmpinc-kcmpnm-kstcmp" title="此标题的永久链接">¶</a></h3>
+<p>一个台站至少需要三个正交的通道/分量才能完整地记录地面运动物理量。
+<code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 指定了单个通道记录的方向矢量。</p>
+<p>下图给出了 SAC 所使用的 NEU 坐标系，需要注意的是这是一个左手坐标系。图中蓝色箭头为通道所记录的方向矢量，若地面运动与该方向一致，则为正，否则为负。其中，头段变量 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 表征通道的方位角，其定义为从N向开始顺时针旋转的角度，即图中的角度 <span class="math notranslate nohighlight">\(\phi\)</span>；<code class="docutils literal notranslate"><span class="pre">cmpinc</span></code>
+表征通道的入射角，定义为相对于 U 方向向下旋转的度数，即图中的角度 <span class="math notranslate nohighlight">\(\theta\)</span>。</p>
+<figure class="align-center" id="id26">
+<span id="figure-cmpaz-cmpinc"></span><a class="reference internal image-reference" href="../../_images/cmpaz-cmpinc.png"><img alt="cmpaz 和 cmpinc 示意图" src="../../_images/cmpaz-cmpinc.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 2 </span><span class="caption-text">cmpaz 和 cmpinc 示意图</span><a class="headerlink" href="#id26" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p>根据定义，地震仪标准通道的 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 值如下表：</p>
+<table class="docutils align-center" id="id27">
+<caption><span class="caption-number">表 4 </span><span class="caption-text">标准地震通道的 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code></span><a class="headerlink" href="#id27" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 36%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>方向</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">cmpaz</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">cmpinc</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>N</p></td>
+<td><p>0</p></td>
+<td><p>90</p></td>
+</tr>
+<tr class="row-odd"><td><p>E</p></td>
+<td><p>90</p></td>
+<td><p>90</p></td>
+</tr>
+<tr class="row-even"><td><p>U</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>对于非标准方向的地震通道来说，很容易根据 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code>
+的值，将其旋转到 NEU 坐标系或者 RTZ 坐标系，这些将在 <a class="reference internal" href="../../data-process/rotate/"><span class="doc">分量旋转</span></a>
+一节中说到。</p>
+<p><code class="docutils literal notranslate"><span class="pre">kcmpnm</span></code> 是通道名 (component name)，用于存储通道的信息。它包含了三个英文字符，依次为频带码 (Band Code)、仪器码 (Instrument Code) 和方位码 (Orientation Code)。例如，<code class="docutils literal notranslate"><span class="pre">kcmpnm</span></code> 为 <code class="docutils literal notranslate"><span class="pre">BHZ</span></code> 意味着该 SAC 文件的通道是宽频带高增益的垂向分量。由于很多台站的水平分量并不是严格的东西、南北方向，现在 IRIS 推荐用 1 和 2 代替 N 和 E。</p>
+<p><code class="docutils literal notranslate"><span class="pre">kstcmp</span></code> 为辅助型变量，表示台站分量，由 <code class="docutils literal notranslate"><span class="pre">kstnm</span></code>、<code class="docutils literal notranslate"><span class="pre">cmpaz</span></code>、<code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 推导得到。</p>
+</section>
+<section id="lpspol">
+<h3><code class="docutils literal notranslate"><span class="pre">lpspol</span></code><a class="headerlink" href="#lpspol" title="此标题的永久链接">¶</a></h3>
+<p>如图 <a class="reference internal" href="#figure-cmpaz-cmpinc"><span class="std std-ref">cmpaz 和 cmpinc 示意图</span></a> 所示，在左手坐标系下，若三通道都是正极性则为真，否则为假。</p>
+</section>
+</section>
+<section id="id14">
+<h2>震相相关变量<a class="headerlink" href="#id14" title="此标题的永久链接">¶</a></h2>
+<section id="a-f-tn">
+<h3><code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">f,</span> <span class="pre">tn</span></code><a class="headerlink" href="#a-f-tn" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code> 和 <code class="docutils literal notranslate"><span class="pre">f</span></code> 用于存储事件的初动时刻和结束时刻相对于参考时刻的秒数。</p>
+<p><code class="docutils literal notranslate"><span class="pre">Tn</span></code>（n=0–9）用于存储用户自定义的时刻相对于参考时刻的秒数，常用于存储震相到时。</p>
+</section>
+<section id="ka-kf-ktn">
+<h3><code class="docutils literal notranslate"><span class="pre">ka,</span> <span class="pre">kf,</span> <span class="pre">ktn</span></code><a class="headerlink" href="#ka-kf-ktn" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code>、<code class="docutils literal notranslate"><span class="pre">f</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">Tn</span></code> 都有一个对应的以 k 开头的字符型头段变量，称之为时间标识。时间标识用于说明对应的时间头段变量中所包含时间的含义。</p>
+<p>比如头段变量 <code class="docutils literal notranslate"><span class="pre">a</span></code> 中通常包含 P 波到时，则此时 <code class="docutils literal notranslate"><span class="pre">ka</span></code> 的值可以设置为“P”；头段变量 <code class="docutils literal notranslate"><span class="pre">t1</span></code> 中包含了震相 PcP 的到时，则一般定义 <code class="docutils literal notranslate"><span class="pre">kt1</span></code>
+为“PcP”。</p>
+<p>在绘图时，若时间头段变量中有值，则默认会在该时刻处绘制一条垂线，若相应的时间标记有定义，则将时间标记的值显示在垂线附近。</p>
+</section>
+<section id="xmarker">
+<h3><code class="docutils literal notranslate"><span class="pre">Xmarker</span></code><a class="headerlink" href="#xmarker" title="此标题的永久链接">¶</a></h3>
+<p>震相相关的变量对可以构成一个辅助型变量。<code class="docutils literal notranslate"><span class="pre">a</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ka</span></code> 可以构成<code class="docutils literal notranslate"><span class="pre">amarker</span></code>，<code class="docutils literal notranslate"><span class="pre">f</span></code> 和 <code class="docutils literal notranslate"><span class="pre">kf</span></code> 可以构成 <code class="docutils literal notranslate"><span class="pre">fmarker</span></code>， <code class="docutils literal notranslate"><span class="pre">o</span></code> 和
+<code class="docutils literal notranslate"><span class="pre">ko</span></code> 可以构成 <code class="docutils literal notranslate"><span class="pre">omarker</span></code>，<code class="docutils literal notranslate"><span class="pre">tn</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ktn</span></code> 可以构成
+<code class="docutils literal notranslate"><span class="pre">tnmarker</span></code>（n=0–9）。</p>
+<p>这些辅助型变量可以在 <a class="reference internal" href="../../commands/listhdr/"><span class="doc">listhdr</span></a> 中使用。</p>
+</section>
+</section>
+<section id="id15">
+<h2>仪器相关变量<a class="headerlink" href="#id15" title="此标题的永久链接">¶</a></h2>
+<section id="kinst-iinst-respn">
+<h3><code class="docutils literal notranslate"><span class="pre">kinst,</span> <span class="pre">iinst,</span> <span class="pre">respn</span></code><a class="headerlink" href="#kinst-iinst-respn" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">kinst</span></code> 为记录仪器的通用名称，<code class="docutils literal notranslate"><span class="pre">iinst</span></code> 为记录仪器的类型， <code class="docutils literal notranslate"><span class="pre">respn</span></code>
+为仪器相应参数。</p>
+</section>
+</section>
+<section id="id16">
+<h2>其它变量<a class="headerlink" href="#id16" title="此标题的永久链接">¶</a></h2>
+<section id="usern">
+<h3><code class="docutils literal notranslate"><span class="pre">usern</span></code><a class="headerlink" href="#usern" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">usern</span></code>（n=0–9）用于存储用户自定义的浮点型数值。</p>
+</section>
+<section id="kusern">
+<h3><code class="docutils literal notranslate"><span class="pre">kusern</span></code><a class="headerlink" href="#kusern" title="此标题的永久链接">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">kusern</span></code>（n=0–2）用于存储用户自定义的字符型值。</p>
+</section>
+<section id="lovrok">
+<h3><code class="docutils literal notranslate"><span class="pre">lovrok</span></code><a class="headerlink" href="#lovrok" title="此标题的永久链接">¶</a></h3>
+<p>若为 <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>，则磁盘里的原始数据可被覆盖；若为 <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>，则原始数据不可被覆盖。主要用于保护原始数据，一般来说很少用到，若是出于保护原始数据的目的，应优先考虑对原始数据做备份。</p>
+</section>
+<section id="lcalda">
+<h3><code class="docutils literal notranslate"><span class="pre">lcalda</span></code><a class="headerlink" href="#lcalda" title="此标题的永久链接">¶</a></h3>
+<p>全称为 <em>Cal</em>culate <em>D</em>istance and <em>A</em>zimuth。若为 <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>，则当事件和台站的坐标被写入或被修改时，头段变量 <code class="docutils literal notranslate"><span class="pre">dist</span></code>、<code class="docutils literal notranslate"><span class="pre">gcarc</span></code>、<code class="docutils literal notranslate"><span class="pre">az</span></code>、
+<code class="docutils literal notranslate"><span class="pre">baz</span></code> 将自动计算，否则不会被自动计算，SAC 头段中会存在信息的不兼容。</p>
+</section>
+<section id="kdatrd">
+<h3><code class="docutils literal notranslate"><span class="pre">kdatrd</span></code><a class="headerlink" href="#kdatrd" title="此标题的永久链接">¶</a></h3>
+<p>数据被读入计算机的日期（一般很少使用）。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dd><p>星号表示该头段变量在 SAC 中必须有定义值，下同。</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id4">2</a></span></dt>
+<dd><p>使用 jday 而不是 “month+day” 可以少用一个头段变量。</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
+<dd><p>1月1日对应的 <code class="docutils literal notranslate"><span class="pre">nzjday</span></code> 是1而不是0。</p>
+</dd>
+<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id6">4</a></span></dt>
+<dd><p>1 s = 1000 ms</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id7">5</a></span></dt>
+<dd><p>枚举型在C源码中使用 <code class="docutils literal notranslate"><span class="pre">#define</span></code> 宏来定义的，比如 <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">IO</span> <span class="pre">11</span></code>，所有可取的枚举值都以字母 I 开头。</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id8">6</a></span></dt>
+<dd><p>不解</p>
+</dd>
+<dt class="label" id="id23"><span class="brackets"><a class="fn-backref" href="#id10">7</a></span></dt>
+<dd><p>标识仅表示SAC程序内部未使用该头段变量，即变量有值或者无值、有何值，对于程序的运行不会产生任何影响，但用户可以在自己的程序中自由使用这些头段变量。下同。</p>
+</dd>
+<dt class="label" id="id24"><span class="brackets"><a class="fn-backref" href="#id12">8</a></span></dt>
+<dd><p>Flinn-Engdahl Regions: <a class="reference external" href="http://en.wikipedia.org/wiki/Flinn-Engdahl_regions">http://en.wikipedia.org/wiki/Flinn-Engdahl_regions</a></p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../header-structure/" class="btn btn-neutral float-left" title="头段结构" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../times/" class="btn btn-neutral float-right" title="时间变量" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

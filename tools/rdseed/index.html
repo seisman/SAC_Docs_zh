@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rdseed &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="pssac" href="../pssac/" />
+    <link rel="prev" title="saclst" href="../saclst/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 相关工具</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../saclst/">saclst</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rdseed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">语法说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-polarity-correction">正负极性及其校正</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">用法示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">警告与错误</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">警告1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">警告2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pssac/">pssac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sac-config/">sac-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../byte-swap/">字节序转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sgftops/">sgftops</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 相关工具</a> &raquo;</li>
+      <li>rdseed</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/tools/rdseed.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rdseed">
+<h1>rdseed<a class="headerlink" href="#rdseed" title="此标题的永久链接">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 可以读取 SEED 格式，从中提取出波形信息，并将波形数据保存为 SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>IRIS 自 2020 年 1 月开始不再提供 SEED 格式的数据下载支持，详情可阅读 <a class="reference external" href="http://www.iris.washington.edu/ds/newsletter/vol21/no1/509/retirement-of-full-seed-data-volumes-from-iris-dmc/">IRIS 数据服务通讯</a>。IRIS 也已<a class="reference external" href="https://ds.iris.edu/ds/nodes/dmc/manuals/rdseed/">不再维护 rdseed 软件</a>。</p>
+</div>
+<section id="id1">
+<h2>语法说明<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h2>
+<p>终端键入 <code class="docutils literal notranslate"><span class="pre">rdseed</span> <span class="pre">-h</span></code> 即可查看 <code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 的选项及语法说明。<code class="docutils literal notranslate"><span class="pre">rdseed</span></code>
+命令的选项众多，下面按照选项的重要性从高到低排序。</p>
+<p>比较重要且常用的选项：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">file</span></code>：输入的 SEED 文件名。<code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 一次只能处理一个 SEED 文件。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-d</span></code>：从SEED数据中提取波形数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">n</span></code>：输出波形数据的格式，默认为 SAC 格式。<code class="docutils literal notranslate"><span class="pre">n</span></code> 可以取 1–9，分别表示 SAC（1）、AH（2）、CSS（3）、miniSEED（4）、SEED（5）、SAC ASCII（6）、SEGY（7）、Simple ASCII(SLIST)（8）和 Simple ASCII(TSPAIR)（9）。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-R</span></code>：输出 RESP 格式的仪器响应文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span></code>：输出 SAC PZ 格式的仪器响应文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-E</span></code>：输出的波形数据的文件名中包含结束时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-q</span></code>：指定输出目录，该目录必须已经存在。默认输出到当前目录。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Q</span></code>：选择波形数据的质量，可以取 <code class="docutils literal notranslate"><span class="pre">E</span></code>、<code class="docutils literal notranslate"><span class="pre">D</span></code>、<code class="docutils literal notranslate"><span class="pre">M</span></code>、
+<code class="docutils literal notranslate"><span class="pre">R</span></code>、<code class="docutils literal notranslate"><span class="pre">Q</span></code>，其中 <code class="docutils literal notranslate"><span class="pre">E</span></code> 代表输出全部质量的波形数据，其他值的含义参考 <a class="reference internal" href="../../data-process/quality-control/"><span class="doc">质量控制</span></a> 一节。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-b</span> <span class="pre">n</span></code>：输出的波形数据的最大数据点数，默认值为 20000000，能所取到的最大值是4字节整型的上限，即 2147483647。若波形数据的的数据点数超过该值，则会给出警告并把数据分割成多段。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span> <span class="pre">file</span></code>：为 SEED 或 miniSEED 数据单独指定响应文件。响应文件可以是 SEED 格式也可以是 dateless SEED 格式，也可以通过设置环境变量
+<code class="docutils literal notranslate"><span class="pre">ALT_RESPONSE_FILE</span></code> 指定响应文件，这样做的好处在于可以多个 SEED
+文件共用一个响应文件</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h</span></code> 或 <code class="docutils literal notranslate"><span class="pre">-u</span></code>：显示命令的用法</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-z</span> <span class="pre">n</span></code> ：检查并校正数据极性,参考接下来的 <a class="reference internal" href="#subsec-polarity-correction"><span class="std std-ref">正负极性及其校正</span></a> 一节</p></li>
+</ul>
+<p>不常用的选项：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-a</span></code>：提取缩略词词典</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c</span></code>：提取文件内容的目录信息</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">STN|CHN</span></code>：提取台站或分量的注释信息</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code>：列出每个 block 的内容</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-s</span></code>：输出全部台站的 RESP 格式仪器响应文件到终端</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-S</span></code>：提取台站的汇总信息到文件 <code class="docutils literal notranslate"><span class="pre">rdseed.stations</span></code>，内容包括台站名、台网名、经纬度、海拔、分量、台站开始时间和结束时间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code>：输出波形相关信息到终端，包括台站名、分量名、台网名、位置码、质量控制符、波形开始时间和结束时间、采样率、数据点数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">n</span></code>：选择卷号，默认值为1。对于 SEED 文件 <code class="docutils literal notranslate"><span class="pre">n</span></code> 只能取 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-k</span></code> 跳过数据点数为0的记录</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-e</span></code>：提取事件/台站数据到文件 <code class="docutils literal notranslate"><span class="pre">rdseed.events</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code>：忽略位置码</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">file</span></code>：使用 <code class="docutils literal notranslate"><span class="pre">JWEED</span></code> 生成的 summary 文件，根据summary 文件提取指定台站、分量和时间窗内的波形数据</p></li>
+</ul>
+</section>
+<section id="subsec-polarity-correction">
+<span id="id2"></span><h2>正负极性及其校正<a class="headerlink" href="#subsec-polarity-correction" title="此标题的永久链接">¶</a></h2>
+<p>地震仪的每个分量都有一个传感器，每个传感器都有一个敏感轴，仪器记录的就是敏感轴方向的运动物理量。每个敏感轴都有一个正方向，若地面运动与敏感轴的正方向一致，则输出为正值，若地面运动与敏感轴的正方向相反，则输出为负值。</p>
+<p>SAC 头段中的 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 是用于描述仪器敏感轴正方向的最通用也是最准确的方法。几个比较特殊的方向是：垂直方向、正东西向、正南北向，在SAC中方位码分别为 <code class="docutils literal notranslate"><span class="pre">Z</span></code>、<code class="docutils literal notranslate"><span class="pre">E</span></code> 和 <code class="docutils literal notranslate"><span class="pre">N</span></code>。下表列出了这六个方向所对应的 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code>。</p>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-number">表 12 </span><span class="caption-text">6个标准方向的 cmpaz 和 cmpinc</span><a class="headerlink" href="#id7" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 24%" />
+<col style="width: 22%" />
+<col style="width: 17%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>方向</p></th>
+<th class="head"><p>cmpaz</p></th>
+<th class="head"><p>cmpinc</p></th>
+<th class="head"><p>方位码</p></th>
+<th class="head"><p>极性</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>垂直向上</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>Z</p></td>
+<td><p>正</p></td>
+</tr>
+<tr class="row-odd"><td><p>垂直向下</p></td>
+<td><p>0</p></td>
+<td><p>180</p></td>
+<td><p>Z</p></td>
+<td><p>负</p></td>
+</tr>
+<tr class="row-even"><td><p>正北</p></td>
+<td><p>0</p></td>
+<td><p>90</p></td>
+<td><p>N</p></td>
+<td><p>正</p></td>
+</tr>
+<tr class="row-odd"><td><p>正南</p></td>
+<td><p>180</p></td>
+<td><p>90</p></td>
+<td><p>N</p></td>
+<td><p>负</p></td>
+</tr>
+<tr class="row-even"><td><p>正东</p></td>
+<td><p>90</p></td>
+<td><p>90</p></td>
+<td><p>E</p></td>
+<td><p>正</p></td>
+</tr>
+<tr class="row-odd"><td><p>正西</p></td>
+<td><p>270</p></td>
+<td><p>90</p></td>
+<td><p>E</p></td>
+<td><p>负</p></td>
+</tr>
+</tbody>
+</table>
+<p>对于一个方位码为 <code class="docutils literal notranslate"><span class="pre">Z</span></code> 的数据，其分量方向有两种可能性：垂直向上和垂直向下。根据 SAC 中 NEU 坐标系的定义（ <a class="reference internal" href="../../fileformat/header-variables/#figure-cmpaz-cmpinc"><span class="std std-numref">图 2</span></a> ），垂直向上方向为正极性，垂直向下方位为负极性。同理，正东和正北是正极性，正西和正南为负极性。</p>
+<p>由上表可知，通过检查分量的 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 即可判断是是正极性还是负极性。某些情况下，分量角度是正常的，但仪器响应中的总增益是负值，也可用于表示负极性，但这种情况很少见到，目前缺乏数据做测试，因而暂且先不考虑增益为负的这种情况。</p>
+<p><code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 中 <code class="docutils literal notranslate"><span class="pre">-z</span> <span class="pre">n</span></code> 选项可以用于检测并校正负极性。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n=0</span></code> 表示不做极性检测；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n=1</span></code> 表示只检查 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 或 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code>；若是负极性，则反转所有数据点的正负号并修改 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 或 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 的值；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n=2</span></code> 表示只检查总增益的正负值；若为负值即表示负极性，则反转所有数据的正负号但不修改 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 或 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code>；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n=3</span></code> 表示同时检查 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 或 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 以及总增益的正负值，仅当其中之一符合负极性的要求时才做校正；</p></li>
+</ul>
+<p>需要注意，正负极性的概念仅适用于6个标准分量方向。对于垂向分量而言，通常需要校正极性，否则在查看 Z 分量的波形数据时，可能会出现某个台站的波形极性不对的状况；对于水平向分量而言，由于通常会旋转到大圆路径方向，所以不做极性校正，也不会有问题。总之，建议使用 <code class="docutils literal notranslate"><span class="pre">-z</span> <span class="pre">1</span></code> 选项做极性校正。</p>
+</section>
+<section id="id3">
+<h2>用法示例<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>从 SEED 文件中提取波形数据和 RESP 仪器响应文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rdseed -R -d -f infile.seed</span>
+</pre></div>
+</div>
+<p>其中，选项 <code class="docutils literal notranslate"><span class="pre">-R</span> <span class="pre">-d</span> <span class="pre">-f</span></code> 可以合写成 <code class="docutils literal notranslate"><span class="pre">-Rdf</span></code>。</p>
+<p>从 SEED 文件中提取波形数据和 SAC PZ 仪器响应文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rdseed -pdf infile.seed</span>
+</pre></div>
+</div>
+<p>从 miniSEED 文件中提取波形数据，并指定 dataless SEED 文件作为仪器响应文件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rdseed -Rdf infile.miniseed -g infile.dataless</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>警告与错误<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 的过程中可能会遇到一些警告和错误。这些警告和错误会显示在终端，也会记录到日志文件 <code class="docutils literal notranslate"><span class="pre">rdseed.err_log</span></code> 中。</p>
+<section id="id5">
+<h3>警告1<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">Warning</span><span class="o">...</span> <span class="n">Azimuth</span> <span class="ow">and</span> <span class="n">Dip</span> <span class="n">out</span> <span class="n">of</span> <span class="n">Range</span> <span class="n">on</span> <span class="n">AAK</span><span class="p">,</span><span class="n">BH1</span>
+<span class="n">Defaulting</span> <span class="n">to</span> <span class="n">subchannel</span> <span class="n">identifier</span> <span class="p">(</span><span class="k">for</span> <span class="n">multiplexed</span> <span class="n">data</span> <span class="n">only</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>若分量的 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 所指定的传感轴方向与垂直方向的偏差很小，比如偏差在两度以内，则将该分量的方位码设置为 <code class="docutils literal notranslate"><span class="pre">Z</span></code>。对于近正东西和近南北方向，设置分量方位码为 <code class="docutils literal notranslate"><span class="pre">E</span></code> 和 <code class="docutils literal notranslate"><span class="pre">N</span></code>。</p>
+<p>若分量的敏感轴方向不与垂直向、正东西向、正南北向相近，则会出现此警告，此时可能会设置分量的范围码为 <code class="docutils literal notranslate"><span class="pre">1</span></code> 或其他的字符。因而该警告可忽略。</p>
+</section>
+<section id="id6">
+<h3>警告2<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">Warning</span><span class="o">...</span> <span class="n">Azimuth</span><span class="o">/</span><span class="n">Dip</span> <span class="n">Reversal</span> <span class="n">found</span> <span class="n">FURI</span><span class="o">.</span><span class="n">BHZ</span><span class="p">,</span> <span class="n">Data</span> <span class="n">inversion</span> <span class="n">was</span> <span class="ow">not</span> <span class="n">selected</span>
+</pre></div>
+</div>
+<p>该警告表示，根据分量的 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 和 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 检测到当前分量是负极性，但不对数据作极性校正。这种情况下使用 <code class="docutils literal notranslate"><span class="pre">-z</span> <span class="pre">1</span></code> 选项，会修改数据的正负号，并将台站角度修改为正极性方向。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../saclst/" class="btn btn-neutral float-left" title="saclst" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../pssac/" class="btn btn-neutral float-right" title="pssac" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

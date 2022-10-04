@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>数据命名规则 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="文档更新历史" href="../changelog/" />
+    <link rel="prev" title="地震数据申请工具" href="../data-fetch/fetch-tools/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-fetch/">数据获取</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">数据命名规则</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">位置码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">质量控制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">通道名</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">频带码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">仪器码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">方位码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+      <li>数据命名规则</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/appendix/naming-convections.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>数据命名规则<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>用 <code class="docutils literal notranslate"><span class="pre">rdseed</span></code> 程序从标准 SEED 格式中解压得到的 SAC 文件，通常都具有固定格式的文件名。具体格式为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yyyy</span><span class="o">.</span><span class="n">ddd</span><span class="o">.</span><span class="n">hh</span><span class="o">.</span><span class="n">mm</span><span class="o">.</span><span class="n">ss</span><span class="o">.</span><span class="n">ffff</span><span class="o">.</span><span class="n">NN</span><span class="o">.</span><span class="n">SSSSS</span><span class="o">.</span><span class="n">LL</span><span class="o">.</span><span class="n">CCC</span><span class="o">.</span><span class="n">Q</span><span class="o">.</span><span class="n">SAC</span>
+</pre></div>
+</div>
+<p>其中</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yyyy.ddd.hh.mm.ss.ffff</span></code> 是 SAC 文件中第一个数据点对应的时间</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">yyyy</span></code> 为年；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ddd</span></code> 为一年的第多少天；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hh.mm.ss</span></code> 为时、分、秒；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ffff</span></code> 为毫秒；需要注意的是 <span class="math notranslate nohighlight">\(1 s=1000 ms\)</span>， 这里毫秒用了4位来表示。</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NN</span></code> 为台网名<a class="footnote-reference brackets" href="#id9" id="id2">1</a>，长度不超过2个字符；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SSSSS</span></code> 为台站名，长度不超过5个字符；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LL</span></code> 为位置码，为空或两字符；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CCC</span></code> 为通道名；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Q</span></code> 为质量控制标识；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAC</span></code> 为文件后缀；</p></li>
+</ul>
+<section id="id3">
+<h2>位置码<a class="headerlink" href="#id3" title="此标题的永久链接">¶</a></h2>
+<p>关于位置码的详细介绍，见
+<a class="reference external" href="http://ds.iris.edu/ds/newsletter/vol1/no1/1/specification-of-seismograms-the-location-identifier">IRIS: DS Newsletter: Vol. 1, No.1</a>。</p>
+<p>位置码用于区分同一个台站下多个传感器的不同数据，或者同一个传感器传来的多个数据流。通常来说，同一个台站不同位置码的两个地震数据具有极为相似但有略有不同的波形。</p>
+<p>常见的位置码为空，偶尔会见到 <code class="docutils literal notranslate"><span class="pre">00</span></code> 、 <code class="docutils literal notranslate"><span class="pre">01</span></code> 、 <code class="docutils literal notranslate"><span class="pre">10</span></code> 这样的，也有遇到
+<code class="docutils literal notranslate"><span class="pre">60</span></code> 这样的。</p>
+</section>
+<section id="id4">
+<h2>质量控制<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h2>
+<p>质量控制符 <code class="docutils literal notranslate"><span class="pre">Q</span></code> 用于表征当前SAC数据的数据质量。该标识符可以取如下四种：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">D</span></code> 不确定状态的数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">M</span></code> 已合并的数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">R</span></code> 原始波形数据</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Q</span></code> 经过质量控制的数据</p></li>
+</ul>
+<p>常见的质量控制符为 <code class="docutils literal notranslate"><span class="pre">M</span></code> 或 <code class="docutils literal notranslate"><span class="pre">Q</span></code>。</p>
+</section>
+<section id="id5">
+<h2>通道名<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h2>
+<p>通道名用三个字符来表示，这三个字符分别代表了频带码（Band Code）、仪器码（Instrument Code）和方位码（Orientation Code）。</p>
+<section id="id6">
+<h3>频带码<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h3>
+<p>频带码是通道名的第一个字符，代表了仪器的采样率以及响应频带等信息。</p>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-number">表 19 </span><span class="caption-text">频带码</span><a class="headerlink" href="#id10" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>频带码</p></th>
+<th class="head"><p>频带类型</p></th>
+<th class="head"><p>采样率（Hz）</p></th>
+<th class="head"><p>拐角周期（sec）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>F</p></td>
+<td><p>…</p></td>
+<td><p>1000-5000</p></td>
+<td><p>&gt; 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>G</p></td>
+<td><p>…</p></td>
+<td><p>1000-5000</p></td>
+<td><p>&lt; 10</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>…</p></td>
+<td><p>250-1000</p></td>
+<td><p>&lt; 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>C</p></td>
+<td><p>…</p></td>
+<td><p>250-1000</p></td>
+<td><p>&gt; 10</p></td>
+</tr>
+<tr class="row-even"><td><p>E</p></td>
+<td><p>Extremely Short
+Period</p></td>
+<td><p>80-250</p></td>
+<td><p>&lt; 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>S</p></td>
+<td><p>Short Period</p></td>
+<td><p>10-80</p></td>
+<td><p>&lt; 10</p></td>
+</tr>
+<tr class="row-even"><td><p>H</p></td>
+<td><p>High Broad Band</p></td>
+<td><p>80-250</p></td>
+<td><p>&lt; 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>Broad Band</p></td>
+<td><p>10-80</p></td>
+<td><p>&gt; 10</p></td>
+</tr>
+<tr class="row-even"><td><p>M</p></td>
+<td><p>Mid Period</p></td>
+<td><p>1-10</p></td>
+<td><p>&gt; 10</p></td>
+</tr>
+<tr class="row-odd"><td><p>L</p></td>
+<td><p>Long Period</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx\)</span>
+1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>V</p></td>
+<td><p>Very Long
+Period</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx\)</span>
+0.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>U</p></td>
+<td><p>Ultra Long
+Period</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx\)</span>
+0.01</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>R</p></td>
+<td><p>Extremely Long
+Period</p></td>
+<td><p>0.0001-0.001</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>P</p></td>
+<td><p>Order of 0.1 to
+1 days</p></td>
+<td><p>0.00001-0.0001</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>T</p></td>
+<td><p>Order of 1 to
+10 days</p></td>
+<td><p>0.000001-0.0000
+1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Q</p></td>
+<td><p>Greater than 10
+days</p></td>
+<td><p>&lt; 0.000001</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>Administrative
+Instrument
+Channel</p></td>
+<td><p>variable</p></td>
+<td><p>NA</p></td>
+</tr>
+<tr class="row-odd"><td><p>O</p></td>
+<td><p>Opaque
+Instrument
+Channel</p></td>
+<td><p>variable</p></td>
+<td><p>NA</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h3>仪器码<a class="headerlink" href="#id7" title="此标题的永久链接">¶</a></h3>
+<p>仪器码是通道名的第二个字符，代表了不同的仪器传感器。</p>
+<table class="docutils align-center" id="id11">
+<caption><span class="caption-number">表 20 </span><span class="caption-text">仪器码</span><a class="headerlink" href="#id11" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>仪器码</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">H</span></code></p></td>
+<td><p>High Gain Seismometer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">L</span></code></p></td>
+<td><p>Low Gain Seismometer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">G</span></code></p></td>
+<td><p>Gravimeter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">M</span></code></p></td>
+<td><p>Mass position Seismometer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">N</span></code></p></td>
+<td><p>Accelerometer</p></td>
+</tr>
+</tbody>
+</table>
+<p>常见的是高增益（H）仪器，记录地面运动速度。</p>
+</section>
+<section id="id8">
+<h3>方位码<a class="headerlink" href="#id8" title="此标题的永久链接">¶</a></h3>
+<p>方位码表示了传感器记录的地面运动的方向。地震学中常见的方位码有如下几种：</p>
+<table class="docutils align-center" id="id12">
+<caption><span class="caption-number">表 21 </span><span class="caption-text">方位码</span><a class="headerlink" href="#id12" title="此表格的永久链接">¶</a></caption>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>方位码</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">E</span> <span class="pre">Z</span></code></p></td>
+<td><p>南北向、东西向、垂向</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span></code></p></td>
+<td><p>3为垂向；1、2为水平方向，正交但与正东西、正南北向有偏离</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">R</span> <span class="pre">Z</span></code></p></td>
+<td><p>T为切向、R为径向，通常R方向是震中到台站的大圆连线方向</p></td>
+</tr>
+</tbody>
+</table>
+<p>通常情况下，若仪器的方向与正东西方向的夹角小于2度时，方位码取为 <code class="docutils literal notranslate"><span class="pre">E</span></code>；当与正东西方向夹角大于2度时，方位码取为 <code class="docutils literal notranslate"><span class="pre">1</span></code> 或 <code class="docutils literal notranslate"><span class="pre">2</span></code>。因而，方位码为 <code class="docutils literal notranslate"><span class="pre">E</span></code>
+并不意味着分量是正东西方向的，真实的分量方向应以 SAC 头段中的 <code class="docutils literal notranslate"><span class="pre">cmpaz</span></code>
+和 <code class="docutils literal notranslate"><span class="pre">cmpinc</span></code> 为准。更进一步，由于仪器放置过程中的技术问题，SAC 头段中的
+<code class="docutils literal notranslate"><span class="pre">cmpaz</span></code> 在某些情况下也会产生一定的误差。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>所有永久或临时台网的台网名列表： <a class="reference external" href="http://www.fdsn.org/networks/">http://www.fdsn.org/networks/</a></p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../data-fetch/fetch-tools/" class="btn btn-neutral float-left" title="地震数据申请工具" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../changelog/" class="btn btn-neutral float-right" title="文档更新历史" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

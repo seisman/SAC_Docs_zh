@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>样本数据 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="读和写" href="../read-and-write/" />
+    <link rel="prev" title="命令初探" href="../command/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 基础</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-learn/">如何学习 SAC？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../start-and-quit/">启动和退出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../philosophy/">设计思想</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../command/">命令初探</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">样本数据</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#funcgen">funcgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datagen">datagen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../read-and-write/">读和写</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../display/">绘图</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 基础</a> &raquo;</li>
+      <li>样本数据</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/basis/funcgen-and-datagen.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>样本数据<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>想要学习 SAC，手头必须有 SAC 格式的数据，SAC 提供了两个命令可以用于生成 SAC
+格式数据，分别是 <a class="reference internal" href="../../commands/funcgen/"><span class="doc">funcgen</span></a> 和 <a class="reference internal" href="../../commands/datagen/"><span class="doc">datagen</span></a>。</p>
+<section id="funcgen">
+<h2>funcgen<a class="headerlink" href="#funcgen" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/funcgen/"><span class="doc">funcgen</span></a>（简写为 <code class="docutils literal notranslate"><span class="pre">fg</span></code>）表示“function generator”，即该命令可以生成一些特定的函数，比如脉冲、阶跃、正弦等等，还可以生成一个地震波形样本:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">&gt;</span> <span class="n">fg</span> <span class="n">impulse</span>         <span class="c1"># 生成脉冲函数</span>
+</pre></div>
+</div>
+<p>上面的命令生成了一个脉冲函数并存储在 SAC 的内存中，可以用命令 <a class="reference internal" href="../../commands/plot/"><span class="doc">plot</span></a>
+（简写为 <code class="docutils literal notranslate"><span class="pre">p</span></code>）在图形界面上查看这个函数的样子:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">&gt;</span> <span class="n">p</span>
+</pre></div>
+</div>
+<p>在学习SAC的过程中，<code class="docutils literal notranslate"><span class="pre">funcgen</span></code> 可以生成地震波形样本:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAC</span><span class="o">&gt;</span> <span class="n">fg</span> <span class="n">seismogram</span>      <span class="c1"># 生成地震波形样本，简写为 fg seis</span>
+</pre></div>
+</div>
+<p>这个命令在 SAC 内存中产生了一个地震波形样本，同时删除了内存中刚才生成的脉冲信号，可以使用 <code class="docutils literal notranslate"><span class="pre">plot</span></code> 命令查看地震波形。这个地震波形样本在以后的教程中经常用到。</p>
+</section>
+<section id="datagen">
+<h2>datagen<a class="headerlink" href="#datagen" title="此标题的永久链接">¶</a></h2>
+<p><a class="reference internal" href="../../commands/datagen/"><span class="doc">datagen</span></a>（简写为 <code class="docutils literal notranslate"><span class="pre">dg</span></code>）表示“data generator”。顾名思义，就是用来生成数据的。</p>
+<p>下面的示例在内存中生成了 CDV 台站记录到的一个近震的三分量波形数据<a class="footnote-reference brackets" href="#id3" id="id2">1</a>，并用 <a class="reference internal" href="../../commands/plot1/"><span class="doc">plot1</span></a>（简写<code class="docutils literal notranslate"><span class="pre">p1</span></code>）将三个波形画在一张图上:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SAC&gt; dg sub local cdv.?
+SAC&gt; p1
+</pre></div>
+</div>
+<p>更多示例参考 <a class="reference internal" href="../../commands/datagen/"><span class="doc">datagen</span></a> 命令的语法说明。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>v101.4 的软件包中没有自带波形数据，因而无法使用该命令。</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../command/" class="btn btn-neutral float-left" title="命令初探" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../read-and-write/" class="btn btn-neutral float-right" title="读和写" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

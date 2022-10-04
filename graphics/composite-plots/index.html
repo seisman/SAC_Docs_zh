@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>组合图 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex/" />
+    <link rel="search" title="搜索" href="../../search/" />
+    <link rel="next" title="图像保存" href="../save-image/" />
+    <link rel="prev" title="等值线图" href="../plot-contour/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">SAC 图像</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../gui/">图形设备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../begin-devices/">SAC 绘图流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot-commands/">绘图命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot-appearance/">图像外观</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot-contour/">等值线图</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">组合图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../save-image/">图像保存</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../format-conversion/">图像格式转换</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/messages/">错误与警告</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/resp/">仪器响应</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">SAC 图像</a> &raquo;</li>
+      <li>组合图</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/graphics/composite-plots.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>组合图<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>前面介绍的绘图命令五花八门，但无论是 <code class="docutils literal notranslate"><span class="pre">plot</span></code>、<code class="docutils literal notranslate"><span class="pre">plot1</span></code> 或是
+<code class="docutils literal notranslate"><span class="pre">plot2</span></code>，同一个窗口内绘制的所有波形总是共用同一个 X 轴。实际绘图时，经常需要在一张图中绘制多个不同 X 轴的图，即组合图。</p>
+<p>SAC 提供了绘制组合图的功能，这其中牵涉到一些新的概念，其中之一是
+<code class="docutils literal notranslate"><span class="pre">frame</span></code>。一般而言，在执行绘图命令时会首先对整个窗口进行擦除。比如，先执行 <code class="docutils literal notranslate"><span class="pre">plot</span></code> 命令，窗口中会显示出相应的波形，然后执行 <code class="docutils literal notranslate"><span class="pre">plot1</span></code>
+命令，首先会将窗口中的已有图像全部擦除，再绘制相应波形。</p>
+<p>在 frame 中，每次执行绘图命令时，不会擦除窗口中的已有图像，从而实现了将多个命令的绘图效果同时显示在一个窗口中。使用 <a class="reference internal" href="../../commands/beginframe/"><span class="doc">beginframe</span></a>
+打开 frame 时，首先会擦除整个窗口，进入“组合图模式”；当组合图绘制完成时，需要使用 <a class="reference internal" href="../../commands/endframe/"><span class="doc">endframe</span></a> 命令关闭 frame。</p>
+<p>除了 frame 之外，在绘制组合图时还需要了解与窗口有关的几个概念，如
+<a class="reference internal" href="#figure-viewspace-viewport"><span class="std std-numref">图 20</span></a> ：</p>
+<ul class="simple">
+<li><p>viewspace：window 内可以用于绘图的部分；</p></li>
+<li><p>viewport：执行单个绘图命令时，图像的显示区域；</p></li>
+</ul>
+<figure class="align-center" id="id2">
+<span id="figure-viewspace-viewport"></span><a class="reference internal image-reference" href="../../_images/viewspace-viewport.png"><img alt="window、viewspace 和 viewport" src="../../_images/viewspace-viewport.png" style="width: 80.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 20 </span><span class="caption-text">window、viewspace 和 viewport</span><a class="headerlink" href="#id2" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#figure-viewspace-viewport"><span class="std std-numref">图 20</span></a> 中给出了window、viewspace、viewport 的相互关系。可以使用
+<a class="reference internal" href="../../commands/window/"><span class="doc">window</span></a> 命令设定窗口相对于整个屏幕的位置以及 X、Y 方向的范围；
+<a class="reference internal" href="../../commands/vspace/"><span class="doc">vspace</span></a> 用于设定整个 绘图区的比例；
+<a class="reference internal" href="../../commands/xvport/"><span class="doc">xvport</span></a> 和 <a class="reference internal" href="../../commands/yvport/"><span class="doc">yvport</span></a> 则分别定义了单个绘图命令所能使用的 X、Y 方向的范围。</p>
+<p>一个典型的组合图的绘制如下所示：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SAC&gt; fg seis                        # 生成数据</span>
+<span class="go">SAC&gt; beginframe                     # 打开 frame，开始绘制组合图</span>
+<span class="go">SAC&gt; xvport 0.1 0.9                 # 设定第一个绘图命令的 viewport</span>
+<span class="go">SAC&gt; yvport 0.7 0.9</span>
+<span class="go">SAC&gt; title &#39;Seismic Trace&#39;          # 设定标题</span>
+<span class="go">SAC&gt; fileid off                     # 不显示文件 id</span>
+<span class="go">SAC&gt; qdp off</span>
+<span class="go">SAC&gt; p</span>
+<span class="go">SAC&gt; fft wmean                      # FFT</span>
+<span class="go">SAC&gt; xvport .1 .45                  # 设定第二个绘图命令的 viewport</span>
+<span class="go">SAC&gt; yvport .15 .55</span>
+<span class="go">SAC&gt; title &#39;Amplitude Response (linlog)&#39;</span>
+<span class="go">SAC&gt; ylim 1e-5 1                    # Y 轴范围</span>
+<span class="go">SAC&gt; psp am linlog                  # 绘制振幅谱</span>
+<span class="go">SAC&gt; xvport .55 .9                  # 设定第三个绘图命令的 viewport</span>
+<span class="go">SAC&gt; title &#39;Amplitude Response (loglog)&#39;</span>
+<span class="go">SAC&gt; xlim 1 60</span>
+<span class="go">SAC&gt; psp am loglog                  # 绘制振幅谱</span>
+<span class="go">SAC&gt; endframe                       # 关闭 frame</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/composite-plot.png"><img alt="绘制组合图" src="../../_images/composite-plot.png" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">图 21 </span><span class="caption-text">绘制组合图</span><a class="headerlink" href="#id3" title="此图像的永久链接">¶</a></p>
+</figcaption>
+</figure>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../plot-contour/" class="btn btn-neutral float-left" title="等值线图" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../save-image/" class="btn btn-neutral float-right" title="图像保存" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>物理与数学 &mdash; SAC参考手册 5.0-dev 文档</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script src="../../../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../../genindex/" />
+    <link rel="search" title="搜索" href="../../../search/" />
+    <link rel="next" title="仪器响应文件" href="../resp-file/" />
+    <link rel="prev" title="仪器响应简介" href="../intro-to-resp/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> SAC参考手册
+          </a>
+              <div class="version">
+                5.0-dev
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SAC 入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/">SAC 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../install/">SAC 安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basis/">SAC 基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../fileformat/">SAC 文件格式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data-process/">SAC 数据处理</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 进阶</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../graphics/">SAC 图像</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../macros/">SAC 编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../call-in-script/">脚本中调用 SAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../libs/">SAC 函数库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sacio/">SAC I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/">SAC 相关工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tricks-and-traps/">SAC 技巧与陷阱</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SAC 命令</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../commands/">SAC 命令</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sss/">SSS 信号叠加子程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spe/">SPE 谱估计子程序</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">附录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../messages/">错误与警告</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../">仪器响应</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../intro-to-resp/">仪器响应简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">物理与数学</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">预备知识</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fir">FIR滤波器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">响应函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">归一化</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analog-stages">Analog Stages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#analog-digital-converter">Analog-Digital Converter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#digital-stages">Digital Stages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">小结</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../resp-file/">仪器响应文件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data-fetch/">数据获取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../naming-convections/">数据命名规则</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/">文档更新历史</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">SAC参考手册</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">仪器响应</a> &raquo;</li>
+      <li>物理与数学</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/seisman/SAC_Docs_zh/blob/master/source/appendix/resp/physical-details.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>物理与数学<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h1>
+<p>地震仪一般固定在地表或地下浅层，也有放置在钻孔深处或海底的，因而地震仪可以直接感知到地面的运动。在地面运动物理量被地震仪接收后，首先要将其转换为电信号，然后对电信号振幅进行放大以及滤波，再将连续的时间序列离散化，最终以常见的波形数据的形式表现出来。</p>
+<p>概括地说，地面的运动在被地震仪感知之后，需要经历如下三个阶段，最终成为用户拿到的波形数据：</p>
+<ol class="arabic simple">
+<li><p>模拟信号阶段</p></li>
+<li><p>模数转换</p></li>
+<li><p>数字信号阶段</p></li>
+</ol>
+<p>地震仪的仪器响应可以表示为频率的复函数，即常说的振幅响应和频率响应。上面提到的三个阶段，每个阶段的响应函数都是频率的复函数，表示为 <span class="math notranslate nohighlight">\(G_i(f)\)</span>，整个仪器的响应函数是各个阶段响应函数的乘积：</p>
+<div class="math notranslate nohighlight">
+\[G(f)=\prod_i G_i(f)\]</div>
+<section id="id2">
+<h2>预备知识<a class="headerlink" href="#id2" title="此标题的永久链接">¶</a></h2>
+<section id="fir">
+<h3>FIR滤波器<a class="headerlink" href="#fir" title="此标题的永久链接">¶</a></h3>
+<p>信号处理没学好，不敢瞎说，姑且翻译重点部分。简单地说，
+<a class="reference external" href="https://zh.wikipedia.org/wiki/有限冲激响应">FIR滤波器</a>
+就是对一些数据采样点做加权平均，设计不同的加权系数就得到不同的FIR滤波器。FIR滤波器一般设计为振幅响应为方阶跃函数（boxcar），因而其在通带内有较平的振幅响应，在拐角频率处有很尖锐很陡峭的振幅响应变化（一般拐角频率设置为
+Nyquist频率的 70%-90%）。与此同时，滤波器具有线性相位，即具有类似
+<span class="math notranslate nohighlight">\(e^{i \omega t}\)</span> 的形式，这个线性相位在时间域代表信号的时间延迟，一般数据采集系统会对这个时间延迟做校正。由此，用户基本不需要考虑 FIR 滤波器对仪器响应的影响。</p>
+</section>
+<section id="id4">
+<h3>响应函数<a class="headerlink" href="#id4" title="此标题的永久链接">¶</a></h3>
+<p>模拟信号的响应函数用 Laplace 变换表示：</p>
+<div class="math notranslate nohighlight">
+\[H(s)=\int_0^{\infty}h(t)e^{-st}dt\]</div>
+<p>数字信号的响应函数用 Z 变换表示：</p>
+<div class="math notranslate nohighlight">
+\[H(z)=\sum_{-\infty}^{+\infty}h_m z^{-m}\]</div>
+</section>
+<section id="id5">
+<h3>归一化<a class="headerlink" href="#id5" title="此标题的永久链接">¶</a></h3>
+<p>频率响应可以表示为</p>
+<div class="math notranslate nohighlight">
+\[G(f)=S_d R(f)\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(R(f)\)</span> 是频率的函数。在某个特定的频率 <span class="math notranslate nohighlight">\(f_s\)</span>，有
+<span class="math notranslate nohighlight">\(|R(f_s)|=1.0\)</span>，即 <span class="math notranslate nohighlight">\(R(f)\)</span> 在频率 <span class="math notranslate nohighlight">\(f_s\)</span> 处进行归一化。
+<span class="math notranslate nohighlight">\(S_d\)</span> 是放大系数，也称为 Sensitivity 或者 Gain。</p>
+<p><span class="math notranslate nohighlight">\(R(f)\)</span> 可以表示为</p>
+<div class="math notranslate nohighlight">
+\[R(f)=A_0 H_p(s)\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(H_p(s)\)</span> 是用零极点表示的 transfer 函数，一般来说在频率 <span class="math notranslate nohighlight">\(f_s\)</span>
+处这个transfer函数的振幅响应不为1，所以需要归一化因子 <span class="math notranslate nohighlight">\(A_0\)</span>。</p>
+</section>
+</section>
+<section id="analog-stages">
+<h2>Analog Stages<a class="headerlink" href="#analog-stages" title="此标题的永久链接">¶</a></h2>
+<p>这个阶段的主要功能是将连续的地面运动物理量（比如速度）转换为电压信号，并进行电压放大。因而这个阶段的输入单位是 <code class="docutils literal notranslate"><span class="pre">m/s</span></code>，输出单位是伏特(V)。这个阶段的响应函数可以表示为</p>
+<div class="math notranslate nohighlight">
+\[G(f)=S_d A_0 \frac{\prod (s-r_n)}{\prod (s-p_m)}=S_d A_0 H_p(s)\]</div>
+<p>如前所说，<span class="math notranslate nohighlight">\(S_d\)</span> 是放大系数，<span class="math notranslate nohighlight">\(H_p(s)\)</span> 是用零极点表示的
+transfer 函数，这里 n 和 m 代表 n 个零点和 m 个极点。<span class="math notranslate nohighlight">\(A_0\)</span>
+是归一化因子。</p>
+</section>
+<section id="analog-digital-converter">
+<h2>Analog-Digital Converter<a class="headerlink" href="#analog-digital-converter" title="此标题的永久链接">¶</a></h2>
+<p>模电转换器，将上个阶段产生的连续的电压信号转换为离散的电压信号。输入的单位是伏特V，输出单位是counts。（不了解A/D C的细节，大概就是说在离散的时候存在一个非常小的阀值，这个值是离散信号所能识别的最小电压差。）这个过程中，其在所有频段内振幅响应相同，也就是只存在一个放大系数，同时可能存在一个时间延迟。</p>
+</section>
+<section id="digital-stages">
+<h2>Digital Stages<a class="headerlink" href="#digital-stages" title="此标题的永久链接">¶</a></h2>
+<p>这个阶段对离散数据进行处理。这个过程包含了三个小部分：离散信号滤波，数据重采样，校正滤波引入的时间延迟。</p>
+<p>离散信号滤波可以采用FIR滤波器，也可以采用 IIR 滤波器。多数情况下采用 FIR 滤波器，这意味着这个阶段只需要考虑放大系数 <span class="math notranslate nohighlight">\(S_d\)</span>，归一化因子 <span class="math notranslate nohighlight">\(A_0\)</span>
+不需要考虑，或者可以认为其为1.0。同样，对于数据重采样以及时间校正也不会引入新的响应函数。</p>
+<p>说明：FIR 滤波器的响应函数可以近似认为其振幅恒为1，实际情况下，在 Nyquist
+采样率附近会有5%左右的震荡。因而当感兴趣的频率比 Nyquist 频率小很多时可以不必考虑 FIR 滤波器的响应函数。</p>
+</section>
+<section id="id6">
+<h2>小结<a class="headerlink" href="#id6" title="此标题的永久链接">¶</a></h2>
+<p>综上所述，三个阶段中，第一个阶段最为复杂，需要给出放大系数 <span class="math notranslate nohighlight">\(S_{d1}\)</span> 、归一化因子 <span class="math notranslate nohighlight">\(A_0\)</span> 以及多个零极点；第二个阶段以及第三个阶段都只需要给出放大系数 <span class="math notranslate nohighlight">\(S_{d2}\)</span> 和 <span class="math notranslate nohighlight">\(S_{d3}\)</span>。时间校正由数据采集系统自动完成（mark一下，这话说得没底气）。</p>
+<p>最终得到仪器的响应函数为</p>
+<div class="math notranslate nohighlight">
+\[G(f)=S_{d1} A_0 H_p(s) S_{d2} S_{d3} = S_{d0} A_0 H_p(s)\]</div>
+<p>即需要仪器在第一个阶段的零极点信息、归一化因子 <span class="math notranslate nohighlight">\(A_0\)</span> 以及全部三个阶段的放大系数 <span class="math notranslate nohighlight">\(S_{d0}\)</span> 即可以完全表示地震仪的仪器响应。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../intro-to-resp/" class="btn btn-neutral float-left" title="仪器响应简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../resp-file/" class="btn btn-neutral float-right" title="仪器响应文件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2012 - 2022, SeisMan.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
