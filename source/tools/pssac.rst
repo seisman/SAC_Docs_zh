@@ -15,5 +15,5 @@ GMT 在 GMT5 以前（确切说是 v5.3.0 以前），没有波形绘制的功�
 绘制 SAC 波形可以参考
 `gmt 的 sac 模块 <https://docs.gmt-china.org/latest/module/sac/`_，
 使用 GMT4 的用户安装 ``pssac`` 可以参考
-`安装pssac <https://blog.seisman.info/pssac-install>`_ ，
+`安装pssac <https://blog.seisman.info/pssac-install>`_，
 具体用法参考 `pssac用法教程 <https://blog.seisman.info/pssac-notes>`_ 。
