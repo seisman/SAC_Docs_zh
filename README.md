@@ -4,7 +4,7 @@
 
 [![Deploy](https://github.com/seisman/SAC_Docs_zh/actions/workflows/deploy.yml/badge.svg)](https://github.com/seisman/SAC_Docs_zh/actions/workflows/deploy.yml)
 [![GitHub release](https://img.shields.io/github/release/seisman/SAC_Docs_zh.svg)](https://github.com/seisman/SAC_Docs_zh/releases)
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc/4.0/deed.zh)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans)
 [![License (CC0 1.0)](https://img.shields.io/badge/license-CC0%201.0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 [在线阅读](https://seisman.github.io/SAC_Docs_zh/) |
@@ -37,7 +37,7 @@
 
 ## 许可协议
 
-本项目的文档部分采用[知识共享署名-非商业性使用 4.0 国际许可协议 (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.zh)。
+本项目的文档部分采用[知识共享署名-非商业性使用 4.0 国际许可协议 (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans)。
 任何人都可以自由地分享、修改本作品，但必须遵循如下条件：
 
 - 署名：必须提到原作者，提供指向此许可协议的链接，表明是否有做修改
