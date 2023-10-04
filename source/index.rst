@@ -78,4 +78,5 @@ SAC参考手册
    appendix/resp/index
    appendix/data-fetch/index
    appendix/naming-convections
+   appendix/contributing/index
    appendix/changelog
