@@ -53,6 +53,7 @@ SAC 命令
    envelope
    erase
    evaluate
+   event
    exp
    exp10
    fft
