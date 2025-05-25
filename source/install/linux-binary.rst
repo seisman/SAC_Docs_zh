@@ -15,6 +15,8 @@ Linux 二进制安装
     $ sudo apt update
     $ sudo apt install libc6 libsm6 libice6 libxpm4 libx11-6
     $ sudo apt install zlib1g libncurses5
+    # 如果是 Ubuntu 24.04, libncurses5需要替换成libncurse5-dev
+    $ sudo apt install zlib1g libncurses5-dev
 
 对于 CentOS/Fedora/RHEL：
 
