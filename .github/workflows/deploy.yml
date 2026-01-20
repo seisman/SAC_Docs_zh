@@ -4,6 +4,7 @@
 name: Deploy
 
 on:
+  pull_request: # enable pull_request for testing
   push:
     branches:
       - master
@@ -48,21 +49,13 @@ jobs:
             ${{ runner.os }}-tectonic-
 
       - name: Build PDF documentation (Tectonic)
-        run: |
-          # 生成 .tex 源文件
-          make latex
-          # 编译 PDF
-          tectonic build/latex/SAC_Docs.tex
+        run: make build_pdf
 
-      # 6. 将生成的 PDF 移动到 HTML 目录，以便发布到网站
       - name: Move PDF to HTML directory
         run: |
-          # 确保目标目录存在
           mkdir -p build/dirhtml
-          # 复制/移动 PDF 文件 (假设生成的文件名是 SAC_Docs.pdf)
           cp build/latex/SAC_Docs.pdf build/dirhtml/SAC_Docs.pdf
 
-      # 7. 上传 PDF 到 GitHub Actions Summary 页面方便调试/下载
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
         with:
