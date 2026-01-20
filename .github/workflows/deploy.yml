@@ -51,11 +51,6 @@ jobs:
       - name: Build PDF documentation (Tectonic)
         run: make build_pdf
 
-      - name: Move PDF to HTML directory
-        run: |
-          mkdir -p build/dirhtml
-          cp build/latex/SAC_Docs.pdf build/dirhtml/SAC_Docs.pdf
-
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v4
         with:
