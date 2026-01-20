@@ -34,7 +34,6 @@ jobs:
       - name: Build HTML documentation
         run: make build_html
 
-      # 4. Tectonic 安装
       - name: Install Tectonic
         uses: wtfjoke/setup-tectonic@v1
         with:
