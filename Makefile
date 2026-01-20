@@ -8,7 +8,6 @@ SOURCEDIR     = source
 BUILDDIR      = build
 DOCNAME       = SAC_Docs
 HTML          = dirhtml
-LATEXPDF      = latexpdf
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -25,10 +24,15 @@ build: build_html build_pdf
 
 build_html: $(HTML)
 
-build_pdf: $(LATEXPDF)
+build_pdf: latex
+	@echo
+	@echo "Building PDF using Tectonic..."
+	@echo
+	tectonic $(BUILDDIR)/latex/$(DOCNAME).tex
 	@echo
 	@echo "Copy built PDF to HTML directory"
 	@echo
+	mkdir -p $(BUILDDIR)/$(HTML)
 	cp $(BUILDDIR)/latex/$(DOCNAME).pdf $(BUILDDIR)/$(HTML)/
 
 server: $(HTML)
