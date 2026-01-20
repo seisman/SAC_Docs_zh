@@ -39,8 +39,6 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 5. 缓存 Tectonic 下载的包
-      # 这能让第二次及以后的构建速度快非常多
       - name: Cache Tectonic packages
         uses: actions/cache@v4
         with:
