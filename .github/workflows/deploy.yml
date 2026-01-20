@@ -40,7 +40,7 @@ jobs:
       - name: Install LaTeX packages
         run: |
           tlmgr update --self
-          tlmgr install capt-of ctex datetime2 enumitem everysel fancyhdr \
+          tlmgr install capt-of colortbl ellipse pict2e ctex datetime2 enumitem everysel fancyhdr \
                         fandol float ms needspace oberdiek parskip sourcecodepro tabulary \
                         titlesec tracklang ulem upquote varwidth wrapfig \
                         xcolor xecjk zhnumber
