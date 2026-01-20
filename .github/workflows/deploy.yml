@@ -4,7 +4,6 @@
 name: Deploy
 
 on:
-  #pull_request: # enable pull_request for testing
   push:
     branches:
       - master
@@ -15,48 +14,74 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
+        
     steps:
-      # Cancel previous runs that are not completed
+      # 1. 取消正在进行的旧任务，节省资源
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.11.0
 
+      # 2. 升级到 v4 版本
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
+      # 3. 开启 pip 缓存，加快 Python 依赖安装
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
-          
+          cache: 'pip' # 自动缓存 pip 依赖
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Build HTML documentaiton
+      - name: Build HTML documentation
         run: make build_html
 
-      - name: Install TinyTeX
-        uses: r-lib/actions/setup-tinytex@v2
+      # 4. Tectonic 安装
+      - name: Install Tectonic
+        uses: wtfjoke/setup-tectonic@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install LaTeX packages
+      # 5. 缓存 Tectonic 下载的包
+      # 这能让第二次及以后的构建速度快非常多
+      - name: Cache Tectonic packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Tectonic
+          # key 包含系统类型，确保不同系统不混用缓存
+          key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-tectonic-
+
+      - name: Build PDF documentation (Tectonic)
         run: |
-          tlmgr update --self
-          tlmgr install capt-of colortbl ellipse pict2e ctex datetime2 enumitem everysel fancyhdr \
-                        fandol float ms needspace oberdiek parskip sourcecodepro tabulary \
-                        titlesec tracklang ulem upquote varwidth wrapfig \
-                        xcolor xecjk zhnumber
-          # Update the fonts
-          sudo cp -r ~/.TinyTeX/texmf-dist/fonts/opentype/adobe/ /usr/share/fonts/opentype
-          fc-cache -f -v
+          # 生成 .tex 源文件
+          make latex
+          # 编译 PDF
+          tectonic build/latex/SAC_Docs.tex
 
-      - name: Build PDF documentaiton
-        run: make build_pdf
+      # 6. 将生成的 PDF 移动到 HTML 目录，以便发布到网站
+      - name: Move PDF to HTML directory
+        run: |
+          # 确保目标目录存在
+          mkdir -p build/dirhtml
+          # 复制/移动 PDF 文件 (假设生成的文件名是 SAC_Docs.pdf)
+          cp build/latex/SAC_Docs.pdf build/dirhtml/SAC_Docs.pdf
+
+      # 7. 上传 PDF 到 GitHub Actions Summary 页面方便调试/下载
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SAC_Docs_PDF
+          path: build/latex/SAC_Docs.pdf
+          retention-days: 5
 
       - name: Deploy documentation
-        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/dirhtml
-          # Only keep the latest commit to avoid bloating the repository
           force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
