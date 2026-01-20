@@ -80,7 +80,7 @@ SAC 默认开启该功能，这是为适应上世纪的计算机硬件性能所�
     SAC> qdp off    # 关闭快速绘图选项
     SAC> ppk        # 注意观察与之前的区别
 
-为了避免手动执行 ``qdp off``的麻烦，
+为了避免手动执行 ``qdp off`` 的麻烦，
 可以使用 :doc:`/tricks-and-traps/init-macro` 一节中介绍的方法，
 让 SAC 启动时就自动关闭快速绘图选项。
 
