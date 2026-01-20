@@ -43,7 +43,6 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/Tectonic
-          # key 包含系统类型，确保不同系统不混用缓存
           key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
           restore-keys: |
             ${{ runner.os }}-tectonic-
