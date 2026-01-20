@@ -19,7 +19,6 @@ jobs:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.11.0
 
-      # 2. 升级到 v4 版本
       - name: Checkout
         uses: actions/checkout@v4
 
